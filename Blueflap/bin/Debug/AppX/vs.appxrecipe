@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>SAM</Machine>
+    <WindowsUser>Sâm</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>71086078-3386-4cee-8040-c98e6f644ab5</PackageIdentityName>
+    <IntermediateOutputPath>C:\Users\Sâm\documents\visual studio 2013\Projects\Blueflap\Blueflap\obj\Debug\</IntermediateOutputPath>
+    <RegisteredManifestChecksum>701B36F1CA881807224EDC203EDE403B0561CA078F0CDAE78C98731F875ED48B</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>71086078-3386-4cee-8040-c98e6f644ab5_1.0.0.0_neutral__a65cyzd4p1g00</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>71086078-3386-4cee-8040-c98e6f644ab5_a65cyzd4p1g00!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>71086078-3386-4cee-8040-c98e6f644ab5</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=Sâm</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\Sâm\documents\visual studio 2013\Projects\Blueflap\Blueflap\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-07-28T09:18:17.134</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\Sâm\documents\visual studio 2013\Projects\Blueflap\Blueflap\bin\Debug\Blueflap.exe">
+      <PackagePath>Blueflap.exe</PackagePath>
+      <Modified>2015-07-28T09:27:31.298</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\documents\visual studio 2013\Projects\Blueflap\Blueflap\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-09-24T20:55:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\documents\visual studio 2013\Projects\Blueflap\Blueflap\Assets\SmallLogo.scale-100.png">
+      <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-09-24T20:55:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\documents\visual studio 2013\Projects\Blueflap\Blueflap\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-09-24T20:55:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\documents\visual studio 2013\Projects\Blueflap\Blueflap\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-09-24T20:55:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\documents\visual studio 2013\Projects\Blueflap\Blueflap\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+      <Modified>2015-07-28T09:18:15.687</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\documents\visual studio 2013\Projects\Blueflap\Blueflap\bin\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+      <Modified>2015-07-28T09:27:31.153</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\documents\visual studio 2013\Projects\Blueflap\Blueflap\bin\Debug\Blueflap.xr.xml">
+      <PackagePath>Blueflap.xr.xml</PackagePath>
+      <Modified>2015-07-28T09:27:31.144</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\documents\visual studio 2013\Projects\Blueflap\Blueflap\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2015-07-28T09:18:16.489</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
