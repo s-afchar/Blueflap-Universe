@@ -1,0 +1,9 @@
+/ignoreAccessChecks
+/metadataFile "C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\ilc\intermediate\ILTransformed\Blueflap.metadata"
+/reflectionMetadataAssemblyName "System.Private.CoreLib"
+/o
+/sharedGenerics
+/ilmergeinfo "C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\ilc\intermediate\ILTransformed\Blueflap.csv"
+/sharedGenericsMode StandardHeuristics
+/in "C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\ilc\intermediate\ILTransformed\Blueflap.ilexe"
+/out "C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\ilc\intermediate\MDIL\Blueflap.mdilexe"

@@ -1,0 +1,56 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="Blueflap.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Blueflap"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"                     >
+
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid x:ConnectionId='2' x:Name="Adressbar" Height="66" VerticalAlignment="Top" Background="WhiteSmoke" Margin="48,0,0,0">
+            <TextBox x:ConnectionId='10' x:Name="AdressBox" Margin="2,32,2,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF5B5B5B" FontSize="16" Height="24" BorderThickness="0"/>
+            <TextBlock x:ConnectionId='11' x:Name="Titlebox" HorizontalAlignment="Left" Margin="70,10,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Opacity="0.795" FontSize="12" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
+            <TextBlock x:ConnectionId='12' x:Name="Titlebox_Copy" HorizontalAlignment="Left" Margin="12,10,0,0" TextWrapping="Wrap" Text="BLUEFLAP" VerticalAlignment="Top" Opacity="0.295" FontSize="12"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Width="48" RenderTransformOrigin="0.5,0.5" Background="{ThemeResource JumpListDefaultEnabledBackground}">
+            <Grid.RenderTransform>
+                <CompositeTransform ScaleX="-1"/>
+            </Grid.RenderTransform>
+            <Button x:ConnectionId='4' x:Name="Home_button" Content="&#xE80F;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Margin="3,66,-1,0">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:ConnectionId='5' x:Name="Strefresh_Button" Content="&#xE149;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="14.667" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,110,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:ConnectionId='6' x:Name="Back_Button" Content="&#xE016;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,154,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:ConnectionId='7' x:Name="Paramètres_Button" Content="&#xE713;" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="#01000000" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,0,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Height="47">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:ConnectionId='8' x:Name="Forward_Button" Content="&#xE013;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,198,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+            <ProgressRing x:ConnectionId='9' x:Name="loader" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="24" Foreground="#AFFFFFFF" Margin="12,14,0,0" RenderTransformOrigin="0.5,0.5">
+                <ProgressRing.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </ProgressRing.RenderTransform>
+            </ProgressRing>
+        </Grid>
+        <WebView x:ConnectionId='3' x:Name="web" Margin="48,66,0,0"/>
+
+    </Grid>
+</Page>
+

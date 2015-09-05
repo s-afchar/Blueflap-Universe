@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="Blueflap.Parametres"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Blueflap"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="Page_Loaded">
+    <Grid x:Name="ParaPage" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid HorizontalAlignment="Left" Width="209" RenderTransformOrigin="0.5,0.5" Background="{ThemeResource JumpListDefaultEnabledBackground}">
+            <Grid.RenderTransform>
+                <CompositeTransform ScaleX="-1"/>
+            </Grid.RenderTransform>
+            <ProgressRing x:Name="loader" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="24" Foreground="#AFFFFFFF" Margin="12,14,0,0" RenderTransformOrigin="0.5,0.5">
+                <ProgressRing.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </ProgressRing.RenderTransform>
+            </ProgressRing>
+            <Button Content="Bouton back provisoire" HorizontalAlignment="Left" Height="72" Margin="19,37,0,0" VerticalAlignment="Top" Width="180" RenderTransformOrigin="0.5,0.5" Background="White" Tapped="Button_Tapped" Foreground="#FF555555" RequestedTheme="Light">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+        </Grid>
+        <ComboBox x:Name="Settings_SearchEngine" HorizontalAlignment="Left" Height="33" Margin="227,100,0,0" VerticalAlignment="Top" Width="181" SelectedIndex="1">
+            <ComboBoxItem Content="Bing"/>
+            <ComboBoxItem Content="Qwant"/>
+            <ComboBoxItem Content="DuckDuckGo"/>
+            <ComboBoxItem Content="Yahoo"/>
+            <ComboBoxItem Content="Google"/>
+            <ComboBoxItem Content="Qwant (Web)"/>
+            <ComboBoxItem Content="Ask"/>
+            <ComboBoxItem Content="Youtube"/>
+            <ComboBoxItem Content="Dreamvids"/>
+            <ComboBoxItem Content="Dailymotion"/>
+            <ComboBoxItem Content="Wikipedia"/>
+            <ComboBoxItem Content="Twitter"/>
+            <ComboBoxItem Content="&lt;Personnaliser&gt;"/>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Left" Margin="227,75,0,0" TextWrapping="Wrap" Text="Moteur de recherche" VerticalAlignment="Top"/>
+        <ToggleSwitch x:Name="Theme_switch" Header="Thème" HorizontalAlignment="Left" Margin="227,174,0,0" VerticalAlignment="Top" OffContent="Clair" OnContent="Sombre"/>
+        <TextBox x:Name="SearchEngine_1" HorizontalAlignment="Left" Margin="422,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="33" Width="441"/>
+        <TextBox x:Name="SearchEngine_2" HorizontalAlignment="Left" Margin="878,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="33" Width="161"/>
+
+    </Grid>
+</Page>
