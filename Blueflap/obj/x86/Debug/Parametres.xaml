@@ -6,23 +6,35 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"                     >
-    <Grid x:ConnectionId='2' x:Name="ParaPage" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid HorizontalAlignment="Left" Width="209" RenderTransformOrigin="0.5,0.5" Background="{ThemeResource JumpListDefaultEnabledBackground}">
+    <Page.Resources>
+        <Storyboard x:ConnectionId='2' x:Name="ParamOpen">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="209">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+    <Grid x:ConnectionId='3' x:Name="ParaPage" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid x:ConnectionId='4' x:Name="grid" HorizontalAlignment="Left" Width="209" RenderTransformOrigin="0.5,0.5" Background="{ThemeResource JumpListDefaultEnabledBackground}">
             <Grid.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Grid.RenderTransform>
-            <ProgressRing x:ConnectionId='7' x:Name="loader" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="24" Foreground="#AFFFFFFF" Margin="12,14,0,0" RenderTransformOrigin="0.5,0.5">
+            <ProgressRing x:ConnectionId='9' x:Name="loader" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="24" Foreground="#AFFFFFFF" Margin="12,14,0,0" RenderTransformOrigin="0.5,0.5">
                 <ProgressRing.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </ProgressRing.RenderTransform>
             </ProgressRing>
-            <Button x:ConnectionId='8' Content="Bouton back provisoire" HorizontalAlignment="Left" Height="72" Margin="19,37,0,0" VerticalAlignment="Top" Width="180" RenderTransformOrigin="0.5,0.5" Background="White"                        Foreground="#FF555555" RequestedTheme="Light">
+            <Button x:ConnectionId='10' Content="Bouton back provisoire" HorizontalAlignment="Left" Height="72" Margin="19,37,0,0" VerticalAlignment="Top" Width="180" RenderTransformOrigin="0.5,0.5" Background="White"                        Foreground="#FF555555" RequestedTheme="Light">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Button.RenderTransform>
             </Button>
         </Grid>
-        <ComboBox x:ConnectionId='3' x:Name="Settings_SearchEngine" HorizontalAlignment="Left" Height="33" Margin="227,100,0,0" VerticalAlignment="Top" Width="181" SelectedIndex="1">
+        <ComboBox x:ConnectionId='5' x:Name="Settings_SearchEngine" HorizontalAlignment="Left" Height="33" Margin="227,100,0,0" VerticalAlignment="Top" Width="181" SelectedIndex="1">
             <ComboBoxItem Content="Bing"/>
             <ComboBoxItem Content="Qwant"/>
             <ComboBoxItem Content="DuckDuckGo"/>
@@ -38,9 +50,9 @@
             <ComboBoxItem Content="&lt;Personnaliser&gt;"/>
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="227,75,0,0" TextWrapping="Wrap" Text="Moteur de recherche" VerticalAlignment="Top"/>
-        <ToggleSwitch x:ConnectionId='4' x:Name="Theme_switch" Header="Thème" HorizontalAlignment="Left" Margin="227,174,0,0" VerticalAlignment="Top" OffContent="Clair" OnContent="Sombre"/>
-        <TextBox x:ConnectionId='5' x:Name="SearchEngine_1" HorizontalAlignment="Left" Margin="422,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="33" Width="441"/>
-        <TextBox x:ConnectionId='6' x:Name="SearchEngine_2" HorizontalAlignment="Left" Margin="878,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="33" Width="161"/>
+        <ToggleSwitch x:ConnectionId='6' x:Name="Theme_switch" Header="Thème" HorizontalAlignment="Left" Margin="227,174,0,0" VerticalAlignment="Top" OffContent="Clair" OnContent="Sombre"/>
+        <TextBox x:ConnectionId='7' x:Name="SearchEngine_1" HorizontalAlignment="Left" Margin="422,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="33" Width="441"/>
+        <TextBox x:ConnectionId='8' x:Name="SearchEngine_2" HorizontalAlignment="Left" Margin="878,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="33" Width="161"/>
 
     </Grid>
 </Page>

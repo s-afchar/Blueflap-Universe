@@ -6,8 +6,20 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" Loaded="Page_Loaded">
+    <Page.Resources>
+        <Storyboard x:Name="ParamOpen">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="209">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
     <Grid x:Name="ParaPage" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid HorizontalAlignment="Left" Width="209" RenderTransformOrigin="0.5,0.5" Background="{ThemeResource JumpListDefaultEnabledBackground}">
+        <Grid x:Name="grid" HorizontalAlignment="Left" Width="209" RenderTransformOrigin="0.5,0.5" Background="{ThemeResource JumpListDefaultEnabledBackground}">
             <Grid.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Grid.RenderTransform>

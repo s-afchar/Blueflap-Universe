@@ -49,8 +49,9 @@ Public NotInheritable Class MainPage
 
     End Sub
 
-    Private Sub FirstLaunch()
+    Private Sub FirstLaunch() 'Définit les paramètres par défaut
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
         If Not localSettings.Values("Config") = True Then
             localSettings.Values("A1") = "http://www.qwant.com/?q="
             localSettings.Values("A2") = ""
@@ -99,9 +100,9 @@ Public NotInheritable Class MainPage
                     Dim s As String
                     s = Rech.ToString
                     s = s.Replace("+", "%2B")
-                    web.Navigate(New Uri(localSettings.Values("A1") + s + localSettings.Values("A2")))
+                    web.Navigate(New Uri(localSettings.Values("A1") + s + localSettings.Values("A2"))) 'Rechercher avec moteurs de recherche
                 Catch
-                    Me.Frame.Navigate(GetType(Parametres)) 'PROVISOIRE : Intégrer navig Universelle
+                    Me.Frame.Navigate(GetType(Parametres)) 'PROVISOIRE
                 End Try
             End If
 

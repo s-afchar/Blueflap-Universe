@@ -16,8 +16,12 @@ Public NotInheritable Class Parametres
             Theme_switch.IsOn = False
         End If
 
+        Settings_SearchEngine.SelectedIndex = localSettings.Values("SearchEngineIndex") 'Définit la bonne valeur pour la combobox moteurs de recherches
+
+        ParamOpen.Stop()
+        ParamOpen.Begin()
+
         'SystemNavigationManager.GetForCurrentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible
-        Settings_SearchEngine.SelectedIndex = localSettings.Values("SearchEngineIndex")
     End Sub
 
     Private Sub Theme_switch_Toggled(sender As Object, e As RoutedEventArgs) Handles Theme_switch.Toggled
@@ -26,7 +30,7 @@ Public NotInheritable Class Parametres
         localSettings.Values("DarkThemeEnabled") = Theme_switch.IsOn 'Règle le thème en fonction du toogleswitch
         Parametres_Theme() 'Applique le theme
     End Sub
-    Private Sub Parametres_Theme()
+    Private Sub Parametres_Theme() 'Applique le thème
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
         If localSettings.Values("DarkThemeEnabled") = True Then
@@ -44,13 +48,14 @@ Public NotInheritable Class Parametres
         End If
     End Sub
 
-    Private Sub Button_Tapped(sender As Object, e As TappedRoutedEventArgs)
+    Private Sub Button_Tapped(sender As Object, e As TappedRoutedEventArgs) 'BOUTON RETOUR PROVISOIRE
         Me.Frame.Navigate(GetType(MainPage))
         SaveSettings()
     End Sub
 
     Private Sub ChangeSearchEngine()
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        'Définit les valeurs du moteur de recherche tel que le navigateur navigue vers (A1 + Mots-clés + A2) = URI
 
         If Settings_SearchEngine.SelectedIndex = 1 Then
             localSettings.Values("A1") = "http://www.qwant.com/?q="
@@ -105,8 +110,10 @@ Public NotInheritable Class Parametres
     Private Sub Settings_SearchEngine_LostFocus(sender As Object, e As RoutedEventArgs) Handles Settings_SearchEngine.LostFocus
         ChangeSearchEngine()
     End Sub
-    Private Sub SaveSettings()
+    Private Sub SaveSettings() 'Sauvegarde les paramètres
+
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
         localSettings.Values("Config") = True
         ChangeSearchEngine()
         localSettings.Values("SearchEngineIndex") = Settings_SearchEngine.SelectedIndex
