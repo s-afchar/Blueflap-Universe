@@ -51,8 +51,10 @@
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="227,75,0,0" TextWrapping="Wrap" Text="Moteur de recherche" VerticalAlignment="Top"/>
         <ToggleSwitch x:Name="Theme_switch" Header="Thème" HorizontalAlignment="Left" Margin="227,174,0,0" VerticalAlignment="Top" OffContent="Clair" OnContent="Sombre"/>
-        <TextBox x:Name="SearchEngine_1" HorizontalAlignment="Left" Margin="422,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="33" Width="441"/>
-        <TextBox x:Name="SearchEngine_2" HorizontalAlignment="Left" Margin="878,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="33" Width="161"/>
+        <TextBox x:Name="SearchEngine_1" HorizontalAlignment="Left" Margin="422,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="33" Width="405" Visibility="Collapsed"/>
+        <TextBox x:Name="SearchEngine_2" HorizontalAlignment="Left" Margin="915,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="33" Width="124" Visibility="Collapsed"/>
+        <TextBox x:Name="Startpage_Settings" HorizontalAlignment="Left" Margin="227,280,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Height="33" Width="441"/>
+        <TextBlock x:Name="searchengine3" HorizontalAlignment="Left" Margin="839,106,0,0" TextWrapping="Wrap" Text="mots-clés" VerticalAlignment="Top" Foreground="#FF898989" Visibility="Collapsed"/>
 
     </Grid>
 </Page>

@@ -1,4 +1,5 @@
 ﻿Imports Windows.UI.Core
+Imports Windows.UI.Notifications
 ''' <summary>
 ''' Comme son nom l'indique, Page de paramètres
 ''' </summary>
@@ -17,6 +18,7 @@ Public NotInheritable Class Parametres
         End If
 
         Settings_SearchEngine.SelectedIndex = localSettings.Values("SearchEngineIndex") 'Définit la bonne valeur pour la combobox moteurs de recherches
+        Startpage_Settings.Text = localSettings.Values("Homepage")
 
         ParamOpen.Stop()
         ParamOpen.Begin()
@@ -101,14 +103,16 @@ Public NotInheritable Class Parametres
         End If
         If Settings_SearchEngine.SelectedIndex = 12 Then
             localSettings.Values("Custom_SearchEngine") = True
+            SearchEngine_1.Visibility = Visibility.Visible
+            SearchEngine_2.Visibility = Visibility.Visible
+            searchengine3.Visibility = Visibility.Visible
         Else
             localSettings.Values("Custom_SearchEngine") = False
+            SearchEngine_1.Visibility = Visibility.Collapsed
+            SearchEngine_2.Visibility = Visibility.Collapsed
+            searchengine3.Visibility = Visibility.Collapsed
         End If
 
-    End Sub
-
-    Private Sub Settings_SearchEngine_LostFocus(sender As Object, e As RoutedEventArgs) Handles Settings_SearchEngine.LostFocus
-        ChangeSearchEngine()
     End Sub
     Private Sub SaveSettings() 'Sauvegarde les paramètres
 
@@ -117,6 +121,16 @@ Public NotInheritable Class Parametres
         localSettings.Values("Config") = True
         ChangeSearchEngine()
         localSettings.Values("SearchEngineIndex") = Settings_SearchEngine.SelectedIndex
+        localSettings.Values("Homepage") = Startpage_Settings.Text
     End Sub
 
+    Private Sub Startpage_Settings_TextChanged(sender As Object, e As TextChangedEventArgs) Handles Startpage_Settings.TextChanged
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        localSettings.Values("Homepage") = Startpage_Settings.Text
+    End Sub
+
+    Private Sub Settings_SearchEngine_DropDownClosed(sender As Object, e As Object) Handles Settings_SearchEngine.DropDownClosed
+        ChangeSearchEngine()
+    End Sub
 End Class

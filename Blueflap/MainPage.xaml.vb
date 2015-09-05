@@ -1,4 +1,5 @@
-﻿Imports Windows.UI.Xaml.Controls
+﻿Imports Windows.UI.Notifications
+Imports Windows.UI.Xaml.Controls
 ''' <summary>
 ''' Page dédiée à la navigation web
 ''' </summary>
@@ -45,7 +46,23 @@ Public NotInheritable Class MainPage
         AdressBox.IsEnabled = False 'Autre solution provisoire (qui va sans doute rester) parce que sinon l'adressbox obtient le focus à l'ouverture allez savoir pourquoi...
         AdressBox.IsEnabled = True
 
+        BackForward()
         FirstLaunch()
+
+        If AdressBox.Text = "about:blank" Then
+            Try
+                web.Navigate(New Uri(localSettings.Values("Homepage")))
+            Catch
+            End Try
+        End If
+
+    End Sub
+
+    Private Sub BackForward()
+        Back_Button.IsEnabled = web.CanGoBack
+        Forward_Button.IsEnabled = web.CanGoForward
+        StopEnabled.Stop()
+        RefreshEnabled.Begin()
 
     End Sub
 
@@ -64,6 +81,7 @@ Public NotInheritable Class MainPage
         AdressBox.Text = web.Source.ToString
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
+        BackForward()
     End Sub
 
     Private Sub web_LoadCompleted(sender As Object, e As NavigationEventArgs) Handles web.LoadCompleted
@@ -71,11 +89,17 @@ Public NotInheritable Class MainPage
         AdressBox.Text = web.Source.ToString
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
+        BackForward()
     End Sub
 
     Private Sub Home_button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Home_button.Tapped
         'Clic sur le bouton home
-        web.Navigate(New Uri("http://personali.zz.mu/"))
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        Try
+            web.Navigate(New Uri(localSettings.Values("Homepage")))
+        Catch
+        End Try
     End Sub
 
     Private Sub AdressBox_KeyDown(sender As Object, e As KeyRoutedEventArgs) Handles AdressBox.KeyDown
@@ -100,9 +124,19 @@ Public NotInheritable Class MainPage
                     Dim s As String
                     s = Rech.ToString
                     s = s.Replace("+", "%2B")
-                    web.Navigate(New Uri(localSettings.Values("A1") + s + localSettings.Values("A2"))) 'Rechercher avec moteurs de recherche
+
+                    If localSettings.Values("Custom_SearchEngine") = True Then
+                        web.Navigate(New Uri(localSettings.Values("Cust1") + s + localSettings.Values("Cust2")))
+                    Else
+                        web.Navigate(New Uri(localSettings.Values("A1") + s + localSettings.Values("A2"))) 'Rechercher avec moteurs de recherche
+                    End If
                 Catch
-                    Me.Frame.Navigate(GetType(Parametres)) 'PROVISOIRE
+                    Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
+                    Dim toeastElement = notificationXml.GetElementsByTagName("text")
+                    toeastElement(0).AppendChild(notificationXml.CreateTextNode("Erreur moteur de recherche"))
+                    toeastElement(1).AppendChild(notificationXml.CreateTextNode("Le moteur de recherche défini est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre moteur de recherche."))
+                    Dim ToastNotification = New ToastNotification(notificationXml)
+                    ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
                 End Try
             End If
 
@@ -112,7 +146,19 @@ Public NotInheritable Class MainPage
     End Sub
 
     Private Sub Strefresh_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Strefresh_Button.Tapped
-        web.Refresh() 'Permet d'activer le ventilateur pour que votre PC ait moins chaud... Ahaha...Je suis trop drôle... En vrai ça sert juste à actualiser la page
+        If Strefresh_Button.Content = "" Then
+            web.Refresh() 'Permet d'activer le ventilateur pour que votre PC ait moins chaud... Ahaha...Je suis trop drôle... En vrai ça sert juste à actualiser la page
+            StopEnabled.Stop()
+            RefreshEnabled.Begin()
+        Else
+            RefreshEnabled.Stop()
+            StopEnabled.Begin()
+            web.Stop()
+        End If
+        AdressBox.Text = web.Source.ToString
+        Titlebox.Text = web.DocumentTitle
+        loader.IsActive = False
+        BackForward()
     End Sub
 
     Private Sub Back_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Back_Button.Tapped
@@ -125,6 +171,9 @@ Public NotInheritable Class MainPage
 
     Private Sub web_NavigationStarting(sender As WebView, args As WebViewNavigationStartingEventArgs) Handles web.NavigationStarting
         loader.IsActive = True 'Les petites billes de chargement apparaissent quand une page se charge
+        BackForward()
+        RefreshEnabled.Stop()
+        StopEnabled.Begin()
     End Sub
 
     Private Sub Paramètres_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Paramètres_Button.Tapped
