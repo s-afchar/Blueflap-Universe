@@ -105,7 +105,7 @@ Public NotInheritable Class MainPage
                 End Try
             End If
 
-            AdressBox.IsEnabled = False 'PROVISOIRE !
+            AdressBox.IsEnabled = False 'PROVISOIRE : Faire perdre le focus à la textbox
             AdressBox.IsEnabled = True
         End If
     End Sub
