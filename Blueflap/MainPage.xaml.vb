@@ -101,7 +101,7 @@ Public NotInheritable Class MainPage
                     s = s.Replace("+", "%2B")
                     web.Navigate(New Uri(localSettings.Values("A1") + s + localSettings.Values("A2")))
                 Catch
-                    Me.Frame.Navigate(GetType(Parametres)) 'PROVISOIRE
+                    Me.Frame.Navigate(GetType(Parametres)) 'PROVISOIRE : Intégrer navig Universelle
                 End Try
             End If
 
