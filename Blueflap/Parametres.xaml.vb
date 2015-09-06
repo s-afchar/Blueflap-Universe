@@ -5,7 +5,17 @@ Imports Windows.UI.Notifications
 ''' </summary>
 Public NotInheritable Class Parametres
     Inherits Page
-
+    Public Sub New()
+        Me.InitializeComponent()
+        AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf MainPage_BackRequested
+    End Sub
+    Private Sub MainPage_BackRequested(sender As Object, e As Windows.UI.Core.BackRequestedEventArgs)
+        If Frame.CanGoBack Then
+            e.Handled = True
+            Frame.GoBack()
+            SaveSettings()
+        End If
+    End Sub
     Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
@@ -18,14 +28,27 @@ Public NotInheritable Class Parametres
         End If
 
         Settings_SearchEngine.SelectedIndex = localSettings.Values("SearchEngineIndex") 'Définit la bonne valeur pour la combobox moteurs de recherches
-        Startpage_Settings.Text = localSettings.Values("Homepage")
+        If Settings_SearchEngine.SelectedIndex = 12 Then
+            SearchEngine_1.Visibility = Visibility.Visible
+            SearchEngine_2.Visibility = Visibility.Visible
+            searchengine3.Visibility = Visibility.Visible
+            SearchEngine_1.Text = localSettings.Values("Cust1")
+            SearchEngine_2.Text = localSettings.Values("Cust2")
+        Else
+            SearchEngine_1.Visibility = Visibility.Collapsed
+            SearchEngine_2.Visibility = Visibility.Collapsed
+            searchengine3.Visibility = Visibility.Collapsed
+        End If
+
+        Try
+            Startpage_Settings.Text = localSettings.Values("Homepage")
+        Catch
+        End Try
 
         ParamOpen.Stop()
         ParamOpen.Begin()
 
-        'SystemNavigationManager.GetForCurrentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible
     End Sub
-
     Private Sub Theme_switch_Toggled(sender As Object, e As RoutedEventArgs) Handles Theme_switch.Toggled
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
@@ -50,9 +73,11 @@ Public NotInheritable Class Parametres
         End If
     End Sub
 
-    Private Sub Button_Tapped(sender As Object, e As TappedRoutedEventArgs) 'BOUTON RETOUR PROVISOIRE
-        Me.Frame.Navigate(GetType(MainPage))
-        SaveSettings()
+    Private Sub Button_Tapped(sender As Object, e As TappedRoutedEventArgs)
+        If Frame.CanGoBack Then
+            Frame.GoBack()
+            SaveSettings()
+        End If
     End Sub
 
     Private Sub ChangeSearchEngine()
@@ -106,6 +131,8 @@ Public NotInheritable Class Parametres
             SearchEngine_1.Visibility = Visibility.Visible
             SearchEngine_2.Visibility = Visibility.Visible
             searchengine3.Visibility = Visibility.Visible
+            SearchEngine_1.Text = localSettings.Values("Cust1")
+            SearchEngine_2.Text = localSettings.Values("Cust2")
         Else
             localSettings.Values("Custom_SearchEngine") = False
             SearchEngine_1.Visibility = Visibility.Collapsed

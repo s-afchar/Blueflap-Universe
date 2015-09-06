@@ -5,7 +5,19 @@ Imports Windows.UI.Xaml.Controls
 ''' </summary>
 Public NotInheritable Class MainPage
     Inherits Page
+    Public Sub New()
+        Me.InitializeComponent()
+        AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf MainPage_BackRequested
+    End Sub
+    Private Sub MainPage_BackRequested(sender As Object, e As Windows.UI.Core.BackRequestedEventArgs)
+        If Not Frame.CanGoBack Then
 
+            If web.CanGoBack Then
+                e.Handled = True
+                web.GoBack()
+            End If
+        End If
+    End Sub
     Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
 
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings 'Permet l'accés aux paramètres
@@ -53,6 +65,12 @@ Public NotInheritable Class MainPage
             Try
                 web.Navigate(New Uri(localSettings.Values("Homepage")))
             Catch
+                Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
+                Dim toeastElement = notificationXml.GetElementsByTagName("text")
+                toeastElement(0).AppendChild(notificationXml.CreateTextNode("Erreur page d'accueil"))
+                toeastElement(1).AppendChild(notificationXml.CreateTextNode("La page d'accueil définie est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre page d'accueil."))
+                Dim ToastNotification = New ToastNotification(notificationXml)
+                ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
             End Try
         End If
 
@@ -99,6 +117,12 @@ Public NotInheritable Class MainPage
         Try
             web.Navigate(New Uri(localSettings.Values("Homepage")))
         Catch
+            Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
+            Dim toeastElement = notificationXml.GetElementsByTagName("text")
+            toeastElement(0).AppendChild(notificationXml.CreateTextNode("Erreur page d'accueil"))
+            toeastElement(1).AppendChild(notificationXml.CreateTextNode("La page d'accueil définie est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre page d'accueil."))
+            Dim ToastNotification = New ToastNotification(notificationXml)
+            ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
         End Try
     End Sub
 

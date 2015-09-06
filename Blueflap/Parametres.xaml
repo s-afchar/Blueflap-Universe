@@ -28,33 +28,45 @@
                     <CompositeTransform ScaleX="-1"/>
                 </ProgressRing.RenderTransform>
             </ProgressRing>
-            <Button Content="Bouton back provisoire" HorizontalAlignment="Left" Height="72" Margin="19,37,0,0" VerticalAlignment="Top" Width="180" RenderTransformOrigin="0.5,0.5" Background="White" Tapped="Button_Tapped" Foreground="#FF555555" RequestedTheme="Light">
+            <Button Content="&#xE0C4;" HorizontalAlignment="Left" Height="40" Margin="165,31,0,0" VerticalAlignment="Top" Width="44" RenderTransformOrigin="0.5,0.5" Background="#19000000" Tapped="Button_Tapped" Foreground="White" RequestedTheme="Light" FontFamily="Segoe MDL2 Assets" FontWeight="Bold" FontSize="12">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Button.RenderTransform>
             </Button>
         </Grid>
-        <ComboBox x:Name="Settings_SearchEngine" HorizontalAlignment="Left" Height="33" Margin="227,100,0,0" VerticalAlignment="Top" Width="181" SelectedIndex="1">
-            <ComboBoxItem Content="Bing"/>
-            <ComboBoxItem Content="Qwant"/>
-            <ComboBoxItem Content="DuckDuckGo"/>
-            <ComboBoxItem Content="Yahoo"/>
-            <ComboBoxItem Content="Google"/>
-            <ComboBoxItem Content="Qwant (Web)"/>
-            <ComboBoxItem Content="Ask"/>
-            <ComboBoxItem Content="Youtube"/>
-            <ComboBoxItem Content="Dreamvids"/>
-            <ComboBoxItem Content="Dailymotion"/>
-            <ComboBoxItem Content="Wikipedia"/>
-            <ComboBoxItem Content="Twitter"/>
-            <ComboBoxItem Content="&lt;Personnaliser&gt;"/>
-        </ComboBox>
-        <TextBlock HorizontalAlignment="Left" Margin="227,75,0,0" TextWrapping="Wrap" Text="Moteur de recherche" VerticalAlignment="Top"/>
-        <ToggleSwitch x:Name="Theme_switch" Header="Thème" HorizontalAlignment="Left" Margin="227,174,0,0" VerticalAlignment="Top" OffContent="Clair" OnContent="Sombre"/>
-        <TextBox x:Name="SearchEngine_1" HorizontalAlignment="Left" Margin="422,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="33" Width="405" Visibility="Collapsed"/>
-        <TextBox x:Name="SearchEngine_2" HorizontalAlignment="Left" Margin="915,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="33" Width="124" Visibility="Collapsed"/>
-        <TextBox x:Name="Startpage_Settings" HorizontalAlignment="Left" Margin="227,280,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Height="33" Width="441"/>
-        <TextBlock x:Name="searchengine3" HorizontalAlignment="Left" Margin="839,106,0,0" TextWrapping="Wrap" Text="mots-clés" VerticalAlignment="Top" Foreground="#FF898989" Visibility="Collapsed"/>
+        <Pivot Margin="227,0,0,0" Title="">
+            <PivotItem Header="Personnalisation">
+                <Grid>
+                    <ComboBox x:Name="Settings_SearchEngine" HorizontalAlignment="Left" Height="33" Margin="0,55,0,0" VerticalAlignment="Top" Width="181" SelectedIndex="1">
+                        <ComboBoxItem Content="Bing"/>
+                        <ComboBoxItem Content="Qwant"/>
+                        <ComboBoxItem Content="DuckDuckGo"/>
+                        <ComboBoxItem Content="Yahoo"/>
+                        <ComboBoxItem Content="Google"/>
+                        <ComboBoxItem Content="Qwant (Web)"/>
+                        <ComboBoxItem Content="Ask"/>
+                        <ComboBoxItem Content="Youtube"/>
+                        <ComboBoxItem Content="Dreamvids"/>
+                        <ComboBoxItem Content="Dailymotion"/>
+                        <ComboBoxItem Content="Wikipedia"/>
+                        <ComboBoxItem Content="Twitter"/>
+                        <ComboBoxItem Content="&lt;Personnaliser&gt;"/>
+                    </ComboBox>
+                    <TextBlock HorizontalAlignment="Left" Margin="0,30,0,0" TextWrapping="Wrap" Text="Moteur de recherche" VerticalAlignment="Top"/>
+                    <ToggleSwitch x:Name="Theme_switch" Header="Thème" HorizontalAlignment="Left" Margin="0,129,0,0" VerticalAlignment="Top" OffContent="Clair" OnContent="Sombre"/>
+                    <TextBox x:Name="SearchEngine_1" HorizontalAlignment="Left" Margin="195,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="33" Width="405" Visibility="Collapsed"/>
+                    <TextBox x:Name="SearchEngine_2" HorizontalAlignment="Left" Margin="688,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="33" Width="124" Visibility="Collapsed"/>
+                    <TextBox x:Name="Startpage_Settings" HorizontalAlignment="Left" Margin="0,235,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Height="33" Width="441"/>
+                    <TextBlock x:Name="searchengine3" HorizontalAlignment="Left" Margin="612,61,0,0" TextWrapping="Wrap" Text="mots-clés" VerticalAlignment="Top" Foreground="#FF898989" Visibility="Collapsed"/>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Options avancées">
+                <Grid/>
+            </PivotItem>
+            <PivotItem Header="À propos" Margin="12,0">
+                <Grid/>
+            </PivotItem>
+        </Pivot>
 
     </Grid>
 </Page>

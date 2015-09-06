@@ -76,6 +76,7 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="RenderTransform" />
       <RootProperty Name="Width" />
+      <RootProperty Name="FontWeight" />
       <RootEvent Name="Tapped" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ProgressRing">
@@ -118,6 +119,16 @@
     <RootType FullName="Blueflap.MainPage" />
     <RootType FullName="Windows.UI.Xaml.Media.Animation.QuinticEase">
       <RootProperty Name="EasingMode" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Pivot">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Title" />
+      <RootProperty Name="Items" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.PivotItem">
+      <RootProperty Name="Header" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="HorizontalAlignment" />
