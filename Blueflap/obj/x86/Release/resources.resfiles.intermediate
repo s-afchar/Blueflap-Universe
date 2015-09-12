@@ -9,7 +9,7 @@ C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Re
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.ComponentModel.Annotations.SR.resw
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.ComponentModel.EventBasedAsync.SR.resw
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Data.Common.SR.resw
-C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Diagnostics.Tracing.SR.resw
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Diagnostics.Debug.SR.resw
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Dynamic.Runtime.SR.resw
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Globalization.Extensions.SR.resw
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.IO.Compression.SR.resw
@@ -32,11 +32,10 @@ C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Re
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Private.ServiceModel.SR.resw
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Private.Uri.SR.resw
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Reflection.Context.SR.resw
-C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Reflection.Extensions.SR.resw
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Reflection.DispatchProxy.SR.resw
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Reflection.Metadata.SR.resw
-C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Reflection.TypeExtensions.SR.resw
-C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Resources.ResourceManager.SR.resw
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Runtime.Extensions.SR.resw
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Runtime.InteropServices.SR.resw
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Runtime.Numerics.SR.resw
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Runtime.Serialization.Primitives.SR.resw
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Runtime.WindowsRuntime.SR.resw
@@ -45,6 +44,7 @@ C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Re
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Text.Encoding.CodePages.SR.resw
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Text.RegularExpressions.SR.resw
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Threading.Overlapped.SR.resw
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Threading.SR.resw
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Threading.Tasks.Dataflow.SR.resw
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Threading.Tasks.Parallel.SR.resw
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\FxResources.System.Xml.ReaderWriter.SR.resw

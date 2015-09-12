@@ -28,7 +28,7 @@
                     <CompositeTransform ScaleX="-1"/>
                 </ProgressRing.RenderTransform>
             </ProgressRing>
-            <Button x:ConnectionId='12' Content="Bouton back provisoire" HorizontalAlignment="Left" Height="72" Margin="19,37,0,0" VerticalAlignment="Top" Width="180" RenderTransformOrigin="0.5,0.5" Background="White"                        Foreground="#FF555555" RequestedTheme="Light">
+            <Button x:ConnectionId='12' Content="&#xE0C4;" HorizontalAlignment="Left" Height="40" Margin="165,31,0,0" VerticalAlignment="Top" Width="44" RenderTransformOrigin="0.5,0.5" Background="#19000000"                        Foreground="White" RequestedTheme="Light" FontFamily="Segoe MDL2 Assets" FontWeight="Bold" FontSize="12">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Button.RenderTransform>

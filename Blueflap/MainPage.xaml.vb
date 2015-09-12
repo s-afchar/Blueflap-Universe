@@ -81,7 +81,6 @@ Public NotInheritable Class MainPage
         Forward_Button.IsEnabled = web.CanGoForward
         StopEnabled.Stop()
         RefreshEnabled.Begin()
-
     End Sub
 
     Private Sub FirstLaunch() 'Définit les paramètres par défaut
@@ -94,6 +93,14 @@ Public NotInheritable Class MainPage
         End If
 
     End Sub
+
+    Private Sub web_NavigationStarting(sender As WebView, args As WebViewNavigationStartingEventArgs) Handles web.NavigationStarting
+        loader.IsActive = True 'Les petites billes de chargement apparaissent quand une page se charge
+        BackForward()
+        RefreshEnabled.Stop()
+        StopEnabled.Begin()
+    End Sub
+
     Private Sub web_NavigationCompleted(sender As WebView, args As WebViewNavigationCompletedEventArgs) Handles web.NavigationCompleted
         'Navigation terminée
         AdressBox.Text = web.Source.ToString
@@ -193,12 +200,6 @@ Public NotInheritable Class MainPage
         web.GoForward() 'Revenir à la page suivante
     End Sub
 
-    Private Sub web_NavigationStarting(sender As WebView, args As WebViewNavigationStartingEventArgs) Handles web.NavigationStarting
-        loader.IsActive = True 'Les petites billes de chargement apparaissent quand une page se charge
-        BackForward()
-        RefreshEnabled.Stop()
-        StopEnabled.Begin()
-    End Sub
 
     Private Sub Paramètres_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Paramètres_Button.Tapped
         Me.Frame.Navigate(GetType(Parametres)) 'Aller sur la page "Paramètres"
@@ -207,5 +208,52 @@ Public NotInheritable Class MainPage
         'Force l'ouverture dans Blueflap de liens censés s'ouvrir dans une nouvelle fenêtre
         web.Navigate(e.Uri)
         e.Handled = True
+    End Sub
+
+    Private Sub Memo_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_Button.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        If MemoPanel.Visibility = Visibility.Collapsed Then
+            MemoPopOut.Stop()
+            MemoPopIN.Begin()
+            Try
+                MemoText.Text = localSettings.Values("MemoText")
+            Catch
+            End Try
+            Try
+                If localSettings.Values("AncrageMemo") = True Then
+                    web.Margin = New Thickness(48, 66, 261, 0)
+                End If
+                MemoAncrageToggle.IsOn = localSettings.Values("AncrageMemo")
+            Catch
+            End Try
+
+        Else
+            MemoPopIN.Stop()
+            MemoPopOut.Begin()
+            web.Margin = New Thickness(48, 66, 0, 0)
+        End If
+    End Sub
+
+    Private Sub MemoText_TextChanged(sender As Object, e As TextChangedEventArgs) Handles MemoText.TextChanged
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("MemoText") = MemoText.Text
+    End Sub
+
+    Private Sub MemoPanel_LostFocus(sender As Object, e As RoutedEventArgs) Handles MemoPanel.LostFocus
+        If web.Margin.Right = 0 Then
+            MemoPopIN.Stop()
+            MemoPopOut.Begin()
+        End If
+    End Sub
+
+    Private Sub MemoAncrageToggle_Toggled(sender As Object, e As RoutedEventArgs) Handles MemoAncrageToggle.Toggled
+        If MemoAncrageToggle.IsOn Then
+            web.Margin = New Thickness(48, 66, 261, 0)
+        Else
+            web.Margin = New Thickness(48, 66, 0, 0)
+        End If
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("AncrageMemo") = MemoAncrageToggle.IsOn
     End Sub
 End Class

@@ -83,6 +83,66 @@
                 </DiscreteObjectKeyFrame>
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Name="MemoPopIN">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="MemoPanel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="278"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="MemoPanel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="MemoPanel">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="MemoPopOut">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="MemoPanel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="275">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="MemoPanel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="MemoPanel">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
     </Page.Resources>
 
 
@@ -126,8 +186,32 @@
                     <CompositeTransform ScaleX="-1"/>
                 </ProgressRing.RenderTransform>
             </ProgressRing>
+            <Button x:Name="Fight_Button" Content="&#xE923;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,242,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,286,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="Memo_Button" Content="&#xE70B;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,330,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
         </Grid>
         <WebView x:Name="web" Margin="48,66,0,0"/>
+        <Grid x:Name="MemoPanel" HorizontalAlignment="Right" Margin="0,66,0,0" Width="261" Background="#A5000000" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
+            <TextBox x:Name="MemoText" Margin="11,41,12,40" TextWrapping="Wrap" Text="&lt;Ecrire un memo&gt;" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" BorderThickness="0" AcceptsReturn="True" RequestedTheme="Dark"/>
+            <TextBlock HorizontalAlignment="Left" Margin="17,13,0,0" TextWrapping="Wrap" Text="MEMO RAPIDE" VerticalAlignment="Top" RequestedTheme="Dark" FontWeight="Bold" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
+            <TextBlock HorizontalAlignment="Left" Margin="17,13,0,0" TextWrapping="Wrap" Text="MEMO RAPIDE" VerticalAlignment="Top" RequestedTheme="Dark" FontWeight="Bold" Foreground="#B2FFFFFF"/>
+            <ToggleSwitch x:Name="MemoAncrageToggle" Header="" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Bottom" RequestedTheme="Dark" OffContent="Non ancré" OnContent="Ancré"/>
+        </Grid>
 
     </Grid>
 </Page>
