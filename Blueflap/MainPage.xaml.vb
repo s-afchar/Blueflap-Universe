@@ -77,10 +77,49 @@ Public NotInheritable Class MainPage
     End Sub
 
     Private Sub BackForward()
-        Back_Button.IsEnabled = web.CanGoBack
-        Forward_Button.IsEnabled = web.CanGoForward
         StopEnabled.Stop()
         RefreshEnabled.Begin()
+
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        localSettings.Values("FightBut_Top") = 242
+        localSettings.Values("lockBut_Top") = 286
+        localSettings.Values("memoBut_Top") = 330
+
+        If web.CanGoBack And web.CanGoForward Then
+            Back_Button.Visibility = Visibility.Visible
+            Forward_Button.Visibility = Visibility.Visible
+            Fight_Button.Margin = New Thickness(3, localSettings.Values("FightBut_Top"), -1, 0)
+            Lock_Button.Margin = New Thickness(3, localSettings.Values("lockBut_Top"), -1, 0)
+            Memo_Button.Margin = New Thickness(3, localSettings.Values("memoBut_Top"), -1, 0)
+            Forward_Button.Margin = New Thickness(3, 198, -1, 0)
+
+        ElseIf web.CanGoBack And web.CanGoForward = False Then
+            Back_Button.Visibility = Visibility.Visible
+            Forward_Button.Visibility = Visibility.Collapsed
+            Fight_Button.Margin = New Thickness(3, localSettings.Values("FightBut_Top") - 44, -1, 0)
+            Lock_Button.Margin = New Thickness(3, localSettings.Values("lockBut_Top") - 44, -1, 0)
+            Memo_Button.Margin = New Thickness(3, localSettings.Values("memoBut_Top") - 44, -1, 0)
+
+        ElseIf web.CanGoBack = False And web.CanGoForward Then
+            Back_Button.Visibility = Visibility.Collapsed
+            Forward_Button.Visibility = Visibility.Visible
+            Fight_Button.Margin = New Thickness(3, localSettings.Values("FightBut_Top") - 44, -1, 0)
+            Lock_Button.Margin = New Thickness(3, localSettings.Values("lockBut_Top") - 44, -1, 0)
+            Memo_Button.Margin = New Thickness(3, localSettings.Values("memoBut_Top") - 44, -1, 0)
+            Forward_Button.Margin = New Thickness(3, 154, -1, 0)
+
+        ElseIf web.CanGoBack = False And web.CanGoForward = False Then
+            Back_Button.Visibility = Visibility.Collapsed
+            Forward_Button.Visibility = Visibility.Collapsed
+            Fight_Button.Margin = New Thickness(3, localSettings.Values("FightBut_Top") - 88, -1, 0)
+            Lock_Button.Margin = New Thickness(3, localSettings.Values("lockBut_Top") - 88, -1, 0)
+            Memo_Button.Margin = New Thickness(3, localSettings.Values("memoBut_Top") - 88, -1, 0)
+        End If
+
+        AdressBox.IsEnabled = False 'Autre solution provisoire (qui va sans doute rester) parce que sinon l'adressbox obtient le focus à l'ouverture allez savoir pourquoi...
+        AdressBox.IsEnabled = True
+
     End Sub
 
     Private Sub FirstLaunch() 'Définit les paramètres par défaut
