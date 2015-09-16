@@ -19,12 +19,22 @@ Public NotInheritable Class Parametres
     Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
+        localSettings.Values("CustomColorA") = 0
+        localSettings.Values("CustomColorB") = 0
+        localSettings.Values("CustomColorC") = 10
+
         Parametres_Theme() 'Permet d'appliquer le theme
 
         If localSettings.Values("DarkThemeEnabled") = True Then 'Definit la bonne position du toggleswitch theme
             Theme_switch.IsOn = True
         Else
             Theme_switch.IsOn = False
+        End If
+
+        If localSettings.Values("CustomColorEnabled") = True Then 'Definit la bonne position du toggleswitch theme
+            Color_Switch.IsOn = True
+        Else
+            Color_Switch.IsOn = False
         End If
 
         Settings_SearchEngine.SelectedIndex = localSettings.Values("SearchEngineIndex") 'Définit la bonne valeur pour la combobox moteurs de recherches
@@ -159,5 +169,92 @@ Public NotInheritable Class Parametres
 
     Private Sub Settings_SearchEngine_DropDownClosed(sender As Object, e As Object) Handles Settings_SearchEngine.DropDownClosed
         ChangeSearchEngine()
+    End Sub
+
+    Private Sub Color_Switch_Toggled(sender As Object, e As RoutedEventArgs) Handles Color_Switch.Toggled
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        localSettings.Values("CustomColorEnabled") = Color_Switch.IsOn 'Règle le thème en fonction du toogleswitch
+    End Sub
+
+    Private Sub Color2_But_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Color2_But.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        localSettings.Values("CustomColorA") = localSettings.Values("CustomColorB") + 5
+        localSettings.Values("CustomColorB") = localSettings.Values("CustomColorB") + 10
+        localSettings.Values("CustomColorC") = localSettings.Values("CustomColorC") + 20
+        SetcolorPicker()
+    End Sub
+
+    Private Sub Color3_But_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Color3_But.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("CustomColorA") = localSettings.Values("CustomColorA") + 10
+        localSettings.Values("CustomColorB") = localSettings.Values("CustomColorB") + 30
+        localSettings.Values("CustomColorC") = localSettings.Values("CustomColorC") + 55
+        SetcolorPicker()
+    End Sub
+
+    Private Sub Color4_But_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Color4_But.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("CustomColorA") = localSettings.Values("CustomColorA") + 30
+        localSettings.Values("CustomColorB") = localSettings.Values("CustomColorB") + 60
+        localSettings.Values("CustomColorC") = localSettings.Values("CustomColorC") + 110
+        SetcolorPicker()
+    End Sub
+    Private Sub SetcolorPicker()
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        Dim ColA1 As String = localSettings.Values("CustomColorA") + 5
+        Dim ColA2 As String = localSettings.Values("CustomColorB") + 10
+        Dim ColA3 As String = localSettings.Values("CustomColorC") + 20
+
+        If ColA1 > 254 Then
+            ColA1 = ColA1 - 253
+        End If
+        If ColA2 > 254 Then
+            ColA2 = ColA2 - 253
+        End If
+        If ColA3 > 254 Then
+            ColA3 = ColA3 - 253
+        End If
+
+        Dim ColB1 As String = ColA1 + 5
+        Dim ColB2 As String = ColA2 + 20
+        Dim ColB3 As String = ColA3 + 35
+
+        If ColB1 > 255 Then
+            ColB1 = ColA1
+        End If
+        If ColB2 > 255 Then
+            ColB2 = ColA2
+        End If
+        If ColB3 > 255 Then
+            ColB3 = ColA3
+        End If
+
+        Dim ColC1 As String = ColB1 + 20
+        Dim ColC2 As String = ColB2 + 30
+        Dim ColC3 As String = ColB3 + 55
+
+        If ColC1 > 255 Then
+            ColC1 = ColB1
+        End If
+        If ColC2 > 255 Then
+            ColC2 = ColB2
+        End If
+        If ColC3 > 255 Then
+            ColC3 = ColB3
+        End If
+
+        Try
+            Color1_But.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(ColA1 - 5, ColA2 - 10, ColA3 - 20, 100))
+        Catch
+            Color1_But.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(ColA1, ColA2, ColA3, 100))
+        End Try
+
+        Color2_But.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(ColA1, ColA2, ColA3, 100))
+            Color3_But.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(ColB1, ColB2, ColB3, 100))
+            Color4_But.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(ColC1, ColC2, ColC3, 100))
+
     End Sub
 End Class

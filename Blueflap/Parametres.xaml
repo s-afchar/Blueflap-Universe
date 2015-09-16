@@ -56,8 +56,16 @@
                     <ToggleSwitch x:Name="Theme_switch" Header="Thème" HorizontalAlignment="Left" Margin="0,129,0,0" VerticalAlignment="Top" OffContent="Clair" OnContent="Sombre"/>
                     <TextBox x:Name="SearchEngine_1" HorizontalAlignment="Left" Margin="195,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="33" Width="405" Visibility="Collapsed"/>
                     <TextBox x:Name="SearchEngine_2" HorizontalAlignment="Left" Margin="688,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="33" Width="124" Visibility="Collapsed"/>
-                    <TextBox x:Name="Startpage_Settings" HorizontalAlignment="Left" Margin="0,235,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Height="33" Width="441"/>
+                    <TextBox x:Name="Startpage_Settings" HorizontalAlignment="Left" Margin="0,307,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Height="33" Width="441"/>
                     <TextBlock x:Name="searchengine3" HorizontalAlignment="Left" Margin="612,61,0,0" TextWrapping="Wrap" Text="mots-clés" VerticalAlignment="Top" Foreground="#FF898989" Visibility="Collapsed"/>
+                    <ToggleSwitch x:Name="Color_Switch" Header="" HorizontalAlignment="Left" Height="37" Margin="0,189,0,0" VerticalAlignment="Top" Width="197" IsOn="True" OnContent="Couleur automatique" OffContent="Couleur personnalisée"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="0,282,0,0" TextWrapping="Wrap" Text="Page d'accueil" VerticalAlignment="Top"/>
+                    <Grid HorizontalAlignment="Left" Height="25" Margin="226,196,0,0" VerticalAlignment="Top" Width="420" Background="#FFF7F7F7">
+                        <Button x:Name="Color1_But" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Background="#FFFF0404" BorderBrush="#33000000"/>
+                        <Button x:Name="Color2_But" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Background="#FFD80000" BorderBrush="#33000000" Margin="30,0,0,0"/>
+                        <Button x:Name="Color3_But" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Background="#FFA8005C" BorderBrush="#33000000" Margin="60,0,0,0"/>
+                        <Button x:Name="Color4_But" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Background="#FFBF03BF" BorderBrush="#33000000" Margin="90,0,0,0"/>
+                    </Grid>
                 </Grid>
             </PivotItem>
             <PivotItem Header="Options avancées">

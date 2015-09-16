@@ -103,6 +103,9 @@
       <RootProperty Name="RequestedTheme" />
       <RootProperty Name="OffContent" />
       <RootProperty Name="OnContent" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="IsOn" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.NullExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
