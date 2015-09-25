@@ -19,22 +19,12 @@ Public NotInheritable Class Parametres
     Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
-        localSettings.Values("CustomColorA") = 0
-        localSettings.Values("CustomColorB") = 0
-        localSettings.Values("CustomColorC") = 10
-
         Parametres_Theme() 'Permet d'appliquer le theme
 
         If localSettings.Values("DarkThemeEnabled") = True Then 'Definit la bonne position du toggleswitch theme
             Theme_switch.IsOn = True
         Else
             Theme_switch.IsOn = False
-        End If
-
-        If localSettings.Values("CustomColorEnabled") = True Then 'Definit la bonne position du toggleswitch theme
-            Color_Switch.IsOn = True
-        Else
-            Color_Switch.IsOn = False
         End If
 
         Settings_SearchEngine.SelectedIndex = localSettings.Values("SearchEngineIndex") 'Définit la bonne valeur pour la combobox moteurs de recherches
@@ -51,9 +41,55 @@ Public NotInheritable Class Parametres
         End If
 
         Try
-            Startpage_Settings.Text = localSettings.Values("Homepage")
+            Startpage_Settings.Text = localSettings.Values("Homepage") 'Défini la valeur de la textbox Homepage
         Catch
         End Try
+
+        localSettings.Values("OppeningSettings") = True 'Regle les curseurs de la couleur personnalisée
+        Try
+            AlphaSlider.Value = localSettings.Values("CustomColorD")
+            RedSlider.Value = localSettings.Values("CustomColorA")
+            GreenSlider.Value = localSettings.Values("CustomColorB")
+            BlueSlider.Value = localSettings.Values("CustomColorC")
+            Color1_But.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
+        Catch
+        End Try
+        localSettings.Values("OppeningSettings") = False
+
+        Try
+            If localSettings.Values("CustomColorEnabled") = True Then
+                Color_Switch.IsOn = True
+                PersonnalizeColorGrid.Visibility = Visibility.Visible
+                grid.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
+            Else
+                Color_Switch.IsOn = False
+                PersonnalizeColorGrid.Visibility = Visibility.Collapsed
+            End If
+        Catch
+        End Try
+        Try
+            Stat1.Text = localSettings.Values("Stat1")
+        Catch
+            localSettings.Values("Stat1") = 0
+        End Try
+
+        If Stat1.Text < 50 Then
+            Stat3.Text = "Novice"
+        ElseIf Stat1.Text < 100 Then
+            Stat3.Text = "Explorer"
+        ElseIf Stat1.Text < 250 Then
+            Stat3.Text = "Hard Searcher"
+        ElseIf Stat1.Text < 500 Then
+            Stat3.Text = "Web Addict"
+        ElseIf Stat1.Text < 700 Then
+            Stat3.Text = "Geek"
+        ElseIf Stat1.Text < 900 Then
+            Stat3.Text = "Outsider from real life"
+        ElseIf Stat1.Text < 5000 Then
+            Stat3.Text = "Blueflap Lover"
+        ElseIf 5000 < Stat1.Text Then
+            Stat3.Text = "Would you marry Blueflap ?"
+        End If
 
         ParamOpen.Stop()
         ParamOpen.Begin()
@@ -174,87 +210,54 @@ Public NotInheritable Class Parametres
     Private Sub Color_Switch_Toggled(sender As Object, e As RoutedEventArgs) Handles Color_Switch.Toggled
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
-        localSettings.Values("CustomColorEnabled") = Color_Switch.IsOn 'Règle le thème en fonction du toogleswitch
+        'Règle le thème en fonction du toogleswitch
+        If Color_Switch.IsOn Then
+            PersonnalizeColorGrid.Visibility = Visibility.Visible
+            localSettings.Values("CustomColorEnabled") = True
+            grid.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
+        Else
+            PersonnalizeColorGrid.Visibility = Visibility.Collapsed
+            localSettings.Values("CustomColorEnabled") = False
+            grid.Background = DefaultThemeColor.Background
+        End If
+
     End Sub
 
-    Private Sub Color2_But_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Color2_But.Tapped
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-
-        localSettings.Values("CustomColorA") = localSettings.Values("CustomColorB") + 5
-        localSettings.Values("CustomColorB") = localSettings.Values("CustomColorB") + 10
-        localSettings.Values("CustomColorC") = localSettings.Values("CustomColorC") + 20
-        SetcolorPicker()
-    End Sub
-
-    Private Sub Color3_But_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Color3_But.Tapped
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        localSettings.Values("CustomColorA") = localSettings.Values("CustomColorA") + 10
-        localSettings.Values("CustomColorB") = localSettings.Values("CustomColorB") + 30
-        localSettings.Values("CustomColorC") = localSettings.Values("CustomColorC") + 55
-        SetcolorPicker()
-    End Sub
-
-    Private Sub Color4_But_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Color4_But.Tapped
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        localSettings.Values("CustomColorA") = localSettings.Values("CustomColorA") + 30
-        localSettings.Values("CustomColorB") = localSettings.Values("CustomColorB") + 60
-        localSettings.Values("CustomColorC") = localSettings.Values("CustomColorC") + 110
-        SetcolorPicker()
-    End Sub
     Private Sub SetcolorPicker()
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        Color1_But.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
+        grid.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
+    End Sub
 
-        Dim ColA1 As String = localSettings.Values("CustomColorA") + 5
-        Dim ColA2 As String = localSettings.Values("CustomColorB") + 10
-        Dim ColA3 As String = localSettings.Values("CustomColorC") + 20
+    Private Sub RedSlider_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles RedSlider.ValueChanged
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        If Not localSettings.Values("OppeningSettings") = True Then
+            localSettings.Values("CustomColorA") = RedSlider.Value
+            SetcolorPicker()
+        End If
+    End Sub
 
-        If ColA1 > 254 Then
-            ColA1 = ColA1 - 253
+    Private Sub GreenSlider_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles GreenSlider.ValueChanged
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        If Not localSettings.Values("OppeningSettings") = True Then
+            localSettings.Values("CustomColorB") = GreenSlider.Value
+            SetcolorPicker()
         End If
-        If ColA2 > 254 Then
-            ColA2 = ColA2 - 253
-        End If
-        If ColA3 > 254 Then
-            ColA3 = ColA3 - 253
-        End If
+    End Sub
 
-        Dim ColB1 As String = ColA1 + 5
-        Dim ColB2 As String = ColA2 + 20
-        Dim ColB3 As String = ColA3 + 35
-
-        If ColB1 > 255 Then
-            ColB1 = ColA1
+    Private Sub BlueSlider_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles BlueSlider.ValueChanged
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        If Not localSettings.Values("OppeningSettings") = True Then
+            localSettings.Values("CustomColorC") = BlueSlider.Value
+            SetcolorPicker()
         End If
-        If ColB2 > 255 Then
-            ColB2 = ColA2
-        End If
-        If ColB3 > 255 Then
-            ColB3 = ColA3
-        End If
+    End Sub
 
-        Dim ColC1 As String = ColB1 + 20
-        Dim ColC2 As String = ColB2 + 30
-        Dim ColC3 As String = ColB3 + 55
-
-        If ColC1 > 255 Then
-            ColC1 = ColB1
+    Private Sub AlphaSlider_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles AlphaSlider.ValueChanged
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        If Not localSettings.Values("OppeningSettings") = True Then
+            localSettings.Values("CustomColorD") = AlphaSlider.Value
+            SetcolorPicker()
         End If
-        If ColC2 > 255 Then
-            ColC2 = ColB2
-        End If
-        If ColC3 > 255 Then
-            ColC3 = ColB3
-        End If
-
-        Try
-            Color1_But.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(ColA1 - 5, ColA2 - 10, ColA3 - 20, 100))
-        Catch
-            Color1_But.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(ColA1, ColA2, ColA3, 100))
-        End Try
-
-        Color2_But.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(ColA1, ColA2, ColA3, 100))
-            Color3_But.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(ColB1, ColB2, ColB3, 100))
-            Color4_But.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(ColC1, ColC2, ColC3, 100))
-
     End Sub
 End Class

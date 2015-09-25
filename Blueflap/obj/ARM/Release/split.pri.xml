@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PriInfo>
+	<ResourceMap name="26841SmA.Blueflap" version="1.0" primary="true">
+		<Qualifiers>
+			<AlternateForm>UNPLATED</AlternateForm>
+			<Scale>200</Scale>
+			<TargetSize>24</TargetSize>
+		</Qualifiers>
+		<ResourceMapSubtree name="Files">
+			<NamedResource name="App.xbf" uri="ms-resource://26841SmA.Blueflap/Files/App.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ApplicationInsights.config" uri="ms-resource://26841SmA.Blueflap/Files/ApplicationInsights.config">
+				<Candidate type="Path">
+					<Value>ApplicationInsights.config</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="Blueflap.xr.xml" uri="ms-resource://26841SmA.Blueflap/Files/Blueflap.xr.xml">
+				<Candidate type="Path">
+					<Value>Blueflap.xr.xml</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="MainPage.xbf" uri="ms-resource://26841SmA.Blueflap/Files/MainPage.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="Parametres.xbf" uri="ms-resource://26841SmA.Blueflap/Files/Parametres.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<ResourceMapSubtree name="Assets">
+				<NamedResource name="LockScreenLogo.png" uri="ms-resource://26841SmA.Blueflap/Files/Assets/LockScreenLogo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\LockScreenLogo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SplashScreen.png" uri="ms-resource://26841SmA.Blueflap/Files/Assets/SplashScreen.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\SplashScreen.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square150x150Logo.png" uri="ms-resource://26841SmA.Blueflap/Files/Assets/Square150x150Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Square150x150Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square44x44Logo.png" uri="ms-resource://26841SmA.Blueflap/Files/Assets/Square44x44Logo.png">
+					<Candidate qualifiers="TargetSize-24, AlternateForm-UNPLATED" type="Path">
+						<Value>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</Value>
+					</Candidate>
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Square44x44Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="StoreLogo.png" uri="ms-resource://26841SmA.Blueflap/Files/Assets/StoreLogo.png">
+					<Candidate type="Path">
+						<Value>Assets\StoreLogo.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="white_back.png" uri="ms-resource://26841SmA.Blueflap/Files/Assets/white_back.png">
+					<Candidate type="Path">
+						<Value>Assets\white_back.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="white_full.png" uri="ms-resource://26841SmA.Blueflap/Files/Assets/white_full.png">
+					<Candidate type="Path">
+						<Value>Assets\white_full.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="white_home.png" uri="ms-resource://26841SmA.Blueflap/Files/Assets/white_home.png">
+					<Candidate type="Path">
+						<Value>Assets\white_home.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="white_infos.png" uri="ms-resource://26841SmA.Blueflap/Files/Assets/white_infos.png">
+					<Candidate type="Path">
+						<Value>Assets\white_infos.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="white_lock.png" uri="ms-resource://26841SmA.Blueflap/Files/Assets/white_lock.png">
+					<Candidate type="Path">
+						<Value>Assets\white_lock.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="white_memo.png" uri="ms-resource://26841SmA.Blueflap/Files/Assets/white_memo.png">
+					<Candidate type="Path">
+						<Value>Assets\white_memo.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="white_next.png" uri="ms-resource://26841SmA.Blueflap/Files/Assets/white_next.png">
+					<Candidate type="Path">
+						<Value>Assets\white_next.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="white_refresh.png" uri="ms-resource://26841SmA.Blueflap/Files/Assets/white_refresh.png">
+					<Candidate type="Path">
+						<Value>Assets\white_refresh.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="white_settings.png" uri="ms-resource://26841SmA.Blueflap/Files/Assets/white_settings.png">
+					<Candidate type="Path">
+						<Value>Assets\white_settings.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="white_spli.png" uri="ms-resource://26841SmA.Blueflap/Files/Assets/white_spli.png">
+					<Candidate type="Path">
+						<Value>Assets\white_spli.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="white_stop.png" uri="ms-resource://26841SmA.Blueflap/Files/Assets/white_stop.png">
+					<Candidate type="Path">
+						<Value>Assets\white_stop.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="white_tab.png" uri="ms-resource://26841SmA.Blueflap/Files/Assets/white_tab.png">
+					<Candidate type="Path">
+						<Value>Assets\white_tab.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Wide310x150Logo.png" uri="ms-resource://26841SmA.Blueflap/Files/Assets/Wide310x150Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Wide310x150Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="My Project">
+				<NamedResource name="Default.rd.xml" uri="ms-resource://26841SmA.Blueflap/Files/My Project/Default.rd.xml">
+					<Candidate type="Path">
+						<Value>My Project\Default.rd.xml</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="WinMetadata">
+				<NamedResource name="Windows.winmd" uri="ms-resource://26841SmA.Blueflap/Files/WinMetadata/Windows.winmd">
+					<Candidate type="Path">
+						<Value>WinMetadata\Windows.winmd</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+	</ResourceMap>
+</PriInfo>

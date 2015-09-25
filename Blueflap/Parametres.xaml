@@ -28,15 +28,93 @@
                     <CompositeTransform ScaleX="-1"/>
                 </ProgressRing.RenderTransform>
             </ProgressRing>
-            <Button Content="&#xE0C4;" HorizontalAlignment="Left" Height="40" Margin="165,31,0,0" VerticalAlignment="Top" Width="44" RenderTransformOrigin="0.5,0.5" Background="#19000000" Tapped="Button_Tapped" Foreground="White" RequestedTheme="Light" FontFamily="Segoe MDL2 Assets" FontWeight="Bold" FontSize="12">
+            <TextBlock HorizontalAlignment="Left" Margin="120,39,0,0" TextWrapping="Wrap" Text="Retour" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="52" Foreground="White" FontWeight="SemiLight" FontSize="14.667">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <Button Content="&#xE0C4;" HorizontalAlignment="Left" Height="40" Margin="111,31,-58,0" VerticalAlignment="Top" Width="156" RenderTransformOrigin="0.5,0.5" Background="#00000000" Tapped="Button_Tapped" Foreground="White" RequestedTheme="Light" FontFamily="Segoe MDL2 Assets" FontWeight="Bold" FontSize="16" BorderThickness="0">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Button.RenderTransform>
             </Button>
+            <TextBlock HorizontalAlignment="Left" Margin="96,98,0,0" TextWrapping="Wrap" Text="Statistiques" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="98" Foreground="#F2FFFFFF" FontWeight="SemiLight">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="141,127,0,0" TextWrapping="Wrap" Text="Pages" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="45" Foreground="#B2FFFFFF" FontWeight="SemiBold" FontSize="13">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="141,143,0,0" TextWrapping="Wrap" Text="Fights" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="45" Foreground="#B2FFFFFF" FontWeight="SemiBold" FontSize="13">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="141,158,0,0" TextWrapping="Wrap" Text="Badge" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="45" Foreground="#B2FFFFFF" FontWeight="SemiBold" FontSize="13">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="97,203,0,0" TextWrapping="Wrap" Text="Équipe" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="98" Foreground="#F2FFFFFF" FontWeight="SemiLight">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock x:Name="Stat1" HorizontalAlignment="Left" Margin="10,127,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="135" FontWeight="SemiLight" Foreground="White" FontSize="13">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock x:Name="Stat2" HorizontalAlignment="Left" Margin="10,143,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="135" FontWeight="SemiLight" Foreground="White" FontSize="13">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock x:Name="Stat3" HorizontalAlignment="Left" Margin="-10,160,0,0" TextWrapping="Wrap" Text="[Badge]" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="155" FontWeight="SemiLight" Foreground="White" FontSize="12">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <Grid Margin="8,233,0,0" RenderTransformOrigin="0.5,0.5" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="122">
+                <Grid.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Grid.RenderTransform>
+                <TextBlock HorizontalAlignment="Left" Margin="0,3,0,0" TextWrapping="Wrap" Text="Sâm" VerticalAlignment="Top" Width="87" Foreground="#F2FFFFFF" FontWeight="SemiBold" FontSize="18"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Foreground="#CCFFFFFF" FontWeight="SemiLight" FontSize="11">
+                	<Run FontWeight="SemiBold" Text="Chef de projet"/>
+                	<LineBreak/>
+                	<Run FontWeight="Light" Text="Design | Dev"/>
+                </TextBlock>
+            </Grid>
+            <Image HorizontalAlignment="Left" Height="64" Margin="135,233,0,0" VerticalAlignment="Top" Width="61" Source="Assets/circle.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Rectangle Fill="#A5FFFFFF" HorizontalAlignment="Left" Height="78" Margin="207,99,0,0" VerticalAlignment="Top" Width="2"/>
+            <Rectangle Fill="#A5FFFFFF" HorizontalAlignment="Left" Height="98" Margin="207,204,0,0" VerticalAlignment="Top" Width="2"/>
+            <TextBlock HorizontalAlignment="Left" Margin="191,103,0,0" TextWrapping="Wrap" Text="▶" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="14" Foreground="White" FontSize="8">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-0.45" ScaleY="0.6"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="192,209,0,0" TextWrapping="Wrap" Text="▶" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="14" Foreground="White" FontSize="8">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-0.45" ScaleY="0.6"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
         </Grid>
         <Pivot Margin="227,0,0,0" Title="">
             <PivotItem Header="Personnalisation">
                 <Grid>
+                    <Rectangle Fill="#33D1D1D1" Height="82" Margin="-11,261,10,0" Stroke="#7F838383" VerticalAlignment="Top"/>
+
+                    <Rectangle Fill="#33D1D1D1" Height="82" Margin="-11,20,10,0" Stroke="#7F838383" VerticalAlignment="Top"/>
+                    <Rectangle Fill="#33D1D1D1" Height="122" Margin="-11,118,10,0" Stroke="#7F838383" VerticalAlignment="Top"/>
+                    <Grid x:Name="DefaultThemeColor" HorizontalAlignment="Left" Height="10" Margin="268,207,0,0" VerticalAlignment="Top" Width="9" Background="{ThemeResource ContentDialogBorderThemeBrush}" Visibility="Collapsed"/>
                     <ComboBox x:Name="Settings_SearchEngine" HorizontalAlignment="Left" Height="33" Margin="0,55,0,0" VerticalAlignment="Top" Width="181" SelectedIndex="1">
                         <ComboBoxItem Content="Bing"/>
                         <ComboBoxItem Content="Qwant"/>
@@ -53,19 +131,21 @@
                         <ComboBoxItem Content="&lt;Personnaliser&gt;"/>
                     </ComboBox>
                     <TextBlock HorizontalAlignment="Left" Margin="0,30,0,0" TextWrapping="Wrap" Text="Moteur de recherche" VerticalAlignment="Top"/>
+                    <Grid x:Name="PersonnalizeColorGrid" HorizontalAlignment="Left" Height="40" Margin="238,189,0,0" VerticalAlignment="Top" Width="529" Background="#33C7C7C7" BorderBrush="#337C7C7C" BorderThickness="1" CornerRadius="20" Visibility="Collapsed">
+                        <Slider x:Name="RedSlider" HorizontalAlignment="Left" Height="40" Margin="30,0,0,0" VerticalAlignment="Top" Width="86" Foreground="#00000000" Background="Red" Maximum="255" LargeChange="10"/>
+                        <Grid x:Name="Color1_But" HorizontalAlignment="Left" Height="21" Margin="497,8,0,0" VerticalAlignment="Top" Width="21" Background="#FF29CAE4" CornerRadius="20" BorderThickness="0"/>
+                        <Slider x:Name="GreenSlider" HorizontalAlignment="Left" Height="40" Margin="142,0,0,0" VerticalAlignment="Top" Width="86" Foreground="#00000000" Background="#FF00FF17" BorderThickness="0" Maximum="255"/>
+                        <Slider x:Name="BlueSlider" HorizontalAlignment="Left" Height="40" Margin="257,0,0,0" VerticalAlignment="Top" Width="86" Foreground="#00000000" Background="#FF0051FF" Maximum="255"/>
+                        <Slider x:Name="AlphaSlider" HorizontalAlignment="Left" Height="40" Margin="386,0,0,0" VerticalAlignment="Top" Width="61" Foreground="#00000000" Background="#4C939393" Maximum="255"/>
+                    </Grid>
                     <ToggleSwitch x:Name="Theme_switch" Header="Thème" HorizontalAlignment="Left" Margin="0,129,0,0" VerticalAlignment="Top" OffContent="Clair" OnContent="Sombre"/>
                     <TextBox x:Name="SearchEngine_1" HorizontalAlignment="Left" Margin="195,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="33" Width="405" Visibility="Collapsed"/>
                     <TextBox x:Name="SearchEngine_2" HorizontalAlignment="Left" Margin="688,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="33" Width="124" Visibility="Collapsed"/>
-                    <TextBox x:Name="Startpage_Settings" HorizontalAlignment="Left" Margin="0,307,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Height="33" Width="441"/>
+                    <TextBox x:Name="Startpage_Settings" Margin="0,294,192,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Height="33"/>
                     <TextBlock x:Name="searchengine3" HorizontalAlignment="Left" Margin="612,61,0,0" TextWrapping="Wrap" Text="mots-clés" VerticalAlignment="Top" Foreground="#FF898989" Visibility="Collapsed"/>
-                    <ToggleSwitch x:Name="Color_Switch" Header="" HorizontalAlignment="Left" Height="37" Margin="0,189,0,0" VerticalAlignment="Top" Width="197" IsOn="True" OnContent="Couleur automatique" OffContent="Couleur personnalisée"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="0,282,0,0" TextWrapping="Wrap" Text="Page d'accueil" VerticalAlignment="Top"/>
-                    <Grid HorizontalAlignment="Left" Height="25" Margin="226,196,0,0" VerticalAlignment="Top" Width="420" Background="#FFF7F7F7">
-                        <Button x:Name="Color1_But" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Background="#FFFF0404" BorderBrush="#33000000"/>
-                        <Button x:Name="Color2_But" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Background="#FFD80000" BorderBrush="#33000000" Margin="30,0,0,0"/>
-                        <Button x:Name="Color3_But" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Background="#FFA8005C" BorderBrush="#33000000" Margin="60,0,0,0"/>
-                        <Button x:Name="Color4_But" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Background="#FFBF03BF" BorderBrush="#33000000" Margin="90,0,0,0"/>
-                    </Grid>
+                    <ToggleSwitch x:Name="Color_Switch" Header="" HorizontalAlignment="Left" Height="37" Margin="0,189,0,0" VerticalAlignment="Top" Width="238" OnContent="Couleur automatique" OffContent="Couleur personnalisée"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="0,269,0,0" TextWrapping="Wrap" Text="Page d'accueil" VerticalAlignment="Top"/>
+                    <CheckBox Content="Utiliser Bluestart" HorizontalAlignment="Right" Margin="0,295,25,0" VerticalAlignment="Top" Width="143"/>
                 </Grid>
             </PivotItem>
             <PivotItem Header="Options avancées">

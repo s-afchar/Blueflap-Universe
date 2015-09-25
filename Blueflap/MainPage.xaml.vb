@@ -46,7 +46,7 @@ Public NotInheritable Class MainPage
             Dim titleBar = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView.TitleBar
             Dim v = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView()
             v.TitleBar.ButtonBackgroundColor = Windows.UI.Colors.WhiteSmoke
-            v.TitleBar.ButtonForegroundColor = Windows.UI.Colors.DeepSkyBlue
+            v.TitleBar.ButtonForegroundColor = Windows.UI.Colors.DarkGray
             v.TitleBar.ButtonInactiveBackgroundColor = Windows.UI.Colors.WhiteSmoke
             Core.CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = True
 
@@ -73,6 +73,15 @@ Public NotInheritable Class MainPage
                 ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
             End Try
         End If
+
+        Try
+            If localSettings.Values("CustomColorEnabled") = True Then
+                LeftMenu.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
+            Else
+                LeftMenu.Background = DefaultThemeColor.Background
+            End If
+        Catch
+        End Try
 
     End Sub
 
@@ -141,10 +150,17 @@ Public NotInheritable Class MainPage
     End Sub
 
     Private Sub web_NavigationCompleted(sender As WebView, args As WebViewNavigationCompletedEventArgs) Handles web.NavigationCompleted
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
         'Navigation terminée
         AdressBox.Text = web.Source.ToString
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
+        Try
+            localSettings.Values("Stat1") = localSettings.Values("Stat1") + 1
+        Catch
+            localSettings.Values("Stat1") = 1
+        End Try
         BackForward()
     End Sub
 

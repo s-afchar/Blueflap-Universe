@@ -20,6 +20,7 @@
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
     <PackageCertificateThumbprint>D6A0C0975F8E5573CC1AF99B0E22E9518F6CDA87</PackageCertificateThumbprint>
+    <AppxBundle>Auto</AppxBundle>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -128,6 +129,7 @@
     <None Include="Blueflap_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\circle.png" />
     <Content Include="Assets\white_back.png" />
     <Content Include="Assets\white_full.png" />
     <Content Include="Assets\white_home.png" />

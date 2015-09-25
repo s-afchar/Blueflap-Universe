@@ -1,6 +1,7 @@
 [Files]
 "C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\AppxManifest.xml" "AppxManifest.xml"
 "C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\ApplicationInsights.config" "ApplicationInsights.config"
+"C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\circle.png" "Assets\circle.png"
 "C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\LockScreenLogo.scale-200.png" "Assets\LockScreenLogo.scale-200.png"
 "C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\SplashScreen.scale-200.png" "Assets\SplashScreen.scale-200.png"
 "C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\Square150x150Logo.scale-200.png" "Assets\Square150x150Logo.scale-200.png"

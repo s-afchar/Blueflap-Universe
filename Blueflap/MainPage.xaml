@@ -152,10 +152,11 @@
             <TextBlock x:Name="Titlebox" HorizontalAlignment="Left" Margin="70,10,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Opacity="0.795" FontSize="12" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
             <TextBlock x:Name="Window_Title" HorizontalAlignment="Left" Margin="12,10,0,0" TextWrapping="Wrap" Text="BLUEFLAP" VerticalAlignment="Top" Opacity="0.295" FontSize="12"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Width="48" RenderTransformOrigin="0.5,0.5" Background="{ThemeResource JumpListDefaultEnabledBackground}">
+        <Grid x:Name="LeftMenu" HorizontalAlignment="Left" Width="48" RenderTransformOrigin="0.5,0.5" Background="{ThemeResource JumpListDefaultEnabledBackground}">
             <Grid.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Grid.RenderTransform>
+            <Grid x:Name="DefaultThemeColor" HorizontalAlignment="Left" Height="10" Margin="268,207,-229,0" VerticalAlignment="Top" Width="9" Background="{ThemeResource ContentDialogBorderThemeBrush}" Visibility="Collapsed"/>
             <Button x:Name="Home_button" Content="&#xE80F;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Margin="3,66,-1,0">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>

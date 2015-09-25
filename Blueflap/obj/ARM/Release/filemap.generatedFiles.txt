@@ -1,0 +1,2 @@
+obj\ARM\Release\filemap.pri
+obj\ARM\Release\filemap.map.txt
