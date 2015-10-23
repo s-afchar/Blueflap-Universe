@@ -275,9 +275,11 @@ Public NotInheritable Class MainPage
                 MemoText.Text = localSettings.Values("MemoText")
             Catch
             End Try
+            LeftPanelShadow.Visibility = Visibility.Visible
             Try
                 If localSettings.Values("AncrageMemo") = True Then
                     web.Margin = New Thickness(48, 66, 261, 0)
+                    LeftPanelShadow.Visibility = Visibility.Collapsed
                 End If
                 MemoAncrageToggle.IsOn = localSettings.Values("AncrageMemo")
             Catch
@@ -305,10 +307,16 @@ Public NotInheritable Class MainPage
     Private Sub MemoAncrageToggle_Toggled(sender As Object, e As RoutedEventArgs) Handles MemoAncrageToggle.Toggled
         If MemoAncrageToggle.IsOn Then
             web.Margin = New Thickness(48, 66, 261, 0)
+            LeftPanelShadow.Visibility = Visibility.Collapsed
         Else
             web.Margin = New Thickness(48, 66, 0, 0)
+            LeftPanelShadow.Visibility = Visibility.Visible
         End If
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         localSettings.Values("AncrageMemo") = MemoAncrageToggle.IsOn
+    End Sub
+
+    Private Sub Fight_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Fight_Button.Tapped
+        Me.Frame.Navigate(GetType(SearchFight))
     End Sub
 End Class

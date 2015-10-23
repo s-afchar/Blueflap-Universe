@@ -8,9 +8,65 @@
     mc:Ignorable="d" Loaded="Page_Loaded">
     <Page.Resources>
         <Storyboard x:Name="ParamOpen">
-            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="grid">
-                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="209">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-161"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0" Value="52.046"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Stat1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Stat2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Stat3">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock3">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock4">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="pivot">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-84"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pivot">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <QuinticEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
@@ -43,17 +99,17 @@
                     <CompositeTransform ScaleX="-1"/>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="141,127,0,0" TextWrapping="Wrap" Text="Pages" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="45" Foreground="#B2FFFFFF" FontWeight="SemiBold" FontSize="13">
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="141,127,0,0" TextWrapping="Wrap" Text="Pages" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="45" Foreground="#B2FFFFFF" FontWeight="SemiBold" FontSize="13">
                 <TextBlock.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="141,143,0,0" TextWrapping="Wrap" Text="Fights" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="45" Foreground="#B2FFFFFF" FontWeight="SemiBold" FontSize="13">
+            <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="141,143,0,0" TextWrapping="Wrap" Text="Fights" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="45" Foreground="#B2FFFFFF" FontWeight="SemiBold" FontSize="13">
                 <TextBlock.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="141,158,0,0" TextWrapping="Wrap" Text="Badge" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="45" Foreground="#B2FFFFFF" FontWeight="SemiBold" FontSize="13">
+            <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="141,158,0,0" TextWrapping="Wrap" Text="Badge" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="45" Foreground="#B2FFFFFF" FontWeight="SemiBold" FontSize="13">
                 <TextBlock.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </TextBlock.RenderTransform>
@@ -82,14 +138,14 @@
                 <Grid.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Grid.RenderTransform>
-                <TextBlock HorizontalAlignment="Left" Margin="0,3,0,0" TextWrapping="Wrap" Text="Sâm" VerticalAlignment="Top" Width="87" Foreground="#F2FFFFFF" FontWeight="SemiBold" FontSize="18"/>
-                <TextBlock HorizontalAlignment="Left" Margin="0,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Foreground="#CCFFFFFF" FontWeight="SemiLight" FontSize="11">
+                <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="0,3,0,0" TextWrapping="Wrap" Text="Sâm" VerticalAlignment="Top" Width="87" Foreground="#F2FFFFFF" FontSize="18"/>
+                <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="0,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Foreground="#CCFFFFFF" FontWeight="SemiLight" FontSize="11">
                 	<Run FontWeight="SemiBold" Text="Chef de projet"/>
                 	<LineBreak/>
                 	<Run FontWeight="Light" Text="Design | Dev"/>
                 </TextBlock>
             </Grid>
-            <Image HorizontalAlignment="Left" Height="64" Margin="135,233,0,0" VerticalAlignment="Top" Width="61" Source="Assets/circle.png" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="image" HorizontalAlignment="Left" Height="64" Margin="135,233,0,0" VerticalAlignment="Top" Width="61" Source="Assets/circle.png" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Image.RenderTransform>
@@ -107,7 +163,10 @@
                 </TextBlock.RenderTransform>
             </TextBlock>
         </Grid>
-        <Pivot Margin="227,0,0,0" Title="">
+        <Pivot x:Name="pivot" Margin="227,0,0,0" Title="" RenderTransformOrigin="0.5,0.5">
+            <Pivot.RenderTransform>
+                <CompositeTransform/>
+            </Pivot.RenderTransform>
             <PivotItem Header="Personnalisation">
                 <Grid>
                     <Rectangle Fill="#33D1D1D1" Height="82" Margin="-11,261,10,0" Stroke="#7F838383" VerticalAlignment="Top"/>
@@ -143,7 +202,7 @@
                     <TextBox x:Name="SearchEngine_2" HorizontalAlignment="Left" Margin="688,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="33" Width="124" Visibility="Collapsed"/>
                     <TextBox x:Name="Startpage_Settings" Margin="0,294,192,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Height="33"/>
                     <TextBlock x:Name="searchengine3" HorizontalAlignment="Left" Margin="612,61,0,0" TextWrapping="Wrap" Text="mots-clés" VerticalAlignment="Top" Foreground="#FF898989" Visibility="Collapsed"/>
-                    <ToggleSwitch x:Name="Color_Switch" Header="" HorizontalAlignment="Left" Height="37" Margin="0,189,0,0" VerticalAlignment="Top" Width="238" OnContent="Couleur automatique" OffContent="Couleur personnalisée"/>
+                    <ToggleSwitch x:Name="Color_Switch" Header="" HorizontalAlignment="Left" Height="37" Margin="0,189,0,0" VerticalAlignment="Top" Width="238" OnContent="Couleur personnalisée" OffContent="Couleur automatique"/>
                     <TextBlock HorizontalAlignment="Left" Margin="0,269,0,0" TextWrapping="Wrap" Text="Page d'accueil" VerticalAlignment="Top"/>
                     <CheckBox Content="Utiliser Bluestart" HorizontalAlignment="Right" Margin="0,295,25,0" VerticalAlignment="Top" Width="143"/>
                 </Grid>

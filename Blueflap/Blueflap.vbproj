@@ -121,6 +121,9 @@
     <Compile Include="Parametres.xaml.vb">
       <DependentUpon>Parametres.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SearchFight.xaml.vb">
+      <DependentUpon>SearchFight.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -161,6 +164,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Parametres.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SearchFight.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -204,14 +204,25 @@
             </Button>
         </Grid>
         <WebView x:Name="web" Margin="48,66,0,0"/>
-        <Grid x:Name="MemoPanel" HorizontalAlignment="Right" Margin="0,66,0,0" Width="261" Background="#A5000000" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+        <Grid x:Name="MemoPanel" HorizontalAlignment="Right" Margin="0,66,0,0" Width="261" Background="#EAFDFDFD" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
             <Grid.RenderTransform>
                 <CompositeTransform/>
             </Grid.RenderTransform>
-            <TextBox x:Name="MemoText" Margin="11,41,12,40" TextWrapping="Wrap" Text="&lt;Ecrire un memo&gt;" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" BorderThickness="0" AcceptsReturn="True" RequestedTheme="Dark"/>
+            <TextBox x:Name="MemoText" Margin="11,41,12,40" TextWrapping="Wrap" Text="&lt;Ecrire un memo&gt;" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2E2E2E" BorderThickness="0" AcceptsReturn="True" RequestedTheme="Light"/>
             <TextBlock HorizontalAlignment="Left" Margin="17,13,0,0" TextWrapping="Wrap" Text="MEMO RAPIDE" VerticalAlignment="Top" RequestedTheme="Dark" FontWeight="Bold" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
-            <TextBlock HorizontalAlignment="Left" Margin="17,13,0,0" TextWrapping="Wrap" Text="MEMO RAPIDE" VerticalAlignment="Top" RequestedTheme="Dark" FontWeight="Bold" Foreground="#B2FFFFFF"/>
-            <ToggleSwitch x:Name="MemoAncrageToggle" Header="" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Bottom" RequestedTheme="Dark" OffContent="Non ancré" OnContent="Ancré"/>
+            <ToggleSwitch x:Name="MemoAncrageToggle" Header="" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Bottom" RequestedTheme="Light" OffContent="Non ancré" OnContent="Ancré"/>
+            <Rectangle x:Name="LeftPanelShadow" HorizontalAlignment="Left" Margin="-88,0,0,0" Width="88" Opacity="0.15">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <LinearGradientBrush.RelativeTransform>
+                            <CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="90"/>
+                        </LinearGradientBrush.RelativeTransform>
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Offset="1"/>
+                        <GradientStop Color="#04FAFAFA" Offset="0.57"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
         </Grid>
 
     </Grid>

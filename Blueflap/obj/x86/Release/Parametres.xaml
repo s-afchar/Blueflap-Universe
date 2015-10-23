@@ -8,9 +8,65 @@
     mc:Ignorable="d"                     >
     <Page.Resources>
         <Storyboard x:ConnectionId='2' x:Name="ParamOpen">
-            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="grid">
-                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="209">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-161"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0" Value="52.046"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Stat1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Stat2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Stat3">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock3">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock4">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="pivot">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-84"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pivot">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <QuinticEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
@@ -23,7 +79,7 @@
             <Grid.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Grid.RenderTransform>
-            <ProgressRing x:ConnectionId='19' x:Name="loader" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="24" Foreground="#AFFFFFFF" Margin="12,14,0,0" RenderTransformOrigin="0.5,0.5">
+            <ProgressRing x:ConnectionId='20' x:Name="loader" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="24" Foreground="#AFFFFFFF" Margin="12,14,0,0" RenderTransformOrigin="0.5,0.5">
                 <ProgressRing.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </ProgressRing.RenderTransform>
@@ -33,7 +89,7 @@
                     <CompositeTransform ScaleX="-1"/>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <Button x:ConnectionId='20' Content="&#xE0C4;" HorizontalAlignment="Left" Height="40" Margin="111,31,-58,0" VerticalAlignment="Top" Width="156" RenderTransformOrigin="0.5,0.5" Background="#00000000"                        Foreground="White" RequestedTheme="Light" FontFamily="Segoe MDL2 Assets" FontWeight="Bold" FontSize="16" BorderThickness="0">
+            <Button x:ConnectionId='21' Content="&#xE0C4;" HorizontalAlignment="Left" Height="40" Margin="111,31,-58,0" VerticalAlignment="Top" Width="156" RenderTransformOrigin="0.5,0.5" Background="#00000000"                        Foreground="White" RequestedTheme="Light" FontFamily="Segoe MDL2 Assets" FontWeight="Bold" FontSize="16" BorderThickness="0">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Button.RenderTransform>
@@ -43,17 +99,17 @@
                     <CompositeTransform ScaleX="-1"/>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="141,127,0,0" TextWrapping="Wrap" Text="Pages" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="45" Foreground="#B2FFFFFF" FontWeight="SemiBold" FontSize="13">
+            <TextBlock x:ConnectionId='22' x:Name="textBlock" HorizontalAlignment="Left" Margin="141,127,0,0" TextWrapping="Wrap" Text="Pages" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="45" Foreground="#B2FFFFFF" FontWeight="SemiBold" FontSize="13">
                 <TextBlock.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="141,143,0,0" TextWrapping="Wrap" Text="Fights" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="45" Foreground="#B2FFFFFF" FontWeight="SemiBold" FontSize="13">
+            <TextBlock x:ConnectionId='23' x:Name="textBlock1" HorizontalAlignment="Left" Margin="141,143,0,0" TextWrapping="Wrap" Text="Fights" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="45" Foreground="#B2FFFFFF" FontWeight="SemiBold" FontSize="13">
                 <TextBlock.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="141,158,0,0" TextWrapping="Wrap" Text="Badge" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="45" Foreground="#B2FFFFFF" FontWeight="SemiBold" FontSize="13">
+            <TextBlock x:ConnectionId='24' x:Name="textBlock2" HorizontalAlignment="Left" Margin="141,158,0,0" TextWrapping="Wrap" Text="Badge" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="45" Foreground="#B2FFFFFF" FontWeight="SemiBold" FontSize="13">
                 <TextBlock.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </TextBlock.RenderTransform>
@@ -63,17 +119,17 @@
                     <CompositeTransform ScaleX="-1"/>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <TextBlock x:ConnectionId='21' x:Name="Stat1" HorizontalAlignment="Left" Margin="10,127,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="135" FontWeight="SemiLight" Foreground="White" FontSize="13">
+            <TextBlock x:ConnectionId='25' x:Name="Stat1" HorizontalAlignment="Left" Margin="10,127,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="135" FontWeight="SemiLight" Foreground="White" FontSize="13">
                 <TextBlock.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <TextBlock x:ConnectionId='22' x:Name="Stat2" HorizontalAlignment="Left" Margin="10,143,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="135" FontWeight="SemiLight" Foreground="White" FontSize="13">
+            <TextBlock x:ConnectionId='26' x:Name="Stat2" HorizontalAlignment="Left" Margin="10,143,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="135" FontWeight="SemiLight" Foreground="White" FontSize="13">
                 <TextBlock.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <TextBlock x:ConnectionId='23' x:Name="Stat3" HorizontalAlignment="Left" Margin="-10,160,0,0" TextWrapping="Wrap" Text="[Badge]" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="155" FontWeight="SemiLight" Foreground="White" FontSize="12">
+            <TextBlock x:ConnectionId='27' x:Name="Stat3" HorizontalAlignment="Left" Margin="-10,160,0,0" TextWrapping="Wrap" Text="[Badge]" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="155" FontWeight="SemiLight" Foreground="White" FontSize="12">
                 <TextBlock.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </TextBlock.RenderTransform>
@@ -82,14 +138,14 @@
                 <Grid.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Grid.RenderTransform>
-                <TextBlock HorizontalAlignment="Left" Margin="0,3,0,0" TextWrapping="Wrap" Text="Sâm" VerticalAlignment="Top" Width="87" Foreground="#F2FFFFFF" FontWeight="SemiBold" FontSize="18"/>
-                <TextBlock HorizontalAlignment="Left" Margin="0,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Foreground="#CCFFFFFF" FontWeight="SemiLight" FontSize="11">
+                <TextBlock x:ConnectionId='29' x:Name="textBlock3" HorizontalAlignment="Left" Margin="0,3,0,0" TextWrapping="Wrap" Text="Sâm" VerticalAlignment="Top" Width="87" Foreground="#F2FFFFFF" FontSize="18"/>
+                <TextBlock x:ConnectionId='30' x:Name="textBlock4" HorizontalAlignment="Left" Margin="0,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Foreground="#CCFFFFFF" FontWeight="SemiLight" FontSize="11">
                 	<Run FontWeight="SemiBold" Text="Chef de projet"/>
                 	<LineBreak/>
                 	<Run FontWeight="Light" Text="Design | Dev"/>
                 </TextBlock>
             </Grid>
-            <Image HorizontalAlignment="Left" Height="64" Margin="135,233,0,0" VerticalAlignment="Top" Width="61" Source="Assets/circle.png" RenderTransformOrigin="0.5,0.5">
+            <Image x:ConnectionId='28' x:Name="image" HorizontalAlignment="Left" Height="64" Margin="135,233,0,0" VerticalAlignment="Top" Width="61" Source="Assets/circle.png" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Image.RenderTransform>
@@ -107,15 +163,18 @@
                 </TextBlock.RenderTransform>
             </TextBlock>
         </Grid>
-        <Pivot Margin="227,0,0,0" Title="">
+        <Pivot x:ConnectionId='5' x:Name="pivot" Margin="227,0,0,0" Title="" RenderTransformOrigin="0.5,0.5">
+            <Pivot.RenderTransform>
+                <CompositeTransform/>
+            </Pivot.RenderTransform>
             <PivotItem Header="Personnalisation">
                 <Grid>
                     <Rectangle Fill="#33D1D1D1" Height="82" Margin="-11,261,10,0" Stroke="#7F838383" VerticalAlignment="Top"/>
 
                     <Rectangle Fill="#33D1D1D1" Height="82" Margin="-11,20,10,0" Stroke="#7F838383" VerticalAlignment="Top"/>
                     <Rectangle Fill="#33D1D1D1" Height="122" Margin="-11,118,10,0" Stroke="#7F838383" VerticalAlignment="Top"/>
-                    <Grid x:ConnectionId='5' x:Name="DefaultThemeColor" HorizontalAlignment="Left" Height="10" Margin="268,207,0,0" VerticalAlignment="Top" Width="9" Background="{ThemeResource ContentDialogBorderThemeBrush}" Visibility="Collapsed"/>
-                    <ComboBox x:ConnectionId='6' x:Name="Settings_SearchEngine" HorizontalAlignment="Left" Height="33" Margin="0,55,0,0" VerticalAlignment="Top" Width="181" SelectedIndex="1">
+                    <Grid x:ConnectionId='6' x:Name="DefaultThemeColor" HorizontalAlignment="Left" Height="10" Margin="268,207,0,0" VerticalAlignment="Top" Width="9" Background="{ThemeResource ContentDialogBorderThemeBrush}" Visibility="Collapsed"/>
+                    <ComboBox x:ConnectionId='7' x:Name="Settings_SearchEngine" HorizontalAlignment="Left" Height="33" Margin="0,55,0,0" VerticalAlignment="Top" Width="181" SelectedIndex="1">
                         <ComboBoxItem Content="Bing"/>
                         <ComboBoxItem Content="Qwant"/>
                         <ComboBoxItem Content="DuckDuckGo"/>
@@ -131,19 +190,19 @@
                         <ComboBoxItem Content="&lt;Personnaliser&gt;"/>
                     </ComboBox>
                     <TextBlock HorizontalAlignment="Left" Margin="0,30,0,0" TextWrapping="Wrap" Text="Moteur de recherche" VerticalAlignment="Top"/>
-                    <Grid x:ConnectionId='7' x:Name="PersonnalizeColorGrid" HorizontalAlignment="Left" Height="40" Margin="238,189,0,0" VerticalAlignment="Top" Width="529" Background="#33C7C7C7" BorderBrush="#337C7C7C" BorderThickness="1" CornerRadius="20" Visibility="Collapsed">
-                        <Slider x:ConnectionId='14' x:Name="RedSlider" HorizontalAlignment="Left" Height="40" Margin="30,0,0,0" VerticalAlignment="Top" Width="86" Foreground="#00000000" Background="Red" Maximum="255" LargeChange="10"/>
-                        <Grid x:ConnectionId='15' x:Name="Color1_But" HorizontalAlignment="Left" Height="21" Margin="497,8,0,0" VerticalAlignment="Top" Width="21" Background="#FF29CAE4" CornerRadius="20" BorderThickness="0"/>
-                        <Slider x:ConnectionId='16' x:Name="GreenSlider" HorizontalAlignment="Left" Height="40" Margin="142,0,0,0" VerticalAlignment="Top" Width="86" Foreground="#00000000" Background="#FF00FF17" BorderThickness="0" Maximum="255"/>
-                        <Slider x:ConnectionId='17' x:Name="BlueSlider" HorizontalAlignment="Left" Height="40" Margin="257,0,0,0" VerticalAlignment="Top" Width="86" Foreground="#00000000" Background="#FF0051FF" Maximum="255"/>
-                        <Slider x:ConnectionId='18' x:Name="AlphaSlider" HorizontalAlignment="Left" Height="40" Margin="386,0,0,0" VerticalAlignment="Top" Width="61" Foreground="#00000000" Background="#4C939393" Maximum="255"/>
+                    <Grid x:ConnectionId='8' x:Name="PersonnalizeColorGrid" HorizontalAlignment="Left" Height="40" Margin="238,189,0,0" VerticalAlignment="Top" Width="529" Background="#33C7C7C7" BorderBrush="#337C7C7C" BorderThickness="1" CornerRadius="20" Visibility="Collapsed">
+                        <Slider x:ConnectionId='15' x:Name="RedSlider" HorizontalAlignment="Left" Height="40" Margin="30,0,0,0" VerticalAlignment="Top" Width="86" Foreground="#00000000" Background="Red" Maximum="255" LargeChange="10"/>
+                        <Grid x:ConnectionId='16' x:Name="Color1_But" HorizontalAlignment="Left" Height="21" Margin="497,8,0,0" VerticalAlignment="Top" Width="21" Background="#FF29CAE4" CornerRadius="20" BorderThickness="0"/>
+                        <Slider x:ConnectionId='17' x:Name="GreenSlider" HorizontalAlignment="Left" Height="40" Margin="142,0,0,0" VerticalAlignment="Top" Width="86" Foreground="#00000000" Background="#FF00FF17" BorderThickness="0" Maximum="255"/>
+                        <Slider x:ConnectionId='18' x:Name="BlueSlider" HorizontalAlignment="Left" Height="40" Margin="257,0,0,0" VerticalAlignment="Top" Width="86" Foreground="#00000000" Background="#FF0051FF" Maximum="255"/>
+                        <Slider x:ConnectionId='19' x:Name="AlphaSlider" HorizontalAlignment="Left" Height="40" Margin="386,0,0,0" VerticalAlignment="Top" Width="61" Foreground="#00000000" Background="#4C939393" Maximum="255"/>
                     </Grid>
-                    <ToggleSwitch x:ConnectionId='8' x:Name="Theme_switch" Header="Thème" HorizontalAlignment="Left" Margin="0,129,0,0" VerticalAlignment="Top" OffContent="Clair" OnContent="Sombre"/>
-                    <TextBox x:ConnectionId='9' x:Name="SearchEngine_1" HorizontalAlignment="Left" Margin="195,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="33" Width="405" Visibility="Collapsed"/>
-                    <TextBox x:ConnectionId='10' x:Name="SearchEngine_2" HorizontalAlignment="Left" Margin="688,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="33" Width="124" Visibility="Collapsed"/>
-                    <TextBox x:ConnectionId='11' x:Name="Startpage_Settings" Margin="0,294,192,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Height="33"/>
-                    <TextBlock x:ConnectionId='12' x:Name="searchengine3" HorizontalAlignment="Left" Margin="612,61,0,0" TextWrapping="Wrap" Text="mots-clés" VerticalAlignment="Top" Foreground="#FF898989" Visibility="Collapsed"/>
-                    <ToggleSwitch x:ConnectionId='13' x:Name="Color_Switch" Header="" HorizontalAlignment="Left" Height="37" Margin="0,189,0,0" VerticalAlignment="Top" Width="238" OnContent="Couleur automatique" OffContent="Couleur personnalisée"/>
+                    <ToggleSwitch x:ConnectionId='9' x:Name="Theme_switch" Header="Thème" HorizontalAlignment="Left" Margin="0,129,0,0" VerticalAlignment="Top" OffContent="Clair" OnContent="Sombre"/>
+                    <TextBox x:ConnectionId='10' x:Name="SearchEngine_1" HorizontalAlignment="Left" Margin="195,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="33" Width="405" Visibility="Collapsed"/>
+                    <TextBox x:ConnectionId='11' x:Name="SearchEngine_2" HorizontalAlignment="Left" Margin="688,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="33" Width="124" Visibility="Collapsed"/>
+                    <TextBox x:ConnectionId='12' x:Name="Startpage_Settings" Margin="0,294,192,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Height="33"/>
+                    <TextBlock x:ConnectionId='13' x:Name="searchengine3" HorizontalAlignment="Left" Margin="612,61,0,0" TextWrapping="Wrap" Text="mots-clés" VerticalAlignment="Top" Foreground="#FF898989" Visibility="Collapsed"/>
+                    <ToggleSwitch x:ConnectionId='14' x:Name="Color_Switch" Header="" HorizontalAlignment="Left" Height="37" Margin="0,189,0,0" VerticalAlignment="Top" Width="238" OnContent="Couleur personnalisée" OffContent="Couleur automatique"/>
                     <TextBlock HorizontalAlignment="Left" Margin="0,269,0,0" TextWrapping="Wrap" Text="Page d'accueil" VerticalAlignment="Top"/>
                     <CheckBox Content="Utiliser Bluestart" HorizontalAlignment="Right" Margin="0,295,25,0" VerticalAlignment="Top" Width="143"/>
                 </Grid>
