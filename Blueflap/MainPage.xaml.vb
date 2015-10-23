@@ -10,8 +10,8 @@ Public NotInheritable Class MainPage
         AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf MainPage_BackRequested
     End Sub
     Private Sub MainPage_BackRequested(sender As Object, e As Windows.UI.Core.BackRequestedEventArgs)
+        'Appui sur la touche retour "physique" d'un appareil Windows
         If Not Frame.CanGoBack Then
-
             If web.CanGoBack Then
                 e.Handled = True
                 web.GoBack()
@@ -61,6 +61,7 @@ Public NotInheritable Class MainPage
         BackForward()
         FirstLaunch()
 
+        'Vérification de la page d'accueil
         If AdressBox.Text = "about:blank" Then
             Try
                 web.Navigate(New Uri(localSettings.Values("Homepage")))
@@ -74,6 +75,7 @@ Public NotInheritable Class MainPage
             End Try
         End If
 
+        'Définition du thème avec couleur personnalisée
         Try
             If localSettings.Values("CustomColorEnabled") = True Then
                 LeftMenu.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
@@ -83,14 +85,19 @@ Public NotInheritable Class MainPage
         Catch
         End Try
 
+        'Animation d'ouverture de Blueflap
+        EnterAnim.Begin()
     End Sub
 
     Private Sub BackForward()
-        StopEnabled.Stop()
+        'Blueflap gère ici le placement des boutons dans le menu latéral après chaque page chargée
+
+        StopEnabled.Stop() 'Ce sont des animation pour le bouton stop/Refresh
         RefreshEnabled.Begin()
 
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
+        'A terme ceci sera dynamique en fonction des éléments que l'utilisateur a choisi pour le menu
         localSettings.Values("FightBut_Top") = 242
         localSettings.Values("lockBut_Top") = 286
         localSettings.Values("memoBut_Top") = 330
@@ -156,16 +163,30 @@ Public NotInheritable Class MainPage
         AdressBox.Text = web.Source.ToString
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
+
+        'Met à jour les stats dispos dans les paramètres de Blueflap
         Try
             localSettings.Values("Stat1") = localSettings.Values("Stat1") + 1
         Catch
             localSettings.Values("Stat1") = 1
         End Try
+
         BackForward()
+
     End Sub
 
     Private Sub web_LoadCompleted(sender As Object, e As NavigationEventArgs) Handles web.LoadCompleted
         'Page chargée
+
+        ' Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        ' Try
+        'If localSettings.Values("Adblock") = "En fonction" Then
+        '       web.Navigate(New Uri(localSettings.Values("AdblockFonction")))
+        '  End If
+        ' Catch
+        ' localSettings.Values("Adblock") = "Désactivé"
+        ' End Try
+
         AdressBox.Text = web.Source.ToString
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
@@ -176,6 +197,7 @@ Public NotInheritable Class MainPage
         'Clic sur le bouton home
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
+        'Vérification de l'existence d'une page d'accueil valide
         Try
             web.Navigate(New Uri(localSettings.Values("Homepage")))
         Catch
@@ -204,7 +226,7 @@ Public NotInheritable Class MainPage
                 End If
 
             Else
-                Try
+                Try 'On teste si le moteur de recherche défini par l'utilisateur est valide
                     Dim Rech As String
                     Rech = AdressBox.Text
                     Dim s As String
@@ -232,6 +254,8 @@ Public NotInheritable Class MainPage
     End Sub
 
     Private Sub Strefresh_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Strefresh_Button.Tapped
+        'C'est ici que notre bouton va devoir faire un choix... Devenir un bouton stop... Ou un bouton Refresh... LE SUSPENS EST A SON COMBLE !
+
         If Strefresh_Button.Content = "" Then
             web.Refresh() 'Permet d'activer le ventilateur pour que votre PC ait moins chaud... Ahaha...Je suis trop drôle... En vrai ça sert juste à actualiser la page
             StopEnabled.Stop()
@@ -268,6 +292,7 @@ Public NotInheritable Class MainPage
     Private Sub Memo_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_Button.Tapped
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
+        'Soit on ouvre le volet des mémos, soit on le ferme (s'il est déjà ouvert)
         If MemoPanel.Visibility = Visibility.Collapsed Then
             MemoPopOut.Stop()
             MemoPopIN.Begin()
@@ -277,7 +302,7 @@ Public NotInheritable Class MainPage
             End Try
             LeftPanelShadow.Visibility = Visibility.Visible
             Try
-                If localSettings.Values("AncrageMemo") = True Then
+                If localSettings.Values("AncrageMemo") = True Then 'On  vérifie si l'utilisateur a ancré le volet des mémos
                     web.Margin = New Thickness(48, 66, 261, 0)
                     LeftPanelShadow.Visibility = Visibility.Collapsed
                 End If
@@ -294,10 +319,11 @@ Public NotInheritable Class MainPage
 
     Private Sub MemoText_TextChanged(sender As Object, e As TextChangedEventArgs) Handles MemoText.TextChanged
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        localSettings.Values("MemoText") = MemoText.Text
+        localSettings.Values("MemoText") = MemoText.Text 'Là on enregistre le texte des mémos en continu
     End Sub
 
     Private Sub MemoPanel_LostFocus(sender As Object, e As RoutedEventArgs) Handles MemoPanel.LostFocus
+        'Pour aller plus vite, Quand on a fini d'écrire, le volet se referme tout seul
         If web.Margin.Right = 0 Then
             MemoPopIN.Stop()
             MemoPopOut.Begin()
@@ -305,6 +331,7 @@ Public NotInheritable Class MainPage
     End Sub
 
     Private Sub MemoAncrageToggle_Toggled(sender As Object, e As RoutedEventArgs) Handles MemoAncrageToggle.Toggled
+        'L'utilisateur choisi d'ancrer ou non le volet des mémos
         If MemoAncrageToggle.IsOn Then
             web.Margin = New Thickness(48, 66, 261, 0)
             LeftPanelShadow.Visibility = Visibility.Collapsed
@@ -317,6 +344,7 @@ Public NotInheritable Class MainPage
     End Sub
 
     Private Sub Fight_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Fight_Button.Tapped
+        'Ouvre SearchFight
         Me.Frame.Navigate(GetType(SearchFight))
     End Sub
 End Class

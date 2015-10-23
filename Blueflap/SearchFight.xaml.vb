@@ -10,6 +10,7 @@ Public NotInheritable Class SearchFight
         AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf MainPage_BackRequested
     End Sub
     Private Sub MainPage_BackRequested(sender As Object, e As Windows.UI.Core.BackRequestedEventArgs)
+        'On retourne à la page principale quand le bouton retour "physique" est pressé
         If Frame.CanGoBack Then
             e.Handled = True
             Frame.GoBack()
@@ -17,7 +18,7 @@ Public NotInheritable Class SearchFight
     End Sub
     Private Sub ComboBox_DropDownClosed(sender As Object, e As Object)
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        'Définit les valeurs du moteur de recherche tel que le navigateur navigue vers (A1 + Mots-clés + A2) = URI
+        'Définit les valeurs du moteur de recherche pour le côté Gauche
 
         If FightBox1.SelectedIndex = 1 Then
             localSettings.Values("F1Text") = "QWANT"
@@ -66,7 +67,7 @@ Public NotInheritable Class SearchFight
 
     Private Sub FightBox2_DropDownClosed(sender As Object, e As Object) Handles FightBox2.DropDownClosed
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        'Définit les valeurs du moteur de recherche tel que le navigateur navigue vers (A1 + Mots-clés + A2) = URI
+        'Définit les valeurs du moteur de recherche pour le côté Droit
 
         If FightBox2.SelectedIndex = 1 Then
             localSettings.Values("F2Text") = "QWANT"
@@ -113,6 +114,8 @@ Public NotInheritable Class SearchFight
         'End If
     End Sub
     Private Sub Fight()
+        'On lance la navigation simultannée des deux WebView
+
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         localSettings.Values("textboxe") = AdressBox.Text
         localSettings.Values("F2Index") = FightBox2.SelectedIndex
@@ -194,28 +197,33 @@ Public NotInheritable Class SearchFight
             W2.Navigate(New Uri("http://twitter.com/search?q=" + localSettings.Values("textboxe")))
         End If
 
+        'Incrémentation des statistiques concernant SearchFight dans les paramètres de Blueflap
         Try
             localSettings.Values("Stat2") = localSettings.Values("Stat2") + 1
         Catch
             localSettings.Values("Stat2") = 1
         End Try
 
+        'Affichage des petites billes de chargement
         localSettings.Values("Loaded1") = "Chargement"
         localSettings.Values("Loaded2") = "Chargement"
         load.IsActive = True
     End Sub
     Private Sub AdressBox_KeyDown(sender As Object, e As KeyRoutedEventArgs) Handles AdressBox.KeyDown
+        'Lance un combat en appuyant sur la touche ENTREE dans la textbox
         If (e.Key = Windows.System.VirtualKey.Enter) Then
             Fight()
         End If
     End Sub
 
     Private Sub Page_SizeChanged(sender As Object, e As SizeChangedEventArgs)
+        'Pour que chaque Webview prenne la moitié de la fenêtre
         W1.Width = (Page.ActualWidth / 2) - 2
         W2.Width = (Page.ActualWidth / 2) - 2
     End Sub
 
     Private Sub Page_Loaded_1(sender As Object, e As RoutedEventArgs) Handles Page.Loaded
+        'Là on a tout ce qui concerne l'initialisation de Blueflap : thème, valeurs des combobox, animation d'arrivée...
         OpenAnim.Begin()
         W1.Width = (Page.ActualWidth / 2) - 2
         W2.Width = (Page.ActualWidth / 2) - 2
@@ -239,16 +247,19 @@ Public NotInheritable Class SearchFight
     End Sub
 
     Private Sub Fight_Butt_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Fight_Butt.Tapped
+        'Cette fois on lance le combar en appuyant sur un bouton rechercher
         Fight()
     End Sub
 
     Private Sub Button_Tapped(sender As Object, e As TappedRoutedEventArgs)
+        'Retour à la page précédente avec appui sur le bouton Back
         If Frame.CanGoBack Then
             Frame.GoBack()
         End If
     End Sub
 
     Private Sub W1_NavigationCompleted(sender As WebView, args As WebViewNavigationCompletedEventArgs) Handles W1.NavigationCompleted
+        'On affiche ou non les petites billes de chargement
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         localSettings.Values("Loaded1") = "Chargé"
         If localSettings.Values("Loaded2") = "Chargé" Then
@@ -257,6 +268,7 @@ Public NotInheritable Class SearchFight
     End Sub
 
     Private Sub W2_NavigationCompleted(sender As WebView, args As WebViewNavigationCompletedEventArgs) Handles W2.NavigationCompleted
+        'On affiche ou non les petites billes de chargement
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         localSettings.Values("Loaded2") = "Chargé"
         If localSettings.Values("Loaded1") = "Chargé" Then

@@ -10,6 +10,7 @@ Public NotInheritable Class Parametres
         AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf MainPage_BackRequested
     End Sub
     Private Sub MainPage_BackRequested(sender As Object, e As Windows.UI.Core.BackRequestedEventArgs)
+        'On retourne à la page principale quand le bouton retour "physique" est pressé
         If Frame.CanGoBack Then
             e.Handled = True
             Frame.GoBack()
@@ -25,6 +26,12 @@ Public NotInheritable Class Parametres
             Theme_switch.IsOn = True
         Else
             Theme_switch.IsOn = False
+        End If
+
+        If localSettings.Values("Adblock") = "En fonction" Then 'Censé définit la bonne position du Toggle Switch Adblock
+            Adblock_Switch.IsOn = True
+        Else
+            Adblock_Switch.IsOn = false
         End If
 
         Settings_SearchEngine.SelectedIndex = localSettings.Values("SearchEngineIndex") 'Définit la bonne valeur pour la combobox moteurs de recherches
@@ -56,7 +63,7 @@ Public NotInheritable Class Parametres
         End Try
         localSettings.Values("OppeningSettings") = False
 
-        Try
+        Try 'Applique la couleur de thème personnalisée aux paramètres (si l'option est activée)
             If localSettings.Values("CustomColorEnabled") = True Then
                 Color_Switch.IsOn = True
                 PersonnalizeColorGrid.Visibility = Visibility.Visible
@@ -67,18 +74,18 @@ Public NotInheritable Class Parametres
             End If
         Catch
         End Try
+
+        'Là Blueflap affiche les statistiques d'utilisation (dans le volet à gauche)
         Try
             Stat1.Text = localSettings.Values("Stat1")
         Catch
             localSettings.Values("Stat1") = 0
         End Try
-
         Try
             Stat2.Text = localSettings.Values("Stat2")
         Catch
             localSettings.Values("Stat2") = 0
         End Try
-
         If Stat1.Text < 50 Then
             Stat3.Text = "Novice"
         ElseIf Stat1.Text < 100 Then
@@ -126,6 +133,7 @@ Public NotInheritable Class Parametres
     End Sub
 
     Private Sub Button_Tapped(sender As Object, e As TappedRoutedEventArgs)
+        'Retour à la page principal quand on appui sur le bouton back en haut à gauche
         If Frame.CanGoBack Then
             Frame.GoBack()
             SaveSettings()
@@ -201,12 +209,19 @@ Public NotInheritable Class Parametres
         ChangeSearchEngine()
         localSettings.Values("SearchEngineIndex") = Settings_SearchEngine.SelectedIndex
         localSettings.Values("Homepage") = Startpage_Settings.Text
+
+        If Adblock_Switch.IsOn Then
+            localSettings.Values("Adblock") = "En fonction"
+        Else
+            localSettings.Values("Adblock") = "Desactivé"
+        End If
+        localSettings.Values("AdblockFonction") = Adblock_Switch.Tag.ToString
     End Sub
 
     Private Sub Startpage_Settings_TextChanged(sender As Object, e As TextChangedEventArgs) Handles Startpage_Settings.TextChanged
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
-        localSettings.Values("Homepage") = Startpage_Settings.Text
+        localSettings.Values("Homepage") = Startpage_Settings.Text 'On enregistre la page d'accueil définie par l'utilisateur
     End Sub
 
     Private Sub Settings_SearchEngine_DropDownClosed(sender As Object, e As Object) Handles Settings_SearchEngine.DropDownClosed
@@ -230,12 +245,14 @@ Public NotInheritable Class Parametres
     End Sub
 
     Private Sub SetcolorPicker()
+        'On applique le thème personnalisé en temps réel
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         Color1_But.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
         grid.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
     End Sub
 
     Private Sub RedSlider_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles RedSlider.ValueChanged
+        'On applique le thème personnalisé en temps réel
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         If Not localSettings.Values("OppeningSettings") = True Then
             localSettings.Values("CustomColorA") = RedSlider.Value
@@ -244,6 +261,7 @@ Public NotInheritable Class Parametres
     End Sub
 
     Private Sub GreenSlider_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles GreenSlider.ValueChanged
+        'On applique le thème personnalisé en temps réel
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         If Not localSettings.Values("OppeningSettings") = True Then
             localSettings.Values("CustomColorB") = GreenSlider.Value
@@ -252,6 +270,7 @@ Public NotInheritable Class Parametres
     End Sub
 
     Private Sub BlueSlider_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles BlueSlider.ValueChanged
+        'On applique le thème personnalisé en temps réel
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         If Not localSettings.Values("OppeningSettings") = True Then
             localSettings.Values("CustomColorC") = BlueSlider.Value
@@ -260,10 +279,24 @@ Public NotInheritable Class Parametres
     End Sub
 
     Private Sub AlphaSlider_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles AlphaSlider.ValueChanged
+        'On applique le thème personnalisé en temps réel
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         If Not localSettings.Values("OppeningSettings") = True Then
             localSettings.Values("CustomColorD") = AlphaSlider.Value
             SetcolorPicker()
         End If
+    End Sub
+
+    Private Sub Adblock_Switch_Toggled(sender As Object, e As RoutedEventArgs) Handles Adblock_Switch.Toggled
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        'Activation du bloqueur de pubs
+        If Adblock_Switch.IsOn Then
+            localSettings.Values("Adblock") = "En fonction"
+
+        Else
+            localSettings.Values("Adblock") = "Desactivé"
+        End If
+        localSettings.Values("AdblockFonction") = Adblock_Switch.Tag.ToString
     End Sub
 End Class

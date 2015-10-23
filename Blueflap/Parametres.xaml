@@ -208,7 +208,10 @@
                 </Grid>
             </PivotItem>
             <PivotItem Header="Options avancées">
-                <Grid/>
+                <Grid>
+                    <Rectangle Fill="#33D1D1D1" Height="82" Margin="-11,20,10,0" Stroke="#7F838383" VerticalAlignment="Top"/>
+                    <ToggleSwitch x:Name="Adblock_Switch" Header="Bloqueur de publicités" HorizontalAlignment="Left" Margin="0,32,0,0" VerticalAlignment="Top" OffContent="Desactivé" OnContent="Activé" Tag="javascript:(function(){function R(w){try{var d=w.document,j,i,t,T,N,b,r=1,C;for(j=0;t=[&quot;object&quot;,&quot;embed&quot;,&quot;applet&quot;,&quot;iframe&quot;][j];++j){T=d.getElementsByTagName(t);for(i=T.length-1;(i+1)&amp;&amp;(N=T[i]);--i)if(j!=3||!R((C=N.contentWindow)?C:N.contentDocument.defaultView)){b=d.createElement(&quot;div&quot;);b.style.width=N.width; b.style.height=N.height;b.innerHTML=&quot;&lt;del&gt;&quot;+(j==3?&quot;third-party &quot;+t:t)+&quot;&lt;/del&gt;&quot;;N.parentNode.replaceChild(b,N);}}}catch(E){r=0}return r}R(self);var i,x;for(i=0;x=frames[i];++i)R(x)})()"/>
+                </Grid>
             </PivotItem>
             <PivotItem Header="À propos" Margin="12,0">
                 <Grid/>
