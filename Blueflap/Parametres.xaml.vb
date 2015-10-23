@@ -73,6 +73,12 @@ Public NotInheritable Class Parametres
             localSettings.Values("Stat1") = 0
         End Try
 
+        Try
+            Stat2.Text = localSettings.Values("Stat2")
+        Catch
+            localSettings.Values("Stat2") = 0
+        End Try
+
         If Stat1.Text < 50 Then
             Stat3.Text = "Novice"
         ElseIf Stat1.Text < 100 Then

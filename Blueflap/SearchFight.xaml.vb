@@ -194,6 +194,12 @@ Public NotInheritable Class SearchFight
             W2.Navigate(New Uri("http://twitter.com/search?q=" + localSettings.Values("textboxe")))
         End If
 
+        Try
+            localSettings.Values("Stat2") = localSettings.Values("Stat2") + 1
+        Catch
+            localSettings.Values("Stat2") = 1
+        End Try
+
         localSettings.Values("Loaded1") = "Chargement"
         localSettings.Values("Loaded2") = "Chargement"
         load.IsActive = True
