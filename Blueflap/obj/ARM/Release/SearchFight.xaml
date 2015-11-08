@@ -1,0 +1,192 @@
+﻿<Page x:ConnectionId='1' x:Name="Page"
+    x:Class="Blueflap.SearchFight"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Blueflap"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"                                NavigationCacheMode="Enabled">
+    <Page.Resources>
+        <Storyboard x:ConnectionId='2' x:Name="OpenAnim">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Fightbar">
+                <EasingColorKeyFrame KeyTime="0" Value="WhiteSmoke"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.5" Value="WhiteSmoke"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="0" To="0.3" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Window_Title" d:IsOptimized="True"/>
+            <ColorAnimation Duration="0" To="Black" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="Window_Title" d:IsOptimized="True"/>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0" Value="243"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="button">
+                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="0:0:0.5" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="rectangle" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="button">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="AdressBox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-15"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="FightBox1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-15"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="FightBox2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-15"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Fight_Butt">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-15"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="AdressBox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="FightBox1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="FightBox2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Fight_Butt">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Fightbar">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-15"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0" Value="7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="button">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+
+    <Grid Background="#FFB9B9B9">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
+        <Grid x:ConnectionId='3' x:Name="DefaultThemeColor" HorizontalAlignment="Left" Height="10" Margin="268,207,-229,0" VerticalAlignment="Top" Width="9" Background="{ThemeResource ContentDialogBorderThemeBrush}" Visibility="Collapsed"/>
+        <Grid x:ConnectionId='4' x:Name="Fightbar" Height="81" VerticalAlignment="Top" Background="WhiteSmoke" RequestedTheme="Light" Margin="48,0,0,0" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
+            <TextBox x:ConnectionId='9' x:Name="AdressBox" Margin="11,39,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" FontSize="16" Height="32" BorderThickness="1" HorizontalAlignment="Left" Width="219" RenderTransformOrigin="0.5,0.5">
+                <TextBox.RenderTransform>
+                    <CompositeTransform/>
+                </TextBox.RenderTransform>
+            </TextBox>
+            <TextBlock x:ConnectionId='10' x:Name="Window_Title" HorizontalAlignment="Left" Margin="12,10,0,0" TextWrapping="Wrap" Text="SEARCHFIGHT" VerticalAlignment="Top" Opacity="0.295" FontSize="12"/>
+            <ComboBox x:ConnectionId='11' x:Name="FightBox1" HorizontalAlignment="Left" Margin="307,39,0,0" VerticalAlignment="Top" Width="162" BorderThickness="1" BorderBrush="#66636363" SelectedIndex="0"                                          RenderTransformOrigin="0.5,0.5">
+                <ComboBox.RenderTransform>
+                    <CompositeTransform/>
+                </ComboBox.RenderTransform>
+                <ComboBoxItem Content="Bing"/>
+                <ComboBoxItem Content="Qwant"/>
+                <ComboBoxItem Content="DuckDuckGo"/>
+                <ComboBoxItem Content="Yahoo"/>
+                <ComboBoxItem Content="Google"/>
+                <ComboBoxItem Content="Qwant (Web)"/>
+                <ComboBoxItem Content="Ask"/>
+                <ComboBoxItem Content="Youtube"/>
+                <ComboBoxItem Content="Dreamvids"/>
+                <ComboBoxItem Content="Dailymotion"/>
+                <ComboBoxItem Content="Wikipedia"/>
+                <ComboBoxItem Content="Twitter"/>
+            </ComboBox>
+            <ComboBox x:ConnectionId='12' x:Name="FightBox2" HorizontalAlignment="Left" Margin="474,39,0,0" VerticalAlignment="Top" Width="162" BorderThickness="1" BorderBrush="#66636363" SelectedIndex="0" RenderTransformOrigin="0.5,0.5">
+                <ComboBox.RenderTransform>
+                    <CompositeTransform/>
+                </ComboBox.RenderTransform>
+                <ComboBoxItem Content="Bing"/>
+                <ComboBoxItem Content="Qwant"/>
+                <ComboBoxItem Content="DuckDuckGo"/>
+                <ComboBoxItem Content="Yahoo"/>
+                <ComboBoxItem Content="Google"/>
+                <ComboBoxItem Content="Qwant (Web)"/>
+                <ComboBoxItem Content="Ask"/>
+                <ComboBoxItem Content="Youtube"/>
+                <ComboBoxItem Content="Dreamvids"/>
+                <ComboBoxItem Content="Dailymotion"/>
+                <ComboBoxItem Content="Wikipedia"/>
+                <ComboBoxItem Content="Twitter"/>
+            </ComboBox>
+            <Button x:ConnectionId='13' x:Name="Fight_Butt" Content="&#xE11A;" HorizontalAlignment="Left" Height="32" Margin="229,39,0,0" VerticalAlignment="Top" Width="32" BorderBrush="#66000000" BorderThickness="1" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="13.333" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <CompositeTransform/>
+                </Button.RenderTransform>
+            </Button>
+            <ProgressRing x:ConnectionId='14' x:Name="load" HorizontalAlignment="Left" Margin="266,45,0,0" VerticalAlignment="Top" Background="{x:Null}"/>
+        </Grid>
+        <WebView x:ConnectionId='5' x:Name="W1" HorizontalAlignment="Left" Margin="0,81,0,0" Width="514" Grid.RowSpan="2"/>
+        <WebView x:ConnectionId='6' x:Name="W2" HorizontalAlignment="Right" Margin="0,81,0,0" Width="514" Grid.RowSpan="2"/>
+        <Rectangle x:ConnectionId='7' x:Name="rectangle" Fill="{ThemeResource ContentDialogBorderThemeBrush}" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <CompositeTransform/>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Button x:ConnectionId='8' x:Name="button" Content="&#xE0C4;" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5" Background="#00000000"                        RequestedTheme="Light" FontFamily="Segoe MDL2 Assets" FontWeight="Bold" FontSize="16" BorderThickness="0">
+            <Button.RenderTransform>
+                <CompositeTransform/>
+            </Button.RenderTransform>
+            <Button.Foreground>
+                <SolidColorBrush Color="White"/>
+            </Button.Foreground>
+        </Button>
+
+    </Grid>
+</Page>
+

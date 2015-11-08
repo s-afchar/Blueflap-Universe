@@ -96,18 +96,20 @@ Namespace Global.Blueflap.Blueflap_XamlTypeInfo
         Private _xamlTypeCacheByType As New Global.System.Collections.Generic.Dictionary(Of Global.System.Type, Global.Windows.UI.Xaml.Markup.IXamlType)()
         Private _xamlMembers As New Global.System.Collections.Generic.Dictionary(Of String, Global.Windows.UI.Xaml.Markup.IXamlMember)()
 
-        Private _typeNameTable(3) As String
-        Private _typeTable(3) As Global.System.Type
+        Private _typeNameTable(4) As String
+        Private _typeTable(4) As Global.System.Type
 
         Private Sub InitTypeTables()
             _typeNameTable(0) = "Blueflap.MainPage"
             _typeNameTable(1) = "Windows.UI.Xaml.Controls.Page"
             _typeNameTable(2) = "Windows.UI.Xaml.Controls.UserControl"
             _typeNameTable(3) = "Blueflap.Parametres"
+            _typeNameTable(4) = "Blueflap.SearchFight"
             _typeTable(0) = GetType(Global.Blueflap.MainPage)
             _typeTable(1) = GetType(Global.Windows.UI.Xaml.Controls.Page)
             _typeTable(2) = GetType(Global.Windows.UI.Xaml.Controls.UserControl)
             _typeTable(3) = GetType(Global.Blueflap.Parametres)
+            _typeTable(4) = GetType(Global.Blueflap.SearchFight)
         End Sub
 
         Private Function LookupTypeIndexByName(ByVal typeName As String) As Integer
@@ -142,6 +144,10 @@ Namespace Global.Blueflap.Blueflap_XamlTypeInfo
             Return New Global.Blueflap.Parametres()
         End Function
 
+        Private Function Activate_4_SearchFight() As Global.System.Object
+            Return New Global.Blueflap.SearchFight()
+        End Function
+
 
         Private Function CreateXamlType(ByVal typeIndex As Integer) As Global.Windows.UI.Xaml.Markup.IXamlType
             Dim xamlType As Global.Blueflap.Blueflap_XamlTypeInfo.XamlSystemBaseType = Nothing
@@ -165,6 +171,12 @@ Namespace Global.Blueflap.Blueflap_XamlTypeInfo
             Case 3     ' Blueflap.Parametres
                 userType = New Global.Blueflap.Blueflap_XamlTypeInfo.XamlUserType(Me, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"))
                 userType.Activator = AddressOf Activate_3_Parametres
+                userType.SetIsLocalType()
+                xamlType = userType
+
+            Case 4     ' Blueflap.SearchFight
+                userType = New Global.Blueflap.Blueflap_XamlTypeInfo.XamlUserType(Me, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"))
+                userType.Activator = AddressOf Activate_4_SearchFight
                 userType.SetIsLocalType()
                 xamlType = userType
 

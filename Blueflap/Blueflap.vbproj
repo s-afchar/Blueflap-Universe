@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\circle.png" />
+    <Content Include="Assets\surfacebook.png" />
     <Content Include="Assets\white_back.png" />
     <Content Include="Assets\white_full.png" />
     <Content Include="Assets\white_home.png" />
@@ -145,6 +146,7 @@
     <Content Include="Assets\white_spli.png" />
     <Content Include="Assets\white_stop.png" />
     <Content Include="Assets\white_tab.png" />
+    <Content Include="Assets\WindowsPhone.png" />
     <Content Include="My Project\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

@@ -104,6 +104,18 @@ Public NotInheritable Class Parametres
             Stat3.Text = "Would you marry Blueflap ?"
         End If
 
+        Try
+            Dim package As Windows.ApplicationModel.Package = Windows.ApplicationModel.Package.Current
+            Dim packageId As Windows.ApplicationModel.PackageId = package.Id
+            Dim version As Windows.ApplicationModel.PackageVersion = packageId.Version
+            Dim output As String = String.Format(
+      "{0}.{1}.{2}.{3}",
+    version.Major, version.Minor, version.Build, version.Revision)
+            Version_Info.Text = output.ToString
+        Catch
+            Version_Info.Text = "ERROR"
+        End Try
+
         ParamOpen.Stop()
         ParamOpen.Begin()
 
@@ -298,5 +310,18 @@ Public NotInheritable Class Parametres
             localSettings.Values("Adblock") = "Desactivé"
         End If
         localSettings.Values("AdblockFonction") = Adblock_Switch.Tag.ToString
+    End Sub
+
+    Private Sub ShowHideLicense_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles ShowHideLicense.Tapped
+        If textBox.Visibility = Visibility.Visible Then
+            ShowHideLicense.Content = ""
+            ShowOpenSourceLicence.Stop()
+            HideOpenSourceLicense.Begin()
+        Else
+            ShowHideLicense.Content = ""
+            HideOpenSourceLicense.Stop()
+            ShowOpenSourceLicence.Begin()
+        End If
+        textBox.Margin = New Thickness(10, 483, 0, 0)
     End Sub
 End Class

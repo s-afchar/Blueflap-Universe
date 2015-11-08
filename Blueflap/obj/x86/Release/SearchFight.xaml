@@ -119,17 +119,18 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="13*"/>
         </Grid.RowDefinitions>
-        <Grid x:ConnectionId='3' x:Name="Fightbar" Height="81" VerticalAlignment="Top" Background="WhiteSmoke" RequestedTheme="Light" Margin="48,0,0,0" RenderTransformOrigin="0.5,0.5">
+        <Grid x:ConnectionId='3' x:Name="DefaultThemeColor" HorizontalAlignment="Left" Height="10" Margin="268,207,-229,0" VerticalAlignment="Top" Width="9" Background="{ThemeResource ContentDialogBorderThemeBrush}" Visibility="Collapsed"/>
+        <Grid x:ConnectionId='4' x:Name="Fightbar" Height="81" VerticalAlignment="Top" Background="WhiteSmoke" RequestedTheme="Light" Margin="48,0,0,0" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <CompositeTransform/>
             </Grid.RenderTransform>
-            <TextBox x:ConnectionId='8' x:Name="AdressBox" Margin="11,39,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" FontSize="16" Height="32" BorderThickness="1" HorizontalAlignment="Left" Width="219" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:ConnectionId='9' x:Name="AdressBox" Margin="11,39,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" FontSize="16" Height="32" BorderThickness="1" HorizontalAlignment="Left" Width="219" RenderTransformOrigin="0.5,0.5">
                 <TextBox.RenderTransform>
                     <CompositeTransform/>
                 </TextBox.RenderTransform>
             </TextBox>
-            <TextBlock x:ConnectionId='9' x:Name="Window_Title" HorizontalAlignment="Left" Margin="12,10,0,0" TextWrapping="Wrap" Text="SEARCHFIGHT" VerticalAlignment="Top" Opacity="0.295" FontSize="12"/>
-            <ComboBox x:ConnectionId='10' x:Name="FightBox1" HorizontalAlignment="Left" Margin="307,39,0,0" VerticalAlignment="Top" Width="162" BorderThickness="1" BorderBrush="#66636363" SelectedIndex="0"                                          RenderTransformOrigin="0.5,0.5">
+            <TextBlock x:ConnectionId='10' x:Name="Window_Title" HorizontalAlignment="Left" Margin="12,10,0,0" TextWrapping="Wrap" Text="SEARCHFIGHT" VerticalAlignment="Top" Opacity="0.295" FontSize="12"/>
+            <ComboBox x:ConnectionId='11' x:Name="FightBox1" HorizontalAlignment="Left" Margin="307,39,0,0" VerticalAlignment="Top" Width="162" BorderThickness="1" BorderBrush="#66636363" SelectedIndex="0"                                          RenderTransformOrigin="0.5,0.5">
                 <ComboBox.RenderTransform>
                     <CompositeTransform/>
                 </ComboBox.RenderTransform>
@@ -146,7 +147,7 @@
                 <ComboBoxItem Content="Wikipedia"/>
                 <ComboBoxItem Content="Twitter"/>
             </ComboBox>
-            <ComboBox x:ConnectionId='11' x:Name="FightBox2" HorizontalAlignment="Left" Margin="474,39,0,0" VerticalAlignment="Top" Width="162" BorderThickness="1" BorderBrush="#66636363" SelectedIndex="0" RenderTransformOrigin="0.5,0.5">
+            <ComboBox x:ConnectionId='12' x:Name="FightBox2" HorizontalAlignment="Left" Margin="474,39,0,0" VerticalAlignment="Top" Width="162" BorderThickness="1" BorderBrush="#66636363" SelectedIndex="0" RenderTransformOrigin="0.5,0.5">
                 <ComboBox.RenderTransform>
                     <CompositeTransform/>
                 </ComboBox.RenderTransform>
@@ -163,21 +164,21 @@
                 <ComboBoxItem Content="Wikipedia"/>
                 <ComboBoxItem Content="Twitter"/>
             </ComboBox>
-            <Button x:ConnectionId='12' x:Name="Fight_Butt" Content="&#xE11A;" HorizontalAlignment="Left" Height="32" Margin="229,39,0,0" VerticalAlignment="Top" Width="32" BorderBrush="#66000000" BorderThickness="1" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="13.333" RenderTransformOrigin="0.5,0.5">
+            <Button x:ConnectionId='13' x:Name="Fight_Butt" Content="&#xE11A;" HorizontalAlignment="Left" Height="32" Margin="229,39,0,0" VerticalAlignment="Top" Width="32" BorderBrush="#66000000" BorderThickness="1" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="13.333" RenderTransformOrigin="0.5,0.5">
                 <Button.RenderTransform>
                     <CompositeTransform/>
                 </Button.RenderTransform>
             </Button>
-            <ProgressRing x:ConnectionId='13' x:Name="load" HorizontalAlignment="Left" Margin="266,45,0,0" VerticalAlignment="Top" Background="{x:Null}"/>
+            <ProgressRing x:ConnectionId='14' x:Name="load" HorizontalAlignment="Left" Margin="266,45,0,0" VerticalAlignment="Top" Background="{x:Null}"/>
         </Grid>
-        <WebView x:ConnectionId='4' x:Name="W1" HorizontalAlignment="Left" Margin="0,81,0,0" Width="514" Grid.RowSpan="2"/>
-        <WebView x:ConnectionId='5' x:Name="W2" HorizontalAlignment="Right" Margin="0,81,0,0" Width="514" Grid.RowSpan="2"/>
-        <Rectangle x:ConnectionId='6' x:Name="rectangle" Fill="{ThemeResource ContentDialogBorderThemeBrush}" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5">
+        <WebView x:ConnectionId='5' x:Name="W1" HorizontalAlignment="Left" Margin="0,81,0,0" Width="514" Grid.RowSpan="2"/>
+        <WebView x:ConnectionId='6' x:Name="W2" HorizontalAlignment="Right" Margin="0,81,0,0" Width="514" Grid.RowSpan="2"/>
+        <Rectangle x:ConnectionId='7' x:Name="rectangle" Fill="{ThemeResource ContentDialogBorderThemeBrush}" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <CompositeTransform/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Button x:ConnectionId='7' x:Name="button" Content="&#xE0C4;" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5" Background="#00000000"                        RequestedTheme="Light" FontFamily="Segoe MDL2 Assets" FontWeight="Bold" FontSize="16" BorderThickness="0">
+        <Button x:ConnectionId='8' x:Name="button" Content="&#xE0C4;" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5" Background="#00000000"                        RequestedTheme="Light" FontFamily="Segoe MDL2 Assets" FontWeight="Bold" FontSize="16" BorderThickness="0">
             <Button.RenderTransform>
                 <CompositeTransform/>
             </Button.RenderTransform>

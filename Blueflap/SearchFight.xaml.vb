@@ -229,10 +229,18 @@ Public NotInheritable Class SearchFight
         W2.Width = (Page.ActualWidth / 2) - 2
         W1.Navigate(New Uri("about:blank"))
         W2.Navigate(New Uri("about:blank"))
+
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        FightBox1.SelectedIndex = localSettings.Values("F1Index")
-        FightBox2.SelectedIndex = localSettings.Values("F2Index")
-        AdressBox.Text = localSettings.Values("textboxe")
+
+        Try
+            FightBox1.SelectedIndex = localSettings.Values("F1Index")
+            FightBox2.SelectedIndex = localSettings.Values("F2Index")
+            AdressBox.Text = localSettings.Values("textboxe")
+        Catch
+            FightBox1.SelectedIndex = 0
+            FightBox2.SelectedIndex = 1
+        End Try
+
         If localSettings.Values("DarkThemeEnabled") = True Then 'Theme Sombre
 
             Fightbar.RequestedTheme = ElementTheme.Dark
@@ -243,6 +251,19 @@ Public NotInheritable Class SearchFight
 
             Fightbar.RequestedTheme = ElementTheme.Light
         End If
+
+        Try
+            If localSettings.Values("CustomColorEnabled") = True Then
+                button.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
+                Fight_Butt.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
+                rectangle.Fill = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
+            Else
+                button.Background = DefaultThemeColor.Background
+                Fight_Butt.Background = DefaultThemeColor.Background
+                rectangle.Fill = DefaultThemeColor.Background
+            End If
+        Catch
+        End Try
 
     End Sub
 

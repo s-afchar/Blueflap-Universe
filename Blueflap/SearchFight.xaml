@@ -119,6 +119,7 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="13*"/>
         </Grid.RowDefinitions>
+        <Grid x:Name="DefaultThemeColor" HorizontalAlignment="Left" Height="10" Margin="268,207,-229,0" VerticalAlignment="Top" Width="9" Background="{ThemeResource ContentDialogBorderThemeBrush}" Visibility="Collapsed"/>
         <Grid x:Name="Fightbar" Height="81" VerticalAlignment="Top" Background="WhiteSmoke" RequestedTheme="Light" Margin="48,0,0,0" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <CompositeTransform/>

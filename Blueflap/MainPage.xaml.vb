@@ -1,4 +1,5 @@
 ﻿Imports Windows.UI.Notifications
+Imports Windows.ApplicationModel.DataTransfer
 Imports Windows.UI.Xaml.Controls
 ''' <summary>
 ''' Page dédiée à la navigation web
@@ -101,6 +102,7 @@ Public NotInheritable Class MainPage
         localSettings.Values("FightBut_Top") = 242
         localSettings.Values("lockBut_Top") = 286
         localSettings.Values("memoBut_Top") = 330
+        localSettings.Values("ShareBut_Top") = 374
 
         If web.CanGoBack And web.CanGoForward Then
             Back_Button.Visibility = Visibility.Visible
@@ -108,6 +110,7 @@ Public NotInheritable Class MainPage
             Fight_Button.Margin = New Thickness(3, localSettings.Values("FightBut_Top"), -1, 0)
             Lock_Button.Margin = New Thickness(3, localSettings.Values("lockBut_Top"), -1, 0)
             Memo_Button.Margin = New Thickness(3, localSettings.Values("memoBut_Top"), -1, 0)
+            Share_Button.Margin = New Thickness(3, localSettings.Values("ShareBut_Top"), -1, 0)
             Forward_Button.Margin = New Thickness(3, 198, -1, 0)
 
         ElseIf web.CanGoBack And web.CanGoForward = False Then
@@ -116,6 +119,7 @@ Public NotInheritable Class MainPage
             Fight_Button.Margin = New Thickness(3, localSettings.Values("FightBut_Top") - 44, -1, 0)
             Lock_Button.Margin = New Thickness(3, localSettings.Values("lockBut_Top") - 44, -1, 0)
             Memo_Button.Margin = New Thickness(3, localSettings.Values("memoBut_Top") - 44, -1, 0)
+            Share_Button.Margin = New Thickness(3, localSettings.Values("ShareBut_Top") - 44, -1, 0)
 
         ElseIf web.CanGoBack = False And web.CanGoForward Then
             Back_Button.Visibility = Visibility.Collapsed
@@ -123,6 +127,7 @@ Public NotInheritable Class MainPage
             Fight_Button.Margin = New Thickness(3, localSettings.Values("FightBut_Top") - 44, -1, 0)
             Lock_Button.Margin = New Thickness(3, localSettings.Values("lockBut_Top") - 44, -1, 0)
             Memo_Button.Margin = New Thickness(3, localSettings.Values("memoBut_Top") - 44, -1, 0)
+            Share_Button.Margin = New Thickness(3, localSettings.Values("ShareBut_Top") - 44, -1, 0)
             Forward_Button.Margin = New Thickness(3, 154, -1, 0)
 
         ElseIf web.CanGoBack = False And web.CanGoForward = False Then
@@ -131,6 +136,7 @@ Public NotInheritable Class MainPage
             Fight_Button.Margin = New Thickness(3, localSettings.Values("FightBut_Top") - 88, -1, 0)
             Lock_Button.Margin = New Thickness(3, localSettings.Values("lockBut_Top") - 88, -1, 0)
             Memo_Button.Margin = New Thickness(3, localSettings.Values("memoBut_Top") - 88, -1, 0)
+            Share_Button.Margin = New Thickness(3, localSettings.Values("ShareBut_Top") - 88, -1, 0)
         End If
 
         AdressBox.IsEnabled = False 'Autre solution provisoire (qui va sans doute rester) parce que sinon l'adressbox obtient le focus à l'ouverture allez savoir pourquoi...
@@ -171,6 +177,8 @@ Public NotInheritable Class MainPage
             localSettings.Values("Stat1") = 1
         End Try
 
+        SourceCode.Text = "..."
+
         BackForward()
 
     End Sub
@@ -190,6 +198,7 @@ Public NotInheritable Class MainPage
         AdressBox.Text = web.Source.ToString
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
+        SourceCode.Text = "..."
         BackForward()
     End Sub
 
@@ -303,7 +312,7 @@ Public NotInheritable Class MainPage
             LeftPanelShadow.Visibility = Visibility.Visible
             Try
                 If localSettings.Values("AncrageMemo") = True Then 'On  vérifie si l'utilisateur a ancré le volet des mémos
-                    web.Margin = New Thickness(48, 66, 261, 0)
+                    webcontainer.Margin = New Thickness(48, 66, 261, 0)
                     LeftPanelShadow.Visibility = Visibility.Collapsed
                 End If
                 MemoAncrageToggle.IsOn = localSettings.Values("AncrageMemo")
@@ -313,7 +322,7 @@ Public NotInheritable Class MainPage
         Else
             MemoPopIN.Stop()
             MemoPopOut.Begin()
-            web.Margin = New Thickness(48, 66, 0, 0)
+            webcontainer.Margin = New Thickness(48, 66, 0, 0)
         End If
     End Sub
 
@@ -333,10 +342,10 @@ Public NotInheritable Class MainPage
     Private Sub MemoAncrageToggle_Toggled(sender As Object, e As RoutedEventArgs) Handles MemoAncrageToggle.Toggled
         'L'utilisateur choisi d'ancrer ou non le volet des mémos
         If MemoAncrageToggle.IsOn Then
-            web.Margin = New Thickness(48, 66, 261, 0)
+            webcontainer.Margin = New Thickness(48, 66, 261, 0)
             LeftPanelShadow.Visibility = Visibility.Collapsed
         Else
-            web.Margin = New Thickness(48, 66, 0, 0)
+            webcontainer.Margin = New Thickness(48, 66, 0, 0)
             LeftPanelShadow.Visibility = Visibility.Visible
         End If
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
@@ -346,5 +355,51 @@ Public NotInheritable Class MainPage
     Private Sub Fight_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Fight_Button.Tapped
         'Ouvre SearchFight
         Me.Frame.Navigate(GetType(SearchFight))
+    End Sub
+    Private Sub Share_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Share_Button.Tapped
+        SourceCode.Text = "..."
+        ViewSourceCode.Stop()
+        HideSourceCode.Stop()
+        SourceCode.Visibility = Visibility.Collapsed
+        web.Visibility = Visibility.Visible
+
+        If Infos_grid.Visibility = Visibility.Visible Then
+            Share.Stop()
+            CancelShare.Stop()
+            CancelShare.Begin()
+        Else
+            Share.Stop()
+            CancelShare.Stop()
+            Share.Begin()
+        End If
+    End Sub
+
+    Private Sub Web_Share_Save_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Web_Share_Save.Tapped
+
+    End Sub
+
+    Protected Overrides Sub OnNavigatedTo(e As NavigationEventArgs)
+        Dim dtManager As DataTransferManager = DataTransferManager.GetForCurrentView()
+        AddHandler dtManager.DataRequested, AddressOf dtManager_DataRequested
+    End Sub
+    Private Sub dtManager_DataRequested(sender As DataTransferManager, e As DataRequestedEventArgs)
+        e.Request.Data.Properties.Title = "Partage d'une page internet : " + web.DocumentTitle.ToString + " - Via Blueflap"
+        e.Request.Data.SetText(web.DocumentTitle.ToString + " (" + web.Source.ToString + ") - Via #Blueflap - https://www.microsoft.com/store/apps/9nblggh5xcvz")
+    End Sub
+    Private Sub Web_Share_Share_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Web_Share_Share.Tapped
+        Windows.ApplicationModel.DataTransfer.DataTransferManager.ShowShareUI()
+    End Sub
+
+    Private Async Sub Web_Share_Source_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Web_Share_Source.Tapped
+        If SourceCode.Visibility = Visibility.Collapsed Then
+            ViewSourceCode.Begin()
+
+            If SourceCode.Text = "..." Then
+                Dim html As String = Await (web.InvokeScriptAsync("eval", New String() {"document.documentElement.outerHTML;"}))
+                SourceCode.Text = html
+            End If
+        Else
+            HideSourceCode.Begin()
+        End If
     End Sub
 End Class

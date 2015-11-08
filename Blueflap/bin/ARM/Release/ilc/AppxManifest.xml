@@ -7,7 +7,7 @@
 
     Pour plus d'informations sur les fichiers manifeste, consultez http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="26841SmA.Blueflap" Publisher="CN=8D01EF2A-40D3-4C5E-A5F4-3FF087AF903B" Version="4.9.1.0" ProcessorArchitecture="arm" />
+  <Identity Name="26841SmA.Blueflap" Publisher="CN=8D01EF2A-40D3-4C5E-A5F4-3FF087AF903B" Version="4.9.3.0" ProcessorArchitecture="arm" />
   <mp:PhoneIdentity PhoneProductId="5305259c-91de-49e4-8741-f983fa6e684a" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Blueflap</DisplayName>
