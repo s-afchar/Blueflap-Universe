@@ -434,6 +434,18 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Name="New_Notif" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="Notifications_indicator">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="Notifications_indicator">
+                <EasingColorKeyFrame KeyTime="0" Value="#4CFFFFFF"/>
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="White"/>
+                <EasingColorKeyFrame KeyTime="0:0:2" Value="#4CFFFFFF"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
     </Page.Resources>
 
 
@@ -501,6 +513,12 @@
                     <CompositeTransform ScaleX="-1"/>
                 </Button.RenderTransform>
             </Button>
+            <TextBlock x:Name="Notifications_Counter" Margin="1,0,0,54" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="47" RenderTransformOrigin="0.5,0.5" TextAlignment="Center" Foreground="White" FontWeight="SemiBold" FontSize="10.667" Height="17">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <Ellipse x:Name="Notifications_indicator" Fill="#26000000" HorizontalAlignment="Left" Height="27" Margin="11,0,0,49" VerticalAlignment="Bottom" Width="27" Stroke="White" StrokeThickness="0"/>
         </Grid>
         <Grid x:Name="Infos_grid" Margin="48,66,0,0" Background="#FF111111" Visibility="Collapsed">
             <Grid HorizontalAlignment="Left" Height="233" Margin="15,0,0,0" VerticalAlignment="Center" Width="50" RenderTransformOrigin="0.5,0.5">
@@ -528,9 +546,11 @@
             <Grid.RenderTransform>
                 <CompositeTransform/>
             </Grid.RenderTransform>
-            <TextBox x:Name="MemoText" Margin="11,41,12,40" TextWrapping="Wrap" Text="&lt;Ecrire un memo&gt;" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2E2E2E" BorderThickness="0" AcceptsReturn="True" RequestedTheme="Light"/>
-            <TextBlock HorizontalAlignment="Left" Margin="17,13,0,0" TextWrapping="Wrap" Text="MEMO RAPIDE" VerticalAlignment="Top" RequestedTheme="Dark" FontWeight="Bold" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
-            <ToggleSwitch x:Name="MemoAncrageToggle" Header="" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Bottom" RequestedTheme="Light" OffContent="Non ancré" OnContent="Ancré"/>
+            <ToggleSwitch x:Name="MemoAncrageToggle" Header="" HorizontalAlignment="Left" Margin="-3,0,0,-1" VerticalAlignment="Bottom" RequestedTheme="Light" OffContent="NON ANCRÉ" OnContent="ANCRÉ" RenderTransformOrigin="0.5,0.5">
+                <ToggleSwitch.RenderTransform>
+                    <CompositeTransform ScaleX="0.8" ScaleY="0.8"/>
+                </ToggleSwitch.RenderTransform>
+            </ToggleSwitch>
             <Rectangle x:Name="LeftPanelShadow" HorizontalAlignment="Left" Margin="-88,0,0,0" Width="88" Opacity="0.15">
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -543,6 +563,51 @@
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
+            <Pivot x:Name="RightMenuPivot"  Margin="0,0,0,40">
+                <Pivot.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}"  FontSize="16" FontFamily="Segoe MDL2 Assets"/>
+                    </DataTemplate>
+                </Pivot.HeaderTemplate>
+                <PivotItem Header="">
+                    <Grid>
+                        <TextBox x:Name="MemoText" Margin="-10,-3,-6,-5" TextWrapping="Wrap" Text="&lt;Ecrire un memo&gt;" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2E2E2E" BorderThickness="0" AcceptsReturn="True" RequestedTheme="Light"/>
+                    </Grid>
+                </PivotItem>
+                <PivotItem Header="">
+                    <Grid/>
+                </PivotItem>
+                <PivotItem Header="">
+
+                </PivotItem>
+                <PivotItem Header="">
+                    <Grid x:Name="NotificationsPanel" Margin="0" HorizontalAlignment="Center" Background="{x:Null}">
+                        <Grid x:Name="Notif_Home" Height="96" Width="237" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0" VerticalAlignment="Top">
+                            <TextBlock HorizontalAlignment="Left" Margin="1,19,0,0" TextWrapping="Wrap" Text="&#xE209;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FF19B3CB" FontSize="29.333" TextAlignment="Center" Width="236"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="11,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FFA2A2A2" Width="216" TextAlignment="Center" Text="Aucun message système"/>
+                        </Grid>
+                        <Grid x:Name="Notif_HomePageError" Height="96" Width="237" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0,110,0,0" VerticalAlignment="Top" Visibility="Collapsed">
+                            <TextBlock HorizontalAlignment="Left" Margin="11,9,0,0" TextWrapping="Wrap" Text="&#xEB90;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FFC51212" FontSize="16"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="35,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FF4B4B4B">
+                            	<Run Text="La page d'accueil définie"/>
+                            	<LineBreak/>
+                            	<Run Text="est invalide."/>
+                            </TextBlock>
+                            <Button Content="Paramètres" HorizontalAlignment="Left" Margin="0,59,-1,0" VerticalAlignment="Top" Height="36" Width="238" Background="#339E9E9E" BorderBrush="#FFC5C5C5" BorderThickness="0,1,0,0" FontSize="12" Tapped="Button_Tapped"/>
+                        </Grid>
+                        <Grid x:Name="Notif_SearchEngineError" Height="96" Width="237" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0,220,0,0" VerticalAlignment="Top" Visibility="Collapsed">
+                            <TextBlock HorizontalAlignment="Left" Margin="11,9,0,0" TextWrapping="Wrap" Text="&#xEB90;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FFC51212" FontSize="16"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="35,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FF4B4B4B">
+                            	<Run Text="Le moteur de recherche"/>
+                            	<LineBreak/>
+                            	<Run Text="défini est invalide."/>
+                            </TextBlock>
+                            <Button Content="Paramètres" HorizontalAlignment="Left" Margin="0,59,-1,0" VerticalAlignment="Top" Height="36" Width="238" Background="#339E9E9E" BorderBrush="#FFC5C5C5" BorderThickness="0,1,0,0" FontSize="12" Tapped="Button_Tapped"/>
+                        </Grid>
+                    </Grid>
+
+                </PivotItem>
+            </Pivot>
         </Grid>
 
     </Grid>

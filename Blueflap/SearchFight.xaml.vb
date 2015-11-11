@@ -5,6 +5,9 @@
 ''' </summary>
 Public NotInheritable Class SearchFight
     Inherits Page
+    Dim drag As Boolean
+    Dim mousex As Integer
+    Dim mousey As Integer
     Public Sub New()
         Me.InitializeComponent()
         AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf MainPage_BackRequested
@@ -296,4 +299,5 @@ Public NotInheritable Class SearchFight
             load.IsActive = False
         End If
     End Sub
+
 End Class

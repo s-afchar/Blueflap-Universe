@@ -23,6 +23,10 @@ Public NotInheritable Class MainPage
 
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings 'Permet l'accés aux paramètres
 
+        If Notif_Home.Visibility = Visibility.Visible Then
+            localSettings.Values("Organise_notifs") = 0 'Initialisation de la valeur qui définit le positionnement des éléments dans les paramètres
+        End If
+
         If localSettings.Values("DarkThemeEnabled") = True Then 'Theme Sombre
 
             LightThemeMainPage.Stop() 'Solution provisoire parce que j'avais la flemme de chercher le code Argb
@@ -66,14 +70,40 @@ Public NotInheritable Class MainPage
         If AdressBox.Text = "about:blank" Then
             Try
                 web.Navigate(New Uri(localSettings.Values("Homepage")))
+
+                'Met à jour les éléments du centre de messages systèmes
+                If Notif_HomePageError.Visibility = Visibility.Visible Then
+                    Notif_HomePageError.Visibility = Visibility.Collapsed
+                    New_Notif.Stop()
+                    If Notif_SearchEngineError.Visibility = Visibility.Visible Then
+                        If Notif_SearchEngineError.Margin.Top > Notif_HomePageError.Margin.Top Then
+                            Notif_SearchEngineError.Margin = New Thickness(0, Notif_SearchEngineError.Margin.Top - 110, 0, 0)
+                            localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") - 110
+                        End If
+                    End If
+                End If
+
             Catch
+
                 Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
                 Dim toeastElement = notificationXml.GetElementsByTagName("text")
                 toeastElement(0).AppendChild(notificationXml.CreateTextNode("Erreur page d'accueil"))
                 toeastElement(1).AppendChild(notificationXml.CreateTextNode("La page d'accueil définie est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre page d'accueil."))
                 Dim ToastNotification = New ToastNotification(notificationXml)
                 ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
-            End Try
+
+                'Met à jour les éléments du centre de messages systèmes
+                If Not Notif_HomePageError.Visibility = Visibility.Visible Then
+                    Notif_HomePageError.Visibility = Visibility.Visible
+                    New_Notif.Begin()
+                    Notifications_Counter.Text = Notifications_Counter.Text + 1
+                    Notif_HomePageError.Margin = New Thickness(0, localSettings.Values("Organise_notifs"), 0, 0)
+                    localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") + 110
+                    Notif_Home.Visibility = Visibility.Collapsed
+                End If
+
+        End Try
+
         End If
 
         'Définition du thème avec couleur personnalisée
@@ -209,6 +239,19 @@ Public NotInheritable Class MainPage
         'Vérification de l'existence d'une page d'accueil valide
         Try
             web.Navigate(New Uri(localSettings.Values("Homepage")))
+
+            'Met à jour les éléments du centre de messages systèmes
+            If Notif_HomePageError.Visibility = Visibility.Visible Then
+                Notif_HomePageError.Visibility = Visibility.Collapsed
+                New_Notif.Stop()
+                If Notif_SearchEngineError.Visibility = Visibility.Visible Then
+                    If Notif_SearchEngineError.Margin.Top > Notif_HomePageError.Margin.Top Then
+                        Notif_SearchEngineError.Margin = New Thickness(0, Notif_SearchEngineError.Margin.Top - 110, 0, 0)
+                        localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") - 110
+                    End If
+                End If
+            End If
+
         Catch
             Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
             Dim toeastElement = notificationXml.GetElementsByTagName("text")
@@ -216,6 +259,16 @@ Public NotInheritable Class MainPage
             toeastElement(1).AppendChild(notificationXml.CreateTextNode("La page d'accueil définie est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre page d'accueil."))
             Dim ToastNotification = New ToastNotification(notificationXml)
             ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
+
+            'Met à jour les éléments du centre de messages systèmes
+            If Not Notif_HomePageError.Visibility = Visibility.Visible Then
+                Notif_HomePageError.Visibility = Visibility.Visible
+                New_Notif.Begin()
+                Notifications_Counter.Text = Notifications_Counter.Text + 1
+                Notif_HomePageError.Margin = New Thickness(0, localSettings.Values("Organise_notifs"), 0, 0)
+                localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") + 110
+                Notif_Home.Visibility = Visibility.Collapsed
+            End If
         End Try
     End Sub
 
@@ -247,6 +300,19 @@ Public NotInheritable Class MainPage
                     Else
                         web.Navigate(New Uri(localSettings.Values("A1") + s + localSettings.Values("A2"))) 'Rechercher avec moteurs de recherche
                     End If
+
+                    'Met à jour les éléments du centre de messages systèmes
+                    If Notif_SearchEngineError.Visibility = Visibility.Visible Then
+                        If Notif_HomePageError.Visibility = Visibility.Visible Then
+                            If Notif_HomePageError.Margin.Top.ToString > Notif_SearchEngineError.Margin.Top.ToString Then
+                                Notif_HomePageError.Margin = New Thickness(0, Notif_HomePageError.Margin.Top - 110, 0, 0)
+                                localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") - 110
+                            End If
+                        End If
+                        Notif_SearchEngineError.Visibility = Visibility.Collapsed
+                        New_Notif.Stop()
+                    End If
+
                 Catch
                     Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
                     Dim toeastElement = notificationXml.GetElementsByTagName("text")
@@ -254,6 +320,16 @@ Public NotInheritable Class MainPage
                     toeastElement(1).AppendChild(notificationXml.CreateTextNode("Le moteur de recherche défini est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre moteur de recherche."))
                     Dim ToastNotification = New ToastNotification(notificationXml)
                     ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
+
+                    'Met à jour les éléments du centre de messages systèmes
+                    If Not Notif_SearchEngineError.Visibility = Visibility.Visible Then
+                        Notif_SearchEngineError.Visibility = Visibility.Visible
+                        New_Notif.Begin()
+                        Notifications_Counter.Text = Notifications_Counter.Text + 1
+                        Notif_SearchEngineError.Margin = New Thickness(0, localSettings.Values("Organise_notifs"), 0, 0)
+                        localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") + 110
+                        Notif_Home.Visibility = Visibility.Collapsed
+                    End If
                 End Try
             End If
 
@@ -297,8 +373,7 @@ Public NotInheritable Class MainPage
         web.Navigate(e.Uri)
         e.Handled = True
     End Sub
-
-    Private Sub Memo_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_Button.Tapped
+    Private Sub OpenRightMenu()
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
         'Soit on ouvre le volet des mémos, soit on le ferme (s'il est déjà ouvert)
@@ -325,15 +400,38 @@ Public NotInheritable Class MainPage
             webcontainer.Margin = New Thickness(48, 66, 0, 0)
         End If
     End Sub
+    Private Sub Notifications_indicator_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Notifications_indicator.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        OpenRightMenu()
+        RightMenuPivot.SelectedIndex = 3
+        New_Notif.Stop()
+        Notifications_Counter.Text = "0"
+        If Notif_HomePageError.Visibility = Visibility.Collapsed And Notif_SearchEngineError.Visibility = Visibility.Collapsed Then
+            Notif_Home.Visibility = Visibility.Visible
+            localSettings.Values("Organise_notifs") = 0
+        End If
+    End Sub
+
+    Private Sub Button_Tapped(sender As Object, e As TappedRoutedEventArgs)
+        'Clic sur le bouton d'accès au paramètres présent sur certaines notifications
+        MemoPopIN.Stop()
+        MemoPopOut.Begin()
+        webcontainer.Margin = New Thickness(48, 66, 0, 0)
+        Me.Frame.Navigate(GetType(Parametres))
+    End Sub
+    Private Sub Memo_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_Button.Tapped
+        OpenRightMenu()
+        RightMenuPivot.SelectedIndex = 0
+    End Sub
 
     Private Sub MemoText_TextChanged(sender As Object, e As TextChangedEventArgs) Handles MemoText.TextChanged
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         localSettings.Values("MemoText") = MemoText.Text 'Là on enregistre le texte des mémos en continu
     End Sub
 
-    Private Sub MemoPanel_LostFocus(sender As Object, e As RoutedEventArgs) Handles MemoPanel.LostFocus
+    Private Sub MemoPanel_LostFocus(sender As Object, e As RoutedEventArgs) Handles MemoText.LostFocus
         'Pour aller plus vite, Quand on a fini d'écrire, le volet se referme tout seul
-        If web.Margin.Right = 0 Then
+        If webcontainer.Margin.Right = 0 Then
             MemoPopIN.Stop()
             MemoPopOut.Begin()
         End If
@@ -357,6 +455,7 @@ Public NotInheritable Class MainPage
         Me.Frame.Navigate(GetType(SearchFight))
     End Sub
     Private Sub Share_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Share_Button.Tapped
+        'Affichage de l'interface de partage
         SourceCode.Text = "..."
         ViewSourceCode.Stop()
         HideSourceCode.Stop()
@@ -391,6 +490,8 @@ Public NotInheritable Class MainPage
     End Sub
 
     Private Async Sub Web_Share_Source_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Web_Share_Source.Tapped
+
+        'Récupère et affiche le code source de la page
         If SourceCode.Visibility = Visibility.Collapsed Then
             ViewSourceCode.Begin()
 

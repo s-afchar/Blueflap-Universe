@@ -114,7 +114,7 @@
         </Storyboard>
     </Page.Resources>
 
-    <Grid Background="#FFB9B9B9">
+    <Grid x:Name="Dragger" Background="#FFB9B9B9">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="13*"/>

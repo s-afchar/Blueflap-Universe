@@ -31,7 +31,7 @@ Public NotInheritable Class Parametres
         If localSettings.Values("Adblock") = "En fonction" Then 'Censé définit la bonne position du Toggle Switch Adblock
             Adblock_Switch.IsOn = True
         Else
-            Adblock_Switch.IsOn = false
+            Adblock_Switch.IsOn = False
         End If
 
         Settings_SearchEngine.SelectedIndex = localSettings.Values("SearchEngineIndex") 'Définit la bonne valeur pour la combobox moteurs de recherches
