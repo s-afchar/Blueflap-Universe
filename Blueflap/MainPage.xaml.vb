@@ -66,45 +66,49 @@ Public NotInheritable Class MainPage
         BackForward()
         FirstLaunch()
 
-        'Vérification de la page d'accueil
-        If AdressBox.Text = "about:blank" Then
-            Try
-                web.Navigate(New Uri(localSettings.Values("Homepage")))
+        Try
+            If localSettings.Values("Bluestart") = True And Frame.CanGoBack = False Then
+                Me.Frame.Navigate(GetType(Bluestart))
 
-                'Met à jour les éléments du centre de messages systèmes
-                If Notif_HomePageError.Visibility = Visibility.Visible Then
-                    Notif_HomePageError.Visibility = Visibility.Collapsed
-                    New_Notif.Stop()
-                    If Notif_SearchEngineError.Visibility = Visibility.Visible Then
-                        If Notif_SearchEngineError.Margin.Top > Notif_HomePageError.Margin.Top Then
-                            Notif_SearchEngineError.Margin = New Thickness(0, Notif_SearchEngineError.Margin.Top - 110, 0, 0)
-                            localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") - 110
+            ElseIf AdressBox.Text = "about:blank" Then
+                'Vérification de l'existence d'une page d'accueil valide
+                Try
+                        web.Navigate(New Uri(localSettings.Values("Homepage")))
+
+                        'Met à jour les éléments du centre de messages systèmes
+                        If Notif_HomePageError.Visibility = Visibility.Visible Then
+                            Notif_HomePageError.Visibility = Visibility.Collapsed
+                            New_Notif.Stop()
+                            If Notif_SearchEngineError.Visibility = Visibility.Visible Then
+                                If Notif_SearchEngineError.Margin.Top > Notif_HomePageError.Margin.Top Then
+                                    Notif_SearchEngineError.Margin = New Thickness(0, Notif_SearchEngineError.Margin.Top - 110, 0, 0)
+                                    localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") - 110
+                                End If
+                            End If
                         End If
-                    End If
+
+                    Catch
+                        Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
+                        Dim toeastElement = notificationXml.GetElementsByTagName("text")
+                        toeastElement(0).AppendChild(notificationXml.CreateTextNode("Erreur page d'accueil"))
+                        toeastElement(1).AppendChild(notificationXml.CreateTextNode("La page d'accueil définie est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre page d'accueil."))
+                        Dim ToastNotification = New ToastNotification(notificationXml)
+                        ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
+
+                        'Met à jour les éléments du centre de messages systèmes
+                        If Not Notif_HomePageError.Visibility = Visibility.Visible Then
+                            Notif_HomePageError.Visibility = Visibility.Visible
+                            New_Notif.Begin()
+                            Notifications_Counter.Text = Notifications_Counter.Text + 1
+                            Notif_HomePageError.Margin = New Thickness(0, localSettings.Values("Organise_notifs"), 0, 0)
+                            localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") + 110
+                            Notif_Home.Visibility = Visibility.Collapsed
+                        End If
+                    End Try
                 End If
-
-            Catch
-
-                Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
-                Dim toeastElement = notificationXml.GetElementsByTagName("text")
-                toeastElement(0).AppendChild(notificationXml.CreateTextNode("Erreur page d'accueil"))
-                toeastElement(1).AppendChild(notificationXml.CreateTextNode("La page d'accueil définie est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre page d'accueil."))
-                Dim ToastNotification = New ToastNotification(notificationXml)
-                ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
-
-                'Met à jour les éléments du centre de messages systèmes
-                If Not Notif_HomePageError.Visibility = Visibility.Visible Then
-                    Notif_HomePageError.Visibility = Visibility.Visible
-                    New_Notif.Begin()
-                    Notifications_Counter.Text = Notifications_Counter.Text + 1
-                    Notif_HomePageError.Margin = New Thickness(0, localSettings.Values("Organise_notifs"), 0, 0)
-                    localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") + 110
-                    Notif_Home.Visibility = Visibility.Collapsed
-                End If
-
+        Catch
+            localSettings.Values("Bluestart") = True
         End Try
-
-        End If
 
         'Définition du thème avec couleur personnalisée
         Try
@@ -115,6 +119,16 @@ Public NotInheritable Class MainPage
             End If
         Catch
         End Try
+
+        Try
+            If localSettings.Values("LoadPageFromBluestart") = True Then
+                web.Stop()
+                AdressBox.Text = localSettings.Values("LoadPageFromBluestart_Adress")
+                Rechercher()
+            End If
+        Catch
+        End Try
+
 
         'Animation d'ouverture de Blueflap
         EnterAnim.Begin()
@@ -210,13 +224,13 @@ Public NotInheritable Class MainPage
         SourceCode.Text = "..."
 
         BackForward()
-
+        localSettings.Values("LoadPageFromBluestart") = False
     End Sub
 
     Private Sub web_LoadCompleted(sender As Object, e As NavigationEventArgs) Handles web.LoadCompleted
         'Page chargée
 
-        ' Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         ' Try
         'If localSettings.Values("Adblock") = "En fonction" Then
         '       web.Navigate(New Uri(localSettings.Values("AdblockFonction")))
@@ -230,114 +244,126 @@ Public NotInheritable Class MainPage
         loader.IsActive = False
         SourceCode.Text = "..."
         BackForward()
+        localSettings.Values("LoadPageFromBluestart") = False
     End Sub
 
     Private Sub Home_button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Home_button.Tapped
         'Clic sur le bouton home
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
-        'Vérification de l'existence d'une page d'accueil valide
         Try
-            web.Navigate(New Uri(localSettings.Values("Homepage")))
-
-            'Met à jour les éléments du centre de messages systèmes
-            If Notif_HomePageError.Visibility = Visibility.Visible Then
-                Notif_HomePageError.Visibility = Visibility.Collapsed
-                New_Notif.Stop()
-                If Notif_SearchEngineError.Visibility = Visibility.Visible Then
-                    If Notif_SearchEngineError.Margin.Top > Notif_HomePageError.Margin.Top Then
-                        Notif_SearchEngineError.Margin = New Thickness(0, Notif_SearchEngineError.Margin.Top - 110, 0, 0)
-                        localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") - 110
-                    End If
-                End If
-            End If
-
-        Catch
-            Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
-            Dim toeastElement = notificationXml.GetElementsByTagName("text")
-            toeastElement(0).AppendChild(notificationXml.CreateTextNode("Erreur page d'accueil"))
-            toeastElement(1).AppendChild(notificationXml.CreateTextNode("La page d'accueil définie est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre page d'accueil."))
-            Dim ToastNotification = New ToastNotification(notificationXml)
-            ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
-
-            'Met à jour les éléments du centre de messages systèmes
-            If Not Notif_HomePageError.Visibility = Visibility.Visible Then
-                Notif_HomePageError.Visibility = Visibility.Visible
-                New_Notif.Begin()
-                Notifications_Counter.Text = Notifications_Counter.Text + 1
-                Notif_HomePageError.Margin = New Thickness(0, localSettings.Values("Organise_notifs"), 0, 0)
-                localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") + 110
-                Notif_Home.Visibility = Visibility.Collapsed
-            End If
-        End Try
-    End Sub
-
-    Private Sub AdressBox_KeyDown(sender As Object, e As KeyRoutedEventArgs) Handles AdressBox.KeyDown
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-
-        If (e.Key = Windows.System.VirtualKey.Enter) Then  'Permet de réagir à l'appui sur la touche entrée
-            Dim textArray = AdressBox.Text.Split(" ")
-
-            'Détermine si il s'agit d'une URL ou d'une recherche
-
-            If (AdressBox.Text.Contains(".") = True And AdressBox.Text.Contains(" ") = False And AdressBox.Text.Contains(" .") = False And AdressBox.Text.Contains(". ") = False) Or textArray(0).Contains(":/") = True Or textArray(0).Contains(":\") Then
-                If AdressBox.Text.Contains("http://") OrElse AdressBox.Text.Contains("https://") Then  'URL invalide si pas de http://
-                    web.Navigate(New Uri(AdressBox.Text))
-                Else
-                    web.Navigate(New Uri("http://" + AdressBox.Text))
-                End If
-
+            If localSettings.Values("Bluestart") = True Then
+                Me.Frame.Navigate(GetType(Bluestart))
             Else
-                Try 'On teste si le moteur de recherche défini par l'utilisateur est valide
-                    Dim Rech As String
-                    Rech = AdressBox.Text
-                    Dim s As String
-                    s = Rech.ToString
-                    s = s.Replace("+", "%2B")
 
-                    If localSettings.Values("Custom_SearchEngine") = True Then
-                        web.Navigate(New Uri(localSettings.Values("Cust1") + s + localSettings.Values("Cust2")))
-                    Else
-                        web.Navigate(New Uri(localSettings.Values("A1") + s + localSettings.Values("A2"))) 'Rechercher avec moteurs de recherche
-                    End If
+                'Vérification de l'existence d'une page d'accueil valide
+                Try
+                    web.Navigate(New Uri(localSettings.Values("Homepage")))
 
                     'Met à jour les éléments du centre de messages systèmes
-                    If Notif_SearchEngineError.Visibility = Visibility.Visible Then
-                        If Notif_HomePageError.Visibility = Visibility.Visible Then
-                            If Notif_HomePageError.Margin.Top.ToString > Notif_SearchEngineError.Margin.Top.ToString Then
-                                Notif_HomePageError.Margin = New Thickness(0, Notif_HomePageError.Margin.Top - 110, 0, 0)
+                    If Notif_HomePageError.Visibility = Visibility.Visible Then
+                        Notif_HomePageError.Visibility = Visibility.Collapsed
+                        New_Notif.Stop()
+                        If Notif_SearchEngineError.Visibility = Visibility.Visible Then
+                            If Notif_SearchEngineError.Margin.Top > Notif_HomePageError.Margin.Top Then
+                                Notif_SearchEngineError.Margin = New Thickness(0, Notif_SearchEngineError.Margin.Top - 110, 0, 0)
                                 localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") - 110
                             End If
                         End If
-                        Notif_SearchEngineError.Visibility = Visibility.Collapsed
-                        New_Notif.Stop()
                     End If
 
                 Catch
                     Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
                     Dim toeastElement = notificationXml.GetElementsByTagName("text")
-                    toeastElement(0).AppendChild(notificationXml.CreateTextNode("Erreur moteur de recherche"))
-                    toeastElement(1).AppendChild(notificationXml.CreateTextNode("Le moteur de recherche défini est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre moteur de recherche."))
+                    toeastElement(0).AppendChild(notificationXml.CreateTextNode("Erreur page d'accueil"))
+                    toeastElement(1).AppendChild(notificationXml.CreateTextNode("La page d'accueil définie est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre page d'accueil."))
                     Dim ToastNotification = New ToastNotification(notificationXml)
                     ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
 
                     'Met à jour les éléments du centre de messages systèmes
-                    If Not Notif_SearchEngineError.Visibility = Visibility.Visible Then
-                        Notif_SearchEngineError.Visibility = Visibility.Visible
+                    If Not Notif_HomePageError.Visibility = Visibility.Visible Then
+                        Notif_HomePageError.Visibility = Visibility.Visible
                         New_Notif.Begin()
                         Notifications_Counter.Text = Notifications_Counter.Text + 1
-                        Notif_SearchEngineError.Margin = New Thickness(0, localSettings.Values("Organise_notifs"), 0, 0)
+                        Notif_HomePageError.Margin = New Thickness(0, localSettings.Values("Organise_notifs"), 0, 0)
                         localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") + 110
                         Notif_Home.Visibility = Visibility.Collapsed
                     End If
                 End Try
             End If
-
-            AdressBox.IsEnabled = False 'PROVISOIRE : Faire perdre le focus à la textbox
-            AdressBox.IsEnabled = True
-        End If
+        Catch
+            localSettings.Values("Bluestart") = True
+        End Try
     End Sub
 
+    Private Sub AdressBox_KeyDown(sender As Object, e As KeyRoutedEventArgs) Handles AdressBox.KeyDown
+        If (e.Key = Windows.System.VirtualKey.Enter) Then  'Permet de réagir à l'appui sur la touche entrée
+            Rechercher()
+        End If
+    End Sub
+    Private Sub Rechercher()
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        Dim textArray = AdressBox.Text.Split(" ")
+
+        'Détermine si il s'agit d'une URL ou d'une recherche
+
+        If (AdressBox.Text.Contains(".") = True And AdressBox.Text.Contains(" ") = False And AdressBox.Text.Contains(" .") = False And AdressBox.Text.Contains(". ") = False) Or textArray(0).Contains(":/") = True Or textArray(0).Contains(":\") Then
+            If AdressBox.Text.Contains("http://") OrElse AdressBox.Text.Contains("https://") Then  'URL invalide si pas de http://
+                web.Navigate(New Uri(AdressBox.Text))
+            Else
+                web.Navigate(New Uri("http://" + AdressBox.Text))
+            End If
+
+        Else
+            Try 'On teste si le moteur de recherche défini par l'utilisateur est valide
+                Dim Rech As String
+                Rech = AdressBox.Text
+                Dim s As String
+                s = Rech.ToString
+                s = s.Replace("+", "%2B")
+
+                If localSettings.Values("Custom_SearchEngine") = True Then
+                    web.Navigate(New Uri(localSettings.Values("Cust1") + s + localSettings.Values("Cust2")))
+                Else
+                    web.Navigate(New Uri(localSettings.Values("A1") + s + localSettings.Values("A2"))) 'Rechercher avec moteurs de recherche
+                End If
+
+                'Met à jour les éléments du centre de messages systèmes
+                If Notif_SearchEngineError.Visibility = Visibility.Visible Then
+                    If Notif_HomePageError.Visibility = Visibility.Visible Then
+                        If Notif_HomePageError.Margin.Top.ToString > Notif_SearchEngineError.Margin.Top.ToString Then
+                            Notif_HomePageError.Margin = New Thickness(0, Notif_HomePageError.Margin.Top - 110, 0, 0)
+                            localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") - 110
+                        End If
+                    End If
+                    Notif_SearchEngineError.Visibility = Visibility.Collapsed
+                    New_Notif.Stop()
+                End If
+
+            Catch
+                Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
+                Dim toeastElement = notificationXml.GetElementsByTagName("text")
+                toeastElement(0).AppendChild(notificationXml.CreateTextNode("Erreur moteur de recherche"))
+                toeastElement(1).AppendChild(notificationXml.CreateTextNode("Le moteur de recherche défini est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre moteur de recherche."))
+                Dim ToastNotification = New ToastNotification(notificationXml)
+                ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
+
+                'Met à jour les éléments du centre de messages systèmes
+                If Not Notif_SearchEngineError.Visibility = Visibility.Visible Then
+                    Notif_SearchEngineError.Visibility = Visibility.Visible
+                    New_Notif.Begin()
+                    Notifications_Counter.Text = Notifications_Counter.Text + 1
+                    Notif_SearchEngineError.Margin = New Thickness(0, localSettings.Values("Organise_notifs"), 0, 0)
+                    localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") + 110
+                    Notif_Home.Visibility = Visibility.Collapsed
+                End If
+            End Try
+        End If
+
+        AdressBox.IsEnabled = False 'PROVISOIRE : Faire perdre le focus à la textbox
+        AdressBox.IsEnabled = True
+
+    End Sub
     Private Sub Strefresh_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Strefresh_Button.Tapped
         'C'est ici que notre bouton va devoir faire un choix... Devenir un bouton stop... Ou un bouton Refresh... LE SUSPENS EST A SON COMBLE !
 

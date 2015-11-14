@@ -434,103 +434,123 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:ConnectionId='13' x:Name="New_Notif" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="Notifications_indicator">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="Notifications_indicator">
+                <EasingColorKeyFrame KeyTime="0" Value="#4CFFFFFF"/>
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="White"/>
+                <EasingColorKeyFrame KeyTime="0:0:2" Value="#4CFFFFFF"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
     </Page.Resources>
 
 
-    <Grid x:ConnectionId='13' x:Name="grid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RenderTransformOrigin="0.5,0.5">
+    <Grid x:ConnectionId='14' x:Name="grid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RenderTransformOrigin="0.5,0.5">
         <Grid.RenderTransform>
             <CompositeTransform/>
         </Grid.RenderTransform>
-        <Grid x:ConnectionId='14' x:Name="Adressbar" Height="66" VerticalAlignment="Top" Background="WhiteSmoke" Margin="48,0,0,0">
-            <TextBox x:ConnectionId='38' x:Name="AdressBox" Margin="2,32,2,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF5B5B5B" FontSize="16" Height="24" BorderThickness="0"/>
-            <TextBlock x:ConnectionId='39' x:Name="Titlebox" HorizontalAlignment="Left" Margin="70,10,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Opacity="0.795" FontSize="12" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
-            <TextBlock x:ConnectionId='40' x:Name="Window_Title" HorizontalAlignment="Left" Margin="12,10,0,0" TextWrapping="Wrap" Text="BLUEFLAP" VerticalAlignment="Top" Opacity="0.295" FontSize="12"/>
+        <Grid x:ConnectionId='15' x:Name="Adressbar" Height="66" VerticalAlignment="Top" Background="WhiteSmoke" Margin="48,0,0,0">
+            <TextBox x:ConnectionId='48' x:Name="AdressBox" Margin="2,32,2,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF5B5B5B" FontSize="16" Height="24" BorderThickness="0"/>
+            <TextBlock x:ConnectionId='49' x:Name="Titlebox" HorizontalAlignment="Left" Margin="70,10,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Opacity="0.795" FontSize="12" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
+            <TextBlock x:ConnectionId='50' x:Name="Window_Title" HorizontalAlignment="Left" Margin="12,10,0,0" TextWrapping="Wrap" Text="BLUEFLAP" VerticalAlignment="Top" Opacity="0.295" FontSize="12"/>
         </Grid>
-        <Grid x:ConnectionId='15' x:Name="LeftMenu" HorizontalAlignment="Left" Width="48" RenderTransformOrigin="0.5,0.5" Background="{ThemeResource JumpListDefaultEnabledBackground}">
+        <Grid x:ConnectionId='16' x:Name="LeftMenu" HorizontalAlignment="Left" Width="48" RenderTransformOrigin="0.5,0.5" Background="{ThemeResource JumpListDefaultEnabledBackground}">
             <Grid.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Grid.RenderTransform>
-            <Grid x:ConnectionId='27' x:Name="DefaultThemeColor" HorizontalAlignment="Left" Height="10" Margin="268,207,-229,0" VerticalAlignment="Top" Width="9" Background="{ThemeResource ContentDialogBorderThemeBrush}" Visibility="Collapsed"/>
-            <Button x:ConnectionId='28' x:Name="Home_button" Content="&#xE80F;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Margin="3,66,-1,0">
+            <Grid x:ConnectionId='35' x:Name="DefaultThemeColor" HorizontalAlignment="Left" Height="10" Margin="268,207,-229,0" VerticalAlignment="Top" Width="9" Background="{ThemeResource ContentDialogBorderThemeBrush}" Visibility="Collapsed"/>
+            <Button x:ConnectionId='36' x:Name="Home_button" Content="&#xE80F;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Margin="3,66,-1,0">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Button.RenderTransform>
             </Button>
-            <Button x:ConnectionId='29' x:Name="Strefresh_Button" Content="&#xE149;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="14.667" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,110,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+            <Button x:ConnectionId='37' x:Name="Strefresh_Button" Content="&#xE149;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="14.667" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,110,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Button.RenderTransform>
             </Button>
-            <Button x:ConnectionId='30' x:Name="Back_Button" Content="&#xE016;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,154,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+            <Button x:ConnectionId='38' x:Name="Back_Button" Content="&#xE016;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,154,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Button.RenderTransform>
             </Button>
-            <Button x:ConnectionId='31' x:Name="Paramètres_Button" Content="&#xE713;" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="#01000000" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,0,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Height="47">
+            <Button x:ConnectionId='39' x:Name="Paramètres_Button" Content="&#xE713;" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="#01000000" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,0,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Height="47">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Button.RenderTransform>
             </Button>
-            <Button x:ConnectionId='32' x:Name="Forward_Button" Content="&#xE013;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,198,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+            <Button x:ConnectionId='40' x:Name="Forward_Button" Content="&#xE013;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,198,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Button.RenderTransform>
             </Button>
-            <ProgressRing x:ConnectionId='33' x:Name="loader" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="24" Foreground="#AFFFFFFF" Margin="12,14,0,0" RenderTransformOrigin="0.5,0.5">
+            <ProgressRing x:ConnectionId='41' x:Name="loader" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="24" Foreground="#AFFFFFFF" Margin="12,14,0,0" RenderTransformOrigin="0.5,0.5">
                 <ProgressRing.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </ProgressRing.RenderTransform>
             </ProgressRing>
-            <Button x:ConnectionId='34' x:Name="Fight_Button" Content="&#xE923;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,242,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets">
+            <Button x:ConnectionId='42' x:Name="Fight_Button" Content="&#xE923;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,242,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Button.RenderTransform>
             </Button>
-            <Button x:ConnectionId='35' x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,286,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+            <Button x:ConnectionId='43' x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,286,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Button.RenderTransform>
             </Button>
-            <Button x:ConnectionId='36' x:Name="Memo_Button" Content="&#xE70B;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,330,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+            <Button x:ConnectionId='44' x:Name="Memo_Button" Content="&#xE70B;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,330,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Button.RenderTransform>
             </Button>
-            <Button x:ConnectionId='37' x:Name="Share_Button" Content="&#xE72D;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,374,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+            <Button x:ConnectionId='45' x:Name="Share_Button" Content="&#xE72D;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,374,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Button.RenderTransform>
             </Button>
+            <TextBlock x:ConnectionId='46' x:Name="Notifications_Counter" Margin="1,0,0,54" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="47" RenderTransformOrigin="0.5,0.5" TextAlignment="Center" Foreground="White" FontWeight="SemiBold" FontSize="10.667" Height="17">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <Ellipse x:ConnectionId='47' x:Name="Notifications_indicator" Fill="#26000000" HorizontalAlignment="Left" Height="27" Margin="11,0,0,49" VerticalAlignment="Bottom" Width="27" Stroke="White" StrokeThickness="0"/>
         </Grid>
-        <Grid x:ConnectionId='16' x:Name="Infos_grid" Margin="48,66,0,0" Background="#FF111111" Visibility="Collapsed">
+        <Grid x:ConnectionId='17' x:Name="Infos_grid" Margin="48,66,0,0" Background="#FF111111" Visibility="Collapsed">
             <Grid HorizontalAlignment="Left" Height="233" Margin="15,0,0,0" VerticalAlignment="Center" Width="50" RenderTransformOrigin="0.5,0.5">
-                <Button x:ConnectionId='24' x:Name="Web_Share_Share" Content="&#xE72D;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
-                <Button x:ConnectionId='25' x:Name="Web_Share_Save" Content="&#xEB51;" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
+                <Button x:ConnectionId='32' x:Name="Web_Share_Share" Content="&#xE72D;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
+                <Button x:ConnectionId='33' x:Name="Web_Share_Save" Content="&#xEB51;" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
                 <Button Content="&#xE840;" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
-                <Button x:ConnectionId='26' x:Name="Web_Share_Source" Content="&#xE8FF;" HorizontalAlignment="Left" Margin="0,182,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
+                <Button x:ConnectionId='34' x:Name="Web_Share_Source" Content="&#xE8FF;" HorizontalAlignment="Left" Margin="0,182,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
             </Grid>
-            <TextBox x:ConnectionId='23' x:Name="SourceCode" Margin="70,0,0,0" TextWrapping="Wrap" Text="..." RequestedTheme="Dark" BorderBrush="{x:Null}" Background="{x:Null}" AcceptsReturn="True" Visibility="Collapsed" BorderThickness="0,30,0,3" RenderTransformOrigin="0.5,0.5" ScrollViewer.VerticalScrollBarVisibility="Auto" InputScope="NativeScript">
+            <TextBox x:ConnectionId='31' x:Name="SourceCode" Margin="70,0,0,0" TextWrapping="Wrap" Text="..." RequestedTheme="Dark" BorderBrush="{x:Null}" Background="{x:Null}" AcceptsReturn="True" Visibility="Collapsed" BorderThickness="0,30,0,3" RenderTransformOrigin="0.5,0.5" ScrollViewer.VerticalScrollBarVisibility="Auto" InputScope="NativeScript">
                 <TextBox.RenderTransform>
                     <CompositeTransform/>
                 </TextBox.RenderTransform>
             </TextBox>
         </Grid>
-        <Grid x:ConnectionId='17' x:Name="webcontainer" Margin="48,66,0,0" RenderTransformOrigin="0.5,0.5">
+        <Grid x:ConnectionId='18' x:Name="webcontainer" Margin="48,66,0,0" RenderTransformOrigin="0.5,0.5">
             <Grid.Projection>
                 <PlaneProjection/>
             </Grid.Projection>
             <Grid.RenderTransform>
                 <CompositeTransform/>
             </Grid.RenderTransform>
-            <WebView x:ConnectionId='22' x:Name="web" RenderTransformOrigin="0.5,0.5"/>
+            <WebView x:ConnectionId='30' x:Name="web" RenderTransformOrigin="0.5,0.5"/>
         </Grid>
-        <Grid x:ConnectionId='18' x:Name="MemoPanel" HorizontalAlignment="Right" Margin="0,66,0,0" Width="261" Background="#EAFDFDFD" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+        <Grid x:ConnectionId='19' x:Name="MemoPanel" HorizontalAlignment="Right" Margin="0,66,0,0" Width="261" Background="#EAFDFDFD" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
             <Grid.RenderTransform>
                 <CompositeTransform/>
             </Grid.RenderTransform>
-            <TextBox x:ConnectionId='19' x:Name="MemoText" Margin="11,41,12,40" TextWrapping="Wrap" Text="&lt;Ecrire un memo&gt;" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2E2E2E" BorderThickness="0" AcceptsReturn="True" RequestedTheme="Light"/>
-            <TextBlock HorizontalAlignment="Left" Margin="17,13,0,0" TextWrapping="Wrap" Text="MEMO RAPIDE" VerticalAlignment="Top" RequestedTheme="Dark" FontWeight="Bold" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
-            <ToggleSwitch x:ConnectionId='20' x:Name="MemoAncrageToggle" Header="" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Bottom" RequestedTheme="Light" OffContent="Non ancré" OnContent="Ancré"/>
+            <ToggleSwitch x:ConnectionId='20' x:Name="MemoAncrageToggle" Header="" HorizontalAlignment="Left" Margin="-3,0,0,-1" VerticalAlignment="Bottom" RequestedTheme="Light" OffContent="NON ANCRÉ" OnContent="ANCRÉ" RenderTransformOrigin="0.5,0.5">
+                <ToggleSwitch.RenderTransform>
+                    <CompositeTransform ScaleX="0.8" ScaleY="0.8"/>
+                </ToggleSwitch.RenderTransform>
+            </ToggleSwitch>
             <Rectangle x:ConnectionId='21' x:Name="LeftPanelShadow" HorizontalAlignment="Left" Margin="-88,0,0,0" Width="88" Opacity="0.15">
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -543,6 +563,51 @@
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
+            <Pivot x:ConnectionId='22' x:Name="RightMenuPivot"  Margin="0,0,0,40">
+                <Pivot.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}"  FontSize="16" FontFamily="Segoe MDL2 Assets"/>
+                    </DataTemplate>
+                </Pivot.HeaderTemplate>
+                <PivotItem Header="">
+                    <Grid>
+                        <TextBox x:ConnectionId='29' x:Name="MemoText" Margin="-10,-3,-6,-5" TextWrapping="Wrap" Text="&lt;Ecrire un memo&gt;" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2E2E2E" BorderThickness="0" AcceptsReturn="True" RequestedTheme="Light"/>
+                    </Grid>
+                </PivotItem>
+                <PivotItem Header="">
+                    <Grid/>
+                </PivotItem>
+                <PivotItem Header="">
+
+                </PivotItem>
+                <PivotItem Header="">
+                    <Grid x:ConnectionId='23' x:Name="NotificationsPanel" Margin="0" HorizontalAlignment="Center" Background="{x:Null}">
+                        <Grid x:ConnectionId='24' x:Name="Notif_Home" Height="96" Width="237" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0" VerticalAlignment="Top">
+                            <TextBlock HorizontalAlignment="Left" Margin="1,19,0,0" TextWrapping="Wrap" Text="&#xE209;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FF19B3CB" FontSize="29.333" TextAlignment="Center" Width="236"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="11,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FFA2A2A2" Width="216" TextAlignment="Center" Text="Aucun message système"/>
+                        </Grid>
+                        <Grid x:ConnectionId='25' x:Name="Notif_HomePageError" Height="96" Width="237" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0,110,0,0" VerticalAlignment="Top" Visibility="Collapsed">
+                            <TextBlock HorizontalAlignment="Left" Margin="11,9,0,0" TextWrapping="Wrap" Text="&#xEB90;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FFC51212" FontSize="16"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="35,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FF4B4B4B">
+                            	<Run Text="La page d'accueil définie"/>
+                            	<LineBreak/>
+                            	<Run Text="est invalide."/>
+                            </TextBlock>
+                            <Button x:ConnectionId='28' Content="Paramètres" HorizontalAlignment="Left" Margin="0,59,-1,0" VerticalAlignment="Top" Height="36" Width="238" Background="#339E9E9E" BorderBrush="#FFC5C5C5" BorderThickness="0,1,0,0" FontSize="12"                       />
+                        </Grid>
+                        <Grid x:ConnectionId='26' x:Name="Notif_SearchEngineError" Height="96" Width="237" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0,220,0,0" VerticalAlignment="Top" Visibility="Collapsed">
+                            <TextBlock HorizontalAlignment="Left" Margin="11,9,0,0" TextWrapping="Wrap" Text="&#xEB90;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FFC51212" FontSize="16"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="35,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FF4B4B4B">
+                            	<Run Text="Le moteur de recherche"/>
+                            	<LineBreak/>
+                            	<Run Text="défini est invalide."/>
+                            </TextBlock>
+                            <Button x:ConnectionId='27' Content="Paramètres" HorizontalAlignment="Left" Margin="0,59,-1,0" VerticalAlignment="Top" Height="36" Width="238" Background="#339E9E9E" BorderBrush="#FFC5C5C5" BorderThickness="0,1,0,0" FontSize="12"                       />
+                        </Grid>
+                    </Grid>
+
+                </PivotItem>
+            </Pivot>
         </Grid>
 
     </Grid>

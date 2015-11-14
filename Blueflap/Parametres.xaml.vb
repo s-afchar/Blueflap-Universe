@@ -116,6 +116,15 @@ Public NotInheritable Class Parametres
             Version_Info.Text = "ERROR"
         End Try
 
+        Try
+            If localSettings.Values("Bluestart") = True Then
+                Bluestart_Checkbox.IsChecked = True
+            ElseIf localSettings.Values("Bluestart") = False Then
+                Bluestart_Checkbox.IsChecked = False
+            End If
+        Catch ex As Exception
+        End Try
+
         ParamOpen.Stop()
         ParamOpen.Begin()
 
@@ -228,6 +237,12 @@ Public NotInheritable Class Parametres
             localSettings.Values("Adblock") = "Desactivé"
         End If
         localSettings.Values("AdblockFonction") = Adblock_Switch.Tag.ToString
+
+        If Bluestart_Checkbox.IsChecked = True Then
+            localSettings.Values("Bluestart") = True
+        ElseIf Bluestart_Checkbox.IsChecked = False
+            localSettings.Values("Bluestart") = False
+        End If
     End Sub
 
     Private Sub Startpage_Settings_TextChanged(sender As Object, e As TextChangedEventArgs) Handles Startpage_Settings.TextChanged
@@ -323,5 +338,43 @@ Public NotInheritable Class Parametres
             ShowOpenSourceLicence.Begin()
         End If
         textBox.Margin = New Thickness(10, 483, 0, 0)
+    End Sub
+
+    Private Sub Bluestart_Checkbox_Unchecked(sender As Object, e As RoutedEventArgs) Handles Bluestart_Checkbox.Unchecked
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("Bluestart") = False
+    End Sub
+
+    Private Sub Bluestart_Checkbox_Checked(sender As Object, e As RoutedEventArgs) Handles Bluestart_Checkbox.Checked
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("Bluestart") = True
+    End Sub
+
+    Private Sub Button_Tapped_1(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        localSettings.Values("LoadPageFromBluestart") = True
+        localSettings.Values("LoadPageFromBluestart_Adress") = "https://github.com/SimpleSoftwares/Blueflap-Universe"
+        Me.Frame.Navigate(GetType(MainPage))
+    End Sub
+
+    Private Sub Button_Tapped_2(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        localSettings.Values("LoadPageFromBluestart") = True
+        localSettings.Values("LoadPageFromBluestart_Adress") = "https://www.microsoft.com/fr-fr/store/apps/bluestart/9nblggh6241x"
+        Me.Frame.Navigate(GetType(MainPage))
+    End Sub
+
+    Private Sub Button_Tapped_3(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        localSettings.Values("LoadPageFromBluestart") = True
+        localSettings.Values("LoadPageFromBluestart_Adress") = "http://personali.zz.mu/"
+        Me.Frame.Navigate(GetType(MainPage))
+    End Sub
+
+    Private Async Sub Button_Tapped_4(sender As Object, e As TappedRoutedEventArgs)
+        Await Windows.System.Launcher.LaunchUriAsync(New Uri(("ms-windows-store:PDP?PFN=" + Package.Current.Id.FamilyName)))
     End Sub
 End Class

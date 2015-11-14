@@ -114,6 +114,9 @@
     <Compile Include="App.xaml.vb">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Bluestart.xaml.vb">
+      <DependentUpon>Bluestart.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.vb">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -124,6 +127,9 @@
     <Compile Include="SearchFight.xaml.vb">
       <DependentUpon>SearchFight.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Verrouillage.xaml.vb">
+      <DependentUpon>Verrouillage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -132,7 +138,12 @@
     <None Include="Blueflap_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\baptiste 2.png" />
+    <Content Include="Assets\baptiste.png" />
+    <Content Include="Assets\bat.png" />
     <Content Include="Assets\circle.png" />
+    <Content Include="Assets\Degrade.png" />
+    <Content Include="Assets\noprofilepicture.png" />
     <Content Include="Assets\surfacebook.png" />
     <Content Include="Assets\white_back.png" />
     <Content Include="Assets\white_full.png" />
@@ -161,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Bluestart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -170,6 +185,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SearchFight.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Verrouillage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

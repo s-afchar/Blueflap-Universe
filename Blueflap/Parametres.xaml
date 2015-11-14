@@ -72,6 +72,18 @@
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="scrollViewer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="scrollViewer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="60"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Name="ShowOpenSourceLicence">
             <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="rectangle">
@@ -232,7 +244,7 @@
                 </Image.RenderTransform>
             </Image>
             <Rectangle Fill="#A5FFFFFF" HorizontalAlignment="Left" Height="78" Margin="207,99,0,0" VerticalAlignment="Top" Width="2"/>
-            <Rectangle Fill="#A5FFFFFF" HorizontalAlignment="Left" Height="98" Margin="207,204,0,0" VerticalAlignment="Top" Width="2"/>
+            <Rectangle Fill="#A5FFFFFF" HorizontalAlignment="Left" Height="446" Margin="207,204,0,0" VerticalAlignment="Top" Width="2"/>
             <TextBlock HorizontalAlignment="Left" Margin="191,103,0,0" TextWrapping="Wrap" Text="▶" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="14" Foreground="White" FontSize="8">
                 <TextBlock.RenderTransform>
                     <CompositeTransform ScaleX="-0.45" ScaleY="0.6"/>
@@ -243,6 +255,73 @@
                     <CompositeTransform ScaleX="-0.45" ScaleY="0.6"/>
                 </TextBlock.RenderTransform>
             </TextBlock>
+            <ScrollViewer x:Name="scrollViewer" Margin="15,317,13,0" VerticalScrollBarVisibility="Auto" HorizontalScrollMode="Disabled" RenderTransformOrigin="0.5,0.5">
+                <ScrollViewer.RenderTransform>
+                    <CompositeTransform/>
+                </ScrollViewer.RenderTransform>
+                <Grid>
+                    <Grid Margin="0,1,0,0" RenderTransformOrigin="0.5,0.5" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="122">
+                        <Grid.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Grid.RenderTransform>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,3,0,0" TextWrapping="Wrap" Text="Baptiste" VerticalAlignment="Top" Width="87" Foreground="#F2FFFFFF" FontSize="18"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Foreground="#CCFFFFFF" FontWeight="SemiBold" FontSize="11" Text="Développeur"/>
+                    </Grid>
+                    <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="56" Margin="130,0,0,0" VerticalAlignment="Top" Width="51" Source="Assets/baptiste.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Grid Margin="1,70,0,0" RenderTransformOrigin="0.5,0.5" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="122">
+                        <Grid.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Grid.RenderTransform>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,3,0,0" TextWrapping="Wrap" Text="Vincent" VerticalAlignment="Top" Width="87" Foreground="#F2FFFFFF" FontSize="18"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Foreground="#CCFFFFFF" FontWeight="SemiBold" FontSize="11" Text="Création du site web"/>
+                    </Grid>
+                    <Image x:Name="image_Copy1" HorizontalAlignment="Left" Height="56" Margin="130,69,0,0" VerticalAlignment="Top" Width="51" Source="Assets/noprofilepicture.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Grid Margin="1,139,0,0" RenderTransformOrigin="0.5,0.5" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="122">
+                        <Grid.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Grid.RenderTransform>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,3,0,0" TextWrapping="Wrap" Text="Baptiste" VerticalAlignment="Top" Width="87" Foreground="#F2FFFFFF" FontSize="18"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Foreground="#CCFFFFFF" FontWeight="SemiBold" FontSize="11" Text="Première traduction"/>
+                    </Grid>
+                    <Image x:Name="image_Copy2" HorizontalAlignment="Left" Height="56" Margin="130,138,0,0" VerticalAlignment="Top" Width="51" Source="Assets/baptiste 2.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Grid Margin="1,208,0,0" RenderTransformOrigin="0.5,0.5" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="122">
+                        <Grid.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Grid.RenderTransform>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,3,0,0" TextWrapping="Wrap" Text="Benjamin" VerticalAlignment="Top" Width="87" Foreground="#F2FFFFFF" FontSize="18"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Foreground="#CCFFFFFF" FontWeight="SemiBold" FontSize="11" Text="Premier site web"/>
+                    </Grid>
+                    <Image x:Name="image_Copy3" HorizontalAlignment="Left" Height="56" Margin="130,207,0,0" VerticalAlignment="Top" Width="51" Source="Assets/noprofilepicture.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Grid Margin="1,277,0,0" RenderTransformOrigin="0.5,0.5" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="122">
+                        <Grid.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Grid.RenderTransform>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,3,0,0" TextWrapping="Wrap" Text="&quot;Zyhou&quot;" VerticalAlignment="Top" Width="87" Foreground="#F2FFFFFF" FontSize="18"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Foreground="#CCFFFFFF" FontWeight="SemiBold" FontSize="11" Text="Développeur"/>
+                    </Grid>
+                    <Image x:Name="image_Copy4" HorizontalAlignment="Left" Height="56" Margin="130,276,0,0" VerticalAlignment="Top" Width="51" Source="Assets/noprofilepicture.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Image.RenderTransform>
+                    </Image>
+                </Grid>
+            </ScrollViewer>
         </Grid>
         <Pivot x:Name="pivot" Margin="227,0,0,0" Title="" RenderTransformOrigin="0.5,0.5">
             <Pivot.HeaderTemplate>
@@ -292,7 +371,7 @@
                             <TextBlock x:Name="searchengine3" HorizontalAlignment="Left" Margin="623,41,0,0" TextWrapping="Wrap" Text="mots-clés" VerticalAlignment="Top" Foreground="#FF898989" Visibility="Collapsed"/>
                             <ToggleSwitch x:Name="Color_Switch" Header="" HorizontalAlignment="Left" Height="37" Margin="11,169,0,0" VerticalAlignment="Top" Width="238" OnContent="Couleur personnalisée" OffContent="Couleur automatique"/>
                             <TextBlock HorizontalAlignment="Left" Margin="11,249,0,0" TextWrapping="Wrap" Text="Page d'accueil" VerticalAlignment="Top"/>
-                            <CheckBox Content="Utiliser Bluestart" HorizontalAlignment="Right" Margin="0,275,15,0" VerticalAlignment="Top" Width="143"/>
+                            <CheckBox x:Name="Bluestart_Checkbox" Content="Utiliser Bluestart" HorizontalAlignment="Right" Margin="0,275,15,0" VerticalAlignment="Top" Width="143"/>
                         </Grid>
                     </ScrollViewer>
                 </Grid>
@@ -315,12 +394,12 @@
                             <Rectangle Fill="#33D1D1D1" Height="94" Margin="0,98,0,0" Stroke="#7F838383" VerticalAlignment="Top"/>
                             <TextBlock HorizontalAlignment="Left" Margin="11,10,0,0" TextWrapping="Wrap" Text="Version" VerticalAlignment="Top"/>
                             <TextBlock x:Name="Version_Info" HorizontalAlignment="Left" Margin="19,40,0,0" TextWrapping="Wrap" Text="xx.xx.xx" VerticalAlignment="Top" Foreground="#FF8D8D8D"/>
-                            <Button Content="GitHub" HorizontalAlignment="Left" Margin="11,141,0,0" VerticalAlignment="Top" Width="100" Background="#19000000" BorderBrush="#4C7C7C7C" BorderThickness="1" Height="35"/>
+                            <Button Content="GitHub" HorizontalAlignment="Left" Margin="11,141,0,0" VerticalAlignment="Top" Width="100" Background="#19000000" BorderBrush="#4C7C7C7C" BorderThickness="1" Height="35" Tapped="Button_Tapped_1"/>
                             <TextBlock HorizontalAlignment="Left" Margin="11,109,0,0" TextWrapping="Wrap" Text="Contribuer" VerticalAlignment="Top"/>
-                            <Button Content="Notez l'application" HorizontalAlignment="Left" Margin="121,141,0,0" VerticalAlignment="Top" Width="161" Background="#19000000" BorderBrush="#4C7C7C7C" BorderThickness="1" Height="35"/>
+                            <Button Content="Notez l'application" HorizontalAlignment="Left" Margin="121,141,0,0" VerticalAlignment="Top" Width="161" Background="#19000000" BorderBrush="#4C7C7C7C" BorderThickness="1" Height="35" Tapped="Button_Tapped_4"/>
                             <Rectangle Fill="#33D1D1D1" Height="208" Margin="0,211,0,0" Stroke="#7F838383" VerticalAlignment="Top"/>
                             <TextBlock HorizontalAlignment="Left" Margin="10,222,0,0" TextWrapping="Wrap" Text="Prolongez votre expérience" VerticalAlignment="Top"/>
-                            <Button Content="&#xE896;" HorizontalAlignment="Left" Margin="166,257,0,0" VerticalAlignment="Top" Width="37" Background="#19000000" BorderBrush="#4C7C7C7C" BorderThickness="1" Height="35" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets">
+                            <Button Content="&#xE896;" HorizontalAlignment="Left" Margin="166,257,0,0" VerticalAlignment="Top" Width="37" Background="#19000000" BorderBrush="#4C7C7C7C" BorderThickness="1" Height="35" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" Tapped="Button_Tapped_2">
                                 <Button.RenderTransform>
                                     <CompositeTransform ScaleX="0.75" ScaleY="0.75"/>
                                 </Button.RenderTransform>
@@ -333,7 +412,7 @@
                             	<LineBreak/>
                             	<Run/>
                             </TextBlock>
-                            <Button Content="&#xE896;" HorizontalAlignment="Left" Margin="476,257,0,0" VerticalAlignment="Top" Width="37" Background="#19000000" BorderBrush="#4C7C7C7C" BorderThickness="1" Height="35" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets">
+                            <Button Content="&#xE896;" HorizontalAlignment="Left" Margin="476,257,0,0" VerticalAlignment="Top" Width="37" Background="#19000000" BorderBrush="#4C7C7C7C" BorderThickness="1" Height="35" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" Tapped="Button_Tapped_3">
                                 <Button.RenderTransform>
                                     <CompositeTransform ScaleX="0.75" ScaleY="0.75"/>
                                 </Button.RenderTransform>
