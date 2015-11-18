@@ -21,11 +21,26 @@
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\ARM\Release\ilc\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\ARM\Release\ilc\Assets\baptiste 2.png">
+      <PackagePath>Assets\baptiste 2.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\ARM\Release\ilc\Assets\baptiste.png">
+      <PackagePath>Assets\baptiste.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\ARM\Release\ilc\Assets\bat.png">
+      <PackagePath>Assets\bat.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\ARM\Release\ilc\Assets\circle.png">
       <PackagePath>Assets\circle.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\ARM\Release\ilc\Assets\Degrade.png">
+      <PackagePath>Assets\Degrade.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\ARM\Release\ilc\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\ARM\Release\ilc\Assets\noprofilepicture.png">
+      <PackagePath>Assets\noprofilepicture.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\ARM\Release\ilc\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>

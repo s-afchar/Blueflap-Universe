@@ -1,8 +1,13 @@
 [Files]
 "C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\AppxManifest.xml" "AppxManifest.xml"
 "C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\ApplicationInsights.config" "ApplicationInsights.config"
+"C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\baptiste 2.png" "Assets\baptiste 2.png"
+"C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\baptiste.png" "Assets\baptiste.png"
+"C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\bat.png" "Assets\bat.png"
 "C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\circle.png" "Assets\circle.png"
+"C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\Degrade.png" "Assets\Degrade.png"
 "C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\LockScreenLogo.scale-200.png" "Assets\LockScreenLogo.scale-200.png"
+"C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\noprofilepicture.png" "Assets\noprofilepicture.png"
 "C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\SplashScreen.scale-200.png" "Assets\SplashScreen.scale-200.png"
 "C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\Square150x150Logo.scale-200.png" "Assets\Square150x150Logo.scale-200.png"
 "C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\Square44x44Logo.scale-200.png" "Assets\Square44x44Logo.scale-200.png"

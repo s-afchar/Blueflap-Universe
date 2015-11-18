@@ -40,6 +40,11 @@ Blueflap
  <param name="sender">Source de la requête de suspension.</param>
  <param name="e">Détails de la requête de suspension.</param>
 </member>
+<member name="T:Blueflap.Bluestart">
+ <summary>
+ Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
+ </summary>
+</member>
 <member name="T:Blueflap.MainPage">
  <summary>
  Page dédiée à la navigation web
@@ -51,6 +56,11 @@ Blueflap
  </summary>
 </member>
 <member name="T:Blueflap.SearchFight">
+ <summary>
+ Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
+ </summary>
+</member>
+<member name="T:Blueflap.Verrouillage">
  <summary>
  Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
  </summary>

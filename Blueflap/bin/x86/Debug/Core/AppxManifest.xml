@@ -7,7 +7,7 @@
 
     Pour plus d'informations sur les fichiers manifeste, consultez http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="26841SmA.Blueflap" Publisher="CN=8D01EF2A-40D3-4C5E-A5F4-3FF087AF903B" Version="4.9.2.0" ProcessorArchitecture="x86" />
+  <Identity Name="26841SmA.Blueflap" Publisher="CN=8D01EF2A-40D3-4C5E-A5F4-3FF087AF903B" Version="4.9.5.0" ProcessorArchitecture="x86" />
   <mp:PhoneIdentity PhoneProductId="5305259c-91de-49e4-8741-f983fa6e684a" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Blueflap</DisplayName>
@@ -43,7 +43,7 @@
     <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v5.0" />
     <build:Item Name="VisualStudio" Version="14.0" />
     <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Community 2015" />
-    <build:Item Name="OperatingSystem" Version="10.0.10240.16384 (th1.150709-1700)" />
+    <build:Item Name="OperatingSystem" Version="10.0.10586.0 (th2_release.151029-1700)" />
     <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="14.0.23311.4" />
     <build:Item Name="ProjectGUID" Value="{335ACF22-6D28-4E84-8E27-9CC6D2A7CE1A}" />
     <build:Item Name="OptimizingToolset" Value="None" />

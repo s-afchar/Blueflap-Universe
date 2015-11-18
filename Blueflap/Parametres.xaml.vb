@@ -7,9 +7,9 @@ Public NotInheritable Class Parametres
     Inherits Page
     Public Sub New()
         Me.InitializeComponent()
-        AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf MainPage_BackRequested
+        AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf Parametres_BackRequested
     End Sub
-    Private Sub MainPage_BackRequested(sender As Object, e As Windows.UI.Core.BackRequestedEventArgs)
+    Private Sub Parametres_BackRequested(sender As Object, e As Windows.UI.Core.BackRequestedEventArgs)
         'On retourne à la page principale quand le bouton retour "physique" est pressé
         If Frame.CanGoBack Then
             e.Handled = True

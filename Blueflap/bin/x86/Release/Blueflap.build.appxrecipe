@@ -30,17 +30,41 @@
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\bat.png">
       <PackagePath>Assets\bat.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\Cailloux.jpg">
+      <PackagePath>Assets\Cailloux.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\Ciel.JPG">
+      <PackagePath>Assets\Ciel.JPG</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\circle.png">
       <PackagePath>Assets\circle.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\Degrade.png">
       <PackagePath>Assets\Degrade.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\Degrade2.png">
+      <PackagePath>Assets\Degrade2.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\Fleurs.jpg">
+      <PackagePath>Assets\Fleurs.jpg</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\Montagne.jpg">
+      <PackagePath>Assets\Montagne.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\Neige.jpg">
+      <PackagePath>Assets\Neige.jpg</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\noprofilepicture.png">
       <PackagePath>Assets\noprofilepicture.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\Plage.jpg">
+      <PackagePath>Assets\Plage.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\Soleil.JPG">
+      <PackagePath>Assets\Soleil.JPG</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>

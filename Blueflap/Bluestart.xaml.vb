@@ -6,8 +6,9 @@
 Public NotInheritable Class Bluestart
     Inherits Page
 
-
     Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("LoadPageFromBluestart") = False
         Titlebar.Text = System.DateTime.Now.ToString("dddd dd MMMM yyyy")
         LoadAnim.Begin()
         RechercheBox.IsEnabled = False
@@ -19,8 +20,26 @@ Public NotInheritable Class Bluestart
         v.TitleBar.ButtonInactiveBackgroundColor = Windows.UI.Color.FromArgb(255, 27, 27, 27)
         If RechercheBox.Text = "" Then
             textBlock.Visibility = Visibility.Visible
+            LoopSuggestions.Stop()
             LoopSuggestions.Begin()
         End If
+
+        Try
+            If localSettings.Values("WallpaperType") = "Custom" Then
+                Loader.Visibility = Visibility.Visible
+                DownloadingWallpaper.Begin()
+                Wallpaper.Source = New BitmapImage(New Uri(localSettings.Values("WallpaperSource"), UriKind.Absolute))
+            Else
+                DownloadingWallpaper.Stop()
+                Loader.Visibility = Visibility.Collapsed
+                Wallpaper.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
+            End If
+        Catch ex As Exception
+
+        End Try
+
+        grid1.Visibility = Visibility.Collapsed
+
     End Sub
 
     Private Sub TextBox_GotFocus(sender As Object, e As RoutedEventArgs)
@@ -81,5 +100,122 @@ Public NotInheritable Class Bluestart
     Private Sub RechercheBox_TextChanged(sender As Object, e As TextChangedEventArgs) Handles RechercheBox.TextChanged
         LoopSuggestions.Stop()
         textBlock.Visibility = Visibility.Collapsed
+    End Sub
+
+    ' Private Async Sub Button_Tapped_1(sender As Object, e As TappedRoutedEventArgs)
+    'Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+
+    'Dim picker = New Windows.Storage.Pickers.FileOpenPicker()
+    '        picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail
+    '        picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary
+    '        picker.FileTypeFilter.Add(".jpg")
+    '        picker.FileTypeFilter.Add(".jpeg")
+    '        picker.FileTypeFilter.Add(".png")
+    '
+    '    Dim FichierSelectionne As Windows.Storage.StorageFile = Await picker.PickSingleFileAsync()
+    '    If FichierSelectionne IsNot Nothing Then
+    '    Dim Chemin = Await FichierSelectionne.OpenAsync(Windows.Storage.FileAccessMode.Read)
+    '    Dim bitmapImage = New Windows.UI.Xaml.Media.Imaging.BitmapImage()
+    '            Await bitmapImage.SetSourceAsync(Chemin)
+    '            Wallpaper.Source = bitmapImage
+    '
+    '            localSettings.Values("WallpaperImagePath") = FichierSelectionne.Path
+    '
+    '    End If
+    '    End Sub
+
+    Private Sub Personnalisation_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Personnalisation_Button.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        If grid1.Visibility = Visibility.Visible Then
+            grid1.Visibility = Visibility.Collapsed
+        Else
+            Try
+                If localSettings.Values("WallpaperType") = "Custom" Then
+                    OnlineImagePath.Visibility = Visibility.Visible
+                    OnlineImagePath.Text = localSettings.Values("WallpaperSource")
+                Else
+                    OnlineImagePath.Visibility = Visibility.Collapsed
+                End If
+            Catch ex As Exception
+
+            End Try
+
+            OpenPersonnalize.Stop()
+            OpenPersonnalize.Begin()
+        End If
+    End Sub
+
+    Private Sub OnlineImagePath_TextChanged(sender As Object, e As TextChangedEventArgs) Handles OnlineImagePath.TextChanged
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("WallpaperSource") = OnlineImagePath.Text
+        localSettings.Values("WallpaperType") = "Custom"
+    End Sub
+
+    Private Sub SetWallpaper1(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("WallpaperName") = "Degrade.png"
+        Wallpaper.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
+        localSettings.Values("WallpaperType") = "Default"
+    End Sub
+    Private Sub SetWallpaper2(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("WallpaperName") = "Degrade2.png"
+        Wallpaper.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
+        localSettings.Values("WallpaperType") = "Default"
+    End Sub
+    Private Sub SetWallpaper3(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("WallpaperName") = "Ciel.JPG"
+        Wallpaper.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
+        localSettings.Values("WallpaperType") = "Default"
+    End Sub
+    Private Sub SetWallpaper4(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("WallpaperName") = "Fleurs.jpg"
+        Wallpaper.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
+        localSettings.Values("WallpaperType") = "Default"
+    End Sub
+    Private Sub SetWallpaper5(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("WallpaperName") = "Montagne.jpg"
+        Wallpaper.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
+        localSettings.Values("WallpaperType") = "Default"
+    End Sub
+    Private Sub SetWallpaper6(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("WallpaperName") = "Neige.jpg"
+        Wallpaper.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
+        localSettings.Values("WallpaperType") = "Default"
+    End Sub
+    Private Sub SetWallpaper7(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("WallpaperName") = "Plage.jpg"
+        Wallpaper.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
+        localSettings.Values("WallpaperType") = "Default"
+    End Sub
+    Private Sub SetWallpaper8(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("WallpaperName") = "Soleil.JPG"
+        Wallpaper.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
+        localSettings.Values("WallpaperType") = "Default"
+    End Sub
+    Private Sub SetWallpaper9(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("WallpaperName") = "Cailloux.jpg"
+        Wallpaper.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
+        localSettings.Values("WallpaperType") = "Default"
+    End Sub
+
+    Private Sub SetCustomWallpaper(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        If OnlineImagePath.Visibility = Visibility.Visible Then
+            OnlineImagePath.Visibility = Visibility.Collapsed
+            localSettings.Values("WallpaperType") = "Default"
+        Else
+            OnlineImagePath.Visibility = Visibility.Visible
+            localSettings.Values("WallpaperType") = "Custom"
+            OnlineImagePath.Text = localSettings.Values("WallpaperSource")
+        End If
     End Sub
 End Class

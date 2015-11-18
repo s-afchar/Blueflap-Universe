@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="26841SmA.Blueflap" Publisher="CN=8D01EF2A-40D3-4C5E-A5F4-3FF087AF903B" Version="4.9.4.0" />
+  <Identity Name="26841SmA.Blueflap" Publisher="CN=8D01EF2A-40D3-4C5E-A5F4-3FF087AF903B" Version="4.9.5.0" />
   <mp:PhoneIdentity PhoneProductId="5305259c-91de-49e4-8741-f983fa6e684a" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Blueflap</DisplayName>

@@ -4384,6 +4384,31 @@ namespace McgInterop
 			return value__retval;
 		}
 
+		// Signature, Windows.UI.Xaml.IUIElement.put_IsTapEnabled, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.CBoolMarshaller] bool__bool, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_bool__(
+					global::System.__ComObject __this, 
+					bool value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			sbyte unsafe_value;
+			int unsafe___return__;
+			// Marshalling
+			unsafe_value = (value ? ((sbyte)1) : ((sbyte)0));
+			// Call to native method
+			unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+								__this, 
+								__typeHnd, 
+								__targetIndex, 
+								unsafe_value
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			// Return
+		}
+
 		// Signature, Windows.UI.Xaml.Input.KeyEventHandler.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Input_KeyRoutedEventArgs__Windows_UI_Xaml_Input__KeyRoutedEventArgs *, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
@@ -8169,31 +8194,6 @@ namespace McgInterop
 			}
 		}
 
-		// Signature, Windows.UI.Xaml.Controls.IControl.put_IsEnabled, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.CBoolMarshaller] bool__bool, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_bool__(
-					global::System.__ComObject __this, 
-					bool value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			sbyte unsafe_value;
-			int unsafe___return__;
-			// Marshalling
-			unsafe_value = (value ? ((sbyte)1) : ((sbyte)0));
-			// Call to native method
-			unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-								__this, 
-								__typeHnd, 
-								__targetIndex, 
-								unsafe_value
-							);
-			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			// Return
-		}
-
 		// Signature, Windows.UI.Xaml.DependencyPropertyChangedEventHandler.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_DependencyPropertyChangedEventArgs__Windows_UI_Xaml__DependencyPropertyChangedEventArgs *, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
@@ -8276,6 +8276,34 @@ namespace McgInterop
 				// Cleanup
 				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
 			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IControl.Focus, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.EnumMarshaller] Windows_UI_Xaml_FocusState__Windows_UI_Xaml__FocusState, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.CBoolMarshaller] bool__bool, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static bool Func_intbool__(
+					global::System.__ComObject __this, 
+					int value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			bool returnValue__retval;
+			sbyte unsafe_returnValue__retval;
+			int unsafe___return__;
+			// Marshalling
+			// Call to native method
+			unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+								__this, 
+								__typeHnd, 
+								__targetIndex, 
+								value, 
+								&(unsafe_returnValue__retval)
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			returnValue__retval = unsafe_returnValue__retval != 0;
+			// Return
+			return returnValue__retval;
 		}
 
 		// Signature, Windows.UI.Xaml.Controls.IControlOverrides.OnPointerEntered, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Input_PointerRoutedEventArgs__Windows_UI_Xaml_Input__PointerRoutedEventArgs *, 
@@ -12253,6 +12281,870 @@ namespace McgInterop
 			}
 		}
 
+		// Signature, System.Collections.Generic.IList<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.GetAt, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame Func_uint__UI_Xaml_Media_Animation_ObjectKeyFrame__(
+					global::System.__ComObject __this, 
+					uint index, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame __value__retval = default(global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									index, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle, 
+									typeof(global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame).TypeHandle
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, System.Collections.Generic.IList<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.GetView, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] System_Collections_Generic_IReadOnlyList_1_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame___Windows_Foundation_Collections__IVectorView_A_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Collections.Generic.IReadOnlyList<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame> Func__IReadOnlyList_1_UI_Xaml_Media_Animation_ObjectKeyFrame___(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Collections.Generic.IReadOnlyList_A_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame_V___Impl.Vtbl** unsafe___value__retval = default(global::System.Collections.Generic.IReadOnlyList_A_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame_V___Impl.Vtbl**);
+			global::System.Collections.Generic.IReadOnlyList<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame> __value__retval = default(global::System.Collections.Generic.IReadOnlyList<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::System.Collections.Generic.IReadOnlyList<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::System.Collections.Generic.IReadOnlyList<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>).TypeHandle
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, System.Collections.Generic.IList<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.IndexOf, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame *, [fwd] [out] [managedbyref] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.CBoolMarshaller] bool__bool, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static bool Func_UI_Xaml_Media_Animation_ObjectKeyFrame__out_uint__bool__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame value, 
+					out uint index, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**);
+			uint unsafe_index;
+			bool __value__retval;
+			sbyte unsafe___value__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									value, 
+									typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value, 
+									&(unsafe_index), 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = unsafe___value__retval != 0;
+				index = unsafe_index;
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+				global::System.GC.KeepAlive(value);
+			}
+		}
+
+		// Signature, System.Collections.Generic.IList<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.SetAt, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_uint__UI_Xaml_Media_Animation_ObjectKeyFrame__(
+					global::System.__ComObject __this, 
+					uint index, 
+					global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									value, 
+									typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									index, 
+									unsafe_value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+				global::System.GC.KeepAlive(value);
+			}
+		}
+
+		// Signature, System.Collections.Generic.IList<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.Append, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_UI_Xaml_Media_Animation_ObjectKeyFrame__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									value, 
+									typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+				global::System.GC.KeepAlive(value);
+			}
+		}
+
+		// Signature, System.Collections.Generic.IList<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.GetMany, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [out] [Mcg.CodeGen.ArrayMarshaller] rg_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame * *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static uint Func_uint__out_rg_UI_Xaml_Media_Animation_ObjectKeyFrame__uint__(
+					global::System.__ComObject __this, 
+					uint startIndex, 
+					global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame[] items, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			uint unsafe_items_mcgLength = 0;
+			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl*** unsafe_items = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***);
+			uint unsafe___value__retval;
+			uint __value__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				if (items != null)
+					unsafe_items_mcgLength = (uint)items.Length;
+				if (items != null)
+					unsafe_items = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***)global::McgInterop.McgHelpers.CoTaskMemAllocAndZeroMemory(((global::System.IntPtr)checked(unsafe_items_mcgLength * sizeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**))));
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									startIndex, 
+									unsafe_items_mcgLength, 
+									unsafe_items, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = unsafe___value__retval;
+				if (items != null)
+					for (uint mcgIdx = 0; (mcgIdx < unsafe_items_mcgLength); mcgIdx++)
+					{
+						// [fwd] [out] [optional] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame * items
+						items[mcgIdx] = (global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+											((global::System.IntPtr)unsafe_items[mcgIdx]), 
+											typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle, 
+											typeof(global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame).TypeHandle
+										);
+					}
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				if (unsafe_items != null)
+					for (uint mcgIdx_1 = 0; (mcgIdx_1 < unsafe_items_mcgLength); mcgIdx_1++)
+					{
+						// [fwd] [in] [out] [optional] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame * items
+						global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_items[mcgIdx_1])));
+					}
+				global::System.Runtime.InteropServices.ExternalInterop.SafeCoTaskMemFree(unsafe_items);
+			}
+		}
+
+		// Signature, System.Collections.Generic.IList<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.ReplaceAll, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.ArrayMarshaller] rg_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame * *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_rg_UI_Xaml_Media_Animation_ObjectKeyFrame__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame[] items, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			uint unsafe_items_mcgLength = 0;
+			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl*** unsafe_items = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_items = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***)global::System.Runtime.InteropServices.McgModuleManager.ObjectArrayToComInterfaceArrayAlloc(
+									items, 
+									typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle, 
+									out unsafe_items_mcgLength
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_items_mcgLength, 
+									unsafe_items
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				if (unsafe_items != null)
+					for (uint mcgIdx = 0; (mcgIdx < unsafe_items_mcgLength); mcgIdx++)
+					{
+						// [fwd] [in] [out] [optional] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame * items
+						global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_items[mcgIdx])));
+					}
+				global::System.Runtime.InteropServices.ExternalInterop.SafeCoTaskMemFree(unsafe_items);
+			}
+		}
+
+		// Signature, System.Collections.Generic.IEnumerable<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.First, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Foundation_Collections_IIterator_1_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame___Windows_Foundation_Collections__IIterator_A_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame> Func__Collections_IIterator_1_UI_Xaml_Media_Animation_ObjectKeyFrame___(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.Collections.IIterator_A_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame_V___Impl.Vtbl** unsafe___value__retval = default(global::Windows.Foundation.Collections.IIterator_A_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame_V___Impl.Vtbl**);
+			global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame> __value__retval = default(global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>).TypeHandle
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, Windows.Foundation.Collections.IIterator<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.get_Current, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame Func_UI_Xaml_Media_Animation_ObjectKeyFrame__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame __value__retval = default(global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle, 
+									typeof(global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame).TypeHandle
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, Windows.Foundation.Collections.IIterator<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.GetMany, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [Mcg.CodeGen.ArrayMarshaller] rg_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame * *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static uint Func_out_rg_UI_Xaml_Media_Animation_ObjectKeyFrame__uint__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame[] items, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			uint unsafe_items_mcgLength = 0;
+			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl*** unsafe_items = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***);
+			uint unsafe___value__retval;
+			uint __value__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				if (items != null)
+					unsafe_items_mcgLength = (uint)items.Length;
+				if (items != null)
+					unsafe_items = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***)global::McgInterop.McgHelpers.CoTaskMemAllocAndZeroMemory(((global::System.IntPtr)checked(unsafe_items_mcgLength * sizeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**))));
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_items_mcgLength, 
+									unsafe_items, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = unsafe___value__retval;
+				if (items != null)
+					for (uint mcgIdx = 0; (mcgIdx < unsafe_items_mcgLength); mcgIdx++)
+					{
+						// [fwd] [out] [optional] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame * items
+						items[mcgIdx] = (global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+											((global::System.IntPtr)unsafe_items[mcgIdx]), 
+											typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle, 
+											typeof(global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame).TypeHandle
+										);
+					}
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				if (unsafe_items != null)
+					for (uint mcgIdx_1 = 0; (mcgIdx_1 < unsafe_items_mcgLength); mcgIdx_1++)
+					{
+						// [fwd] [in] [out] [optional] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame * items
+						global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_items[mcgIdx_1])));
+					}
+				global::System.Runtime.InteropServices.ExternalInterop.SafeCoTaskMemFree(unsafe_items);
+			}
+		}
+
+		// Signature, System.Collections.Generic.IEnumerable<Windows.UI.Xaml.Media.Animation.IObjectKeyFrame>.First, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Foundation_Collections_IIterator_1_Windows_UI_Xaml_Media_Animation_IObjectKeyFrame___Windows_Foundation_Collections__IIterator_A_Windows_UI_Xaml_Media_Animation_IObjectKeyFrame_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame> Func__Collections_IIterator_1_UI_Xaml_Media_Animation_IObjectKeyFrame___(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.Collections.IIterator_A_Windows_UI_Xaml_Media_Animation_IObjectKeyFrame_V___Impl.Vtbl** unsafe___value__retval = default(global::Windows.Foundation.Collections.IIterator_A_Windows_UI_Xaml_Media_Animation_IObjectKeyFrame_V___Impl.Vtbl**);
+			global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame> __value__retval = default(global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame>).TypeHandle
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, Windows.Foundation.Collections.IIterator<Windows.UI.Xaml.Media.Animation.IObjectKeyFrame>.get_Current, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_UI_Xaml_Media_Animation_IObjectKeyFrame__Windows_UI_Xaml_Media_Animation__IObjectKeyFrame *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame Func_UI_Xaml_Media_Animation_IObjectKeyFrame__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame __value__retval = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, Windows.Foundation.Collections.IIterator<Windows.UI.Xaml.Media.Animation.IObjectKeyFrame>.GetMany, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [Mcg.CodeGen.ArrayMarshaller] rg_Windows_UI_Xaml_Media_Animation_IObjectKeyFrame__Windows_UI_Xaml_Media_Animation__IObjectKeyFrame * *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static uint Func_out_rg_UI_Xaml_Media_Animation_IObjectKeyFrame__uint__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame[] items, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			uint unsafe_items_mcgLength = 0;
+			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl*** unsafe_items = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***);
+			uint unsafe___value__retval;
+			uint __value__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				if (items != null)
+					unsafe_items_mcgLength = (uint)items.Length;
+				if (items != null)
+					unsafe_items = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***)global::McgInterop.McgHelpers.CoTaskMemAllocAndZeroMemory(((global::System.IntPtr)checked(unsafe_items_mcgLength * sizeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**))));
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_items_mcgLength, 
+									unsafe_items, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = unsafe___value__retval;
+				if (items != null)
+					for (uint mcgIdx = 0; (mcgIdx < unsafe_items_mcgLength); mcgIdx++)
+					{
+						// [fwd] [out] [optional] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_UI_Xaml_Media_Animation_IObjectKeyFrame__Windows_UI_Xaml_Media_Animation__IObjectKeyFrame * items
+						items[mcgIdx] = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+											((global::System.IntPtr)unsafe_items[mcgIdx]), 
+											typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle
+										);
+					}
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				if (unsafe_items != null)
+					for (uint mcgIdx_1 = 0; (mcgIdx_1 < unsafe_items_mcgLength); mcgIdx_1++)
+					{
+						// [fwd] [in] [out] [optional] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_UI_Xaml_Media_Animation_IObjectKeyFrame__Windows_UI_Xaml_Media_Animation__IObjectKeyFrame * items
+						global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_items[mcgIdx_1])));
+					}
+				global::System.Runtime.InteropServices.ExternalInterop.SafeCoTaskMemFree(unsafe_items);
+			}
+		}
+
+		// Signature, System.Collections.Generic.IReadOnlyList<Windows.UI.Xaml.Media.Animation.IObjectKeyFrame>.GetAt, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_UI_Xaml_Media_Animation_IObjectKeyFrame__Windows_UI_Xaml_Media_Animation__IObjectKeyFrame *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame Func_uint__UI_Xaml_Media_Animation_IObjectKeyFrame__(
+					global::System.__ComObject __this, 
+					uint index, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame __value__retval = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									index, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, System.Collections.Generic.IReadOnlyList<Windows.UI.Xaml.Media.Animation.IObjectKeyFrame>.IndexOf, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_UI_Xaml_Media_Animation_IObjectKeyFrame__Windows_UI_Xaml_Media_Animation__IObjectKeyFrame *, [fwd] [out] [managedbyref] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.CBoolMarshaller] bool__bool, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static bool Func_UI_Xaml_Media_Animation_IObjectKeyFrame__out_uint__bool__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame value, 
+					out uint index, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**);
+			uint unsafe_index;
+			bool __value__retval;
+			sbyte unsafe___value__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									value, 
+									typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value, 
+									&(unsafe_index), 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = unsafe___value__retval != 0;
+				index = unsafe_index;
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+				global::System.GC.KeepAlive(value);
+			}
+		}
+
+		// Signature, System.Collections.Generic.IReadOnlyList<Windows.UI.Xaml.Media.Animation.IObjectKeyFrame>.GetMany, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [out] [Mcg.CodeGen.ArrayMarshaller] rg_Windows_UI_Xaml_Media_Animation_IObjectKeyFrame__Windows_UI_Xaml_Media_Animation__IObjectKeyFrame * *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static uint Func_uint__out_rg_UI_Xaml_Media_Animation_IObjectKeyFrame__uint__(
+					global::System.__ComObject __this, 
+					uint startIndex, 
+					global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame[] items, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			uint unsafe_items_mcgLength = 0;
+			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl*** unsafe_items = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***);
+			uint unsafe___value__retval;
+			uint __value__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				if (items != null)
+					unsafe_items_mcgLength = (uint)items.Length;
+				if (items != null)
+					unsafe_items = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***)global::McgInterop.McgHelpers.CoTaskMemAllocAndZeroMemory(((global::System.IntPtr)checked(unsafe_items_mcgLength * sizeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**))));
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									startIndex, 
+									unsafe_items_mcgLength, 
+									unsafe_items, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = unsafe___value__retval;
+				if (items != null)
+					for (uint mcgIdx = 0; (mcgIdx < unsafe_items_mcgLength); mcgIdx++)
+					{
+						// [fwd] [out] [optional] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_UI_Xaml_Media_Animation_IObjectKeyFrame__Windows_UI_Xaml_Media_Animation__IObjectKeyFrame * items
+						items[mcgIdx] = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+											((global::System.IntPtr)unsafe_items[mcgIdx]), 
+											typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle
+										);
+					}
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				if (unsafe_items != null)
+					for (uint mcgIdx_1 = 0; (mcgIdx_1 < unsafe_items_mcgLength); mcgIdx_1++)
+					{
+						// [fwd] [in] [out] [optional] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_UI_Xaml_Media_Animation_IObjectKeyFrame__Windows_UI_Xaml_Media_Animation__IObjectKeyFrame * items
+						global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_items[mcgIdx_1])));
+					}
+				global::System.Runtime.InteropServices.ExternalInterop.SafeCoTaskMemFree(unsafe_items);
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFrames.get_KeyFrames, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrameCollection__Windows_UI_Xaml_Media_Animation__ObjectKeyFrameCollection *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection Func_UI_Xaml_Media_Animation_ObjectKeyFrameCollection__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Collections.Generic.IList_A_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame_V___Impl.Vtbl** unsafe_value__retval = default(global::System.Collections.Generic.IList_A_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame_V___Impl.Vtbl**);
+			global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection value__retval = default(global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe_value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				value__retval = (global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe_value__retval), 
+									typeof(global::System.Collections.Generic.IList<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>).TypeHandle, 
+									typeof(global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection).TypeHandle
+								);
+				// Return
+				return value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Media.Animation.IEasingFunctionBase.get_EasingMode, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.EnumMarshaller] Windows_UI_Xaml_Media_Animation_EasingMode__Windows_UI_Xaml_Media_Animation__EasingMode, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Xaml.Media.Animation.EasingMode Func_UI_Xaml_Media_Animation_EasingMode__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Media.Animation.EasingMode unsafe_value__retval;
+			global::Windows.UI.Xaml.Media.Animation.EasingMode value__retval;
+			int unsafe___return__;
+			// Marshalling
+			// Call to native method
+			unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+								__this, 
+								__typeHnd, 
+								__targetIndex, 
+								&(unsafe_value__retval)
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			value__retval = unsafe_value__retval;
+			// Return
+			return value__retval;
+		}
+
+		// Signature, Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrame.get_EasingFunction, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_EasingFunctionBase__Windows_UI_Xaml_Media_Animation__EasingFunctionBase *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase Func_UI_Xaml_Media_Animation_EasingFunctionBase__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl** unsafe_value__retval = default(global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase value__retval = default(global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe_value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				value__retval = (global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe_value__retval), 
+									typeof(global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase).TypeHandle, 
+									typeof(global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase).TypeHandle
+								);
+				// Return
+				return value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrame.put_EasingFunction, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_EasingFunctionBase__Windows_UI_Xaml_Media_Animation__EasingFunctionBase *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_UI_Xaml_Media_Animation_EasingFunctionBase__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									value, 
+									typeof(global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+				global::System.GC.KeepAlive(value);
+			}
+		}
+
 		// Signature, Windows.UI.Xaml.Media.Animation.IColorKeyFrame.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] Windows_UI_Color__Windows_UI__Color, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
@@ -13061,1042 +13953,6 @@ namespace McgInterop
 			{
 				// Cleanup
 				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Media.Animation.IEasingFunctionBase.get_EasingMode, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.EnumMarshaller] Windows_UI_Xaml_Media_Animation_EasingMode__Windows_UI_Xaml_Media_Animation__EasingMode, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.Media.Animation.EasingMode Func_UI_Xaml_Media_Animation_EasingMode__(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Media.Animation.EasingMode unsafe_value__retval;
-			global::Windows.UI.Xaml.Media.Animation.EasingMode value__retval;
-			int unsafe___return__;
-			// Marshalling
-			// Call to native method
-			unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-								__this, 
-								__typeHnd, 
-								__targetIndex, 
-								&(unsafe_value__retval)
-							);
-			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			value__retval = unsafe_value__retval;
-			// Return
-			return value__retval;
-		}
-
-		// Signature, Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrame.get_EasingFunction, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_EasingFunctionBase__Windows_UI_Xaml_Media_Animation__EasingFunctionBase *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase Func_UI_Xaml_Media_Animation_EasingFunctionBase__(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl** unsafe_value__retval = default(global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase value__retval = default(global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe_value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				value__retval = (global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-									((global::System.IntPtr)unsafe_value__retval), 
-									typeof(global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase).TypeHandle, 
-									typeof(global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase).TypeHandle
-								);
-				// Return
-				return value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrame.put_EasingFunction, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_EasingFunctionBase__Windows_UI_Xaml_Media_Animation__EasingFunctionBase *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_Media_Animation_EasingFunctionBase__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									value, 
-									typeof(global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-				global::System.GC.KeepAlive(value);
-			}
-		}
-
-		// Signature, System.Collections.Generic.IList<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.GetAt, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame Func_uint__UI_Xaml_Media_Animation_ObjectKeyFrame__(
-					global::System.__ComObject __this, 
-					uint index, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame __value__retval = default(global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe___value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									index, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = (global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-									((global::System.IntPtr)unsafe___value__retval), 
-									typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle, 
-									typeof(global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame).TypeHandle
-								);
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
-			}
-		}
-
-		// Signature, System.Collections.Generic.IList<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.GetView, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] System_Collections_Generic_IReadOnlyList_1_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame___Windows_Foundation_Collections__IVectorView_A_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame_V_ *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Collections.Generic.IReadOnlyList<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame> Func__IReadOnlyList_1_UI_Xaml_Media_Animation_ObjectKeyFrame___(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::System.Collections.Generic.IReadOnlyList_A_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame_V___Impl.Vtbl** unsafe___value__retval = default(global::System.Collections.Generic.IReadOnlyList_A_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame_V___Impl.Vtbl**);
-			global::System.Collections.Generic.IReadOnlyList<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame> __value__retval = default(global::System.Collections.Generic.IReadOnlyList<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe___value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = (global::System.Collections.Generic.IReadOnlyList<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-									((global::System.IntPtr)unsafe___value__retval), 
-									typeof(global::System.Collections.Generic.IReadOnlyList<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>).TypeHandle
-								);
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
-			}
-		}
-
-		// Signature, System.Collections.Generic.IList<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.IndexOf, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame *, [fwd] [out] [managedbyref] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.CBoolMarshaller] bool__bool, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static bool Func_UI_Xaml_Media_Animation_ObjectKeyFrame__out_uint__bool__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame value, 
-					out uint index, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**);
-			uint unsafe_index;
-			bool __value__retval;
-			sbyte unsafe___value__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									value, 
-									typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value, 
-									&(unsafe_index), 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = unsafe___value__retval != 0;
-				index = unsafe_index;
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-				global::System.GC.KeepAlive(value);
-			}
-		}
-
-		// Signature, System.Collections.Generic.IList<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.SetAt, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_uint__UI_Xaml_Media_Animation_ObjectKeyFrame__(
-					global::System.__ComObject __this, 
-					uint index, 
-					global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									value, 
-									typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									index, 
-									unsafe_value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-				global::System.GC.KeepAlive(value);
-			}
-		}
-
-		// Signature, System.Collections.Generic.IList<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.Append, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_Media_Animation_ObjectKeyFrame__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									value, 
-									typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-				global::System.GC.KeepAlive(value);
-			}
-		}
-
-		// Signature, System.Collections.Generic.IList<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.GetMany, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [out] [Mcg.CodeGen.ArrayMarshaller] rg_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame * *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static uint Func_uint__out_rg_UI_Xaml_Media_Animation_ObjectKeyFrame__uint__(
-					global::System.__ComObject __this, 
-					uint startIndex, 
-					global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame[] items, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			uint unsafe_items_mcgLength = 0;
-			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl*** unsafe_items = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***);
-			uint unsafe___value__retval;
-			uint __value__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				if (items != null)
-					unsafe_items_mcgLength = (uint)items.Length;
-				if (items != null)
-					unsafe_items = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***)global::McgInterop.McgHelpers.CoTaskMemAllocAndZeroMemory(((global::System.IntPtr)checked(unsafe_items_mcgLength * sizeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**))));
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									startIndex, 
-									unsafe_items_mcgLength, 
-									unsafe_items, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = unsafe___value__retval;
-				if (items != null)
-					for (uint mcgIdx = 0; (mcgIdx < unsafe_items_mcgLength); mcgIdx++)
-					{
-						// [fwd] [out] [optional] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame * items
-						items[mcgIdx] = (global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-											((global::System.IntPtr)unsafe_items[mcgIdx]), 
-											typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle, 
-											typeof(global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame).TypeHandle
-										);
-					}
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				if (unsafe_items != null)
-					for (uint mcgIdx_1 = 0; (mcgIdx_1 < unsafe_items_mcgLength); mcgIdx_1++)
-					{
-						// [fwd] [in] [out] [optional] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame * items
-						global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_items[mcgIdx_1])));
-					}
-				global::System.Runtime.InteropServices.ExternalInterop.SafeCoTaskMemFree(unsafe_items);
-			}
-		}
-
-		// Signature, System.Collections.Generic.IList<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.ReplaceAll, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.ArrayMarshaller] rg_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame * *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_rg_UI_Xaml_Media_Animation_ObjectKeyFrame__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame[] items, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			uint unsafe_items_mcgLength = 0;
-			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl*** unsafe_items = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_items = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***)global::System.Runtime.InteropServices.McgModuleManager.ObjectArrayToComInterfaceArrayAlloc(
-									items, 
-									typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle, 
-									out unsafe_items_mcgLength
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_items_mcgLength, 
-									unsafe_items
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				if (unsafe_items != null)
-					for (uint mcgIdx = 0; (mcgIdx < unsafe_items_mcgLength); mcgIdx++)
-					{
-						// [fwd] [in] [out] [optional] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame * items
-						global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_items[mcgIdx])));
-					}
-				global::System.Runtime.InteropServices.ExternalInterop.SafeCoTaskMemFree(unsafe_items);
-			}
-		}
-
-		// Signature, System.Collections.Generic.IEnumerable<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.First, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Foundation_Collections_IIterator_1_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame___Windows_Foundation_Collections__IIterator_A_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame_V_ *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame> Func__Collections_IIterator_1_UI_Xaml_Media_Animation_ObjectKeyFrame___(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.Collections.IIterator_A_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame_V___Impl.Vtbl** unsafe___value__retval = default(global::Windows.Foundation.Collections.IIterator_A_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame_V___Impl.Vtbl**);
-			global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame> __value__retval = default(global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe___value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = (global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-									((global::System.IntPtr)unsafe___value__retval), 
-									typeof(global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>).TypeHandle
-								);
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
-			}
-		}
-
-		// Signature, Windows.Foundation.Collections.IIterator<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.get_Current, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame Func_UI_Xaml_Media_Animation_ObjectKeyFrame__(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame __value__retval = default(global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe___value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = (global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-									((global::System.IntPtr)unsafe___value__retval), 
-									typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle, 
-									typeof(global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame).TypeHandle
-								);
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
-			}
-		}
-
-		// Signature, Windows.Foundation.Collections.IIterator<Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>.GetMany, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [Mcg.CodeGen.ArrayMarshaller] rg_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame * *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static uint Func_out_rg_UI_Xaml_Media_Animation_ObjectKeyFrame__uint__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame[] items, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			uint unsafe_items_mcgLength = 0;
-			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl*** unsafe_items = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***);
-			uint unsafe___value__retval;
-			uint __value__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				if (items != null)
-					unsafe_items_mcgLength = (uint)items.Length;
-				if (items != null)
-					unsafe_items = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***)global::McgInterop.McgHelpers.CoTaskMemAllocAndZeroMemory(((global::System.IntPtr)checked(unsafe_items_mcgLength * sizeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**))));
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_items_mcgLength, 
-									unsafe_items, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = unsafe___value__retval;
-				if (items != null)
-					for (uint mcgIdx = 0; (mcgIdx < unsafe_items_mcgLength); mcgIdx++)
-					{
-						// [fwd] [out] [optional] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame * items
-						items[mcgIdx] = (global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-											((global::System.IntPtr)unsafe_items[mcgIdx]), 
-											typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle, 
-											typeof(global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame).TypeHandle
-										);
-					}
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				if (unsafe_items != null)
-					for (uint mcgIdx_1 = 0; (mcgIdx_1 < unsafe_items_mcgLength); mcgIdx_1++)
-					{
-						// [fwd] [in] [out] [optional] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrame__Windows_UI_Xaml_Media_Animation__ObjectKeyFrame * items
-						global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_items[mcgIdx_1])));
-					}
-				global::System.Runtime.InteropServices.ExternalInterop.SafeCoTaskMemFree(unsafe_items);
-			}
-		}
-
-		// Signature, System.Collections.Generic.IEnumerable<Windows.UI.Xaml.Media.Animation.IObjectKeyFrame>.First, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Foundation_Collections_IIterator_1_Windows_UI_Xaml_Media_Animation_IObjectKeyFrame___Windows_Foundation_Collections__IIterator_A_Windows_UI_Xaml_Media_Animation_IObjectKeyFrame_V_ *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame> Func__Collections_IIterator_1_UI_Xaml_Media_Animation_IObjectKeyFrame___(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.Collections.IIterator_A_Windows_UI_Xaml_Media_Animation_IObjectKeyFrame_V___Impl.Vtbl** unsafe___value__retval = default(global::Windows.Foundation.Collections.IIterator_A_Windows_UI_Xaml_Media_Animation_IObjectKeyFrame_V___Impl.Vtbl**);
-			global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame> __value__retval = default(global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame>);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe___value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = (global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-									((global::System.IntPtr)unsafe___value__retval), 
-									typeof(global::Windows.Foundation.Collections.IIterator<global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame>).TypeHandle
-								);
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
-			}
-		}
-
-		// Signature, Windows.Foundation.Collections.IIterator<Windows.UI.Xaml.Media.Animation.IObjectKeyFrame>.get_Current, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_UI_Xaml_Media_Animation_IObjectKeyFrame__Windows_UI_Xaml_Media_Animation__IObjectKeyFrame *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame Func_UI_Xaml_Media_Animation_IObjectKeyFrame__(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame __value__retval = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe___value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-									((global::System.IntPtr)unsafe___value__retval), 
-									typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle
-								);
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
-			}
-		}
-
-		// Signature, Windows.Foundation.Collections.IIterator<Windows.UI.Xaml.Media.Animation.IObjectKeyFrame>.GetMany, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [Mcg.CodeGen.ArrayMarshaller] rg_Windows_UI_Xaml_Media_Animation_IObjectKeyFrame__Windows_UI_Xaml_Media_Animation__IObjectKeyFrame * *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static uint Func_out_rg_UI_Xaml_Media_Animation_IObjectKeyFrame__uint__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame[] items, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			uint unsafe_items_mcgLength = 0;
-			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl*** unsafe_items = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***);
-			uint unsafe___value__retval;
-			uint __value__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				if (items != null)
-					unsafe_items_mcgLength = (uint)items.Length;
-				if (items != null)
-					unsafe_items = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***)global::McgInterop.McgHelpers.CoTaskMemAllocAndZeroMemory(((global::System.IntPtr)checked(unsafe_items_mcgLength * sizeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**))));
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_items_mcgLength, 
-									unsafe_items, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = unsafe___value__retval;
-				if (items != null)
-					for (uint mcgIdx = 0; (mcgIdx < unsafe_items_mcgLength); mcgIdx++)
-					{
-						// [fwd] [out] [optional] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_UI_Xaml_Media_Animation_IObjectKeyFrame__Windows_UI_Xaml_Media_Animation__IObjectKeyFrame * items
-						items[mcgIdx] = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-											((global::System.IntPtr)unsafe_items[mcgIdx]), 
-											typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle
-										);
-					}
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				if (unsafe_items != null)
-					for (uint mcgIdx_1 = 0; (mcgIdx_1 < unsafe_items_mcgLength); mcgIdx_1++)
-					{
-						// [fwd] [in] [out] [optional] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_UI_Xaml_Media_Animation_IObjectKeyFrame__Windows_UI_Xaml_Media_Animation__IObjectKeyFrame * items
-						global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_items[mcgIdx_1])));
-					}
-				global::System.Runtime.InteropServices.ExternalInterop.SafeCoTaskMemFree(unsafe_items);
-			}
-		}
-
-		// Signature, System.Collections.Generic.IReadOnlyList<Windows.UI.Xaml.Media.Animation.IObjectKeyFrame>.GetAt, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_UI_Xaml_Media_Animation_IObjectKeyFrame__Windows_UI_Xaml_Media_Animation__IObjectKeyFrame *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame Func_uint__UI_Xaml_Media_Animation_IObjectKeyFrame__(
-					global::System.__ComObject __this, 
-					uint index, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame __value__retval = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe___value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									index, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-									((global::System.IntPtr)unsafe___value__retval), 
-									typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle
-								);
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
-			}
-		}
-
-		// Signature, System.Collections.Generic.IReadOnlyList<Windows.UI.Xaml.Media.Animation.IObjectKeyFrame>.IndexOf, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_UI_Xaml_Media_Animation_IObjectKeyFrame__Windows_UI_Xaml_Media_Animation__IObjectKeyFrame *, [fwd] [out] [managedbyref] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.CBoolMarshaller] bool__bool, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static bool Func_UI_Xaml_Media_Animation_IObjectKeyFrame__out_uint__bool__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame value, 
-					out uint index, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**);
-			uint unsafe_index;
-			bool __value__retval;
-			sbyte unsafe___value__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									value, 
-									typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value, 
-									&(unsafe_index), 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = unsafe___value__retval != 0;
-				index = unsafe_index;
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-				global::System.GC.KeepAlive(value);
-			}
-		}
-
-		// Signature, System.Collections.Generic.IReadOnlyList<Windows.UI.Xaml.Media.Animation.IObjectKeyFrame>.GetMany, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [out] [Mcg.CodeGen.ArrayMarshaller] rg_Windows_UI_Xaml_Media_Animation_IObjectKeyFrame__Windows_UI_Xaml_Media_Animation__IObjectKeyFrame * *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static uint Func_uint__out_rg_UI_Xaml_Media_Animation_IObjectKeyFrame__uint__(
-					global::System.__ComObject __this, 
-					uint startIndex, 
-					global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame[] items, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			uint unsafe_items_mcgLength = 0;
-			global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl*** unsafe_items = default(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***);
-			uint unsafe___value__retval;
-			uint __value__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				if (items != null)
-					unsafe_items_mcgLength = (uint)items.Length;
-				if (items != null)
-					unsafe_items = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl***)global::McgInterop.McgHelpers.CoTaskMemAllocAndZeroMemory(((global::System.IntPtr)checked(unsafe_items_mcgLength * sizeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame__Impl.Vtbl**))));
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									startIndex, 
-									unsafe_items_mcgLength, 
-									unsafe_items, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = unsafe___value__retval;
-				if (items != null)
-					for (uint mcgIdx = 0; (mcgIdx < unsafe_items_mcgLength); mcgIdx++)
-					{
-						// [fwd] [out] [optional] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_UI_Xaml_Media_Animation_IObjectKeyFrame__Windows_UI_Xaml_Media_Animation__IObjectKeyFrame * items
-						items[mcgIdx] = (global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-											((global::System.IntPtr)unsafe_items[mcgIdx]), 
-											typeof(global::Windows.UI.Xaml.Media.Animation.IObjectKeyFrame).TypeHandle
-										);
-					}
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				if (unsafe_items != null)
-					for (uint mcgIdx_1 = 0; (mcgIdx_1 < unsafe_items_mcgLength); mcgIdx_1++)
-					{
-						// [fwd] [in] [out] [optional] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_UI_Xaml_Media_Animation_IObjectKeyFrame__Windows_UI_Xaml_Media_Animation__IObjectKeyFrame * items
-						global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_items[mcgIdx_1])));
-					}
-				global::System.Runtime.InteropServices.ExternalInterop.SafeCoTaskMemFree(unsafe_items);
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFrames.get_KeyFrames, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_ObjectKeyFrameCollection__Windows_UI_Xaml_Media_Animation__ObjectKeyFrameCollection *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection Func_UI_Xaml_Media_Animation_ObjectKeyFrameCollection__(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::System.Collections.Generic.IList_A_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame_V___Impl.Vtbl** unsafe_value__retval = default(global::System.Collections.Generic.IList_A_Windows_UI_Xaml_Media_Animation_ObjectKeyFrame_V___Impl.Vtbl**);
-			global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection value__retval = default(global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe_value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				value__retval = (global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-									((global::System.IntPtr)unsafe_value__retval), 
-									typeof(global::System.Collections.Generic.IList<global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrame>).TypeHandle, 
-									typeof(global::Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection).TypeHandle
-								);
-				// Return
-				return value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Media.Animation.IColorAnimation.get_To, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTReferenceMarshaller] System_Nullable_1_Windows_UI_Color___Windows_Foundation__IReference_A_Windows_UI_Color_V_ *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Nullable<global::Windows.UI.Color> Func_Nullable_1_UI_Color___(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::System.Nullable_A_Windows_UI_Color_V___Impl.Vtbl** unsafe_value__retval = default(global::System.Nullable_A_Windows_UI_Color_V___Impl.Vtbl**);
-			global::System.Nullable<global::Windows.UI.Color> value__retval = default(global::System.Nullable<global::Windows.UI.Color>);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe_value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				if (unsafe_value__retval != null)
-					value__retval = (global::Windows.UI.Color)global::System.Runtime.InteropServices.McgModuleManager.UnboxIfBoxed(
-										global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject_NoUnboxing(
-															((global::System.IntPtr)unsafe_value__retval), 
-															typeof(global::Windows.Foundation.IReference<global::Windows.UI.Color>).TypeHandle
-														), 
-										"Windows.Foundation.IReference`1<Windows.UI.Color>"
-									);
-				else
-					value__retval = null;
-				// Return
-				return value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Media.Animation.IColorAnimation.put_To, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTReferenceMarshaller] System_Nullable_1_Windows_UI_Color___Windows_Foundation__IReference_A_Windows_UI_Color_V_ *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_Nullable_1_UI_Color___(
-					global::System.__ComObject __this, 
-					global::System.Nullable<global::Windows.UI.Color> value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::System.Nullable_A_Windows_UI_Color_V___Impl.Vtbl** unsafe_value = default(global::System.Nullable_A_Windows_UI_Color_V___Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				if (value.HasValue)
-				{
-					global::System.Runtime.InteropServices.WindowsRuntime.ReferenceImpl<global::Windows.UI.Color> unsafe_value_Wrapper = new global::System.Runtime.InteropServices.WindowsRuntime.ReferenceImpl<global::Windows.UI.Color>(value.Value, 20);
-					unsafe_value = (global::System.Nullable_A_Windows_UI_Color_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ManagedObjectToComInterface(
-										unsafe_value_Wrapper, 
-										typeof(global::Windows.Foundation.IReference<global::Windows.UI.Color>).TypeHandle
-									);
-				}
-				else
-					unsafe_value = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Media.Animation.IDoubleAnimation.get_To, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTReferenceMarshaller] System_Nullable_1_double___Windows_Foundation__IReference_A_double_V_ *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Nullable<double> Func_Nullable_1_double___(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::System.Nullable_A_double_V___Impl.Vtbl** unsafe_value__retval = default(global::System.Nullable_A_double_V___Impl.Vtbl**);
-			global::System.Nullable<double> value__retval = default(global::System.Nullable<double>);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe_value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				if (unsafe_value__retval != null)
-					value__retval = (double)global::System.Runtime.InteropServices.McgModuleManager.UnboxIfBoxed(
-										global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject_NoUnboxing(
-															((global::System.IntPtr)unsafe_value__retval), 
-															typeof(global::Windows.Foundation.IReference<double>).TypeHandle
-														), 
-										"Windows.Foundation.IReference`1<Double>"
-									);
-				else
-					value__retval = null;
-				// Return
-				return value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Media.Animation.IDoubleAnimation.put_To, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTReferenceMarshaller] System_Nullable_1_double___Windows_Foundation__IReference_A_double_V_ *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_Nullable_1_double___(
-					global::System.__ComObject __this, 
-					global::System.Nullable<double> value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::System.Nullable_A_double_V___Impl.Vtbl** unsafe_value = default(global::System.Nullable_A_double_V___Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				if (value.HasValue)
-				{
-					global::System.Runtime.InteropServices.WindowsRuntime.ReferenceImpl<double> unsafe_value_Wrapper = new global::System.Runtime.InteropServices.WindowsRuntime.ReferenceImpl<double>(value.Value, 9);
-					unsafe_value = (global::System.Nullable_A_double_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ManagedObjectToComInterface(
-										unsafe_value_Wrapper, 
-										typeof(global::Windows.Foundation.IReference<double>).TypeHandle
-									);
-				}
-				else
-					unsafe_value = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
 			}
 		}
 
@@ -16567,188 +16423,17 @@ namespace McgInterop
 			}
 		}
 
-		// Signature, Windows.Foundation.Collections.VectorChangedEventHandler<System.Object>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Foundation_Collections_IObservableVector_1_object___Windows_Foundation_Collections__IObservableVector_A_object_V_ *, [fwd] [in] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Foundation_Collections_IVectorChangedEventArgs__Windows_Foundation_Collections__IVectorChangedEventArgs *, 
+		// Signature, Windows.UI.Xaml.Controls.IImage.get_Source, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_ImageSource__Windows_UI_Xaml_Media__ImageSource *, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc__Collections_IObservableVector_1_object__Collections_IVectorChangedEventArgs__(
-					global::System.__ComObject __this, 
-					global::Windows.Foundation.Collections.IObservableVector<object> sender, 
-					global::Windows.Foundation.Collections.IVectorChangedEventArgs @event, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.Collections.IObservableVector_A_System_Object_V___Impl.Vtbl** unsafe_sender = default(global::Windows.Foundation.Collections.IObservableVector_A_System_Object_V___Impl.Vtbl**);
-			global::Windows.Foundation.Collections.IVectorChangedEventArgs__Impl.Vtbl** unsafe_event = default(global::Windows.Foundation.Collections.IVectorChangedEventArgs__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_sender = (global::Windows.Foundation.Collections.IObservableVector_A_System_Object_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									sender, 
-									typeof(global::Windows.Foundation.Collections.IObservableVector<object>).TypeHandle
-								);
-				unsafe_event = (global::Windows.Foundation.Collections.IVectorChangedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									@event, 
-									typeof(global::Windows.Foundation.Collections.IVectorChangedEventArgs).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_sender, 
-									unsafe_event
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
-				global::System.GC.KeepAlive(sender);
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_event)));
-				global::System.GC.KeepAlive(@event);
-			}
-		}
-
-		// Signature, Windows.Foundation.Collections.IObservableVector<System.Object>.add_VectorChanged, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_Collections_VectorChangedEventHandler_1_object___Windows_Foundation_Collections__VectorChangedEventHandler_A_object_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__Collections_VectorChangedEventHandler_1_object__WindowsRuntime_EventRegistrationToken__(
-					global::System.__ComObject __this, 
-					global::Windows.Foundation.Collections.VectorChangedEventHandler<object> vhnd, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.Collections.VectorChangedEventHandler_A_System_Object_V___Impl.Vtbl** unsafe_vhnd = default(global::Windows.Foundation.Collections.VectorChangedEventHandler_A_System_Object_V___Impl.Vtbl**);
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe___value__retval;
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __value__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_vhnd = (global::Windows.Foundation.Collections.VectorChangedEventHandler_A_System_Object_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-									vhnd, 
-									typeof(global::Windows.Foundation.Collections.VectorChangedEventHandler<object>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget28>(global::Windows.Foundation.Collections.VectorChangedEventHandler_A_System_Object_V___Impl.Invoke)
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_vhnd, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = unsafe___value__retval;
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_vhnd)));
-			}
-		}
-
-		// Signature, System.Collections.Generic.IList<System.Object>.GetView, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] System_Collections_Generic_IReadOnlyList_1_object___Windows_Foundation_Collections__IVectorView_A_object_V_ *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Collections.Generic.IReadOnlyList<object> Func__IReadOnlyList_1_object___(
+		internal static global::Windows.UI.Xaml.Media.ImageSource Func_UI_Xaml_Media_ImageSource__(
 					global::System.__ComObject __this, 
 					global::System.RuntimeTypeHandle __typeHnd, 
 					int __targetIndex)
 		{
 			// Setup
-			global::System.Collections.Generic.IReadOnlyList_A_System_Object_V___Impl.Vtbl** unsafe___value__retval = default(global::System.Collections.Generic.IReadOnlyList_A_System_Object_V___Impl.Vtbl**);
-			global::System.Collections.Generic.IReadOnlyList<object> __value__retval = default(global::System.Collections.Generic.IReadOnlyList<object>);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe___value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = (global::System.Collections.Generic.IReadOnlyList<object>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-									((global::System.IntPtr)unsafe___value__retval), 
-									typeof(global::System.Collections.Generic.IReadOnlyList<object>).TypeHandle
-								);
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
-			}
-		}
-
-		// Signature, System.Collections.Generic.IList<System.Object>.ReplaceAll, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.ArrayMarshaller] rg_object____mcg_IInspectable *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_rg_object__(
-					global::System.__ComObject __this, 
-					object[] items, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			uint unsafe_items_mcgLength = 0;
-			global::System.Runtime.InteropServices.__vtable_IInspectable** unsafe_items = default(global::System.Runtime.InteropServices.__vtable_IInspectable**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_items = (global::System.Runtime.InteropServices.__vtable_IInspectable**)global::System.Runtime.InteropServices.McgModuleManager.ObjectArrayToComInterfaceArrayAlloc(
-									items, 
-									typeof(object).TypeHandle, 
-									out unsafe_items_mcgLength
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_items_mcgLength, 
-									unsafe_items
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				if (unsafe_items != null)
-					for (uint mcgIdx = 0; (mcgIdx < unsafe_items_mcgLength); mcgIdx++)
-					{
-						// [fwd] [in] [out] [optional] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable items
-						global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_items[mcgIdx])));
-					}
-				global::System.Runtime.InteropServices.ExternalInterop.SafeCoTaskMemFree(unsafe_items);
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IItemsControl.get_Items, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_ItemCollection__Windows_UI_Xaml_Controls__ItemCollection *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.Controls.ItemCollection Func_UI_Xaml_Controls_ItemCollection__(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.Collections.IObservableVector_A_System_Object_V___Impl.Vtbl** unsafe_value__retval = default(global::Windows.Foundation.Collections.IObservableVector_A_System_Object_V___Impl.Vtbl**);
-			global::Windows.UI.Xaml.Controls.ItemCollection value__retval = default(global::Windows.UI.Xaml.Controls.ItemCollection);
+			global::Windows.UI.Xaml.Media.IImageSource__Impl.Vtbl** unsafe_value__retval = default(global::Windows.UI.Xaml.Media.IImageSource__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Media.ImageSource value__retval = default(global::Windows.UI.Xaml.Media.ImageSource);
 			int unsafe___return__;
 			try
 			{
@@ -16762,10 +16447,10 @@ namespace McgInterop
 									&(unsafe_value__retval)
 								);
 				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				value__retval = (global::Windows.UI.Xaml.Controls.ItemCollection)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+				value__retval = (global::Windows.UI.Xaml.Media.ImageSource)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
 									((global::System.IntPtr)unsafe_value__retval), 
-									typeof(global::Windows.Foundation.Collections.IObservableVector<object>).TypeHandle, 
-									typeof(global::Windows.UI.Xaml.Controls.ItemCollection).TypeHandle
+									typeof(global::Windows.UI.Xaml.Media.IImageSource).TypeHandle, 
+									typeof(global::Windows.UI.Xaml.Media.ImageSource).TypeHandle
 								);
 				// Return
 				return value__retval;
@@ -16777,342 +16462,24 @@ namespace McgInterop
 			}
 		}
 
-		// Signature, Windows.UI.Xaml.Controls.IItemsControlOverrides.ClearContainerForItemOverride, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_DependencyObject__Windows_UI_Xaml__DependencyObject *, [fwd] [in] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable, 
+		// Signature, Windows.UI.Xaml.Controls.IImage.put_Source, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_ImageSource__Windows_UI_Xaml_Media__ImageSource *, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_DependencyObject__object__(
+		internal static void Proc_UI_Xaml_Media_ImageSource__(
 					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.DependencyObject element, 
-					object item, 
+					global::Windows.UI.Xaml.Media.ImageSource value, 
 					global::System.RuntimeTypeHandle __typeHnd, 
 					int __targetIndex)
 		{
 			// Setup
-			global::Windows.UI.Xaml.IDependencyObject__Impl.Vtbl** unsafe_element = default(global::Windows.UI.Xaml.IDependencyObject__Impl.Vtbl**);
-			global::System.Runtime.InteropServices.__vtable_IInspectable* unsafe_item = default(global::System.Runtime.InteropServices.__vtable_IInspectable*);
+			global::Windows.UI.Xaml.Media.IImageSource__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Media.IImageSource__Impl.Vtbl**);
 			int unsafe___return__;
 			try
 			{
 				// Marshalling
-				unsafe_element = (global::Windows.UI.Xaml.IDependencyObject__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									element, 
-									typeof(global::Windows.UI.Xaml.IDependencyObject).TypeHandle
-								);
-				unsafe_item = (global::System.Runtime.InteropServices.__vtable_IInspectable*)global::System.Runtime.InteropServices.McgMarshal.ObjectToIInspectable(item);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_element, 
-									unsafe_item
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_element)));
-				global::System.GC.KeepAlive(element);
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_item)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IItemsControlOverrides.OnItemContainerStyleChanged, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Style__Windows_UI_Xaml__Style *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Style__Windows_UI_Xaml__Style *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_Style__UI_Xaml_Style__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Style oldItemContainerStyle, 
-					global::Windows.UI.Xaml.Style newItemContainerStyle, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.IStyle__Impl.Vtbl** unsafe_oldItemContainerStyle = default(global::Windows.UI.Xaml.IStyle__Impl.Vtbl**);
-			global::Windows.UI.Xaml.IStyle__Impl.Vtbl** unsafe_newItemContainerStyle = default(global::Windows.UI.Xaml.IStyle__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_oldItemContainerStyle = (global::Windows.UI.Xaml.IStyle__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									oldItemContainerStyle, 
-									typeof(global::Windows.UI.Xaml.IStyle).TypeHandle
-								);
-				unsafe_newItemContainerStyle = (global::Windows.UI.Xaml.IStyle__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									newItemContainerStyle, 
-									typeof(global::Windows.UI.Xaml.IStyle).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_oldItemContainerStyle, 
-									unsafe_newItemContainerStyle
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_oldItemContainerStyle)));
-				global::System.GC.KeepAlive(oldItemContainerStyle);
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_newItemContainerStyle)));
-				global::System.GC.KeepAlive(newItemContainerStyle);
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IItemsControlOverrides.OnItemContainerStyleSelectorChanged, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_StyleSelector__Windows_UI_Xaml_Controls__StyleSelector *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_StyleSelector__Windows_UI_Xaml_Controls__StyleSelector *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_Controls_StyleSelector__UI_Xaml_Controls_StyleSelector__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Controls.StyleSelector oldItemContainerStyleSelector, 
-					global::Windows.UI.Xaml.Controls.StyleSelector newItemContainerStyleSelector, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Controls.IStyleSelector__Impl.Vtbl** unsafe_oldItemContainerStyleSelector = default(global::Windows.UI.Xaml.Controls.IStyleSelector__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Controls.IStyleSelector__Impl.Vtbl** unsafe_newItemContainerStyleSelector = default(global::Windows.UI.Xaml.Controls.IStyleSelector__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_oldItemContainerStyleSelector = (global::Windows.UI.Xaml.Controls.IStyleSelector__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									oldItemContainerStyleSelector, 
-									typeof(global::Windows.UI.Xaml.Controls.IStyleSelector).TypeHandle
-								);
-				unsafe_newItemContainerStyleSelector = (global::Windows.UI.Xaml.Controls.IStyleSelector__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									newItemContainerStyleSelector, 
-									typeof(global::Windows.UI.Xaml.Controls.IStyleSelector).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_oldItemContainerStyleSelector, 
-									unsafe_newItemContainerStyleSelector
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_oldItemContainerStyleSelector)));
-				global::System.GC.KeepAlive(oldItemContainerStyleSelector);
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_newItemContainerStyleSelector)));
-				global::System.GC.KeepAlive(newItemContainerStyleSelector);
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IItemsControlOverrides.OnGroupStyleSelectorChanged, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_GroupStyleSelector__Windows_UI_Xaml_Controls__GroupStyleSelector *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_GroupStyleSelector__Windows_UI_Xaml_Controls__GroupStyleSelector *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_Controls_GroupStyleSelector__UI_Xaml_Controls_GroupStyleSelector__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Controls.GroupStyleSelector oldGroupStyleSelector, 
-					global::Windows.UI.Xaml.Controls.GroupStyleSelector newGroupStyleSelector, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Controls.IGroupStyleSelector__Impl.Vtbl** unsafe_oldGroupStyleSelector = default(global::Windows.UI.Xaml.Controls.IGroupStyleSelector__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Controls.IGroupStyleSelector__Impl.Vtbl** unsafe_newGroupStyleSelector = default(global::Windows.UI.Xaml.Controls.IGroupStyleSelector__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_oldGroupStyleSelector = (global::Windows.UI.Xaml.Controls.IGroupStyleSelector__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									oldGroupStyleSelector, 
-									typeof(global::Windows.UI.Xaml.Controls.IGroupStyleSelector).TypeHandle
-								);
-				unsafe_newGroupStyleSelector = (global::Windows.UI.Xaml.Controls.IGroupStyleSelector__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									newGroupStyleSelector, 
-									typeof(global::Windows.UI.Xaml.Controls.IGroupStyleSelector).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_oldGroupStyleSelector, 
-									unsafe_newGroupStyleSelector
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_oldGroupStyleSelector)));
-				global::System.GC.KeepAlive(oldGroupStyleSelector);
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_newGroupStyleSelector)));
-				global::System.GC.KeepAlive(newGroupStyleSelector);
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IStyleSelectorOverrides.SelectStyleCore, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_DependencyObject__Windows_UI_Xaml__DependencyObject *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Style__Windows_UI_Xaml__Style *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.Style Func_object__UI_Xaml_DependencyObject__UI_Xaml_Style__(
-					global::System.__ComObject __this, 
-					object item, 
-					global::Windows.UI.Xaml.DependencyObject container, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::System.Runtime.InteropServices.__vtable_IInspectable* unsafe_item = default(global::System.Runtime.InteropServices.__vtable_IInspectable*);
-			global::Windows.UI.Xaml.IDependencyObject__Impl.Vtbl** unsafe_container = default(global::Windows.UI.Xaml.IDependencyObject__Impl.Vtbl**);
-			global::Windows.UI.Xaml.IStyle__Impl.Vtbl** unsafe_returnValue__retval = default(global::Windows.UI.Xaml.IStyle__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Style returnValue__retval = default(global::Windows.UI.Xaml.Style);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_item = (global::System.Runtime.InteropServices.__vtable_IInspectable*)global::System.Runtime.InteropServices.McgMarshal.ObjectToIInspectable(item);
-				unsafe_container = (global::Windows.UI.Xaml.IDependencyObject__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									container, 
-									typeof(global::Windows.UI.Xaml.IDependencyObject).TypeHandle
-								);
-				unsafe_returnValue__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_item, 
-									unsafe_container, 
-									&(unsafe_returnValue__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				returnValue__retval = (global::Windows.UI.Xaml.Style)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-									((global::System.IntPtr)unsafe_returnValue__retval), 
-									typeof(global::Windows.UI.Xaml.IStyle).TypeHandle, 
-									typeof(global::Windows.UI.Xaml.Style).TypeHandle
-								);
-				// Return
-				return returnValue__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_item)));
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_container)));
-				global::System.GC.KeepAlive(container);
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_returnValue__retval)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IGroupStyleSelectorOverrides.SelectGroupStyleCore, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_GroupStyle__Windows_UI_Xaml_Controls__GroupStyle *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.Controls.GroupStyle Func_object__uint__UI_Xaml_Controls_GroupStyle__(
-					global::System.__ComObject __this, 
-					object group, 
-					uint level, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::System.Runtime.InteropServices.__vtable_IInspectable* unsafe_group = default(global::System.Runtime.InteropServices.__vtable_IInspectable*);
-			global::Windows.UI.Xaml.Controls.IGroupStyle__Impl.Vtbl** unsafe_returnValue__retval = default(global::Windows.UI.Xaml.Controls.IGroupStyle__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Controls.GroupStyle returnValue__retval = default(global::Windows.UI.Xaml.Controls.GroupStyle);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_group = (global::System.Runtime.InteropServices.__vtable_IInspectable*)global::System.Runtime.InteropServices.McgMarshal.ObjectToIInspectable(group);
-				unsafe_returnValue__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_group, 
-									level, 
-									&(unsafe_returnValue__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				returnValue__retval = (global::Windows.UI.Xaml.Controls.GroupStyle)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-									((global::System.IntPtr)unsafe_returnValue__retval), 
-									typeof(global::Windows.UI.Xaml.Controls.IGroupStyle).TypeHandle, 
-									typeof(global::Windows.UI.Xaml.Controls.GroupStyle).TypeHandle
-								);
-				// Return
-				return returnValue__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_group)));
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_returnValue__retval)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IPivot.get_HeaderTemplate, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_DataTemplate__Windows_UI_Xaml__DataTemplate *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.DataTemplate Func_UI_Xaml_DataTemplate__(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.IDataTemplate__Impl.Vtbl** unsafe_value__retval = default(global::Windows.UI.Xaml.IDataTemplate__Impl.Vtbl**);
-			global::Windows.UI.Xaml.DataTemplate value__retval = default(global::Windows.UI.Xaml.DataTemplate);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe_value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				value__retval = (global::Windows.UI.Xaml.DataTemplate)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-									((global::System.IntPtr)unsafe_value__retval), 
-									typeof(global::Windows.UI.Xaml.IDataTemplate).TypeHandle, 
-									typeof(global::Windows.UI.Xaml.DataTemplate).TypeHandle
-								);
-				// Return
-				return value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IPivot.put_HeaderTemplate, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_DataTemplate__Windows_UI_Xaml__DataTemplate *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_DataTemplate__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.DataTemplate value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.IDataTemplate__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.IDataTemplate__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.UI.Xaml.IDataTemplate__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+				unsafe_value = (global::Windows.UI.Xaml.Media.IImageSource__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
 									value, 
-									typeof(global::Windows.UI.Xaml.IDataTemplate).TypeHandle
+									typeof(global::Windows.UI.Xaml.Media.IImageSource).TypeHandle
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -17132,16 +16499,17 @@ namespace McgInterop
 			}
 		}
 
-		// Signature, Windows.UI.Xaml.Controls.IPivot.put_SelectedIndex, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] int__int, 
+		// Signature, Windows.UI.Xaml.Controls.IImage.get_Stretch, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.EnumMarshaller] Windows_UI_Xaml_Media_Stretch__Windows_UI_Xaml_Media__Stretch, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_int__(
+		internal static global::Windows.UI.Xaml.Media.Stretch Func_UI_Xaml_Media_Stretch__(
 					global::System.__ComObject __this, 
-					int value, 
 					global::System.RuntimeTypeHandle __typeHnd, 
 					int __targetIndex)
 		{
 			// Setup
+			global::Windows.UI.Xaml.Media.Stretch unsafe_value__retval;
+			global::Windows.UI.Xaml.Media.Stretch value__retval;
 			int unsafe___return__;
 			// Marshalling
 			// Call to native method
@@ -17149,33 +16517,35 @@ namespace McgInterop
 								__this, 
 								__typeHnd, 
 								__targetIndex, 
-								value
+								&(unsafe_value__retval)
 							);
 			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			value__retval = unsafe_value__retval;
 			// Return
+			return value__retval;
 		}
 
-		// Signature, Windows.UI.Xaml.Controls.SelectionChangedEventHandler.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_SelectionChangedEventArgs__Windows_UI_Xaml_Controls__SelectionChangedEventArgs *, 
+		// Signature, Windows.UI.Xaml.ExceptionRoutedEventHandler.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_ExceptionRoutedEventArgs__Windows_UI_Xaml__ExceptionRoutedEventArgs *, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_object__UI_Xaml_Controls_SelectionChangedEventArgs__(
+		internal static void Proc_object__UI_Xaml_ExceptionRoutedEventArgs__(
 					global::System.__ComObject __this, 
 					object sender, 
-					global::Windows.UI.Xaml.Controls.SelectionChangedEventArgs e, 
+					global::Windows.UI.Xaml.ExceptionRoutedEventArgs e, 
 					global::System.RuntimeTypeHandle __typeHnd, 
 					int __targetIndex)
 		{
 			// Setup
 			global::System.Runtime.InteropServices.__vtable_IInspectable* unsafe_sender = default(global::System.Runtime.InteropServices.__vtable_IInspectable*);
-			global::Windows.UI.Xaml.Controls.ISelectionChangedEventArgs__Impl.Vtbl** unsafe_e = default(global::Windows.UI.Xaml.Controls.ISelectionChangedEventArgs__Impl.Vtbl**);
+			global::Windows.UI.Xaml.IExceptionRoutedEventArgs__Impl.Vtbl** unsafe_e = default(global::Windows.UI.Xaml.IExceptionRoutedEventArgs__Impl.Vtbl**);
 			int unsafe___return__;
 			try
 			{
 				// Marshalling
 				unsafe_sender = (global::System.Runtime.InteropServices.__vtable_IInspectable*)global::System.Runtime.InteropServices.McgMarshal.ObjectToIInspectable(sender);
-				unsafe_e = (global::Windows.UI.Xaml.Controls.ISelectionChangedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+				unsafe_e = (global::Windows.UI.Xaml.IExceptionRoutedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
 									e, 
-									typeof(global::Windows.UI.Xaml.Controls.ISelectionChangedEventArgs).TypeHandle
+									typeof(global::Windows.UI.Xaml.IExceptionRoutedEventArgs).TypeHandle
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -17197,115 +16567,27 @@ namespace McgInterop
 			}
 		}
 
-		// Signature, Windows.UI.Xaml.Controls.IPivot.add_SelectionChanged, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_Controls_SelectionChangedEventHandler__Windows_UI_Xaml_Controls__SelectionChangedEventHandler *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+		// Signature, Windows.UI.Xaml.Controls.IImage.add_ImageFailed, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_ExceptionRoutedEventHandler__Windows_UI_Xaml__ExceptionRoutedEventHandler *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func_UI_Xaml_Controls_SelectionChangedEventHandler___WindowsRuntime_EventRegistrationToken__(
+		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func_UI_Xaml_ExceptionRoutedEventHandler___WindowsRuntime_EventRegistrationToken__(
 					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler value, 
+					global::Windows.UI.Xaml.ExceptionRoutedEventHandler value, 
 					global::System.RuntimeTypeHandle __typeHnd, 
 					int __targetIndex)
 		{
 			// Setup
-			global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler__Impl.Vtbl**);
+			global::Windows.UI.Xaml.ExceptionRoutedEventHandler__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.ExceptionRoutedEventHandler__Impl.Vtbl**);
 			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
 			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
 			int unsafe___return__;
 			try
 			{
 				// Marshalling
-				unsafe_value = (global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+				unsafe_value = (global::Windows.UI.Xaml.ExceptionRoutedEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
-									typeof(global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget29>(global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler__Impl.Invoke)
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value, 
-									&(unsafe_token__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				token__retval = unsafe_token__retval;
-				// Return
-				return token__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-			}
-		}
-
-		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.Pivot,Windows.UI.Xaml.Controls.PivotItemEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_Pivot__Windows_UI_Xaml_Controls__Pivot *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_PivotItemEventArgs__Windows_UI_Xaml_Controls__PivotItemEventArgs *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_Controls_Pivot__UI_Xaml_Controls_PivotItemEventArgs__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Controls.Pivot sender, 
-					global::Windows.UI.Xaml.Controls.PivotItemEventArgs args, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Controls.IPivot__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IPivot__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Controls.IPivotItemEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IPivotItemEventArgs__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_sender = (global::Windows.UI.Xaml.Controls.IPivot__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									sender, 
-									typeof(global::Windows.UI.Xaml.Controls.IPivot).TypeHandle
-								);
-				unsafe_args = (global::Windows.UI.Xaml.Controls.IPivotItemEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									args, 
-									typeof(global::Windows.UI.Xaml.Controls.IPivotItemEventArgs).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_sender, 
-									unsafe_args
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
-				global::System.GC.KeepAlive(sender);
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
-				global::System.GC.KeepAlive(args);
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IPivot.add_PivotItemLoading, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_Pivot__Windows_UI_Xaml_Controls_PivotItemEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_Pivot_j_Windows_UI_Xaml_Controls_PivotItemEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_Pivot__UI_Xaml_Controls_PivotItemEventArgs__WindowsRuntime_EventRegistrationToken__(
-					global::System.__ComObject __this, 
-					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.Pivot, global::Windows.UI.Xaml.Controls.PivotItemEventArgs> value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_Pivot_j_Windows_UI_Xaml_Controls_PivotItemEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_Pivot_j_Windows_UI_Xaml_Controls_PivotItemEventArgs_V___Impl.Vtbl**);
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_Pivot_j_Windows_UI_Xaml_Controls_PivotItemEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-									value, 
-									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.Pivot, global::Windows.UI.Xaml.Controls.PivotItemEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget30>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_Pivot_j_Windows_UI_Xaml_Controls_PivotItemEventArgs_V___Impl.Invoke)
+									typeof(global::Windows.UI.Xaml.ExceptionRoutedEventHandler).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget28>(global::Windows.UI.Xaml.ExceptionRoutedEventHandler__Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -19356,7 +18638,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget31>(global::Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler__Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget29>(global::Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler__Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -19516,7 +18798,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.UI.Xaml.Controls.TextChangedEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.UI.Xaml.Controls.TextChangedEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget32>(global::Windows.UI.Xaml.Controls.TextChangedEventHandler__Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget30>(global::Windows.UI.Xaml.Controls.TextChangedEventHandler__Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -19600,7 +18882,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.UI.Xaml.Controls.TextControlPasteEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.UI.Xaml.Controls.TextControlPasteEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget33>(global::Windows.UI.Xaml.Controls.TextControlPasteEventHandler__Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget31>(global::Windows.UI.Xaml.Controls.TextControlPasteEventHandler__Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -19688,7 +18970,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextCompositionStartedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.TextBox, global::Windows.UI.Xaml.Controls.TextCompositionStartedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget34>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextCompositionStartedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget32>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextCompositionStartedEventArgs_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -19776,7 +19058,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextCompositionChangedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.TextBox, global::Windows.UI.Xaml.Controls.TextCompositionChangedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget35>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextCompositionChangedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget33>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextCompositionChangedEventArgs_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -19864,7 +19146,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextCompositionEndedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.TextBox, global::Windows.UI.Xaml.Controls.TextCompositionEndedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget36>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextCompositionEndedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget34>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextCompositionEndedEventArgs_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -19884,6 +19166,32 @@ namespace McgInterop
 				// Cleanup
 				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
 			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.ITextBox3.get_TextReadingOrder, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.EnumMarshaller] Windows_UI_Xaml_TextReadingOrder__Windows_UI_Xaml__TextReadingOrder, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Xaml.TextReadingOrder Func_UI_Xaml_TextReadingOrder__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.TextReadingOrder unsafe_value__retval;
+			global::Windows.UI.Xaml.TextReadingOrder value__retval;
+			int unsafe___return__;
+			// Marshalling
+			// Call to native method
+			unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+								__this, 
+								__typeHnd, 
+								__targetIndex, 
+								&(unsafe_value__retval)
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			value__retval = unsafe_value__retval;
+			// Return
+			return value__retval;
 		}
 
 		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.TextBox,Windows.UI.Xaml.Controls.CandidateWindowBoundsChangedEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_TextBox__Windows_UI_Xaml_Controls__TextBox *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_CandidateWindowBoundsChangedEventArgs__Windows_UI_Xaml_Controls__CandidateWindowBoundsChangedEventArgs *, 
@@ -19952,7 +19260,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_CandidateWindowBoundsChangedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.TextBox, global::Windows.UI.Xaml.Controls.CandidateWindowBoundsChangedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget37>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_CandidateWindowBoundsChangedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget35>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_CandidateWindowBoundsChangedEventArgs_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -20040,7 +19348,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextBoxTextChangingEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.TextBox, global::Windows.UI.Xaml.Controls.TextBoxTextChangingEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget38>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextBoxTextChangingEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget36>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextBoxTextChangingEventArgs_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -20861,6 +20169,938 @@ namespace McgInterop
 			}
 		}
 
+		// Signature, Windows.UI.Xaml.Media.Animation.IColorAnimation.get_To, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTReferenceMarshaller] System_Nullable_1_Windows_UI_Color___Windows_Foundation__IReference_A_Windows_UI_Color_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Nullable<global::Windows.UI.Color> Func_Nullable_1_UI_Color___(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Nullable_A_Windows_UI_Color_V___Impl.Vtbl** unsafe_value__retval = default(global::System.Nullable_A_Windows_UI_Color_V___Impl.Vtbl**);
+			global::System.Nullable<global::Windows.UI.Color> value__retval = default(global::System.Nullable<global::Windows.UI.Color>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe_value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				if (unsafe_value__retval != null)
+					value__retval = (global::Windows.UI.Color)global::System.Runtime.InteropServices.McgModuleManager.UnboxIfBoxed(
+										global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject_NoUnboxing(
+															((global::System.IntPtr)unsafe_value__retval), 
+															typeof(global::Windows.Foundation.IReference<global::Windows.UI.Color>).TypeHandle
+														), 
+										"Windows.Foundation.IReference`1<Windows.UI.Color>"
+									);
+				else
+					value__retval = null;
+				// Return
+				return value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Media.Animation.IColorAnimation.put_To, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTReferenceMarshaller] System_Nullable_1_Windows_UI_Color___Windows_Foundation__IReference_A_Windows_UI_Color_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_Nullable_1_UI_Color___(
+					global::System.__ComObject __this, 
+					global::System.Nullable<global::Windows.UI.Color> value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Nullable_A_Windows_UI_Color_V___Impl.Vtbl** unsafe_value = default(global::System.Nullable_A_Windows_UI_Color_V___Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				if (value.HasValue)
+				{
+					global::System.Runtime.InteropServices.WindowsRuntime.ReferenceImpl<global::Windows.UI.Color> unsafe_value_Wrapper = new global::System.Runtime.InteropServices.WindowsRuntime.ReferenceImpl<global::Windows.UI.Color>(value.Value, 20);
+					unsafe_value = (global::System.Nullable_A_Windows_UI_Color_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ManagedObjectToComInterface(
+										unsafe_value_Wrapper, 
+										typeof(global::Windows.Foundation.IReference<global::Windows.UI.Color>).TypeHandle
+									);
+				}
+				else
+					unsafe_value = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Media.Animation.IDoubleAnimation.get_To, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTReferenceMarshaller] System_Nullable_1_double___Windows_Foundation__IReference_A_double_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Nullable<double> Func_Nullable_1_double___(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Nullable_A_double_V___Impl.Vtbl** unsafe_value__retval = default(global::System.Nullable_A_double_V___Impl.Vtbl**);
+			global::System.Nullable<double> value__retval = default(global::System.Nullable<double>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe_value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				if (unsafe_value__retval != null)
+					value__retval = (double)global::System.Runtime.InteropServices.McgModuleManager.UnboxIfBoxed(
+										global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject_NoUnboxing(
+															((global::System.IntPtr)unsafe_value__retval), 
+															typeof(global::Windows.Foundation.IReference<double>).TypeHandle
+														), 
+										"Windows.Foundation.IReference`1<Double>"
+									);
+				else
+					value__retval = null;
+				// Return
+				return value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Media.Animation.IDoubleAnimation.put_To, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTReferenceMarshaller] System_Nullable_1_double___Windows_Foundation__IReference_A_double_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_Nullable_1_double___(
+					global::System.__ComObject __this, 
+					global::System.Nullable<double> value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Nullable_A_double_V___Impl.Vtbl** unsafe_value = default(global::System.Nullable_A_double_V___Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				if (value.HasValue)
+				{
+					global::System.Runtime.InteropServices.WindowsRuntime.ReferenceImpl<double> unsafe_value_Wrapper = new global::System.Runtime.InteropServices.WindowsRuntime.ReferenceImpl<double>(value.Value, 9);
+					unsafe_value = (global::System.Nullable_A_double_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ManagedObjectToComInterface(
+										unsafe_value_Wrapper, 
+										typeof(global::Windows.Foundation.IReference<double>).TypeHandle
+									);
+				}
+				else
+					unsafe_value = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+			}
+		}
+
+		// Signature, Windows.Foundation.Collections.VectorChangedEventHandler<System.Object>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Foundation_Collections_IObservableVector_1_object___Windows_Foundation_Collections__IObservableVector_A_object_V_ *, [fwd] [in] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Foundation_Collections_IVectorChangedEventArgs__Windows_Foundation_Collections__IVectorChangedEventArgs *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc__Collections_IObservableVector_1_object__Collections_IVectorChangedEventArgs__(
+					global::System.__ComObject __this, 
+					global::Windows.Foundation.Collections.IObservableVector<object> sender, 
+					global::Windows.Foundation.Collections.IVectorChangedEventArgs @event, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.Collections.IObservableVector_A_System_Object_V___Impl.Vtbl** unsafe_sender = default(global::Windows.Foundation.Collections.IObservableVector_A_System_Object_V___Impl.Vtbl**);
+			global::Windows.Foundation.Collections.IVectorChangedEventArgs__Impl.Vtbl** unsafe_event = default(global::Windows.Foundation.Collections.IVectorChangedEventArgs__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_sender = (global::Windows.Foundation.Collections.IObservableVector_A_System_Object_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									sender, 
+									typeof(global::Windows.Foundation.Collections.IObservableVector<object>).TypeHandle
+								);
+				unsafe_event = (global::Windows.Foundation.Collections.IVectorChangedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									@event, 
+									typeof(global::Windows.Foundation.Collections.IVectorChangedEventArgs).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_sender, 
+									unsafe_event
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
+				global::System.GC.KeepAlive(sender);
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_event)));
+				global::System.GC.KeepAlive(@event);
+			}
+		}
+
+		// Signature, Windows.Foundation.Collections.IObservableVector<System.Object>.add_VectorChanged, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_Collections_VectorChangedEventHandler_1_object___Windows_Foundation_Collections__VectorChangedEventHandler_A_object_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__Collections_VectorChangedEventHandler_1_object__WindowsRuntime_EventRegistrationToken__(
+					global::System.__ComObject __this, 
+					global::Windows.Foundation.Collections.VectorChangedEventHandler<object> vhnd, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.Collections.VectorChangedEventHandler_A_System_Object_V___Impl.Vtbl** unsafe_vhnd = default(global::Windows.Foundation.Collections.VectorChangedEventHandler_A_System_Object_V___Impl.Vtbl**);
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe___value__retval;
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __value__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_vhnd = (global::Windows.Foundation.Collections.VectorChangedEventHandler_A_System_Object_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+									vhnd, 
+									typeof(global::Windows.Foundation.Collections.VectorChangedEventHandler<object>).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget37>(global::Windows.Foundation.Collections.VectorChangedEventHandler_A_System_Object_V___Impl.Invoke)
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_vhnd, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = unsafe___value__retval;
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_vhnd)));
+			}
+		}
+
+		// Signature, System.Collections.Generic.IList<System.Object>.GetView, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] System_Collections_Generic_IReadOnlyList_1_object___Windows_Foundation_Collections__IVectorView_A_object_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Collections.Generic.IReadOnlyList<object> Func__IReadOnlyList_1_object___(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Collections.Generic.IReadOnlyList_A_System_Object_V___Impl.Vtbl** unsafe___value__retval = default(global::System.Collections.Generic.IReadOnlyList_A_System_Object_V___Impl.Vtbl**);
+			global::System.Collections.Generic.IReadOnlyList<object> __value__retval = default(global::System.Collections.Generic.IReadOnlyList<object>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::System.Collections.Generic.IReadOnlyList<object>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::System.Collections.Generic.IReadOnlyList<object>).TypeHandle
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, System.Collections.Generic.IList<System.Object>.ReplaceAll, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.ArrayMarshaller] rg_object____mcg_IInspectable *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_rg_object__(
+					global::System.__ComObject __this, 
+					object[] items, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			uint unsafe_items_mcgLength = 0;
+			global::System.Runtime.InteropServices.__vtable_IInspectable** unsafe_items = default(global::System.Runtime.InteropServices.__vtable_IInspectable**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_items = (global::System.Runtime.InteropServices.__vtable_IInspectable**)global::System.Runtime.InteropServices.McgModuleManager.ObjectArrayToComInterfaceArrayAlloc(
+									items, 
+									typeof(object).TypeHandle, 
+									out unsafe_items_mcgLength
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_items_mcgLength, 
+									unsafe_items
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				if (unsafe_items != null)
+					for (uint mcgIdx = 0; (mcgIdx < unsafe_items_mcgLength); mcgIdx++)
+					{
+						// [fwd] [in] [out] [optional] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable items
+						global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_items[mcgIdx])));
+					}
+				global::System.Runtime.InteropServices.ExternalInterop.SafeCoTaskMemFree(unsafe_items);
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IItemsControl.get_Items, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_ItemCollection__Windows_UI_Xaml_Controls__ItemCollection *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Xaml.Controls.ItemCollection Func_UI_Xaml_Controls_ItemCollection__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.Collections.IObservableVector_A_System_Object_V___Impl.Vtbl** unsafe_value__retval = default(global::Windows.Foundation.Collections.IObservableVector_A_System_Object_V___Impl.Vtbl**);
+			global::Windows.UI.Xaml.Controls.ItemCollection value__retval = default(global::Windows.UI.Xaml.Controls.ItemCollection);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe_value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				value__retval = (global::Windows.UI.Xaml.Controls.ItemCollection)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe_value__retval), 
+									typeof(global::Windows.Foundation.Collections.IObservableVector<object>).TypeHandle, 
+									typeof(global::Windows.UI.Xaml.Controls.ItemCollection).TypeHandle
+								);
+				// Return
+				return value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IItemsControlOverrides.ClearContainerForItemOverride, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_DependencyObject__Windows_UI_Xaml__DependencyObject *, [fwd] [in] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_UI_Xaml_DependencyObject__object__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.DependencyObject element, 
+					object item, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.IDependencyObject__Impl.Vtbl** unsafe_element = default(global::Windows.UI.Xaml.IDependencyObject__Impl.Vtbl**);
+			global::System.Runtime.InteropServices.__vtable_IInspectable* unsafe_item = default(global::System.Runtime.InteropServices.__vtable_IInspectable*);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_element = (global::Windows.UI.Xaml.IDependencyObject__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									element, 
+									typeof(global::Windows.UI.Xaml.IDependencyObject).TypeHandle
+								);
+				unsafe_item = (global::System.Runtime.InteropServices.__vtable_IInspectable*)global::System.Runtime.InteropServices.McgMarshal.ObjectToIInspectable(item);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_element, 
+									unsafe_item
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_element)));
+				global::System.GC.KeepAlive(element);
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_item)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IItemsControlOverrides.OnItemContainerStyleChanged, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Style__Windows_UI_Xaml__Style *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Style__Windows_UI_Xaml__Style *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_UI_Xaml_Style__UI_Xaml_Style__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Style oldItemContainerStyle, 
+					global::Windows.UI.Xaml.Style newItemContainerStyle, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.IStyle__Impl.Vtbl** unsafe_oldItemContainerStyle = default(global::Windows.UI.Xaml.IStyle__Impl.Vtbl**);
+			global::Windows.UI.Xaml.IStyle__Impl.Vtbl** unsafe_newItemContainerStyle = default(global::Windows.UI.Xaml.IStyle__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_oldItemContainerStyle = (global::Windows.UI.Xaml.IStyle__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									oldItemContainerStyle, 
+									typeof(global::Windows.UI.Xaml.IStyle).TypeHandle
+								);
+				unsafe_newItemContainerStyle = (global::Windows.UI.Xaml.IStyle__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									newItemContainerStyle, 
+									typeof(global::Windows.UI.Xaml.IStyle).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_oldItemContainerStyle, 
+									unsafe_newItemContainerStyle
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_oldItemContainerStyle)));
+				global::System.GC.KeepAlive(oldItemContainerStyle);
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_newItemContainerStyle)));
+				global::System.GC.KeepAlive(newItemContainerStyle);
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IItemsControlOverrides.OnItemContainerStyleSelectorChanged, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_StyleSelector__Windows_UI_Xaml_Controls__StyleSelector *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_StyleSelector__Windows_UI_Xaml_Controls__StyleSelector *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_UI_Xaml_Controls_StyleSelector__UI_Xaml_Controls_StyleSelector__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Controls.StyleSelector oldItemContainerStyleSelector, 
+					global::Windows.UI.Xaml.Controls.StyleSelector newItemContainerStyleSelector, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Controls.IStyleSelector__Impl.Vtbl** unsafe_oldItemContainerStyleSelector = default(global::Windows.UI.Xaml.Controls.IStyleSelector__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Controls.IStyleSelector__Impl.Vtbl** unsafe_newItemContainerStyleSelector = default(global::Windows.UI.Xaml.Controls.IStyleSelector__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_oldItemContainerStyleSelector = (global::Windows.UI.Xaml.Controls.IStyleSelector__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									oldItemContainerStyleSelector, 
+									typeof(global::Windows.UI.Xaml.Controls.IStyleSelector).TypeHandle
+								);
+				unsafe_newItemContainerStyleSelector = (global::Windows.UI.Xaml.Controls.IStyleSelector__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									newItemContainerStyleSelector, 
+									typeof(global::Windows.UI.Xaml.Controls.IStyleSelector).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_oldItemContainerStyleSelector, 
+									unsafe_newItemContainerStyleSelector
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_oldItemContainerStyleSelector)));
+				global::System.GC.KeepAlive(oldItemContainerStyleSelector);
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_newItemContainerStyleSelector)));
+				global::System.GC.KeepAlive(newItemContainerStyleSelector);
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IItemsControlOverrides.OnGroupStyleSelectorChanged, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_GroupStyleSelector__Windows_UI_Xaml_Controls__GroupStyleSelector *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_GroupStyleSelector__Windows_UI_Xaml_Controls__GroupStyleSelector *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_UI_Xaml_Controls_GroupStyleSelector__UI_Xaml_Controls_GroupStyleSelector__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Controls.GroupStyleSelector oldGroupStyleSelector, 
+					global::Windows.UI.Xaml.Controls.GroupStyleSelector newGroupStyleSelector, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Controls.IGroupStyleSelector__Impl.Vtbl** unsafe_oldGroupStyleSelector = default(global::Windows.UI.Xaml.Controls.IGroupStyleSelector__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Controls.IGroupStyleSelector__Impl.Vtbl** unsafe_newGroupStyleSelector = default(global::Windows.UI.Xaml.Controls.IGroupStyleSelector__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_oldGroupStyleSelector = (global::Windows.UI.Xaml.Controls.IGroupStyleSelector__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									oldGroupStyleSelector, 
+									typeof(global::Windows.UI.Xaml.Controls.IGroupStyleSelector).TypeHandle
+								);
+				unsafe_newGroupStyleSelector = (global::Windows.UI.Xaml.Controls.IGroupStyleSelector__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									newGroupStyleSelector, 
+									typeof(global::Windows.UI.Xaml.Controls.IGroupStyleSelector).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_oldGroupStyleSelector, 
+									unsafe_newGroupStyleSelector
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_oldGroupStyleSelector)));
+				global::System.GC.KeepAlive(oldGroupStyleSelector);
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_newGroupStyleSelector)));
+				global::System.GC.KeepAlive(newGroupStyleSelector);
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IStyleSelectorOverrides.SelectStyleCore, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_DependencyObject__Windows_UI_Xaml__DependencyObject *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Style__Windows_UI_Xaml__Style *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Xaml.Style Func_object__UI_Xaml_DependencyObject__UI_Xaml_Style__(
+					global::System.__ComObject __this, 
+					object item, 
+					global::Windows.UI.Xaml.DependencyObject container, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Runtime.InteropServices.__vtable_IInspectable* unsafe_item = default(global::System.Runtime.InteropServices.__vtable_IInspectable*);
+			global::Windows.UI.Xaml.IDependencyObject__Impl.Vtbl** unsafe_container = default(global::Windows.UI.Xaml.IDependencyObject__Impl.Vtbl**);
+			global::Windows.UI.Xaml.IStyle__Impl.Vtbl** unsafe_returnValue__retval = default(global::Windows.UI.Xaml.IStyle__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Style returnValue__retval = default(global::Windows.UI.Xaml.Style);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_item = (global::System.Runtime.InteropServices.__vtable_IInspectable*)global::System.Runtime.InteropServices.McgMarshal.ObjectToIInspectable(item);
+				unsafe_container = (global::Windows.UI.Xaml.IDependencyObject__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									container, 
+									typeof(global::Windows.UI.Xaml.IDependencyObject).TypeHandle
+								);
+				unsafe_returnValue__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_item, 
+									unsafe_container, 
+									&(unsafe_returnValue__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				returnValue__retval = (global::Windows.UI.Xaml.Style)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe_returnValue__retval), 
+									typeof(global::Windows.UI.Xaml.IStyle).TypeHandle, 
+									typeof(global::Windows.UI.Xaml.Style).TypeHandle
+								);
+				// Return
+				return returnValue__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_item)));
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_container)));
+				global::System.GC.KeepAlive(container);
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_returnValue__retval)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IGroupStyleSelectorOverrides.SelectGroupStyleCore, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_GroupStyle__Windows_UI_Xaml_Controls__GroupStyle *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Xaml.Controls.GroupStyle Func_object__uint__UI_Xaml_Controls_GroupStyle__(
+					global::System.__ComObject __this, 
+					object group, 
+					uint level, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Runtime.InteropServices.__vtable_IInspectable* unsafe_group = default(global::System.Runtime.InteropServices.__vtable_IInspectable*);
+			global::Windows.UI.Xaml.Controls.IGroupStyle__Impl.Vtbl** unsafe_returnValue__retval = default(global::Windows.UI.Xaml.Controls.IGroupStyle__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Controls.GroupStyle returnValue__retval = default(global::Windows.UI.Xaml.Controls.GroupStyle);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_group = (global::System.Runtime.InteropServices.__vtable_IInspectable*)global::System.Runtime.InteropServices.McgMarshal.ObjectToIInspectable(group);
+				unsafe_returnValue__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_group, 
+									level, 
+									&(unsafe_returnValue__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				returnValue__retval = (global::Windows.UI.Xaml.Controls.GroupStyle)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe_returnValue__retval), 
+									typeof(global::Windows.UI.Xaml.Controls.IGroupStyle).TypeHandle, 
+									typeof(global::Windows.UI.Xaml.Controls.GroupStyle).TypeHandle
+								);
+				// Return
+				return returnValue__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_group)));
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_returnValue__retval)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IPivot.get_HeaderTemplate, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_DataTemplate__Windows_UI_Xaml__DataTemplate *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Xaml.DataTemplate Func_UI_Xaml_DataTemplate__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.IDataTemplate__Impl.Vtbl** unsafe_value__retval = default(global::Windows.UI.Xaml.IDataTemplate__Impl.Vtbl**);
+			global::Windows.UI.Xaml.DataTemplate value__retval = default(global::Windows.UI.Xaml.DataTemplate);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe_value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				value__retval = (global::Windows.UI.Xaml.DataTemplate)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe_value__retval), 
+									typeof(global::Windows.UI.Xaml.IDataTemplate).TypeHandle, 
+									typeof(global::Windows.UI.Xaml.DataTemplate).TypeHandle
+								);
+				// Return
+				return value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IPivot.put_HeaderTemplate, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_DataTemplate__Windows_UI_Xaml__DataTemplate *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_UI_Xaml_DataTemplate__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.DataTemplate value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.IDataTemplate__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.IDataTemplate__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.UI.Xaml.IDataTemplate__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									value, 
+									typeof(global::Windows.UI.Xaml.IDataTemplate).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+				global::System.GC.KeepAlive(value);
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IPivot.put_SelectedIndex, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] int__int, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_int__(
+					global::System.__ComObject __this, 
+					int value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			int unsafe___return__;
+			// Marshalling
+			// Call to native method
+			unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+								__this, 
+								__typeHnd, 
+								__targetIndex, 
+								value
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			// Return
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.SelectionChangedEventHandler.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_SelectionChangedEventArgs__Windows_UI_Xaml_Controls__SelectionChangedEventArgs *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_object__UI_Xaml_Controls_SelectionChangedEventArgs__(
+					global::System.__ComObject __this, 
+					object sender, 
+					global::Windows.UI.Xaml.Controls.SelectionChangedEventArgs e, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Runtime.InteropServices.__vtable_IInspectable* unsafe_sender = default(global::System.Runtime.InteropServices.__vtable_IInspectable*);
+			global::Windows.UI.Xaml.Controls.ISelectionChangedEventArgs__Impl.Vtbl** unsafe_e = default(global::Windows.UI.Xaml.Controls.ISelectionChangedEventArgs__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_sender = (global::System.Runtime.InteropServices.__vtable_IInspectable*)global::System.Runtime.InteropServices.McgMarshal.ObjectToIInspectable(sender);
+				unsafe_e = (global::Windows.UI.Xaml.Controls.ISelectionChangedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									e, 
+									typeof(global::Windows.UI.Xaml.Controls.ISelectionChangedEventArgs).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_sender, 
+									unsafe_e
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_e)));
+				global::System.GC.KeepAlive(e);
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IPivot.add_SelectionChanged, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_Controls_SelectionChangedEventHandler__Windows_UI_Xaml_Controls__SelectionChangedEventHandler *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func_UI_Xaml_Controls_SelectionChangedEventHandler___WindowsRuntime_EventRegistrationToken__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler__Impl.Vtbl**);
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+									value, 
+									typeof(global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget38>(global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler__Impl.Invoke)
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value, 
+									&(unsafe_token__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				token__retval = unsafe_token__retval;
+				// Return
+				return token__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+			}
+		}
+
+		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.Pivot,Windows.UI.Xaml.Controls.PivotItemEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_Pivot__Windows_UI_Xaml_Controls__Pivot *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_PivotItemEventArgs__Windows_UI_Xaml_Controls__PivotItemEventArgs *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_UI_Xaml_Controls_Pivot__UI_Xaml_Controls_PivotItemEventArgs__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Controls.Pivot sender, 
+					global::Windows.UI.Xaml.Controls.PivotItemEventArgs args, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Controls.IPivot__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IPivot__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Controls.IPivotItemEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IPivotItemEventArgs__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_sender = (global::Windows.UI.Xaml.Controls.IPivot__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									sender, 
+									typeof(global::Windows.UI.Xaml.Controls.IPivot).TypeHandle
+								);
+				unsafe_args = (global::Windows.UI.Xaml.Controls.IPivotItemEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									args, 
+									typeof(global::Windows.UI.Xaml.Controls.IPivotItemEventArgs).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_sender, 
+									unsafe_args
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
+				global::System.GC.KeepAlive(sender);
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
+				global::System.GC.KeepAlive(args);
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IPivot.add_PivotItemLoading, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_Pivot__Windows_UI_Xaml_Controls_PivotItemEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_Pivot_j_Windows_UI_Xaml_Controls_PivotItemEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_Pivot__UI_Xaml_Controls_PivotItemEventArgs__WindowsRuntime_EventRegistrationToken__(
+					global::System.__ComObject __this, 
+					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.Pivot, global::Windows.UI.Xaml.Controls.PivotItemEventArgs> value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_Pivot_j_Windows_UI_Xaml_Controls_PivotItemEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_Pivot_j_Windows_UI_Xaml_Controls_PivotItemEventArgs_V___Impl.Vtbl**);
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_Pivot_j_Windows_UI_Xaml_Controls_PivotItemEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+									value, 
+									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.Pivot, global::Windows.UI.Xaml.Controls.PivotItemEventArgs>).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget39>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_Pivot_j_Windows_UI_Xaml_Controls_PivotItemEventArgs_V___Impl.Invoke)
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value, 
+									&(unsafe_token__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				token__retval = unsafe_token__retval;
+				// Return
+				return token__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+			}
+		}
+
 		// Signature, Windows.UI.Xaml.Controls.IWebView.get_Source, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTUriMarshaller] System_Uri__Windows_Foundation__Uri *, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
@@ -21006,7 +21246,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.UI.Xaml.Controls.NotifyEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.UI.Xaml.Controls.NotifyEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget39>(global::Windows.UI.Xaml.Controls.NotifyEventHandler__Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget40>(global::Windows.UI.Xaml.Controls.NotifyEventHandler__Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -21090,7 +21330,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget40>(global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler__Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget41>(global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler__Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -21214,7 +21454,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNavigationStartingEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget41>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget42>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -21302,7 +21542,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewContentLoadingEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget42>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget43>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -21390,7 +21630,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewDOMContentLoadedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget43>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget44>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -21533,7 +21773,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNavigationCompletedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget44>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget45>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -21621,7 +21861,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewLongRunningScriptDetectedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget45>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget46>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -21705,7 +21945,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_System_Object_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, object>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget46>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_System_Object_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget47>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_System_Object_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -21793,7 +22033,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewUnviewableContentIdentifiedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget47>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget48>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -21991,7 +22231,7 @@ namespace McgInterop
 				unsafe_handler = (global::Windows.Foundation.AsyncOperationCompletedHandler_A_string_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									handler, 
 									typeof(global::Windows.Foundation.AsyncOperationCompletedHandler<string>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget48>(global::Windows.Foundation.AsyncOperationCompletedHandler_A_string_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget49>(global::Windows.Foundation.AsyncOperationCompletedHandler_A_string_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -22076,7 +22316,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewUnsupportedUriSchemeIdentifiedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget49>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget50>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -22164,7 +22404,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNewWindowRequestedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget50>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget51>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -22252,7 +22492,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewPermissionRequestedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget51>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget52>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -22469,7 +22709,7 @@ namespace McgInterop
 				unsafe_value = (global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget52>(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget53>(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -22553,7 +22793,7 @@ namespace McgInterop
 				unsafe_value = (global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget53>(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget54>(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -22567,6 +22807,92 @@ namespace McgInterop
 				token__retval = unsafe_token__retval;
 				// Return
 				return token__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.Primitives.IToggleButton.get_IsChecked, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTReferenceMarshaller] System_Nullable_1_bool___Windows_Foundation__IReference_A_bool_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Nullable<bool> Func_Nullable_1_bool___(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Nullable_A_bool_V___Impl.Vtbl** unsafe_value__retval = default(global::System.Nullable_A_bool_V___Impl.Vtbl**);
+			global::System.Nullable<bool> value__retval = default(global::System.Nullable<bool>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe_value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				if (unsafe_value__retval != null)
+					value__retval = (bool)global::System.Runtime.InteropServices.McgModuleManager.UnboxIfBoxed(
+										global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject_NoUnboxing(
+															((global::System.IntPtr)unsafe_value__retval), 
+															typeof(global::Windows.Foundation.IReference<bool>).TypeHandle
+														), 
+										"Windows.Foundation.IReference`1<Boolean>"
+									);
+				else
+					value__retval = null;
+				// Return
+				return value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.Primitives.IToggleButton.put_IsChecked, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTReferenceMarshaller] System_Nullable_1_bool___Windows_Foundation__IReference_A_bool_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_Nullable_1_bool___(
+					global::System.__ComObject __this, 
+					global::System.Nullable<bool> value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Nullable_A_bool_V___Impl.Vtbl** unsafe_value = default(global::System.Nullable_A_bool_V___Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				if (value.HasValue)
+				{
+					global::System.Runtime.InteropServices.WindowsRuntime.ReferenceImpl<bool> unsafe_value_Wrapper = new global::System.Runtime.InteropServices.WindowsRuntime.ReferenceImpl<bool>(value.Value, 11);
+					unsafe_value = (global::System.Nullable_A_bool_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ManagedObjectToComInterface(
+										unsafe_value_Wrapper, 
+										typeof(global::Windows.Foundation.IReference<bool>).TypeHandle
+									);
+				}
+				else
+					unsafe_value = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
 			}
 			finally
 			{
@@ -22637,7 +22963,7 @@ namespace McgInterop
 				unsafe_value = (global::Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget54>(global::Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventHandler__Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget55>(global::Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventHandler__Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -22682,166 +23008,6 @@ namespace McgInterop
 							);
 			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
 			// Return
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IImage.get_Source, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_ImageSource__Windows_UI_Xaml_Media__ImageSource *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.Media.ImageSource Func_UI_Xaml_Media_ImageSource__(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Media.IImageSource__Impl.Vtbl** unsafe_value__retval = default(global::Windows.UI.Xaml.Media.IImageSource__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Media.ImageSource value__retval = default(global::Windows.UI.Xaml.Media.ImageSource);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe_value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				value__retval = (global::Windows.UI.Xaml.Media.ImageSource)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-									((global::System.IntPtr)unsafe_value__retval), 
-									typeof(global::Windows.UI.Xaml.Media.IImageSource).TypeHandle, 
-									typeof(global::Windows.UI.Xaml.Media.ImageSource).TypeHandle
-								);
-				// Return
-				return value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IImage.put_Source, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_ImageSource__Windows_UI_Xaml_Media__ImageSource *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_Media_ImageSource__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Media.ImageSource value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Media.IImageSource__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Media.IImageSource__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.UI.Xaml.Media.IImageSource__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									value, 
-									typeof(global::Windows.UI.Xaml.Media.IImageSource).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-				global::System.GC.KeepAlive(value);
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.ExceptionRoutedEventHandler.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_ExceptionRoutedEventArgs__Windows_UI_Xaml__ExceptionRoutedEventArgs *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_object__UI_Xaml_ExceptionRoutedEventArgs__(
-					global::System.__ComObject __this, 
-					object sender, 
-					global::Windows.UI.Xaml.ExceptionRoutedEventArgs e, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::System.Runtime.InteropServices.__vtable_IInspectable* unsafe_sender = default(global::System.Runtime.InteropServices.__vtable_IInspectable*);
-			global::Windows.UI.Xaml.IExceptionRoutedEventArgs__Impl.Vtbl** unsafe_e = default(global::Windows.UI.Xaml.IExceptionRoutedEventArgs__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_sender = (global::System.Runtime.InteropServices.__vtable_IInspectable*)global::System.Runtime.InteropServices.McgMarshal.ObjectToIInspectable(sender);
-				unsafe_e = (global::Windows.UI.Xaml.IExceptionRoutedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									e, 
-									typeof(global::Windows.UI.Xaml.IExceptionRoutedEventArgs).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_sender, 
-									unsafe_e
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_e)));
-				global::System.GC.KeepAlive(e);
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IImage.add_ImageFailed, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_ExceptionRoutedEventHandler__Windows_UI_Xaml__ExceptionRoutedEventHandler *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func_UI_Xaml_ExceptionRoutedEventHandler___WindowsRuntime_EventRegistrationToken__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.ExceptionRoutedEventHandler value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.ExceptionRoutedEventHandler__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.ExceptionRoutedEventHandler__Impl.Vtbl**);
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.UI.Xaml.ExceptionRoutedEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-									value, 
-									typeof(global::Windows.UI.Xaml.ExceptionRoutedEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget55>(global::Windows.UI.Xaml.ExceptionRoutedEventHandler__Impl.Invoke)
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value, 
-									&(unsafe_token__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				token__retval = unsafe_token__retval;
-				// Return
-				return token__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-			}
 		}
 
 		// Signature, Windows.UI.Xaml.Media.ISolidColorBrushFactory.CreateInstanceWithColor, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] Windows_UI_Color__Windows_UI__Color, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_IntPtr____w64 int, 
@@ -31082,17 +31248,17 @@ namespace McgInterop
 			}
 		}
 
-		// Signature, System.Nullable<Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.Pivot,Windows.UI.Xaml.Controls.PivotItemEventArgs>>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_Pivot__Windows_UI_Xaml_Controls_PivotItemEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_Pivot_j_Windows_UI_Xaml_Controls_PivotItemEventArgs_V_ *, 
+		// Signature, System.Nullable<Windows.UI.Xaml.ExceptionRoutedEventHandler>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_ExceptionRoutedEventHandler__Windows_UI_Xaml__ExceptionRoutedEventHandler *, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.Pivot, global::Windows.UI.Xaml.Controls.PivotItemEventArgs> Func__TypedEventHandler_2_UI_Xaml_Controls_Pivot__UI_Xaml_Controls_PivotItemEventArgs___(
+		internal static global::Windows.UI.Xaml.ExceptionRoutedEventHandler Func_UI_Xaml_ExceptionRoutedEventHandler__(
 					global::System.__ComObject __this, 
 					global::System.RuntimeTypeHandle __typeHnd, 
 					int __targetIndex)
 		{
 			// Setup
-			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_Pivot_j_Windows_UI_Xaml_Controls_PivotItemEventArgs_V___Impl.Vtbl** unsafe___value__retval = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_Pivot_j_Windows_UI_Xaml_Controls_PivotItemEventArgs_V___Impl.Vtbl**);
-			global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.Pivot, global::Windows.UI.Xaml.Controls.PivotItemEventArgs> __value__retval = default(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.Pivot, global::Windows.UI.Xaml.Controls.PivotItemEventArgs>);
+			global::Windows.UI.Xaml.ExceptionRoutedEventHandler__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.ExceptionRoutedEventHandler__Impl.Vtbl**);
+			global::Windows.UI.Xaml.ExceptionRoutedEventHandler __value__retval = default(global::Windows.UI.Xaml.ExceptionRoutedEventHandler);
 			int unsafe___return__;
 			try
 			{
@@ -31106,88 +31272,10 @@ namespace McgInterop
 									&(unsafe___value__retval)
 								);
 				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.Pivot, global::Windows.UI.Xaml.Controls.PivotItemEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
+				__value__retval = (global::Windows.UI.Xaml.ExceptionRoutedEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
-									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.Pivot, global::Windows.UI.Xaml.Controls.PivotItemEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget30>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_Pivot_j_Windows_UI_Xaml_Controls_PivotItemEventArgs_V___Impl.Invoke)
-								);
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
-			}
-		}
-
-		// Signature, System.Nullable<Windows.UI.Xaml.Controls.SelectionChangedEventHandler>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_Controls_SelectionChangedEventHandler__Windows_UI_Xaml_Controls__SelectionChangedEventHandler *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler Func_UI_Xaml_Controls_SelectionChangedEventHandler__(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler __value__retval = default(global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe___value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = (global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
-									((global::System.IntPtr)unsafe___value__retval), 
-									typeof(global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget29>(global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler__Impl.Invoke)
-								);
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
-			}
-		}
-
-		// Signature, System.Nullable<Windows.Foundation.Collections.VectorChangedEventHandler<System.Object>>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_Collections_VectorChangedEventHandler_1_object___Windows_Foundation_Collections__VectorChangedEventHandler_A_object_V_ *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.Foundation.Collections.VectorChangedEventHandler<object> Func__Collections_VectorChangedEventHandler_1_object___(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.Collections.VectorChangedEventHandler_A_System_Object_V___Impl.Vtbl** unsafe___value__retval = default(global::Windows.Foundation.Collections.VectorChangedEventHandler_A_System_Object_V___Impl.Vtbl**);
-			global::Windows.Foundation.Collections.VectorChangedEventHandler<object> __value__retval = default(global::Windows.Foundation.Collections.VectorChangedEventHandler<object>);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe___value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = (global::Windows.Foundation.Collections.VectorChangedEventHandler<object>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
-									((global::System.IntPtr)unsafe___value__retval), 
-									typeof(global::Windows.Foundation.Collections.VectorChangedEventHandler<object>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget28>(global::Windows.Foundation.Collections.VectorChangedEventHandler_A_System_Object_V___Impl.Invoke)
+									typeof(global::Windows.UI.Xaml.ExceptionRoutedEventHandler).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget28>(global::Windows.UI.Xaml.ExceptionRoutedEventHandler__Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31226,7 +31314,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget31>(global::Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler__Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget29>(global::Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler__Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31265,7 +31353,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.UI.Xaml.Controls.TextChangedEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.UI.Xaml.Controls.TextChangedEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget32>(global::Windows.UI.Xaml.Controls.TextChangedEventHandler__Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget30>(global::Windows.UI.Xaml.Controls.TextChangedEventHandler__Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31304,7 +31392,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.UI.Xaml.Controls.TextControlPasteEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.UI.Xaml.Controls.TextControlPasteEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget33>(global::Windows.UI.Xaml.Controls.TextControlPasteEventHandler__Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget31>(global::Windows.UI.Xaml.Controls.TextControlPasteEventHandler__Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31343,7 +31431,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.TextBox, global::Windows.UI.Xaml.Controls.CandidateWindowBoundsChangedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.TextBox, global::Windows.UI.Xaml.Controls.CandidateWindowBoundsChangedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget37>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_CandidateWindowBoundsChangedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget35>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_CandidateWindowBoundsChangedEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31382,7 +31470,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.TextBox, global::Windows.UI.Xaml.Controls.TextBoxTextChangingEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.TextBox, global::Windows.UI.Xaml.Controls.TextBoxTextChangingEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget38>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextBoxTextChangingEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget36>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextBoxTextChangingEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31421,7 +31509,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.TextBox, global::Windows.UI.Xaml.Controls.TextCompositionChangedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.TextBox, global::Windows.UI.Xaml.Controls.TextCompositionChangedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget35>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextCompositionChangedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget33>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextCompositionChangedEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31460,7 +31548,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.TextBox, global::Windows.UI.Xaml.Controls.TextCompositionEndedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.TextBox, global::Windows.UI.Xaml.Controls.TextCompositionEndedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget36>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextCompositionEndedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget34>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextCompositionEndedEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31499,7 +31587,124 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.TextBox, global::Windows.UI.Xaml.Controls.TextCompositionStartedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.TextBox, global::Windows.UI.Xaml.Controls.TextCompositionStartedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget34>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextCompositionStartedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget32>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_TextBox_j_Windows_UI_Xaml_Controls_TextCompositionStartedEventArgs_V___Impl.Invoke)
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, System.Nullable<Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.Pivot,Windows.UI.Xaml.Controls.PivotItemEventArgs>>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_Pivot__Windows_UI_Xaml_Controls_PivotItemEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_Pivot_j_Windows_UI_Xaml_Controls_PivotItemEventArgs_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.Pivot, global::Windows.UI.Xaml.Controls.PivotItemEventArgs> Func__TypedEventHandler_2_UI_Xaml_Controls_Pivot__UI_Xaml_Controls_PivotItemEventArgs___(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_Pivot_j_Windows_UI_Xaml_Controls_PivotItemEventArgs_V___Impl.Vtbl** unsafe___value__retval = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_Pivot_j_Windows_UI_Xaml_Controls_PivotItemEventArgs_V___Impl.Vtbl**);
+			global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.Pivot, global::Windows.UI.Xaml.Controls.PivotItemEventArgs> __value__retval = default(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.Pivot, global::Windows.UI.Xaml.Controls.PivotItemEventArgs>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.Pivot, global::Windows.UI.Xaml.Controls.PivotItemEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.Pivot, global::Windows.UI.Xaml.Controls.PivotItemEventArgs>).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget39>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_Pivot_j_Windows_UI_Xaml_Controls_PivotItemEventArgs_V___Impl.Invoke)
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, System.Nullable<Windows.UI.Xaml.Controls.SelectionChangedEventHandler>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_Controls_SelectionChangedEventHandler__Windows_UI_Xaml_Controls__SelectionChangedEventHandler *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler Func_UI_Xaml_Controls_SelectionChangedEventHandler__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler __value__retval = default(global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget38>(global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler__Impl.Invoke)
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, System.Nullable<Windows.Foundation.Collections.VectorChangedEventHandler<System.Object>>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_Collections_VectorChangedEventHandler_1_object___Windows_Foundation_Collections__VectorChangedEventHandler_A_object_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.Foundation.Collections.VectorChangedEventHandler<object> Func__Collections_VectorChangedEventHandler_1_object___(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.Collections.VectorChangedEventHandler_A_System_Object_V___Impl.Vtbl** unsafe___value__retval = default(global::Windows.Foundation.Collections.VectorChangedEventHandler_A_System_Object_V___Impl.Vtbl**);
+			global::Windows.Foundation.Collections.VectorChangedEventHandler<object> __value__retval = default(global::Windows.Foundation.Collections.VectorChangedEventHandler<object>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::Windows.Foundation.Collections.VectorChangedEventHandler<object>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::Windows.Foundation.Collections.VectorChangedEventHandler<object>).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget37>(global::Windows.Foundation.Collections.VectorChangedEventHandler_A_System_Object_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31577,7 +31782,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget40>(global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler__Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget41>(global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler__Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31616,7 +31821,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.UI.Xaml.Controls.NotifyEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.UI.Xaml.Controls.NotifyEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget39>(global::Windows.UI.Xaml.Controls.NotifyEventHandler__Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget40>(global::Windows.UI.Xaml.Controls.NotifyEventHandler__Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31655,7 +31860,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewContentLoadingEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewContentLoadingEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget42>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget43>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31694,7 +31899,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewDOMContentLoadedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewDOMContentLoadedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget43>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget44>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31733,7 +31938,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNavigationCompletedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNavigationCompletedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget44>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget45>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31772,7 +31977,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNavigationStartingEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNavigationStartingEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget41>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget42>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31811,7 +32016,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewLongRunningScriptDetectedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewLongRunningScriptDetectedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget45>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget46>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31850,7 +32055,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, object>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, object>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget46>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_System_Object_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget47>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_System_Object_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31889,7 +32094,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewUnviewableContentIdentifiedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewUnviewableContentIdentifiedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget47>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget48>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31928,7 +32133,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNewWindowRequestedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNewWindowRequestedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget50>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget51>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31967,7 +32172,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewPermissionRequestedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewPermissionRequestedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget51>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget52>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -32006,7 +32211,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewUnsupportedUriSchemeIdentifiedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewUnsupportedUriSchemeIdentifiedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget49>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget50>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -32045,7 +32250,7 @@ namespace McgInterop
 				__value__retval = (global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget52>(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget53>(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -32084,7 +32289,7 @@ namespace McgInterop
 				__value__retval = (global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget53>(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget54>(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -32123,46 +32328,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget54>(global::Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventHandler__Impl.Invoke)
-								);
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
-			}
-		}
-
-		// Signature, System.Nullable<Windows.UI.Xaml.ExceptionRoutedEventHandler>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_ExceptionRoutedEventHandler__Windows_UI_Xaml__ExceptionRoutedEventHandler *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.ExceptionRoutedEventHandler Func_UI_Xaml_ExceptionRoutedEventHandler__(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.ExceptionRoutedEventHandler__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.ExceptionRoutedEventHandler__Impl.Vtbl**);
-			global::Windows.UI.Xaml.ExceptionRoutedEventHandler __value__retval = default(global::Windows.UI.Xaml.ExceptionRoutedEventHandler);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe___value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = (global::Windows.UI.Xaml.ExceptionRoutedEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
-									((global::System.IntPtr)unsafe___value__retval), 
-									typeof(global::Windows.UI.Xaml.ExceptionRoutedEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget55>(global::Windows.UI.Xaml.ExceptionRoutedEventHandler__Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget55>(global::Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventHandler__Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -35791,84 +35957,81 @@ namespace McgInterop
 			}
 		}
 
-		// Signature, Windows.UI.Core.ISystemNavigationManagerStatics.GetForCurrentView, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Core_SystemNavigationManager__Windows_UI_Core__SystemNavigationManager *, 
+		// Signature, Windows.UI.ViewManagement.IApplicationViewStatics2.GetForCurrentView, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_ViewManagement_ApplicationView__Windows_UI_ViewManagement__ApplicationView *, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Core.SystemNavigationManager Func_UI_Core_SystemNavigationManager__(
+		internal static global::Windows.UI.ViewManagement.ApplicationView Func_UI_ViewManagement_ApplicationView__(
 					global::System.__ComObject __this, 
 					global::System.RuntimeTypeHandle __typeHnd, 
 					int __targetIndex)
 		{
 			// Setup
-			global::Windows.UI.Core.ISystemNavigationManager__Impl.Vtbl** unsafe_loader__retval = default(global::Windows.UI.Core.ISystemNavigationManager__Impl.Vtbl**);
-			global::Windows.UI.Core.SystemNavigationManager loader__retval = default(global::Windows.UI.Core.SystemNavigationManager);
+			global::Windows.UI.ViewManagement.IApplicationView__Impl.Vtbl** unsafe_current__retval = default(global::Windows.UI.ViewManagement.IApplicationView__Impl.Vtbl**);
+			global::Windows.UI.ViewManagement.ApplicationView current__retval = default(global::Windows.UI.ViewManagement.ApplicationView);
 			int unsafe___return__;
 			try
 			{
 				// Marshalling
-				unsafe_loader__retval = null;
+				unsafe_current__retval = null;
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
 									__this, 
 									__typeHnd, 
 									__targetIndex, 
-									&(unsafe_loader__retval)
+									&(unsafe_current__retval)
 								);
 				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				loader__retval = (global::Windows.UI.Core.SystemNavigationManager)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-									((global::System.IntPtr)unsafe_loader__retval), 
-									typeof(global::Windows.UI.Core.ISystemNavigationManager).TypeHandle, 
-									typeof(global::Windows.UI.Core.SystemNavigationManager).TypeHandle
+				current__retval = (global::Windows.UI.ViewManagement.ApplicationView)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe_current__retval), 
+									typeof(global::Windows.UI.ViewManagement.IApplicationView).TypeHandle, 
+									typeof(global::Windows.UI.ViewManagement.ApplicationView).TypeHandle
 								);
 				// Return
-				return loader__retval;
+				return current__retval;
 			}
 			finally
 			{
 				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_loader__retval)));
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_current__retval)));
 			}
 		}
 
-		// Signature, Windows.UI.Core.ISystemNavigationManager.add_BackRequested, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] System_EventHandler_1_Windows_UI_Core_BackRequestedEventArgs___Windows_Foundation__EventHandler_A_Windows_UI_Core_BackRequestedEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+		// Signature, Windows.UI.ViewManagement.IApplicationView3.get_TitleBar, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_ViewManagement_ApplicationViewTitleBar__Windows_UI_ViewManagement__ApplicationViewTitleBar *, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func_EventHandler_1_UI_Core_BackRequestedEventArgs__WindowsRuntime_EventRegistrationToken__(
+		internal static global::Windows.UI.ViewManagement.ApplicationViewTitleBar Func_UI_ViewManagement_ApplicationViewTitleBar__(
 					global::System.__ComObject __this, 
-					global::System.EventHandler<global::Windows.UI.Core.BackRequestedEventArgs> handler, 
 					global::System.RuntimeTypeHandle __typeHnd, 
 					int __targetIndex)
 		{
 			// Setup
-			global::System.EventHandler_A_Windows_UI_Core_BackRequestedEventArgs_V___Impl.Vtbl** unsafe_handler = default(global::System.EventHandler_A_Windows_UI_Core_BackRequestedEventArgs_V___Impl.Vtbl**);
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
+			global::Windows.UI.ViewManagement.IApplicationViewTitleBar__Impl.Vtbl** unsafe_value__retval = default(global::Windows.UI.ViewManagement.IApplicationViewTitleBar__Impl.Vtbl**);
+			global::Windows.UI.ViewManagement.ApplicationViewTitleBar value__retval = default(global::Windows.UI.ViewManagement.ApplicationViewTitleBar);
 			int unsafe___return__;
 			try
 			{
 				// Marshalling
-				unsafe_handler = (global::System.EventHandler_A_Windows_UI_Core_BackRequestedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-									handler, 
-									typeof(global::System.EventHandler<global::Windows.UI.Core.BackRequestedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget81>(global::System.EventHandler_A_Windows_UI_Core_BackRequestedEventArgs_V___Impl.Invoke)
-								);
+				unsafe_value__retval = null;
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
 									__this, 
 									__typeHnd, 
 									__targetIndex, 
-									unsafe_handler, 
-									&(unsafe_token__retval)
+									&(unsafe_value__retval)
 								);
 				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				token__retval = unsafe_token__retval;
+				value__retval = (global::Windows.UI.ViewManagement.ApplicationViewTitleBar)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe_value__retval), 
+									typeof(global::Windows.UI.ViewManagement.IApplicationViewTitleBar).TypeHandle, 
+									typeof(global::Windows.UI.ViewManagement.ApplicationViewTitleBar).TypeHandle
+								);
 				// Return
-				return token__retval;
+				return value__retval;
 			}
 			finally
 			{
 				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_handler)));
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
 			}
 		}
 
@@ -35950,81 +36113,84 @@ namespace McgInterop
 			}
 		}
 
-		// Signature, Windows.UI.ViewManagement.IApplicationViewStatics2.GetForCurrentView, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_ViewManagement_ApplicationView__Windows_UI_ViewManagement__ApplicationView *, 
+		// Signature, Windows.UI.Core.ISystemNavigationManagerStatics.GetForCurrentView, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Core_SystemNavigationManager__Windows_UI_Core__SystemNavigationManager *, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.ViewManagement.ApplicationView Func_UI_ViewManagement_ApplicationView__(
+		internal static global::Windows.UI.Core.SystemNavigationManager Func_UI_Core_SystemNavigationManager__(
 					global::System.__ComObject __this, 
 					global::System.RuntimeTypeHandle __typeHnd, 
 					int __targetIndex)
 		{
 			// Setup
-			global::Windows.UI.ViewManagement.IApplicationView__Impl.Vtbl** unsafe_current__retval = default(global::Windows.UI.ViewManagement.IApplicationView__Impl.Vtbl**);
-			global::Windows.UI.ViewManagement.ApplicationView current__retval = default(global::Windows.UI.ViewManagement.ApplicationView);
+			global::Windows.UI.Core.ISystemNavigationManager__Impl.Vtbl** unsafe_loader__retval = default(global::Windows.UI.Core.ISystemNavigationManager__Impl.Vtbl**);
+			global::Windows.UI.Core.SystemNavigationManager loader__retval = default(global::Windows.UI.Core.SystemNavigationManager);
 			int unsafe___return__;
 			try
 			{
 				// Marshalling
-				unsafe_current__retval = null;
+				unsafe_loader__retval = null;
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
 									__this, 
 									__typeHnd, 
 									__targetIndex, 
-									&(unsafe_current__retval)
+									&(unsafe_loader__retval)
 								);
 				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				current__retval = (global::Windows.UI.ViewManagement.ApplicationView)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-									((global::System.IntPtr)unsafe_current__retval), 
-									typeof(global::Windows.UI.ViewManagement.IApplicationView).TypeHandle, 
-									typeof(global::Windows.UI.ViewManagement.ApplicationView).TypeHandle
+				loader__retval = (global::Windows.UI.Core.SystemNavigationManager)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe_loader__retval), 
+									typeof(global::Windows.UI.Core.ISystemNavigationManager).TypeHandle, 
+									typeof(global::Windows.UI.Core.SystemNavigationManager).TypeHandle
 								);
 				// Return
-				return current__retval;
+				return loader__retval;
 			}
 			finally
 			{
 				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_current__retval)));
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_loader__retval)));
 			}
 		}
 
-		// Signature, Windows.UI.ViewManagement.IApplicationView3.get_TitleBar, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_ViewManagement_ApplicationViewTitleBar__Windows_UI_ViewManagement__ApplicationViewTitleBar *, 
+		// Signature, Windows.UI.Core.ISystemNavigationManager.add_BackRequested, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] System_EventHandler_1_Windows_UI_Core_BackRequestedEventArgs___Windows_Foundation__EventHandler_A_Windows_UI_Core_BackRequestedEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.ViewManagement.ApplicationViewTitleBar Func_UI_ViewManagement_ApplicationViewTitleBar__(
+		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func_EventHandler_1_UI_Core_BackRequestedEventArgs__WindowsRuntime_EventRegistrationToken__(
 					global::System.__ComObject __this, 
+					global::System.EventHandler<global::Windows.UI.Core.BackRequestedEventArgs> handler, 
 					global::System.RuntimeTypeHandle __typeHnd, 
 					int __targetIndex)
 		{
 			// Setup
-			global::Windows.UI.ViewManagement.IApplicationViewTitleBar__Impl.Vtbl** unsafe_value__retval = default(global::Windows.UI.ViewManagement.IApplicationViewTitleBar__Impl.Vtbl**);
-			global::Windows.UI.ViewManagement.ApplicationViewTitleBar value__retval = default(global::Windows.UI.ViewManagement.ApplicationViewTitleBar);
+			global::System.EventHandler_A_Windows_UI_Core_BackRequestedEventArgs_V___Impl.Vtbl** unsafe_handler = default(global::System.EventHandler_A_Windows_UI_Core_BackRequestedEventArgs_V___Impl.Vtbl**);
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
 			int unsafe___return__;
 			try
 			{
 				// Marshalling
-				unsafe_value__retval = null;
+				unsafe_handler = (global::System.EventHandler_A_Windows_UI_Core_BackRequestedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+									handler, 
+									typeof(global::System.EventHandler<global::Windows.UI.Core.BackRequestedEventArgs>).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget81>(global::System.EventHandler_A_Windows_UI_Core_BackRequestedEventArgs_V___Impl.Invoke)
+								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
 									__this, 
 									__typeHnd, 
 									__targetIndex, 
-									&(unsafe_value__retval)
+									unsafe_handler, 
+									&(unsafe_token__retval)
 								);
 				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				value__retval = (global::Windows.UI.ViewManagement.ApplicationViewTitleBar)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-									((global::System.IntPtr)unsafe_value__retval), 
-									typeof(global::Windows.UI.ViewManagement.IApplicationViewTitleBar).TypeHandle, 
-									typeof(global::Windows.UI.ViewManagement.ApplicationViewTitleBar).TypeHandle
-								);
+				token__retval = unsafe_token__retval;
 				// Return
-				return value__retval;
+				return token__retval;
 			}
 			finally
 			{
 				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_handler)));
 			}
 		}
 
@@ -36814,6 +36980,52 @@ namespace McgInterop
 				// Cleanup
 				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_reference)));
 				global::System.GC.KeepAlive(reference);
+			}
+		}
+
+		// Signature, Windows.System.ILauncherStatics.LaunchUriAsync, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTUriMarshaller] System_Uri__Windows_Foundation__Uri *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Foundation_IAsyncOperation_1_bool___Windows_Foundation__IAsyncOperation_A_bool_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.Foundation.IAsyncOperation<bool> Func_Uri___IAsyncOperation_1_bool___(
+					global::System.__ComObject __this, 
+					global::System.Uri uri, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.IUriRuntimeClass__Impl.Vtbl** unsafe_uri = default(global::Windows.Foundation.IUriRuntimeClass__Impl.Vtbl**);
+			global::Windows.Foundation.IAsyncOperation_A_bool_V___Impl.Vtbl** unsafe_operation__retval = default(global::Windows.Foundation.IAsyncOperation_A_bool_V___Impl.Vtbl**);
+			global::Windows.Foundation.IAsyncOperation<bool> operation__retval = default(global::Windows.Foundation.IAsyncOperation<bool>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				if (uri != null)
+					unsafe_uri = (global::Windows.Foundation.IUriRuntimeClass__Impl.Vtbl**)global::McgInterop.McgHelpers.SystemUri2WindowsFoundationUri(uri);
+				else
+					unsafe_uri = null;
+				unsafe_operation__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_uri, 
+									&(unsafe_operation__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				operation__retval = (global::Windows.Foundation.IAsyncOperation<bool>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe_operation__retval), 
+									typeof(global::Windows.Foundation.IAsyncOperation<bool>).TypeHandle
+								);
+				// Return
+				return operation__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_uri)));
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_operation__retval)));
 			}
 		}
 
@@ -39683,6 +39895,32 @@ namespace McgInterop
 			}
 		}
 
+		// Signature, System.Nullable<Windows.Foundation.Metadata.DeprecationType>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.EnumMarshaller] Windows_Foundation_Metadata_DeprecationType__Windows_Foundation_Metadata__DeprecationType, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.Foundation.Metadata.DeprecationType Func__Metadata_DeprecationType__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.Metadata.DeprecationType unsafe___value__retval;
+			global::Windows.Foundation.Metadata.DeprecationType __value__retval;
+			int unsafe___return__;
+			// Marshalling
+			// Call to native method
+			unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+								__this, 
+								__typeHnd, 
+								__targetIndex, 
+								&(unsafe___value__retval)
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			__value__retval = unsafe___value__retval;
+			// Return
+			return __value__retval;
+		}
+
 		// Signature, System.Nullable<Windows.Foundation.Collections.MapChangedEventHandler<string,string>>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_Collections_MapChangedEventHandler_2_string__string___Windows_Foundation_Collections__MapChangedEventHandler_A_string_j_string_V_ *, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
@@ -40255,7 +40493,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.AsyncOperationCompletedHandler<string>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.AsyncOperationCompletedHandler<string>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget48>(global::Windows.Foundation.AsyncOperationCompletedHandler_A_string_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget49>(global::Windows.Foundation.AsyncOperationCompletedHandler_A_string_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -42465,32 +42703,6 @@ namespace McgInterop
 			}
 		}
 
-		// Signature, System.Nullable<Windows.Foundation.Metadata.DeprecationType>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.EnumMarshaller] Windows_Foundation_Metadata_DeprecationType__Windows_Foundation_Metadata__DeprecationType, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.Foundation.Metadata.DeprecationType Func__Metadata_DeprecationType__(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.Metadata.DeprecationType unsafe___value__retval;
-			global::Windows.Foundation.Metadata.DeprecationType __value__retval;
-			int unsafe___return__;
-			// Marshalling
-			// Call to native method
-			unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-								__this, 
-								__typeHnd, 
-								__targetIndex, 
-								&(unsafe___value__retval)
-							);
-			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			__value__retval = unsafe___value__retval;
-			// Return
-			return __value__retval;
-		}
-
 		// Signature, System.Nullable<Windows.System.Threading.WorkItemPriority>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.EnumMarshaller] Windows_System_Threading_WorkItemPriority__Windows_System_Threading__WorkItemPriority, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
@@ -42673,17 +42885,17 @@ namespace McgInterop
 			return __value__retval;
 		}
 
-		// Signature, System.Nullable<Windows.UI.Notifications.ToastTemplateType>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.EnumMarshaller] Windows_UI_Notifications_ToastTemplateType__Windows_UI_Notifications__ToastTemplateType, 
+		// Signature, System.Nullable<Windows.UI.Xaml.FocusState>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.EnumMarshaller] Windows_UI_Xaml_FocusState__Windows_UI_Xaml__FocusState, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Notifications.ToastTemplateType Func_UI_Notifications_ToastTemplateType__(
+		internal static global::Windows.UI.Xaml.FocusState Func_UI_Xaml_FocusState__(
 					global::System.__ComObject __this, 
 					global::System.RuntimeTypeHandle __typeHnd, 
 					int __targetIndex)
 		{
 			// Setup
-			global::Windows.UI.Notifications.ToastTemplateType unsafe___value__retval;
-			global::Windows.UI.Notifications.ToastTemplateType __value__retval;
+			global::Windows.UI.Xaml.FocusState unsafe___value__retval;
+			global::Windows.UI.Xaml.FocusState __value__retval;
 			int unsafe___return__;
 			// Marshalling
 			// Call to native method
@@ -42710,6 +42922,32 @@ namespace McgInterop
 			// Setup
 			global::Windows.UI.Xaml.Controls.Primitives.ComponentResourceLocation unsafe___value__retval;
 			global::Windows.UI.Xaml.Controls.Primitives.ComponentResourceLocation __value__retval;
+			int unsafe___return__;
+			// Marshalling
+			// Call to native method
+			unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+								__this, 
+								__typeHnd, 
+								__targetIndex, 
+								&(unsafe___value__retval)
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			__value__retval = unsafe___value__retval;
+			// Return
+			return __value__retval;
+		}
+
+		// Signature, System.Nullable<Windows.UI.Notifications.ToastTemplateType>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.EnumMarshaller] Windows_UI_Notifications_ToastTemplateType__Windows_UI_Notifications__ToastTemplateType, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Notifications.ToastTemplateType Func_UI_Notifications_ToastTemplateType__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Notifications.ToastTemplateType unsafe___value__retval;
+			global::Windows.UI.Notifications.ToastTemplateType __value__retval;
 			int unsafe___return__;
 			// Marshalling
 			// Call to native method
@@ -49405,6 +49643,34 @@ namespace McgInterop
 					global::System.__ComObject __this, 
 					global::System.RuntimeTypeHandle __typeHnd, 
 					int __targetIndex, 
+					sbyte arg0)
+		{
+			void* __pThis = ((void*)global::System.Runtime.InteropServices.McgModuleManager.GetInterface(
+								__this, 
+								__typeHnd
+							));
+			global::System.IntPtr __pTarget = (*(((global::System.IntPtr**)__pThis)))[__targetIndex];
+			int __result = global::McgInterop.Intrinsics.StdCall__int__(
+								__pTarget, 
+								__pThis, 
+								arg0
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			global::System.GC.KeepAlive(__this);
+			if (__result < 0)
+				global::McgInterop.McgHelpers.ThrowFailed(
+									__result, 
+									__typeHnd
+								);
+			return __result;
+		}
+
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static int ComCall__HRESULT(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex, 
 					global::Windows.Foundation.Point arg0, 
 					global::Windows.Foundation.Rect arg1, 
 					void* arg2)
@@ -49588,34 +49854,6 @@ namespace McgInterop
 					global::System.RuntimeTypeHandle __typeHnd, 
 					int __targetIndex, 
 					global::Windows.UI.Text.FontWeight arg0)
-		{
-			void* __pThis = ((void*)global::System.Runtime.InteropServices.McgModuleManager.GetInterface(
-								__this, 
-								__typeHnd
-							));
-			global::System.IntPtr __pTarget = (*(((global::System.IntPtr**)__pThis)))[__targetIndex];
-			int __result = global::McgInterop.Intrinsics.StdCall__int__(
-								__pTarget, 
-								__pThis, 
-								arg0
-							);
-			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			global::System.GC.KeepAlive(__this);
-			if (__result < 0)
-				global::McgInterop.McgHelpers.ThrowFailed(
-									__result, 
-									__typeHnd
-								);
-			return __result;
-		}
-
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static int ComCall__HRESULT(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex, 
-					sbyte arg0)
 		{
 			void* __pThis = ((void*)global::System.Runtime.InteropServices.McgModuleManager.GetInterface(
 								__this, 
@@ -49933,9 +50171,7 @@ namespace McgInterop
 					global::System.__ComObject __this, 
 					global::System.RuntimeTypeHandle __typeHnd, 
 					int __targetIndex, 
-					void* arg0, 
-					uint arg1, 
-					void* arg2)
+					global::System.Runtime.InteropServices.HSTRING arg0)
 		{
 			void* __pThis = ((void*)global::System.Runtime.InteropServices.McgModuleManager.GetInterface(
 								__this, 
@@ -49945,9 +50181,7 @@ namespace McgInterop
 			int __result = global::McgInterop.Intrinsics.StdCall__int__(
 								__pTarget, 
 								__pThis, 
-								arg0, 
-								arg1, 
-								arg2
+								arg0
 							);
 			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
 			global::System.GC.KeepAlive(__this);
@@ -49965,7 +50199,9 @@ namespace McgInterop
 					global::System.__ComObject __this, 
 					global::System.RuntimeTypeHandle __typeHnd, 
 					int __targetIndex, 
-					global::System.Runtime.InteropServices.HSTRING arg0)
+					void* arg0, 
+					uint arg1, 
+					void* arg2)
 		{
 			void* __pThis = ((void*)global::System.Runtime.InteropServices.McgModuleManager.GetInterface(
 								__this, 
@@ -49975,7 +50211,9 @@ namespace McgInterop
 			int __result = global::McgInterop.Intrinsics.StdCall__int__(
 								__pTarget, 
 								__pThis, 
-								arg0
+								arg0, 
+								arg1, 
+								arg2
 							);
 			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
 			global::System.GC.KeepAlive(__this);

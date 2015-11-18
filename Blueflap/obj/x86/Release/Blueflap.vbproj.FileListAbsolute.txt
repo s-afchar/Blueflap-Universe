@@ -492,8 +492,23 @@ C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Re
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\baptiste.png
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\bat.png
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\Core\Assets\baptiste.png
-C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\Core\Assets\bat.png
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\baptiste 2.png
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\noprofilepicture.png
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\Core\Assets\baptiste 2.png
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\Core\Assets\noprofilepicture.png
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\Cailloux.jpg
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\Ciel.JPG
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\Degrade2.png
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\Fleurs.jpg
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\Montagne.jpg
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\Neige.jpg
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\Plage.jpg
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Assets\Soleil.JPG
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\Core\Assets\Degrade2.png
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\Core\Assets\Cailloux.jpg
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\Core\Assets\Ciel.JPG
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\Core\Assets\Fleurs.jpg
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\Core\Assets\Montagne.jpg
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\Core\Assets\Neige.jpg
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\Core\Assets\Plage.jpg
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\Core\Assets\Soleil.JPG

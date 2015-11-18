@@ -11,8 +11,9 @@ Public NotInheritable Class MainPage
         AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf MainPage_BackRequested
     End Sub
     Private Sub MainPage_BackRequested(sender As Object, e As Windows.UI.Core.BackRequestedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         'Appui sur la touche retour "physique" d'un appareil Windows
-        If Not Frame.CanGoBack Then
+        If Frame.CanGoBack = False Then
             If web.CanGoBack Then
                 e.Handled = True
                 web.GoBack()
@@ -67,7 +68,7 @@ Public NotInheritable Class MainPage
         FirstLaunch()
 
         Try
-            If localSettings.Values("Bluestart") = True And Frame.CanGoBack = False Then
+            If localSettings.Values("Bluestart") = True And Frame.CanGoBack = False And AdressBox.Text = "about:blank" Then
                 Me.Frame.Navigate(GetType(Bluestart))
 
             ElseIf AdressBox.Text = "about:blank" Then

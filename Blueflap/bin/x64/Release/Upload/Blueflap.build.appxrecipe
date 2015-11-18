@@ -342,8 +342,23 @@
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\baptiste 2.png">
+      <PackagePath>Assets\baptiste 2.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\baptiste.png">
+      <PackagePath>Assets\baptiste.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\bat.png">
+      <PackagePath>Assets\bat.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\circle.png">
       <PackagePath>Assets\circle.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\Degrade.png">
+      <PackagePath>Assets\Degrade.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\noprofilepicture.png">
+      <PackagePath>Assets\noprofilepicture.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\surfacebook.png">
       <PackagePath>Assets\surfacebook.png</PackagePath>

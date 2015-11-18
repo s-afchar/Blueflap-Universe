@@ -140,10 +140,17 @@
   <ItemGroup>
     <Content Include="Assets\baptiste 2.png" />
     <Content Include="Assets\baptiste.png" />
-    <Content Include="Assets\bat.png" />
+    <Content Include="Assets\Cailloux.jpg" />
+    <Content Include="Assets\Ciel.JPG" />
     <Content Include="Assets\circle.png" />
     <Content Include="Assets\Degrade.png" />
+    <Content Include="Assets\Degrade2.png" />
+    <Content Include="Assets\Fleurs.jpg" />
+    <Content Include="Assets\Montagne.jpg" />
+    <Content Include="Assets\Neige.jpg" />
     <Content Include="Assets\noprofilepicture.png" />
+    <Content Include="Assets\Plage.jpg" />
+    <Content Include="Assets\Soleil.JPG" />
     <Content Include="Assets\surfacebook.png" />
     <Content Include="Assets\white_back.png" />
     <Content Include="Assets\white_full.png" />

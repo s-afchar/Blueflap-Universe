@@ -1,0 +1,268 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="Blueflap.Bluestart"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Blueflap"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"                      NavigationCacheMode="Enabled">
+    <Page.Resources>
+        <Storyboard x:ConnectionId='2' x:Name="LoadAnim">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Image.NineGrid)" Storyboard.TargetName="Wallpaper">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Thickness>0</Thickness>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Thickness>0</Thickness>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Wallpaper">
+                <EasingDoubleKeyFrame KeyTime="0" Value="32"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Wallpaper">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.8">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.8">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Fight_Button">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-67"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Lock_Button">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-69"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Memo_Button">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-63"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:ConnectionId='3' x:Name="Textboxclick">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid">
+                <EasingColorKeyFrame KeyTime="0" Value="#B2FFFFFF"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="White">
+                    <EasingColorKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingColorKeyFrame.EasingFunction>
+                </EasingColorKeyFrame>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="grid">
+                <EasingColorKeyFrame KeyTime="0" Value="#7F000000"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF3498DB">
+                    <EasingColorKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingColorKeyFrame.EasingFunction>
+                </EasingColorKeyFrame>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:ConnectionId='4' x:Name="Textboxleave">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid">
+                <EasingColorKeyFrame KeyTime="0" Value="White">
+                    <EasingColorKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingColorKeyFrame.EasingFunction>
+                </EasingColorKeyFrame>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#B2FFFFFF"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="grid">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF3498DB">
+                    <EasingColorKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingColorKeyFrame.EasingFunction>
+                </EasingColorKeyFrame>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#7F000000"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:ConnectionId='5' x:Name="LoopSuggestions" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:10.1" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:10.3" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:10.5" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:11.6" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:11.8" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:12" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:12.9" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:13.1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:13.3" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:14.2" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:14.4" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:14.6" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:15.5" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:15.7" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:15.9" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:16.7" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:16.9" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:17.1" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:18.1" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:18.3" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:18.5" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:19.4" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:19.6" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:19.8" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:20.8" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:21.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)" Storyboard.TargetName="textBlock">
+                <DiscreteObjectKeyFrame KeyTime="0:0:10.1" Value="Entrez votre recherche ici"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:10.3" Value="Ex: Recette des cookies"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:10.5" Value="Ex: Recette des cookies"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:11.6" Value="Ex: Recette des cookies"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:11.8" Value="Ex: Word Online"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:12" Value="Ex: Word Online"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:12.9" Value="Ex: Word Online"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:13.1" Value="Ex: YouTube"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:13.3" Value="Ex: YouTube"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:14.2" Value="Ex: YouTube"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:14.4" Value="Ex: Jeux Olympiques"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:14.6" Value="Ex: Jeux Olympiques"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:15.5" Value="Ex: Jeux Olympiques"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:15.7" Value="Ex: Albi Wikipedia"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:15.9" Value="Ex: Albi Wikipedia"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:16.7" Value="Ex: Albi Wikipedia"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:16.9" Value="Ex: Parov Stelar Deezer"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:17.1" Value="Ex: Parov Stelar Deezer"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:18.1" Value="Ex: Parov Stelar Deezer"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:18.3" Value="Ex: Qwant"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:18.5" Value="Ex: Qwant"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:19.4" Value="Ex: Qwant"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:19.6" Value="Ex: Blueflap"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:19.8" Value="Ex: Blueflap"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:20.8" Value="Ex: Blueflap"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+
+    <Grid Background="#FF595959">
+
+        <Image x:ConnectionId='6' x:Name="Wallpaper" Margin="0" Source="Assets/Degrade.png" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <CompositeTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:ConnectionId='7' x:Name="image" HorizontalAlignment="Center" Height="150" Margin="0,80,0,0" VerticalAlignment="Top" Width="150" Source="Assets/Square150x150Logo.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <CompositeTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Rectangle HorizontalAlignment="Right" Height="32" Margin="0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="503">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="90"/>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF1B1B1B" Offset="0.397"/>
+                    <GradientStop Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Fill="#661B1B1B" Height="32" Stroke="Black" VerticalAlignment="Top" StrokeThickness="0"/>
+        <Image HorizontalAlignment="Left" Height="26" Margin="8,3,0,0" VerticalAlignment="Top" Width="30" Source="Assets/Square150x150Logo.png"/>
+        <TextBlock x:ConnectionId='8' x:Name="Titlebar" HorizontalAlignment="Left" Margin="38,6,0,0" TextWrapping="Wrap" Text="Date" VerticalAlignment="Top" Foreground="White" FontSize="13.333" FontWeight="SemiLight"/>
+        <Grid x:ConnectionId='9' x:Name="grid" HorizontalAlignment="Center" Height="82" Margin="0,266,0,0" VerticalAlignment="Top" Width="450" Background="#B2FFFFFF" BorderBrush="#7F000000" BorderThickness="6" CornerRadius="38" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
+            <TextBlock x:ConnectionId='14' x:Name="textBlock" HorizontalAlignment="Left" Margin="34,14,0,-11" TextWrapping="Wrap" Text="Entrez votre recherche ici" VerticalAlignment="Top" FontSize="29.333" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" Opacity="0.3"/>
+
+            <TextBox x:ConnectionId='15' x:Name="RechercheBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Height="49" Width="361" BorderThickness="0" FontSize="29.333" TextAlignment="Left" Margin="18,0,0,0" Background="#00000000"                                                           PreventKeyboardDisplayOnProgrammaticFocus="True" TextReadingOrder="UseFlowDirection"/>
+            <TextBlock HorizontalAlignment="Left" Margin="393,26,0,0" TextWrapping="Wrap" Text="&#xE11A;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="21.333"/>
+            <Ellipse x:ConnectionId='16' x:Name="HoverRecherche" Fill="#00000000" HorizontalAlignment="Right" Height="55" Margin="0,0,6,0" VerticalAlignment="Center" Width="55"/>
+        </Grid>
+        <Button x:ConnectionId='10' Content="&#xE0D5; &#xE12B;" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" RequestedTheme="Dark" Height="32" FontFamily="Segoe MDL2 Assets"                       />
+        <Button x:ConnectionId='11' x:Name="Fight_Button" Content="&#xE923;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="0,66,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets" Width="47">
+            <Button.RenderTransform>
+                <CompositeTransform/>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:ConnectionId='12' x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="0,110,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Width="47">
+            <Button.RenderTransform>
+                <CompositeTransform/>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:ConnectionId='13' x:Name="Memo_Button" Content="&#xE70B;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="0,154,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Width="47">
+            <Button.RenderTransform>
+                <CompositeTransform/>
+            </Button.RenderTransform>
+        </Button>
+
+    </Grid>
+</Page>
+

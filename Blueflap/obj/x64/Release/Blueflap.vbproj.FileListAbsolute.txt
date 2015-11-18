@@ -363,3 +363,23 @@ C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Re
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\WindowsPhone.png
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\ilc\in\Assets\surfacebook.png
 C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\ilc\in\Assets\WindowsPhone.png
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\Bluestart.xbf
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\Verrouillage.xbf
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\baptiste 2.png
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\baptiste.png
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\bat.png
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\Degrade.png
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\noprofilepicture.png
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\Bluestart.g.i.vb
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\Bluestart.g.vb
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\Verrouillage.g.i.vb
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\Verrouillage.g.vb
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\Bluestart.xaml
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\Verrouillage.xaml
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\Bluestart.xbf
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\Verrouillage.xbf
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\ilc\in\Assets\baptiste 2.png
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\ilc\in\Assets\baptiste.png
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\ilc\in\Assets\bat.png
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\ilc\in\Assets\Degrade.png
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\ilc\in\Assets\noprofilepicture.png
