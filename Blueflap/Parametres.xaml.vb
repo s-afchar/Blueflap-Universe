@@ -5,6 +5,7 @@ Imports Windows.UI.Notifications
 ''' </summary>
 Public NotInheritable Class Parametres
     Inherits Page
+#Region "Frame.GoBack"
     Public Sub New()
         Me.InitializeComponent()
         AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf Parametres_BackRequested
@@ -13,10 +14,20 @@ Public NotInheritable Class Parametres
         'On retourne à la page principale quand le bouton retour "physique" est pressé
         If Frame.CanGoBack Then
             e.Handled = True
+            SaveSettings()
+            RemoveHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf Parametres_BackRequested
+            Frame.GoBack()
+        End If
+    End Sub
+    Private Sub GoBackViaButton(sender As Object, e As TappedRoutedEventArgs)
+        'Retour à la page principal quand on appui sur le bouton back en haut à gauche
+        If Frame.CanGoBack Then
             Frame.GoBack()
             SaveSettings()
         End If
     End Sub
+#End Region
+#Region "Page Loaded"
     Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
@@ -71,6 +82,7 @@ Public NotInheritable Class Parametres
             Else
                 Color_Switch.IsOn = False
                 PersonnalizeColorGrid.Visibility = Visibility.Collapsed
+                grid.Background = DefaultThemeColor.Background
             End If
         Catch
         End Try
@@ -125,10 +137,30 @@ Public NotInheritable Class Parametres
         Catch ex As Exception
         End Try
 
+        Try
+            If localSettings.Values("SmartSuggest") = True Then
+                Suggest_Switch.IsOn = True
+            Else
+                Suggest_Switch.IsOn = False
+            End If
+        Catch ex As Exception
+        End Try
+
+        Try
+            If localSettings.Values("SearchFight_Menu") = False Then
+                SearchFight_Menu_Switch.IsOn = False
+            Else
+                SearchFight_Menu_Switch.IsOn = True
+            End If
+        Catch ex As Exception
+        End Try
+
         ParamOpen.Stop()
         ParamOpen.Begin()
 
     End Sub
+#End Region
+#Region "Theme"
     Private Sub Theme_switch_Toggled(sender As Object, e As RoutedEventArgs) Handles Theme_switch.Toggled
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
@@ -152,15 +184,157 @@ Public NotInheritable Class Parametres
             v.TitleBar.ButtonInactiveBackgroundColor = Windows.UI.Colors.White
         End If
     End Sub
+    Private Sub Color_Switch_Toggled(sender As Object, e As RoutedEventArgs) Handles Color_Switch.Toggled
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
-    Private Sub Button_Tapped(sender As Object, e As TappedRoutedEventArgs)
-        'Retour à la page principal quand on appui sur le bouton back en haut à gauche
-        If Frame.CanGoBack Then
-            Frame.GoBack()
-            SaveSettings()
+        'Règle le thème en fonction du toogleswitch
+        If Color_Switch.IsOn Then
+            PersonnalizeColorGrid.Visibility = Visibility.Visible
+            localSettings.Values("CustomColorEnabled") = True
+            grid.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
+        Else
+            PersonnalizeColorGrid.Visibility = Visibility.Collapsed
+            localSettings.Values("CustomColorEnabled") = False
+            grid.Background = DefaultThemeColor.Background
+        End If
+
+    End Sub
+
+    Private Sub SetcolorPicker()
+        'On applique le thème personnalisé en temps réel
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        Color1_But.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
+        grid.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
+    End Sub
+
+    Private Sub RedSlider_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles RedSlider.ValueChanged
+        'On applique le thème personnalisé en temps réel
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        If Not localSettings.Values("OppeningSettings") = True Then
+            localSettings.Values("CustomColorA") = RedSlider.Value
+            SetcolorPicker()
         End If
     End Sub
 
+    Private Sub GreenSlider_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles GreenSlider.ValueChanged
+        'On applique le thème personnalisé en temps réel
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        If Not localSettings.Values("OppeningSettings") = True Then
+            localSettings.Values("CustomColorB") = GreenSlider.Value
+            SetcolorPicker()
+        End If
+    End Sub
+
+    Private Sub BlueSlider_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles BlueSlider.ValueChanged
+        'On applique le thème personnalisé en temps réel
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        If Not localSettings.Values("OppeningSettings") = True Then
+            localSettings.Values("CustomColorC") = BlueSlider.Value
+            SetcolorPicker()
+        End If
+    End Sub
+
+    Private Sub AlphaSlider_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles AlphaSlider.ValueChanged
+        'On applique le thème personnalisé en temps réel
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        If Not localSettings.Values("OppeningSettings") = True Then
+            localSettings.Values("CustomColorD") = AlphaSlider.Value
+            SetcolorPicker()
+        End If
+    End Sub
+    Private Sub Color1_But_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Color1_But.Tapped
+        'Thème/Couleur personnalisée : Affiche/Masque les options de personnalisation avancée de la couleur de thème
+        If scrollViewer1.Visibility = Visibility.Visible Then
+            HideCustomColor.Begin()
+        Else
+            ShowCustomColor.Begin()
+            Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+            RedSlider.Value = localSettings.Values("CustomColorA")
+            GreenSlider.Value = localSettings.Values("CustomColorB")
+            BlueSlider.Value = localSettings.Values("CustomColorC")
+        End If
+    End Sub
+
+    Private Sub Color_Bleu_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Color_Bleu.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("CustomColorA") = 52
+        localSettings.Values("CustomColorB") = 152
+        localSettings.Values("CustomColorC") = 219
+        SetcolorPicker()
+    End Sub
+    Private Sub Color_Rose_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Color_Rose.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("CustomColorA") = 255
+        localSettings.Values("CustomColorB") = 58
+        localSettings.Values("CustomColorC") = 156
+        SetcolorPicker()
+    End Sub
+    Private Sub Color_Jaune_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Color_Jaune.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("CustomColorA") = 255
+        localSettings.Values("CustomColorB") = 185
+        localSettings.Values("CustomColorC") = 0
+        SetcolorPicker()
+    End Sub
+    Private Sub Color_Violet_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Color_Violet.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("CustomColorA") = 107
+        localSettings.Values("CustomColorB") = 86
+        localSettings.Values("CustomColorC") = 140
+        SetcolorPicker()
+    End Sub
+    Private Sub Color_Vert_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Color_Vert.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("CustomColorA") = 54
+        localSettings.Values("CustomColorB") = 160
+        localSettings.Values("CustomColorC") = 50
+        SetcolorPicker()
+    End Sub
+    Private Sub Color_Saumon_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Color_Saumon.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("CustomColorA") = 255
+        localSettings.Values("CustomColorB") = 131
+        localSettings.Values("CustomColorC") = 131
+        SetcolorPicker()
+    End Sub
+    Private Sub Color_Rose1_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Color_Rose1.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("CustomColorA") = 255
+        localSettings.Values("CustomColorB") = 0
+        localSettings.Values("CustomColorC") = 131
+        SetcolorPicker()
+    End Sub
+    Private Sub Color_Rouge_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Color_Rouge.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("CustomColorA") = 234
+        localSettings.Values("CustomColorB") = 17
+        localSettings.Values("CustomColorC") = 29
+        SetcolorPicker()
+    End Sub
+    Private Sub Color_Orange_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Color_Orange.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("CustomColorA") = 255
+        localSettings.Values("CustomColorB") = 99
+        localSettings.Values("CustomColorC") = 0
+        SetcolorPicker()
+    End Sub
+    Private Sub Color_Gris_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Color_Gris.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("CustomColorA") = 82
+        localSettings.Values("CustomColorB") = 82
+        localSettings.Values("CustomColorC") = 84
+        SetcolorPicker()
+    End Sub
+
+    Private Sub Color1_But_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles Color1_But.PointerEntered
+        Color1_But.BorderThickness = New Thickness(2, 2, 2, 2)
+    End Sub
+
+    Private Sub Color1_But_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles Color1_But.PointerExited
+        Color1_But.BorderThickness = New Thickness(0, 0, 0, 0)
+    End Sub
+#End Region
+#Region "Search Engine"
     Private Sub ChangeSearchEngine()
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         'Définit les valeurs du moteur de recherche tel que le navigateur navigue vers (A1 + Mots-clés + A2) = URI
@@ -222,6 +396,11 @@ Public NotInheritable Class Parametres
         End If
 
     End Sub
+    Private Sub Settings_SearchEngine_DropDownClosed(sender As Object, e As Object) Handles Settings_SearchEngine.DropDownClosed
+        ChangeSearchEngine()
+    End Sub
+#End Region
+#Region "Save settings"
     Private Sub SaveSettings() 'Sauvegarde les paramètres
 
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
@@ -238,82 +417,46 @@ Public NotInheritable Class Parametres
         End If
         localSettings.Values("AdblockFonction") = Adblock_Switch.Tag.ToString
 
+
+        If Suggest_Switch.IsOn Then
+            localSettings.Values("SmartSuggest") = True
+        Else
+            localSettings.Values("SmartSuggest") = False
+        End If
+
+        If SearchFight_Menu_Switch.IsOn Then
+            localSettings.Values("SearchFight_Menu") = True
+        Else
+            localSettings.Values("SearchFight_Menu") = False
+        End If
+
         If Bluestart_Checkbox.IsChecked = True Then
             localSettings.Values("Bluestart") = True
-        ElseIf Bluestart_Checkbox.IsChecked = False
+        ElseIf Bluestart_Checkbox.IsChecked = False Then
             localSettings.Values("Bluestart") = False
         End If
     End Sub
-
+#End Region
+#Region "Homepage"
     Private Sub Startpage_Settings_TextChanged(sender As Object, e As TextChangedEventArgs) Handles Startpage_Settings.TextChanged
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
         localSettings.Values("Homepage") = Startpage_Settings.Text 'On enregistre la page d'accueil définie par l'utilisateur
     End Sub
 
-    Private Sub Settings_SearchEngine_DropDownClosed(sender As Object, e As Object) Handles Settings_SearchEngine.DropDownClosed
-        ChangeSearchEngine()
-    End Sub
-
-    Private Sub Color_Switch_Toggled(sender As Object, e As RoutedEventArgs) Handles Color_Switch.Toggled
+    Private Sub Bluestart_Checkbox_Unchecked(sender As Object, e As RoutedEventArgs) Handles Bluestart_Checkbox.Unchecked
+        'Désactivation de Bluestart
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-
-        'Règle le thème en fonction du toogleswitch
-        If Color_Switch.IsOn Then
-            PersonnalizeColorGrid.Visibility = Visibility.Visible
-            localSettings.Values("CustomColorEnabled") = True
-            grid.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
-        Else
-            PersonnalizeColorGrid.Visibility = Visibility.Collapsed
-            localSettings.Values("CustomColorEnabled") = False
-            grid.Background = DefaultThemeColor.Background
-        End If
-
+        localSettings.Values("Bluestart") = False
     End Sub
 
-    Private Sub SetcolorPicker()
-        'On applique le thème personnalisé en temps réel
+    Private Sub Bluestart_Checkbox_Checked(sender As Object, e As RoutedEventArgs) Handles Bluestart_Checkbox.Checked
+        'Activation de Bluestart
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        Color1_But.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
-        grid.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
+        localSettings.Values("Bluestart") = True
     End Sub
-
-    Private Sub RedSlider_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles RedSlider.ValueChanged
-        'On applique le thème personnalisé en temps réel
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        If Not localSettings.Values("OppeningSettings") = True Then
-            localSettings.Values("CustomColorA") = RedSlider.Value
-            SetcolorPicker()
-        End If
-    End Sub
-
-    Private Sub GreenSlider_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles GreenSlider.ValueChanged
-        'On applique le thème personnalisé en temps réel
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        If Not localSettings.Values("OppeningSettings") = True Then
-            localSettings.Values("CustomColorB") = GreenSlider.Value
-            SetcolorPicker()
-        End If
-    End Sub
-
-    Private Sub BlueSlider_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles BlueSlider.ValueChanged
-        'On applique le thème personnalisé en temps réel
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        If Not localSettings.Values("OppeningSettings") = True Then
-            localSettings.Values("CustomColorC") = BlueSlider.Value
-            SetcolorPicker()
-        End If
-    End Sub
-
-    Private Sub AlphaSlider_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles AlphaSlider.ValueChanged
-        'On applique le thème personnalisé en temps réel
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        If Not localSettings.Values("OppeningSettings") = True Then
-            localSettings.Values("CustomColorD") = AlphaSlider.Value
-            SetcolorPicker()
-        End If
-    End Sub
-
+#End Region
+#Region "AdBlock"
     Private Sub Adblock_Switch_Toggled(sender As Object, e As RoutedEventArgs) Handles Adblock_Switch.Toggled
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
@@ -326,8 +469,10 @@ Public NotInheritable Class Parametres
         End If
         localSettings.Values("AdblockFonction") = Adblock_Switch.Tag.ToString
     End Sub
-
+#End Region
+#Region "Open Source"
     Private Sub ShowHideLicense_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles ShowHideLicense.Tapped
+        'Affichage de la license OpenSource avec effet d'animation
         If textBox.Visibility = Visibility.Visible Then
             ShowHideLicense.Content = ""
             ShowOpenSourceLicence.Stop()
@@ -339,30 +484,26 @@ Public NotInheritable Class Parametres
         End If
         textBox.Margin = New Thickness(10, 483, 0, 0)
     End Sub
-
-    Private Sub Bluestart_Checkbox_Unchecked(sender As Object, e As RoutedEventArgs) Handles Bluestart_Checkbox.Unchecked
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        localSettings.Values("Bluestart") = False
-    End Sub
-
-    Private Sub Bluestart_Checkbox_Checked(sender As Object, e As RoutedEventArgs) Handles Bluestart_Checkbox.Checked
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        localSettings.Values("Bluestart") = True
-    End Sub
-
     Private Sub Button_Tapped_1(sender As Object, e As TappedRoutedEventArgs)
+        'Ouverture du repertoire GitHub dans la fenêtre principale
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
         localSettings.Values("LoadPageFromBluestart") = True
         localSettings.Values("LoadPageFromBluestart_Adress") = "https://github.com/SimpleSoftwares/Blueflap-Universe"
+        RemoveHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf Parametres_BackRequested
+        SaveSettings()
         Me.Frame.Navigate(GetType(MainPage))
     End Sub
+#End Region
+#Region "External Links"
 
     Private Sub Button_Tapped_2(sender As Object, e As TappedRoutedEventArgs)
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
         localSettings.Values("LoadPageFromBluestart") = True
         localSettings.Values("LoadPageFromBluestart_Adress") = "https://www.microsoft.com/fr-fr/store/apps/bluestart/9nblggh6241x"
+        RemoveHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf Parametres_BackRequested
+        SaveSettings()
         Me.Frame.Navigate(GetType(MainPage))
     End Sub
 
@@ -371,10 +512,87 @@ Public NotInheritable Class Parametres
 
         localSettings.Values("LoadPageFromBluestart") = True
         localSettings.Values("LoadPageFromBluestart_Adress") = "http://personali.zz.mu/"
+        RemoveHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf Parametres_BackRequested
+        SaveSettings()
         Me.Frame.Navigate(GetType(MainPage))
     End Sub
 
     Private Async Sub Button_Tapped_4(sender As Object, e As TappedRoutedEventArgs)
+        'Ouverture de la page du store associée à Blueflap
         Await Windows.System.Launcher.LaunchUriAsync(New Uri(("ms-windows-store:PDP?PFN=" + Package.Current.Id.FamilyName)))
     End Sub
+
+#End Region
+#Region "Password and security"
+    Private Sub Password_SaveSettings(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        ShowVerrouillagePopup.Stop()
+        CloseVerrouillagePopup.Begin()
+
+        If Not NewPasswordBox.Password = "" Then
+            localSettings.Values("Password") = NewPasswordBox.Password
+        End If
+        NewPasswordBox.IsEnabled = True
+        TextBlockNewPassword.Text = "Modifier le mot de passe"
+        localSettings.Values("VerrouillageEnabled") = VerrouillageSwitch.IsOn
+        localSettings.Values("ShowLockScreen") = False
+    End Sub
+    Private Sub Password_CancelConfiguration(sender As Object, e As TappedRoutedEventArgs)
+        ShowVerrouillagePopup.Stop()
+        CloseVerrouillagePopup.Begin()
+        NewPasswordBox.Password = ""
+        NewPasswordBox.IsEnabled = True
+        TextBlockNewPassword.Text = "Modifier le mot de passe"
+    End Sub
+    Private Sub ShowPasswordConfigurationPopup(sender As Object, e As TappedRoutedEventArgs) Handles Buton_LockSetings.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        Try
+            If Not localSettings.Values("Password") = "" Then
+                Passwordbox.Visibility = Visibility.Visible
+                Buton_LockSetings.IsEnabled = False
+            Else
+                CloseVerrouillagePopup.Stop()
+                ShowVerrouillagePopup.Begin()
+                TextBlockNewPassword.Text = "Définir un mot de passe"
+            End If
+        Catch
+            CloseVerrouillagePopup.Stop()
+            ShowVerrouillagePopup.Begin()
+        End Try
+        Try
+            If localSettings.Values("VerrouillageEnabled") = True Then 'Definit la bonne position du toggleswitch
+                VerrouillageSwitch.IsOn = True
+            Else
+                VerrouillageSwitch.IsOn = False
+            End If
+        Catch
+        End Try
+    End Sub
+
+    Private Sub Passwordbox_KeyDown(sender As Object, e As KeyRoutedEventArgs) Handles Passwordbox.KeyDown
+        If (e.Key = Windows.System.VirtualKey.Enter) Then  'Permet de réagir à l'appui sur la touche entrée
+            Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+            Try
+                If Passwordbox.Password = localSettings.Values("Password") Then
+                    CloseVerrouillagePopup.Stop()
+                    ShowVerrouillagePopup.Begin()
+                    Passwordbox.Visibility = Visibility.Collapsed
+                    Buton_LockSetings.IsEnabled = True
+                    Passwordbox.Password = ""
+                    NewPasswordBox.Password = ""
+                Else
+                    WrongPassword.Stop()
+                    WrongPassword.Begin()
+                End If
+            Catch
+            End Try
+        End If
+    End Sub
+
+    Private Sub ResetPassword(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        NewPasswordBox.IsEnabled = False
+        localSettings.Values("Password") = ""
+    End Sub
+#End Region
 End Class

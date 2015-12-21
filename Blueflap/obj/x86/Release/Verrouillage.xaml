@@ -6,13 +6,103 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"                     >
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Image x:ConnectionId='2' x:Name="Wallpaper" Margin="0" Source="Assets/Degrade.png" Stretch="UniformToFill"/>
-        <Image HorizontalAlignment="Center" Height="220" Margin="0,80,0,0" VerticalAlignment="Top" Width="217" Source="Assets/Square150x150Logo.png"/>
-        <Rectangle Fill="#4C000000" Height="33" Stroke="Black" VerticalAlignment="Top" StrokeThickness="0"/>
-        <Image HorizontalAlignment="Left" Height="33" Margin="5,0,0,0" VerticalAlignment="Top" Width="35" Source="Assets/Square150x150Logo.png"/>
-        <TextBlock x:ConnectionId='3' x:Name="Titlebar" HorizontalAlignment="Left" Margin="43,6,0,0" TextWrapping="Wrap" Text="Date" VerticalAlignment="Top" Foreground="White"/>
+    <Page.Resources>
+        <Storyboard x:ConnectionId='2' x:Name="DownloadingWallpaper" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="textBlock1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-18"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="textBlock2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1.148"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="textBlock2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.062"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:ConnectionId='3' x:Name="Wrongpassword">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="PaswwordBox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="20"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ElasticEase EasingMode="EaseOut" Springiness="3"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
+                <EasingColorKeyFrame KeyTime="0" Value="#9AA21818"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#99000000"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+    <Grid Background="#FF3E3E3E">
+        <Grid x:ConnectionId='4' x:Name="Loader" HorizontalAlignment="Left" Height="47" Margin="21,55,0,0" VerticalAlignment="Top" Width="314" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <CompositeTransform ScaleY="0.9" ScaleX="0.9"/>
+            </Grid.RenderTransform>
+            <TextBlock x:ConnectionId='9' x:Name="textBlock2" HorizontalAlignment="Left" Margin="13,21,12,4" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" FontSize="21.333" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform/>
+                </TextBlock.RenderTransform>
+        		<Span FontFamily="Segoe MDL2 Assets">
+        			<Run Text="&#xE753;"/>
+        		</Span>
+            </TextBlock>
+            <TextBlock x:ConnectionId='10' x:Name="textBlock1" HorizontalAlignment="Left" Margin="16" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" FontSize="14.667" Text="&#xE110;" FontFamily="Segoe MDL2 Assets" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform Rotation="180"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="44,22,0,0" TextWrapping="Wrap" Text="Téléchargement de l'image de fond" VerticalAlignment="Top" Foreground="White" FontSize="13.333"/>
+        </Grid>
+        <Image x:ConnectionId='5' x:Name="Wallpaper" Margin="0" Source="Assets/Degrade.png" Stretch="UniformToFill"/>
+        <Rectangle Fill="#661B1B1B" Height="32" Stroke="Black" VerticalAlignment="Top" StrokeThickness="0"/>
+        <Rectangle HorizontalAlignment="Right" Height="32" Margin="0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="503">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="90"/>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF1B1B1B" Offset="0.397"/>
+                    <GradientStop Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Image HorizontalAlignment="Left" Height="26" Margin="8,3,0,0" VerticalAlignment="Top" Width="30" Source="Assets/Square150x150Logo.png"/>
+        <TextBlock HorizontalAlignment="Left" Margin="36,8,0,0" TextWrapping="Wrap" Text="Blueflap" VerticalAlignment="Top" Foreground="White" FontSize="12"/>
+        <Grid HorizontalAlignment="Center" Height="400" Margin="0,0,0,40" VerticalAlignment="Center" Width="500" Padding="0" BorderThickness="0">
+            <Rectangle x:ConnectionId='6' x:Name="rectangle" Fill="#9A000000" HorizontalAlignment="Left" Margin="0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Height="400" Width="500" RadiusX="10" RadiusY="10"/>
+            <Rectangle Fill="#3E000000" HorizontalAlignment="Left" Height="91" Margin="0,177,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="500"/>
+            <Image Height="100" Margin="0,12,0,0" VerticalAlignment="Top" Source="Assets/Square150x150Logo.png"/>
+            <PasswordBox x:ConnectionId='7' x:Name="PaswwordBox" HorizontalAlignment="Center" Margin="0,202,0,0" VerticalAlignment="Top" Width="331" RequestedTheme="Dark" FontSize="20"  PlaceholderText="Entrer le mot de passe" Height="39" RenderTransformOrigin="0.5,0.5" BorderThickness="1">
+                <PasswordBox.RenderTransform>
+                    <CompositeTransform/>
+                </PasswordBox.RenderTransform>
+            </PasswordBox>
+            <TextBlock HorizontalAlignment="Center" Margin="0,110,0,0" TextWrapping="Wrap" Text="BLUEFLAP EST VERROUILLÉ" VerticalAlignment="Top" RequestedTheme="Dark" FontWeight="SemiBold" FontSize="18.667" Opacity="0.8"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,304,0,0" TextWrapping="Wrap" Text="VERROUILLÉ À" VerticalAlignment="Top" FontWeight="SemiBold">
+                <TextBlock.Foreground>
+                    <SolidColorBrush Color="#95FFFFFF"/>
+                </TextBlock.Foreground>
+            </TextBlock>
+            <TextBlock x:ConnectionId='8' x:Name="DateHours" HorizontalAlignment="Center" Margin="0,319,0,0" TextWrapping="Wrap" Text="HH:HH" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#CDFFFFFF" FontSize="32"/>
+        </Grid>
 
     </Grid>
 </Page>

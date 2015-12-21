@@ -4,13 +4,12 @@
 /eh:clr
 /pdb
 "/nativelink:C:\Program Files (x86)\MSBuild\Microsoft\.NetNative\ARM\ilc\lib\Native\vmath.lib"
+/customImports
 /methodBodyFolding
 "C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\ARM\Release\ilc\intermediate\MDIL\Blueflap.mdilexe"
 "/i:C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\ARM\Release\ilc\intermediate\MDIL\"
 /out:"C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\ARM\Release\ilc\intermediate\Native\Blueflap.exe"
 "/res:C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\ARM\Release\ilc\intermediate\Native.res"
-/standalone
+"/i:C:\Program Files (x86)\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.NET.Native.Framework.1.2\1.2\ARM\ret\MDIL"
 /shimexe
-"/nativelink:C:\Program Files (x86)\MSBuild\Microsoft\.NetNative\ARM\ilc\lib\Native\Interop.Native.lib"
-"/nativelink:C:\Program Files (x86)\MSBuild\Microsoft\.NetNative\ARM\ilc\lib\Native\corelib.native.lib"
-"/nativelink:C:\Program Files (x86)\MSBuild\Microsoft\.NetNative\ARM\ilc\lib\Native\TypeLoader.Native.lib"
+/classlib:SharedLibrary

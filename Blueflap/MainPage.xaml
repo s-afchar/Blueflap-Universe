@@ -446,6 +446,104 @@
                 <EasingColorKeyFrame KeyTime="0:0:2" Value="#4CFFFFFF"/>
             </ColorAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Name="ShowSuggestions">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="SmartSuggest">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="46">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="SmartSuggest">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="HideSuggestions">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="SmartSuggest">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="46">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="SmartSuggest">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="SmartSuggest">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="ExpandSuggestions">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="SmartSuggest">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="138">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="WebpageError">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="textBlock2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-34"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="textBlock1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-41"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut" Amplitude="0.6"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut" Amplitude="0.6"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Page.Resources>
 
 
@@ -454,7 +552,8 @@
             <CompositeTransform/>
         </Grid.RenderTransform>
         <Grid x:Name="Adressbar" Height="66" VerticalAlignment="Top" Background="WhiteSmoke" Margin="48,0,0,0">
-            <TextBox x:Name="AdressBox" Margin="2,32,2,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF5B5B5B" FontSize="16" Height="24" BorderThickness="0"/>
+            <Rectangle x:Name="SecurityTag" HorizontalAlignment="Left" Height="20" Margin="10,37,0,0" VerticalAlignment="Top" Width="39" RadiusY="0.833" RadiusX="0.833" StrokeThickness="0.7" Fill="#661BD61B" Visibility="Collapsed"/>
+            <TextBox x:Name="AdressBox" Margin="2,32,2,0" TextWrapping="NoWrap" Text="about:blank" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF5B5B5B" FontSize="16" Height="24" BorderThickness="0"/>
             <TextBlock x:Name="Titlebox" HorizontalAlignment="Left" Margin="70,10,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Opacity="0.795" FontSize="12" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
             <TextBlock x:Name="Window_Title" HorizontalAlignment="Left" Margin="12,10,0,0" TextWrapping="Wrap" Text="BLUEFLAP" VerticalAlignment="Top" Opacity="0.295" FontSize="12"/>
         </Grid>
@@ -519,15 +618,16 @@
                 </TextBlock.RenderTransform>
             </TextBlock>
             <Ellipse x:Name="Notifications_indicator" Fill="#26000000" HorizontalAlignment="Left" Height="27" Margin="11,0,0,49" VerticalAlignment="Bottom" Width="27" Stroke="White" StrokeThickness="0"/>
+            <CheckBox x:Name="LockTheBrowser" Content="LockTheBrowser" HorizontalAlignment="Left" Margin="29,31,-101,0" VerticalAlignment="Top" Visibility="Collapsed" IsChecked="True"/>
         </Grid>
         <Grid x:Name="Infos_grid" Margin="48,66,0,0" Background="#FF111111" Visibility="Collapsed">
             <Grid HorizontalAlignment="Left" Height="233" Margin="15,0,0,0" VerticalAlignment="Center" Width="50" RenderTransformOrigin="0.5,0.5">
                 <Button x:Name="Web_Share_Share" Content="&#xE72D;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
-                <Button x:Name="Web_Share_Save" Content="&#xEB51;" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
-                <Button Content="&#xE840;" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
+                <Button x:Name="Info_Like" Content="&#xEB51;" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
+                <Button x:Name="Info_Pin" Content="&#xE840;" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
                 <Button x:Name="Web_Share_Source" Content="&#xE8FF;" HorizontalAlignment="Left" Margin="0,182,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
             </Grid>
-            <TextBox x:Name="SourceCode" Margin="70,0,0,0" TextWrapping="Wrap" Text="..." RequestedTheme="Dark" BorderBrush="{x:Null}" Background="{x:Null}" AcceptsReturn="True" Visibility="Collapsed" BorderThickness="0,30,0,3" RenderTransformOrigin="0.5,0.5" ScrollViewer.VerticalScrollBarVisibility="Auto" InputScope="NativeScript">
+            <TextBox x:Name="SourceCode" Margin="70,30,0,0" TextWrapping="Wrap" Text="..." RequestedTheme="Dark" BorderBrush="{x:Null}" Background="{x:Null}" AcceptsReturn="True" Visibility="Collapsed" BorderThickness="0,0,7,0" RenderTransformOrigin="0.5,0.5" ScrollViewer.VerticalScrollBarVisibility="Auto" InputScope="NativeScript">
                 <TextBox.RenderTransform>
                     <CompositeTransform/>
                 </TextBox.RenderTransform>
@@ -541,6 +641,74 @@
                 <CompositeTransform/>
             </Grid.RenderTransform>
             <WebView x:Name="web" RenderTransformOrigin="0.5,0.5"/>
+            <Grid x:Name="NavigationFailed_Screen" Background="#FF171717">
+                <Image x:Name="image" Source="Assets/grumpy.png" RenderTransformOrigin="0.5,0.5" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Rectangle x:Name="rectangle" HorizontalAlignment="Left" Width="540" Opacity="0.8">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <LinearGradientBrush.RelativeTransform>
+                                <CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="-90"/>
+                            </LinearGradientBrush.RelativeTransform>
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Offset="1"/>
+                            <GradientStop Color="#B2000000" Offset="0.48"/>
+                            <GradientStop Color="#E5000000" Offset="0.159"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="39,130,0,0" TextWrapping="Wrap" Text="LA PAGE N'A PAS PU ÊTRE CHARGÉE" VerticalAlignment="Top" Foreground="White" FontWeight="SemiBold" FontSize="32" Height="90" Width="309" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <CompositeTransform/>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+                <Image HorizontalAlignment="Left" Height="133" Margin="10,11,0,0" VerticalAlignment="Top" Width="124" Source="Assets/Square150x150Logo.png"/>
+                <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="39,261,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="26.667" Height="123" Width="32" TextAlignment="Center" LineHeight="48" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <CompositeTransform/>
+                    </TextBlock.RenderTransform>
+                	<Run Text="&#xE88A;"/>
+                	<LineBreak/>
+                	<Span FontSize="19.3333333333333" FontFamily="Segoe MDL2 Assets">
+                		<Run Text="&#xE1C2;"/>
+                	</Span>
+                	<LineBreak/>
+                	<Span FontSize="19.3333333333333" FontFamily="Segoe MDL2 Assets">
+                		<Run Text="&#xE1CD;"/>
+                	</Span>
+                </TextBlock>
+                <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="81,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="123" Width="312" LineHeight="45.333" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <CompositeTransform/>
+                    </TextBlock.RenderTransform>
+                	<Run Text="Êtes-vous bien connecté à internet ?"/>
+                	<LineBreak/>
+                	<Run Text="L'URL saisie est-elle valide ?"/>
+                	<LineBreak/>
+                	<Run Text="Essayez de recharger la page"/>
+                </TextBlock>
+            </Grid>
+        </Grid>
+        <Grid x:Name="SmartSuggest" Height="138" Margin="48,66,0,0" VerticalAlignment="Top">
+            <Grid.Background>
+                <SolidColorBrush Color="#FFE8E8E8"/>
+            </Grid.Background>
+            <Grid x:Name="SmartSuggest_LastOne" Height="46" VerticalAlignment="Top" Background="#00000000">
+                <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE81C;" Opacity="0.6"/>
+                <TextBlock HorizontalAlignment="Left" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Dernière recherche" Opacity="0.4"/>
+                <TextBlock x:Name="DerniereRecherche" Margin="165,13,10,0" TextWrapping="NoWrap" VerticalAlignment="Top" Text="-" FontSize="14" FontWeight="SemiBold" Height="23"/>
+            </Grid>
+            <Grid x:Name="SmartSuggest_Search" Height="46" VerticalAlignment="Top" Background="#00000000" Margin="0,46,0,0">
+                <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE1A3;" Opacity="0.6"/>
+                <TextBlock x:Name="SmartSuggest_Search_Text" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="-" Opacity="0.9"/>
+            </Grid>
+            <Grid x:Name="SmartSuggest_URL" Height="46" VerticalAlignment="Top" Background="#00000000" Margin="0,92,0,0">
+                <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE774;" Opacity="0.6"/>
+                <TextBlock x:Name="SmartSuggest_URL_Text" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="http://" Opacity="0.9"/>
+            </Grid>
         </Grid>
         <Grid x:Name="MemoPanel" HorizontalAlignment="Right" Margin="0,66,0,0" Width="261" Background="#EAFDFDFD" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
             <Grid.RenderTransform>

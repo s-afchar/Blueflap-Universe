@@ -6,6 +6,7 @@ Imports Windows.UI.Xaml.Controls
 ''' </summary>
 Public NotInheritable Class MainPage
     Inherits Page
+#Region "HardwareBackButton"
     Public Sub New()
         Me.InitializeComponent()
         AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf MainPage_BackRequested
@@ -13,16 +14,21 @@ Public NotInheritable Class MainPage
     Private Sub MainPage_BackRequested(sender As Object, e As Windows.UI.Core.BackRequestedEventArgs)
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         'Appui sur la touche retour "physique" d'un appareil Windows
-        If Frame.CanGoBack = False Then
-            If web.CanGoBack Then
-                e.Handled = True
-                web.GoBack()
-            End If
+        e.Handled = True
+        If web.CanGoBack Then
+            e.Handled = True
+            web.GoBack()
         End If
     End Sub
+#End Region
+#Region "Page Loaded"
     Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
-
+        AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf MainPage_BackRequested
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings 'Permet l'accés aux paramètres
+
+        FirstLaunch()
+
+        SmartSuggest.Visibility = Visibility.Collapsed
 
         If Notif_Home.Visibility = Visibility.Visible Then
             localSettings.Values("Organise_notifs") = 0 'Initialisation de la valeur qui définit le positionnement des éléments dans les paramètres
@@ -60,53 +66,58 @@ Public NotInheritable Class MainPage
             AdressBox.Foreground = New SolidColorBrush(Windows.UI.Colors.DimGray)
         End If
 
-
         AdressBox.IsEnabled = False 'Autre solution provisoire (qui va sans doute rester) parce que sinon l'adressbox obtient le focus à l'ouverture allez savoir pourquoi...
         AdressBox.IsEnabled = True
 
         BackForward()
-        FirstLaunch()
+
+        If localSettings.Values("ShowLockScreen") = False Then 'Permet d'éviter un revérouillage systématique du navigateur
+            LockTheBrowser.IsChecked = False
+        End If
+        localSettings.Values("ShowLockScreen") = True
 
         Try
-            If localSettings.Values("Bluestart") = True And Frame.CanGoBack = False And AdressBox.Text = "about:blank" Then
+            If localSettings.Values("VerrouillageEnabled") = True And LockTheBrowser.IsChecked = True Then
+                LockTheBrowser.IsChecked = True
+                Me.Frame.Navigate(GetType(Verrouillage))
+            ElseIf localSettings.Values("Bluestart") = True And AdressBox.Text = "about:blank" And Frame.CanGoBack = False Then
                 Me.Frame.Navigate(GetType(Bluestart))
-
             ElseIf AdressBox.Text = "about:blank" Then
                 'Vérification de l'existence d'une page d'accueil valide
                 Try
-                        web.Navigate(New Uri(localSettings.Values("Homepage")))
+                    web.Navigate(New Uri(localSettings.Values("Homepage")))
 
-                        'Met à jour les éléments du centre de messages systèmes
-                        If Notif_HomePageError.Visibility = Visibility.Visible Then
-                            Notif_HomePageError.Visibility = Visibility.Collapsed
-                            New_Notif.Stop()
-                            If Notif_SearchEngineError.Visibility = Visibility.Visible Then
-                                If Notif_SearchEngineError.Margin.Top > Notif_HomePageError.Margin.Top Then
-                                    Notif_SearchEngineError.Margin = New Thickness(0, Notif_SearchEngineError.Margin.Top - 110, 0, 0)
-                                    localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") - 110
-                                End If
+                    'Met à jour les éléments du centre de messages systèmes
+                    If Notif_HomePageError.Visibility = Visibility.Visible Then
+                        Notif_HomePageError.Visibility = Visibility.Collapsed
+                        New_Notif.Stop()
+                        If Notif_SearchEngineError.Visibility = Visibility.Visible Then
+                            If Notif_SearchEngineError.Margin.Top > Notif_HomePageError.Margin.Top Then
+                                Notif_SearchEngineError.Margin = New Thickness(0, Notif_SearchEngineError.Margin.Top - 110, 0, 0)
+                                localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") - 110
                             End If
                         End If
+                    End If
 
-                    Catch
-                        Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
-                        Dim toeastElement = notificationXml.GetElementsByTagName("text")
-                        toeastElement(0).AppendChild(notificationXml.CreateTextNode("Erreur page d'accueil"))
-                        toeastElement(1).AppendChild(notificationXml.CreateTextNode("La page d'accueil définie est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre page d'accueil."))
-                        Dim ToastNotification = New ToastNotification(notificationXml)
-                        ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
+                Catch
+                    Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
+                    Dim toeastElement = notificationXml.GetElementsByTagName("text")
+                    toeastElement(0).AppendChild(notificationXml.CreateTextNode("Erreur page d'accueil"))
+                    toeastElement(1).AppendChild(notificationXml.CreateTextNode("La page d'accueil définie est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre page d'accueil."))
+                    Dim ToastNotification = New ToastNotification(notificationXml)
+                    ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
 
-                        'Met à jour les éléments du centre de messages systèmes
-                        If Not Notif_HomePageError.Visibility = Visibility.Visible Then
-                            Notif_HomePageError.Visibility = Visibility.Visible
-                            New_Notif.Begin()
-                            Notifications_Counter.Text = Notifications_Counter.Text + 1
-                            Notif_HomePageError.Margin = New Thickness(0, localSettings.Values("Organise_notifs"), 0, 0)
-                            localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") + 110
-                            Notif_Home.Visibility = Visibility.Collapsed
-                        End If
-                    End Try
-                End If
+                    'Met à jour les éléments du centre de messages systèmes
+                    If Not Notif_HomePageError.Visibility = Visibility.Visible Then
+                        Notif_HomePageError.Visibility = Visibility.Visible
+                        New_Notif.Begin()
+                        Notifications_Counter.Text = Notifications_Counter.Text + 1
+                        Notif_HomePageError.Margin = New Thickness(0, localSettings.Values("Organise_notifs"), 0, 0)
+                        localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") + 110
+                        Notif_Home.Visibility = Visibility.Collapsed
+                    End If
+                End Try
+            End If
         Catch
             localSettings.Values("Bluestart") = True
         End Try
@@ -134,7 +145,8 @@ Public NotInheritable Class MainPage
         'Animation d'ouverture de Blueflap
         EnterAnim.Begin()
     End Sub
-
+#End Region
+#Region "Webview : Navigation"
     Private Sub BackForward()
         'Blueflap gère ici le placement des boutons dans le menu latéral après chaque page chargée
 
@@ -186,18 +198,8 @@ Public NotInheritable Class MainPage
 
         AdressBox.IsEnabled = False 'Autre solution provisoire (qui va sans doute rester) parce que sinon l'adressbox obtient le focus à l'ouverture allez savoir pourquoi...
         AdressBox.IsEnabled = True
-
-    End Sub
-
-    Private Sub FirstLaunch() 'Définit les paramètres par défaut
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-
-        If Not localSettings.Values("Config") = True Then
-            localSettings.Values("A1") = "http://www.qwant.com/?q="
-            localSettings.Values("A2") = ""
-            localSettings.Values("SearchEngineIndex") = 1
-        End If
-
+        NavigationFailed_Screen.Visibility = Visibility.Collapsed
+        WebpageError.Stop()
     End Sub
 
     Private Sub web_NavigationStarting(sender As WebView, args As WebViewNavigationStartingEventArgs) Handles web.NavigationStarting
@@ -212,6 +214,11 @@ Public NotInheritable Class MainPage
 
         'Navigation terminée
         AdressBox.Text = web.Source.ToString
+        If web.Source.ToString.Contains("https://") Then
+            SecurityTag.Visibility = Visibility.Visible
+        Else
+            SecurityTag.Visibility = Visibility.Collapsed
+        End If
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
 
@@ -241,6 +248,11 @@ Public NotInheritable Class MainPage
         ' End Try
 
         AdressBox.Text = web.Source.ToString
+        If web.Source.ToString.Contains("https://") Then
+            SecurityTag.Visibility = Visibility.Visible
+        Else
+            SecurityTag.Visibility = Visibility.Collapsed
+        End If
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
         SourceCode.Text = "..."
@@ -304,21 +316,27 @@ Public NotInheritable Class MainPage
     End Sub
     Private Sub Rechercher()
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        SecurityTag.Visibility = Visibility.Collapsed
+
         Dim textArray = AdressBox.Text.Split(" ")
 
         'Détermine si il s'agit d'une URL ou d'une recherche
 
         If (AdressBox.Text.Contains(".") = True And AdressBox.Text.Contains(" ") = False And AdressBox.Text.Contains(" .") = False And AdressBox.Text.Contains(". ") = False) Or textArray(0).Contains(":/") = True Or textArray(0).Contains(":\") Then
-            If AdressBox.Text.Contains("http://") OrElse AdressBox.Text.Contains("https://") Then  'URL invalide si pas de http://
-                web.Navigate(New Uri(AdressBox.Text))
-            Else
-                web.Navigate(New Uri("http://" + AdressBox.Text))
-            End If
+            Try
+                If AdressBox.Text.Contains("http://") OrElse AdressBox.Text.Contains("https://") Then  'URL invalide si pas de http://
+                    web.Navigate(New Uri(AdressBox.Text))
+                Else
+                    web.Navigate(New Uri("http://" + AdressBox.Text))
+                End If
+            Catch
+            End Try
 
         Else
             Try 'On teste si le moteur de recherche défini par l'utilisateur est valide
                 Dim Rech As String
                 Rech = AdressBox.Text
+                localSettings.Values("textboxe") = AdressBox.Text
                 Dim s As String
                 s = Rech.ToString
                 s = s.Replace("+", "%2B")
@@ -378,6 +396,11 @@ Public NotInheritable Class MainPage
             web.Stop()
         End If
         AdressBox.Text = web.Source.ToString
+        If web.Source.ToString.Contains("https://") Then
+            SecurityTag.Visibility = Visibility.Visible
+        Else
+            SecurityTag.Visibility = Visibility.Collapsed
+        End If
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
         BackForward()
@@ -391,15 +414,42 @@ Public NotInheritable Class MainPage
         web.GoForward() 'Revenir à la page suivante
     End Sub
 
-
-    Private Sub Paramètres_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Paramètres_Button.Tapped
-        Me.Frame.Navigate(GetType(Parametres)) 'Aller sur la page "Paramètres"
-    End Sub
     Private Sub OnNewWindowRequested(sender As WebView, e As WebViewNewWindowRequestedEventArgs) Handles web.NewWindowRequested
         'Force l'ouverture dans Blueflap de liens censés s'ouvrir dans une nouvelle fenêtre
         web.Navigate(e.Uri)
         e.Handled = True
     End Sub
+    Private Sub web_NavigationFailed(sender As Object, e As WebViewNavigationFailedEventArgs) Handles web.NavigationFailed
+        NavigationFailed_Screen.Visibility = Visibility.Visible
+        WebpageError.Begin()
+        Titlebox.Text = "I hate this page"
+    End Sub
+#End Region
+#Region "First Launch"
+    Private Sub FirstLaunch() 'Définit les paramètres par défaut
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        If Not localSettings.Values("Config") = True Then
+            localSettings.Values("A1") = "http://www.qwant.com/?q="
+            localSettings.Values("A2") = ""
+            localSettings.Values("SearchEngineIndex") = 1
+            localSettings.Values("WallpaperName") = "Degrade.png"
+            localSettings.Values("Bluestart") = True
+            localSettings.Values("Homepage") = "http://personali.zz.mu"
+            localSettings.Values("CustomColorA") = 52
+            localSettings.Values("CustomColorB") = 152
+            localSettings.Values("CustomColorC") = 219
+            localSettings.Values("SearchFight_Menu") = True
+        End If
+
+        If Not localSettings.Values("FirstBoot") = "Non" Then
+            localSettings.Values("FirstBoot") = "Non"
+            Me.Frame.Navigate(GetType(FirstBootScreen))
+        End If
+
+    End Sub
+#End Region
+#Region "Right Panel (Memo, history, favorites, notifications)"
     Private Sub OpenRightMenu()
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
@@ -476,7 +526,8 @@ Public NotInheritable Class MainPage
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         localSettings.Values("AncrageMemo") = MemoAncrageToggle.IsOn
     End Sub
-
+#End Region
+#Region "Share/Source code Menu"
     Private Sub Fight_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Fight_Button.Tapped
         'Ouvre SearchFight
         Me.Frame.Navigate(GetType(SearchFight))
@@ -500,7 +551,7 @@ Public NotInheritable Class MainPage
         End If
     End Sub
 
-    Private Sub Web_Share_Save_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Web_Share_Save.Tapped
+    Private Sub Web_Share_Save_Tapped(sender As Object, e As TappedRoutedEventArgs)
 
     End Sub
 
@@ -530,4 +581,171 @@ Public NotInheritable Class MainPage
             HideSourceCode.Begin()
         End If
     End Sub
+    Private Sub Info_Pin_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Info_Pin.Tapped
+
+    End Sub
+#End Region
+#Region "SmartSuggest"
+    Private Sub AdressBox_GotFocus(sender As Object, e As RoutedEventArgs) Handles AdressBox.GotFocus
+        AdressBox.Text = web.Source.ToString
+        Titlebox.Text = web.DocumentTitle
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        If localSettings.Values("DarkThemeEnabled") = True Then
+            SmartSuggest.RequestedTheme = ElementTheme.Dark
+            DerniereRecherche.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(235, 255, 255, 255))
+        Else
+            SmartSuggest.RequestedTheme = ElementTheme.Light
+            DerniereRecherche.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(170, 0, 0, 0))
+        End If
+        Try
+            If localSettings.Values("SmartSuggest") = True Then
+                HideSuggestions.Stop()
+                ShowSuggestions.Begin()
+                SmartSuggest.Background = Adressbar.Background
+            End If
+        Catch ex As Exception
+        End Try
+        Try
+            DerniereRecherche.Text = localSettings.Values("textboxe").ToString.ToUpper
+        Catch
+        End Try
+        Dim textArray = AdressBox.Text.Split(" ")
+        If (AdressBox.Text.Contains(".") = True And AdressBox.Text.Contains(" ") = False And AdressBox.Text.Contains(" .") = False And AdressBox.Text.Contains(". ") = False) Or textArray(0).Contains(":/") = True Or textArray(0).Contains(":\") Then
+            Dim t As String
+            t = AdressBox.Text.ToLower
+            t = t.Replace("https://", "")
+            t = t.Replace("http://", "")
+            t = t.Replace(" ", "%20")
+            SmartSuggest_URL_Text.Text = "http://" + t
+            SmartSuggest_Search_Text.Text = ""
+        Else
+            Try
+                SmartSuggest_URL_Text.Text = localSettings.Values("A1")
+            Catch
+            End Try
+            SmartSuggest_Search_Text.Text = ""
+        End If
+        AdressBox.SelectAll()
+
+    End Sub
+
+    Private Sub AdressBox_LostFocus(sender As Object, e As RoutedEventArgs) Handles AdressBox.LostFocus
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        Try
+            If localSettings.Values("SmartSuggest") = True Then
+                ShowSuggestions.Stop()
+                SmartSuggest.Visibility = Visibility.Collapsed
+            End If
+        Catch ex As Exception
+        End Try
+        AdressBox.SelectionStart = AdressBox.Text.Length
+    End Sub
+
+    Private Sub SmartSuggest_LastOne_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles SmartSuggest_LastOne.PointerEntered
+        SmartSuggest_LastOne.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
+    End Sub
+    Private Sub SmartSuggest_LastOne_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles SmartSuggest_LastOne.PointerExited
+        SmartSuggest_LastOne.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+    End Sub
+    Private Sub SmartSuggest_Search_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles SmartSuggest_Search.PointerEntered
+        SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
+    End Sub
+    Private Sub SmartSuggest_Search_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles SmartSuggest_Search.PointerExited
+        SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+    End Sub
+    Private Sub SmartSuggest_URL_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles SmartSuggest_URL.PointerEntered
+        SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
+    End Sub
+    Private Sub SmartSuggest_URL_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles SmartSuggest_URL.PointerExited
+        SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+    End Sub
+
+    Private Sub SmartSuggest_LastOne_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles SmartSuggest_LastOne.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        Try
+            AdressBox.Text = localSettings.Values("textboxe")
+        Catch
+        End Try
+        Rechercher()
+    End Sub
+    Private Sub SmartSuggest_Search_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles SmartSuggest_Search.Tapped
+        AdressBox.Text = SmartSuggest_Search_Text.Text + " "
+        Rechercher()
+    End Sub
+    Private Sub SmartSuggest_Url_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles SmartSuggest_URL.Tapped
+        AdressBox.Text = SmartSuggest_URL_Text.Text
+        Rechercher()
+    End Sub
+
+    Private Sub AdressBox_TextChanged(sender As Object, e As TextChangedEventArgs) Handles AdressBox.TextChanged
+        Dim t As String
+        t = AdressBox.Text.ToLower
+        t = t.Replace("https://", "")
+        t = t.Replace("http://", "")
+        t = t.Replace(" ", "%20")
+        SmartSuggest_URL_Text.Text = "http://" + t
+        Dim s As String
+        s = AdressBox.Text.ToLower
+        s = s.Replace("https://", "")
+        s = s.Replace("http://", "")
+        Dim textArray = AdressBox.Text.Split(" ")
+        If (AdressBox.Text.Contains(".") = True And AdressBox.Text.Contains(" ") = False And AdressBox.Text.Contains(" .") = False And AdressBox.Text.Contains(". ") = False) Or textArray(0).Contains(":/") = True Or textArray(0).Contains(":\") Then
+            s = s.Replace("/", " ")
+            s = s.Replace("search?q", " recherche ")
+            s = s.Replace("?q", "")
+            s = s.Replace("_", " ")
+            s = s.Replace("-", " ")
+            s = s.Replace("www.", "")
+            s = s.Replace(".com", "")
+            s = s.Replace(".fr", "")
+            s = s.Replace(".tv", " tv")
+            s = s.Replace(".org", "")
+            s = s.Replace(".eu", "")
+            s = s.Replace(".it", "")
+            s = s.Replace(".de", "")
+            s = s.Replace(".co.uk", "")
+            s = s.Replace(".co", "")
+            s = s.Replace(".edu", " éducation")
+            s = s.Replace(".net", "")
+            s = s.Replace(".io", "")
+            s = s.Replace(".tk", "")
+            s = s.Replace("?", "")
+            s = s.Replace("=", " ")
+            s = s.Replace("personnalisa.bl.ee", "Blueflap")
+            s = s.Replace("personali.zz.mu", "Blueflap")
+            s = s.Replace(".php", "")
+            s = s.Replace(".html", "")
+            s = s.Replace(".htm", "")
+            s = s.Replace(".aspx", "")
+        End If
+        SmartSuggest_Search_Text.Text = s
+
+        If (AdressBox.Text.Contains(".") = True And AdressBox.Text.Contains(" ") = False And AdressBox.Text.Contains(" .") = False And AdressBox.Text.Contains(". ") = False) Or textArray(0).Contains(":/") = True Or textArray(0).Contains(":\") Then
+            SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(20, 52, 152, 213))
+            SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+            ExpandSuggestions.Begin()
+        ElseIf AdressBox.Text = "" Then
+            SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+            SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+            HideSuggestions.Begin()
+        Else
+            SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(20, 52, 152, 213))
+            SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+            ExpandSuggestions.Begin()
+        End If
+    End Sub
+#End Region
+#Region "Go to (other frame)"
+    Private Sub Lock_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Lock_Button.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        LockTheBrowser.IsChecked = True
+        Me.Frame.Navigate(GetType(Verrouillage))
+    End Sub
+
+    Private Sub Paramètres_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Paramètres_Button.Tapped
+        Me.Frame.Navigate(GetType(Parametres)) 'Aller sur la page "Paramètres"
+    End Sub
+#End Region
+
+
 End Class

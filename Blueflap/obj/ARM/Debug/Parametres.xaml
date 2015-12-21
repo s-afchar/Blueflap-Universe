@@ -1,0 +1,1104 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="Blueflap.Parametres"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Blueflap"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"                     >
+    <Page.Resources>
+        <Storyboard x:ConnectionId='2' x:Name="ParamOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-161"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0" Value="52.046"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Stat1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Stat2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Stat3">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock3">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock4">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="pivot">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-84"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pivot">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="scrollViewer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="scrollViewer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="60"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:ConnectionId='3' x:Name="ShowOpenSourceLicence">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0" Value="44"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="500">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="textBox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="448">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBox">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="textBox">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Thickness>20,483,20,0</Thickness>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock6">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock5">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:ConnectionId='4' x:Name="HideOpenSourceLicense">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0" Value="500">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="44">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="textBox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="448">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="5">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBox">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.4">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="textBox">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Thickness>20,483,40,0</Thickness>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock5" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock6" d:IsOptimized="True"/>
+        </Storyboard>
+        <Storyboard x:ConnectionId='5' x:Name="ShowCustomColor">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Color_Bleu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Color_Rose">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Color_Jaune">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Color_Violet">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Color_Vert">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Color_Saumon">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Color_Rose1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Color_Rouge">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Color_Orange">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Color_Gris">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Bleu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-12"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Rose">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-12"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Jaune">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-12"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Violet">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-12"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Vert">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-12"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Saumon">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-12"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Rose1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-12"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Rouge">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-12"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Orange">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-12"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Gris">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-12"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Bleu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Rose">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Jaune">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Violet">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Vert">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Saumon">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Rose1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Rouge">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Orange">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Gris">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Bleu">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Rose">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Jaune">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Violet">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Vert">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Saumon">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Rose1">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Rouge">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Orange">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Gris">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="scrollViewer1">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="scrollViewer1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="16"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="scrollViewer1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:ConnectionId='6' x:Name="HideCustomColor">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="scrollViewer1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="20"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="scrollViewer1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="scrollViewer1">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Bleu">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Rose">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Jaune">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Violet">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Vert">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Saumon">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Rose1">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Rouge">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Orange">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Color_Gris">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Bleu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Rose">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Jaune">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Violet">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Vert">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Saumon">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Rose1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Rouge">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Orange">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Color_Gris">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Bleu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Rose">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Jaune">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Violet">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Vert">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Saumon">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Rose1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Rouge">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Orange">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Color_Gris">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:ConnectionId='7' x:Name="ShowVerrouillagePopup">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Verrouillage_Popup">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Verrouillage_Popup">
+                <EasingColorKeyFrame KeyTime="0" Value="#00000000"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#B2000000"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="grid1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="500"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:ConnectionId='8' x:Name="CloseVerrouillagePopup">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Verrouillage_Popup">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.4">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="grid1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="grid1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.3"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Verrouillage_Popup">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:ConnectionId='9' x:Name="WrongPassword">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Passwordbox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ElasticEase EasingMode="EaseOut" Springiness="4" Oscillations="4"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+    <Grid x:ConnectionId='10' x:Name="ParaPage" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+
+            <VisualStateGroup>
+                <VisualState x:ConnectionId='11' x:Name="Small">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ParaPage.Margin"  
+                    Value="-209,0,0,0" />
+                        <Setter Target="grid1.Margin"  
+                    Value="0,0,-209,40" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:ConnectionId='12' x:Name="Normal">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="750" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ParaPage.Margin"  
+                    Value="0,0,0,0" />
+                        <Setter Target="grid1.Margin"  
+                    Value="0,0,0,40" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid x:ConnectionId='13' x:Name="grid" HorizontalAlignment="Left" Width="209" RenderTransformOrigin="0.5,0.5" Background="{ThemeResource JumpListDefaultEnabledBackground}">
+            <Grid.RenderTransform>
+                <CompositeTransform ScaleX="-1"/>
+            </Grid.RenderTransform>
+            <ProgressRing x:ConnectionId='62' x:Name="loader" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="24" Foreground="#AFFFFFFF" Margin="12,14,0,0" RenderTransformOrigin="0.5,0.5">
+                <ProgressRing.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </ProgressRing.RenderTransform>
+            </ProgressRing>
+            <Grid x:ConnectionId='63' x:Name="DefaultThemeColor" HorizontalAlignment="Left" Height="10" Margin="279,187,-79,0" VerticalAlignment="Top" Width="9" Background="{ThemeResource ContentDialogBorderThemeBrush}" Visibility="Collapsed"/>
+            <TextBlock HorizontalAlignment="Left" Margin="120,39,0,0" TextWrapping="Wrap" Text="Retour" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="52" Foreground="White" FontWeight="SemiLight" FontSize="14.667">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <Button x:ConnectionId='64' Content="&#xE0C4;" HorizontalAlignment="Left" Height="40" Margin="111,31,-58,0" VerticalAlignment="Top" Width="156" RenderTransformOrigin="0.5,0.5" Background="#00000000"                        Foreground="White" RequestedTheme="Light" FontFamily="Segoe MDL2 Assets" FontWeight="Bold" FontSize="16" BorderThickness="0">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+            <TextBlock HorizontalAlignment="Left" Margin="96,98,0,0" TextWrapping="Wrap" Text="Statistiques" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="98" Foreground="#F2FFFFFF" FontWeight="SemiLight">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock x:ConnectionId='65' x:Name="textBlock" HorizontalAlignment="Left" Margin="141,127,0,0" TextWrapping="Wrap" Text="Pages" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="45" Foreground="#B2FFFFFF" FontWeight="SemiBold" FontSize="13">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock x:ConnectionId='66' x:Name="textBlock1" HorizontalAlignment="Left" Margin="141,143,0,0" TextWrapping="Wrap" Text="Fights" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="45" Foreground="#B2FFFFFF" FontWeight="SemiBold" FontSize="13">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock x:ConnectionId='67' x:Name="textBlock2" HorizontalAlignment="Left" Margin="141,158,0,0" TextWrapping="Wrap" Text="Badge" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="45" Foreground="#B2FFFFFF" FontWeight="SemiBold" FontSize="13">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="97,203,0,0" TextWrapping="Wrap" Text="Équipe" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="98" Foreground="#F2FFFFFF" FontWeight="SemiLight">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock x:ConnectionId='68' x:Name="Stat1" HorizontalAlignment="Left" Margin="10,127,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="135" FontWeight="SemiLight" Foreground="White" FontSize="13">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock x:ConnectionId='69' x:Name="Stat2" HorizontalAlignment="Left" Margin="10,143,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="135" FontWeight="SemiLight" Foreground="White" FontSize="13">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock x:ConnectionId='70' x:Name="Stat3" HorizontalAlignment="Left" Margin="-10,160,0,0" TextWrapping="Wrap" Text="[Badge]" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="155" FontWeight="SemiLight" Foreground="White" FontSize="12">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <Grid Margin="8,233,0,0" RenderTransformOrigin="0.5,0.5" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="122">
+                <Grid.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Grid.RenderTransform>
+                <TextBlock x:ConnectionId='78' x:Name="textBlock3" HorizontalAlignment="Left" Margin="0,3,0,0" TextWrapping="Wrap" Text="Sâm" VerticalAlignment="Top" Width="87" Foreground="#F2FFFFFF" FontSize="18"/>
+                <TextBlock x:ConnectionId='79' x:Name="textBlock4" HorizontalAlignment="Left" Margin="0,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Foreground="#CCFFFFFF" FontWeight="SemiLight" FontSize="11">
+                	<Run FontWeight="SemiBold" Text="Chef de projet"/>
+                	<LineBreak/>
+                	<Run FontWeight="Light" Text="Design | Dev"/>
+                </TextBlock>
+            </Grid>
+            <Image x:ConnectionId='71' x:Name="image" HorizontalAlignment="Left" Height="64" Margin="135,233,0,0" VerticalAlignment="Top" Width="61" Source="Assets/circle.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Rectangle Fill="#A5FFFFFF" HorizontalAlignment="Left" Height="78" Margin="207,99,0,0" VerticalAlignment="Top" Width="2"/>
+            <Rectangle Fill="#A5FFFFFF" HorizontalAlignment="Left" Height="446" Margin="207,204,0,0" VerticalAlignment="Top" Width="2"/>
+            <TextBlock HorizontalAlignment="Left" Margin="191,103,0,0" TextWrapping="Wrap" Text="▶" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="14" Foreground="White" FontSize="8">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-0.45" ScaleY="0.6"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="192,209,0,0" TextWrapping="Wrap" Text="▶" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="14" Foreground="White" FontSize="8">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-0.45" ScaleY="0.6"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <ScrollViewer x:ConnectionId='72' x:Name="scrollViewer" Margin="15,317,13,0" VerticalScrollBarVisibility="Auto" HorizontalScrollMode="Disabled" RenderTransformOrigin="0.5,0.5">
+                <ScrollViewer.RenderTransform>
+                    <CompositeTransform/>
+                </ScrollViewer.RenderTransform>
+                <Grid>
+                    <Grid Margin="0,1,0,0" RenderTransformOrigin="0.5,0.5" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="122">
+                        <Grid.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Grid.RenderTransform>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,3,0,0" TextWrapping="Wrap" Text="Baptiste" VerticalAlignment="Top" Width="87" Foreground="#F2FFFFFF" FontSize="18"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Foreground="#CCFFFFFF" FontWeight="SemiBold" FontSize="11" Text="Développeur"/>
+                    </Grid>
+                    <Image x:ConnectionId='73' x:Name="image_Copy" HorizontalAlignment="Left" Height="56" Margin="130,0,0,0" VerticalAlignment="Top" Width="51" Source="Assets/baptiste.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Grid Margin="1,70,0,0" RenderTransformOrigin="0.5,0.5" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="122">
+                        <Grid.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Grid.RenderTransform>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,3,0,0" TextWrapping="Wrap" Text="Vincent" VerticalAlignment="Top" Width="87" Foreground="#F2FFFFFF" FontSize="18"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Foreground="#CCFFFFFF" FontWeight="SemiBold" FontSize="11" Text="Création du site web"/>
+                    </Grid>
+                    <Image x:ConnectionId='74' x:Name="image_Copy1" HorizontalAlignment="Left" Height="56" Margin="130,69,0,0" VerticalAlignment="Top" Width="51" Source="Assets/noprofilepicture.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Grid Margin="1,139,0,0" RenderTransformOrigin="0.5,0.5" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="122">
+                        <Grid.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Grid.RenderTransform>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,3,0,0" TextWrapping="Wrap" Text="Baptiste" VerticalAlignment="Top" Width="87" Foreground="#F2FFFFFF" FontSize="18"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Foreground="#CCFFFFFF" FontWeight="SemiBold" FontSize="11" Text="Première traduction"/>
+                    </Grid>
+                    <Image x:ConnectionId='75' x:Name="image_Copy2" HorizontalAlignment="Left" Height="56" Margin="130,138,0,0" VerticalAlignment="Top" Width="51" Source="Assets/baptiste 2.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Grid Margin="1,208,0,0" RenderTransformOrigin="0.5,0.5" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="122">
+                        <Grid.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Grid.RenderTransform>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,3,0,0" TextWrapping="Wrap" Text="Benjamin" VerticalAlignment="Top" Width="87" Foreground="#F2FFFFFF" FontSize="18"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Foreground="#CCFFFFFF" FontWeight="SemiBold" FontSize="11" Text="Premier site web"/>
+                    </Grid>
+                    <Image x:ConnectionId='76' x:Name="image_Copy3" HorizontalAlignment="Left" Height="56" Margin="130,207,0,0" VerticalAlignment="Top" Width="51" Source="Assets/noprofilepicture.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Grid Margin="1,277,0,0" RenderTransformOrigin="0.5,0.5" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="122">
+                        <Grid.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Grid.RenderTransform>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,3,0,0" TextWrapping="Wrap" Text="&quot;Zyhou&quot;" VerticalAlignment="Top" Width="87" Foreground="#F2FFFFFF" FontSize="18"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Foreground="#CCFFFFFF" FontWeight="SemiBold" FontSize="11" Text="Développeur"/>
+                    </Grid>
+                    <Image x:ConnectionId='77' x:Name="image_Copy4" HorizontalAlignment="Left" Height="56" Margin="130,276,0,0" VerticalAlignment="Top" Width="51" Source="Assets/noprofilepicture.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Image.RenderTransform>
+                    </Image>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+        <Pivot x:ConnectionId='14' x:Name="pivot" Margin="227,0,0,0" Title="" RenderTransformOrigin="0.5,0.5">
+            <Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}"  FontSize="14" FontWeight="SemiBold"/>
+                </DataTemplate>
+            </Pivot.HeaderTemplate>
+            <Pivot.RenderTransform>
+                <CompositeTransform/>
+            </Pivot.RenderTransform>
+            <PivotItem Header="PERSONNALISATION">
+                <Grid>
+                    <ScrollViewer Margin="-11,20,10,0" VerticalScrollBarVisibility="Auto" HorizontalScrollMode="Disabled">
+                        <Grid>
+                            <Rectangle Fill="#33D1D1D1" Height="82" Margin="0,98,0,0" Stroke="#7F838383" VerticalAlignment="Top"/>
+
+                            <Rectangle Fill="#33D1D1D1" Height="82" Stroke="#7F838383" VerticalAlignment="Top"/>
+                            <Rectangle Fill="#33D1D1D1" Height="122" Margin="0,197,0,0" Stroke="#7F838383" VerticalAlignment="Top"/>
+                            <ComboBox x:ConnectionId='35' x:Name="Settings_SearchEngine" HorizontalAlignment="Left" Height="33" Margin="11,35,0,0" VerticalAlignment="Top" Width="181" SelectedIndex="1" BorderThickness="1">
+                                <ComboBoxItem Content="Bing"/>
+                                <ComboBoxItem Content="Qwant"/>
+                                <ComboBoxItem Content="DuckDuckGo"/>
+                                <ComboBoxItem Content="Yahoo"/>
+                                <ComboBoxItem Content="Google"/>
+                                <ComboBoxItem Content="Qwant (Web)"/>
+                                <ComboBoxItem Content="Ask"/>
+                                <ComboBoxItem Content="Youtube"/>
+                                <ComboBoxItem Content="Dreamvids"/>
+                                <ComboBoxItem Content="Dailymotion"/>
+                                <ComboBoxItem Content="Wikipedia"/>
+                                <ComboBoxItem Content="Twitter"/>
+                                <ComboBoxItem Content="&lt;Personnaliser&gt;"/>
+                            </ComboBox>
+                            <TextBlock HorizontalAlignment="Left" Margin="11,10,0,0" TextWrapping="Wrap" Text="Moteur de recherche" VerticalAlignment="Top"/>
+                            <Grid x:ConnectionId='36' x:Name="PersonnalizeColorGrid" Height="40" Margin="249,268,15,0" VerticalAlignment="Top" Background="#33C7C7C7" BorderBrush="#337C7C7C" BorderThickness="1" CornerRadius="20">
+                                <Grid x:ConnectionId='46' x:Name="Color1_But" HorizontalAlignment="Left" Height="21" Margin="13,9,0,0" VerticalAlignment="Top" Width="21" Background="#FF29CAE4" CornerRadius="20" BorderThickness="0" BorderBrush="#66999999"/>
+                                <ScrollViewer x:ConnectionId='47' x:Name="scrollViewer1" Margin="40,0,23,1" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" VerticalScrollMode="Disabled" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+                                    <ScrollViewer.RenderTransform>
+                                        <CompositeTransform/>
+                                    </ScrollViewer.RenderTransform>
+                                    <Grid>
+                                        <Slider x:ConnectionId='58' x:Name="RedSlider" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="86" Foreground="#00000000" Background="Red" Maximum="255" LargeChange="10" RenderTransformOrigin="0.5,0.5">
+                                            <Slider.RenderTransform>
+                                                <CompositeTransform ScaleX="0.8" ScaleY="0.8"/>
+                                            </Slider.RenderTransform>
+                                        </Slider>
+                                        <Slider x:ConnectionId='59' x:Name="GreenSlider" HorizontalAlignment="Left" Height="40" Margin="84,0,0,-3" VerticalAlignment="Top" Width="86" Foreground="#00000000" Background="#FF00FF17" BorderThickness="0" Maximum="255" RenderTransformOrigin="0.5,0.5">
+                                            <Slider.RenderTransform>
+                                                <CompositeTransform ScaleX="0.8" ScaleY="0.8"/>
+                                            </Slider.RenderTransform>
+                                        </Slider>
+                                        <Slider x:ConnectionId='60' x:Name="BlueSlider" HorizontalAlignment="Left" Height="40" Margin="166,0,0,-3" VerticalAlignment="Top" Width="86" Foreground="#00000000" Background="#FF0051FF" Maximum="255" RenderTransformOrigin="0.5,0.5">
+                                            <Slider.RenderTransform>
+                                                <CompositeTransform ScaleX="0.8" ScaleY="0.8"/>
+                                            </Slider.RenderTransform>
+                                        </Slider>
+                                        <Slider x:ConnectionId='61' x:Name="AlphaSlider" HorizontalAlignment="Left" Height="40" Margin="265,0,0,-3" VerticalAlignment="Top" Width="61" Foreground="#00000000" Background="#4C939393" Maximum="255" RenderTransformOrigin="0.5,0.5" Value="255" Visibility="Collapsed">
+                                            <Slider.RenderTransform>
+                                                <CompositeTransform ScaleX="0.8" ScaleY="0.8"/>
+                                            </Slider.RenderTransform>
+                                        </Slider>
+                                    </Grid>
+                                </ScrollViewer>
+                                <Grid x:ConnectionId='48' x:Name="Color_Bleu" HorizontalAlignment="Left" Height="13" Margin="44,13,0,0" VerticalAlignment="Top" Width="13" Background="#FF3498DB" CornerRadius="20" BorderThickness="0" RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <CompositeTransform/>
+                                    </Grid.RenderTransform>
+                                </Grid>
+                                <Grid x:ConnectionId='49' x:Name="Color_Rose" HorizontalAlignment="Left" Height="13" Margin="63,13,0,0" VerticalAlignment="Top" Width="13" Background="#FFFF3A9C" CornerRadius="20" BorderThickness="0" RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <CompositeTransform/>
+                                    </Grid.RenderTransform>
+                                </Grid>
+                                <Grid x:ConnectionId='50' x:Name="Color_Jaune" HorizontalAlignment="Left" Height="13" Margin="82,13,0,0" VerticalAlignment="Top" Width="13" Background="#FFFFB900" CornerRadius="20" BorderThickness="0" RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <CompositeTransform/>
+                                    </Grid.RenderTransform>
+                                </Grid>
+                                <Grid x:ConnectionId='51' x:Name="Color_Violet" HorizontalAlignment="Left" Height="13" Margin="177,13,0,0" VerticalAlignment="Top" Width="13" Background="#FF6B568C" CornerRadius="20" BorderThickness="0" RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <CompositeTransform/>
+                                    </Grid.RenderTransform>
+                                </Grid>
+                                <Grid x:ConnectionId='52' x:Name="Color_Vert" HorizontalAlignment="Left" Height="13" Margin="120,13,0,0" VerticalAlignment="Top" Width="13" Background="#FF36A032" CornerRadius="20" BorderThickness="0" RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <CompositeTransform/>
+                                    </Grid.RenderTransform>
+                                </Grid>
+                                <Grid x:ConnectionId='53' x:Name="Color_Saumon" HorizontalAlignment="Left" Height="13" Margin="139,13,0,0" VerticalAlignment="Top" Width="13" Background="#FFFF8383" CornerRadius="20" BorderThickness="0" RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <CompositeTransform/>
+                                    </Grid.RenderTransform>
+                                </Grid>
+                                <Grid x:ConnectionId='54' x:Name="Color_Rose1" HorizontalAlignment="Left" Height="13" Margin="158,13,0,0" VerticalAlignment="Top" Width="13" Background="#FFFF0083" CornerRadius="20" BorderThickness="0" RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <CompositeTransform/>
+                                    </Grid.RenderTransform>
+                                </Grid>
+                                <Grid x:ConnectionId='55' x:Name="Color_Rouge" HorizontalAlignment="Left" Height="13" Margin="101,13,0,0" VerticalAlignment="Top" Width="13" Background="#FFEA111D" CornerRadius="20" BorderThickness="0" RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <CompositeTransform/>
+                                    </Grid.RenderTransform>
+                                </Grid>
+                                <Grid x:ConnectionId='56' x:Name="Color_Orange" HorizontalAlignment="Left" Height="13" Margin="196,13,0,0" VerticalAlignment="Top" Width="13" Background="#FFFF6300" CornerRadius="20" BorderThickness="0" RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <CompositeTransform/>
+                                    </Grid.RenderTransform>
+                                </Grid>
+                                <Grid x:ConnectionId='57' x:Name="Color_Gris" HorizontalAlignment="Left" Height="13" Margin="215,13,0,0" VerticalAlignment="Top" Width="13" Background="#FF525254" CornerRadius="20" BorderThickness="0" RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <CompositeTransform/>
+                                    </Grid.RenderTransform>
+                                </Grid>
+                            </Grid>
+                            <ToggleSwitch x:ConnectionId='37' x:Name="Theme_switch" Header="Thème" HorizontalAlignment="Left" Margin="11,208,0,0" VerticalAlignment="Top" OffContent="Clair" OnContent="Sombre"/>
+                            <TextBox x:ConnectionId='38' x:Name="SearchEngine_1" HorizontalAlignment="Left" Margin="206,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="33" Width="405" Visibility="Collapsed" BorderThickness="1" PlaceholderText="Exemple : &quot;https://www.qwant.com/?q=&quot;" FontSize="16"/>
+                            <TextBox x:ConnectionId='39' x:Name="SearchEngine_2" HorizontalAlignment="Left" Margin="699,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="33" Width="124" Visibility="Collapsed" BorderThickness="1" PlaceholderText="Ex : &quot;&amp;t=web&quot;" FontSize="16"/>
+                            <CheckBox x:ConnectionId='40' x:Name="Bluestart_Checkbox" Content="Utiliser Bluestart" HorizontalAlignment="Right" Margin="0,132,15,0" VerticalAlignment="Top" Width="143"/>
+                            <TextBox x:ConnectionId='41' x:Name="Startpage_Settings" Margin="11,131,182,0" TextWrapping="NoWrap" Text="about:blank" VerticalAlignment="Top" Height="33" BorderThickness="1" FontSize="16"/>
+                            <TextBlock x:ConnectionId='42' x:Name="searchengine3" HorizontalAlignment="Left" Margin="623,41,0,0" TextWrapping="Wrap" Text="mots-clés" VerticalAlignment="Top" Foreground="#FF898989" Visibility="Collapsed"/>
+                            <ToggleSwitch x:ConnectionId='43' x:Name="Color_Switch" Header="" HorizontalAlignment="Left" Height="37" Margin="11,268,0,0" VerticalAlignment="Top" Width="238" OnContent="Couleur personnalisée" OffContent="Couleur automatique"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="11,106,0,0" TextWrapping="Wrap" Text="Page d'accueil" VerticalAlignment="Top"/>
+                            <Rectangle Fill="#33D1D1D1" Height="82" Margin="0,336,0,0" Stroke="#7F838383" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="11,344,0,0" TextWrapping="Wrap" Text="Verrouillage" VerticalAlignment="Top"/>
+                            <PasswordBox x:ConnectionId='44' x:Name="Passwordbox" HorizontalAlignment="Left" Margin="117,375,0,0" VerticalAlignment="Top" BorderThickness="1" Width="222" PlaceholderText="Entrer le mot de passe" Height="21" FontSize="16" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+                                <PasswordBox.RenderTransform>
+                                    <CompositeTransform/>
+                                </PasswordBox.RenderTransform>
+                            </PasswordBox>
+                            <Button x:ConnectionId='45' x:Name="Buton_LockSetings" Content="Modifier" HorizontalAlignment="Left" Margin="12,375,0,0" VerticalAlignment="Top" BorderBrush="#27000000" Width="96"                         />
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="OPTIONS AVANCÉES">
+                <Grid>
+                    <ScrollViewer Margin="-11,20,10,0" VerticalScrollBarVisibility="Auto" HorizontalScrollMode="Disabled">
+                        <Grid>
+                            <Rectangle Fill="#33D1D1D1" Height="82" Stroke="#7F838383" VerticalAlignment="Top"/>
+                            <ToggleSwitch x:ConnectionId='33' x:Name="Adblock_Switch" Header="Bloqueur de publicités" HorizontalAlignment="Left" Margin="11,12,0,0" VerticalAlignment="Top" OffContent="Desactivé" OnContent="Activé" Tag="javascript:(function(){function R(w){try{var d=w.document,j,i,t,T,N,b,r=1,C;for(j=0;t=[&quot;object&quot;,&quot;embed&quot;,&quot;applet&quot;,&quot;iframe&quot;][j];++j){T=d.getElementsByTagName(t);for(i=T.length-1;(i+1)&amp;&amp;(N=T[i]);--i)if(j!=3||!R((C=N.contentWindow)?C:N.contentDocument.defaultView)){b=d.createElement(&quot;div&quot;);b.style.width=N.width; b.style.height=N.height;b.innerHTML=&quot;&lt;del&gt;&quot;+(j==3?&quot;third-party &quot;+t:t)+&quot;&lt;/del&gt;&quot;;N.parentNode.replaceChild(b,N);}}}catch(E){r=0}return r}R(self);var i,x;for(i=0;x=frames[i];++i)R(x)})()"/>
+                            <Rectangle Fill="#33D1D1D1" Height="82" Stroke="#7F838383" VerticalAlignment="Top" Margin="0,99,0,0"/>
+                            <ToggleSwitch x:ConnectionId='34' x:Name="Suggest_Switch" Header="Smart Suggest" HorizontalAlignment="Left" Margin="11,111,0,0" VerticalAlignment="Top" OffContent="Desactivé" OnContent="Activé" Tag="javascript:(function(){function R(w){try{var d=w.document,j,i,t,T,N,b,r=1,C;for(j=0;t=[&quot;object&quot;,&quot;embed&quot;,&quot;applet&quot;,&quot;iframe&quot;][j];++j){T=d.getElementsByTagName(t);for(i=T.length-1;(i+1)&amp;&amp;(N=T[i]);--i)if(j!=3||!R((C=N.contentWindow)?C:N.contentDocument.defaultView)){b=d.createElement(&quot;div&quot;);b.style.width=N.width; b.style.height=N.height;b.innerHTML=&quot;&lt;del&gt;&quot;+(j==3?&quot;third-party &quot;+t:t)+&quot;&lt;/del&gt;&quot;;N.parentNode.replaceChild(b,N);}}}catch(E){r=0}return r}R(self);var i,x;for(i=0;x=frames[i];++i)R(x)})()"/>
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="À PROPOS" Margin="12,0">
+                <Grid>
+                    <ScrollViewer Margin="-11,10,10,0" VerticalScrollBarVisibility="Auto" HorizontalScrollMode="Disabled">
+                        <Grid>
+                            <Rectangle Fill="#33D1D1D1" Height="82" Stroke="#7F838383" VerticalAlignment="Top"/>
+                            <Rectangle Fill="#33D1D1D1" Height="94" Margin="0,98,0,0" Stroke="#7F838383" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="11,10,0,0" TextWrapping="Wrap" Text="Version" VerticalAlignment="Top"/>
+                            <TextBlock x:ConnectionId='23' x:Name="Version_Info" HorizontalAlignment="Left" Margin="19,40,0,0" TextWrapping="Wrap" Text="xx.xx.xx" VerticalAlignment="Top" Foreground="#FF8D8D8D"/>
+                            <Button x:ConnectionId='24' Content="GitHub" HorizontalAlignment="Left" Margin="11,141,0,0" VerticalAlignment="Top" Width="100" Background="#19000000" BorderBrush="#4C7C7C7C" BorderThickness="1" Height="35"                         />
+                            <TextBlock HorizontalAlignment="Left" Margin="11,109,0,0" TextWrapping="Wrap" Text="Contribuer" VerticalAlignment="Top"/>
+                            <Button x:ConnectionId='25' Content="Notez l'application" HorizontalAlignment="Left" Margin="121,141,0,0" VerticalAlignment="Top" Width="161" Background="#19000000" BorderBrush="#4C7C7C7C" BorderThickness="1" Height="35"                         />
+                            <Rectangle Fill="#33D1D1D1" Height="208" Margin="0,211,0,0" Stroke="#7F838383" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="10,222,0,0" TextWrapping="Wrap" Text="Prolongez votre expérience" VerticalAlignment="Top"/>
+                            <Button x:ConnectionId='26' Content="&#xE896;" HorizontalAlignment="Left" Margin="166,257,0,0" VerticalAlignment="Top" Width="37" Background="#19000000" BorderBrush="#4C7C7C7C" BorderThickness="1" Height="35" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets"                         >
+                                <Button.RenderTransform>
+                                    <CompositeTransform ScaleX="0.75" ScaleY="0.75"/>
+                                </Button.RenderTransform>
+                            </Button>
+                            <TextBlock HorizontalAlignment="Left" Margin="90,265,0,0" TextWrapping="Wrap" Text="BLUESTART" VerticalAlignment="Top" FontSize="13.333" FontWeight="SemiBold"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="90,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Height="81" Foreground="Gray">
+                            	<Run Text="Le point de départ de toutes"/>
+                            	<Run Text=" "/>
+                            	<Run Text="vos recherches sur votre Windows Phone"/>
+                            	<LineBreak/>
+                            	<Run/>
+                            </TextBlock>
+                            <Button x:ConnectionId='27' Content="&#xE896;" HorizontalAlignment="Left" Margin="476,257,0,0" VerticalAlignment="Top" Width="37" Background="#19000000" BorderBrush="#4C7C7C7C" BorderThickness="1" Height="35" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets"                         >
+                                <Button.RenderTransform>
+                                    <CompositeTransform ScaleX="0.75" ScaleY="0.75"/>
+                                </Button.RenderTransform>
+                            </Button>
+                            <TextBlock HorizontalAlignment="Left" Margin="389,265,0,0" TextWrapping="Wrap" Text="BLUEFLAP 3.3" VerticalAlignment="Top" FontSize="13.333" FontWeight="SemiBold"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="389,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Height="81" Foreground="Gray">
+                            	<Run Text="Le navigateur qui "/>
+                            	<Run FontWeight="Bold" Text="vous"/>
+                            	<Run Text=" ressemble&#xD;&#xA;"/>
+                            	<LineBreak/>
+                            	<Run Text="(Windows XP-10)"/>
+                            </TextBlock>
+                            <Rectangle x:ConnectionId='28' x:Name="rectangle" Fill="#33D1D1D1" Height="44" Margin="0,440,0,0" Stroke="#7F838383" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="11,451,0,0" TextWrapping="Wrap" Text="Licence Open Source" VerticalAlignment="Top"/>
+                            <TextBlock x:ConnectionId='29' x:Name="textBlock6" HorizontalAlignment="Right" Margin="0,0,0,16" TextWrapping="Wrap" VerticalAlignment="Bottom" TextAlignment="Right" Width="206">
+                            	<Run Foreground="#FF727272" Text="Fait avec le      en France"/>
+                            </TextBlock>
+                            <TextBlock x:ConnectionId='30' x:Name="textBlock5" HorizontalAlignment="Right" Margin="0,0,68,3" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="29" Width="15" FontFamily="Segoe MDL2 Assets" Text="&#xE00B;" Foreground="#FFFF0080"/>
+                            <TextBox x:ConnectionId='31' x:Name="textBox" Margin="0,483,20,0" TextWrapping="Wrap" Text="GNU GENERAL PUBLIC LICENSE&#xD;&#xA;                       Version 2, June 1991&#xD;&#xA;&#xD;&#xA; Copyright (C) 1989, 1991 Free Software Foundation, Inc., &lt;http://fsf.org/&gt;&#xD;&#xA; 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA&#xD;&#xA; Everyone is permitted to copy and distribute verbatim copies&#xD;&#xA; of this license document, but changing it is not allowed.&#xD;&#xA;&#xD;&#xA;                            Preamble&#xD;&#xA;&#xD;&#xA;  The licenses for most software are designed to take away your&#xD;&#xA;freedom to share and change it.  By contrast, the GNU General Public&#xD;&#xA;License is intended to guarantee your freedom to share and change free&#xD;&#xA;software--to make sure the software is free for all its users.  This&#xD;&#xA;General Public License applies to most of the Free Software&#xD;&#xA;Foundation's software and to any other program whose authors commit to&#xD;&#xA;using it.  (Some other Free Software Foundation software is covered by&#xD;&#xA;the GNU Lesser General Public License instead.)  You can apply it to&#xD;&#xA;your programs, too.&#xD;&#xA;&#xD;&#xA;  When we speak of free software, we are referring to freedom, not&#xD;&#xA;price.  Our General Public Licenses are designed to make sure that you&#xD;&#xA;have the freedom to distribute copies of free software (and charge for&#xD;&#xA;this service if you wish), that you receive source code or can get it&#xD;&#xA;if you want it, that you can change the software or use pieces of it&#xD;&#xA;in new free programs; and that you know you can do these things.&#xD;&#xA;&#xD;&#xA;  To protect your rights, we need to make restrictions that forbid&#xD;&#xA;anyone to deny you these rights or to ask you to surrender the rights.&#xD;&#xA;These restrictions translate to certain responsibilities for you if you&#xD;&#xA;distribute copies of the software, or if you modify it.&#xD;&#xA;&#xD;&#xA;  For example, if you distribute copies of such a program, whether&#xD;&#xA;gratis or for a fee, you must give the recipients all the rights that&#xD;&#xA;you have.  You must make sure that they, too, receive or can get the&#xD;&#xA;source code.  And you must show them these terms so they know their&#xD;&#xA;rights.&#xD;&#xA;&#xD;&#xA;  We protect your rights with two steps: (1) copyright the software, and&#xD;&#xA;(2) offer you this license which gives you legal permission to copy,&#xD;&#xA;distribute and/or modify the software.&#xD;&#xA;&#xD;&#xA;  Also, for each author's protection and ours, we want to make certain&#xD;&#xA;that everyone understands that there is no warranty for this free&#xD;&#xA;software.  If the software is modified by someone else and passed on, we&#xD;&#xA;want its recipients to know that what they have is not the original, so&#xD;&#xA;that any problems introduced by others will not reflect on the original&#xD;&#xA;authors' reputations.&#xD;&#xA;&#xD;&#xA;  Finally, any free program is threatened constantly by software&#xD;&#xA;patents.  We wish to avoid the danger that redistributors of a free&#xD;&#xA;program will individually obtain patent licenses, in effect making the&#xD;&#xA;program proprietary.  To prevent this, we have made it clear that any&#xD;&#xA;patent must be licensed for everyone's free use or not licensed at all.&#xD;&#xA;&#xD;&#xA;  The precise terms and conditions for copying, distribution and&#xD;&#xA;modification follow.&#xD;&#xA;&#xD;&#xA;                    GNU GENERAL PUBLIC LICENSE&#xD;&#xA;   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION&#xD;&#xA;&#xD;&#xA;  0. This License applies to any program or other work which contains&#xD;&#xA;a notice placed by the copyright holder saying it may be distributed&#xD;&#xA;under the terms of this General Public License.  The &quot;Program&quot;, below,&#xD;&#xA;refers to any such program or work, and a &quot;work based on the Program&quot;&#xD;&#xA;means either the Program or any derivative work under copyright law:&#xD;&#xA;that is to say, a work containing the Program or a portion of it,&#xD;&#xA;either verbatim or with modifications and/or translated into another&#xD;&#xA;language.  (Hereinafter, translation is included without limitation in&#xD;&#xA;the term &quot;modification&quot;.)  Each licensee is addressed as &quot;you&quot;.&#xD;&#xA;&#xD;&#xA;Activities other than copying, distribution and modification are not&#xD;&#xA;covered by this License; they are outside its scope.  The act of&#xD;&#xA;running the Program is not restricted, and the output from the Program&#xD;&#xA;is covered only if its contents constitute a work based on the&#xD;&#xA;Program (independent of having been made by running the Program).&#xD;&#xA;Whether that is true depends on what the Program does.&#xD;&#xA;&#xD;&#xA;  1. You may copy and distribute verbatim copies of the Program's&#xD;&#xA;source code as you receive it, in any medium, provided that you&#xD;&#xA;conspicuously and appropriately publish on each copy an appropriate&#xD;&#xA;copyright notice and disclaimer of warranty; keep intact all the&#xD;&#xA;notices that refer to this License and to the absence of any warranty;&#xD;&#xA;and give any other recipients of the Program a copy of this License&#xD;&#xA;along with the Program.&#xD;&#xA;&#xD;&#xA;You may charge a fee for the physical act of transferring a copy, and&#xD;&#xA;you may at your option offer warranty protection in exchange for a fee.&#xD;&#xA;&#xD;&#xA;  2. You may modify your copy or copies of the Program or any portion&#xD;&#xA;of it, thus forming a work based on the Program, and copy and&#xD;&#xA;distribute such modifications or work under the terms of Section 1&#xD;&#xA;above, provided that you also meet all of these conditions:&#xD;&#xA;&#xD;&#xA;    a) You must cause the modified files to carry prominent notices&#xD;&#xA;    stating that you changed the files and the date of any change.&#xD;&#xA;&#xD;&#xA;    b) You must cause any work that you distribute or publish, that in&#xD;&#xA;    whole or in part contains or is derived from the Program or any&#xD;&#xA;    part thereof, to be licensed as a whole at no charge to all third&#xD;&#xA;    parties under the terms of this License.&#xD;&#xA;&#xD;&#xA;    c) If the modified program normally reads commands interactively&#xD;&#xA;    when run, you must cause it, when started running for such&#xD;&#xA;    interactive use in the most ordinary way, to print or display an&#xD;&#xA;    announcement including an appropriate copyright notice and a&#xD;&#xA;    notice that there is no warranty (or else, saying that you provide&#xD;&#xA;    a warranty) and that users may redistribute the program under&#xD;&#xA;    these conditions, and telling the user how to view a copy of this&#xD;&#xA;    License.  (Exception: if the Program itself is interactive but&#xD;&#xA;    does not normally print such an announcement, your work based on&#xD;&#xA;    the Program is not required to print an announcement.)&#xD;&#xA;&#xD;&#xA;These requirements apply to the modified work as a whole.  If&#xD;&#xA;identifiable sections of that work are not derived from the Program,&#xD;&#xA;and can be reasonably considered independent and separate works in&#xD;&#xA;themselves, then this License, and its terms, do not apply to those&#xD;&#xA;sections when you distribute them as separate works.  But when you&#xD;&#xA;distribute the same sections as part of a whole which is a work based&#xD;&#xA;on the Program, the distribution of the whole must be on the terms of&#xD;&#xA;this License, whose permissions for other licensees extend to the&#xD;&#xA;entire whole, and thus to each and every part regardless of who wrote it.&#xD;&#xA;&#xD;&#xA;Thus, it is not the intent of this section to claim rights or contest&#xD;&#xA;your rights to work written entirely by you; rather, the intent is to&#xD;&#xA;exercise the right to control the distribution of derivative or&#xD;&#xA;collective works based on the Program.&#xD;&#xA;&#xD;&#xA;In addition, mere aggregation of another work not based on the Program&#xD;&#xA;with the Program (or with a work based on the Program) on a volume of&#xD;&#xA;a storage or distribution medium does not bring the other work under&#xD;&#xA;the scope of this License.&#xD;&#xA;&#xD;&#xA;  3. You may copy and distribute the Program (or a work based on it,&#xD;&#xA;under Section 2) in object code or executable form under the terms of&#xD;&#xA;Sections 1 and 2 above provided that you also do one of the following:&#xD;&#xA;&#xD;&#xA;    a) Accompany it with the complete corresponding machine-readable&#xD;&#xA;    source code, which must be distributed under the terms of Sections&#xD;&#xA;    1 and 2 above on a medium customarily used for software interchange; or,&#xD;&#xA;&#xD;&#xA;    b) Accompany it with a written offer, valid for at least three&#xD;&#xA;    years, to give any third party, for a charge no more than your&#xD;&#xA;    cost of physically performing source distribution, a complete&#xD;&#xA;    machine-readable copy of the corresponding source code, to be&#xD;&#xA;    distributed under the terms of Sections 1 and 2 above on a medium&#xD;&#xA;    customarily used for software interchange; or,&#xD;&#xA;&#xD;&#xA;    c) Accompany it with the information you received as to the offer&#xD;&#xA;    to distribute corresponding source code.  (This alternative is&#xD;&#xA;    allowed only for noncommercial distribution and only if you&#xD;&#xA;    received the program in object code or executable form with such&#xD;&#xA;    an offer, in accord with Subsection b above.)&#xD;&#xA;&#xD;&#xA;The source code for a work means the preferred form of the work for&#xD;&#xA;making modifications to it.  For an executable work, complete source&#xD;&#xA;code means all the source code for all modules it contains, plus any&#xD;&#xA;associated interface definition files, plus the scripts used to&#xD;&#xA;control compilation and installation of the executable.  However, as a&#xD;&#xA;special exception, the source code distributed need not include&#xD;&#xA;anything that is normally distributed (in either source or binary&#xD;&#xA;form) with the major components (compiler, kernel, and so on) of the&#xD;&#xA;operating system on which the executable runs, unless that component&#xD;&#xA;itself accompanies the executable.&#xD;&#xA;&#xD;&#xA;If distribution of executable or object code is made by offering&#xD;&#xA;access to copy from a designated place, then offering equivalent&#xD;&#xA;access to copy the source code from the same place counts as&#xD;&#xA;distribution of the source code, even though third parties are not&#xD;&#xA;compelled to copy the source along with the object code.&#xD;&#xA;&#xD;&#xA;  4. You may not copy, modify, sublicense, or distribute the Program&#xD;&#xA;except as expressly provided under this License.  Any attempt&#xD;&#xA;otherwise to copy, modify, sublicense or distribute the Program is&#xD;&#xA;void, and will automatically terminate your rights under this License.&#xD;&#xA;However, parties who have received copies, or rights, from you under&#xD;&#xA;this License will not have their licenses terminated so long as such&#xD;&#xA;parties remain in full compliance.&#xD;&#xA;&#xD;&#xA;  5. You are not required to accept this License, since you have not&#xD;&#xA;signed it.  However, nothing else grants you permission to modify or&#xD;&#xA;distribute the Program or its derivative works.  These actions are&#xD;&#xA;prohibited by law if you do not accept this License.  Therefore, by&#xD;&#xA;modifying or distributing the Program (or any work based on the&#xD;&#xA;Program), you indicate your acceptance of this License to do so, and&#xD;&#xA;all its terms and conditions for copying, distributing or modifying&#xD;&#xA;the Program or works based on it.&#xD;&#xA;&#xD;&#xA;  6. Each time you redistribute the Program (or any work based on the&#xD;&#xA;Program), the recipient automatically receives a license from the&#xD;&#xA;original licensor to copy, distribute or modify the Program subject to&#xD;&#xA;these terms and conditions.  You may not impose any further&#xD;&#xA;restrictions on the recipients' exercise of the rights granted herein.&#xD;&#xA;You are not responsible for enforcing compliance by third parties to&#xD;&#xA;this License.&#xD;&#xA;&#xD;&#xA;  7. If, as a consequence of a court judgment or allegation of patent&#xD;&#xA;infringement or for any other reason (not limited to patent issues),&#xD;&#xA;conditions are imposed on you (whether by court order, agreement or&#xD;&#xA;otherwise) that contradict the conditions of this License, they do not&#xD;&#xA;excuse you from the conditions of this License.  If you cannot&#xD;&#xA;distribute so as to satisfy simultaneously your obligations under this&#xD;&#xA;License and any other pertinent obligations, then as a consequence you&#xD;&#xA;may not distribute the Program at all.  For example, if a patent&#xD;&#xA;license would not permit royalty-free redistribution of the Program by&#xD;&#xA;all those who receive copies directly or indirectly through you, then&#xD;&#xA;the only way you could satisfy both it and this License would be to&#xD;&#xA;refrain entirely from distribution of the Program.&#xD;&#xA;&#xD;&#xA;If any portion of this section is held invalid or unenforceable under&#xD;&#xA;any particular circumstance, the balance of the section is intended to&#xD;&#xA;apply and the section as a whole is intended to apply in other&#xD;&#xA;circumstances.&#xD;&#xA;&#xD;&#xA;It is not the purpose of this section to induce you to infringe any&#xD;&#xA;patents or other property right claims or to contest validity of any&#xD;&#xA;such claims; this section has the sole purpose of protecting the&#xD;&#xA;integrity of the free software distribution system, which is&#xD;&#xA;implemented by public license practices.  Many people have made&#xD;&#xA;generous contributions to the wide range of software distributed&#xD;&#xA;through that system in reliance on consistent application of that&#xD;&#xA;system; it is up to the author/donor to decide if he or she is willing&#xD;&#xA;to distribute software through any other system and a licensee cannot&#xD;&#xA;impose that choice.&#xD;&#xA;&#xD;&#xA;This section is intended to make thoroughly clear what is believed to&#xD;&#xA;be a consequence of the rest of this License.&#xD;&#xA;&#xD;&#xA;  8. If the distribution and/or use of the Program is restricted in&#xD;&#xA;certain countries either by patents or by copyrighted interfaces, the&#xD;&#xA;original copyright holder who places the Program under this License&#xD;&#xA;may add an explicit geographical distribution limitation excluding&#xD;&#xA;those countries, so that distribution is permitted only in or among&#xD;&#xA;countries not thus excluded.  In such case, this License incorporates&#xD;&#xA;the limitation as if written in the body of this License.&#xD;&#xA;&#xD;&#xA;  9. The Free Software Foundation may publish revised and/or new versions&#xD;&#xA;of the General Public License from time to time.  Such new versions will&#xD;&#xA;be similar in spirit to the present version, but may differ in detail to&#xD;&#xA;address new problems or concerns.&#xD;&#xA;&#xD;&#xA;Each version is given a distinguishing version number.  If the Program&#xD;&#xA;specifies a version number of this License which applies to it and &quot;any&#xD;&#xA;later version&quot;, you have the option of following the terms and conditions&#xD;&#xA;either of that version or of any later version published by the Free&#xD;&#xA;Software Foundation.  If the Program does not specify a version number of&#xD;&#xA;this License, you may choose any version ever published by the Free Software&#xD;&#xA;Foundation.&#xD;&#xA;&#xD;&#xA;  10. If you wish to incorporate parts of the Program into other free&#xD;&#xA;programs whose distribution conditions are different, write to the author&#xD;&#xA;to ask for permission.  For software which is copyrighted by the Free&#xD;&#xA;Software Foundation, write to the Free Software Foundation; we sometimes&#xD;&#xA;make exceptions for this.  Our decision will be guided by the two goals&#xD;&#xA;of preserving the free status of all derivatives of our free software and&#xD;&#xA;of promoting the sharing and reuse of software generally.&#xD;&#xA;&#xD;&#xA;                            NO WARRANTY&#xD;&#xA;&#xD;&#xA;  11. BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY&#xD;&#xA;FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW.  EXCEPT WHEN&#xD;&#xA;OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES&#xD;&#xA;PROVIDE THE PROGRAM &quot;AS IS&quot; WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED&#xD;&#xA;OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF&#xD;&#xA;MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  THE ENTIRE RISK AS&#xD;&#xA;TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU.  SHOULD THE&#xD;&#xA;PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING,&#xD;&#xA;REPAIR OR CORRECTION.&#xD;&#xA;&#xD;&#xA;  12. IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING&#xD;&#xA;WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR&#xD;&#xA;REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES,&#xD;&#xA;INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING&#xD;&#xA;OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED&#xD;&#xA;TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY&#xD;&#xA;YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER&#xD;&#xA;PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE&#xD;&#xA;POSSIBILITY OF SUCH DAMAGES.&#xD;&#xA;&#xD;&#xA;                     END OF TERMS AND CONDITIONS&#xD;&#xA;&#xD;&#xA;            How to Apply These Terms to Your New Programs&#xD;&#xA;&#xD;&#xA;  If you develop a new program, and you want it to be of the greatest&#xD;&#xA;possible use to the public, the best way to achieve this is to make it&#xD;&#xA;free software which everyone can redistribute and change under these terms.&#xD;&#xA;&#xD;&#xA;  To do so, attach the following notices to the program.  It is safest&#xD;&#xA;to attach them to the start of each source file to most effectively&#xD;&#xA;convey the exclusion of warranty; and each file should have at least&#xD;&#xA;the &quot;copyright&quot; line and a pointer to where the full notice is found.&#xD;&#xA;&#xD;&#xA;    {description}&#xD;&#xA;    Copyright (C) {year}  {fullname}&#xD;&#xA;&#xD;&#xA;    This program is free software; you can redistribute it and/or modify&#xD;&#xA;    it under the terms of the GNU General Public License as published by&#xD;&#xA;    the Free Software Foundation; either version 2 of the License, or&#xD;&#xA;    (at your option) any later version.&#xD;&#xA;&#xD;&#xA;    This program is distributed in the hope that it will be useful,&#xD;&#xA;    but WITHOUT ANY WARRANTY; without even the implied warranty of&#xD;&#xA;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xD;&#xA;    GNU General Public License for more details.&#xD;&#xA;&#xD;&#xA;    You should have received a copy of the GNU General Public License along&#xD;&#xA;    with this program; if not, write to the Free Software Foundation, Inc.,&#xD;&#xA;    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.&#xD;&#xA;&#xD;&#xA;Also add information on how to contact you by electronic and paper mail.&#xD;&#xA;&#xD;&#xA;If the program is interactive, make it output a short notice like this&#xD;&#xA;when it starts in an interactive mode:&#xD;&#xA;&#xD;&#xA;    Gnomovision version 69, Copyright (C) year name of author&#xD;&#xA;    Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show w'.&#xD;&#xA;    This is free software, and you are welcome to redistribute it&#xD;&#xA;    under certain conditions; type `show c' for details.&#xD;&#xA;&#xD;&#xA;The hypothetical commands `show w' and `show c' should show the appropriate&#xD;&#xA;parts of the General Public License.  Of course, the commands you use may&#xD;&#xA;be called something other than `show w' and `show c'; they could even be&#xD;&#xA;mouse-clicks or menu items--whatever suits your program.&#xD;&#xA;&#xD;&#xA;You should also get your employer (if you work as a programmer) or your&#xD;&#xA;school, if any, to sign a &quot;copyright disclaimer&quot; for the program, if&#xD;&#xA;necessary.  Here is a sample; alter the names:&#xD;&#xA;&#xD;&#xA;  Yoyodyne, Inc., hereby disclaims all copyright interest in the program&#xD;&#xA;  `Gnomovision' (which makes passes at compilers) written by James Hacker.&#xD;&#xA;&#xD;&#xA;  {signature of Ty Coon}, 1 April 1989&#xD;&#xA;  Ty Coon, President of Vice&#xD;&#xA;&#xD;&#xA;This General Public License does not permit incorporating your program into&#xD;&#xA;proprietary programs.  If your program is a subroutine library, you may&#xD;&#xA;consider it more useful to permit linking proprietary applications with the&#xD;&#xA;library.  If this is what you want to do, use the GNU Lesser General&#xD;&#xA;Public License instead of this License." VerticalAlignment="Top" Height="461" BorderThickness="1" Background="#33FFFFFF" IsReadOnly="True" TextAlignment="Center" Visibility="Collapsed"/>
+                            <Button x:ConnectionId='32' x:Name="ShowHideLicense" Content="&#xE099;" HorizontalAlignment="Left" Margin="164,446,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" BorderThickness="1" Width="34" FontFamily="Segoe MDL2 Assets" Height="32"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="302,265,0,0" TextWrapping="Wrap" Text="&#xEC4E;" VerticalAlignment="Top" FontSize="64" FontFamily="Segoe MDL2 Assets" Opacity="0.8"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="11,265,0,0" TextWrapping="Wrap" Text="&#xE8EA;" VerticalAlignment="Top" FontSize="64" FontFamily="Segoe MDL2 Assets" Opacity="0.8"/>
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+            </PivotItem>
+        </Pivot>
+        <Grid x:ConnectionId='15' x:Name="Verrouillage_Popup" Margin="0" Background="#B2000000" Visibility="Collapsed" RequestedTheme="Light">
+            <Grid x:ConnectionId='16' x:Name="grid1" Height="323" Margin="0,0,0,40" VerticalAlignment="Center" Width="431" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <CompositeTransform/>
+                </Grid.RenderTransform>
+                <Rectangle Fill="#EAFFFFFF" HorizontalAlignment="Center" Height="323" Margin="0" VerticalAlignment="Center" Width="431" RadiusX="5" RadiusY="5"/>
+                <Rectangle Fill="#B2FFFFFF" HorizontalAlignment="Left" Height="83" Margin="0,60,0,0" VerticalAlignment="Top" Width="431"/>
+                <Rectangle Fill="#B2FFFFFF" HorizontalAlignment="Left" Height="120" Margin="0,145,0,0" VerticalAlignment="Top" Width="431"/>
+                <Button x:ConnectionId='17' Content="Enregistrer" HorizontalAlignment="Left" Margin="322,277,0,0" VerticalAlignment="Top"                          RequestedTheme="Light" Foreground="White" Background="{ThemeResource ContentDialogBorderThemeBrush}" Height="35"/>
+                <PasswordBox x:ConnectionId='18' x:Name="NewPasswordBox" HorizontalAlignment="Left" Margin="11,188,0,0" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Nouveau mot de passe" FontSize="16" Width="410"/>
+                <Button x:ConnectionId='19' Content="Annuler" HorizontalAlignment="Left" Margin="241,277,0,0" VerticalAlignment="Top" RequestedTheme="Light" Background="#19000000" Height="35"                         />
+                <TextBlock HorizontalAlignment="Left" Margin="21,20,0,0" TextWrapping="Wrap" Text="PARAMÈTRES DU VERROUILLAGE " VerticalAlignment="Top" FontSize="14.667" FontWeight="Bold" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
+                <ToggleSwitch x:ConnectionId='20' x:Name="VerrouillageSwitch" Header="Verrouillage" HorizontalAlignment="Left" Margin="11,73,0,0" VerticalAlignment="Top" RequestedTheme="Light"/>
+                <TextBlock x:ConnectionId='21' x:Name="TextBlockNewPassword" HorizontalAlignment="Left" Margin="11,160,0,0" TextWrapping="Wrap" Text="Modifier le mot de passe" VerticalAlignment="Top"/>
+                <Button x:ConnectionId='22' Content="Supprimer le mot de passe" HorizontalAlignment="Left" Margin="220,220,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FFC30000" Width="201" Height="31"                          BorderThickness="0"/>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Page>
+
