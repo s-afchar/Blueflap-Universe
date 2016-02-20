@@ -96,8 +96,8 @@ Namespace Global.Blueflap.Blueflap_XamlTypeInfo
         Private _xamlTypeCacheByType As New Global.System.Collections.Generic.Dictionary(Of Global.System.Type, Global.Windows.UI.Xaml.Markup.IXamlType)()
         Private _xamlMembers As New Global.System.Collections.Generic.Dictionary(Of String, Global.Windows.UI.Xaml.Markup.IXamlMember)()
 
-        Private _typeNameTable(7) As String
-        Private _typeTable(7) As Global.System.Type
+        Private _typeNameTable(8) As String
+        Private _typeTable(8) As Global.System.Type
 
         Private Sub InitTypeTables()
             _typeNameTable(0) = "Blueflap.Bluestart"
@@ -105,17 +105,19 @@ Namespace Global.Blueflap.Blueflap_XamlTypeInfo
             _typeNameTable(2) = "Windows.UI.Xaml.Controls.UserControl"
             _typeNameTable(3) = "Blueflap.FirstBootScreen"
             _typeNameTable(4) = "Blueflap.MainPage"
-            _typeNameTable(5) = "Blueflap.Parametres"
-            _typeNameTable(6) = "Blueflap.SearchFight"
-            _typeNameTable(7) = "Blueflap.Verrouillage"
+            _typeNameTable(5) = "Blueflap.MiniPlayer"
+            _typeNameTable(6) = "Blueflap.Parametres"
+            _typeNameTable(7) = "Blueflap.SearchFight"
+            _typeNameTable(8) = "Blueflap.Verrouillage"
             _typeTable(0) = GetType(Global.Blueflap.Bluestart)
             _typeTable(1) = GetType(Global.Windows.UI.Xaml.Controls.Page)
             _typeTable(2) = GetType(Global.Windows.UI.Xaml.Controls.UserControl)
             _typeTable(3) = GetType(Global.Blueflap.FirstBootScreen)
             _typeTable(4) = GetType(Global.Blueflap.MainPage)
-            _typeTable(5) = GetType(Global.Blueflap.Parametres)
-            _typeTable(6) = GetType(Global.Blueflap.SearchFight)
-            _typeTable(7) = GetType(Global.Blueflap.Verrouillage)
+            _typeTable(5) = GetType(Global.Blueflap.MiniPlayer)
+            _typeTable(6) = GetType(Global.Blueflap.Parametres)
+            _typeTable(7) = GetType(Global.Blueflap.SearchFight)
+            _typeTable(8) = GetType(Global.Blueflap.Verrouillage)
         End Sub
 
         Private Function LookupTypeIndexByName(ByVal typeName As String) As Integer
@@ -154,15 +156,19 @@ Namespace Global.Blueflap.Blueflap_XamlTypeInfo
             Return New Global.Blueflap.MainPage()
         End Function
 
-        Private Function Activate_5_Parametres() As Global.System.Object
+        Private Function Activate_5_MiniPlayer() As Global.System.Object
+            Return New Global.Blueflap.MiniPlayer()
+        End Function
+
+        Private Function Activate_6_Parametres() As Global.System.Object
             Return New Global.Blueflap.Parametres()
         End Function
 
-        Private Function Activate_6_SearchFight() As Global.System.Object
+        Private Function Activate_7_SearchFight() As Global.System.Object
             Return New Global.Blueflap.SearchFight()
         End Function
 
-        Private Function Activate_7_Verrouillage() As Global.System.Object
+        Private Function Activate_8_Verrouillage() As Global.System.Object
             Return New Global.Blueflap.Verrouillage()
         End Function
 
@@ -198,21 +204,27 @@ Namespace Global.Blueflap.Blueflap_XamlTypeInfo
                 userType.SetIsLocalType()
                 xamlType = userType
 
-            Case 5     ' Blueflap.Parametres
+            Case 5     ' Blueflap.MiniPlayer
                 userType = New Global.Blueflap.Blueflap_XamlTypeInfo.XamlUserType(Me, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"))
-                userType.Activator = AddressOf Activate_5_Parametres
+                userType.Activator = AddressOf Activate_5_MiniPlayer
                 userType.SetIsLocalType()
                 xamlType = userType
 
-            Case 6     ' Blueflap.SearchFight
+            Case 6     ' Blueflap.Parametres
                 userType = New Global.Blueflap.Blueflap_XamlTypeInfo.XamlUserType(Me, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"))
-                userType.Activator = AddressOf Activate_6_SearchFight
+                userType.Activator = AddressOf Activate_6_Parametres
                 userType.SetIsLocalType()
                 xamlType = userType
 
-            Case 7     ' Blueflap.Verrouillage
+            Case 7     ' Blueflap.SearchFight
                 userType = New Global.Blueflap.Blueflap_XamlTypeInfo.XamlUserType(Me, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"))
-                userType.Activator = AddressOf Activate_7_Verrouillage
+                userType.Activator = AddressOf Activate_7_SearchFight
+                userType.SetIsLocalType()
+                xamlType = userType
+
+            Case 8     ' Blueflap.Verrouillage
+                userType = New Global.Blueflap.Blueflap_XamlTypeInfo.XamlUserType(Me, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"))
+                userType.Activator = AddressOf Activate_8_Verrouillage
                 userType.SetIsLocalType()
                 xamlType = userType
 

@@ -491,7 +491,7 @@
                 <ComboBoxItem Content="Qwant (Web)"/>
                 <ComboBoxItem Content="Ask"/>
                 <ComboBoxItem Content="Youtube"/>
-                <ComboBoxItem Content="Dreamvids"/>
+                <ComboBoxItem Content="Vimeo"/>
                 <ComboBoxItem Content="Dailymotion"/>
                 <ComboBoxItem Content="Wikipedia"/>
                 <ComboBoxItem Content="Twitter"/>
@@ -508,7 +508,7 @@
                 <ComboBoxItem Content="Qwant (Web)"/>
                 <ComboBoxItem Content="Ask"/>
                 <ComboBoxItem Content="Youtube"/>
-                <ComboBoxItem Content="Dreamvids"/>
+                <ComboBoxItem Content="Vimeo"/>
                 <ComboBoxItem Content="Dailymotion"/>
                 <ComboBoxItem Content="Wikipedia"/>
                 <ComboBoxItem Content="Twitter"/>

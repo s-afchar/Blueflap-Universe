@@ -364,10 +364,10 @@ Public NotInheritable Class Parametres
             localSettings.Values("A1") = "http://www.youtube.com/results?search_query="
             localSettings.Values("A2") = ""
         ElseIf Settings_SearchEngine.SelectedIndex = 8 Then
-            localSettings.Values("A1") = "http://www.dailymotion.com/fr/relevance/universal/search/"
+            localSettings.Values("A1") = "http://vimeo.com/search?q="
             localSettings.Values("A2") = ""
         ElseIf Settings_SearchEngine.SelectedIndex = 9 Then
-            localSettings.Values("A1") = "http://dreamvids.fr/search/&q"
+            localSettings.Values("A1") = "http://www.dailymotion.com/fr/relevance/universal/search/"
             localSettings.Values("A2") = ""
         ElseIf Settings_SearchEngine.SelectedIndex = 10 Then
             localSettings.Values("A1") = "http://fr.wikipedia.org/w/index.php?search="

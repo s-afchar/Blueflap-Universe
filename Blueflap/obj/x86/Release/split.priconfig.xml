@@ -5,7 +5,7 @@
     <autoResourcePackage qualifier="Scale" />
     <autoResourcePackage qualifier="DXFeatureLevel" />
   </packaging>
-  <index root="\" startIndexAt="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\resources.pri">
+  <index root="\" startIndexAt="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\resources.pri">
     <default>
       <qualifier name="Language" value="fr-FR" />
       <qualifier name="Contrast" value="standard" />

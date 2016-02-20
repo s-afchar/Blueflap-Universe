@@ -275,49 +275,49 @@
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:ConnectionId='8' x:Name="MiniMode">
-            <DoubleAnimation Duration="0" To="0.75" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="grid" d:IsOptimized="True"/>
-            <DoubleAnimation Duration="0" To="0.75" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="grid" d:IsOptimized="True"/>
-            <DoubleAnimation Duration="0" To="-114" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="grid" d:IsOptimized="True"/>
-            <DoubleAnimation Duration="0" To="0.8" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="image" d:IsOptimized="True"/>
-            <DoubleAnimation Duration="0" To="0.8" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="image" d:IsOptimized="True"/>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectangle2">
+        <Storyboard x:ConnectionId='8' x:Name="OpenMemo">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid3">
                 <DiscreteObjectKeyFrame KeyTime="0">
                     <DiscreteObjectKeyFrame.Value>
-                        <Visibility>Collapsed</Visibility>
+                        <Visibility>Visible</Visibility>
                     </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectangle3">
-                <DiscreteObjectKeyFrame KeyTime="0">
-                    <DiscreteObjectKeyFrame.Value>
-                        <Visibility>Collapsed</Visibility>
-                    </DiscreteObjectKeyFrame.Value>
-                </DiscreteObjectKeyFrame>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image1">
-                <DiscreteObjectKeyFrame KeyTime="0">
-                    <DiscreteObjectKeyFrame.Value>
-                        <Visibility>Collapsed</Visibility>
-                    </DiscreteObjectKeyFrame.Value>
-                </DiscreteObjectKeyFrame>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Titlebar">
-                <DiscreteObjectKeyFrame KeyTime="0">
-                    <DiscreteObjectKeyFrame.Value>
-                        <Visibility>Collapsed</Visibility>
-                    </DiscreteObjectKeyFrame.Value>
-                </DiscreteObjectKeyFrame>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="rectangle1">
-                <DiscreteObjectKeyFrame KeyTime="0">
-                    <DiscreteObjectKeyFrame.Value>
-                        <Thickness>0</Thickness>
-                    </DiscreteObjectKeyFrame.Value>
-                </DiscreteObjectKeyFrame>
-            </ObjectAnimationUsingKeyFrames>
-            <DoubleAnimation Duration="0" To="-74" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="image" d:IsOptimized="True"/>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="rectangle4">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="rectangle4">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="rectangle4">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="grid3">
+                <EasingDoubleKeyFrame KeyTime="0" Value="47"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="47"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="294">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+
     </Page.Resources>
 
     <Grid Background="#FF595959">
@@ -326,7 +326,7 @@
             <Grid.RenderTransform>
                 <CompositeTransform ScaleY="0.9" ScaleX="0.9"/>
             </Grid.RenderTransform>
-            <TextBlock x:ConnectionId='39' x:Name="textBlock2" HorizontalAlignment="Left" Margin="13,21,12,4" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" FontSize="21.333" RenderTransformOrigin="0.5,0.5">
+            <TextBlock x:ConnectionId='42' x:Name="textBlock2" HorizontalAlignment="Left" Margin="13,21,12,4" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" FontSize="21.333" RenderTransformOrigin="0.5,0.5">
                 <TextBlock.RenderTransform>
                     <CompositeTransform/>
                 </TextBlock.RenderTransform>
@@ -334,7 +334,7 @@
         			<Run Text="&#xE753;"/>
         		</Span>
             </TextBlock>
-            <TextBlock x:ConnectionId='40' x:Name="textBlock1" HorizontalAlignment="Left" Margin="16" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" FontSize="14.667" Text="&#xE110;" FontFamily="Segoe MDL2 Assets" RenderTransformOrigin="0.5,0.5">
+            <TextBlock x:ConnectionId='43' x:Name="textBlock1" HorizontalAlignment="Left" Margin="16" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" FontSize="14.667" Text="&#xE110;" FontFamily="Segoe MDL2 Assets" RenderTransformOrigin="0.5,0.5">
                 <TextBlock.RenderTransform>
                     <CompositeTransform Rotation="180"/>
                 </TextBlock.RenderTransform>
@@ -378,95 +378,103 @@
         <Rectangle x:ConnectionId='14' x:Name="rectangle3" Fill="#661B1B1B" Height="32" Stroke="Black" VerticalAlignment="Top" StrokeThickness="0"/>
         <Image x:ConnectionId='15' x:Name="image1" HorizontalAlignment="Left" Height="26" Margin="8,3,0,0" VerticalAlignment="Top" Width="30" Source="Assets/Square150x150Logo.png"/>
         <TextBlock x:ConnectionId='16' x:Name="Titlebar" HorizontalAlignment="Left" Margin="38,6,0,0" TextWrapping="Wrap" Text="Date" VerticalAlignment="Top" Foreground="White" FontSize="13.333" FontWeight="SemiLight"/>
-        <Grid x:ConnectionId='17' x:Name="grid1" HorizontalAlignment="Left" Margin="0,32,0,0" Width="294" Height="256" VerticalAlignment="Top">
-            <Rectangle HorizontalAlignment="Left" Margin="48,0,0,0" Width="246" Fill="Black" Opacity="0.507"/>
-            <Rectangle x:ConnectionId='27' x:Name="rectangle" HorizontalAlignment="Left" Margin="0,33,0,0" Width="48" Fill="Black" Opacity="0.507" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+        <Grid x:ConnectionId='17' x:Name="grid3" HorizontalAlignment="Left" Margin="0,211,0,0" Width="294" Height="256" VerticalAlignment="Top" Visibility="Collapsed">
+            <Rectangle HorizontalAlignment="Left" Margin="48,0,0,0" Width="246" Fill="#56000000" Opacity="0.507"/>
+            <Rectangle x:ConnectionId='40' x:Name="rectangle4" HorizontalAlignment="Left" Margin="0,33,0,0" Width="48" Fill="Black" Opacity="0.507" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
                 <Rectangle.RenderTransform>
                     <CompositeTransform/>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <TextBox x:ConnectionId='28' x:Name="OnlineImagePath" HorizontalAlignment="Left" Margin="71,205,0,0" Text="" VerticalAlignment="Top" Width="203" RequestedTheme="Dark" BorderThickness="1" Height="22" PlaceholderText="URL de l'image de fond" TextAlignment="Left" TextWrapping="NoWrap" Visibility="Collapsed"/>
+            <TextBox x:ConnectionId='41' x:Name="memotext" HorizontalAlignment="Left" Margin="48,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RequestedTheme="Dark" BorderThickness="0,1" Height="256" Width="246" PlaceholderText="Memo" AcceptsReturn="True"/>
+        </Grid>
+        <Grid x:ConnectionId='18' x:Name="grid1" HorizontalAlignment="Left" Margin="0,32,0,0" Width="294" Height="256" VerticalAlignment="Top">
+            <Rectangle HorizontalAlignment="Left" Margin="48,0,0,0" Width="246" Fill="Black" Opacity="0.507"/>
+            <Rectangle x:ConnectionId='28' x:Name="rectangle" HorizontalAlignment="Left" Margin="0,33,0,0" Width="48" Fill="Black" Opacity="0.507" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <CompositeTransform/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <TextBox x:ConnectionId='29' x:Name="OnlineImagePath" HorizontalAlignment="Left" Margin="71,205,0,0" Text="" VerticalAlignment="Top" Width="203" RequestedTheme="Dark" BorderThickness="1" Height="22" PlaceholderText="URL de l'image de fond" TextAlignment="Left" TextWrapping="NoWrap" Visibility="Collapsed"/>
             <TextBlock HorizontalAlignment="Left" Margin="149,170,0,0" TextWrapping="Wrap" Text="&#xE753;" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe MDL2 Assets"/>
-            <Button x:ConnectionId='29' Content="" HorizontalAlignment="Left" Margin="71,49,0,0" VerticalAlignment="Top" Height="47" Width="47"                       >
+            <Button x:ConnectionId='30' Content="" HorizontalAlignment="Left" Margin="71,49,0,0" VerticalAlignment="Top" Height="47" Width="47"                       >
                 <Button.Background>
                     <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Degrade.png"/>
                 </Button.Background>
             </Button>
-            <Button x:ConnectionId='30' Content="" HorizontalAlignment="Left" Margin="123,49,0,0" VerticalAlignment="Top" Height="47" Width="47"                       >
+            <Button x:ConnectionId='31' Content="" HorizontalAlignment="Left" Margin="123,49,0,0" VerticalAlignment="Top" Height="47" Width="47"                       >
                 <Button.Background>
                     <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Degrade2.png"/>
                 </Button.Background>
             </Button>
-            <Button x:ConnectionId='31' Content="" HorizontalAlignment="Left" Margin="175,49,0,0" VerticalAlignment="Top" Height="47" Width="47"                       >
+            <Button x:ConnectionId='32' Content="" HorizontalAlignment="Left" Margin="175,49,0,0" VerticalAlignment="Top" Height="47" Width="47"                       >
                 <Button.Background>
                     <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Ciel.JPG"/>
                 </Button.Background>
             </Button>
-            <Button x:ConnectionId='32' Content="" HorizontalAlignment="Left" Margin="227,49,0,0" VerticalAlignment="Top" Height="47" Width="47"                       >
+            <Button x:ConnectionId='33' Content="" HorizontalAlignment="Left" Margin="227,49,0,0" VerticalAlignment="Top" Height="47" Width="47"                       >
                 <Button.Background>
                     <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Fleurs.jpg"/>
                 </Button.Background>
             </Button>
-            <Button x:ConnectionId='33' Content="" HorizontalAlignment="Left" Margin="71,101,0,0" VerticalAlignment="Top" Height="47" Width="47"                       >
+            <Button x:ConnectionId='34' Content="" HorizontalAlignment="Left" Margin="71,101,0,0" VerticalAlignment="Top" Height="47" Width="47"                       >
                 <Button.Background>
                     <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Montagne.jpg"/>
                 </Button.Background>
             </Button>
-            <Button x:ConnectionId='34' Content="" HorizontalAlignment="Left" Margin="123,101,0,0" VerticalAlignment="Top" Height="47" Width="47"                       >
+            <Button x:ConnectionId='35' Content="" HorizontalAlignment="Left" Margin="123,101,0,0" VerticalAlignment="Top" Height="47" Width="47"                       >
                 <Button.Background>
                     <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Neige.jpg"/>
                 </Button.Background>
             </Button>
-            <Button x:ConnectionId='35' Content="" HorizontalAlignment="Left" Margin="175,101,0,0" VerticalAlignment="Top" Height="47" Width="47"                       >
+            <Button x:ConnectionId='36' Content="" HorizontalAlignment="Left" Margin="175,101,0,0" VerticalAlignment="Top" Height="47" Width="47"                       >
                 <Button.Background>
                     <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Plage.jpg"/>
                 </Button.Background>
             </Button>
-            <Button x:ConnectionId='36' Content="" HorizontalAlignment="Left" Margin="227,101,0,0" VerticalAlignment="Top" Height="47" Width="47"                       >
+            <Button x:ConnectionId='37' Content="" HorizontalAlignment="Left" Margin="227,101,0,0" VerticalAlignment="Top" Height="47" Width="47"                       >
                 <Button.Background>
                     <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Soleil.JPG"/>
                 </Button.Background>
             </Button>
-            <Button x:ConnectionId='37' Content="" HorizontalAlignment="Left" Margin="71,153,0,0" VerticalAlignment="Top" Height="47" Width="47"                       >
+            <Button x:ConnectionId='38' Content="" HorizontalAlignment="Left" Margin="71,153,0,0" VerticalAlignment="Top" Height="47" Width="47"                       >
                 <Button.Background>
                     <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Cailloux.jpg"/>
                 </Button.Background>
             </Button>
-            <Button x:ConnectionId='38' Content="       Image en ligne" HorizontalAlignment="Left" Margin="123,153,0,0" VerticalAlignment="Top" Height="47" Width="151" Foreground="#DDFFFFFF" Background="#4C000000" BorderBrush="#64000000" BorderThickness="1" FontSize="12" RequestedTheme="Dark"                            />
+            <Button x:ConnectionId='39' Content="       Image en ligne" HorizontalAlignment="Left" Margin="123,153,0,0" VerticalAlignment="Top" Height="47" Width="151" Foreground="#DDFFFFFF" Background="#4C000000" BorderBrush="#64000000" BorderThickness="1" FontSize="12" RequestedTheme="Dark"                            />
             <TextBlock HorizontalAlignment="Left" Margin="71,23,0,0" TextWrapping="Wrap" Text="Image de fond" VerticalAlignment="Top" RequestedTheme="Dark" FontSize="12"/>
         </Grid>
-        <Grid x:ConnectionId='18' x:Name="grid" HorizontalAlignment="Center" Height="82" Margin="0,266,0,0" VerticalAlignment="Top" Width="450" Background="#B2FFFFFF" BorderBrush="#7F000000" BorderThickness="6" CornerRadius="38" RenderTransformOrigin="0.5,0.5">
+        <Grid x:ConnectionId='19' x:Name="grid" HorizontalAlignment="Center" Height="82" Margin="0,266,0,0" VerticalAlignment="Top" Width="450" Background="#B2FFFFFF" BorderBrush="#7F000000" BorderThickness="6" CornerRadius="38" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <CompositeTransform/>
             </Grid.RenderTransform>
-            <TextBlock x:ConnectionId='24' x:Name="textBlock" HorizontalAlignment="Left" Margin="34,14,0,-11" TextWrapping="Wrap" Text="Entrez votre recherche ici" VerticalAlignment="Top" FontSize="29.333" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" Opacity="0.3"/>
+            <TextBlock x:ConnectionId='25' x:Name="textBlock" HorizontalAlignment="Left" Margin="34,14,0,-11" TextWrapping="Wrap" Text="Entrez votre recherche ici" VerticalAlignment="Top" FontSize="29.333" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" Opacity="0.3"/>
 
-            <TextBox x:ConnectionId='25' x:Name="RechercheBox" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="" VerticalAlignment="Center" Height="49" Width="361" BorderThickness="0" FontSize="29.333" TextAlignment="Left" Margin="18,0,0,0" Background="#00000000"                                                           PreventKeyboardDisplayOnProgrammaticFocus="True" TextReadingOrder="UseFlowDirection"/>
+            <TextBox x:ConnectionId='26' x:Name="RechercheBox" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="" VerticalAlignment="Center" Height="49" Width="361" BorderThickness="0" FontSize="29.333" TextAlignment="Left" Margin="18,0,0,0" Background="#00000000"                                                           PreventKeyboardDisplayOnProgrammaticFocus="True" TextReadingOrder="UseFlowDirection"/>
             <TextBlock HorizontalAlignment="Left" Margin="393,26,0,0" TextWrapping="Wrap" Text="&#xE11A;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="21.333"/>
-            <Ellipse x:ConnectionId='26' x:Name="HoverRecherche" Fill="#00000000" HorizontalAlignment="Right" Height="55" Margin="0,0,6,0" VerticalAlignment="Center" Width="55"/>
+            <Ellipse x:ConnectionId='27' x:Name="HoverRecherche" Fill="#00000000" HorizontalAlignment="Right" Height="55" Margin="0,0,6,0" VerticalAlignment="Center" Width="55"/>
         </Grid>
-        <Button x:ConnectionId='19' Content="&#xE0D5; &#xE12B;" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" RequestedTheme="Dark" Height="32" FontFamily="Segoe MDL2 Assets"                       />
-        <Button x:ConnectionId='20' x:Name="Fight_Button" Content="&#xE923;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="0,156,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets" Width="47">
+        <Button x:ConnectionId='20' Content="&#xE0D5; &#xE12B;" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" RequestedTheme="Dark" Height="32" FontFamily="Segoe MDL2 Assets"                       />
+        <Button x:ConnectionId='21' x:Name="Fight_Button" Content="&#xE923;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="0,156,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets" Width="47">
             <Button.RenderTransform>
                 <CompositeTransform/>
             </Button.RenderTransform>
         </Button>
-        <Button x:ConnectionId='21' x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="0,200,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Width="47">
+        <Button x:ConnectionId='22' x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="0,200,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Width="47">
             <Button.RenderTransform>
                 <CompositeTransform/>
             </Button.RenderTransform>
         </Button>
-        <Button x:ConnectionId='22' x:Name="Memo_Button" Content="&#xE70B;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="0,244,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Width="47">
+        <Button x:ConnectionId='23' x:Name="Memo_Button" Content="&#xE70B;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="0,244,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Width="47">
             <Button.RenderTransform>
                 <CompositeTransform/>
             </Button.RenderTransform>
         </Button>
-        <Button x:ConnectionId='23' x:Name="Personnalisation_Button" Content="&#xE2B1;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="#FF00C5FF" Margin="0,65,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Width="47">
+        <Button x:ConnectionId='24' x:Name="Personnalisation_Button" Content="&#xE2B1;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="#FF00C5FF" Margin="0,65,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Width="47">
             <Button.RenderTransform>
                 <CompositeTransform/>
             </Button.RenderTransform>
         </Button>
-
     </Grid>
 </Page>
 

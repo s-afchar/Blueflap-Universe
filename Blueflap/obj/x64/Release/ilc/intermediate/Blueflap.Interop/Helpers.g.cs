@@ -790,6 +790,16 @@ namespace McgInterop
 		internal static int StdCall__int__(
 					global::System.IntPtr pfn, 
 					void* arg0, 
+					void* arg1, 
+					int arg2)
+		{
+			// This method is implemented elsewhere in the toolchain
+			return 0;
+		}
+
+		internal static int StdCall__int__(
+					global::System.IntPtr pfn, 
+					void* arg0, 
 					global::Windows.UI.Color arg1, 
 					void* arg2)
 		{
@@ -803,16 +813,6 @@ namespace McgInterop
 					global::System.Runtime.InteropServices.HSTRING arg1, 
 					void* arg2, 
 					void* arg3)
-		{
-			// This method is implemented elsewhere in the toolchain
-			return 0;
-		}
-
-		internal static int StdCall__int__(
-					global::System.IntPtr pfn, 
-					void* arg0, 
-					void* arg1, 
-					int arg2)
 		{
 			// This method is implemented elsewhere in the toolchain
 			return 0;
@@ -1281,77 +1281,77 @@ namespace McgInterop
 		public delegate void AddrOfTarget38(
 					global::System.__ComObject a0, 
 					object a1, 
-					global::Windows.UI.Xaml.Controls.NotifyEventArgs a2);
+					global::Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs a2);
 
 		public delegate void AddrOfTarget39(
 					global::System.__ComObject a0, 
 					object a1, 
-					global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventArgs a2);
+					global::Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs a2);
 
 		public delegate void AddrOfTarget40(
 					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.WebView a1, 
-					global::Windows.UI.Xaml.Controls.WebViewNavigationStartingEventArgs a2);
+					object a1, 
+					global::Windows.UI.Xaml.Controls.NotifyEventArgs a2);
 
 		public delegate void AddrOfTarget41(
 					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.WebView a1, 
-					global::Windows.UI.Xaml.Controls.WebViewContentLoadingEventArgs a2);
+					object a1, 
+					global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventArgs a2);
 
 		public delegate void AddrOfTarget42(
 					global::System.__ComObject a0, 
 					global::Windows.UI.Xaml.Controls.WebView a1, 
-					global::Windows.UI.Xaml.Controls.WebViewDOMContentLoadedEventArgs a2);
+					global::Windows.UI.Xaml.Controls.WebViewNavigationStartingEventArgs a2);
 
 		public delegate void AddrOfTarget43(
 					global::System.__ComObject a0, 
 					global::Windows.UI.Xaml.Controls.WebView a1, 
-					global::Windows.UI.Xaml.Controls.WebViewNavigationCompletedEventArgs a2);
+					global::Windows.UI.Xaml.Controls.WebViewContentLoadingEventArgs a2);
 
 		public delegate void AddrOfTarget44(
 					global::System.__ComObject a0, 
 					global::Windows.UI.Xaml.Controls.WebView a1, 
-					global::Windows.UI.Xaml.Controls.WebViewLongRunningScriptDetectedEventArgs a2);
+					global::Windows.UI.Xaml.Controls.WebViewDOMContentLoadedEventArgs a2);
 
 		public delegate void AddrOfTarget45(
 					global::System.__ComObject a0, 
 					global::Windows.UI.Xaml.Controls.WebView a1, 
-					object a2);
+					global::Windows.UI.Xaml.Controls.WebViewNavigationCompletedEventArgs a2);
 
 		public delegate void AddrOfTarget46(
 					global::System.__ComObject a0, 
 					global::Windows.UI.Xaml.Controls.WebView a1, 
-					global::Windows.UI.Xaml.Controls.WebViewUnviewableContentIdentifiedEventArgs a2);
+					global::Windows.UI.Xaml.Controls.WebViewLongRunningScriptDetectedEventArgs a2);
 
 		public delegate void AddrOfTarget47(
 					global::System.__ComObject a0, 
-					global::Windows.Foundation.IAsyncOperation<string> a1, 
-					global::Windows.Foundation.AsyncStatus a2);
+					global::Windows.UI.Xaml.Controls.WebView a1, 
+					object a2);
 
 		public delegate void AddrOfTarget48(
 					global::System.__ComObject a0, 
 					global::Windows.UI.Xaml.Controls.WebView a1, 
-					global::Windows.UI.Xaml.Controls.WebViewUnsupportedUriSchemeIdentifiedEventArgs a2);
+					global::Windows.UI.Xaml.Controls.WebViewUnviewableContentIdentifiedEventArgs a2);
 
 		public delegate void AddrOfTarget49(
 					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.WebView a1, 
-					global::Windows.UI.Xaml.Controls.WebViewNewWindowRequestedEventArgs a2);
+					global::Windows.Foundation.IAsyncOperation<string> a1, 
+					global::Windows.Foundation.AsyncStatus a2);
 
 		public delegate void AddrOfTarget50(
 					global::System.__ComObject a0, 
 					global::Windows.UI.Xaml.Controls.WebView a1, 
-					global::Windows.UI.Xaml.Controls.WebViewPermissionRequestedEventArgs a2);
+					global::Windows.UI.Xaml.Controls.WebViewUnsupportedUriSchemeIdentifiedEventArgs a2);
 
 		public delegate void AddrOfTarget51(
 					global::System.__ComObject a0, 
-					object a1, 
-					global::Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs a2);
+					global::Windows.UI.Xaml.Controls.WebView a1, 
+					global::Windows.UI.Xaml.Controls.WebViewNewWindowRequestedEventArgs a2);
 
 		public delegate void AddrOfTarget52(
 					global::System.__ComObject a0, 
-					object a1, 
-					global::Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs a2);
+					global::Windows.UI.Xaml.Controls.WebView a1, 
+					global::Windows.UI.Xaml.Controls.WebViewPermissionRequestedEventArgs a2);
 
 		public delegate void AddrOfTarget53(
 					global::System.__ComObject a0, 
@@ -1714,72 +1714,72 @@ namespace McgInterop
 		public delegate int AddrOfTarget128(
 					global::System.IntPtr a0, 
 					global::System.Runtime.InteropServices.__vtable_IInspectable* a1, 
-					global::Windows.UI.Xaml.Controls.INotifyEventArgs__Impl.Vtbl** a2);
+					global::Windows.UI.Xaml.Controls.IScrollViewerViewChangedEventArgs__Impl.Vtbl** a2);
 
 		public delegate int AddrOfTarget129(
 					global::System.IntPtr a0, 
 					global::System.Runtime.InteropServices.__vtable_IInspectable* a1, 
-					global::Windows.UI.Xaml.Controls.IWebViewNavigationFailedEventArgs__Impl.Vtbl** a2);
+					global::Windows.UI.Xaml.Controls.IScrollViewerViewChangingEventArgs__Impl.Vtbl** a2);
 
 		public delegate int AddrOfTarget130(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** a1, 
-					global::Windows.UI.Xaml.Controls.IWebViewNavigationStartingEventArgs__Impl.Vtbl** a2);
+					global::System.Runtime.InteropServices.__vtable_IInspectable* a1, 
+					global::Windows.UI.Xaml.Controls.INotifyEventArgs__Impl.Vtbl** a2);
 
 		public delegate int AddrOfTarget131(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** a1, 
-					global::Windows.UI.Xaml.Controls.IWebViewContentLoadingEventArgs__Impl.Vtbl** a2);
+					global::System.Runtime.InteropServices.__vtable_IInspectable* a1, 
+					global::Windows.UI.Xaml.Controls.IWebViewNavigationFailedEventArgs__Impl.Vtbl** a2);
 
 		public delegate int AddrOfTarget132(
 					global::System.IntPtr a0, 
 					global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** a1, 
-					global::Windows.UI.Xaml.Controls.IWebViewDOMContentLoadedEventArgs__Impl.Vtbl** a2);
+					global::Windows.UI.Xaml.Controls.IWebViewNavigationStartingEventArgs__Impl.Vtbl** a2);
 
 		public delegate int AddrOfTarget133(
 					global::System.IntPtr a0, 
 					global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** a1, 
-					global::Windows.UI.Xaml.Controls.IWebViewNavigationCompletedEventArgs__Impl.Vtbl** a2);
+					global::Windows.UI.Xaml.Controls.IWebViewContentLoadingEventArgs__Impl.Vtbl** a2);
 
 		public delegate int AddrOfTarget134(
 					global::System.IntPtr a0, 
 					global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** a1, 
-					global::Windows.UI.Xaml.Controls.IWebViewLongRunningScriptDetectedEventArgs__Impl.Vtbl** a2);
+					global::Windows.UI.Xaml.Controls.IWebViewDOMContentLoadedEventArgs__Impl.Vtbl** a2);
 
 		public delegate int AddrOfTarget135(
 					global::System.IntPtr a0, 
 					global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** a1, 
-					global::System.Runtime.InteropServices.__vtable_IInspectable* a2);
+					global::Windows.UI.Xaml.Controls.IWebViewNavigationCompletedEventArgs__Impl.Vtbl** a2);
 
 		public delegate int AddrOfTarget136(
 					global::System.IntPtr a0, 
 					global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** a1, 
-					global::Windows.UI.Xaml.Controls.IWebViewUnviewableContentIdentifiedEventArgs__Impl.Vtbl** a2);
+					global::Windows.UI.Xaml.Controls.IWebViewLongRunningScriptDetectedEventArgs__Impl.Vtbl** a2);
 
 		public delegate int AddrOfTarget137(
 					global::System.IntPtr a0, 
 					global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** a1, 
-					global::Windows.UI.Xaml.Controls.IWebViewUnsupportedUriSchemeIdentifiedEventArgs__Impl.Vtbl** a2);
+					global::System.Runtime.InteropServices.__vtable_IInspectable* a2);
 
 		public delegate int AddrOfTarget138(
 					global::System.IntPtr a0, 
 					global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** a1, 
-					global::Windows.UI.Xaml.Controls.IWebViewNewWindowRequestedEventArgs__Impl.Vtbl** a2);
+					global::Windows.UI.Xaml.Controls.IWebViewUnviewableContentIdentifiedEventArgs__Impl.Vtbl** a2);
 
 		public delegate int AddrOfTarget139(
 					global::System.IntPtr a0, 
 					global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** a1, 
-					global::Windows.UI.Xaml.Controls.IWebViewPermissionRequestedEventArgs__Impl.Vtbl** a2);
+					global::Windows.UI.Xaml.Controls.IWebViewUnsupportedUriSchemeIdentifiedEventArgs__Impl.Vtbl** a2);
 
 		public delegate int AddrOfTarget140(
 					global::System.IntPtr a0, 
-					global::System.Runtime.InteropServices.__vtable_IInspectable* a1, 
-					global::Windows.UI.Xaml.Controls.IScrollViewerViewChangedEventArgs__Impl.Vtbl** a2);
+					global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** a1, 
+					global::Windows.UI.Xaml.Controls.IWebViewNewWindowRequestedEventArgs__Impl.Vtbl** a2);
 
 		public delegate int AddrOfTarget141(
 					global::System.IntPtr a0, 
-					global::System.Runtime.InteropServices.__vtable_IInspectable* a1, 
-					global::Windows.UI.Xaml.Controls.IScrollViewerViewChangingEventArgs__Impl.Vtbl** a2);
+					global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** a1, 
+					global::Windows.UI.Xaml.Controls.IWebViewPermissionRequestedEventArgs__Impl.Vtbl** a2);
 
 		public delegate int AddrOfTarget142(
 					global::System.IntPtr a0, 
@@ -1968,66 +1968,66 @@ namespace McgInterop
 
 		public delegate int AddrOfTarget185(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.HorizontalAlignment* a1);
+					global::Windows.UI.Xaml.TextAlignment* a1);
 
 		public delegate int AddrOfTarget186(
 					global::System.IntPtr a0, 
-					uint* a1, 
-					global::Windows.Foundation.Point** a2);
+					global::Windows.UI.Xaml.VerticalAlignment* a1);
 
 		public delegate int AddrOfTarget187(
 					global::System.IntPtr a0, 
-					uint* a1, 
-					global::Windows.Foundation.Size** a2);
+					global::Windows.UI.Xaml.HorizontalAlignment* a1);
 
 		public delegate int AddrOfTarget188(
 					global::System.IntPtr a0, 
 					uint* a1, 
-					global::Windows.Foundation.Rect** a2);
+					global::Windows.Foundation.Point** a2);
 
 		public delegate int AddrOfTarget189(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.ApplicationTheme* a1);
+					uint* a1, 
+					global::Windows.Foundation.Size** a2);
 
 		public delegate int AddrOfTarget190(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Navigation.NavigationCacheMode* a1);
+					uint* a1, 
+					global::Windows.Foundation.Rect** a2);
 
 		public delegate int AddrOfTarget191(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.RoutedEventHandler__Impl.Vtbl*** a1);
+					global::Windows.UI.Xaml.ApplicationTheme* a1);
 
 		public delegate int AddrOfTarget192(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.SizeChangedEventHandler__Impl.Vtbl*** a1);
+					global::Windows.UI.Xaml.Navigation.NavigationCacheMode* a1);
 
 		public delegate int AddrOfTarget193(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Media.Animation.EasingMode* a1);
+					global::Windows.UI.Xaml.RoutedEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget194(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.VerticalAlignment* a1);
+					global::Windows.UI.Xaml.SizeChangedEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget195(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.ElementTheme* a1);
+					global::Windows.UI.Xaml.Media.Animation.EasingMode* a1);
 
 		public delegate int AddrOfTarget196(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Media.Stretch* a1);
+					global::Windows.UI.Xaml.ElementTheme* a1);
 
 		public delegate int AddrOfTarget197(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.TextWrapping* a1);
+					global::Windows.UI.Xaml.Media.Stretch* a1);
 
 		public delegate int AddrOfTarget198(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Text.FontWeight* a1);
+					global::Windows.UI.Xaml.TextWrapping* a1);
 
 		public delegate int AddrOfTarget199(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.TextAlignment* a1);
+					global::Windows.UI.Text.FontWeight* a1);
 
 		public delegate int AddrOfTarget200(
 					global::System.IntPtr a0, 
@@ -2039,7 +2039,7 @@ namespace McgInterop
 
 		public delegate int AddrOfTarget202(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Controls.ScrollBarVisibility* a1);
+					global::Windows.UI.Xaml.Input.KeyEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget203(
 					global::System.IntPtr a0, 
@@ -2047,69 +2047,69 @@ namespace McgInterop
 
 		public delegate int AddrOfTarget204(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Markup.XmlnsDefinition__Impl.UnsafeType* a1);
+					global::Windows.UI.Xaml.Controls.ScrollBarVisibility* a1);
 
 		public delegate int AddrOfTarget205(
+					global::System.IntPtr a0, 
+					global::Windows.UI.Xaml.Markup.XmlnsDefinition__Impl.UnsafeType* a1);
+
+		public delegate int AddrOfTarget206(
 					global::System.IntPtr a0, 
 					global::Windows.ApplicationModel.DataTransfer.IDataTransferManager__Impl.Vtbl** a1, 
 					global::Windows.ApplicationModel.DataTransfer.IDataRequestedEventArgs__Impl.Vtbl** a2);
 
-		public delegate int AddrOfTarget206(
+		public delegate int AddrOfTarget207(
 					global::System.IntPtr a0, 
 					global::System.EventHandler_A_Windows_ApplicationModel_Core_UnhandledErrorDetectedEventArgs_V___Impl.Vtbl*** a1);
 
-		public delegate int AddrOfTarget207(
+		public delegate int AddrOfTarget208(
 					global::System.IntPtr a0, 
 					global::System.EventHandler_A_Windows_ApplicationModel_SuspendingEventArgs_V___Impl.Vtbl*** a1);
 
-		public delegate int AddrOfTarget208(
+		public delegate int AddrOfTarget209(
 					global::System.IntPtr a0, 
 					uint* a1, 
 					global::System.Collections.Generic.KeyValuePair_A_System_Object_j_System_Object_V___Impl.Vtbl**** a2);
 
-		public delegate int AddrOfTarget209(
+		public delegate int AddrOfTarget210(
 					global::System.IntPtr a0, 
 					global::Windows.Foundation.FoundationContract* a1);
 
-		public delegate int AddrOfTarget210(
+		public delegate int AddrOfTarget211(
 					global::System.IntPtr a0, 
 					global::Windows.Foundation.UniversalApiContract* a1);
 
-		public delegate int AddrOfTarget211(
+		public delegate int AddrOfTarget212(
 					global::System.IntPtr a0, 
 					global::Windows.UI.Xaml.SuspendingEventHandler__Impl.Vtbl*** a1);
 
-		public delegate int AddrOfTarget212(
+		public delegate int AddrOfTarget213(
 					global::System.IntPtr a0, 
 					global::Windows.UI.Xaml.UnhandledExceptionEventHandler__Impl.Vtbl*** a1);
 
-		public delegate int AddrOfTarget213(
+		public delegate int AddrOfTarget214(
 					global::System.IntPtr a0, 
 					global::Windows.UI.Xaml.DependencyPropertyChangedEventHandler__Impl.Vtbl*** a1);
 
-		public delegate int AddrOfTarget214(
+		public delegate int AddrOfTarget215(
 					global::System.IntPtr a0, 
 					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_FrameworkElement_j_Windows_UI_Xaml_DataContextChangedEventArgs_V___Impl.Vtbl*** a1);
 
-		public delegate int AddrOfTarget215(
+		public delegate int AddrOfTarget216(
 					global::System.IntPtr a0, 
 					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_FrameworkElement_j_System_Object_V___Impl.Vtbl*** a1);
 
-		public delegate int AddrOfTarget216(
+		public delegate int AddrOfTarget217(
 					global::System.IntPtr a0, 
 					global::Windows.UI.Xaml.Input.DoubleTappedEventHandler__Impl.Vtbl*** a1);
 
-		public delegate int AddrOfTarget217(
+		public delegate int AddrOfTarget218(
 					global::System.IntPtr a0, 
 					global::Windows.UI.Xaml.DragEventHandler__Impl.Vtbl*** a1);
 
-		public delegate int AddrOfTarget218(
-					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Input.HoldingEventHandler__Impl.Vtbl*** a1);
-
 		public delegate int AddrOfTarget219(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Input.KeyEventHandler__Impl.Vtbl*** a1);
+					global::Windows.UI.Xaml.Input.HoldingEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget220(
 					global::System.IntPtr a0, 
@@ -2197,63 +2197,63 @@ namespace McgInterop
 
 		public delegate int AddrOfTarget241(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Navigation.LoadCompletedEventHandler__Impl.Vtbl*** a1);
+					global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs_V___Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget242(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler__Impl.Vtbl*** a1);
+					global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs_V___Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget243(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Controls.NotifyEventHandler__Impl.Vtbl*** a1);
+					global::Windows.UI.Xaml.Navigation.LoadCompletedEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget244(
 					global::System.IntPtr a0, 
-					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs_V___Impl.Vtbl*** a1);
+					global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget245(
 					global::System.IntPtr a0, 
-					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs_V___Impl.Vtbl*** a1);
+					global::Windows.UI.Xaml.Controls.NotifyEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget246(
 					global::System.IntPtr a0, 
-					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs_V___Impl.Vtbl*** a1);
+					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs_V___Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget247(
 					global::System.IntPtr a0, 
-					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs_V___Impl.Vtbl*** a1);
+					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs_V___Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget248(
 					global::System.IntPtr a0, 
-					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs_V___Impl.Vtbl*** a1);
+					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs_V___Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget249(
 					global::System.IntPtr a0, 
-					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_System_Object_V___Impl.Vtbl*** a1);
+					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs_V___Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget250(
 					global::System.IntPtr a0, 
-					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs_V___Impl.Vtbl*** a1);
+					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs_V___Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget251(
 					global::System.IntPtr a0, 
-					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs_V___Impl.Vtbl*** a1);
+					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_System_Object_V___Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget252(
 					global::System.IntPtr a0, 
-					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs_V___Impl.Vtbl*** a1);
+					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs_V___Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget253(
 					global::System.IntPtr a0, 
-					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs_V___Impl.Vtbl*** a1);
+					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs_V___Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget254(
 					global::System.IntPtr a0, 
-					global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs_V___Impl.Vtbl*** a1);
+					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs_V___Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget255(
 					global::System.IntPtr a0, 
-					global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs_V___Impl.Vtbl*** a1);
+					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs_V___Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget256(
 					global::System.IntPtr a0, 

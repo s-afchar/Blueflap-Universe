@@ -42,6 +42,21 @@
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\Degrade2.png">
       <PackagePath>Assets\Degrade2.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\Engine_Bing.png">
+      <PackagePath>Assets\Engine_Bing.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\Engine_Duck.png">
+      <PackagePath>Assets\Engine_Duck.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\Engine_Qwant.png">
+      <PackagePath>Assets\Engine_Qwant.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\Engine_yahoo.png">
+      <PackagePath>Assets\Engine_yahoo.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\finger.png">
+      <PackagePath>Assets\finger.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\Fleurs.jpg">
       <PackagePath>Assets\Fleurs.jpg</PackagePath>
     </AppxPackagedFile>
@@ -50,6 +65,12 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\logo_B.png">
+      <PackagePath>Assets\logo_B.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\logo_F.png">
+      <PackagePath>Assets\logo_F.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\Montagne.jpg">
       <PackagePath>Assets\Montagne.jpg</PackagePath>
@@ -62,6 +83,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\Plage.jpg">
       <PackagePath>Assets\Plage.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\promo2.png">
+      <PackagePath>Assets\promo2.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\shadow.png">
       <PackagePath>Assets\shadow.png</PackagePath>
@@ -95,11 +119,23 @@
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\WelcomeBackground.png">
       <PackagePath>Assets\WelcomeBackground.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\welcome_code.png">
+      <PackagePath>Assets\welcome_code.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\welcome_homepage.png">
+      <PackagePath>Assets\welcome_homepage.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\Welcome_LaptopPicture.png">
       <PackagePath>Assets\Welcome_LaptopPicture.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\Welcome_PhonePicture.png">
       <PackagePath>Assets\Welcome_PhonePicture.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\welcome_protect.png">
+      <PackagePath>Assets\welcome_protect.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\welcome_search.png">
+      <PackagePath>Assets\welcome_search.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Assets\white_back.png">
       <PackagePath>Assets\white_back.png</PackagePath>

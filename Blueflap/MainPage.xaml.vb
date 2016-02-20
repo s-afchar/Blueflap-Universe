@@ -1,11 +1,13 @@
 ﻿Imports Windows.UI.Notifications
 Imports Windows.ApplicationModel.DataTransfer
 Imports Windows.UI.Xaml.Controls
+Imports Windows.ApplicationModel.Core
 ''' <summary>
 ''' Page dédiée à la navigation web
 ''' </summary>
 Public NotInheritable Class MainPage
     Inherits Page
+    Dim NotifPosition As String
 #Region "HardwareBackButton"
     Public Sub New()
         Me.InitializeComponent()
@@ -29,10 +31,6 @@ Public NotInheritable Class MainPage
         FirstLaunch()
 
         SmartSuggest.Visibility = Visibility.Collapsed
-
-        If Notif_Home.Visibility = Visibility.Visible Then
-            localSettings.Values("Organise_notifs") = 0 'Initialisation de la valeur qui définit le positionnement des éléments dans les paramètres
-        End If
 
         If localSettings.Values("DarkThemeEnabled") = True Then 'Theme Sombre
 
@@ -91,12 +89,8 @@ Public NotInheritable Class MainPage
                     If Notif_HomePageError.Visibility = Visibility.Visible Then
                         Notif_HomePageError.Visibility = Visibility.Collapsed
                         New_Notif.Stop()
-                        If Notif_SearchEngineError.Visibility = Visibility.Visible Then
-                            If Notif_SearchEngineError.Margin.Top > Notif_HomePageError.Margin.Top Then
-                                Notif_SearchEngineError.Margin = New Thickness(0, Notif_SearchEngineError.Margin.Top - 110, 0, 0)
-                                localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") - 110
-                            End If
-                        End If
+                        Notification()
+                        Notif_SearchEngineError.Margin = New Thickness(0, NotifPosition, 0, 0)
                     End If
 
                 Catch
@@ -109,11 +103,13 @@ Public NotInheritable Class MainPage
 
                     'Met à jour les éléments du centre de messages systèmes
                     If Not Notif_HomePageError.Visibility = Visibility.Visible Then
-                        Notif_HomePageError.Visibility = Visibility.Visible
+
                         New_Notif.Begin()
                         Notifications_Counter.Text = Notifications_Counter.Text + 1
-                        Notif_HomePageError.Margin = New Thickness(0, localSettings.Values("Organise_notifs"), 0, 0)
-                        localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") + 110
+                        Notif_HomePageError.Visibility = Visibility.Visible
+                        Notification()
+
+
                         Notif_Home.Visibility = Visibility.Collapsed
                     End If
                 End Try
@@ -160,6 +156,7 @@ Public NotInheritable Class MainPage
         localSettings.Values("lockBut_Top") = 286
         localSettings.Values("memoBut_Top") = 330
         localSettings.Values("ShareBut_Top") = 374
+        localSettings.Values("WindowBut_Top") = 418
 
         If web.CanGoBack And web.CanGoForward Then
             Back_Button.Visibility = Visibility.Visible
@@ -168,6 +165,7 @@ Public NotInheritable Class MainPage
             Lock_Button.Margin = New Thickness(3, localSettings.Values("lockBut_Top"), -1, 0)
             Memo_Button.Margin = New Thickness(3, localSettings.Values("memoBut_Top"), -1, 0)
             Share_Button.Margin = New Thickness(3, localSettings.Values("ShareBut_Top"), -1, 0)
+            Window_Button.Margin = New Thickness(3, localSettings.Values("WindowBut_Top"), -1, 0)
             Forward_Button.Margin = New Thickness(3, 198, -1, 0)
 
         ElseIf web.CanGoBack And web.CanGoForward = False Then
@@ -177,6 +175,7 @@ Public NotInheritable Class MainPage
             Lock_Button.Margin = New Thickness(3, localSettings.Values("lockBut_Top") - 44, -1, 0)
             Memo_Button.Margin = New Thickness(3, localSettings.Values("memoBut_Top") - 44, -1, 0)
             Share_Button.Margin = New Thickness(3, localSettings.Values("ShareBut_Top") - 44, -1, 0)
+            Window_Button.Margin = New Thickness(3, localSettings.Values("WindowBut_Top") - 44, -1, 0)
 
         ElseIf web.CanGoBack = False And web.CanGoForward Then
             Back_Button.Visibility = Visibility.Collapsed
@@ -185,6 +184,7 @@ Public NotInheritable Class MainPage
             Lock_Button.Margin = New Thickness(3, localSettings.Values("lockBut_Top") - 44, -1, 0)
             Memo_Button.Margin = New Thickness(3, localSettings.Values("memoBut_Top") - 44, -1, 0)
             Share_Button.Margin = New Thickness(3, localSettings.Values("ShareBut_Top") - 44, -1, 0)
+            Window_Button.Margin = New Thickness(3, localSettings.Values("WindowBut_Top") - 44, -1, 0)
             Forward_Button.Margin = New Thickness(3, 154, -1, 0)
 
         ElseIf web.CanGoBack = False And web.CanGoForward = False Then
@@ -194,6 +194,7 @@ Public NotInheritable Class MainPage
             Lock_Button.Margin = New Thickness(3, localSettings.Values("lockBut_Top") - 88, -1, 0)
             Memo_Button.Margin = New Thickness(3, localSettings.Values("memoBut_Top") - 88, -1, 0)
             Share_Button.Margin = New Thickness(3, localSettings.Values("ShareBut_Top") - 88, -1, 0)
+            Window_Button.Margin = New Thickness(3, localSettings.Values("WindowBut_Top") - 88, -1, 0)
         End If
 
         AdressBox.IsEnabled = False 'Autre solution provisoire (qui va sans doute rester) parce que sinon l'adressbox obtient le focus à l'ouverture allez savoir pourquoi...
@@ -233,6 +234,8 @@ Public NotInheritable Class MainPage
 
         BackForward()
         localSettings.Values("LoadPageFromBluestart") = False
+
+        ContextNotification()
     End Sub
 
     Private Sub web_LoadCompleted(sender As Object, e As NavigationEventArgs) Handles web.LoadCompleted
@@ -258,6 +261,8 @@ Public NotInheritable Class MainPage
         SourceCode.Text = "..."
         BackForward()
         localSettings.Values("LoadPageFromBluestart") = False
+
+        ContextNotification()
     End Sub
 
     Private Sub Home_button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Home_button.Tapped
@@ -277,12 +282,8 @@ Public NotInheritable Class MainPage
                     If Notif_HomePageError.Visibility = Visibility.Visible Then
                         Notif_HomePageError.Visibility = Visibility.Collapsed
                         New_Notif.Stop()
-                        If Notif_SearchEngineError.Visibility = Visibility.Visible Then
-                            If Notif_SearchEngineError.Margin.Top > Notif_HomePageError.Margin.Top Then
-                                Notif_SearchEngineError.Margin = New Thickness(0, Notif_SearchEngineError.Margin.Top - 110, 0, 0)
-                                localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") - 110
-                            End If
-                        End If
+                        Notification()
+
                     End If
 
                 Catch
@@ -296,10 +297,11 @@ Public NotInheritable Class MainPage
                     'Met à jour les éléments du centre de messages systèmes
                     If Not Notif_HomePageError.Visibility = Visibility.Visible Then
                         Notif_HomePageError.Visibility = Visibility.Visible
+                        Notification()
+
+
                         New_Notif.Begin()
                         Notifications_Counter.Text = Notifications_Counter.Text + 1
-                        Notif_HomePageError.Margin = New Thickness(0, localSettings.Values("Organise_notifs"), 0, 0)
-                        localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") + 110
                         Notif_Home.Visibility = Visibility.Collapsed
                     End If
                 End Try
@@ -348,13 +350,9 @@ Public NotInheritable Class MainPage
                 End If
 
                 'Met à jour les éléments du centre de messages systèmes
+
+
                 If Notif_SearchEngineError.Visibility = Visibility.Visible Then
-                    If Notif_HomePageError.Visibility = Visibility.Visible Then
-                        If Notif_HomePageError.Margin.Top.ToString > Notif_SearchEngineError.Margin.Top.ToString Then
-                            Notif_HomePageError.Margin = New Thickness(0, Notif_HomePageError.Margin.Top - 110, 0, 0)
-                            localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") - 110
-                        End If
-                    End If
                     Notif_SearchEngineError.Visibility = Visibility.Collapsed
                     New_Notif.Stop()
                 End If
@@ -370,10 +368,10 @@ Public NotInheritable Class MainPage
                 'Met à jour les éléments du centre de messages systèmes
                 If Not Notif_SearchEngineError.Visibility = Visibility.Visible Then
                     Notif_SearchEngineError.Visibility = Visibility.Visible
+                    Notification()
+
                     New_Notif.Begin()
                     Notifications_Counter.Text = Notifications_Counter.Text + 1
-                    Notif_SearchEngineError.Margin = New Thickness(0, localSettings.Values("Organise_notifs"), 0, 0)
-                    localSettings.Values("Organise_notifs") = localSettings.Values("Organise_notifs") + 110
                     Notif_Home.Visibility = Visibility.Collapsed
                 End If
             End Try
@@ -423,6 +421,21 @@ Public NotInheritable Class MainPage
         NavigationFailed_Screen.Visibility = Visibility.Visible
         WebpageError.Begin()
         Titlebox.Text = "I hate this page"
+    End Sub
+    Private Sub web_ContainsFullScreenElementChanged(sender As WebView, args As Object) Handles web.ContainsFullScreenElementChanged
+        If web.ContainsFullScreenElement Then
+            Dim appView = ApplicationView.GetForCurrentView
+            appView.TryEnterFullScreenMode()
+            Enterfullscreen.Begin()
+            EchapFullScreen.Begin()
+
+        Else
+            Dim appView = ApplicationView.GetForCurrentView
+            appView.ExitFullScreenMode()
+            Enterfullscreen.Stop()
+            EchapFullScreen.Stop()
+
+        End If
     End Sub
 #End Region
 #Region "First Launch"
@@ -476,6 +489,7 @@ Public NotInheritable Class MainPage
             MemoPopOut.Begin()
             webcontainer.Margin = New Thickness(48, 66, 0, 0)
         End If
+        PivotIndicatorPosition()
     End Sub
     Private Sub Notifications_indicator_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Notifications_indicator.Tapped
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
@@ -483,9 +497,8 @@ Public NotInheritable Class MainPage
         RightMenuPivot.SelectedIndex = 3
         New_Notif.Stop()
         Notifications_Counter.Text = "0"
-        If Notif_HomePageError.Visibility = Visibility.Collapsed And Notif_SearchEngineError.Visibility = Visibility.Collapsed Then
+        If NotifPosition = 0 Then
             Notif_Home.Visibility = Visibility.Visible
-            localSettings.Values("Organise_notifs") = 0
         End If
     End Sub
 
@@ -525,6 +538,171 @@ Public NotInheritable Class MainPage
         End If
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         localSettings.Values("AncrageMemo") = MemoAncrageToggle.IsOn
+    End Sub
+    Private Sub Notification()
+        Dim Notifsvisible As String
+        Notifsvisible = 0
+        If Notif_MiniPlayer.Visibility = Visibility.Visible Then
+            NotifPosition = 110 * Notifsvisible
+            Notif_MiniPlayer.Margin = New Thickness(0, NotifPosition, 0, 0)
+            Notifsvisible = Notifsvisible + 1
+        End If
+        If Notif_HomePageError.Visibility = Visibility.Visible Then
+            NotifPosition = 110 * Notifsvisible
+            Notif_HomePageError.Margin = New Thickness(0, NotifPosition, 0, 0)
+            Notifsvisible = Notifsvisible + 1
+        End If
+        If Notif_SearchEngineError.Visibility = Visibility.Visible Then
+            NotifPosition = 110 * Notifsvisible
+            Notif_SearchEngineError.Margin = New Thickness(0, NotifPosition, 0, 0)
+            Notifsvisible = Notifsvisible + 1
+        End If
+        If Notif_SearchEngineSuggestion.Visibility = Visibility.Visible Then
+            NotifPosition = 110 * Notifsvisible
+            Notif_SearchEngineSuggestion.Margin = New Thickness(0, NotifPosition, 0, 0)
+            Notifsvisible = Notifsvisible + 1
+        End If
+        If Notif_Diminutweet.Visibility = Visibility.Visible Then
+            NotifPosition = 110 * Notifsvisible
+            Notif_Diminutweet.Margin = New Thickness(0, NotifPosition, 0, 0)
+            Notifsvisible = Notifsvisible + 1
+        End If
+
+        NotifPosition = 110 * Notifsvisible
+    End Sub
+    Private Sub ContextNotification()
+        If web.Source.ToString.Contains("www.bing.com") Then
+            If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
+                New_Notif.Begin()
+                Notifications_Counter.Text = Notifications_Counter.Text + 1
+                Notif_Home.Visibility = Visibility.Collapsed
+            End If
+            Notif_SearchEngineName.Text = "BING"
+            Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Bing.png", UriKind.Absolute))
+            Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
+        ElseIf web.Source.ToString.Contains("www.qwant.com") Then
+            If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
+                New_Notif.Begin()
+                Notifications_Counter.Text = Notifications_Counter.Text + 1
+                Notif_Home.Visibility = Visibility.Collapsed
+            End If
+            Notif_SearchEngineName.Text = "QWANT"
+            Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Qwant.png", UriKind.Absolute))
+            Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
+        ElseIf web.Source.ToString.Contains("duckduckgo.com") Then
+            If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
+                New_Notif.Begin()
+                Notifications_Counter.Text = Notifications_Counter.Text + 1
+                Notif_Home.Visibility = Visibility.Collapsed
+            End If
+            Notif_SearchEngineName.Text = "DUCKDUCKGO"
+            Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Duck.png", UriKind.Absolute))
+            Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
+        ElseIf web.Source.ToString.Contains("yahoo.com") Then
+            If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
+                New_Notif.Begin()
+                Notifications_Counter.Text = Notifications_Counter.Text + 1
+                Notif_Home.Visibility = Visibility.Collapsed
+            End If
+            Notif_SearchEngineName.Text = "YAHOO"
+            Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_yahoo.png", UriKind.Absolute))
+            Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
+        Else
+            Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed
+        End If
+
+        If web.Source.ToString.Contains("twitter.com") Then
+            If Notif_Diminutweet.Visibility = Visibility.Collapsed Then
+                New_Notif.Begin()
+                Notifications_Counter.Text = Notifications_Counter.Text + 1
+                Notif_Home.Visibility = Visibility.Collapsed
+            End If
+
+            Notif_Diminutweet.Visibility = Visibility.Visible
+        Else
+            Notif_Diminutweet.Visibility = Visibility.Collapsed
+        End If
+
+        If web.Source.ToString.Contains("vimeo.com/") Or web.Source.ToString.Contains("dailymotion.com/video/") Or web.Source.ToString.Contains("youtube.com/watch") Then
+            If Notif_MiniPlayer.Visibility = Visibility.Collapsed Then
+                New_Notif.Begin()
+                Notifications_Counter.Text = Notifications_Counter.Text + 1
+                Notif_Home.Visibility = Visibility.Collapsed
+            End If
+
+            Notif_MiniPlayer.Visibility = Visibility.Visible
+            ShowMiniPlayerIcon.Begin()
+
+            If web.Source.ToString.Contains("vimeo.com/") Then
+                If web.Source.ToString.Contains("vimeo.com/0") Or web.Source.ToString.Contains("vimeo.com/1") Or web.Source.ToString.Contains("vimeo.com/2") Or web.Source.ToString.Contains("vimeo.com/3") Or web.Source.ToString.Contains("vimeo.com/4") Or web.Source.ToString.Contains("vimeo.com/5") Or web.Source.ToString.Contains("vimeo.com/6") Or web.Source.ToString.Contains("vimeo.com/7") Or web.Source.ToString.Contains("vimeo.com/8") Or web.Source.ToString.Contains("vimeo.com/9") Then
+                    Notif_MiniPlayer.Visibility = Visibility.Visible
+                    ShowMiniPlayerIcon.Begin()
+                Else
+                    Notifications_Counter.Text = Notifications_Counter.Text - 1
+                    Notif_MiniPlayer.Visibility = Visibility.Collapsed
+                    ShowMiniPlayerIcon.Stop()
+                End If
+            End If
+            Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+            If localSettings.Values("DarkThemeEnabled") = True Then
+                MiniPlayer_Button.RequestedTheme = ElementTheme.Dark
+            Else
+                MiniPlayer_Button.RequestedTheme = ElementTheme.Light
+            End If
+        Else
+            Notif_MiniPlayer.Visibility = Visibility.Collapsed
+            ShowMiniPlayerIcon.Stop()
+        End If
+
+        Notification()
+    End Sub
+    Private Sub PivotIndicatorPosition()
+        If RightMenuPivot.SelectedIndex = 0 Then
+            MemoIndexIndicator.Margin = New Thickness(4, 8, 0, 0)
+        ElseIf RightMenuPivot.SelectedIndex = 1 Then
+            MemoIndexIndicator.Margin = New Thickness(44, 8, 0, 0)
+        ElseIf RightMenuPivot.SelectedIndex = 2 Then
+            MemoIndexIndicator.Margin = New Thickness(84, 8, 0, 0)
+        ElseIf RightMenuPivot.SelectedIndex = 3 Then
+            MemoIndexIndicator.Margin = New Thickness(124, 8, 0, 0)
+        End If
+    End Sub
+    Private Sub RightMenuPivot_PivotItemLoaded(sender As Pivot, args As PivotItemEventArgs) Handles RightMenuPivot.PivotItemLoaded
+        PivotIndicatorPosition()
+        MemoIndicator.Begin()
+    End Sub
+    Private Async Sub Button_Tapped_1(sender As Object, e As TappedRoutedEventArgs)
+        Await Windows.System.Launcher.LaunchUriAsync(New Uri(("ms-windows-store://pdp/?ProductId=9nblggh316xh")))
+    End Sub
+
+    Private Sub ChangSearchEngine(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        'Définit les valeurs du moteur de recherche tel que le navigateur navigue vers (A1 + Mots-clés + A2) = URI
+
+        If Notif_SearchEngineName.Text.ToLower = "qwant" Then
+            localSettings.Values("A1") = "http://www.qwant.com/?q="
+            localSettings.Values("A2") = ""
+            localSettings.Values("SearchEngineIndex") = 1
+        ElseIf Notif_SearchEngineName.Text.ToLower = "bing" Then
+            localSettings.Values("A1") = "http://www.bing.com/search?q="
+            localSettings.Values("A2") = ""
+            localSettings.Values("SearchEngineIndex") = 0
+        ElseIf Notif_SearchEngineName.Text.ToLower = "duckduckgo" Then
+            localSettings.Values("A1") = "http://duckduckgo.com/?q="
+            localSettings.Values("A2") = ""
+            localSettings.Values("SearchEngineIndex") = 2
+        ElseIf Notif_SearchEngineName.Text.ToLower = "yahoo" Then
+            localSettings.Values("A1") = "http://fr.search.yahoo.com/search;_ylt=Ai38ykBDWJSAxF25NrTnjXxNhJp4?p="
+            localSettings.Values("A2") = ""
+            localSettings.Values("SearchEngineIndex") = 3
+        End If
+
+        Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
+        Dim toeastElement = notificationXml.GetElementsByTagName("text")
+        toeastElement(0).AppendChild(notificationXml.CreateTextNode("Moteur de recherche"))
+        toeastElement(1).AppendChild(notificationXml.CreateTextNode("Le moteur de recherche a été modifié"))
+        Dim ToastNotification = New ToastNotification(notificationXml)
+        ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
     End Sub
 #End Region
 #Region "Share/Source code Menu"
@@ -584,11 +762,18 @@ Public NotInheritable Class MainPage
     Private Sub Info_Pin_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Info_Pin.Tapped
 
     End Sub
+    Private Sub Info_Like_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Info_Like.Tapped
+        Like_Anim.Stop()
+        Like_Anim.Begin()
+    End Sub
 #End Region
 #Region "SmartSuggest"
     Private Sub AdressBox_GotFocus(sender As Object, e As RoutedEventArgs) Handles AdressBox.GotFocus
-        AdressBox.Text = web.Source.ToString
-        Titlebox.Text = web.DocumentTitle
+        Try
+            AdressBox.Text = web.Source.ToString
+            Titlebox.Text = web.DocumentTitle
+        Catch
+        End Try
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         If localSettings.Values("DarkThemeEnabled") = True Then
             SmartSuggest.RequestedTheme = ElementTheme.Dark
@@ -745,7 +930,67 @@ Public NotInheritable Class MainPage
     Private Sub Paramètres_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Paramètres_Button.Tapped
         Me.Frame.Navigate(GetType(Parametres)) 'Aller sur la page "Paramètres"
     End Sub
-#End Region
 
+    Private Async Sub NewWindow()
+        Dim newView = CoreApplication.CreateNewView()
+        Dim appView = ApplicationView.GetForCurrentView()
+        Dim newViewId As Integer = 0
+        Await newView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, Function()
+                                                                                             Dim window__1 = Window.Current
+                                                                                             Dim newAppView = ApplicationView.GetForCurrentView()
+
+                                                                                             Dim frame = New Frame()
+                                                                                             window__1.Content = frame
+
+                                                                                             frame.Navigate(GetType(MainPage))
+                                                                                             window__1.Activate()
+
+                                                                                             newViewId = ApplicationView.GetForCurrentView().Id
+
+                                                                                         End Function)
+        Dim viewShown As Boolean = Await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId)
+
+    End Sub
+
+    Private Sub Window_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Window_Button.Tapped
+        NewWindow()
+        'MiniPlayer()
+    End Sub
+    Private Async Sub MiniPlayer()
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        Dim t As String
+        t = web.Source.ToString
+        t = t.Replace("vimeo.com/", "player.vimeo.com/video/")
+        t = t.Replace("dailymotion.com/video/", "dailymotion.com/embed/video/")
+        t = t.Replace("youtube.com/watch", "youtube.com/watch_popup")
+        localSettings.Values("MiniPlayerUri") = t
+        Dim newView = CoreApplication.CreateNewView()
+        Dim appView = ApplicationView.GetForCurrentView()
+        Dim newViewId As Integer = 0
+        Await newView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, Function()
+                                                                                             Dim MiniPlay = Window.Current
+                                                                                             Dim newAppView = ApplicationView.GetForCurrentView()
+
+                                                                                             Dim frame = New Frame()
+                                                                                             MiniPlay.Content = frame
+
+                                                                                             frame.Navigate(GetType(MiniPlayer))
+                                                                                             MiniPlay.Activate()
+
+                                                                                             newViewId = ApplicationView.GetForCurrentView().Id
+
+                                                                                         End Function)
+        Dim viewShown As Boolean = Await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId)
+
+    End Sub
+
+    Private Sub OpenMiniP(sender As Object, e As TappedRoutedEventArgs)
+        MiniPlayer()
+    End Sub
+
+    Private Sub MiniPlayer_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles MiniPlayer_Button.Tapped
+        MiniPlayer()
+    End Sub
+#End Region
 
 End Class

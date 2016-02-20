@@ -275,49 +275,49 @@
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:Name="MiniMode">
-            <DoubleAnimation Duration="0" To="0.75" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="grid" d:IsOptimized="True"/>
-            <DoubleAnimation Duration="0" To="0.75" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="grid" d:IsOptimized="True"/>
-            <DoubleAnimation Duration="0" To="-114" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="grid" d:IsOptimized="True"/>
-            <DoubleAnimation Duration="0" To="0.8" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="image" d:IsOptimized="True"/>
-            <DoubleAnimation Duration="0" To="0.8" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="image" d:IsOptimized="True"/>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectangle2">
+        <Storyboard x:Name="OpenMemo">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid3">
                 <DiscreteObjectKeyFrame KeyTime="0">
                     <DiscreteObjectKeyFrame.Value>
-                        <Visibility>Collapsed</Visibility>
+                        <Visibility>Visible</Visibility>
                     </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
             </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectangle3">
-                <DiscreteObjectKeyFrame KeyTime="0">
-                    <DiscreteObjectKeyFrame.Value>
-                        <Visibility>Collapsed</Visibility>
-                    </DiscreteObjectKeyFrame.Value>
-                </DiscreteObjectKeyFrame>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image1">
-                <DiscreteObjectKeyFrame KeyTime="0">
-                    <DiscreteObjectKeyFrame.Value>
-                        <Visibility>Collapsed</Visibility>
-                    </DiscreteObjectKeyFrame.Value>
-                </DiscreteObjectKeyFrame>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Titlebar">
-                <DiscreteObjectKeyFrame KeyTime="0">
-                    <DiscreteObjectKeyFrame.Value>
-                        <Visibility>Collapsed</Visibility>
-                    </DiscreteObjectKeyFrame.Value>
-                </DiscreteObjectKeyFrame>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="rectangle1">
-                <DiscreteObjectKeyFrame KeyTime="0">
-                    <DiscreteObjectKeyFrame.Value>
-                        <Thickness>0</Thickness>
-                    </DiscreteObjectKeyFrame.Value>
-                </DiscreteObjectKeyFrame>
-            </ObjectAnimationUsingKeyFrames>
-            <DoubleAnimation Duration="0" To="-74" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="image" d:IsOptimized="True"/>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="rectangle4">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="rectangle4">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="rectangle4">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="grid3">
+                <EasingDoubleKeyFrame KeyTime="0" Value="47"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="47"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="294">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+
     </Page.Resources>
 
     <Grid Background="#FF595959">
@@ -378,6 +378,15 @@
         <Rectangle x:Name="rectangle3" Fill="#661B1B1B" Height="32" Stroke="Black" VerticalAlignment="Top" StrokeThickness="0"/>
         <Image x:Name="image1" HorizontalAlignment="Left" Height="26" Margin="8,3,0,0" VerticalAlignment="Top" Width="30" Source="Assets/Square150x150Logo.png"/>
         <TextBlock x:Name="Titlebar" HorizontalAlignment="Left" Margin="38,6,0,0" TextWrapping="Wrap" Text="Date" VerticalAlignment="Top" Foreground="White" FontSize="13.333" FontWeight="SemiLight"/>
+        <Grid x:Name="grid3" HorizontalAlignment="Left" Margin="0,211,0,0" Width="294" Height="256" VerticalAlignment="Top" Visibility="Collapsed">
+            <Rectangle HorizontalAlignment="Left" Margin="48,0,0,0" Width="246" Fill="#56000000" Opacity="0.507"/>
+            <Rectangle x:Name="rectangle4" HorizontalAlignment="Left" Margin="0,33,0,0" Width="48" Fill="Black" Opacity="0.507" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <CompositeTransform/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <TextBox x:Name="memotext" HorizontalAlignment="Left" Margin="48,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RequestedTheme="Dark" BorderThickness="0,1" Height="256" Width="246" PlaceholderText="Memo" AcceptsReturn="True"/>
+        </Grid>
         <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="0,32,0,0" Width="294" Height="256" VerticalAlignment="Top">
             <Rectangle HorizontalAlignment="Left" Margin="48,0,0,0" Width="246" Fill="Black" Opacity="0.507"/>
             <Rectangle x:Name="rectangle" HorizontalAlignment="Left" Margin="0,33,0,0" Width="48" Fill="Black" Opacity="0.507" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
@@ -466,6 +475,5 @@
                 <CompositeTransform/>
             </Button.RenderTransform>
         </Button>
-
     </Grid>
 </Page>

@@ -58,16 +58,14 @@
       <RootProperty Name="Width" />
       <RootProperty Name="RenderTransformOrigin" />
       <RootProperty Name="RenderTransform" />
+      <RootProperty Name="Visibility" />
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="BorderThickness" />
       <RootProperty Name="CornerRadius" />
-      <RootProperty Name="Visibility" />
       <RootProperty Name="Projection" />
       <RootProperty Name="RequestedTheme" />
       <RootProperty Name="RowDefinitions" />
       <RootProperty Name="Padding" />
-      <RootMethod Name="GetRowSpan" />
-      <RootMethod Name="SetRowSpan" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Margin" />
@@ -79,6 +77,8 @@
       <RootProperty Name="Height" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="Opacity" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
       <RootProperty Name="HorizontalAlignment" />
@@ -116,9 +116,10 @@
       <RootProperty Name="RenderTransform" />
       <RootProperty Name="Inlines" />
       <RootProperty Name="Width" />
-      <RootProperty Name="TextAlignment" />
       <RootProperty Name="Height" />
+      <RootProperty Name="TextAlignment" />
       <RootProperty Name="Visibility" />
+      <RootProperty Name="LineHeight" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Content" />
@@ -137,6 +138,8 @@
       <RootProperty Name="FontWeight" />
       <RootProperty Name="Width" />
       <RootProperty Name="RenderTransform" />
+      <RootProperty Name="IsEnabled" />
+      <RootProperty Name="Visibility" />
       <RootProperty Name="Opacity" />
       <RootEvent Name="Tapped" />
     </RootType>
@@ -166,9 +169,10 @@
       <RootProperty Name="RequestedTheme" />
       <RootProperty Name="PlaceholderText" />
       <RootProperty Name="Visibility" />
+      <RootProperty Name="AcceptsReturn" />
+      <RootProperty Name="Opacity" />
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="Foreground" />
-      <RootProperty Name="AcceptsReturn" />
       <RootProperty Name="RenderTransformOrigin" />
       <RootProperty Name="InputScope" />
       <RootProperty Name="RenderTransform" />
@@ -203,14 +207,25 @@
     <RootType FullName="Windows.UI.Xaml.Documents.Span">
       <RootProperty Name="FontFamily" />
       <RootProperty Name="Inlines" />
+      <RootProperty Name="FontSize" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Documents.Run">
       <RootProperty Name="Text" />
-      <RootProperty Name="FontSize" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="FontWeight" />
     </RootType>
     <RootType FullName="Blueflap.Bluestart" />
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.DoubleAnimation">
+      <RootProperty Name="Duration" />
+      <RootProperty Name="To" />
+      <RootProperty Name="EasingFunction" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.QuarticEase">
+      <RootProperty Name="EasingMode" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.TextAlignment" />
+    <RootType FullName="Windows.UI.Xaml.VerticalAlignment" />
+    <RootType FullName="Windows.UI.Xaml.HorizontalAlignment" />
     <RootType FullName="Windows.UI.Xaml.Controls.Pivot">
       <RootProperty Name="RequestedTheme" />
       <RootProperty Name="Items" />
@@ -221,20 +236,57 @@
       <RootProperty Name="RenderTransform" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.PivotItem">
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="Content" />
       <RootProperty Name="Header" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
+      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="RequestedTheme" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="BorderThickness" />
+      <RootProperty Name="PlaceholderText" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="RenderTransformOrigin" />
+      <RootProperty Name="RenderTransform" />
+      <RootEvent Name="KeyDown" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Documents.LineBreak" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="SelectedIndex" />
+      <RootProperty Name="BorderThickness" />
+      <RootProperty Name="RequestedTheme" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="Items" />
+      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="RenderTransformOrigin" />
+      <RootProperty Name="RenderTransform" />
+      <RootEvent Name="DropDownClosed" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBoxItem">
+      <RootProperty Name="Content" />
+    </RootType>
     <RootType FullName="Blueflap.FirstBootScreen" />
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.BackEase">
+      <RootProperty Name="EasingMode" />
+      <RootProperty Name="Amplitude" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.QuadraticEase">
+      <RootProperty Name="EasingMode" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.Animation.ColorAnimation">
       <RootProperty Name="Duration" />
       <RootProperty Name="To" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Media.Animation.DoubleAnimation">
-      <RootProperty Name="Duration" />
-      <RootProperty Name="To" />
-      <RootProperty Name="EasingFunction" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ToggleSwitch">
       <RootProperty Name="Header" />
@@ -247,6 +299,7 @@
       <RootProperty Name="RenderTransformOrigin" />
       <RootProperty Name="RenderTransform" />
       <RootProperty Name="Tag" />
+      <RootProperty Name="IsOn" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
     </RootType>
@@ -254,12 +307,16 @@
       <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
+    <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush">
+      <RootProperty Name="Color" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.PlaneProjection" />
     <RootType FullName="Windows.UI.Xaml.Controls.WebView">
       <RootProperty Name="RenderTransformOrigin" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Width" />
+      <RootProperty Name="RenderTransform" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
       <RootProperty Name="Margin" />
@@ -300,33 +357,22 @@
       <RootProperty Name="Springiness" />
       <RootProperty Name="Oscillations" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="BorderThickness" />
-      <RootProperty Name="PlaceholderText" />
-      <RootProperty Name="FontSize" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Visibility" />
-      <RootProperty Name="RenderTransformOrigin" />
-      <RootProperty Name="RenderTransform" />
-      <RootProperty Name="RequestedTheme" />
+    <RootType FullName="Windows.UI.Xaml.VisualStateManager">
+      <RootMethod Name="GetVisualStateGroups" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="SelectedIndex" />
-      <RootProperty Name="BorderThickness" />
-      <RootProperty Name="Items" />
-      <RootProperty Name="BorderBrush" />
-      <RootProperty Name="RenderTransformOrigin" />
-      <RootProperty Name="RenderTransform" />
-      <RootEvent Name="DropDownClosed" />
+    <RootType FullName="Windows.UI.Xaml.VisualStateGroup">
+      <RootProperty Name="States" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.VisualState">
+      <RootProperty Name="StateTriggers" />
+      <RootProperty Name="Setters" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.AdaptiveTrigger">
+      <RootProperty Name="MinWindowWidth" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Setter">
+      <RootProperty Name="Target" />
+      <RootProperty Name="Value" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Slider">
       <RootProperty Name="HorizontalAlignment" />
@@ -344,16 +390,8 @@
       <RootProperty Name="Value" />
       <RootProperty Name="Visibility" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ComboBoxItem">
-      <RootProperty Name="Content" />
-    </RootType>
     <RootType FullName="Blueflap.Parametres" />
-    <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
-      <RootProperty Name="Height" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush">
-      <RootProperty Name="Color" />
-    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition" />
     <RootType FullName="Blueflap.SearchFight" />
     <RootType FullName="Blueflap.Verrouillage" />
   </Roots.RootTypes>

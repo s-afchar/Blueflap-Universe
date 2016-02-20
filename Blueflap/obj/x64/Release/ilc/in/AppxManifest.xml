@@ -7,7 +7,7 @@
 
     Pour plus d'informations sur les fichiers manifeste, consultez http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="26841SmA.Blueflap" Publisher="CN=8D01EF2A-40D3-4C5E-A5F4-3FF087AF903B" Version="4.2015.2112.0" ProcessorArchitecture="x64" />
+  <Identity Name="26841SmA.Blueflap" Publisher="CN=8D01EF2A-40D3-4C5E-A5F4-3FF087AF903B" Version="5.2016.220.0" ProcessorArchitecture="x64" />
   <mp:PhoneIdentity PhoneProductId="5305259c-91de-49e4-8741-f983fa6e684a" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Blueflap</DisplayName>
@@ -15,7 +15,7 @@
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
-    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.10240.0" MaxVersionTested="10.0.10240.0" />
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.10586.0" MaxVersionTested="10.0.10586.0" />
   </Dependencies>
   <Resources>
     <Resource Language="FR-FR" />

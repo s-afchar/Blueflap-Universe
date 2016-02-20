@@ -10,25 +10,25 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>5305259c-91de-49e4-8741-f983fa6e684a</PackageIdentityName>
     <IntermediateOutputPath>C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x86\Release\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>BEB787A1221887DDC0496DC0CA6FC8EE11F77ED4F391124B0E0A64CBD5777F62</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>26841SmA.Blueflap_4.10.2.0_x86__v4hw3xfgfk55r</RegisteredPackageMoniker>
+    <RegisteredManifestChecksum>FC40A1BA51D5716211F805D686C9BE0B5661C9C8E07A1D4E869EA22321D3AACE</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>26841SmA.Blueflap_4.2015.2112.0_x86__v4hw3xfgfk55r</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>26841SmA.Blueflap_v4hw3xfgfk55r!App</RegisteredUserModeAppID>
     <RegisteredPackageID>26841SmA.Blueflap</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=8D01EF2A-40D3-4C5E-A5F4-3FF087AF903B</RegisteredPackagePublisher>
-    <RegisteredVersion>4.10.2.0</RegisteredVersion>
+    <RegisteredVersion>4.2015.2112.0</RegisteredVersion>
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-12-17T16:31:17.246</Modified>
+      <Modified>2016-01-02T23:09:35.231</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Blueflap.exe">
       <PackagePath>entrypoint\Blueflap.exe</PackagePath>
-      <Modified>2015-12-17T16:31:14.003</Modified>
+      <Modified>2016-01-02T23:09:34.823</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -478,9 +478,29 @@
       <PackagePath>Assets\Degrade2.png</PackagePath>
       <Modified>2015-11-18T12:28:36.422</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\finger.png">
+      <PackagePath>Assets\finger.png</PackagePath>
+      <Modified>2016-01-01T23:14:53.362</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\grumpy.png">
+      <PackagePath>Assets\grumpy.png</PackagePath>
+      <Modified>2015-12-21T21:31:43.927</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\logo_B.png">
+      <PackagePath>Assets\logo_B.png</PackagePath>
+      <Modified>2016-01-02T13:30:53.896</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\logo_F.png">
+      <PackagePath>Assets\logo_F.png</PackagePath>
+      <Modified>2016-01-02T13:30:53.902</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\noprofilepicture.png">
       <PackagePath>Assets\noprofilepicture.png</PackagePath>
       <Modified>2015-11-13T22:22:59.003</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\shadow.png">
+      <PackagePath>Assets\shadow.png</PackagePath>
+      <Modified>2015-12-19T23:58:28.226</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\surfacebook.png">
       <PackagePath>Assets\surfacebook.png</PackagePath>
@@ -490,6 +510,14 @@
       <PackagePath>Assets\WelcomeBackground.png</PackagePath>
       <Modified>2015-11-20T22:34:05.904</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\welcome_code.png">
+      <PackagePath>Assets\welcome_code.png</PackagePath>
+      <Modified>2016-01-01T23:43:40.854</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\welcome_homepage.png">
+      <PackagePath>Assets\welcome_homepage.png</PackagePath>
+      <Modified>2016-01-02T15:04:54.781</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\Welcome_LaptopPicture.png">
       <PackagePath>Assets\Welcome_LaptopPicture.png</PackagePath>
       <Modified>2015-11-20T22:33:23.499</Modified>
@@ -497,6 +525,14 @@
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\Welcome_PhonePicture.png">
       <PackagePath>Assets\Welcome_PhonePicture.png</PackagePath>
       <Modified>2015-11-20T22:33:06.535</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\welcome_protect.png">
+      <PackagePath>Assets\welcome_protect.png</PackagePath>
+      <Modified>2016-01-02T22:56:00.083</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\welcome_search.png">
+      <PackagePath>Assets\welcome_search.png</PackagePath>
+      <Modified>2016-01-02T15:32:04.937</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\Assets\white_back.png">
       <PackagePath>Assets\white_back.png</PackagePath>
@@ -618,7 +654,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Blueflap.xr.xml">
       <PackagePath>Blueflap.xr.xml</PackagePath>
-      <Modified>2015-12-13T10:52:08.449</Modified>
+      <Modified>2016-01-02T23:07:04.457</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -626,11 +662,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-12-17T16:31:16.860</Modified>
+      <Modified>2016-01-02T23:08:37.619</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x86\Release\Core\Blueflap.exe">
       <PackagePath>Blueflap.exe</PackagePath>
-      <Modified>2015-12-17T16:31:17.242</Modified>
+      <Modified>2016-01-02T23:09:35.228</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

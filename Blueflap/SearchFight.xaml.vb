@@ -124,7 +124,7 @@ Public NotInheritable Class SearchFight
         ElseIf FightBox1.SelectedIndex = 7 Then
             localSettings.Values("F1Text") = "YOUTUBE"
         ElseIf FightBox1.SelectedIndex = 8 Then
-            localSettings.Values("F1Text") = "DREAMVIDS"
+            localSettings.Values("F1Text") = "VIMEO"
         ElseIf FightBox1.SelectedIndex = 9 Then
             localSettings.Values("F1Text") = "DAILYMOTION"
         ElseIf FightBox1.SelectedIndex = 10 Then
@@ -173,7 +173,7 @@ Public NotInheritable Class SearchFight
         ElseIf FightBox2.SelectedIndex = 7 Then
             localSettings.Values("F2Text") = "YOUTUBE"
         ElseIf FightBox2.SelectedIndex = 8 Then
-            localSettings.Values("F2Text") = "DREAMVIDS"
+            localSettings.Values("F2Text") = "VIMEO"
         ElseIf FightBox2.SelectedIndex = 9 Then
             localSettings.Values("F2Text") = "DAILYMOTION"
         ElseIf FightBox2.SelectedIndex = 10 Then
@@ -241,8 +241,8 @@ Public NotInheritable Class SearchFight
         ElseIf localSettings.Values("F1Text") = "DAILYMOTION" Then
             W1.Navigate(New Uri("http://www.dailymotion.com/fr/relevance/universal/search/" + localSettings.Values("textboxe")))
 
-        ElseIf localSettings.Values("F1Text") = "DREAMVIDS" Then
-            W1.Navigate(New Uri("http://dreamvids.fr/search/&q=" + localSettings.Values("textboxe")))
+        ElseIf localSettings.Values("F1Text") = "VIMEO" Then
+            W1.Navigate(New Uri("http://vimeo.com/search?q=" + localSettings.Values("textboxe")))
 
         ElseIf localSettings.Values("F1Text") = "WIKIPEDIA" Then
             W1.Navigate(New Uri("http://fr.wikipedia.org/w/index.php?search=" + localSettings.Values("textboxe")))
@@ -280,8 +280,8 @@ Public NotInheritable Class SearchFight
         ElseIf localSettings.Values("F2Text") = "DAILYMOTION" Then
             W2.Navigate(New Uri("http://www.dailymotion.com/fr/relevance/universal/search/" + localSettings.Values("textboxe")))
 
-        ElseIf localSettings.Values("F2Text") = "DREAMVIDS" Then
-            W2.Navigate(New Uri("http://dreamvids.fr/search/&q=" + localSettings.Values("textboxe")))
+        ElseIf localSettings.Values("F2Text") = "VIMEO" Then
+            W2.Navigate(New Uri("http://vimeo.com/search?q=" + localSettings.Values("textboxe")))
 
         ElseIf localSettings.Values("F2Text") = "WIKIPEDIA" Then
             W2.Navigate(New Uri("http://fr.wikipedia.org/w/index.php?search=" + localSettings.Values("textboxe")))
@@ -554,7 +554,7 @@ Public NotInheritable Class SearchFight
             localSettings.Values("A1") = "http://www.dailymotion.com/fr/relevance/universal/search/"
             localSettings.Values("A2") = ""
         ElseIf FightBox1.SelectedIndex = 9 Then
-            localSettings.Values("A1") = "http://dreamvids.fr/search/&q"
+            localSettings.Values("A1") = "http://vimeo.com/search?q="
             localSettings.Values("A2") = ""
         ElseIf FightBox1.SelectedIndex = 10 Then
             localSettings.Values("A1") = "http://fr.wikipedia.org/w/index.php?search="
@@ -603,7 +603,7 @@ Public NotInheritable Class SearchFight
             localSettings.Values("A1") = "http://www.dailymotion.com/fr/relevance/universal/search/"
             localSettings.Values("A2") = ""
         ElseIf FightBox2.SelectedIndex = 9 Then
-            localSettings.Values("A1") = "http://dreamvids.fr/search/&q"
+            localSettings.Values("A1") = "http://vimeo.com/search?q="
             localSettings.Values("A2") = ""
         ElseIf FightBox2.SelectedIndex = 10 Then
             localSettings.Values("A1") = "http://fr.wikipedia.org/w/index.php?search="

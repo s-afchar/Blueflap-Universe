@@ -544,6 +544,198 @@
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Name="Like_Anim">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="ellipse">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="ellipse">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="ellipse">
+                <EasingDoubleKeyFrame KeyTime="0" Value="6"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="textBlock3">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuarticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="textBlock3">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuarticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="textBlock3">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="-46">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuarticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="textBlock3">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock3">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(ContentControl.Content)" Storyboard.TargetName="Info_Like">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="&#xE00B;"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ColorAnimation Duration="0:0:0.3" To="#FFFF00AE" Storyboard.TargetProperty="(Control.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="Info_Like" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.3" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Info_Like" d:IsOptimized="True"/>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid1">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="MemoIndicator">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="MemoIndexIndicator">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="MemoIndexIndicator">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="Enterfullscreen">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="LeftMenu">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Thickness>-48,0,0,0</Thickness>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="LeftMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="48"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="48"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="Adressbar">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Thickness>48,-66,0,0</Thickness>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Adressbar">
+                <EasingDoubleKeyFrame KeyTime="0" Value="66"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="webcontainer">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Thickness>0</Thickness>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="webcontainer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="webcontainer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="EchapFullScreen">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ExitFullScreen">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2.7">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="ExitFullScreen">
+                <EasingDoubleKeyFrame KeyTime="0" Value="650"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="650"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.7" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuarticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ExitFullScreen">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.7" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="ShowMiniPlayerIcon">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="AdressBox">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Thickness>2,32,39,0</Thickness>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="MiniPlayer_Button">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="MiniPlayer_Button">
+                <EasingDoubleKeyFrame KeyTime="0" Value="39"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Page.Resources>
 
 
@@ -551,80 +743,24 @@
         <Grid.RenderTransform>
             <CompositeTransform/>
         </Grid.RenderTransform>
-        <Grid x:Name="Adressbar" Height="66" VerticalAlignment="Top" Background="WhiteSmoke" Margin="48,0,0,0">
-            <Rectangle x:Name="SecurityTag" HorizontalAlignment="Left" Height="20" Margin="10,37,0,0" VerticalAlignment="Top" Width="39" RadiusY="0.833" RadiusX="0.833" StrokeThickness="0.7" Fill="#661BD61B" Visibility="Collapsed"/>
-            <TextBox x:Name="AdressBox" Margin="2,32,2,0" TextWrapping="NoWrap" Text="about:blank" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF5B5B5B" FontSize="16" Height="24" BorderThickness="0"/>
-            <TextBlock x:Name="Titlebox" HorizontalAlignment="Left" Margin="70,10,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Opacity="0.795" FontSize="12" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
-            <TextBlock x:Name="Window_Title" HorizontalAlignment="Left" Margin="12,10,0,0" TextWrapping="Wrap" Text="BLUEFLAP" VerticalAlignment="Top" Opacity="0.295" FontSize="12"/>
-        </Grid>
-        <Grid x:Name="LeftMenu" HorizontalAlignment="Left" Width="48" RenderTransformOrigin="0.5,0.5" Background="{ThemeResource JumpListDefaultEnabledBackground}">
-            <Grid.RenderTransform>
-                <CompositeTransform ScaleX="-1"/>
-            </Grid.RenderTransform>
-            <Grid x:Name="DefaultThemeColor" HorizontalAlignment="Left" Height="10" Margin="268,207,-229,0" VerticalAlignment="Top" Width="9" Background="{ThemeResource ContentDialogBorderThemeBrush}" Visibility="Collapsed"/>
-            <Button x:Name="Home_button" Content="&#xE80F;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Margin="3,66,-1,0">
-                <Button.RenderTransform>
-                    <CompositeTransform ScaleX="-1"/>
-                </Button.RenderTransform>
-            </Button>
-            <Button x:Name="Strefresh_Button" Content="&#xE149;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="14.667" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,110,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
-                <Button.RenderTransform>
-                    <CompositeTransform ScaleX="-1"/>
-                </Button.RenderTransform>
-            </Button>
-            <Button x:Name="Back_Button" Content="&#xE016;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,154,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
-                <Button.RenderTransform>
-                    <CompositeTransform ScaleX="-1"/>
-                </Button.RenderTransform>
-            </Button>
-            <Button x:Name="Paramètres_Button" Content="&#xE713;" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="#01000000" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,0,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Height="47">
-                <Button.RenderTransform>
-                    <CompositeTransform ScaleX="-1"/>
-                </Button.RenderTransform>
-            </Button>
-            <Button x:Name="Forward_Button" Content="&#xE013;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,198,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
-                <Button.RenderTransform>
-                    <CompositeTransform ScaleX="-1"/>
-                </Button.RenderTransform>
-            </Button>
-            <ProgressRing x:Name="loader" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="24" Foreground="#AFFFFFFF" Margin="12,14,0,0" RenderTransformOrigin="0.5,0.5">
-                <ProgressRing.RenderTransform>
-                    <CompositeTransform ScaleX="-1"/>
-                </ProgressRing.RenderTransform>
-            </ProgressRing>
-            <Button x:Name="Fight_Button" Content="&#xE923;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,242,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets">
-                <Button.RenderTransform>
-                    <CompositeTransform ScaleX="-1"/>
-                </Button.RenderTransform>
-            </Button>
-            <Button x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,286,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
-                <Button.RenderTransform>
-                    <CompositeTransform ScaleX="-1"/>
-                </Button.RenderTransform>
-            </Button>
-            <Button x:Name="Memo_Button" Content="&#xE70B;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,330,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
-                <Button.RenderTransform>
-                    <CompositeTransform ScaleX="-1"/>
-                </Button.RenderTransform>
-            </Button>
-            <Button x:Name="Share_Button" Content="&#xE72D;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,374,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
-                <Button.RenderTransform>
-                    <CompositeTransform ScaleX="-1"/>
-                </Button.RenderTransform>
-            </Button>
-            <TextBlock x:Name="Notifications_Counter" Margin="1,0,0,54" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="47" RenderTransformOrigin="0.5,0.5" TextAlignment="Center" Foreground="White" FontWeight="SemiBold" FontSize="10.667" Height="17">
-                <TextBlock.RenderTransform>
-                    <CompositeTransform ScaleX="-1"/>
-                </TextBlock.RenderTransform>
-            </TextBlock>
-            <Ellipse x:Name="Notifications_indicator" Fill="#26000000" HorizontalAlignment="Left" Height="27" Margin="11,0,0,49" VerticalAlignment="Bottom" Width="27" Stroke="White" StrokeThickness="0"/>
-            <CheckBox x:Name="LockTheBrowser" Content="LockTheBrowser" HorizontalAlignment="Left" Margin="29,31,-101,0" VerticalAlignment="Top" Visibility="Collapsed" IsChecked="True"/>
-        </Grid>
         <Grid x:Name="Infos_grid" Margin="48,66,0,0" Background="#FF111111" Visibility="Collapsed">
             <Grid HorizontalAlignment="Left" Height="233" Margin="15,0,0,0" VerticalAlignment="Center" Width="50" RenderTransformOrigin="0.5,0.5">
+                <Grid x:Name="grid1" Margin="0,0,0,113" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Visibility="Collapsed">
+                    <Ellipse x:Name="ellipse" Stroke="#FFFF00AE" StrokeThickness="5" Height="52" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5">
+                        <Ellipse.RenderTransform>
+                            <CompositeTransform/>
+                        </Ellipse.RenderTransform>
+                    </Ellipse>
+                    <TextBlock x:Name="textBlock3" TextWrapping="Wrap" Foreground="#FFFF00AE" FontFamily="Segoe MDL2 Assets" Height="52" VerticalAlignment="Bottom" FontSize="48" RenderTransformOrigin="0.5,0.5">
+                        <TextBlock.RenderTransform>
+                            <CompositeTransform/>
+                        </TextBlock.RenderTransform>
+            			<Run Text="&#xE00B;"/>
+                    </TextBlock>
+                </Grid>
                 <Button x:Name="Web_Share_Share" Content="&#xE72D;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
                 <Button x:Name="Info_Like" Content="&#xEB51;" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
-                <Button x:Name="Info_Pin" Content="&#xE840;" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
+                <Button x:Name="Info_Pin" Content="&#xE840;" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark" IsEnabled="False"/>
                 <Button x:Name="Web_Share_Source" Content="&#xE8FF;" HorizontalAlignment="Left" Margin="0,182,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
             </Grid>
             <TextBox x:Name="SourceCode" Margin="70,30,0,0" TextWrapping="Wrap" Text="..." RequestedTheme="Dark" BorderBrush="{x:Null}" Background="{x:Null}" AcceptsReturn="True" Visibility="Collapsed" BorderThickness="0,0,7,0" RenderTransformOrigin="0.5,0.5" ScrollViewer.VerticalScrollBarVisibility="Auto" InputScope="NativeScript">
@@ -692,6 +828,92 @@
                 </TextBlock>
             </Grid>
         </Grid>
+        <Grid x:Name="Adressbar" Height="66" VerticalAlignment="Top" Background="WhiteSmoke" Margin="48,0,0,0" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
+            <Rectangle x:Name="SecurityTag" HorizontalAlignment="Left" Height="20" Margin="10,37,0,0" VerticalAlignment="Top" Width="39" RadiusY="0.833" RadiusX="0.833" StrokeThickness="0.7" Fill="#661BD61B" Visibility="Collapsed"/>
+            <TextBox x:Name="AdressBox" Margin="2,32,2,0" TextWrapping="NoWrap" Text="about:blank" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF5B5B5B" FontSize="16" Height="24" BorderThickness="0" RenderTransformOrigin="0.5,0.5">
+                <TextBox.RenderTransform>
+                    <CompositeTransform/>
+                </TextBox.RenderTransform>
+            </TextBox>
+            <TextBlock x:Name="Titlebox" HorizontalAlignment="Left" Margin="70,10,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Opacity="0.795" FontSize="12" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
+            <TextBlock x:Name="Window_Title" HorizontalAlignment="Left" Margin="12,10,0,0" TextWrapping="Wrap" Text="BLUEFLAP" VerticalAlignment="Top" Opacity="0.295" FontSize="12"/>
+            <Button x:Name="MiniPlayer_Button" Content="&#xE173;" HorizontalAlignment="Right" Margin="0,35,0,0" VerticalAlignment="Top" Height="31" Width="39" FontFamily="Segoe MDL2 Assets" FontSize="18.667" RequestedTheme="Light" BorderThickness="0,0,0,2" Background="#00000000" Foreground="{ThemeResource ContentDialogBorderThemeBrush}" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+                <Button.RenderTransform>
+                    <CompositeTransform/>
+                </Button.RenderTransform>
+            </Button>
+        </Grid>
+        <Grid x:Name="LeftMenu" HorizontalAlignment="Left" Width="48" RenderTransformOrigin="0.5,0.5" Background="{ThemeResource JumpListDefaultEnabledBackground}">
+            <Grid.RenderTransform>
+                <CompositeTransform ScaleX="-1"/>
+            </Grid.RenderTransform>
+            <Grid x:Name="DefaultThemeColor" HorizontalAlignment="Left" Height="10" Margin="268,207,-229,0" VerticalAlignment="Top" Width="9" Background="{ThemeResource ContentDialogBorderThemeBrush}" Visibility="Collapsed"/>
+            <Button x:Name="Home_button" Content="&#xE80F;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Margin="3,66,-1,0">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="Strefresh_Button" Content="&#xE149;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="14.667" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,110,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="Back_Button" Content="&#xE016;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,154,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="Paramètres_Button" Content="&#xE713;" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="#01000000" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,0,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Height="47">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="Forward_Button" Content="&#xE013;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,198,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+            <ProgressRing x:Name="loader" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="24" Foreground="#AFFFFFFF" Margin="12,14,0,0" RenderTransformOrigin="0.5,0.5">
+                <ProgressRing.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </ProgressRing.RenderTransform>
+            </ProgressRing>
+            <Button x:Name="Fight_Button" Content="&#xE923;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,242,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,286,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="Memo_Button" Content="&#xE70B;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,330,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="Share_Button" Content="&#xE72D;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,374,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+            <TextBlock x:Name="Notifications_Counter" Margin="1,0,0,54" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="47" RenderTransformOrigin="0.5,0.5" TextAlignment="Center" Foreground="White" FontWeight="SemiBold" FontSize="10.667" Height="17">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <Ellipse x:Name="Notifications_indicator" Fill="#26000000" HorizontalAlignment="Left" Height="27" Margin="11,0,0,49" VerticalAlignment="Bottom" Width="27" Stroke="White" StrokeThickness="0"/>
+            <CheckBox x:Name="LockTheBrowser" Content="LockTheBrowser" HorizontalAlignment="Left" Margin="29,31,-101,0" VerticalAlignment="Top" Visibility="Collapsed" IsChecked="True"/>
+            <Button x:Name="Window_Button" Content="&#xE109;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,418,-1,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+        </Grid>
         <Grid x:Name="SmartSuggest" Height="138" Margin="48,66,0,0" VerticalAlignment="Top">
             <Grid.Background>
                 <SolidColorBrush Color="#FFE8E8E8"/>
@@ -727,11 +949,16 @@
                         </LinearGradientBrush.RelativeTransform>
                         <GradientStop Color="Black" Offset="0"/>
                         <GradientStop Offset="1"/>
-                        <GradientStop Color="#04FAFAFA" Offset="0.57"/>
+                        <GradientStop Color="#04000000" Offset="0.57"/>
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
-            <Pivot x:Name="RightMenuPivot"  Margin="0,0,0,40">
+            <Rectangle x:Name="MemoIndexIndicator" Height="32" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="84,8,0,0" RadiusY="16" RadiusX="16" HorizontalAlignment="Left" Width="32" Opacity="0.57" Fill="#FF8F8F8F">
+                <Rectangle.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Pivot x:Name="RightMenuPivot"  Margin="0,0,0,40" Background="#ADFFFFFF">
                 <Pivot.HeaderTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding}"  FontSize="16" FontFamily="Segoe MDL2 Assets"/>
@@ -743,39 +970,70 @@
                     </Grid>
                 </PivotItem>
                 <PivotItem Header="">
-                    <Grid/>
+                    <Grid>
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Cette fonction n'est pas encore disponible" VerticalAlignment="Top" Foreground="#FFBDBDBD"/>
+                    </Grid>
                 </PivotItem>
                 <PivotItem Header="">
-
-                </PivotItem>
-                <PivotItem Header="">
-                    <Grid x:Name="NotificationsPanel" Margin="0" HorizontalAlignment="Center" Background="{x:Null}">
-                        <Grid x:Name="Notif_Home" Height="96" Width="237" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0" VerticalAlignment="Top">
-                            <TextBlock HorizontalAlignment="Left" Margin="1,19,0,0" TextWrapping="Wrap" Text="&#xE209;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FF19B3CB" FontSize="29.333" TextAlignment="Center" Width="236"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="11,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FFA2A2A2" Width="216" TextAlignment="Center" Text="Aucun message système"/>
-                        </Grid>
-                        <Grid x:Name="Notif_HomePageError" Height="96" Width="237" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0,110,0,0" VerticalAlignment="Top" Visibility="Collapsed">
-                            <TextBlock HorizontalAlignment="Left" Margin="11,9,0,0" TextWrapping="Wrap" Text="&#xEB90;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FFC51212" FontSize="16"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="35,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FF4B4B4B">
-                            	<Run Text="La page d'accueil définie"/>
-                            	<LineBreak/>
-                            	<Run Text="est invalide."/>
-                            </TextBlock>
-                            <Button Content="Paramètres" HorizontalAlignment="Left" Margin="0,59,-1,0" VerticalAlignment="Top" Height="36" Width="238" Background="#339E9E9E" BorderBrush="#FFC5C5C5" BorderThickness="0,1,0,0" FontSize="12" Tapped="Button_Tapped"/>
-                        </Grid>
-                        <Grid x:Name="Notif_SearchEngineError" Height="96" Width="237" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0,220,0,0" VerticalAlignment="Top" Visibility="Collapsed">
-                            <TextBlock HorizontalAlignment="Left" Margin="11,9,0,0" TextWrapping="Wrap" Text="&#xEB90;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FFC51212" FontSize="16"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="35,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FF4B4B4B">
-                            	<Run Text="Le moteur de recherche"/>
-                            	<LineBreak/>
-                            	<Run Text="défini est invalide."/>
-                            </TextBlock>
-                            <Button Content="Paramètres" HorizontalAlignment="Left" Margin="0,59,-1,0" VerticalAlignment="Top" Height="36" Width="238" Background="#339E9E9E" BorderBrush="#FFC5C5C5" BorderThickness="0,1,0,0" FontSize="12" Tapped="Button_Tapped"/>
-                        </Grid>
+                    <Grid>
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Cette fonction n'est pas encore disponible" VerticalAlignment="Top" Foreground="#FFBDBDBD"/>
                     </Grid>
 
                 </PivotItem>
+                <PivotItem Header="">
+                    <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto" IsHorizontalScrollChainingEnabled="False">
+                        <Grid x:Name="NotificationsPanel" Background="{x:Null}">
+                            <Grid x:Name="Notif_Home" Height="96" Width="237" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0" VerticalAlignment="Top">
+                                <TextBlock HorizontalAlignment="Left" Margin="1,19,0,0" TextWrapping="Wrap" Text="&#xE209;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FF19B3CB" FontSize="29.333" TextAlignment="Center" Width="236"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="11,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FFA2A2A2" Width="216" TextAlignment="Center" Text="Aucun message système"/>
+                            </Grid>
+                            <Grid x:Name="Notif_HomePageError" Height="96" Width="237" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0,110,0,0" VerticalAlignment="Top" Visibility="Collapsed">
+                                <TextBlock HorizontalAlignment="Left" Margin="11,9,0,0" TextWrapping="Wrap" Text="&#xEB90;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FFC51212" FontSize="16"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="35,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FF4B4B4B">
+                					<Run Text="La page d'accueil définie"/>
+                					<LineBreak/>
+                					<Run Text="est invalide."/>
+                                </TextBlock>
+                                <Button Content="Paramètres" HorizontalAlignment="Left" Margin="0,59,-1,0" VerticalAlignment="Top" Height="36" Width="238" Background="#339E9E9E" BorderBrush="#FFC5C5C5" BorderThickness="0,1,0,0" FontSize="12" Tapped="Button_Tapped"/>
+                            </Grid>
+                            <Grid x:Name="Notif_SearchEngineError" Height="96" Width="237" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0,220,0,0" VerticalAlignment="Top" Visibility="Collapsed">
+                                <TextBlock HorizontalAlignment="Left" Margin="11,9,0,0" TextWrapping="Wrap" Text="&#xEB90;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FFC51212" FontSize="16"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="35,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FF4B4B4B">
+                					<Run Text="Le moteur de recherche"/>
+                					<LineBreak/>
+                					<Run Text="défini est invalide."/>
+                                </TextBlock>
+                                <Button Content="Paramètres" HorizontalAlignment="Left" Margin="0,59,-1,0" VerticalAlignment="Top" Height="36" Width="238" Background="#339E9E9E" BorderBrush="#FFC5C5C5" BorderThickness="0,1,0,0" FontSize="12" Tapped="Button_Tapped"/>
+                            </Grid>
+                            <Grid x:Name="Notif_SearchEngineSuggestion" Height="96" Width="237" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0,220,0,0" VerticalAlignment="Top" Visibility="Collapsed">
+                                <TextBlock HorizontalAlignment="Left" Margin="54,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13.333" Foreground="#FF4B4B4B" Text="Ce moteur vous plaît ?" Height="40" Width="167" CharacterSpacing="-29"/>
+                                <Button Content="Définir comme moteur de recherche" HorizontalAlignment="Left" Margin="0,63,0,0" VerticalAlignment="Top" Height="31" Width="235" Background="{ThemeResource ContentDialogBorderThemeBrush}" BorderBrush="{ThemeResource SystemControlHighlightAltListAccentLowBrush}" BorderThickness="1" FontSize="12.667" Tapped="ChangSearchEngine" Foreground="White"/>
+                                <TextBlock x:Name="Notif_SearchEngineName" HorizontalAlignment="Left" Margin="54,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13.333" Foreground="#FF555555" Text="QWANT" FontWeight="SemiBold" CharacterSpacing="-36"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="55,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10.667" Foreground="#FF0097FF" Text="Suggestion automatique" Height="16" Width="167"/>
+                                <Image x:Name="Notif_SearchEngineIcon" HorizontalAlignment="Left" Height="39" Margin="11,11,0,0" VerticalAlignment="Top" Width="39" Source="Assets/Engine_Qwant.png"/>
+                            </Grid>
+                            <Grid x:Name="Notif_Diminutweet" Height="96" Width="237" Background="#FF005FBD" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0,220,0,0" VerticalAlignment="Top" Visibility="Collapsed">
+                                <TextBlock HorizontalAlignment="Left" Margin="56,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13.333" Foreground="White" Text="Le compacteur de tweets" Height="40" Width="167" CharacterSpacing="-29"/>
+                                <Button Content="Télécharger" HorizontalAlignment="Left" Margin="0,63,0,0" VerticalAlignment="Top" Height="31" Width="235" Background="{ThemeResource ContentDialogBorderThemeBrush}" BorderBrush="{ThemeResource SystemControlHighlightAltListAccentLowBrush}" BorderThickness="1" FontSize="12.667" Tapped="Button_Tapped_1" Foreground="White"/>
+                                <TextBlock x:Name="Notif_SearchEngineName1" HorizontalAlignment="Left" Margin="56,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13.333" Foreground="White" Text="DiminuTweet" FontWeight="SemiBold" CharacterSpacing="-36"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="57,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10.667" Foreground="#FF8DD0FF" Text="Suggestion de l'équipe" Height="16" Width="167"/>
+                                <Image x:Name="Notif_SearchEngineIcon1" HorizontalAlignment="Left" Height="39" Margin="11,11,0,0" VerticalAlignment="Top" Width="39" Source="Assets/promo2.png"/>
+                            </Grid>
+                            <Grid x:Name="Notif_MiniPlayer" Height="96" Width="237" Background="#FF0C0C0C" BorderBrush="#FF323232" BorderThickness="1" Margin="0,220,0,0" VerticalAlignment="Top" Visibility="Collapsed">
+                                <TextBlock HorizontalAlignment="Left" Margin="10,18,0,0" TextWrapping="Wrap" Text="&#xE173;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="{ThemeResource ContentDialogBorderThemeBrush}" FontSize="24"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="49,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FFD6D6D6" Width="178" Text="Vous pouvez afficher cette vidéo dans MiniPlayer"/>
+                                <Button Content="Ouvrir MiniPlayer" HorizontalAlignment="Left" Margin="0,59,-1,0" VerticalAlignment="Top" Height="36" Width="238" Background="#FF474747" BorderBrush="#FF555555" BorderThickness="0,1,0,0" FontSize="12.667" Tapped="OpenMiniP" Foreground="White" RequestedTheme="Dark"/>
+                            </Grid>
+
+                        </Grid>
+
+                    </ScrollViewer>
+
+                </PivotItem>
             </Pivot>
+        </Grid>
+        <Grid x:Name="ExitFullScreen" HorizontalAlignment="Center" Height="77" Margin="0,44,0,0" VerticalAlignment="Top" Width="650" Background="#99000000" CornerRadius="3" Visibility="Collapsed">
+            <TextBlock Margin="0,24,0,0" TextWrapping="Wrap" Text="Appuyez sur la touche ECHAP pour quitter le mode plein écran" VerticalAlignment="Top" Foreground="White" Height="43" TextAlignment="Center" FontSize="18.667" Width="517" HorizontalAlignment="Center"/>
         </Grid>
 
     </Grid>

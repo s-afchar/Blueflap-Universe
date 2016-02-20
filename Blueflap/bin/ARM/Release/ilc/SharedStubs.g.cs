@@ -8924,194 +8924,6 @@ namespace McgInterop
 			}
 		}
 
-		// Signature, Windows.UI.Xaml.Media.Animation.IEasingFunctionBase.get_EasingMode, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.EnumMarshaller] Windows_UI_Xaml_Media_Animation_EasingMode__Windows_UI_Xaml_Media_Animation__EasingMode, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.Media.Animation.EasingMode Func_UI_Xaml_Media_Animation_EasingMode__(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Media.Animation.EasingMode unsafe_value__retval;
-			global::Windows.UI.Xaml.Media.Animation.EasingMode value__retval;
-			int unsafe___return__;
-			// Marshalling
-			// Call to native method
-			unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-								__this, 
-								__typeHnd, 
-								__targetIndex, 
-								&(unsafe_value__retval)
-							);
-			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			value__retval = unsafe_value__retval;
-			// Return
-			return value__retval;
-		}
-
-		// Signature, Windows.UI.Xaml.Media.Animation.IDoubleAnimation.get_To, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTReferenceMarshaller] System_Nullable_1_double___Windows_Foundation__IReference_A_double_V_ *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Nullable<double> Func_Nullable_1_double___(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::System.Nullable_A_double_V___Impl.Vtbl** unsafe_value__retval = default(global::System.Nullable_A_double_V___Impl.Vtbl**);
-			global::System.Nullable<double> value__retval = default(global::System.Nullable<double>);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe_value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				if (unsafe_value__retval != null)
-					value__retval = (double)global::System.Runtime.InteropServices.McgModuleManager.UnboxIfBoxed(
-										global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject_NoUnboxing(
-															((global::System.IntPtr)unsafe_value__retval), 
-															typeof(global::Windows.Foundation.IReference<double>).TypeHandle
-														), 
-										"Windows.Foundation.IReference`1<Double>"
-									);
-				else
-					value__retval = null;
-				// Return
-				return value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Media.Animation.IDoubleAnimation.put_To, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTReferenceMarshaller] System_Nullable_1_double___Windows_Foundation__IReference_A_double_V_ *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_Nullable_1_double___(
-					global::System.__ComObject __this, 
-					global::System.Nullable<double> value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::System.Nullable_A_double_V___Impl.Vtbl** unsafe_value = default(global::System.Nullable_A_double_V___Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				if (value.HasValue)
-				{
-					global::System.Runtime.InteropServices.WindowsRuntime.ReferenceImpl<double> unsafe_value_Wrapper = new global::System.Runtime.InteropServices.WindowsRuntime.ReferenceImpl<double>(value.Value, 9);
-					unsafe_value = (global::System.Nullable_A_double_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ManagedObjectToComInterface(
-										unsafe_value_Wrapper, 
-										typeof(global::Windows.Foundation.IReference<double>).TypeHandle
-									);
-				}
-				else
-					unsafe_value = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Media.Animation.IDoubleAnimation.get_EasingFunction, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_EasingFunctionBase__Windows_UI_Xaml_Media_Animation__EasingFunctionBase *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase Func_UI_Xaml_Media_Animation_EasingFunctionBase__(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl** unsafe_value__retval = default(global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase value__retval = default(global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe_value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				value__retval = (global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-									((global::System.IntPtr)unsafe_value__retval), 
-									typeof(global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase).TypeHandle, 
-									typeof(global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase).TypeHandle
-								);
-				// Return
-				return value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Media.Animation.IDoubleAnimation.put_EasingFunction, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_EasingFunctionBase__Windows_UI_Xaml_Media_Animation__EasingFunctionBase *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_Media_Animation_EasingFunctionBase__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									value, 
-									typeof(global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-				global::System.GC.KeepAlive(value);
-			}
-		}
-
 		// Signature, Windows.UI.Xaml.Media.Animation.IObjectKeyFrame.get_KeyTime, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] Windows_UI_Xaml_Media_Animation_KeyTime__Windows_UI_Xaml_Media_Animation__KeyTime, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
@@ -10682,6 +10494,108 @@ namespace McgInterop
 			{
 				// Cleanup
 				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Media.Animation.IEasingFunctionBase.get_EasingMode, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.EnumMarshaller] Windows_UI_Xaml_Media_Animation_EasingMode__Windows_UI_Xaml_Media_Animation__EasingMode, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Xaml.Media.Animation.EasingMode Func_UI_Xaml_Media_Animation_EasingMode__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Media.Animation.EasingMode unsafe_value__retval;
+			global::Windows.UI.Xaml.Media.Animation.EasingMode value__retval;
+			int unsafe___return__;
+			// Marshalling
+			// Call to native method
+			unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+								__this, 
+								__typeHnd, 
+								__targetIndex, 
+								&(unsafe_value__retval)
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			value__retval = unsafe_value__retval;
+			// Return
+			return value__retval;
+		}
+
+		// Signature, Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrame.get_EasingFunction, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_EasingFunctionBase__Windows_UI_Xaml_Media_Animation__EasingFunctionBase *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase Func_UI_Xaml_Media_Animation_EasingFunctionBase__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl** unsafe_value__retval = default(global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase value__retval = default(global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe_value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				value__retval = (global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe_value__retval), 
+									typeof(global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase).TypeHandle, 
+									typeof(global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase).TypeHandle
+								);
+				// Return
+				return value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrame.put_EasingFunction, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Media_Animation_EasingFunctionBase__Windows_UI_Xaml_Media_Animation__EasingFunctionBase *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_UI_Xaml_Media_Animation_EasingFunctionBase__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									value, 
+									typeof(global::Windows.UI.Xaml.Media.Animation.IEasingFunctionBase).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+				global::System.GC.KeepAlive(value);
 			}
 		}
 
@@ -15866,6 +15780,29 @@ namespace McgInterop
 			}
 		}
 
+		// Signature, Windows.UI.Xaml.Controls.ITextBlock.put_CharacterSpacing, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] int__int, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_int__(
+					global::System.__ComObject __this, 
+					int value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			int unsafe___return__;
+			// Marshalling
+			// Call to native method
+			unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+								__this, 
+								__typeHnd, 
+								__targetIndex, 
+								value
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			// Return
+		}
+
 		// Signature, Windows.UI.Xaml.Controls.ITextBlock.get_TextWrapping, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.EnumMarshaller] Windows_UI_Xaml_TextWrapping__Windows_UI_Xaml__TextWrapping, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
@@ -16068,29 +16005,6 @@ namespace McgInterop
 				// Cleanup
 				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
 			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.ITextBox.put_SelectionStart, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] int__int, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_int__(
-					global::System.__ComObject __this, 
-					int value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			int unsafe___return__;
-			// Marshalling
-			// Call to native method
-			unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-								__this, 
-								__typeHnd, 
-								__targetIndex, 
-								value
-							);
-			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			// Return
 		}
 
 		// Signature, Windows.UI.Xaml.Controls.ITextBox.get_InputScope, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Input_InputScope__Windows_UI_Xaml_Input__InputScope *, 
@@ -17639,6 +17553,92 @@ namespace McgInterop
 			}
 		}
 
+		// Signature, Windows.UI.Xaml.Media.Animation.IDoubleAnimation.get_To, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTReferenceMarshaller] System_Nullable_1_double___Windows_Foundation__IReference_A_double_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Nullable<double> Func_Nullable_1_double___(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Nullable_A_double_V___Impl.Vtbl** unsafe_value__retval = default(global::System.Nullable_A_double_V___Impl.Vtbl**);
+			global::System.Nullable<double> value__retval = default(global::System.Nullable<double>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe_value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				if (unsafe_value__retval != null)
+					value__retval = (double)global::System.Runtime.InteropServices.McgModuleManager.UnboxIfBoxed(
+										global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject_NoUnboxing(
+															((global::System.IntPtr)unsafe_value__retval), 
+															typeof(global::Windows.Foundation.IReference<double>).TypeHandle
+														), 
+										"Windows.Foundation.IReference`1<Double>"
+									);
+				else
+					value__retval = null;
+				// Return
+				return value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Media.Animation.IDoubleAnimation.put_To, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTReferenceMarshaller] System_Nullable_1_double___Windows_Foundation__IReference_A_double_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_Nullable_1_double___(
+					global::System.__ComObject __this, 
+					global::System.Nullable<double> value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Nullable_A_double_V___Impl.Vtbl** unsafe_value = default(global::System.Nullable_A_double_V___Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				if (value.HasValue)
+				{
+					global::System.Runtime.InteropServices.WindowsRuntime.ReferenceImpl<double> unsafe_value_Wrapper = new global::System.Runtime.InteropServices.WindowsRuntime.ReferenceImpl<double>(value.Value, 9);
+					unsafe_value = (global::System.Nullable_A_double_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ManagedObjectToComInterface(
+										unsafe_value_Wrapper, 
+										typeof(global::Windows.Foundation.IReference<double>).TypeHandle
+									);
+				}
+				else
+					unsafe_value = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+			}
+		}
+
 		// Signature, Windows.Foundation.Collections.VectorChangedEventHandler<System.Object>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Foundation_Collections_IObservableVector_1_object___Windows_Foundation_Collections__IObservableVector_A_object_V_ *, [fwd] [in] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Foundation_Collections_IVectorChangedEventArgs__Windows_Foundation_Collections__IVectorChangedEventArgs *, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
@@ -18379,1328 +18379,6 @@ namespace McgInterop
 			}
 		}
 
-		// Signature, Windows.UI.Xaml.Media.ISolidColorBrushFactory.CreateInstanceWithColor, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] Windows_UI_Color__Windows_UI__Color, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_IntPtr____w64 int, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.IntPtr Func_UI_Color__IntPtr__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Color color, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::System.IntPtr unsafe_instance__retval;
-			global::System.IntPtr instance__retval;
-			int unsafe___return__;
-			// Marshalling
-			// Call to native method
-			unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-								__this, 
-								__typeHnd, 
-								__targetIndex, 
-								color, 
-								&(unsafe_instance__retval)
-							);
-			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			instance__retval = unsafe_instance__retval;
-			// Return
-			return instance__retval;
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IWebView.get_Source, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTUriMarshaller] System_Uri__Windows_Foundation__Uri *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Uri Func_Uri__(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.IUriRuntimeClass__Impl.Vtbl** unsafe_value__retval = default(global::Windows.Foundation.IUriRuntimeClass__Impl.Vtbl**);
-			global::System.Uri value__retval = default(global::System.Uri);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe_value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				if (unsafe_value__retval != null)
-					value__retval = global::McgInterop.McgHelpers.WindowsFoundationUri2SystemUri(((global::System.__ComObject)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject_NoUnboxing(
-											((global::System.IntPtr)unsafe_value__retval), 
-											typeof(global::Windows.Foundation.IUriRuntimeClass).TypeHandle
-										)));
-				else
-					value__retval = null;
-				// Return
-				return value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IWebView.add_LoadCompleted, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_Navigation_LoadCompletedEventHandler__Windows_UI_Xaml_Navigation__LoadCompletedEventHandler *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func_UI_Xaml_Navigation_LoadCompletedEventHandler___WindowsRuntime_EventRegistrationToken__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Navigation.LoadCompletedEventHandler value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Navigation.LoadCompletedEventHandler__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Navigation.LoadCompletedEventHandler__Impl.Vtbl**);
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.UI.Xaml.Navigation.LoadCompletedEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-									value, 
-									typeof(global::Windows.UI.Xaml.Navigation.LoadCompletedEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget23>(global::Windows.UI.Xaml.Navigation.LoadCompletedEventHandler__Impl.Invoke)
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value, 
-									&(unsafe_token__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				token__retval = unsafe_token__retval;
-				// Return
-				return token__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.NotifyEventHandler.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_NotifyEventArgs__Windows_UI_Xaml_Controls__NotifyEventArgs *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_object__UI_Xaml_Controls_NotifyEventArgs__(
-					global::System.__ComObject __this, 
-					object sender, 
-					global::Windows.UI.Xaml.Controls.NotifyEventArgs e, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::System.Runtime.InteropServices.__vtable_IInspectable* unsafe_sender = default(global::System.Runtime.InteropServices.__vtable_IInspectable*);
-			global::Windows.UI.Xaml.Controls.INotifyEventArgs__Impl.Vtbl** unsafe_e = default(global::Windows.UI.Xaml.Controls.INotifyEventArgs__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_sender = (global::System.Runtime.InteropServices.__vtable_IInspectable*)global::System.Runtime.InteropServices.McgMarshal.ObjectToIInspectable(sender);
-				unsafe_e = (global::Windows.UI.Xaml.Controls.INotifyEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									e, 
-									typeof(global::Windows.UI.Xaml.Controls.INotifyEventArgs).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_sender, 
-									unsafe_e
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_e)));
-				global::System.GC.KeepAlive(e);
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IWebView.add_ScriptNotify, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_Controls_NotifyEventHandler__Windows_UI_Xaml_Controls__NotifyEventHandler *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func_UI_Xaml_Controls_NotifyEventHandler___WindowsRuntime_EventRegistrationToken__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Controls.NotifyEventHandler value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Controls.NotifyEventHandler__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Controls.NotifyEventHandler__Impl.Vtbl**);
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.UI.Xaml.Controls.NotifyEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-									value, 
-									typeof(global::Windows.UI.Xaml.Controls.NotifyEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget38>(global::Windows.UI.Xaml.Controls.NotifyEventHandler__Impl.Invoke)
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value, 
-									&(unsafe_token__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				token__retval = unsafe_token__retval;
-				// Return
-				return token__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewNavigationFailedEventArgs__Windows_UI_Xaml_Controls__WebViewNavigationFailedEventArgs *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_object__UI_Xaml_Controls_WebViewNavigationFailedEventArgs__(
-					global::System.__ComObject __this, 
-					object sender, 
-					global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventArgs e, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::System.Runtime.InteropServices.__vtable_IInspectable* unsafe_sender = default(global::System.Runtime.InteropServices.__vtable_IInspectable*);
-			global::Windows.UI.Xaml.Controls.IWebViewNavigationFailedEventArgs__Impl.Vtbl** unsafe_e = default(global::Windows.UI.Xaml.Controls.IWebViewNavigationFailedEventArgs__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_sender = (global::System.Runtime.InteropServices.__vtable_IInspectable*)global::System.Runtime.InteropServices.McgMarshal.ObjectToIInspectable(sender);
-				unsafe_e = (global::Windows.UI.Xaml.Controls.IWebViewNavigationFailedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									e, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebViewNavigationFailedEventArgs).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_sender, 
-									unsafe_e
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_e)));
-				global::System.GC.KeepAlive(e);
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IWebView.add_NavigationFailed, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_Controls_WebViewNavigationFailedEventHandler__Windows_UI_Xaml_Controls__WebViewNavigationFailedEventHandler *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func_UI_Xaml_Controls_WebViewNavigationFailedEventHandler___WindowsRuntime_EventRegistrationToken__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler__Impl.Vtbl**);
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-									value, 
-									typeof(global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget39>(global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler__Impl.Invoke)
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value, 
-									&(unsafe_token__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				token__retval = unsafe_token__retval;
-				// Return
-				return token__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IWebView.Navigate, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTUriMarshaller] System_Uri__Windows_Foundation__Uri *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_Uri__(
-					global::System.__ComObject __this, 
-					global::System.Uri source, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.IUriRuntimeClass__Impl.Vtbl** unsafe_source = default(global::Windows.Foundation.IUriRuntimeClass__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				if (source != null)
-					unsafe_source = (global::Windows.Foundation.IUriRuntimeClass__Impl.Vtbl**)global::McgInterop.McgHelpers.SystemUri2WindowsFoundationUri(source);
-				else
-					unsafe_source = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_source
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_source)));
-			}
-		}
-
-		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,Windows.UI.Xaml.Controls.WebViewNavigationStartingEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs__Windows_UI_Xaml_Controls__WebViewNavigationStartingEventArgs *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewNavigationStartingEventArgs__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Controls.WebView sender, 
-					global::Windows.UI.Xaml.Controls.WebViewNavigationStartingEventArgs args, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Controls.IWebViewNavigationStartingEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IWebViewNavigationStartingEventArgs__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									sender, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
-								);
-				unsafe_args = (global::Windows.UI.Xaml.Controls.IWebViewNavigationStartingEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									args, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebViewNavigationStartingEventArgs).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_sender, 
-									unsafe_args
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
-				global::System.GC.KeepAlive(sender);
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
-				global::System.GC.KeepAlive(args);
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IWebView2.add_NavigationStarting, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewNavigationStartingEventArgs__WindowsRuntime_EventRegistrationToken__(
-					global::System.__ComObject __this, 
-					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNavigationStartingEventArgs> value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs_V___Impl.Vtbl**);
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-									value, 
-									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNavigationStartingEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget40>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs_V___Impl.Invoke)
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value, 
-									&(unsafe_token__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				token__retval = unsafe_token__retval;
-				// Return
-				return token__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-			}
-		}
-
-		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,Windows.UI.Xaml.Controls.WebViewContentLoadingEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs__Windows_UI_Xaml_Controls__WebViewContentLoadingEventArgs *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewContentLoadingEventArgs__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Controls.WebView sender, 
-					global::Windows.UI.Xaml.Controls.WebViewContentLoadingEventArgs args, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Controls.IWebViewContentLoadingEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IWebViewContentLoadingEventArgs__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									sender, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
-								);
-				unsafe_args = (global::Windows.UI.Xaml.Controls.IWebViewContentLoadingEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									args, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebViewContentLoadingEventArgs).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_sender, 
-									unsafe_args
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
-				global::System.GC.KeepAlive(sender);
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
-				global::System.GC.KeepAlive(args);
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IWebView2.add_ContentLoading, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewContentLoadingEventArgs__WindowsRuntime_EventRegistrationToken__(
-					global::System.__ComObject __this, 
-					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewContentLoadingEventArgs> value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs_V___Impl.Vtbl**);
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-									value, 
-									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewContentLoadingEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget41>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs_V___Impl.Invoke)
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value, 
-									&(unsafe_token__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				token__retval = unsafe_token__retval;
-				// Return
-				return token__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-			}
-		}
-
-		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,Windows.UI.Xaml.Controls.WebViewDOMContentLoadedEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs__Windows_UI_Xaml_Controls__WebViewDOMContentLoadedEventArgs *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Controls.WebView sender, 
-					global::Windows.UI.Xaml.Controls.WebViewDOMContentLoadedEventArgs args, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Controls.IWebViewDOMContentLoadedEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IWebViewDOMContentLoadedEventArgs__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									sender, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
-								);
-				unsafe_args = (global::Windows.UI.Xaml.Controls.IWebViewDOMContentLoadedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									args, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebViewDOMContentLoadedEventArgs).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_sender, 
-									unsafe_args
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
-				global::System.GC.KeepAlive(sender);
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
-				global::System.GC.KeepAlive(args);
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IWebView2.add_DOMContentLoaded, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs__WindowsRuntime_EventRegistrationToken__(
-					global::System.__ComObject __this, 
-					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewDOMContentLoadedEventArgs> value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs_V___Impl.Vtbl**);
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-									value, 
-									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewDOMContentLoadedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget42>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs_V___Impl.Invoke)
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value, 
-									&(unsafe_token__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				token__retval = unsafe_token__retval;
-				// Return
-				return token__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IWebView2.InvokeScriptAsync, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.HSTRINGMarshaller] string__System.Runtime.InteropServices.HSTRING, [fwd] [in] [Mcg.CodeGen.ComInterfaceMarshaller] System_Collections_Generic_IEnumerable_1_string___Windows_Foundation_Collections__IIterable_A_string_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Foundation_IAsyncOperation_1_string___Windows_Foundation__IAsyncOperation_A_string_V_ *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.Foundation.IAsyncOperation<string> Func_string___IEnumerable_1_string__IAsyncOperation_1_string___(
-					global::System.__ComObject __this, 
-					string scriptName, 
-					global::System.Collections.Generic.IEnumerable<string> arguments, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::System.Runtime.InteropServices.HSTRING unsafe_scriptName = default(global::System.Runtime.InteropServices.HSTRING);
-			global::System.Collections.Generic.IEnumerable_A_string_V___Impl.Vtbl** unsafe_arguments = default(global::System.Collections.Generic.IEnumerable_A_string_V___Impl.Vtbl**);
-			global::Windows.Foundation.IAsyncOperation_A_string_V___Impl.Vtbl** unsafe_returnValue__retval = default(global::Windows.Foundation.IAsyncOperation_A_string_V___Impl.Vtbl**);
-			global::Windows.Foundation.IAsyncOperation<string> returnValue__retval = default(global::Windows.Foundation.IAsyncOperation<string>);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				fixed (char* pBuffer_scriptName = scriptName)
-				{
-					global::System.Runtime.InteropServices.HSTRING_HEADER hstring_header_scriptName;
-					global::System.Runtime.InteropServices.McgMarshal.StringToHStringReference(pBuffer_scriptName, scriptName, &(hstring_header_scriptName), &(unsafe_scriptName));
-					unsafe_arguments = (global::System.Collections.Generic.IEnumerable_A_string_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-										arguments, 
-										typeof(global::System.Collections.Generic.IEnumerable<string>).TypeHandle
-									);
-					unsafe_returnValue__retval = null;
-					// Call to native method
-					unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-										__this, 
-										__typeHnd, 
-										__targetIndex, 
-										unsafe_scriptName, 
-										unsafe_arguments, 
-										&(unsafe_returnValue__retval)
-									);
-					global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-					returnValue__retval = (global::Windows.Foundation.IAsyncOperation<string>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
-										((global::System.IntPtr)unsafe_returnValue__retval), 
-										typeof(global::Windows.Foundation.IAsyncOperation<string>).TypeHandle
-									);
-				}
-				// Return
-				return returnValue__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_arguments)));
-				global::System.GC.KeepAlive(arguments);
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_returnValue__retval)));
-			}
-		}
-
-		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,Windows.UI.Xaml.Controls.WebViewNavigationCompletedEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs__Windows_UI_Xaml_Controls__WebViewNavigationCompletedEventArgs *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewNavigationCompletedEventArgs__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Controls.WebView sender, 
-					global::Windows.UI.Xaml.Controls.WebViewNavigationCompletedEventArgs args, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Controls.IWebViewNavigationCompletedEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IWebViewNavigationCompletedEventArgs__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									sender, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
-								);
-				unsafe_args = (global::Windows.UI.Xaml.Controls.IWebViewNavigationCompletedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									args, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebViewNavigationCompletedEventArgs).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_sender, 
-									unsafe_args
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
-				global::System.GC.KeepAlive(sender);
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
-				global::System.GC.KeepAlive(args);
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IWebView2.add_NavigationCompleted, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewNavigationCompletedEventArgs__WindowsRuntime_EventRegistrationToken__(
-					global::System.__ComObject __this, 
-					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNavigationCompletedEventArgs> value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs_V___Impl.Vtbl**);
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-									value, 
-									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNavigationCompletedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget43>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs_V___Impl.Invoke)
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value, 
-									&(unsafe_token__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				token__retval = unsafe_token__retval;
-				// Return
-				return token__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-			}
-		}
-
-		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,Windows.UI.Xaml.Controls.WebViewLongRunningScriptDetectedEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs__Windows_UI_Xaml_Controls__WebViewLongRunningScriptDetectedEventArgs *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Controls.WebView sender, 
-					global::Windows.UI.Xaml.Controls.WebViewLongRunningScriptDetectedEventArgs args, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Controls.IWebViewLongRunningScriptDetectedEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IWebViewLongRunningScriptDetectedEventArgs__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									sender, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
-								);
-				unsafe_args = (global::Windows.UI.Xaml.Controls.IWebViewLongRunningScriptDetectedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									args, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebViewLongRunningScriptDetectedEventArgs).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_sender, 
-									unsafe_args
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
-				global::System.GC.KeepAlive(sender);
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
-				global::System.GC.KeepAlive(args);
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IWebView2.add_LongRunningScriptDetected, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs__WindowsRuntime_EventRegistrationToken__(
-					global::System.__ComObject __this, 
-					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewLongRunningScriptDetectedEventArgs> value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs_V___Impl.Vtbl**);
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-									value, 
-									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewLongRunningScriptDetectedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget44>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs_V___Impl.Invoke)
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value, 
-									&(unsafe_token__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				token__retval = unsafe_token__retval;
-				// Return
-				return token__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-			}
-		}
-
-		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,System.Object>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_Controls_WebView__object__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Controls.WebView sender, 
-					object args, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
-			global::System.Runtime.InteropServices.__vtable_IInspectable* unsafe_args = default(global::System.Runtime.InteropServices.__vtable_IInspectable*);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									sender, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
-								);
-				unsafe_args = (global::System.Runtime.InteropServices.__vtable_IInspectable*)global::System.Runtime.InteropServices.McgMarshal.ObjectToIInspectable(args);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_sender, 
-									unsafe_args
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
-				global::System.GC.KeepAlive(sender);
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IWebView2.add_UnsafeContentWarningDisplaying, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__object___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_object_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__object__WindowsRuntime_EventRegistrationToken__(
-					global::System.__ComObject __this, 
-					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, object> value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_System_Object_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_System_Object_V___Impl.Vtbl**);
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_System_Object_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-									value, 
-									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, object>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget45>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_System_Object_V___Impl.Invoke)
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value, 
-									&(unsafe_token__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				token__retval = unsafe_token__retval;
-				// Return
-				return token__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-			}
-		}
-
-		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,Windows.UI.Xaml.Controls.WebViewUnviewableContentIdentifiedEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs__Windows_UI_Xaml_Controls__WebViewUnviewableContentIdentifiedEventArgs *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Controls.WebView sender, 
-					global::Windows.UI.Xaml.Controls.WebViewUnviewableContentIdentifiedEventArgs args, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Controls.IWebViewUnviewableContentIdentifiedEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IWebViewUnviewableContentIdentifiedEventArgs__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									sender, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
-								);
-				unsafe_args = (global::Windows.UI.Xaml.Controls.IWebViewUnviewableContentIdentifiedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									args, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebViewUnviewableContentIdentifiedEventArgs).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_sender, 
-									unsafe_args
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
-				global::System.GC.KeepAlive(sender);
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
-				global::System.GC.KeepAlive(args);
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IWebView2.add_UnviewableContentIdentified, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs__WindowsRuntime_EventRegistrationToken__(
-					global::System.__ComObject __this, 
-					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewUnviewableContentIdentifiedEventArgs> value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs_V___Impl.Vtbl**);
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-									value, 
-									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewUnviewableContentIdentifiedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget46>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs_V___Impl.Invoke)
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value, 
-									&(unsafe_token__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				token__retval = unsafe_token__retval;
-				// Return
-				return token__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-			}
-		}
-
-		// Signature, Windows.Foundation.AsyncOperationCompletedHandler<string>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Foundation_IAsyncOperation_1_string___Windows_Foundation__IAsyncOperation_A_string_V_ *, [fwd] [in] [Mcg.CodeGen.EnumMarshaller] Windows_Foundation_AsyncStatus__Windows_Foundation__AsyncStatus, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc__IAsyncOperation_1_string___int(
-					global::System.__ComObject __this, 
-					global::Windows.Foundation.IAsyncOperation<string> asyncInfo, 
-					int asyncStatus, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.IAsyncOperation_A_string_V___Impl.Vtbl** unsafe_asyncInfo = default(global::Windows.Foundation.IAsyncOperation_A_string_V___Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_asyncInfo = (global::Windows.Foundation.IAsyncOperation_A_string_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									asyncInfo, 
-									typeof(global::Windows.Foundation.IAsyncOperation<string>).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_asyncInfo, 
-									asyncStatus
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_asyncInfo)));
-				global::System.GC.KeepAlive(asyncInfo);
-			}
-		}
-
-		// Signature, Windows.Foundation.IAsyncOperation<string>.put_Completed, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_AsyncOperationCompletedHandler_1_string___Windows_Foundation__AsyncOperationCompletedHandler_A_string_V_ *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc__AsyncOperationCompletedHandler_1_string___(
-					global::System.__ComObject __this, 
-					global::Windows.Foundation.AsyncOperationCompletedHandler<string> handler, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.AsyncOperationCompletedHandler_A_string_V___Impl.Vtbl** unsafe_handler = default(global::Windows.Foundation.AsyncOperationCompletedHandler_A_string_V___Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_handler = (global::Windows.Foundation.AsyncOperationCompletedHandler_A_string_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-									handler, 
-									typeof(global::Windows.Foundation.AsyncOperationCompletedHandler<string>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget47>(global::Windows.Foundation.AsyncOperationCompletedHandler_A_string_V___Impl.Invoke)
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_handler
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_handler)));
-			}
-		}
-
-		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,Windows.UI.Xaml.Controls.WebViewUnsupportedUriSchemeIdentifiedEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs__Windows_UI_Xaml_Controls__WebViewUnsupportedUriSchemeIdentifiedEventArgs *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Controls.WebView sender, 
-					global::Windows.UI.Xaml.Controls.WebViewUnsupportedUriSchemeIdentifiedEventArgs args, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Controls.IWebViewUnsupportedUriSchemeIdentifiedEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IWebViewUnsupportedUriSchemeIdentifiedEventArgs__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									sender, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
-								);
-				unsafe_args = (global::Windows.UI.Xaml.Controls.IWebViewUnsupportedUriSchemeIdentifiedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									args, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebViewUnsupportedUriSchemeIdentifiedEventArgs).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_sender, 
-									unsafe_args
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
-				global::System.GC.KeepAlive(sender);
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
-				global::System.GC.KeepAlive(args);
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IWebView4.add_UnsupportedUriSchemeIdentified, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs__WindowsRuntime_EventRegistrationToken__(
-					global::System.__ComObject __this, 
-					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewUnsupportedUriSchemeIdentifiedEventArgs> value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs_V___Impl.Vtbl**);
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-									value, 
-									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewUnsupportedUriSchemeIdentifiedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget48>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs_V___Impl.Invoke)
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value, 
-									&(unsafe_token__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				token__retval = unsafe_token__retval;
-				// Return
-				return token__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-			}
-		}
-
-		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,Windows.UI.Xaml.Controls.WebViewNewWindowRequestedEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs__Windows_UI_Xaml_Controls__WebViewNewWindowRequestedEventArgs *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Controls.WebView sender, 
-					global::Windows.UI.Xaml.Controls.WebViewNewWindowRequestedEventArgs args, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Controls.IWebViewNewWindowRequestedEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IWebViewNewWindowRequestedEventArgs__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									sender, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
-								);
-				unsafe_args = (global::Windows.UI.Xaml.Controls.IWebViewNewWindowRequestedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									args, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebViewNewWindowRequestedEventArgs).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_sender, 
-									unsafe_args
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
-				global::System.GC.KeepAlive(sender);
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
-				global::System.GC.KeepAlive(args);
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IWebView4.add_NewWindowRequested, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs__WindowsRuntime_EventRegistrationToken__(
-					global::System.__ComObject __this, 
-					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNewWindowRequestedEventArgs> value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs_V___Impl.Vtbl**);
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-									value, 
-									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNewWindowRequestedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget49>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs_V___Impl.Invoke)
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value, 
-									&(unsafe_token__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				token__retval = unsafe_token__retval;
-				// Return
-				return token__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-			}
-		}
-
-		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,Windows.UI.Xaml.Controls.WebViewPermissionRequestedEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs__Windows_UI_Xaml_Controls__WebViewPermissionRequestedEventArgs *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static void Proc_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewPermissionRequestedEventArgs__(
-					global::System.__ComObject __this, 
-					global::Windows.UI.Xaml.Controls.WebView sender, 
-					global::Windows.UI.Xaml.Controls.WebViewPermissionRequestedEventArgs args, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Controls.IWebViewPermissionRequestedEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IWebViewPermissionRequestedEventArgs__Impl.Vtbl**);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									sender, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
-								);
-				unsafe_args = (global::Windows.UI.Xaml.Controls.IWebViewPermissionRequestedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
-									args, 
-									typeof(global::Windows.UI.Xaml.Controls.IWebViewPermissionRequestedEventArgs).TypeHandle
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_sender, 
-									unsafe_args
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				// Return
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
-				global::System.GC.KeepAlive(sender);
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
-				global::System.GC.KeepAlive(args);
-			}
-		}
-
-		// Signature, Windows.UI.Xaml.Controls.IWebView4.add_PermissionRequested, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewPermissionRequestedEventArgs__WindowsRuntime_EventRegistrationToken__(
-					global::System.__ComObject __this, 
-					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewPermissionRequestedEventArgs> value, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs_V___Impl.Vtbl**);
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-									value, 
-									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewPermissionRequestedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget50>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs_V___Impl.Invoke)
-								);
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									unsafe_value, 
-									&(unsafe_token__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				token__retval = unsafe_token__retval;
-				// Return
-				return token__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-			}
-		}
-
 		// Signature, Windows.UI.Xaml.Controls.IScrollViewerStatics.GetVerticalScrollBarVisibility, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_DependencyObject__Windows_UI_Xaml__DependencyObject *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.EnumMarshaller] Windows_UI_Xaml_Controls_ScrollBarVisibility__Windows_UI_Xaml_Controls__ScrollBarVisibility, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
@@ -19896,7 +18574,7 @@ namespace McgInterop
 				unsafe_value = (global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget51>(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget38>(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -19980,7 +18658,7 @@ namespace McgInterop
 				unsafe_value = (global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 									value, 
 									typeof(global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget52>(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget39>(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs_V___Impl.Invoke)
 								);
 				// Call to native method
 				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -20000,6 +18678,34 @@ namespace McgInterop
 				// Cleanup
 				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
 			}
+		}
+
+		// Signature, Windows.UI.Xaml.Media.ISolidColorBrushFactory.CreateInstanceWithColor, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] Windows_UI_Color__Windows_UI__Color, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_IntPtr____w64 int, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.IntPtr Func_UI_Color__IntPtr__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Color color, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.IntPtr unsafe_instance__retval;
+			global::System.IntPtr instance__retval;
+			int unsafe___return__;
+			// Marshalling
+			// Call to native method
+			unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+								__this, 
+								__typeHnd, 
+								__targetIndex, 
+								color, 
+								&(unsafe_instance__retval)
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			instance__retval = unsafe_instance__retval;
+			// Return
+			return instance__retval;
 		}
 
 		// Signature, Windows.UI.Xaml.Controls.Primitives.IToggleButton.get_IsChecked, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTReferenceMarshaller] System_Nullable_1_bool___Windows_Foundation__IReference_A_bool_V_ *, 
@@ -20080,6 +18786,1300 @@ namespace McgInterop
 								);
 				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
 				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IWebView.get_Source, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTUriMarshaller] System_Uri__Windows_Foundation__Uri *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Uri Func_Uri__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.IUriRuntimeClass__Impl.Vtbl** unsafe_value__retval = default(global::Windows.Foundation.IUriRuntimeClass__Impl.Vtbl**);
+			global::System.Uri value__retval = default(global::System.Uri);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe_value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				if (unsafe_value__retval != null)
+					value__retval = global::McgInterop.McgHelpers.WindowsFoundationUri2SystemUri(((global::System.__ComObject)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject_NoUnboxing(
+											((global::System.IntPtr)unsafe_value__retval), 
+											typeof(global::Windows.Foundation.IUriRuntimeClass).TypeHandle
+										)));
+				else
+					value__retval = null;
+				// Return
+				return value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value__retval)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IWebView.add_LoadCompleted, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_Navigation_LoadCompletedEventHandler__Windows_UI_Xaml_Navigation__LoadCompletedEventHandler *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func_UI_Xaml_Navigation_LoadCompletedEventHandler___WindowsRuntime_EventRegistrationToken__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Navigation.LoadCompletedEventHandler value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Navigation.LoadCompletedEventHandler__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Navigation.LoadCompletedEventHandler__Impl.Vtbl**);
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.UI.Xaml.Navigation.LoadCompletedEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+									value, 
+									typeof(global::Windows.UI.Xaml.Navigation.LoadCompletedEventHandler).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget23>(global::Windows.UI.Xaml.Navigation.LoadCompletedEventHandler__Impl.Invoke)
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value, 
+									&(unsafe_token__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				token__retval = unsafe_token__retval;
+				// Return
+				return token__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.NotifyEventHandler.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_NotifyEventArgs__Windows_UI_Xaml_Controls__NotifyEventArgs *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_object__UI_Xaml_Controls_NotifyEventArgs__(
+					global::System.__ComObject __this, 
+					object sender, 
+					global::Windows.UI.Xaml.Controls.NotifyEventArgs e, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Runtime.InteropServices.__vtable_IInspectable* unsafe_sender = default(global::System.Runtime.InteropServices.__vtable_IInspectable*);
+			global::Windows.UI.Xaml.Controls.INotifyEventArgs__Impl.Vtbl** unsafe_e = default(global::Windows.UI.Xaml.Controls.INotifyEventArgs__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_sender = (global::System.Runtime.InteropServices.__vtable_IInspectable*)global::System.Runtime.InteropServices.McgMarshal.ObjectToIInspectable(sender);
+				unsafe_e = (global::Windows.UI.Xaml.Controls.INotifyEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									e, 
+									typeof(global::Windows.UI.Xaml.Controls.INotifyEventArgs).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_sender, 
+									unsafe_e
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_e)));
+				global::System.GC.KeepAlive(e);
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IWebView.add_ScriptNotify, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_Controls_NotifyEventHandler__Windows_UI_Xaml_Controls__NotifyEventHandler *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func_UI_Xaml_Controls_NotifyEventHandler___WindowsRuntime_EventRegistrationToken__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Controls.NotifyEventHandler value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Controls.NotifyEventHandler__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Controls.NotifyEventHandler__Impl.Vtbl**);
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.UI.Xaml.Controls.NotifyEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+									value, 
+									typeof(global::Windows.UI.Xaml.Controls.NotifyEventHandler).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget40>(global::Windows.UI.Xaml.Controls.NotifyEventHandler__Impl.Invoke)
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value, 
+									&(unsafe_token__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				token__retval = unsafe_token__retval;
+				// Return
+				return token__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewNavigationFailedEventArgs__Windows_UI_Xaml_Controls__WebViewNavigationFailedEventArgs *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_object__UI_Xaml_Controls_WebViewNavigationFailedEventArgs__(
+					global::System.__ComObject __this, 
+					object sender, 
+					global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventArgs e, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Runtime.InteropServices.__vtable_IInspectable* unsafe_sender = default(global::System.Runtime.InteropServices.__vtable_IInspectable*);
+			global::Windows.UI.Xaml.Controls.IWebViewNavigationFailedEventArgs__Impl.Vtbl** unsafe_e = default(global::Windows.UI.Xaml.Controls.IWebViewNavigationFailedEventArgs__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_sender = (global::System.Runtime.InteropServices.__vtable_IInspectable*)global::System.Runtime.InteropServices.McgMarshal.ObjectToIInspectable(sender);
+				unsafe_e = (global::Windows.UI.Xaml.Controls.IWebViewNavigationFailedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									e, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebViewNavigationFailedEventArgs).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_sender, 
+									unsafe_e
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_e)));
+				global::System.GC.KeepAlive(e);
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IWebView.add_NavigationFailed, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_Controls_WebViewNavigationFailedEventHandler__Windows_UI_Xaml_Controls__WebViewNavigationFailedEventHandler *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func_UI_Xaml_Controls_WebViewNavigationFailedEventHandler___WindowsRuntime_EventRegistrationToken__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler__Impl.Vtbl**);
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+									value, 
+									typeof(global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget41>(global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler__Impl.Invoke)
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value, 
+									&(unsafe_token__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				token__retval = unsafe_token__retval;
+				// Return
+				return token__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IWebView.Navigate, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTUriMarshaller] System_Uri__Windows_Foundation__Uri *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_Uri__(
+					global::System.__ComObject __this, 
+					global::System.Uri source, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.IUriRuntimeClass__Impl.Vtbl** unsafe_source = default(global::Windows.Foundation.IUriRuntimeClass__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				if (source != null)
+					unsafe_source = (global::Windows.Foundation.IUriRuntimeClass__Impl.Vtbl**)global::McgInterop.McgHelpers.SystemUri2WindowsFoundationUri(source);
+				else
+					unsafe_source = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_source
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_source)));
+			}
+		}
+
+		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,Windows.UI.Xaml.Controls.WebViewNavigationStartingEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs__Windows_UI_Xaml_Controls__WebViewNavigationStartingEventArgs *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewNavigationStartingEventArgs__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Controls.WebView sender, 
+					global::Windows.UI.Xaml.Controls.WebViewNavigationStartingEventArgs args, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Controls.IWebViewNavigationStartingEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IWebViewNavigationStartingEventArgs__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									sender, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
+								);
+				unsafe_args = (global::Windows.UI.Xaml.Controls.IWebViewNavigationStartingEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									args, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebViewNavigationStartingEventArgs).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_sender, 
+									unsafe_args
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
+				global::System.GC.KeepAlive(sender);
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
+				global::System.GC.KeepAlive(args);
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IWebView2.add_NavigationStarting, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewNavigationStartingEventArgs__WindowsRuntime_EventRegistrationToken__(
+					global::System.__ComObject __this, 
+					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNavigationStartingEventArgs> value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs_V___Impl.Vtbl**);
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+									value, 
+									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNavigationStartingEventArgs>).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget42>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs_V___Impl.Invoke)
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value, 
+									&(unsafe_token__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				token__retval = unsafe_token__retval;
+				// Return
+				return token__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+			}
+		}
+
+		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,Windows.UI.Xaml.Controls.WebViewContentLoadingEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs__Windows_UI_Xaml_Controls__WebViewContentLoadingEventArgs *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewContentLoadingEventArgs__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Controls.WebView sender, 
+					global::Windows.UI.Xaml.Controls.WebViewContentLoadingEventArgs args, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Controls.IWebViewContentLoadingEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IWebViewContentLoadingEventArgs__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									sender, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
+								);
+				unsafe_args = (global::Windows.UI.Xaml.Controls.IWebViewContentLoadingEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									args, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebViewContentLoadingEventArgs).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_sender, 
+									unsafe_args
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
+				global::System.GC.KeepAlive(sender);
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
+				global::System.GC.KeepAlive(args);
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IWebView2.add_ContentLoading, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewContentLoadingEventArgs__WindowsRuntime_EventRegistrationToken__(
+					global::System.__ComObject __this, 
+					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewContentLoadingEventArgs> value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs_V___Impl.Vtbl**);
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+									value, 
+									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewContentLoadingEventArgs>).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget43>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs_V___Impl.Invoke)
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value, 
+									&(unsafe_token__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				token__retval = unsafe_token__retval;
+				// Return
+				return token__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+			}
+		}
+
+		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,Windows.UI.Xaml.Controls.WebViewDOMContentLoadedEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs__Windows_UI_Xaml_Controls__WebViewDOMContentLoadedEventArgs *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Controls.WebView sender, 
+					global::Windows.UI.Xaml.Controls.WebViewDOMContentLoadedEventArgs args, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Controls.IWebViewDOMContentLoadedEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IWebViewDOMContentLoadedEventArgs__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									sender, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
+								);
+				unsafe_args = (global::Windows.UI.Xaml.Controls.IWebViewDOMContentLoadedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									args, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebViewDOMContentLoadedEventArgs).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_sender, 
+									unsafe_args
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
+				global::System.GC.KeepAlive(sender);
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
+				global::System.GC.KeepAlive(args);
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IWebView2.add_DOMContentLoaded, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs__WindowsRuntime_EventRegistrationToken__(
+					global::System.__ComObject __this, 
+					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewDOMContentLoadedEventArgs> value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs_V___Impl.Vtbl**);
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+									value, 
+									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewDOMContentLoadedEventArgs>).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget44>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs_V___Impl.Invoke)
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value, 
+									&(unsafe_token__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				token__retval = unsafe_token__retval;
+				// Return
+				return token__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IWebView2.InvokeScriptAsync, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.HSTRINGMarshaller] string__System.Runtime.InteropServices.HSTRING, [fwd] [in] [Mcg.CodeGen.ComInterfaceMarshaller] System_Collections_Generic_IEnumerable_1_string___Windows_Foundation_Collections__IIterable_A_string_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Foundation_IAsyncOperation_1_string___Windows_Foundation__IAsyncOperation_A_string_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.Foundation.IAsyncOperation<string> Func_string___IEnumerable_1_string__IAsyncOperation_1_string___(
+					global::System.__ComObject __this, 
+					string scriptName, 
+					global::System.Collections.Generic.IEnumerable<string> arguments, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Runtime.InteropServices.HSTRING unsafe_scriptName = default(global::System.Runtime.InteropServices.HSTRING);
+			global::System.Collections.Generic.IEnumerable_A_string_V___Impl.Vtbl** unsafe_arguments = default(global::System.Collections.Generic.IEnumerable_A_string_V___Impl.Vtbl**);
+			global::Windows.Foundation.IAsyncOperation_A_string_V___Impl.Vtbl** unsafe_returnValue__retval = default(global::Windows.Foundation.IAsyncOperation_A_string_V___Impl.Vtbl**);
+			global::Windows.Foundation.IAsyncOperation<string> returnValue__retval = default(global::Windows.Foundation.IAsyncOperation<string>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				fixed (char* pBuffer_scriptName = scriptName)
+				{
+					global::System.Runtime.InteropServices.HSTRING_HEADER hstring_header_scriptName;
+					global::System.Runtime.InteropServices.McgMarshal.StringToHStringReference(pBuffer_scriptName, scriptName, &(hstring_header_scriptName), &(unsafe_scriptName));
+					unsafe_arguments = (global::System.Collections.Generic.IEnumerable_A_string_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+										arguments, 
+										typeof(global::System.Collections.Generic.IEnumerable<string>).TypeHandle
+									);
+					unsafe_returnValue__retval = null;
+					// Call to native method
+					unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+										__this, 
+										__typeHnd, 
+										__targetIndex, 
+										unsafe_scriptName, 
+										unsafe_arguments, 
+										&(unsafe_returnValue__retval)
+									);
+					global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+					returnValue__retval = (global::Windows.Foundation.IAsyncOperation<string>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+										((global::System.IntPtr)unsafe_returnValue__retval), 
+										typeof(global::Windows.Foundation.IAsyncOperation<string>).TypeHandle
+									);
+				}
+				// Return
+				return returnValue__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_arguments)));
+				global::System.GC.KeepAlive(arguments);
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_returnValue__retval)));
+			}
+		}
+
+		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,Windows.UI.Xaml.Controls.WebViewNavigationCompletedEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs__Windows_UI_Xaml_Controls__WebViewNavigationCompletedEventArgs *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewNavigationCompletedEventArgs__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Controls.WebView sender, 
+					global::Windows.UI.Xaml.Controls.WebViewNavigationCompletedEventArgs args, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Controls.IWebViewNavigationCompletedEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IWebViewNavigationCompletedEventArgs__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									sender, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
+								);
+				unsafe_args = (global::Windows.UI.Xaml.Controls.IWebViewNavigationCompletedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									args, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebViewNavigationCompletedEventArgs).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_sender, 
+									unsafe_args
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
+				global::System.GC.KeepAlive(sender);
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
+				global::System.GC.KeepAlive(args);
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IWebView2.add_NavigationCompleted, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewNavigationCompletedEventArgs__WindowsRuntime_EventRegistrationToken__(
+					global::System.__ComObject __this, 
+					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNavigationCompletedEventArgs> value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs_V___Impl.Vtbl**);
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+									value, 
+									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNavigationCompletedEventArgs>).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget45>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs_V___Impl.Invoke)
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value, 
+									&(unsafe_token__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				token__retval = unsafe_token__retval;
+				// Return
+				return token__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+			}
+		}
+
+		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,Windows.UI.Xaml.Controls.WebViewLongRunningScriptDetectedEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs__Windows_UI_Xaml_Controls__WebViewLongRunningScriptDetectedEventArgs *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Controls.WebView sender, 
+					global::Windows.UI.Xaml.Controls.WebViewLongRunningScriptDetectedEventArgs args, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Controls.IWebViewLongRunningScriptDetectedEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IWebViewLongRunningScriptDetectedEventArgs__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									sender, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
+								);
+				unsafe_args = (global::Windows.UI.Xaml.Controls.IWebViewLongRunningScriptDetectedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									args, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebViewLongRunningScriptDetectedEventArgs).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_sender, 
+									unsafe_args
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
+				global::System.GC.KeepAlive(sender);
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
+				global::System.GC.KeepAlive(args);
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IWebView2.add_LongRunningScriptDetected, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs__WindowsRuntime_EventRegistrationToken__(
+					global::System.__ComObject __this, 
+					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewLongRunningScriptDetectedEventArgs> value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs_V___Impl.Vtbl**);
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+									value, 
+									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewLongRunningScriptDetectedEventArgs>).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget46>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs_V___Impl.Invoke)
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value, 
+									&(unsafe_token__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				token__retval = unsafe_token__retval;
+				// Return
+				return token__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+			}
+		}
+
+		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,System.Object>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTInspectableMarshaller] object____mcg_IInspectable, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_UI_Xaml_Controls_WebView__object__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Controls.WebView sender, 
+					object args, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
+			global::System.Runtime.InteropServices.__vtable_IInspectable* unsafe_args = default(global::System.Runtime.InteropServices.__vtable_IInspectable*);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									sender, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
+								);
+				unsafe_args = (global::System.Runtime.InteropServices.__vtable_IInspectable*)global::System.Runtime.InteropServices.McgMarshal.ObjectToIInspectable(args);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_sender, 
+									unsafe_args
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
+				global::System.GC.KeepAlive(sender);
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IWebView2.add_UnsafeContentWarningDisplaying, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__object___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_object_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__object__WindowsRuntime_EventRegistrationToken__(
+					global::System.__ComObject __this, 
+					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, object> value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_System_Object_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_System_Object_V___Impl.Vtbl**);
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_System_Object_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+									value, 
+									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, object>).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget47>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_System_Object_V___Impl.Invoke)
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value, 
+									&(unsafe_token__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				token__retval = unsafe_token__retval;
+				// Return
+				return token__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+			}
+		}
+
+		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,Windows.UI.Xaml.Controls.WebViewUnviewableContentIdentifiedEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs__Windows_UI_Xaml_Controls__WebViewUnviewableContentIdentifiedEventArgs *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Controls.WebView sender, 
+					global::Windows.UI.Xaml.Controls.WebViewUnviewableContentIdentifiedEventArgs args, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Controls.IWebViewUnviewableContentIdentifiedEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IWebViewUnviewableContentIdentifiedEventArgs__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									sender, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
+								);
+				unsafe_args = (global::Windows.UI.Xaml.Controls.IWebViewUnviewableContentIdentifiedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									args, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebViewUnviewableContentIdentifiedEventArgs).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_sender, 
+									unsafe_args
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
+				global::System.GC.KeepAlive(sender);
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
+				global::System.GC.KeepAlive(args);
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IWebView2.add_UnviewableContentIdentified, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs__WindowsRuntime_EventRegistrationToken__(
+					global::System.__ComObject __this, 
+					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewUnviewableContentIdentifiedEventArgs> value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs_V___Impl.Vtbl**);
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+									value, 
+									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewUnviewableContentIdentifiedEventArgs>).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget48>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs_V___Impl.Invoke)
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value, 
+									&(unsafe_token__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				token__retval = unsafe_token__retval;
+				// Return
+				return token__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+			}
+		}
+
+		// Signature, Windows.Foundation.AsyncOperationCompletedHandler<string>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Foundation_IAsyncOperation_1_string___Windows_Foundation__IAsyncOperation_A_string_V_ *, [fwd] [in] [Mcg.CodeGen.EnumMarshaller] Windows_Foundation_AsyncStatus__Windows_Foundation__AsyncStatus, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc__IAsyncOperation_1_string___int(
+					global::System.__ComObject __this, 
+					global::Windows.Foundation.IAsyncOperation<string> asyncInfo, 
+					int asyncStatus, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.IAsyncOperation_A_string_V___Impl.Vtbl** unsafe_asyncInfo = default(global::Windows.Foundation.IAsyncOperation_A_string_V___Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_asyncInfo = (global::Windows.Foundation.IAsyncOperation_A_string_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									asyncInfo, 
+									typeof(global::Windows.Foundation.IAsyncOperation<string>).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_asyncInfo, 
+									asyncStatus
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_asyncInfo)));
+				global::System.GC.KeepAlive(asyncInfo);
+			}
+		}
+
+		// Signature, Windows.Foundation.IAsyncOperation<string>.put_Completed, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_AsyncOperationCompletedHandler_1_string___Windows_Foundation__AsyncOperationCompletedHandler_A_string_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc__AsyncOperationCompletedHandler_1_string___(
+					global::System.__ComObject __this, 
+					global::Windows.Foundation.AsyncOperationCompletedHandler<string> handler, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.AsyncOperationCompletedHandler_A_string_V___Impl.Vtbl** unsafe_handler = default(global::Windows.Foundation.AsyncOperationCompletedHandler_A_string_V___Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_handler = (global::Windows.Foundation.AsyncOperationCompletedHandler_A_string_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+									handler, 
+									typeof(global::Windows.Foundation.AsyncOperationCompletedHandler<string>).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget49>(global::Windows.Foundation.AsyncOperationCompletedHandler_A_string_V___Impl.Invoke)
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_handler
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_handler)));
+			}
+		}
+
+		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,Windows.UI.Xaml.Controls.WebViewUnsupportedUriSchemeIdentifiedEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs__Windows_UI_Xaml_Controls__WebViewUnsupportedUriSchemeIdentifiedEventArgs *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Controls.WebView sender, 
+					global::Windows.UI.Xaml.Controls.WebViewUnsupportedUriSchemeIdentifiedEventArgs args, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Controls.IWebViewUnsupportedUriSchemeIdentifiedEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IWebViewUnsupportedUriSchemeIdentifiedEventArgs__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									sender, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
+								);
+				unsafe_args = (global::Windows.UI.Xaml.Controls.IWebViewUnsupportedUriSchemeIdentifiedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									args, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebViewUnsupportedUriSchemeIdentifiedEventArgs).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_sender, 
+									unsafe_args
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
+				global::System.GC.KeepAlive(sender);
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
+				global::System.GC.KeepAlive(args);
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IWebView4.add_UnsupportedUriSchemeIdentified, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs__WindowsRuntime_EventRegistrationToken__(
+					global::System.__ComObject __this, 
+					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewUnsupportedUriSchemeIdentifiedEventArgs> value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs_V___Impl.Vtbl**);
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+									value, 
+									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewUnsupportedUriSchemeIdentifiedEventArgs>).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget50>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs_V___Impl.Invoke)
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value, 
+									&(unsafe_token__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				token__retval = unsafe_token__retval;
+				// Return
+				return token__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+			}
+		}
+
+		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,Windows.UI.Xaml.Controls.WebViewNewWindowRequestedEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs__Windows_UI_Xaml_Controls__WebViewNewWindowRequestedEventArgs *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Controls.WebView sender, 
+					global::Windows.UI.Xaml.Controls.WebViewNewWindowRequestedEventArgs args, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Controls.IWebViewNewWindowRequestedEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IWebViewNewWindowRequestedEventArgs__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									sender, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
+								);
+				unsafe_args = (global::Windows.UI.Xaml.Controls.IWebViewNewWindowRequestedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									args, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebViewNewWindowRequestedEventArgs).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_sender, 
+									unsafe_args
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
+				global::System.GC.KeepAlive(sender);
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
+				global::System.GC.KeepAlive(args);
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IWebView4.add_NewWindowRequested, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs__WindowsRuntime_EventRegistrationToken__(
+					global::System.__ComObject __this, 
+					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNewWindowRequestedEventArgs> value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs_V___Impl.Vtbl**);
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+									value, 
+									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNewWindowRequestedEventArgs>).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget51>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs_V___Impl.Invoke)
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value, 
+									&(unsafe_token__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				token__retval = unsafe_token__retval;
+				// Return
+				return token__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+			}
+		}
+
+		// Signature, Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.WebView,Windows.UI.Xaml.Controls.WebViewPermissionRequestedEventArgs>.Invoke, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls__WebView *, [fwd] [in] [Mcg.CodeGen.WinRTClassMarshaller] Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs__Windows_UI_Xaml_Controls__WebViewPermissionRequestedEventArgs *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewPermissionRequestedEventArgs__(
+					global::System.__ComObject __this, 
+					global::Windows.UI.Xaml.Controls.WebView sender, 
+					global::Windows.UI.Xaml.Controls.WebViewPermissionRequestedEventArgs args, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl** unsafe_sender = default(global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Controls.IWebViewPermissionRequestedEventArgs__Impl.Vtbl** unsafe_args = default(global::Windows.UI.Xaml.Controls.IWebViewPermissionRequestedEventArgs__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_sender = (global::Windows.UI.Xaml.Controls.IWebView__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									sender, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebView).TypeHandle
+								);
+				unsafe_args = (global::Windows.UI.Xaml.Controls.IWebViewPermissionRequestedEventArgs__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									args, 
+									typeof(global::Windows.UI.Xaml.Controls.IWebViewPermissionRequestedEventArgs).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_sender, 
+									unsafe_args
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_sender)));
+				global::System.GC.KeepAlive(sender);
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_args)));
+				global::System.GC.KeepAlive(args);
+			}
+		}
+
+		// Signature, Windows.UI.Xaml.Controls.IWebView4.add_PermissionRequested, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_WebView__Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken Func__TypedEventHandler_2_UI_Xaml_Controls_WebView__UI_Xaml_Controls_WebViewPermissionRequestedEventArgs__WindowsRuntime_EventRegistrationToken__(
+					global::System.__ComObject __this, 
+					global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewPermissionRequestedEventArgs> value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs_V___Impl.Vtbl**);
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+									value, 
+									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewPermissionRequestedEventArgs>).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget52>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs_V___Impl.Invoke)
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value, 
+									&(unsafe_token__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				token__retval = unsafe_token__retval;
+				// Return
+				return token__retval;
 			}
 			finally
 			{
@@ -26659,6 +26659,45 @@ namespace McgInterop
 			}
 		}
 
+		// Signature, System.Nullable<Windows.UI.Xaml.Input.KeyEventHandler>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_Input_KeyEventHandler__Windows_UI_Xaml_Input__KeyEventHandler *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Xaml.Input.KeyEventHandler Func_UI_Xaml_Input_KeyEventHandler__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.Input.KeyEventHandler__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.Input.KeyEventHandler__Impl.Vtbl**);
+			global::Windows.UI.Xaml.Input.KeyEventHandler __value__retval = default(global::Windows.UI.Xaml.Input.KeyEventHandler);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::Windows.UI.Xaml.Input.KeyEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::Windows.UI.Xaml.Input.KeyEventHandler).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget4>(global::Windows.UI.Xaml.Input.KeyEventHandler__Impl.Invoke)
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
 		// Signature, System.Nullable<Windows.UI.Xaml.Markup.XmlnsDefinition>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.StructMarshaller] Windows_UI_Xaml_Markup_XmlnsDefinition__Windows_UI_Xaml_Markup__XmlnsDefinition, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
@@ -27978,45 +28017,6 @@ namespace McgInterop
 			}
 		}
 
-		// Signature, System.Nullable<Windows.UI.Xaml.Input.KeyEventHandler>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_Input_KeyEventHandler__Windows_UI_Xaml_Input__KeyEventHandler *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.Input.KeyEventHandler Func_UI_Xaml_Input_KeyEventHandler__(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.Input.KeyEventHandler__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.Input.KeyEventHandler__Impl.Vtbl**);
-			global::Windows.UI.Xaml.Input.KeyEventHandler __value__retval = default(global::Windows.UI.Xaml.Input.KeyEventHandler);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe___value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = (global::Windows.UI.Xaml.Input.KeyEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
-									((global::System.IntPtr)unsafe___value__retval), 
-									typeof(global::Windows.UI.Xaml.Input.KeyEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget4>(global::Windows.UI.Xaml.Input.KeyEventHandler__Impl.Invoke)
-								);
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
-			}
-		}
-
 		// Signature, System.Nullable<Windows.UI.Xaml.Input.ManipulationCompletedEventHandler>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_Input_ManipulationCompletedEventHandler__Windows_UI_Xaml_Input__ManipulationCompletedEventHandler *, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
@@ -28836,6 +28836,84 @@ namespace McgInterop
 			}
 		}
 
+		// Signature, System.Nullable<System.EventHandler<Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs>>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] System_EventHandler_1_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs___Windows_Foundation__EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs> Func_EventHandler_1_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs___(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs_V___Impl.Vtbl** unsafe___value__retval = default(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs_V___Impl.Vtbl**);
+			global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs> __value__retval = default(global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs>).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget38>(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs_V___Impl.Invoke)
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, System.Nullable<System.EventHandler<Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs>>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] System_EventHandler_1_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs___Windows_Foundation__EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs> Func_EventHandler_1_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs___(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs_V___Impl.Vtbl** unsafe___value__retval = default(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs_V___Impl.Vtbl**);
+			global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs> __value__retval = default(global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs>).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget39>(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs_V___Impl.Invoke)
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
 		// Signature, System.Nullable<Windows.UI.Xaml.Navigation.LoadCompletedEventHandler>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_Navigation_LoadCompletedEventHandler__Windows_UI_Xaml_Navigation__LoadCompletedEventHandler *, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
@@ -28902,7 +28980,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget39>(global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler__Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget41>(global::Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler__Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -28941,7 +29019,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.UI.Xaml.Controls.NotifyEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.UI.Xaml.Controls.NotifyEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget38>(global::Windows.UI.Xaml.Controls.NotifyEventHandler__Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget40>(global::Windows.UI.Xaml.Controls.NotifyEventHandler__Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -28980,7 +29058,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewContentLoadingEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewContentLoadingEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget41>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget43>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewContentLoadingEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -29019,7 +29097,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewDOMContentLoadedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewDOMContentLoadedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget42>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget44>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewDOMContentLoadedEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -29058,7 +29136,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNavigationCompletedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNavigationCompletedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget43>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget45>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationCompletedEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -29097,7 +29175,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNavigationStartingEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNavigationStartingEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget40>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget42>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNavigationStartingEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -29136,7 +29214,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewLongRunningScriptDetectedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewLongRunningScriptDetectedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget44>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget46>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewLongRunningScriptDetectedEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -29175,7 +29253,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, object>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, object>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget45>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_System_Object_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget47>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_System_Object_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -29214,7 +29292,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewUnviewableContentIdentifiedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewUnviewableContentIdentifiedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget46>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget48>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnviewableContentIdentifiedEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -29253,7 +29331,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNewWindowRequestedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewNewWindowRequestedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget49>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget51>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewNewWindowRequestedEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -29292,7 +29370,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewPermissionRequestedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewPermissionRequestedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget50>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget52>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewPermissionRequestedEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -29331,85 +29409,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewUnsupportedUriSchemeIdentifiedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.WebView, global::Windows.UI.Xaml.Controls.WebViewUnsupportedUriSchemeIdentifiedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget48>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs_V___Impl.Invoke)
-								);
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
-			}
-		}
-
-		// Signature, System.Nullable<System.EventHandler<Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs>>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] System_EventHandler_1_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs___Windows_Foundation__EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs_V_ *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs> Func_EventHandler_1_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs___(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs_V___Impl.Vtbl** unsafe___value__retval = default(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs_V___Impl.Vtbl**);
-			global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs> __value__retval = default(global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs>);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe___value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = (global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
-									((global::System.IntPtr)unsafe___value__retval), 
-									typeof(global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget51>(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangedEventArgs_V___Impl.Invoke)
-								);
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
-			}
-		}
-
-		// Signature, System.Nullable<System.EventHandler<Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs>>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] System_EventHandler_1_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs___Windows_Foundation__EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs_V_ *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs> Func_EventHandler_1_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs___(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs_V___Impl.Vtbl** unsafe___value__retval = default(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs_V___Impl.Vtbl**);
-			global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs> __value__retval = default(global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs>);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe___value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = (global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
-									((global::System.IntPtr)unsafe___value__retval), 
-									typeof(global::System.EventHandler<global::Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget52>(global::System.EventHandler_A_Windows_UI_Xaml_Controls_ScrollViewerViewChangingEventArgs_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget50>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_WebView_j_Windows_UI_Xaml_Controls_WebViewUnsupportedUriSchemeIdentifiedEventArgs_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -33577,6 +33577,46 @@ namespace McgInterop
 			}
 		}
 
+		// Signature, Windows.UI.ViewManagement.IApplicationViewSwitcherStatics.TryShowAsStandaloneAsync, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] int__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Foundation_IAsyncOperation_1_bool___Windows_Foundation__IAsyncOperation_A_bool_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.Foundation.IAsyncOperation<bool> Func_int___IAsyncOperation_1_bool___(
+					global::System.__ComObject __this, 
+					int viewId, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.IAsyncOperation_A_bool_V___Impl.Vtbl** unsafe_operation__retval = default(global::Windows.Foundation.IAsyncOperation_A_bool_V___Impl.Vtbl**);
+			global::Windows.Foundation.IAsyncOperation<bool> operation__retval = default(global::Windows.Foundation.IAsyncOperation<bool>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_operation__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									viewId, 
+									&(unsafe_operation__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				operation__retval = (global::Windows.Foundation.IAsyncOperation<bool>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe_operation__retval), 
+									typeof(global::Windows.Foundation.IAsyncOperation<bool>).TypeHandle
+								);
+				// Return
+				return operation__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_operation__retval)));
+			}
+		}
+
 		// Signature, System.Nullable<Windows.UI.Xaml.ApplicationInitializationCallback>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_ApplicationInitializationCallback__Windows_UI_Xaml__ApplicationInitializationCallback *, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
@@ -34013,7 +34053,7 @@ namespace McgInterop
 				__value__retval = (global::Windows.Foundation.AsyncOperationCompletedHandler<string>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.AsyncOperationCompletedHandler<string>).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget47>(global::Windows.Foundation.AsyncOperationCompletedHandler_A_string_V___Impl.Invoke)
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget49>(global::Windows.Foundation.AsyncOperationCompletedHandler_A_string_V___Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -42715,6 +42755,36 @@ namespace McgInterop
 					global::System.__ComObject __this, 
 					global::System.RuntimeTypeHandle __typeHnd, 
 					int __targetIndex, 
+					void* arg0, 
+					int arg1)
+		{
+			void* __pThis = ((void*)global::System.Runtime.InteropServices.McgModuleManager.GetInterface(
+								__this, 
+								__typeHnd
+							));
+			global::System.IntPtr __pTarget = (*(((global::System.IntPtr**)__pThis)))[__targetIndex];
+			int __result = global::McgInterop.Intrinsics.StdCall__int__(
+								__pTarget, 
+								__pThis, 
+								arg0, 
+								arg1
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			global::System.GC.KeepAlive(__this);
+			if (__result < 0)
+				global::McgInterop.McgHelpers.ThrowFailed(
+									__result, 
+									__typeHnd
+								);
+			return __result;
+		}
+
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static int ComCall__HRESULT(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex, 
 					global::Windows.UI.Color arg0, 
 					void* arg1)
 		{
@@ -42760,36 +42830,6 @@ namespace McgInterop
 								arg0, 
 								arg1, 
 								arg2
-							);
-			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			global::System.GC.KeepAlive(__this);
-			if (__result < 0)
-				global::McgInterop.McgHelpers.ThrowFailed(
-									__result, 
-									__typeHnd
-								);
-			return __result;
-		}
-
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static int ComCall__HRESULT(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex, 
-					void* arg0, 
-					int arg1)
-		{
-			void* __pThis = ((void*)global::System.Runtime.InteropServices.McgModuleManager.GetInterface(
-								__this, 
-								__typeHnd
-							));
-			global::System.IntPtr __pTarget = (*(((global::System.IntPtr**)__pThis)))[__targetIndex];
-			int __result = global::McgInterop.Intrinsics.StdCall__int__(
-								__pTarget, 
-								__pThis, 
-								arg0, 
-								arg1
 							);
 			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
 			global::System.GC.KeepAlive(__this);

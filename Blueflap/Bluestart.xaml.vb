@@ -41,12 +41,7 @@ Public NotInheritable Class Bluestart
         End Try
 
         grid1.Visibility = Visibility.Collapsed
-
-        If Page.ActualWidth < 550 Then
-            MiniMode.Begin()
-        Else
-            MiniMode.Stop()
-        End If
+        grid3.Visibility = Visibility.Collapsed
 
     End Sub
 #End Region
@@ -58,28 +53,28 @@ Public NotInheritable Class Bluestart
     End Sub
 
     Private Sub TextBox_LostFocus(sender As Object, e As RoutedEventArgs)
-            Textboxleave.Begin()
-        End Sub
+        Textboxleave.Begin()
+    End Sub
 
-        Private Sub grid_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles grid.Tapped
-            RechercheBox.Focus(Windows.UI.Xaml.FocusState.Keyboard)
-        End Sub
+    Private Sub grid_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles grid.Tapped
+        RechercheBox.Focus(Windows.UI.Xaml.FocusState.Keyboard)
+    End Sub
 
-        Private Sub HoverRecherche_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles HoverRecherche.PointerEntered
-            HoverRecherche.Fill = New SolidColorBrush(Windows.UI.Color.FromArgb(20, 0, 0, 0))
-        End Sub
+    Private Sub HoverRecherche_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles HoverRecherche.PointerEntered
+        HoverRecherche.Fill = New SolidColorBrush(Windows.UI.Color.FromArgb(20, 0, 0, 0))
+    End Sub
 
-        Private Sub HoverRecherche_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles HoverRecherche.PointerExited
-            HoverRecherche.Fill = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 0, 0, 0))
-        End Sub
+    Private Sub HoverRecherche_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles HoverRecherche.PointerExited
+        HoverRecherche.Fill = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 0, 0, 0))
+    End Sub
 
-        Private Sub HoverRecherche_PointerPressed(sender As Object, e As PointerRoutedEventArgs) Handles HoverRecherche.PointerPressed
-            HoverRecherche.Fill = New SolidColorBrush(Windows.UI.Color.FromArgb(40, 0, 0, 0))
-        End Sub
+    Private Sub HoverRecherche_PointerPressed(sender As Object, e As PointerRoutedEventArgs) Handles HoverRecherche.PointerPressed
+        HoverRecherche.Fill = New SolidColorBrush(Windows.UI.Color.FromArgb(40, 0, 0, 0))
+    End Sub
 
-        Private Sub HoverRecherche_PointerReleased(sender As Object, e As PointerRoutedEventArgs) Handles HoverRecherche.PointerReleased
-            HoverRecherche.Fill = New SolidColorBrush(Windows.UI.Color.FromArgb(20, 0, 0, 0))
-        End Sub
+    Private Sub HoverRecherche_PointerReleased(sender As Object, e As PointerRoutedEventArgs) Handles HoverRecherche.PointerReleased
+        HoverRecherche.Fill = New SolidColorBrush(Windows.UI.Color.FromArgb(20, 0, 0, 0))
+    End Sub
     '</Visuel>
 #End Region
 #Region "SearchBox"
@@ -161,6 +156,7 @@ Public NotInheritable Class Bluestart
 
             OpenPersonnalize.Stop()
             OpenPersonnalize.Begin()
+            grid3.Visibility = Visibility.Collapsed
         End If
     End Sub
 
@@ -239,6 +235,29 @@ Public NotInheritable Class Bluestart
             End Try
         End If
     End Sub
-#End Region
 
+
+#End Region
+#Region "Memo"
+    Private Sub Memo_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_Button.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        If grid3.Visibility = Visibility.Visible Then
+            grid3.Visibility = Visibility.Collapsed
+        Else
+            Try
+                MemoText.Text = localSettings.Values("MemoText")
+            Catch
+            End Try
+
+            OpenMemo.Stop()
+            OpenMemo.Begin()
+            grid1.Visibility = Visibility.Collapsed
+        End If
+    End Sub
+
+    Private Sub memotext_TextChanged(sender As Object, e As TextChangedEventArgs) Handles memotext.TextChanged
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("MemoText") = memotext.Text 'Là on enregistre le texte des mémos en continu
+    End Sub
+#End Region
 End Class
