@@ -17,6 +17,12 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Dossiers
+AppPackages/
+bin/
+obj/
+BundleArtifacts/
+
 # =========================
 # Operating System Files
 # =========================
