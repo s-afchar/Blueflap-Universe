@@ -137,7 +137,11 @@ Public NotInheritable Class Parametres
         Catch ex As Exception
         End Try
 
-        Try
+
+        FaviconCheck.IsChecked = localSettings.Values("Favicon")
+
+
+                Try
             If localSettings.Values("SmartSuggest") = True Then
                 Suggest_Switch.IsOn = True
             Else
@@ -157,6 +161,12 @@ Public NotInheritable Class Parametres
 
         ParamOpen.Stop()
         ParamOpen.Begin()
+
+        Icon_SF.IsChecked = localSettings.Values("SearchFightIcon")
+        Icon_Lock.IsChecked = localSettings.Values("LockIcon")
+        Icon_Note.IsChecked = localSettings.Values("NoteIcon")
+        Icon_Share.IsChecked = localSettings.Values("ShareIcon")
+        Icon_Window.IsChecked = localSettings.Values("WindowIcon")
 
     End Sub
 #End Region
@@ -435,6 +445,13 @@ Public NotInheritable Class Parametres
         ElseIf Bluestart_Checkbox.IsChecked = False Then
             localSettings.Values("Bluestart") = False
         End If
+        localSettings.Values("Favicon") = FaviconCheck.IsChecked
+        localSettings.Values("SearchFightIcon") = Icon_SF.IsChecked
+        localSettings.Values("LockIcon") = Icon_Lock.IsChecked
+        localSettings.Values("NoteIcon") = Icon_Note.IsChecked
+        localSettings.Values("ShareIcon") = Icon_Share.IsChecked
+        localSettings.Values("WindowIcon") = Icon_Window.IsChecked
+
     End Sub
 #End Region
 #Region "Homepage"
@@ -593,6 +610,17 @@ Public NotInheritable Class Parametres
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         NewPasswordBox.IsEnabled = False
         localSettings.Values("Password") = ""
+    End Sub
+
+
+#End Region
+#Region "LeftMenu"
+    Private Sub FaviconCheck_Unchecked(sender As Object, e As RoutedEventArgs) Handles FaviconCheck.Unchecked
+
+    End Sub
+
+    Private Sub FaviconCheck_Checked(sender As Object, e As RoutedEventArgs) Handles FaviconCheck.Checked
+
     End Sub
 #End Region
 End Class

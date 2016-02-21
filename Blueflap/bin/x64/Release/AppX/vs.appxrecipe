@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>5305259c-91de-49e4-8741-f983fa6e684a</PackageIdentityName>
     <IntermediateOutputPath>C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\obj\x64\Release\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>FFC63CCE285A0891B0C537056D1D60B87EDB771C02C8013357908444DE4D94AD</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>C35139D006CE233D99E860783C60349E1A1E8193A3ECFEB1118A376BC9E9C87F</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>26841SmA.Blueflap_5.2016.220.0_x64__v4hw3xfgfk55r</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>26841SmA.Blueflap_v4hw3xfgfk55r!App</RegisteredUserModeAppID>
     <RegisteredPackageID>26841SmA.Blueflap</RegisteredPackageID>
@@ -22,7 +22,7 @@
     <AppXManifest Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-02-20T15:25:36.076</Modified>
+      <Modified>2016-02-21T01:49:40.774</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -242,11 +242,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Blueflap.dll">
       <PackagePath>Blueflap.dll</PackagePath>
-      <Modified>2016-02-20T15:25:35.481</Modified>
+      <Modified>2016-02-21T01:49:40.222</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Blueflap.exe">
       <PackagePath>Blueflap.exe</PackagePath>
-      <Modified>2016-02-20T15:25:36.043</Modified>
+      <Modified>2016-02-21T01:49:40.742</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\ClrCompression.dll">
       <PackagePath>ClrCompression.dll</PackagePath>
@@ -254,7 +254,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-02-20T13:46:28.134</Modified>
+      <Modified>2016-02-21T01:23:51.165</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -137,6 +137,37 @@ Public NotInheritable Class MainPage
         Catch
         End Try
 
+        'Quelles icônes sont affichées
+
+        If localSettings.Values("SearchFightIcon") = False Then
+            Fight_Button.Visibility = Visibility.Collapsed
+        Else
+            Fight_Button.Visibility = Visibility.Visible
+        End If
+
+        If localSettings.Values("LockIcon") = False Then
+            Lock_Button.Visibility = Visibility.Collapsed
+        Else
+            Lock_Button.Visibility = Visibility.Visible
+        End If
+
+        If localSettings.Values("NoteIcon") = False Then
+            Memo_Button.Visibility = Visibility.Collapsed
+        Else
+            Memo_Button.Visibility = Visibility.Visible
+        End If
+
+        If localSettings.Values("ShareIcon") = False Then
+            Share_Button.Visibility = Visibility.Collapsed
+        Else
+            Share_Button.Visibility = Visibility.Visible
+        End If
+
+        If localSettings.Values("WindowIcon") = False Then
+            Window_Button.Visibility = Visibility.Collapsed
+        Else
+            Window_Button.Visibility = Visibility.Visible
+        End If
 
         'Animation d'ouverture de Blueflap
         EnterAnim.Begin()
@@ -152,11 +183,42 @@ Public NotInheritable Class MainPage
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
         'A terme ceci sera dynamique en fonction des éléments que l'utilisateur a choisi pour le menu
+
         localSettings.Values("FightBut_Top") = 242
         localSettings.Values("lockBut_Top") = 286
         localSettings.Values("memoBut_Top") = 330
         localSettings.Values("ShareBut_Top") = 374
         localSettings.Values("WindowBut_Top") = 418
+
+        Try
+            If localSettings.Values("SearchFightIcon") = False Then
+                localSettings.Values("lockBut_Top") = localSettings.Values("lockBut_Top") - 44
+                localSettings.Values("memoBut_Top") = localSettings.Values("memoBut_Top") - 44
+                localSettings.Values("ShareBut_Top") = localSettings.Values("ShareBut_Top") - 44
+                localSettings.Values("WindowBut_Top") = localSettings.Values("WindowBut_Top") - 44
+            End If
+
+            If localSettings.Values("LockIcon") = False Then
+                localSettings.Values("memoBut_Top") = localSettings.Values("memoBut_Top") - 44
+                localSettings.Values("ShareBut_Top") = localSettings.Values("ShareBut_Top") - 44
+                localSettings.Values("WindowBut_Top") = localSettings.Values("WindowBut_Top") - 44
+            End If
+
+            If localSettings.Values("NoteIcon") = False Then
+                localSettings.Values("ShareBut_Top") = localSettings.Values("ShareBut_Top") - 44
+                localSettings.Values("WindowBut_Top") = localSettings.Values("WindowBut_Top") - 44
+            End If
+
+            If localSettings.Values("ShareIcon") = False Then
+                localSettings.Values("WindowBut_Top") = localSettings.Values("WindowBut_Top") - 44
+            End If
+
+            If localSettings.Values("WindowIcon") = False Then
+
+            End If
+        Catch
+        End Try
+
 
         If web.CanGoBack And web.CanGoForward Then
             Back_Button.Visibility = Visibility.Visible
@@ -205,9 +267,11 @@ Public NotInheritable Class MainPage
 
     Private Sub web_NavigationStarting(sender As WebView, args As WebViewNavigationStartingEventArgs) Handles web.NavigationStarting
         loader.IsActive = True 'Les petites billes de chargement apparaissent quand une page se charge
+        Favicon.Visibility = Visibility.Collapsed
         BackForward()
         RefreshEnabled.Stop()
         StopEnabled.Begin()
+
     End Sub
 
     Private Sub web_NavigationCompleted(sender As WebView, args As WebViewNavigationCompletedEventArgs) Handles web.NavigationCompleted
@@ -235,6 +299,11 @@ Public NotInheritable Class MainPage
         BackForward()
         localSettings.Values("LoadPageFromBluestart") = False
 
+        If web.Source.HostNameType = UriHostNameType.Dns And Not localSettings.Values("Favicon") = False Then
+            Favicon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
+            Favicon.Visibility = Visibility.Visible
+        End If
+
         ContextNotification()
     End Sub
 
@@ -261,6 +330,11 @@ Public NotInheritable Class MainPage
         SourceCode.Text = "..."
         BackForward()
         localSettings.Values("LoadPageFromBluestart") = False
+
+        If web.Source.HostNameType = UriHostNameType.Dns And Not localSettings.Values("Favicon") = False Then
+            Favicon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
+            Favicon.Visibility = Visibility.Visible
+        End If
 
         ContextNotification()
     End Sub
@@ -453,6 +527,13 @@ Public NotInheritable Class MainPage
             localSettings.Values("CustomColorB") = 152
             localSettings.Values("CustomColorC") = 219
             localSettings.Values("SearchFight_Menu") = True
+            localSettings.Values("SearchFightIcon") = True
+            localSettings.Values("LockIcon") = True
+            localSettings.Values("NoteIcon") = True
+            localSettings.Values("ShareIcon") = True
+            localSettings.Values("WindowIcon") = True
+            localSettings.Values("SmartSuggest") = True
+            localSettings.Values("Favicon") = True
         End If
 
         If Not localSettings.Values("FirstBoot") = "Non" Then
@@ -609,9 +690,12 @@ Public NotInheritable Class MainPage
             Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
         Else
             Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed
+            If Notifications_Counter.Text > 1 Then
+                Notifications_Counter.Text = Notifications_Counter.Text - 1
+            End If
         End If
 
-        If web.Source.ToString.Contains("twitter.com") Then
+            If web.Source.ToString.Contains("twitter.com") Then
             If Notif_Diminutweet.Visibility = Visibility.Collapsed Then
                 New_Notif.Begin()
                 Notifications_Counter.Text = Notifications_Counter.Text + 1
@@ -621,6 +705,9 @@ Public NotInheritable Class MainPage
             Notif_Diminutweet.Visibility = Visibility.Visible
         Else
             Notif_Diminutweet.Visibility = Visibility.Collapsed
+            If Notifications_Counter.Text > 1 Then
+                Notifications_Counter.Text = Notifications_Counter.Text - 1
+            End If
         End If
 
         If web.Source.ToString.Contains("vimeo.com/") Or web.Source.ToString.Contains("dailymotion.com/video/") Or web.Source.ToString.Contains("youtube.com/watch") Then
@@ -812,6 +899,11 @@ Public NotInheritable Class MainPage
         End If
         AdressBox.SelectAll()
 
+        If web.Source.HostNameType = UriHostNameType.Dns And loader.IsActive = False And Not localSettings.Values("Favicon") = False Then
+            Favicon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
+            Favicon.Visibility = Visibility.Visible
+        End If
+
     End Sub
 
     Private Sub AdressBox_LostFocus(sender As Object, e As RoutedEventArgs) Handles AdressBox.LostFocus
@@ -964,18 +1056,15 @@ Public NotInheritable Class MainPage
         t = t.Replace("dailymotion.com/video/", "dailymotion.com/embed/video/")
         t = t.Replace("youtube.com/watch", "youtube.com/watch_popup")
         localSettings.Values("MiniPlayerUri") = t
-        Dim newView = CoreApplication.CreateNewView()
-        Dim appView = ApplicationView.GetForCurrentView()
+
+        Dim newView As CoreApplicationView = CoreApplication.CreateNewView()
         Dim newViewId As Integer = 0
         Await newView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, Function()
-                                                                                             Dim MiniPlay = Window.Current
-                                                                                             Dim newAppView = ApplicationView.GetForCurrentView()
-
-                                                                                             Dim frame = New Frame()
-                                                                                             MiniPlay.Content = frame
-
-                                                                                             frame.Navigate(GetType(MiniPlayer))
-                                                                                             MiniPlay.Activate()
+                                                                                             Dim frame As New Frame()
+                                                                                             frame.Navigate(GetType(MiniPlayer), Nothing)
+                                                                                             Window.Current.Content = frame
+                                                                                             ' You have to activate the window in order to show it later.
+                                                                                             Window.Current.Activate()
 
                                                                                              newViewId = ApplicationView.GetForCurrentView().Id
 

@@ -1011,6 +1011,15 @@
                                 </PasswordBox.RenderTransform>
                             </PasswordBox>
                             <Button x:Name="Buton_LockSetings" Content="Modifier" HorizontalAlignment="Left" Margin="12,375,0,0" VerticalAlignment="Top" BorderBrush="#27000000" Width="96"/>
+                            <Rectangle Fill="#33D1D1D1" Height="169" Stroke="#7F838383" VerticalAlignment="Top" Margin="0,436,0,0"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="11,446,0,0" TextWrapping="Wrap" Text="Menu latéral" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="FaviconCheck" Content="Afficher la favicon des sites internet" HorizontalAlignment="Left" Margin="10,481,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                            <ToggleButton x:Name="Icon_SF" Content="&#xE923;" HorizontalAlignment="Left" Height="43" Margin="11,551,0,0" VerticalAlignment="Top" Width="43" FontFamily="Segoe MDL2 Assets" FontSize="18.667" BorderThickness="1" BorderBrush="#00686868" Background="#00000000" Opacity="0.935" IsChecked="True"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="12,526,0,0" TextWrapping="Wrap" Text="Icônes :" VerticalAlignment="Top" Opacity="0.605"/>
+                            <ToggleButton x:Name="Icon_Lock" Content="&#xE1F6;" HorizontalAlignment="Left" Height="43" Margin="59,551,0,0" VerticalAlignment="Top" Width="43" FontFamily="Segoe MDL2 Assets" FontSize="18.667" BorderThickness="1" BorderBrush="#00686868" Background="#00000000" Opacity="0.935" IsChecked="True"/>
+                            <ToggleButton x:Name="Icon_Note" Content="&#xE70B;" HorizontalAlignment="Left" Height="43" Margin="107,551,0,0" VerticalAlignment="Top" Width="43" FontFamily="Segoe MDL2 Assets" FontSize="18.667" BorderThickness="1" BorderBrush="#00686868" Background="#00000000" Opacity="0.935" IsChecked="True"/>
+                            <ToggleButton x:Name="Icon_Share" Content="&#xE72D;" HorizontalAlignment="Left" Height="43" Margin="155,551,0,0" VerticalAlignment="Top" Width="43" FontFamily="Segoe MDL2 Assets" FontSize="18.667" BorderThickness="1" BorderBrush="#00686868" Background="#00000000" Opacity="0.935" IsChecked="True"/>
+                            <ToggleButton x:Name="Icon_Window" Content="&#xE109;" HorizontalAlignment="Left" Height="43" Margin="203,551,0,0" VerticalAlignment="Top" Width="43" FontFamily="Segoe MDL2 Assets" FontSize="18.667" BorderThickness="1" BorderBrush="#00686868" Background="#00000000" Opacity="0.935" IsChecked="True"/>
                         </Grid>
                     </ScrollViewer>
                 </Grid>

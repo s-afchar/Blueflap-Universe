@@ -736,6 +736,63 @@
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Name="ShowFavicon">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Favicon">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Titlebox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="-34">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Window_Title">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="Favicon">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="Favicon">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Window_Title">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="-23">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Window_Title">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.295"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Page.Resources>
 
 
@@ -838,8 +895,16 @@
                     <CompositeTransform/>
                 </TextBox.RenderTransform>
             </TextBox>
-            <TextBlock x:Name="Titlebox" HorizontalAlignment="Left" Margin="70,10,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Opacity="0.795" FontSize="12" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
-            <TextBlock x:Name="Window_Title" HorizontalAlignment="Left" Margin="12,10,0,0" TextWrapping="Wrap" Text="BLUEFLAP" VerticalAlignment="Top" Opacity="0.295" FontSize="12"/>
+            <TextBlock x:Name="Titlebox" HorizontalAlignment="Left" Margin="70,10,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Opacity="0.795" FontSize="12" Foreground="{ThemeResource ContentDialogBorderThemeBrush}" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock x:Name="Window_Title" HorizontalAlignment="Left" Margin="12,10,0,0" TextWrapping="Wrap" Text="BLUEFLAP" VerticalAlignment="Top" Opacity="0.295" FontSize="12" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
             <Button x:Name="MiniPlayer_Button" Content="&#xE173;" HorizontalAlignment="Right" Margin="0,35,0,0" VerticalAlignment="Top" Height="31" Width="39" FontFamily="Segoe MDL2 Assets" FontSize="18.667" RequestedTheme="Light" BorderThickness="0,0,0,2" Background="#00000000" Foreground="{ThemeResource ContentDialogBorderThemeBrush}" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
                 <Button.RenderTransform>
                     <CompositeTransform/>
@@ -850,6 +915,11 @@
             <Grid.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Grid.RenderTransform>
+            <Image x:Name="Favicon" HorizontalAlignment="Left" Height="17" Margin="16,17,0,0" VerticalAlignment="Top" Width="17" Source="Assets/noprofilepicture.png" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+                <Image.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
             <Grid x:Name="DefaultThemeColor" HorizontalAlignment="Left" Height="10" Margin="268,207,-229,0" VerticalAlignment="Top" Width="9" Background="{ThemeResource ContentDialogBorderThemeBrush}" Visibility="Collapsed"/>
             <Button x:Name="Home_button" Content="&#xE80F;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Margin="3,66,-1,0">
                 <Button.RenderTransform>
