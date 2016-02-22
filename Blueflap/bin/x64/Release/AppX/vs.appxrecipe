@@ -22,7 +22,7 @@
     <AppXManifest Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-02-22T10:07:21.169</Modified>
+      <Modified>2016-02-22T14:40:59.469</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -242,11 +242,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Blueflap.dll">
       <PackagePath>Blueflap.dll</PackagePath>
-      <Modified>2016-02-22T10:07:20.627</Modified>
+      <Modified>2016-02-22T14:40:58.639</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\Blueflap.exe">
       <PackagePath>Blueflap.exe</PackagePath>
-      <Modified>2016-02-22T10:07:21.127</Modified>
+      <Modified>2016-02-22T14:40:59.427</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\ClrCompression.dll">
       <PackagePath>ClrCompression.dll</PackagePath>
@@ -254,7 +254,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\ilc\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-02-22T10:06:02.987</Modified>
+      <Modified>2016-02-22T14:39:40.113</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
