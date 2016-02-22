@@ -119,6 +119,7 @@
       <RootProperty Name="Height" />
       <RootProperty Name="TextAlignment" />
       <RootProperty Name="Visibility" />
+      <RootProperty Name="CharacterSpacing" />
       <RootProperty Name="LineHeight" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
@@ -174,8 +175,8 @@
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="RenderTransformOrigin" />
-      <RootProperty Name="InputScope" />
       <RootProperty Name="RenderTransform" />
+      <RootProperty Name="InputScope" />
       <RootProperty Name="IsReadOnly" />
       <RootEvent Name="GotFocus" />
       <RootEvent Name="LostFocus" />
@@ -189,6 +190,8 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Stroke" />
       <RootProperty Name="StrokeThickness" />
+      <RootProperty Name="RenderTransformOrigin" />
+      <RootProperty Name="RenderTransform" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
       <RootProperty Name="Stretch" />
@@ -230,6 +233,7 @@
       <RootProperty Name="RequestedTheme" />
       <RootProperty Name="Items" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Background" />
       <RootProperty Name="HeaderTemplate" />
       <RootProperty Name="Title" />
       <RootProperty Name="RenderTransformOrigin" />
@@ -277,16 +281,16 @@
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="Blueflap.FirstBootScreen" />
-    <RootType FullName="Windows.UI.Xaml.Media.Animation.BackEase">
-      <RootProperty Name="EasingMode" />
-      <RootProperty Name="Amplitude" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.Animation.QuadraticEase">
       <RootProperty Name="EasingMode" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.Animation.ColorAnimation">
       <RootProperty Name="Duration" />
       <RootProperty Name="To" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.BackEase">
+      <RootProperty Name="EasingMode" />
+      <RootProperty Name="Amplitude" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ToggleSwitch">
       <RootProperty Name="Header" />
@@ -307,22 +311,12 @@
       <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
-    <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush">
-      <RootProperty Name="Color" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Media.PlaneProjection" />
-    <RootType FullName="Windows.UI.Xaml.Controls.WebView">
-      <RootProperty Name="RenderTransformOrigin" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="RenderTransform" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
-      <RootProperty Name="Margin" />
-      <RootProperty Name="VerticalScrollBarVisibility" />
       <RootProperty Name="HorizontalScrollMode" />
+      <RootProperty Name="VerticalScrollBarVisibility" />
+      <RootProperty Name="IsHorizontalScrollChainingEnabled" />
       <RootProperty Name="Content" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="HorizontalScrollBarVisibility" />
       <RootProperty Name="VerticalScrollMode" />
       <RootProperty Name="RenderTransformOrigin" />
@@ -330,6 +324,10 @@
       <RootProperty Name="RenderTransform" />
       <RootMethod Name="GetVerticalScrollBarVisibility" />
       <RootMethod Name="SetVerticalScrollBarVisibility" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel" />
+    <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush">
+      <RootProperty Name="Color" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ProgressRing">
       <RootProperty Name="HorizontalAlignment" />
@@ -351,7 +349,16 @@
       <RootProperty Name="IsChecked" />
       <RootProperty Name="Width" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.PlaneProjection" />
+    <RootType FullName="Windows.UI.Xaml.Controls.WebView">
+      <RootProperty Name="RenderTransformOrigin" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="RenderTransform" />
+    </RootType>
     <RootType FullName="Blueflap.MainPage" />
+    <RootType FullName="Blueflap.MiniPlayer" />
     <RootType FullName="Windows.UI.Xaml.Media.Animation.ElasticEase">
       <RootProperty Name="EasingMode" />
       <RootProperty Name="Springiness" />
@@ -373,6 +380,21 @@
     <RootType FullName="Windows.UI.Xaml.Setter">
       <RootProperty Name="Target" />
       <RootProperty Name="Value" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Primitives.ToggleButton">
+      <RootProperty Name="Content" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="FontFamily" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="BorderThickness" />
+      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="Opacity" />
+      <RootProperty Name="IsChecked" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Slider">
       <RootProperty Name="HorizontalAlignment" />

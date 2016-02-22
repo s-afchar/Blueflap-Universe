@@ -1040,13 +1040,15 @@
                     </Grid>
                 </PivotItem>
                 <PivotItem Header="">
+                    <!-- Favoris -->
                     <Grid>
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Cette fonction n'est pas encore disponible" VerticalAlignment="Top" Foreground="#FFBDBDBD"/>
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Cette fonction est ..." VerticalAlignment="Top" Foreground="#FFBDBDBD"/>
                     </Grid>
                 </PivotItem>
                 <PivotItem Header="">
                     <Grid>
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Cette fonction n'est pas encore disponible" VerticalAlignment="Top" Foreground="#FFBDBDBD"/>
+                        <StackPanel x:Name="HistoryList">
+                        </StackPanel>
                     </Grid>
 
                 </PivotItem>
