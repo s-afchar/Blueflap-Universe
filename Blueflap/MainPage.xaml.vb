@@ -2,6 +2,8 @@
 Imports Windows.ApplicationModel.DataTransfer
 Imports Windows.UI.Xaml.Controls
 Imports Windows.ApplicationModel.Core
+Imports Windows.Data.Json
+Imports Windows.UI.Xaml.Documents
 ''' <summary>
 ''' Page dédiée à la navigation web
 ''' </summary>
@@ -305,6 +307,22 @@ Public NotInheritable Class MainPage
         End If
 
         ContextNotification()
+
+        ' Ajout de la page à l'historique
+
+        Dim CurrentTitle As String = web.DocumentTitle
+        Dim VisitDate As DateTime = DateTime.Now
+
+        Dim root As JsonArray = JsonArray.Parse(localSettings.Values("History"))
+        Dim HistoryElem As JsonObject = New JsonObject
+        HistoryElem.Add("url", JsonValue.CreateStringValue(web.Source.ToString))
+        HistoryElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle))
+        HistoryElem.Add("date", JsonValue.CreateNumberValue(DateTime.Now.ToBinary))
+        root.Add(HistoryElem)
+        localSettings.Values("History") = root.ToString
+
+        ShowHistory()
+
     End Sub
 
     Private Sub web_LoadCompleted(sender As Object, e As NavigationEventArgs) Handles web.LoadCompleted
@@ -511,6 +529,12 @@ Public NotInheritable Class MainPage
 
         End If
     End Sub
+
+    ' Pas utile tout de suite, mais on pourra faire un copier coller du code dans les paramètres
+    Private Sub ClearHistoryButton_Tapped(sender As Object, e As TappedRoutedEventArgs)
+        Windows.Storage.ApplicationData.Current.LocalSettings.Values("History") = JsonArray.Parse("[]").ToString
+        ShowHistory()
+    End Sub
 #End Region
 #Region "First Launch"
     Private Sub FirstLaunch() 'Définit les paramètres par défaut
@@ -534,6 +558,7 @@ Public NotInheritable Class MainPage
             localSettings.Values("WindowIcon") = True
             localSettings.Values("SmartSuggest") = True
             localSettings.Values("Favicon") = True
+            localSettings.Values("History") = JsonArray.Parse("[]").ToString
         End If
 
         If Not localSettings.Values("FirstBoot") = "Non" Then
@@ -695,7 +720,7 @@ Public NotInheritable Class MainPage
             End If
         End If
 
-            If web.Source.ToString.Contains("twitter.com") Then
+        If web.Source.ToString.Contains("twitter.com") Then
             If Notif_Diminutweet.Visibility = Visibility.Collapsed Then
                 New_Notif.Begin()
                 Notifications_Counter.Text = Notifications_Counter.Text + 1
@@ -790,6 +815,44 @@ Public NotInheritable Class MainPage
         toeastElement(1).AppendChild(notificationXml.CreateTextNode("Le moteur de recherche a été modifié"))
         Dim ToastNotification = New ToastNotification(notificationXml)
         ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
+    End Sub
+
+    Private Sub ShowHistory()
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        HistoryList.Children.Clear()
+
+        For Each histElem In JsonArray.Parse(localSettings.Values("History")).Reverse
+
+            Dim elemContainer As StackPanel = New StackPanel
+            AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                        web.Navigate(New Uri(histElem.GetObject.GetNamedString("url")))
+                                                                    End Function)
+
+            AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 240, 240, 240))
+                                                                             End Function)
+
+            AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Colors.White)
+                                                                            End Function)
+
+            Dim elemText As TextBlock = New TextBlock
+            elemText.Text = histElem.GetObject.GetNamedString("title")
+            elemContainer.Children.Add(elemText)
+
+            Dim UrlText As TextBlock = New TextBlock
+            UrlText.Text = histElem.GetObject.GetNamedString("url")
+            UrlText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 200, 200, 200))
+            elemContainer.Children.Add(UrlText)
+
+            Dim visitDate As TextBlock = New TextBlock
+            visitDate.Text = DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString("Le dd MMMMMMMMMMMM yyyy à HH:mm")
+            visitDate.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 200, 200, 200))
+            elemContainer.Children.Add(visitDate)
+
+            HistoryList.Children.Add(elemContainer)
+
+        Next
     End Sub
 #End Region
 #Region "Share/Source code Menu"
