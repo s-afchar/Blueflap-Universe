@@ -1,5 +1,6 @@
 ﻿Imports Windows.UI.Core
 Imports Windows.UI.Notifications
+Imports Windows.Data.Json
 ''' <summary>
 ''' Comme son nom l'indique, Page de paramètres
 ''' </summary>
@@ -614,13 +615,11 @@ Public NotInheritable Class Parametres
 
 
 #End Region
-#Region "LeftMenu"
-    Private Sub FaviconCheck_Unchecked(sender As Object, e As RoutedEventArgs) Handles FaviconCheck.Unchecked
-
-    End Sub
-
-    Private Sub FaviconCheck_Checked(sender As Object, e As RoutedEventArgs) Handles FaviconCheck.Checked
-
+#Region "History"
+    Private Sub Buton_ClearHistory_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Buton_ClearHistory.Tapped
+        Windows.Storage.ApplicationData.Current.LocalSettings.Values("History") = JsonArray.Parse("[]").ToString
+        Stat1.Text = 0
+        Windows.Storage.ApplicationData.Current.LocalSettings.Values("Stat1") = 0
     End Sub
 #End Region
 End Class

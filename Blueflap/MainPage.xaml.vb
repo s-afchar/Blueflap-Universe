@@ -529,12 +529,6 @@ Public NotInheritable Class MainPage
 
         End If
     End Sub
-
-    ' Pas utile tout de suite, mais on pourra faire un copier coller du code dans les paramètres
-    Private Sub ClearHistoryButton_Tapped(sender As Object, e As TappedRoutedEventArgs)
-        Windows.Storage.ApplicationData.Current.LocalSettings.Values("History") = JsonArray.Parse("[]").ToString
-        ShowHistory()
-    End Sub
 #End Region
 #Region "First Launch"
     Private Sub FirstLaunch() 'Définit les paramètres par défaut
@@ -842,7 +836,7 @@ Public NotInheritable Class MainPage
 
             Dim UrlText As TextBlock = New TextBlock
             UrlText.Text = histElem.GetObject.GetNamedString("url")
-            UrlText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 200, 200, 200))
+            UrlText.Foreground = DefaultThemeColor.Background
             elemContainer.Children.Add(UrlText)
 
             Dim visitDate As TextBlock = New TextBlock

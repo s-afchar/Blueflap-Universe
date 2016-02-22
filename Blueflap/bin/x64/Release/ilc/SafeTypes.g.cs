@@ -2381,6 +2381,524 @@ namespace Windows.ApplicationModel.Resources.Core
 	}
 }
 
+namespace Windows.Data.Json
+{
+	[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.Data.Json.IJsonObject))]
+	[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.Data.Json.IJsonValue))]
+	[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::System.Collections.Generic.IDictionary<string, global::Windows.Data.Json.IJsonValue>))]
+	[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::System.Collections.Generic.IEnumerable<global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>>))]
+	[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.Foundation.IStringable))]
+	[global::System.Runtime.InteropServices.McgWindowsRuntimeVersion(65536)]
+	[global::Internal.Reflection.MetadataTransformed(global::Internal.Reflection.MetadataTransformation.OriginallyForeignObject)]
+	[global::Internal.Reflection.ExplicitScope("Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime")]
+	public unsafe sealed class JsonObject : global::System.__ComObject, global::System.Collections.Generic.ICollection<global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>>, global::System.Collections.Generic.IDictionary<string, global::Windows.Data.Json.IJsonValue>, global::Windows.Data.Json.IJsonObject, global::Windows.Data.Json.IJsonValue, global::System.Collections.Generic.IEnumerable<global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>>, global::Windows.Data.Json.IJsonObjectWithDefaultValues, global::Windows.Foundation.IStringable
+	{
+		int global::System.Collections.Generic.ICollection<global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>>.Count
+		{
+			get
+			{
+				return global::System.Collections.Generic.IDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.ICollectionRCWAdapterClass.Count(this);
+			}
+		}
+
+		bool global::System.Collections.Generic.ICollection<global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>>.IsReadOnly
+		{
+			get
+			{
+				return global::System.Collections.Generic.IDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.ICollectionRCWAdapterClass.IsReadOnly(this);
+			}
+		}
+
+		void global::System.Collections.Generic.ICollection<global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>>.Add(global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue> item)
+		{
+			global::System.Collections.Generic.IDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.ICollectionRCWAdapterClass.Add(
+								this, 
+								item
+							);
+		}
+
+		void global::System.Collections.Generic.ICollection<global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>>.Clear()
+		{
+			global::System.Collections.Generic.IDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.ICollectionRCWAdapterClass.Clear(this);
+		}
+
+		bool global::System.Collections.Generic.ICollection<global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>>.Contains(global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue> item)
+		{
+			return global::System.Collections.Generic.IDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.ICollectionRCWAdapterClass.Contains(
+								this, 
+								item
+							);
+		}
+
+		void global::System.Collections.Generic.ICollection<global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>>.CopyTo(
+					global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>[] array, 
+					int arrayindex)
+		{
+			global::System.Collections.Generic.IDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.ICollectionRCWAdapterClass.CopyTo(
+								this, 
+								array, 
+								arrayindex
+							);
+		}
+
+		bool global::System.Collections.Generic.ICollection<global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>>.Remove(global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue> item)
+		{
+			return global::System.Collections.Generic.IDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.ICollectionRCWAdapterClass.Remove(
+								this, 
+								item
+							);
+		}
+
+		global::Windows.Data.Json.IJsonValue global::System.Collections.Generic.IDictionary<string, global::Windows.Data.Json.IJsonValue>.this[string index]
+		{
+			get
+			{
+				return global::System.Collections.Generic.IDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.RCWAdapterClass.Indexer_Get(
+									this, 
+									index
+								);
+			}
+			set
+			{
+				global::System.Collections.Generic.IDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.RCWAdapterClass.Indexer_Set(
+									this, 
+									index, 
+									value
+								);
+			}
+		}
+
+		global::System.Collections.Generic.ICollection<string> global::System.Collections.Generic.IDictionary<string, global::Windows.Data.Json.IJsonValue>.Keys
+		{
+			get
+			{
+				return global::System.Collections.Generic.IDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.RCWAdapterClass.Keys(this);
+			}
+		}
+
+		global::System.Collections.Generic.ICollection<global::Windows.Data.Json.IJsonValue> global::System.Collections.Generic.IDictionary<string, global::Windows.Data.Json.IJsonValue>.Values
+		{
+			get
+			{
+				return global::System.Collections.Generic.IDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.RCWAdapterClass.Values(this);
+			}
+		}
+
+		void global::System.Collections.Generic.IDictionary<string, global::Windows.Data.Json.IJsonValue>.Add(
+					string key, 
+					global::Windows.Data.Json.IJsonValue value)
+		{
+			global::System.Collections.Generic.IDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.RCWAdapterClass.Add(
+								this, 
+								key, 
+								value
+							);
+		}
+
+		bool global::System.Collections.Generic.IDictionary<string, global::Windows.Data.Json.IJsonValue>.ContainsKey(string key)
+		{
+			return global::System.Collections.Generic.IDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.RCWAdapterClass.ContainsKey(
+								this, 
+								key
+							);
+		}
+
+		bool global::System.Collections.Generic.IDictionary<string, global::Windows.Data.Json.IJsonValue>.Remove(string key)
+		{
+			return global::System.Collections.Generic.IDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.RCWAdapterClass.Remove(
+								this, 
+								key
+							);
+		}
+
+		bool global::System.Collections.Generic.IDictionary<string, global::Windows.Data.Json.IJsonValue>.TryGetValue(
+					string key, 
+					out global::Windows.Data.Json.IJsonValue value)
+		{
+			return global::System.Collections.Generic.IDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.RCWAdapterClass.TryGetValue(
+								this, 
+								key, 
+								out value
+							);
+		}
+
+		global::System.Collections.Generic.IEnumerator<global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>> global::System.Collections.Generic.IEnumerable<global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>>.GetEnumerator()
+		{
+			return (global::System.Collections.Generic.IEnumerator<global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>>)global::McgInterop.McgHelpers.GetGenericEnumerator(
+								this, 
+								typeof(global::System.Collections.Generic.IEnumerable<global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>>).TypeHandle
+							);
+		}
+
+		global::System.Collections.IEnumerator global::System.Collections.IEnumerable.GetEnumerator()
+		{
+			return global::McgInterop.McgHelpers.GetNonGenericEnumerator(this);
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		public JsonObject()
+		{
+			global::System.IntPtr retval;
+			retval = global::System.Runtime.InteropServices.McgModuleManager.ActivateInstance("Windows.Data.Json.JsonObject");
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			this.__AttachAndRelease(retval);
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		public string GetNamedString(string name)
+		{
+			string __retVal = global::Windows.Data.Json.IJsonObject__Impl.StubClass.GetNamedString(
+								this, 
+								name
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			return __retVal;
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		public double GetNamedNumber(string name)
+		{
+			double __retVal = global::Windows.Data.Json.IJsonObject__Impl.StubClass.GetNamedNumber(
+								this, 
+								name
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			return __retVal;
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		public global::Windows.Data.Json.JsonObject GetObject()
+		{
+			global::Windows.Data.Json.JsonObject __retVal = global::Windows.Data.Json.IJsonValue__Impl.StubClass.GetObject(this);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			return __retVal;
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		public override string ToString()
+		{
+			string __retVal = global::Windows.Foundation.IStringable__Impl.StubClass.ToString(this);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			return __retVal;
+		}
+
+		public JsonObject(global::System.IntPtr dummy)
+		{
+		}
+	}
+
+	[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.Data.Json.IJsonValue))]
+	[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::System.Collections.Generic.IList<global::Windows.Data.Json.IJsonValue>))]
+	[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::System.Collections.Generic.IEnumerable<global::Windows.Data.Json.IJsonValue>))]
+	[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.Foundation.IStringable))]
+	[global::System.Runtime.InteropServices.McgWindowsRuntimeVersion(65536)]
+	[global::Internal.Reflection.MetadataTransformed(global::Internal.Reflection.MetadataTransformation.OriginallyForeignObject)]
+	[global::Internal.Reflection.ExplicitScope("Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime")]
+	public unsafe sealed class JsonArray : global::System.__ComObject, global::Windows.Data.Json.IJsonArray, global::Windows.Data.Json.IJsonValue, global::System.Collections.Generic.IList<global::Windows.Data.Json.IJsonValue>, global::System.Collections.Generic.ICollection<global::Windows.Data.Json.IJsonValue>, global::System.Collections.Generic.IEnumerable<global::Windows.Data.Json.IJsonValue>, global::Windows.Foundation.IStringable
+	{
+		int global::System.Collections.Generic.ICollection<global::Windows.Data.Json.IJsonValue>.Count
+		{
+			get
+			{
+				return global::System.Collections.Generic.IList_A_Windows_Data_Json_IJsonValue_V___Impl.ICollectionRCWAdapterClass.Count(this);
+			}
+		}
+
+		bool global::System.Collections.Generic.ICollection<global::Windows.Data.Json.IJsonValue>.IsReadOnly
+		{
+			get
+			{
+				return global::System.Collections.Generic.IList_A_Windows_Data_Json_IJsonValue_V___Impl.ICollectionRCWAdapterClass.IsReadOnly(this);
+			}
+		}
+
+		void global::System.Collections.Generic.ICollection<global::Windows.Data.Json.IJsonValue>.Add(global::Windows.Data.Json.IJsonValue item)
+		{
+			global::System.Collections.Generic.IList_A_Windows_Data_Json_IJsonValue_V___Impl.ICollectionRCWAdapterClass.Add(
+								this, 
+								item
+							);
+		}
+
+		void global::System.Collections.Generic.ICollection<global::Windows.Data.Json.IJsonValue>.Clear()
+		{
+			global::System.Collections.Generic.IList_A_Windows_Data_Json_IJsonValue_V___Impl.ICollectionRCWAdapterClass.Clear(this);
+		}
+
+		bool global::System.Collections.Generic.ICollection<global::Windows.Data.Json.IJsonValue>.Contains(global::Windows.Data.Json.IJsonValue item)
+		{
+			return global::System.Collections.Generic.IList_A_Windows_Data_Json_IJsonValue_V___Impl.ICollectionRCWAdapterClass.Contains(
+								this, 
+								item
+							);
+		}
+
+		void global::System.Collections.Generic.ICollection<global::Windows.Data.Json.IJsonValue>.CopyTo(
+					global::Windows.Data.Json.IJsonValue[] array, 
+					int arrayindex)
+		{
+			global::System.Collections.Generic.IList_A_Windows_Data_Json_IJsonValue_V___Impl.ICollectionRCWAdapterClass.CopyTo(
+								this, 
+								array, 
+								arrayindex
+							);
+		}
+
+		bool global::System.Collections.Generic.ICollection<global::Windows.Data.Json.IJsonValue>.Remove(global::Windows.Data.Json.IJsonValue item)
+		{
+			return global::System.Collections.Generic.IList_A_Windows_Data_Json_IJsonValue_V___Impl.ICollectionRCWAdapterClass.Remove(
+								this, 
+								item
+							);
+		}
+
+		global::Windows.Data.Json.IJsonValue global::System.Collections.Generic.IList<global::Windows.Data.Json.IJsonValue>.this[int index]
+		{
+			get
+			{
+				return global::System.Collections.Generic.IList_A_Windows_Data_Json_IJsonValue_V___Impl.RCWAdapterClass.Indexer_Get(
+									this, 
+									index
+								);
+			}
+			set
+			{
+				global::System.Collections.Generic.IList_A_Windows_Data_Json_IJsonValue_V___Impl.RCWAdapterClass.Indexer_Set(
+									this, 
+									index, 
+									value
+								);
+			}
+		}
+
+		int global::System.Collections.Generic.IList<global::Windows.Data.Json.IJsonValue>.IndexOf(global::Windows.Data.Json.IJsonValue item)
+		{
+			return global::System.Collections.Generic.IList_A_Windows_Data_Json_IJsonValue_V___Impl.RCWAdapterClass.IndexOf(
+								this, 
+								item
+							);
+		}
+
+		void global::System.Collections.Generic.IList<global::Windows.Data.Json.IJsonValue>.Insert(
+					int index, 
+					global::Windows.Data.Json.IJsonValue item)
+		{
+			global::System.Collections.Generic.IList_A_Windows_Data_Json_IJsonValue_V___Impl.RCWAdapterClass.Insert(
+								this, 
+								index, 
+								item
+							);
+		}
+
+		void global::System.Collections.Generic.IList<global::Windows.Data.Json.IJsonValue>.RemoveAt(int index)
+		{
+			global::System.Collections.Generic.IList_A_Windows_Data_Json_IJsonValue_V___Impl.RCWAdapterClass.RemoveAt(
+								this, 
+								index
+							);
+		}
+
+		global::System.Collections.Generic.IEnumerator<global::Windows.Data.Json.IJsonValue> global::System.Collections.Generic.IEnumerable<global::Windows.Data.Json.IJsonValue>.GetEnumerator()
+		{
+			return (global::System.Collections.Generic.IEnumerator<global::Windows.Data.Json.IJsonValue>)global::McgInterop.McgHelpers.GetGenericEnumerator(
+								this, 
+								typeof(global::System.Collections.Generic.IEnumerable<global::Windows.Data.Json.IJsonValue>).TypeHandle
+							);
+		}
+
+		global::System.Collections.IEnumerator global::System.Collections.IEnumerable.GetEnumerator()
+		{
+			return global::McgInterop.McgHelpers.GetNonGenericEnumerator(this);
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		public global::Windows.Data.Json.JsonObject GetObject()
+		{
+			global::Windows.Data.Json.JsonObject __retVal = global::Windows.Data.Json.IJsonValue__Impl.StubClass.GetObject(this);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			return __retVal;
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		public override string ToString()
+		{
+			string __retVal = global::Windows.Foundation.IStringable__Impl.StubClass.ToString(this);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			return __retVal;
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		public static global::Windows.Data.Json.JsonArray Parse(string input)
+		{
+			global::Windows.Data.Json.JsonArray retval;
+			retval = __Factory_Windows_Data_Json__IJsonArrayStatics_Parse(
+								"Windows.Data.Json.JsonArray", 
+								input
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			return retval;
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		static global::Windows.Data.Json.JsonArray __Factory_Windows_Data_Json__IJsonArrayStatics_Parse(
+					string typeName, 
+					string input)
+		{
+			global::Windows.Data.Json.JsonArray __pRetVal;
+			__pRetVal = global::Windows.Data.Json.IJsonArrayStatics__Impl.StubClass.Parse(
+								global::System.Runtime.InteropServices.McgModuleManager.GetActivationFactory(
+													typeName, 
+													typeof(global::Windows.Data.Json.IJsonArrayStatics).TypeHandle
+												), 
+								input
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			return __pRetVal;
+		}
+
+		public JsonArray(global::System.IntPtr dummy)
+		{
+		}
+	}
+
+	[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.Data.Json.IJsonValue))]
+	[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.Foundation.IStringable))]
+	[global::System.Runtime.InteropServices.McgWindowsRuntimeVersion(65536)]
+	[global::Internal.Reflection.MetadataTransformed(global::Internal.Reflection.MetadataTransformation.OriginallyForeignObject)]
+	[global::Internal.Reflection.ExplicitScope("Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime")]
+	public unsafe sealed class JsonValue : global::System.__ComObject, global::Windows.Data.Json.IJsonValue, global::Windows.Foundation.IStringable
+	{
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		public global::Windows.Data.Json.JsonObject GetObject()
+		{
+			global::Windows.Data.Json.JsonObject __retVal = global::Windows.Data.Json.IJsonValue__Impl.StubClass.GetObject(this);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			return __retVal;
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		public override string ToString()
+		{
+			string __retVal = global::Windows.Foundation.IStringable__Impl.StubClass.ToString(this);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			return __retVal;
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		public static global::Windows.Data.Json.JsonValue CreateNumberValue(double input)
+		{
+			global::Windows.Data.Json.JsonValue retval;
+			retval = __Factory_Windows_Data_Json__IJsonValueStatics_CreateNumberValue(
+								"Windows.Data.Json.JsonValue", 
+								input
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			return retval;
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		static global::Windows.Data.Json.JsonValue __Factory_Windows_Data_Json__IJsonValueStatics_CreateNumberValue(
+					string typeName, 
+					double input)
+		{
+			global::Windows.Data.Json.JsonValue __pRetVal;
+			__pRetVal = global::Windows.Data.Json.IJsonValueStatics__Impl.StubClass.CreateNumberValue(
+								global::System.Runtime.InteropServices.McgModuleManager.GetActivationFactory(
+													typeName, 
+													typeof(global::Windows.Data.Json.IJsonValueStatics).TypeHandle
+												), 
+								input
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			return __pRetVal;
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		public static global::Windows.Data.Json.JsonValue CreateStringValue(string input)
+		{
+			global::Windows.Data.Json.JsonValue retval;
+			retval = __Factory_Windows_Data_Json__IJsonValueStatics_CreateStringValue(
+								"Windows.Data.Json.JsonValue", 
+								input
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			return retval;
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		static global::Windows.Data.Json.JsonValue __Factory_Windows_Data_Json__IJsonValueStatics_CreateStringValue(
+					string typeName, 
+					string input)
+		{
+			global::Windows.Data.Json.JsonValue __pRetVal;
+			__pRetVal = global::Windows.Data.Json.IJsonValueStatics__Impl.StubClass.CreateStringValue(
+								global::System.Runtime.InteropServices.McgModuleManager.GetActivationFactory(
+													typeName, 
+													typeof(global::Windows.Data.Json.IJsonValueStatics).TypeHandle
+												), 
+								input
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			return __pRetVal;
+		}
+
+		public JsonValue(global::System.IntPtr dummy)
+		{
+		}
+	}
+
+	[global::Internal.Reflection.MetadataTransformed(global::Internal.Reflection.MetadataTransformation.OriginallyForeignObject)]
+	[global::Internal.Reflection.ExplicitScope("Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime")]
+	public unsafe interface IJsonObject : global::Windows.Data.Json.IJsonValue
+	{
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		string GetNamedString(string name);
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		double GetNamedNumber(string name);
+	}
+
+	[global::Internal.Reflection.MetadataTransformed(global::Internal.Reflection.MetadataTransformation.OriginallyForeignObject)]
+	[global::Internal.Reflection.ExplicitScope("Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime")]
+	public unsafe interface IJsonValue
+	{
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		global::Windows.Data.Json.JsonObject GetObject();
+	}
+
+	[global::Internal.Reflection.MetadataTransformed(global::Internal.Reflection.MetadataTransformation.OriginallyForeignObject)]
+	[global::Internal.Reflection.ExplicitScope("Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime")]
+	public unsafe interface IJsonObjectWithDefaultValues : global::Windows.Data.Json.IJsonObject, global::Windows.Data.Json.IJsonValue
+	{
+	}
+
+	[global::Internal.Reflection.MetadataTransformed(global::Internal.Reflection.MetadataTransformation.OriginallyForeignObject)]
+	[global::Internal.Reflection.ExplicitScope("Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime")]
+	public unsafe interface IJsonArrayStatics
+	{
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		global::Windows.Data.Json.JsonArray Parse(string input);
+	}
+
+	[global::Internal.Reflection.MetadataTransformed(global::Internal.Reflection.MetadataTransformation.OriginallyForeignObject)]
+	[global::Internal.Reflection.ExplicitScope("Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime")]
+	public unsafe interface IJsonArray : global::Windows.Data.Json.IJsonValue
+	{
+	}
+
+	[global::Internal.Reflection.MetadataTransformed(global::Internal.Reflection.MetadataTransformation.OriginallyForeignObject)]
+	[global::Internal.Reflection.ExplicitScope("Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime")]
+	public unsafe interface IJsonValueStatics
+	{
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		global::Windows.Data.Json.JsonValue CreateNumberValue(double input);
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		global::Windows.Data.Json.JsonValue CreateStringValue(string input);
+	}
+}
+
 namespace Windows.Data.Xml.Dom
 {
 	[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.Data.Xml.Dom.IXmlDocument))]
@@ -16341,6 +16859,118 @@ namespace Windows.UI.Xaml.Controls
 		}
 	}
 
+	[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Controls.Primitives.IScrollSnapPointsInfo))]
+	[global::System.Runtime.InteropServices.McgWindowsRuntimeVersion(65536)]
+	[global::Internal.Reflection.MetadataTransformed(global::Internal.Reflection.MetadataTransformation.OriginallyForeignObject)]
+	[global::Internal.Reflection.ExplicitScope("Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime")]
+	public unsafe class StackPanel : global::Windows.UI.Xaml.Controls.Panel, global::Windows.UI.Xaml.Controls.IStackPanel, global::Windows.UI.Xaml.Controls.Primitives.IScrollSnapPointsInfo, global::Windows.UI.Xaml.Controls.IStackPanel2
+	{
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		public StackPanel() : 
+				base(default(global::System.IntPtr))
+		{
+			global::System.IntPtr retval;
+			retval = __Factory_Windows_UI_Xaml_Controls__IStackPanelFactory_CreateInstance("Windows.UI.Xaml.Controls.StackPanel");
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			this.__AttachAndRelease(retval);
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		global::System.IntPtr __Factory_Windows_UI_Xaml_Controls__IStackPanelFactory_CreateInstance(string typeName)
+		{
+			global::System.IntPtr innerInspectable;
+			global::System.IntPtr outerInspectable = default(global::System.IntPtr);
+			if (global::System.Runtime.InteropServices.McgMarshal.IsOfType(
+								this, 
+								typeof(global::Windows.UI.Xaml.Controls.StackPanel).TypeHandle
+							))
+			{
+				global::System.IntPtr __pRetVal_NoAggregation;
+				__pRetVal_NoAggregation = global::Windows.UI.Xaml.Controls.IStackPanelFactory__Impl.StubClass.CreateInstance(
+									global::System.Runtime.InteropServices.McgModuleManager.GetActivationFactory(
+														typeName, 
+														typeof(global::Windows.UI.Xaml.Controls.IStackPanelFactory).TypeHandle
+													), 
+									outerInspectable, 
+									out innerInspectable
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(innerInspectable);
+				global::McgInterop.McgHelpers.GetIUnknownForFactoryReturn(ref __pRetVal_NoAggregation);
+				return __pRetVal_NoAggregation;
+			}
+			else
+			{
+				outerInspectable = global::System.Runtime.InteropServices.McgMarshal.GetOuterIInspectableForManagedObject(this);
+				global::System.IntPtr __pRetVal_WithAggregation;
+				__pRetVal_WithAggregation = global::Windows.UI.Xaml.Controls.IStackPanelFactory__Impl.StubClass.CreateInstance(
+									global::System.Runtime.InteropServices.McgModuleManager.GetActivationFactory(
+														typeName, 
+														typeof(global::Windows.UI.Xaml.Controls.IStackPanelFactory).TypeHandle
+													), 
+									outerInspectable, 
+									out innerInspectable
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(outerInspectable);
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(__pRetVal_WithAggregation);
+				return innerInspectable;
+			}
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "HorizontalSnapPointsChanged")]
+		public virtual global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_HorizontalSnapPointsChanged(global::System.EventHandler<object> value)
+		{
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.Primitives.IScrollSnapPointsInfo__Impl.StubClass.add_HorizontalSnapPointsChanged(
+								this, 
+								value
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			return __retVal;
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "HorizontalSnapPointsChanged")]
+		public virtual void remove_HorizontalSnapPointsChanged(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+		{
+			global::Windows.UI.Xaml.Controls.Primitives.IScrollSnapPointsInfo__Impl.StubClass.remove_HorizontalSnapPointsChanged(
+								this, 
+								token
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "VerticalSnapPointsChanged")]
+		public virtual global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_VerticalSnapPointsChanged(global::System.EventHandler<object> value)
+		{
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.Primitives.IScrollSnapPointsInfo__Impl.StubClass.add_VerticalSnapPointsChanged(
+								this, 
+								value
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			return __retVal;
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "VerticalSnapPointsChanged")]
+		public virtual void remove_VerticalSnapPointsChanged(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+		{
+			global::Windows.UI.Xaml.Controls.Primitives.IScrollSnapPointsInfo__Impl.StubClass.remove_VerticalSnapPointsChanged(
+								this, 
+								token
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+		}
+
+		public StackPanel(global::System.IntPtr dummy) : 
+				base(dummy)
+		{
+		}
+	}
+
 	[global::Internal.Reflection.MetadataTransformed(global::Internal.Reflection.MetadataTransformation.OriginallyForeignObject)]
 	[global::Internal.Reflection.ExplicitScope("Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime")]
 	public unsafe interface IControl
@@ -18150,6 +18780,28 @@ namespace Windows.UI.Xaml.Controls
 	{
 	}
 
+	[global::Internal.Reflection.MetadataTransformed(global::Internal.Reflection.MetadataTransformation.OriginallyForeignObject)]
+	[global::Internal.Reflection.ExplicitScope("Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime")]
+	public unsafe interface IStackPanelFactory
+	{
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		global::System.IntPtr CreateInstance(
+					global::System.IntPtr outer, 
+					out global::System.IntPtr inner);
+	}
+
+	[global::Internal.Reflection.MetadataTransformed(global::Internal.Reflection.MetadataTransformation.OriginallyForeignObject)]
+	[global::Internal.Reflection.ExplicitScope("Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime")]
+	public unsafe interface IStackPanel
+	{
+	}
+
+	[global::Internal.Reflection.MetadataTransformed(global::Internal.Reflection.MetadataTransformation.OriginallyForeignObject)]
+	[global::Internal.Reflection.ExplicitScope("Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime")]
+	public unsafe interface IStackPanel2
+	{
+	}
+
 	[global::System.Runtime.InteropServices.McgWindowsRuntimeVersion(0)]
 	[global::Internal.Reflection.MetadataTransformed(global::Internal.Reflection.MetadataTransformation.OriginallyForeignObject)]
 	[global::Internal.Reflection.ExplicitScope("Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime")]
@@ -18785,6 +19437,27 @@ namespace Windows.UI.Xaml.Controls.Primitives
 		void OnValueChanged(
 					double oldValue, 
 					double newValue);
+	}
+
+	[global::Internal.Reflection.MetadataTransformed(global::Internal.Reflection.MetadataTransformation.OriginallyForeignObject)]
+	[global::Internal.Reflection.ExplicitScope("Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime")]
+	public unsafe interface IScrollSnapPointsInfo
+	{
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "HorizontalSnapPointsChanged")]
+		global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_HorizontalSnapPointsChanged(global::System.EventHandler<object> value);
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "HorizontalSnapPointsChanged")]
+		void remove_HorizontalSnapPointsChanged(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token);
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "VerticalSnapPointsChanged")]
+		global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_VerticalSnapPointsChanged(global::System.EventHandler<object> value);
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "VerticalSnapPointsChanged")]
+		void remove_VerticalSnapPointsChanged(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token);
 	}
 
 	[global::System.Runtime.InteropServices.McgWindowsRuntimeVersion(0)]

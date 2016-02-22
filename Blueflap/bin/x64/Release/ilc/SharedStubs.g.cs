@@ -27705,123 +27705,6 @@ namespace McgInterop
 			return __value__retval;
 		}
 
-		// Signature, System.Nullable<Windows.UI.Xaml.SuspendingEventHandler>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_SuspendingEventHandler__Windows_UI_Xaml__SuspendingEventHandler *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.SuspendingEventHandler Func_UI_Xaml_SuspendingEventHandler__(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.SuspendingEventHandler__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.SuspendingEventHandler__Impl.Vtbl**);
-			global::Windows.UI.Xaml.SuspendingEventHandler __value__retval = default(global::Windows.UI.Xaml.SuspendingEventHandler);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe___value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = (global::Windows.UI.Xaml.SuspendingEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
-									((global::System.IntPtr)unsafe___value__retval), 
-									typeof(global::Windows.UI.Xaml.SuspendingEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget2>(global::Windows.UI.Xaml.SuspendingEventHandler__Impl.Invoke)
-								);
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
-			}
-		}
-
-		// Signature, System.Nullable<Windows.UI.Xaml.UnhandledExceptionEventHandler>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_UnhandledExceptionEventHandler__Windows_UI_Xaml__UnhandledExceptionEventHandler *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.UnhandledExceptionEventHandler Func_UI_Xaml_UnhandledExceptionEventHandler__(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.UnhandledExceptionEventHandler__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.UnhandledExceptionEventHandler__Impl.Vtbl**);
-			global::Windows.UI.Xaml.UnhandledExceptionEventHandler __value__retval = default(global::Windows.UI.Xaml.UnhandledExceptionEventHandler);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe___value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = (global::Windows.UI.Xaml.UnhandledExceptionEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
-									((global::System.IntPtr)unsafe___value__retval), 
-									typeof(global::Windows.UI.Xaml.UnhandledExceptionEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget1>(global::Windows.UI.Xaml.UnhandledExceptionEventHandler__Impl.Invoke)
-								);
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
-			}
-		}
-
-		// Signature, System.Nullable<Windows.UI.Xaml.DependencyPropertyChangedEventHandler>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_DependencyPropertyChangedEventHandler__Windows_UI_Xaml__DependencyPropertyChangedEventHandler *, 
-		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-		internal static global::Windows.UI.Xaml.DependencyPropertyChangedEventHandler Func_UI_Xaml_DependencyPropertyChangedEventHandler__(
-					global::System.__ComObject __this, 
-					global::System.RuntimeTypeHandle __typeHnd, 
-					int __targetIndex)
-		{
-			// Setup
-			global::Windows.UI.Xaml.DependencyPropertyChangedEventHandler__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.DependencyPropertyChangedEventHandler__Impl.Vtbl**);
-			global::Windows.UI.Xaml.DependencyPropertyChangedEventHandler __value__retval = default(global::Windows.UI.Xaml.DependencyPropertyChangedEventHandler);
-			int unsafe___return__;
-			try
-			{
-				// Marshalling
-				unsafe___value__retval = null;
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									__typeHnd, 
-									__targetIndex, 
-									&(unsafe___value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				__value__retval = (global::Windows.UI.Xaml.DependencyPropertyChangedEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
-									((global::System.IntPtr)unsafe___value__retval), 
-									typeof(global::Windows.UI.Xaml.DependencyPropertyChangedEventHandler).TypeHandle, 
-									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget22>(global::Windows.UI.Xaml.DependencyPropertyChangedEventHandler__Impl.Invoke)
-								);
-				// Return
-				return __value__retval;
-			}
-			finally
-			{
-				// Cleanup
-				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
-			}
-		}
-
 		// Signature, System.Nullable<Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.FrameworkElement,Windows.UI.Xaml.DataContextChangedEventArgs>>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_FrameworkElement__Windows_UI_Xaml_DataContextChangedEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_FrameworkElement_j_Windows_UI_Xaml_DataContextChangedEventArgs_V_ *, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
@@ -28357,6 +28240,123 @@ namespace McgInterop
 									((global::System.IntPtr)unsafe___value__retval), 
 									typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.UIElement, global::Windows.UI.Xaml.DropCompletedEventArgs>).TypeHandle, 
 									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget18>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_UIElement_j_Windows_UI_Xaml_DropCompletedEventArgs_V___Impl.Invoke)
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, System.Nullable<Windows.UI.Xaml.SuspendingEventHandler>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_SuspendingEventHandler__Windows_UI_Xaml__SuspendingEventHandler *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Xaml.SuspendingEventHandler Func_UI_Xaml_SuspendingEventHandler__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.SuspendingEventHandler__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.SuspendingEventHandler__Impl.Vtbl**);
+			global::Windows.UI.Xaml.SuspendingEventHandler __value__retval = default(global::Windows.UI.Xaml.SuspendingEventHandler);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::Windows.UI.Xaml.SuspendingEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::Windows.UI.Xaml.SuspendingEventHandler).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget2>(global::Windows.UI.Xaml.SuspendingEventHandler__Impl.Invoke)
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, System.Nullable<Windows.UI.Xaml.UnhandledExceptionEventHandler>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_UnhandledExceptionEventHandler__Windows_UI_Xaml__UnhandledExceptionEventHandler *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Xaml.UnhandledExceptionEventHandler Func_UI_Xaml_UnhandledExceptionEventHandler__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.UnhandledExceptionEventHandler__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.UnhandledExceptionEventHandler__Impl.Vtbl**);
+			global::Windows.UI.Xaml.UnhandledExceptionEventHandler __value__retval = default(global::Windows.UI.Xaml.UnhandledExceptionEventHandler);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::Windows.UI.Xaml.UnhandledExceptionEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::Windows.UI.Xaml.UnhandledExceptionEventHandler).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget1>(global::Windows.UI.Xaml.UnhandledExceptionEventHandler__Impl.Invoke)
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, System.Nullable<Windows.UI.Xaml.DependencyPropertyChangedEventHandler>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_DependencyPropertyChangedEventHandler__Windows_UI_Xaml__DependencyPropertyChangedEventHandler *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.UI.Xaml.DependencyPropertyChangedEventHandler Func_UI_Xaml_DependencyPropertyChangedEventHandler__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.UI.Xaml.DependencyPropertyChangedEventHandler__Impl.Vtbl** unsafe___value__retval = default(global::Windows.UI.Xaml.DependencyPropertyChangedEventHandler__Impl.Vtbl**);
+			global::Windows.UI.Xaml.DependencyPropertyChangedEventHandler __value__retval = default(global::Windows.UI.Xaml.DependencyPropertyChangedEventHandler);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::Windows.UI.Xaml.DependencyPropertyChangedEventHandler)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToDelegate(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::Windows.UI.Xaml.DependencyPropertyChangedEventHandler).TypeHandle, 
+									global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget22>(global::Windows.UI.Xaml.DependencyPropertyChangedEventHandler__Impl.Invoke)
 								);
 				// Return
 				return __value__retval;
@@ -31193,6 +31193,433 @@ namespace McgInterop
 			}
 		}
 
+		// Signature, Windows.Data.Json.IJsonObject.GetNamedNumber, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.HSTRINGMarshaller] string__System.Runtime.InteropServices.HSTRING, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] double__double, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static double Func_string__double__(
+					global::System.__ComObject __this, 
+					string name, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Runtime.InteropServices.HSTRING unsafe_name = default(global::System.Runtime.InteropServices.HSTRING);
+			double unsafe_returnValue__retval;
+			double returnValue__retval;
+			int unsafe___return__;
+			// Marshalling
+			fixed (char* pBuffer_name = name)
+			{
+				global::System.Runtime.InteropServices.HSTRING_HEADER hstring_header_name;
+				global::System.Runtime.InteropServices.McgMarshal.StringToHStringReference(pBuffer_name, name, &(hstring_header_name), &(unsafe_name));
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_name, 
+									&(unsafe_returnValue__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				returnValue__retval = unsafe_returnValue__retval;
+			}
+			// Return
+			return returnValue__retval;
+		}
+
+		// Signature, Windows.Data.Json.IJsonValue.GetObject, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_Data_Json_JsonObject__Windows_Data_Json__JsonObject *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.Data.Json.JsonObject Func_Data_Json_JsonObject__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Data.Json.IJsonObject__Impl.Vtbl** unsafe_returnValue__retval = default(global::Windows.Data.Json.IJsonObject__Impl.Vtbl**);
+			global::Windows.Data.Json.JsonObject returnValue__retval = default(global::Windows.Data.Json.JsonObject);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_returnValue__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe_returnValue__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				returnValue__retval = (global::Windows.Data.Json.JsonObject)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe_returnValue__retval), 
+									typeof(global::Windows.Data.Json.IJsonObject).TypeHandle, 
+									typeof(global::Windows.Data.Json.JsonObject).TypeHandle
+								);
+				// Return
+				return returnValue__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_returnValue__retval)));
+			}
+		}
+
+		// Signature, System.Collections.Generic.IDictionary<string,Windows.Data.Json.IJsonValue>.Lookup, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.HSTRINGMarshaller] string__System.Runtime.InteropServices.HSTRING, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Data_Json_IJsonValue__Windows_Data_Json__IJsonValue *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.Data.Json.IJsonValue Func_string__Data_Json_IJsonValue__(
+					global::System.__ComObject __this, 
+					string key, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Runtime.InteropServices.HSTRING unsafe_key = default(global::System.Runtime.InteropServices.HSTRING);
+			global::Windows.Data.Json.IJsonValue__Impl.Vtbl** unsafe___value__retval = default(global::Windows.Data.Json.IJsonValue__Impl.Vtbl**);
+			global::Windows.Data.Json.IJsonValue __value__retval = default(global::Windows.Data.Json.IJsonValue);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				fixed (char* pBuffer_key = key)
+				{
+					global::System.Runtime.InteropServices.HSTRING_HEADER hstring_header_key;
+					global::System.Runtime.InteropServices.McgMarshal.StringToHStringReference(pBuffer_key, key, &(hstring_header_key), &(unsafe_key));
+					unsafe___value__retval = null;
+					// Call to native method
+					unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+										__this, 
+										__typeHnd, 
+										__targetIndex, 
+										unsafe_key, 
+										&(unsafe___value__retval)
+									);
+					global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+					__value__retval = (global::Windows.Data.Json.IJsonValue)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+										((global::System.IntPtr)unsafe___value__retval), 
+										typeof(global::Windows.Data.Json.IJsonValue).TypeHandle
+									);
+				}
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, System.Collections.Generic.IDictionary<string,Windows.Data.Json.IJsonValue>.GetView, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] System_Collections_Generic_IReadOnlyDictionary_2_string__Windows_Data_Json_IJsonValue___Windows_Foundation_Collections__IMapView_A_string_j_Windows_Data_Json_IJsonValue_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Collections.Generic.IReadOnlyDictionary<string, global::Windows.Data.Json.IJsonValue> Func__IReadOnlyDictionary_2_string__Data_Json_IJsonValue___(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Collections.Generic.IReadOnlyDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.Vtbl** unsafe___value__retval = default(global::System.Collections.Generic.IReadOnlyDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.Vtbl**);
+			global::System.Collections.Generic.IReadOnlyDictionary<string, global::Windows.Data.Json.IJsonValue> __value__retval = default(global::System.Collections.Generic.IReadOnlyDictionary<string, global::Windows.Data.Json.IJsonValue>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::System.Collections.Generic.IReadOnlyDictionary<string, global::Windows.Data.Json.IJsonValue>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::System.Collections.Generic.IReadOnlyDictionary<string, global::Windows.Data.Json.IJsonValue>).TypeHandle
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, System.Collections.Generic.IDictionary<string,Windows.Data.Json.IJsonValue>.Insert, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.HSTRINGMarshaller] string__System.Runtime.InteropServices.HSTRING, [fwd] [in] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Data_Json_IJsonValue__Windows_Data_Json__IJsonValue *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.CBoolMarshaller] bool__bool, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static bool Func_string__Data_Json_IJsonValue__bool__(
+					global::System.__ComObject __this, 
+					string key, 
+					global::Windows.Data.Json.IJsonValue value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Runtime.InteropServices.HSTRING unsafe_key = default(global::System.Runtime.InteropServices.HSTRING);
+			global::Windows.Data.Json.IJsonValue__Impl.Vtbl** unsafe_value = default(global::Windows.Data.Json.IJsonValue__Impl.Vtbl**);
+			bool __value__retval;
+			sbyte unsafe___value__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				fixed (char* pBuffer_key = key)
+				{
+					global::System.Runtime.InteropServices.HSTRING_HEADER hstring_header_key;
+					global::System.Runtime.InteropServices.McgMarshal.StringToHStringReference(pBuffer_key, key, &(hstring_header_key), &(unsafe_key));
+					unsafe_value = (global::Windows.Data.Json.IJsonValue__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+										value, 
+										typeof(global::Windows.Data.Json.IJsonValue).TypeHandle
+									);
+					// Call to native method
+					unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+										__this, 
+										__typeHnd, 
+										__targetIndex, 
+										unsafe_key, 
+										unsafe_value, 
+										&(unsafe___value__retval)
+									);
+					global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+					__value__retval = unsafe___value__retval != 0;
+				}
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+				global::System.GC.KeepAlive(value);
+			}
+		}
+
+		// Signature, System.Collections.Generic.KeyValuePair<string,Windows.Data.Json.IJsonValue>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Data_Json_IJsonValue__Windows_Data_Json__IJsonValue *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.Data.Json.IJsonValue Func_Data_Json_IJsonValue__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Data.Json.IJsonValue__Impl.Vtbl** unsafe___value__retval = default(global::Windows.Data.Json.IJsonValue__Impl.Vtbl**);
+			global::Windows.Data.Json.IJsonValue __value__retval = default(global::Windows.Data.Json.IJsonValue);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::Windows.Data.Json.IJsonValue)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::Windows.Data.Json.IJsonValue).TypeHandle
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string,Windows.Data.Json.IJsonValue>>.First, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Foundation_Collections_IIterator_1_System_Collections_Generic_KeyValuePair_2_string__Windows_Data_Json_IJsonValue____Windows_Foundation_Collections__IIterator_A_Windows_Foundation_Collections_IKeyValuePair_A_string_j_Windows_Data_Json_IJsonValue_V__V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.Foundation.Collections.IIterator<global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>> Func__Collections_IIterator_1__KeyValuePair_2_string__Data_Json_IJsonValue__(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.Collections.IIterator_A_System_Collections_Generic_KeyValuePair_A_string_j_Windows_Data_Json_IJsonValue_V__V___Impl.Vtbl** unsafe___value__retval = default(global::Windows.Foundation.Collections.IIterator_A_System_Collections_Generic_KeyValuePair_A_string_j_Windows_Data_Json_IJsonValue_V__V___Impl.Vtbl**);
+			global::Windows.Foundation.Collections.IIterator<global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>> __value__retval = default(global::Windows.Foundation.Collections.IIterator<global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::Windows.Foundation.Collections.IIterator<global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::Windows.Foundation.Collections.IIterator<global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>>).TypeHandle
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, Windows.Foundation.Collections.IIterator<System.Collections.Generic.KeyValuePair<string,Windows.Data.Json.IJsonValue>>.get_Current, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTKeyValuePairMarshaller] System_Collections_Generic_KeyValuePair_2_string__Windows_Data_Json_IJsonValue___Windows_Foundation_Collections__IKeyValuePair_A_string_j_Windows_Data_Json_IJsonValue_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue> Func__KeyValuePair_2_string__Data_Json_IJsonValue___(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Collections.Generic.KeyValuePair_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.Vtbl** unsafe___value__retval = default(global::System.Collections.Generic.KeyValuePair_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.Vtbl**);
+			global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue> __value__retval = default(global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				global::Windows.Foundation.Collections.IKeyValuePair<string, global::Windows.Data.Json.IJsonValue> pair___value__retval = ((global::Windows.Foundation.Collections.IKeyValuePair<string, global::Windows.Data.Json.IJsonValue>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject_NoUnboxing(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::Windows.Foundation.Collections.IKeyValuePair<string, global::Windows.Data.Json.IJsonValue>).TypeHandle
+								));
+				__value__retval = new global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>(pair___value__retval.get_Key(), pair___value__retval.get_Value());
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, Windows.Foundation.Collections.IIterator<System.Collections.Generic.KeyValuePair<string,Windows.Data.Json.IJsonValue>>.GetMany, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [Mcg.CodeGen.ArrayMarshaller] rg_System_Collections_Generic_KeyValuePair_2_string__Windows_Data_Json_IJsonValue___Windows_Foundation_Collections__IKeyValuePair_A_string_j_Windows_Data_Json_IJsonValue_V_ * *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static uint Func_out_rg__KeyValuePair_2_string__Data_Json_IJsonValue___uint__(
+					global::System.__ComObject __this, 
+					global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>[] items, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			uint unsafe_items_mcgLength = 0;
+			global::System.Collections.Generic.KeyValuePair_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.Vtbl*** unsafe_items = default(global::System.Collections.Generic.KeyValuePair_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.Vtbl***);
+			uint unsafe___value__retval;
+			uint __value__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				if (items != null)
+					unsafe_items_mcgLength = (uint)items.Length;
+				if (items != null)
+					unsafe_items = (global::System.Collections.Generic.KeyValuePair_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.Vtbl***)global::McgInterop.McgHelpers.CoTaskMemAllocAndZeroMemory(((global::System.IntPtr)checked(unsafe_items_mcgLength * sizeof(global::System.Collections.Generic.KeyValuePair_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.Vtbl**))));
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_items_mcgLength, 
+									unsafe_items, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = unsafe___value__retval;
+				if (items != null)
+					for (uint mcgIdx = 0; (mcgIdx < unsafe_items_mcgLength); mcgIdx++)
+					{
+						// [fwd] [out] [optional] [Mcg.CodeGen.WinRTKeyValuePairMarshaller] System_Collections_Generic_KeyValuePair_2_string__Windows_Data_Json_IJsonValue___Windows_Foundation_Collections__IKeyValuePair_A_string_j_Windows_Data_Json_IJsonValue_V_ * items
+						global::Windows.Foundation.Collections.IKeyValuePair<string, global::Windows.Data.Json.IJsonValue> pair_items = ((global::Windows.Foundation.Collections.IKeyValuePair<string, global::Windows.Data.Json.IJsonValue>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject_NoUnboxing(
+											((global::System.IntPtr)unsafe_items[mcgIdx]), 
+											typeof(global::Windows.Foundation.Collections.IKeyValuePair<string, global::Windows.Data.Json.IJsonValue>).TypeHandle
+										));
+						items[mcgIdx] = new global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>(pair_items.get_Key(), pair_items.get_Value());
+					}
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				if (unsafe_items != null)
+					for (uint mcgIdx_1 = 0; (mcgIdx_1 < unsafe_items_mcgLength); mcgIdx_1++)
+					{
+						// [fwd] [in] [out] [optional] [Mcg.CodeGen.WinRTKeyValuePairMarshaller] System_Collections_Generic_KeyValuePair_2_string__Windows_Data_Json_IJsonValue___Windows_Foundation_Collections__IKeyValuePair_A_string_j_Windows_Data_Json_IJsonValue_V_ * items
+						global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_items[mcgIdx_1])));
+					}
+				global::System.Runtime.InteropServices.ExternalInterop.SafeCoTaskMemFree(unsafe_items);
+			}
+		}
+
+		// Signature, System.Collections.Generic.IReadOnlyDictionary<string,Windows.Data.Json.IJsonValue>.Split, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [managedbyref] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] System_Collections_Generic_IReadOnlyDictionary_2_string__Windows_Data_Json_IJsonValue___Windows_Foundation_Collections__IMapView_A_string_j_Windows_Data_Json_IJsonValue_V_ *, [fwd] [out] [managedbyref] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] System_Collections_Generic_IReadOnlyDictionary_2_string__Windows_Data_Json_IJsonValue___Windows_Foundation_Collections__IMapView_A_string_j_Windows_Data_Json_IJsonValue_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_out__IReadOnlyDictionary_2_string__Data_Json_IJsonValue___out__IReadOnlyDictionary_2_string__Data_Json_IJsonValue___(
+					global::System.__ComObject __this, 
+					out global::System.Collections.Generic.IReadOnlyDictionary<string, global::Windows.Data.Json.IJsonValue> first, 
+					out global::System.Collections.Generic.IReadOnlyDictionary<string, global::Windows.Data.Json.IJsonValue> second, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Collections.Generic.IReadOnlyDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.Vtbl** unsafe_first = default(global::System.Collections.Generic.IReadOnlyDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.Vtbl**);
+			global::System.Collections.Generic.IReadOnlyDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.Vtbl** unsafe_second = default(global::System.Collections.Generic.IReadOnlyDictionary_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_first = null;
+				unsafe_second = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe_first), 
+									&(unsafe_second)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				second = (global::System.Collections.Generic.IReadOnlyDictionary<string, global::Windows.Data.Json.IJsonValue>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe_second), 
+									typeof(global::System.Collections.Generic.IReadOnlyDictionary<string, global::Windows.Data.Json.IJsonValue>).TypeHandle
+								);
+				first = (global::System.Collections.Generic.IReadOnlyDictionary<string, global::Windows.Data.Json.IJsonValue>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe_first), 
+									typeof(global::System.Collections.Generic.IReadOnlyDictionary<string, global::Windows.Data.Json.IJsonValue>).TypeHandle
+								);
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_first)));
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_second)));
+			}
+		}
+
 		// Signature, Windows.Foundation.Collections.IIterator<System.IDisposable>.get_Current, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] System_IDisposable__Windows_Foundation__IClosable *, 
 		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
@@ -32818,6 +33245,542 @@ namespace McgInterop
 				// Cleanup
 				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_notification)));
 				global::System.GC.KeepAlive(notification);
+			}
+		}
+
+		// Signature, Windows.Data.Json.IJsonArrayStatics.Parse, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.HSTRINGMarshaller] string__System.Runtime.InteropServices.HSTRING, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_Data_Json_JsonArray__Windows_Data_Json__JsonArray *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.Data.Json.JsonArray Func_string__Data_Json_JsonArray__(
+					global::System.__ComObject __this, 
+					string input, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Runtime.InteropServices.HSTRING unsafe_input = default(global::System.Runtime.InteropServices.HSTRING);
+			global::Windows.Data.Json.IJsonArray__Impl.Vtbl** unsafe_jsonArray__retval = default(global::Windows.Data.Json.IJsonArray__Impl.Vtbl**);
+			global::Windows.Data.Json.JsonArray jsonArray__retval = default(global::Windows.Data.Json.JsonArray);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				fixed (char* pBuffer_input = input)
+				{
+					global::System.Runtime.InteropServices.HSTRING_HEADER hstring_header_input;
+					global::System.Runtime.InteropServices.McgMarshal.StringToHStringReference(pBuffer_input, input, &(hstring_header_input), &(unsafe_input));
+					unsafe_jsonArray__retval = null;
+					// Call to native method
+					unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+										__this, 
+										__typeHnd, 
+										__targetIndex, 
+										unsafe_input, 
+										&(unsafe_jsonArray__retval)
+									);
+					global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+					jsonArray__retval = (global::Windows.Data.Json.JsonArray)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+										((global::System.IntPtr)unsafe_jsonArray__retval), 
+										typeof(global::Windows.Data.Json.IJsonArray).TypeHandle, 
+										typeof(global::Windows.Data.Json.JsonArray).TypeHandle
+									);
+				}
+				// Return
+				return jsonArray__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_jsonArray__retval)));
+			}
+		}
+
+		// Signature, System.Collections.Generic.IList<Windows.Data.Json.IJsonValue>.GetAt, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Data_Json_IJsonValue__Windows_Data_Json__IJsonValue *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.Data.Json.IJsonValue Func_uint__Data_Json_IJsonValue__(
+					global::System.__ComObject __this, 
+					uint index, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Data.Json.IJsonValue__Impl.Vtbl** unsafe___value__retval = default(global::Windows.Data.Json.IJsonValue__Impl.Vtbl**);
+			global::Windows.Data.Json.IJsonValue __value__retval = default(global::Windows.Data.Json.IJsonValue);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									index, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::Windows.Data.Json.IJsonValue)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::Windows.Data.Json.IJsonValue).TypeHandle
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, System.Collections.Generic.IList<Windows.Data.Json.IJsonValue>.GetView, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] System_Collections_Generic_IReadOnlyList_1_Windows_Data_Json_IJsonValue___Windows_Foundation_Collections__IVectorView_A_Windows_Data_Json_IJsonValue_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Collections.Generic.IReadOnlyList<global::Windows.Data.Json.IJsonValue> Func__IReadOnlyList_1_Data_Json_IJsonValue___(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Collections.Generic.IReadOnlyList_A_Windows_Data_Json_IJsonValue_V___Impl.Vtbl** unsafe___value__retval = default(global::System.Collections.Generic.IReadOnlyList_A_Windows_Data_Json_IJsonValue_V___Impl.Vtbl**);
+			global::System.Collections.Generic.IReadOnlyList<global::Windows.Data.Json.IJsonValue> __value__retval = default(global::System.Collections.Generic.IReadOnlyList<global::Windows.Data.Json.IJsonValue>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::System.Collections.Generic.IReadOnlyList<global::Windows.Data.Json.IJsonValue>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::System.Collections.Generic.IReadOnlyList<global::Windows.Data.Json.IJsonValue>).TypeHandle
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, System.Collections.Generic.IList<Windows.Data.Json.IJsonValue>.IndexOf, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Data_Json_IJsonValue__Windows_Data_Json__IJsonValue *, [fwd] [out] [managedbyref] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.CBoolMarshaller] bool__bool, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static bool Func_Data_Json_IJsonValue__out_uint__bool__(
+					global::System.__ComObject __this, 
+					global::Windows.Data.Json.IJsonValue value, 
+					out uint index, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Data.Json.IJsonValue__Impl.Vtbl** unsafe_value = default(global::Windows.Data.Json.IJsonValue__Impl.Vtbl**);
+			uint unsafe_index;
+			bool __value__retval;
+			sbyte unsafe___value__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.Data.Json.IJsonValue__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									value, 
+									typeof(global::Windows.Data.Json.IJsonValue).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value, 
+									&(unsafe_index), 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = unsafe___value__retval != 0;
+				index = unsafe_index;
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+				global::System.GC.KeepAlive(value);
+			}
+		}
+
+		// Signature, System.Collections.Generic.IList<Windows.Data.Json.IJsonValue>.SetAt, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [in] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Data_Json_IJsonValue__Windows_Data_Json__IJsonValue *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_uint__Data_Json_IJsonValue__(
+					global::System.__ComObject __this, 
+					uint index, 
+					global::Windows.Data.Json.IJsonValue value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Data.Json.IJsonValue__Impl.Vtbl** unsafe_value = default(global::Windows.Data.Json.IJsonValue__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.Data.Json.IJsonValue__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									value, 
+									typeof(global::Windows.Data.Json.IJsonValue).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									index, 
+									unsafe_value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+				global::System.GC.KeepAlive(value);
+			}
+		}
+
+		// Signature, System.Collections.Generic.IList<Windows.Data.Json.IJsonValue>.Append, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Data_Json_IJsonValue__Windows_Data_Json__IJsonValue *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_Data_Json_IJsonValue__(
+					global::System.__ComObject __this, 
+					global::Windows.Data.Json.IJsonValue value, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Data.Json.IJsonValue__Impl.Vtbl** unsafe_value = default(global::Windows.Data.Json.IJsonValue__Impl.Vtbl**);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_value = (global::Windows.Data.Json.IJsonValue__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.ObjectToComInterface(
+									value, 
+									typeof(global::Windows.Data.Json.IJsonValue).TypeHandle
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+				global::System.GC.KeepAlive(value);
+			}
+		}
+
+		// Signature, System.Collections.Generic.IList<Windows.Data.Json.IJsonValue>.GetMany, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, [fwd] [out] [Mcg.CodeGen.ArrayMarshaller] rg_Windows_Data_Json_IJsonValue__Windows_Data_Json__IJsonValue * *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static uint Func_uint__out_rg_Data_Json_IJsonValue__uint__(
+					global::System.__ComObject __this, 
+					uint startIndex, 
+					global::Windows.Data.Json.IJsonValue[] items, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			uint unsafe_items_mcgLength = 0;
+			global::Windows.Data.Json.IJsonValue__Impl.Vtbl*** unsafe_items = default(global::Windows.Data.Json.IJsonValue__Impl.Vtbl***);
+			uint unsafe___value__retval;
+			uint __value__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				if (items != null)
+					unsafe_items_mcgLength = (uint)items.Length;
+				if (items != null)
+					unsafe_items = (global::Windows.Data.Json.IJsonValue__Impl.Vtbl***)global::McgInterop.McgHelpers.CoTaskMemAllocAndZeroMemory(((global::System.IntPtr)checked(unsafe_items_mcgLength * sizeof(global::Windows.Data.Json.IJsonValue__Impl.Vtbl**))));
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									startIndex, 
+									unsafe_items_mcgLength, 
+									unsafe_items, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = unsafe___value__retval;
+				if (items != null)
+					for (uint mcgIdx = 0; (mcgIdx < unsafe_items_mcgLength); mcgIdx++)
+					{
+						// [fwd] [out] [optional] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Data_Json_IJsonValue__Windows_Data_Json__IJsonValue * items
+						items[mcgIdx] = (global::Windows.Data.Json.IJsonValue)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+											((global::System.IntPtr)unsafe_items[mcgIdx]), 
+											typeof(global::Windows.Data.Json.IJsonValue).TypeHandle
+										);
+					}
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				if (unsafe_items != null)
+					for (uint mcgIdx_1 = 0; (mcgIdx_1 < unsafe_items_mcgLength); mcgIdx_1++)
+					{
+						// [fwd] [in] [out] [optional] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Data_Json_IJsonValue__Windows_Data_Json__IJsonValue * items
+						global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_items[mcgIdx_1])));
+					}
+				global::System.Runtime.InteropServices.ExternalInterop.SafeCoTaskMemFree(unsafe_items);
+			}
+		}
+
+		// Signature, System.Collections.Generic.IList<Windows.Data.Json.IJsonValue>.ReplaceAll, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.ArrayMarshaller] rg_Windows_Data_Json_IJsonValue__Windows_Data_Json__IJsonValue * *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static void Proc_rg_Data_Json_IJsonValue__(
+					global::System.__ComObject __this, 
+					global::Windows.Data.Json.IJsonValue[] items, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			uint unsafe_items_mcgLength = 0;
+			global::Windows.Data.Json.IJsonValue__Impl.Vtbl*** unsafe_items = default(global::Windows.Data.Json.IJsonValue__Impl.Vtbl***);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_items = (global::Windows.Data.Json.IJsonValue__Impl.Vtbl***)global::System.Runtime.InteropServices.McgModuleManager.ObjectArrayToComInterfaceArrayAlloc(
+									items, 
+									typeof(global::Windows.Data.Json.IJsonValue).TypeHandle, 
+									out unsafe_items_mcgLength
+								);
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_items_mcgLength, 
+									unsafe_items
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				// Return
+			}
+			finally
+			{
+				// Cleanup
+				if (unsafe_items != null)
+					for (uint mcgIdx = 0; (mcgIdx < unsafe_items_mcgLength); mcgIdx++)
+					{
+						// [fwd] [in] [out] [optional] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Data_Json_IJsonValue__Windows_Data_Json__IJsonValue * items
+						global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_items[mcgIdx])));
+					}
+				global::System.Runtime.InteropServices.ExternalInterop.SafeCoTaskMemFree(unsafe_items);
+			}
+		}
+
+		// Signature, System.Collections.Generic.IEnumerable<Windows.Data.Json.IJsonValue>.First, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Foundation_Collections_IIterator_1_Windows_Data_Json_IJsonValue___Windows_Foundation_Collections__IIterator_A_Windows_Data_Json_IJsonValue_V_ *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.Foundation.Collections.IIterator<global::Windows.Data.Json.IJsonValue> Func__Collections_IIterator_1_Data_Json_IJsonValue___(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Foundation.Collections.IIterator_A_Windows_Data_Json_IJsonValue_V___Impl.Vtbl** unsafe___value__retval = default(global::Windows.Foundation.Collections.IIterator_A_Windows_Data_Json_IJsonValue_V___Impl.Vtbl**);
+			global::Windows.Foundation.Collections.IIterator<global::Windows.Data.Json.IJsonValue> __value__retval = default(global::Windows.Foundation.Collections.IIterator<global::Windows.Data.Json.IJsonValue>);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = (global::Windows.Foundation.Collections.IIterator<global::Windows.Data.Json.IJsonValue>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe___value__retval), 
+									typeof(global::Windows.Foundation.Collections.IIterator<global::Windows.Data.Json.IJsonValue>).TypeHandle
+								);
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval)));
+			}
+		}
+
+		// Signature, Windows.Foundation.Collections.IIterator<Windows.Data.Json.IJsonValue>.GetMany, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [Mcg.CodeGen.ArrayMarshaller] rg_Windows_Data_Json_IJsonValue__Windows_Data_Json__IJsonValue * *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] uint__unsigned int, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static uint Func_out_rg_Data_Json_IJsonValue__uint__(
+					global::System.__ComObject __this, 
+					global::Windows.Data.Json.IJsonValue[] items, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			uint unsafe_items_mcgLength = 0;
+			global::Windows.Data.Json.IJsonValue__Impl.Vtbl*** unsafe_items = default(global::Windows.Data.Json.IJsonValue__Impl.Vtbl***);
+			uint unsafe___value__retval;
+			uint __value__retval;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				if (items != null)
+					unsafe_items_mcgLength = (uint)items.Length;
+				if (items != null)
+					unsafe_items = (global::Windows.Data.Json.IJsonValue__Impl.Vtbl***)global::McgInterop.McgHelpers.CoTaskMemAllocAndZeroMemory(((global::System.IntPtr)checked(unsafe_items_mcgLength * sizeof(global::Windows.Data.Json.IJsonValue__Impl.Vtbl**))));
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									unsafe_items_mcgLength, 
+									unsafe_items, 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				__value__retval = unsafe___value__retval;
+				if (items != null)
+					for (uint mcgIdx = 0; (mcgIdx < unsafe_items_mcgLength); mcgIdx++)
+					{
+						// [fwd] [out] [optional] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Data_Json_IJsonValue__Windows_Data_Json__IJsonValue * items
+						items[mcgIdx] = (global::Windows.Data.Json.IJsonValue)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+											((global::System.IntPtr)unsafe_items[mcgIdx]), 
+											typeof(global::Windows.Data.Json.IJsonValue).TypeHandle
+										);
+					}
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				if (unsafe_items != null)
+					for (uint mcgIdx_1 = 0; (mcgIdx_1 < unsafe_items_mcgLength); mcgIdx_1++)
+					{
+						// [fwd] [in] [out] [optional] [Mcg.CodeGen.ComInterfaceMarshaller] Windows_Data_Json_IJsonValue__Windows_Data_Json__IJsonValue * items
+						global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_items[mcgIdx_1])));
+					}
+				global::System.Runtime.InteropServices.ExternalInterop.SafeCoTaskMemFree(unsafe_items);
+			}
+		}
+
+		// Signature, Windows.Data.Json.IJsonValueStatics.CreateNumberValue, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.BlittableValueMarshaller] double__double, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_Data_Json_JsonValue__Windows_Data_Json__JsonValue *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.Data.Json.JsonValue Func_double__Data_Json_JsonValue__(
+					global::System.__ComObject __this, 
+					double input, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::Windows.Data.Json.IJsonValue__Impl.Vtbl** unsafe_jsonValue__retval = default(global::Windows.Data.Json.IJsonValue__Impl.Vtbl**);
+			global::Windows.Data.Json.JsonValue jsonValue__retval = default(global::Windows.Data.Json.JsonValue);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe_jsonValue__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									input, 
+									&(unsafe_jsonValue__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				jsonValue__retval = (global::Windows.Data.Json.JsonValue)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+									((global::System.IntPtr)unsafe_jsonValue__retval), 
+									typeof(global::Windows.Data.Json.IJsonValue).TypeHandle, 
+									typeof(global::Windows.Data.Json.JsonValue).TypeHandle
+								);
+				// Return
+				return jsonValue__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_jsonValue__retval)));
+			}
+		}
+
+		// Signature, Windows.Data.Json.IJsonValueStatics.CreateStringValue, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.HSTRINGMarshaller] string__System.Runtime.InteropServices.HSTRING, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTClassMarshaller] Windows_Data_Json_JsonValue__Windows_Data_Json__JsonValue *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::Windows.Data.Json.JsonValue Func_string__Data_Json_JsonValue__(
+					global::System.__ComObject __this, 
+					string input, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Runtime.InteropServices.HSTRING unsafe_input = default(global::System.Runtime.InteropServices.HSTRING);
+			global::Windows.Data.Json.IJsonValue__Impl.Vtbl** unsafe_jsonValue__retval = default(global::Windows.Data.Json.IJsonValue__Impl.Vtbl**);
+			global::Windows.Data.Json.JsonValue jsonValue__retval = default(global::Windows.Data.Json.JsonValue);
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				fixed (char* pBuffer_input = input)
+				{
+					global::System.Runtime.InteropServices.HSTRING_HEADER hstring_header_input;
+					global::System.Runtime.InteropServices.McgMarshal.StringToHStringReference(pBuffer_input, input, &(hstring_header_input), &(unsafe_input));
+					unsafe_jsonValue__retval = null;
+					// Call to native method
+					unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+										__this, 
+										__typeHnd, 
+										__targetIndex, 
+										unsafe_input, 
+										&(unsafe_jsonValue__retval)
+									);
+					global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+					jsonValue__retval = (global::Windows.Data.Json.JsonValue)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject(
+										((global::System.IntPtr)unsafe_jsonValue__retval), 
+										typeof(global::Windows.Data.Json.IJsonValue).TypeHandle, 
+										typeof(global::Windows.Data.Json.JsonValue).TypeHandle
+									);
+				}
+				// Return
+				return jsonValue__retval;
+			}
+			finally
+			{
+				// Cleanup
+				global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_jsonValue__retval)));
 			}
 		}
 
@@ -37068,6 +38031,64 @@ namespace McgInterop
 			__value__retval = unsafe___value__retval;
 			// Return
 			return __value__retval;
+		}
+
+		// Signature, Windows.Foundation.IReferenceArray<System.Collections.Generic.KeyValuePair<string,Windows.Data.Json.IJsonValue>>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.ArrayMarshaller] rg_System_Collections_Generic_KeyValuePair_2_string__Windows_Data_Json_IJsonValue___Windows_Foundation_Collections__IKeyValuePair_A_string_j_Windows_Data_Json_IJsonValue_V_ * *, 
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>[] Func_rg__KeyValuePair_2_string__Data_Json_IJsonValue___(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex)
+		{
+			// Setup
+			global::System.Collections.Generic.KeyValuePair_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.Vtbl*** unsafe___value__retval = default(global::System.Collections.Generic.KeyValuePair_A_string_j_Windows_Data_Json_IJsonValue_V___Impl.Vtbl***);
+			global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>[] __value__retval = default(global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>[]);
+			uint unsafe___value__retval_mcgLength = 0;
+			int unsafe___return__;
+			try
+			{
+				// Marshalling
+				unsafe___value__retval = null;
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									__typeHnd, 
+									__targetIndex, 
+									&(unsafe___value__retval_mcgLength), 
+									&(unsafe___value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				if (unsafe___value__retval == null)
+					__value__retval = null;
+				else
+				{
+					__value__retval = new global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>[unsafe___value__retval_mcgLength];
+					if (__value__retval != null)
+						for (uint mcgIdx = 0; (mcgIdx < unsafe___value__retval_mcgLength); mcgIdx++)
+						{
+							// [fwd] [out] [retval] [nativebyref] [optional] [Mcg.CodeGen.WinRTKeyValuePairMarshaller] System_Collections_Generic_KeyValuePair_2_string__Windows_Data_Json_IJsonValue___Windows_Foundation_Collections__IKeyValuePair_A_string_j_Windows_Data_Json_IJsonValue_V_ * __value__retval
+							global::Windows.Foundation.Collections.IKeyValuePair<string, global::Windows.Data.Json.IJsonValue> pair___value__retval = ((global::Windows.Foundation.Collections.IKeyValuePair<string, global::Windows.Data.Json.IJsonValue>)global::System.Runtime.InteropServices.McgModuleManager.ComInterfaceToObject_NoUnboxing(
+												((global::System.IntPtr)unsafe___value__retval[mcgIdx]), 
+												typeof(global::Windows.Foundation.Collections.IKeyValuePair<string, global::Windows.Data.Json.IJsonValue>).TypeHandle
+											));
+							__value__retval[mcgIdx] = new global::System.Collections.Generic.KeyValuePair<string, global::Windows.Data.Json.IJsonValue>(pair___value__retval.get_Key(), pair___value__retval.get_Value());
+						}
+				}
+				// Return
+				return __value__retval;
+			}
+			finally
+			{
+				// Cleanup
+				if (unsafe___value__retval != null)
+					for (uint mcgIdx_1 = 0; (mcgIdx_1 < unsafe___value__retval_mcgLength); mcgIdx_1++)
+					{
+						// [fwd] [in] [out] [retval] [nativebyref] [optional] [Mcg.CodeGen.WinRTKeyValuePairMarshaller] System_Collections_Generic_KeyValuePair_2_string__Windows_Data_Json_IJsonValue___Windows_Foundation_Collections__IKeyValuePair_A_string_j_Windows_Data_Json_IJsonValue_V_ * __value__retval
+						global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe___value__retval[mcgIdx_1])));
+					}
+				global::System.Runtime.InteropServices.ExternalInterop.SafeCoTaskMemFree(unsafe___value__retval);
+			}
 		}
 
 		// Signature, System.Nullable<Windows.UI.Xaml.Media.Imaging.DownloadProgressEventHandler>.get_Value, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_Media_Imaging_DownloadProgressEventHandler__Windows_UI_Xaml_Media_Imaging__DownloadProgressEventHandler *, 
@@ -43190,6 +44211,36 @@ namespace McgInterop
 								arg0, 
 								arg1, 
 								arg2
+							);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			global::System.GC.KeepAlive(__this);
+			if (__result < 0)
+				global::McgInterop.McgHelpers.ThrowFailed(
+									__result, 
+									__typeHnd
+								);
+			return __result;
+		}
+
+		[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		internal static int ComCall__HRESULT(
+					global::System.__ComObject __this, 
+					global::System.RuntimeTypeHandle __typeHnd, 
+					int __targetIndex, 
+					double arg0, 
+					void* arg1)
+		{
+			void* __pThis = ((void*)global::System.Runtime.InteropServices.McgModuleManager.GetInterface(
+								__this, 
+								__typeHnd
+							));
+			global::System.IntPtr __pTarget = (*(((global::System.IntPtr**)__pThis)))[__targetIndex];
+			int __result = global::McgInterop.Intrinsics.StdCall__int__(
+								__pTarget, 
+								__pThis, 
+								arg0, 
+								arg1
 							);
 			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
 			global::System.GC.KeepAlive(__this);

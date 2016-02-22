@@ -1037,6 +1037,9 @@
                                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Menus d'actions" FontSize="14.667" Opacity="0.5"/>
                             </ToggleSwitch>
                             <TextBlock HorizontalAlignment="Left" Margin="11,209,0,0" TextWrapping="Wrap" Text="Search Fight" VerticalAlignment="Top" FontSize="16"/>
+                            <Rectangle Fill="#33D1D1D1" Height="82" Margin="0,327,0,0" Stroke="#7F838383" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="11,335,0,0" TextWrapping="Wrap" Text="Données de navigation" VerticalAlignment="Top"/>
+                            <Button x:Name="Buton_ClearHistory" Content="Effacer l'historique" HorizontalAlignment="Left" Margin="12,366,0,0" VerticalAlignment="Top" BorderBrush="#27000000" Width="152"/>
                         </Grid>
                     </ScrollViewer>
                 </Grid>
