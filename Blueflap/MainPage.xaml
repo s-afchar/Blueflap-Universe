@@ -1041,9 +1041,10 @@
                 </PivotItem>
                 <PivotItem Header="">
                     <!-- Favoris -->
-                    <Grid>
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Cette fonction est ..." VerticalAlignment="Top" Foreground="#FFBDBDBD"/>
-                    </Grid>
+                    <StackPanel>
+                        <Button x:Name="AddToFavs" Content="Ajouter cette page" HorizontalAlignment="Stretch" Tapped="AddToFavs_Tapped"/>
+                        <StackPanel x:Name="FavList"></StackPanel>
+                    </StackPanel>
                 </PivotItem>
                 <PivotItem Header="">
                     <Grid>
