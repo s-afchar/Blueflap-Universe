@@ -171,6 +171,13 @@ Public NotInheritable Class MainPage
             Window_Button.Visibility = Visibility.Visible
         End If
 
+        If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
+            ShowFavorites()
+        End If
+        If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 2 Then
+            ShowHistory()
+        End If
+
         'Animation d'ouverture de Blueflap
         EnterAnim.Begin()
     End Sub
@@ -321,8 +328,12 @@ Public NotInheritable Class MainPage
         root.Add(HistoryElem)
         localSettings.Values("History") = root.ToString
 
-        ShowHistory()
-        ShowFavorites()
+        If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
+            ShowFavorites()
+        End If
+        If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 2 Then
+            ShowHistory()
+        End If
 
     End Sub
 
@@ -769,8 +780,10 @@ Public NotInheritable Class MainPage
             MemoIndexIndicator.Margin = New Thickness(4, 8, 0, 0)
         ElseIf RightMenuPivot.SelectedIndex = 1 Then
             MemoIndexIndicator.Margin = New Thickness(44, 8, 0, 0)
+            ShowFavorites()
         ElseIf RightMenuPivot.SelectedIndex = 2 Then
             MemoIndexIndicator.Margin = New Thickness(84, 8, 0, 0)
+            ShowHistory()
         ElseIf RightMenuPivot.SelectedIndex = 3 Then
             MemoIndexIndicator.Margin = New Thickness(124, 8, 0, 0)
         End If
@@ -820,30 +833,37 @@ Public NotInheritable Class MainPage
         For Each histElem In JsonArray.Parse(localSettings.Values("History")).Reverse
 
             Dim elemContainer As StackPanel = New StackPanel
+            elemContainer.Padding = New Thickness(8, 8, 0, 8)
             AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
                                                                         web.Navigate(New Uri(histElem.GetObject.GetNamedString("url")))
                                                                     End Function)
 
             AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 240, 240, 240))
+                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
+                                                                                 elemContainer.BorderThickness = New Thickness(2, 0, 0, 0)
+                                                                                 elemContainer.Padding = New Thickness(6, 8, 0, 8)
+                                                                                 elemContainer.BorderBrush = LeftMenu.Background
                                                                              End Function)
 
             AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Colors.White)
+                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                                elemContainer.BorderThickness = New Thickness(0, 0, 0, 0)
+                                                                                elemContainer.Padding = New Thickness(8, 8, 0, 8)
                                                                             End Function)
 
             Dim elemText As TextBlock = New TextBlock
             elemText.Text = histElem.GetObject.GetNamedString("title")
+            elemText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 40, 40, 40))
             elemContainer.Children.Add(elemText)
 
             Dim UrlText As TextBlock = New TextBlock
             UrlText.Text = histElem.GetObject.GetNamedString("url")
-            UrlText.Foreground = DefaultThemeColor.Background
+            UrlText.Foreground = LeftMenu.Background
             elemContainer.Children.Add(UrlText)
 
             Dim visitDate As TextBlock = New TextBlock
             visitDate.Text = DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString("Le dd MMMMMMMMMMMM yyyy à HH:mm")
-            visitDate.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 200, 200, 200))
+            visitDate.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 150, 150, 150))
             elemContainer.Children.Add(visitDate)
 
             HistoryList.Children.Add(elemContainer)
@@ -858,34 +878,40 @@ Public NotInheritable Class MainPage
         For Each favsElem In JsonArray.Parse(localSettings.Values("Favorites")).Reverse
 
             Dim elemContainer As StackPanel = New StackPanel
+            elemContainer.Padding = New Thickness(8, 8, 0, 8)
             AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
                                                                         web.Navigate(New Uri(favsElem.GetObject.GetNamedString("url")))
                                                                     End Function)
 
             AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 240, 240, 240))
+                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
+                                                                                 elemContainer.BorderThickness = New Thickness(2, 0, 0, 0)
+                                                                                 elemContainer.Padding = New Thickness(6, 8, 0, 8)
+                                                                                 elemContainer.BorderBrush = LeftMenu.Background
                                                                              End Function)
 
             AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Colors.White)
+                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                                elemContainer.BorderThickness = New Thickness(0, 0, 0, 0)
+                                                                                elemContainer.Padding = New Thickness(8, 8, 0, 8)
                                                                             End Function)
 
             Dim elemText As TextBlock = New TextBlock
             elemText.Text = favsElem.GetObject.GetNamedString("title")
+            elemText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 40, 40, 40))
             elemContainer.Children.Add(elemText)
+
 
             Dim UrlText As TextBlock = New TextBlock
             UrlText.Text = favsElem.GetObject.GetNamedString("url")
-            UrlText.Foreground = DefaultThemeColor.Background
+            UrlText.Foreground = LeftMenu.Background
             elemContainer.Children.Add(UrlText)
 
             FavList.Children.Add(elemContainer)
 
         Next
     End Sub
-
-
-    Private Sub AddToFavs_Tapped(sender As Object, e As TappedRoutedEventArgs)
+    Private Sub AddToFavList()
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         Dim CurrentTitle As String = web.DocumentTitle
         Dim VisitDate As DateTime = DateTime.Now
@@ -897,6 +923,11 @@ Public NotInheritable Class MainPage
         root.Add(HistoryElem)
         localSettings.Values("Favorites") = root.ToString
         Debug.WriteLine(localSettings.Values("Favorites"))
+
+    End Sub
+
+    Private Sub AddToFavs_Tapped(sender As Object, e As TappedRoutedEventArgs)
+        AddToFavList()
         ShowFavorites()
     End Sub
 #End Region
@@ -960,6 +991,10 @@ Public NotInheritable Class MainPage
     Private Sub Info_Like_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Info_Like.Tapped
         Like_Anim.Stop()
         Like_Anim.Begin()
+        AddToFavList()
+        If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
+            ShowFavorites()
+        End If
     End Sub
 #End Region
 #Region "SmartSuggest"

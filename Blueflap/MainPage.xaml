@@ -1039,18 +1039,22 @@
                         <TextBox x:Name="MemoText" Margin="-10,-3,-6,-5" TextWrapping="Wrap" Text="&lt;Ecrire un memo&gt;" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2E2E2E" BorderThickness="0" AcceptsReturn="True" RequestedTheme="Light"/>
                     </Grid>
                 </PivotItem>
-                <PivotItem Header="">
+                <PivotItem Header="&#xEB51;" Margin="0">
                     <!-- Favoris -->
-                    <StackPanel>
-                        <Button x:Name="AddToFavs" Content="Ajouter cette page" HorizontalAlignment="Stretch" Tapped="AddToFavs_Tapped"/>
-                        <StackPanel x:Name="FavList"></StackPanel>
-                    </StackPanel>
-                </PivotItem>
-                <PivotItem Header="">
-                    <Grid>
-                        <StackPanel x:Name="HistoryList">
+                    <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <Button x:Name="AddToFavs" Content="Ajouter cette page" HorizontalAlignment="Stretch" Tapped="AddToFavs_Tapped" Margin="8,0"/>
+                            <StackPanel x:Name="FavList"/>
                         </StackPanel>
-                    </Grid>
+                    </ScrollViewer>
+                </PivotItem>
+                <PivotItem Header="" Margin="0">
+                    <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                            <StackPanel x:Name="HistoryList"/>
+                        </Grid>
+
+                    </ScrollViewer>
 
                 </PivotItem>
                 <PivotItem Header="">

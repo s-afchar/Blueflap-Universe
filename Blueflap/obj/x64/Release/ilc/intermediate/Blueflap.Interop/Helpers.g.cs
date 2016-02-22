@@ -2091,71 +2091,71 @@ namespace McgInterop
 
 		public delegate int AddrOfTarget212(
 					global::System.IntPtr a0, 
-					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_FrameworkElement_j_Windows_UI_Xaml_DataContextChangedEventArgs_V___Impl.Vtbl*** a1);
+					global::Windows.UI.Xaml.SuspendingEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget213(
 					global::System.IntPtr a0, 
-					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_FrameworkElement_j_System_Object_V___Impl.Vtbl*** a1);
+					global::Windows.UI.Xaml.UnhandledExceptionEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget214(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Input.DoubleTappedEventHandler__Impl.Vtbl*** a1);
+					global::Windows.UI.Xaml.DependencyPropertyChangedEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget215(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.DragEventHandler__Impl.Vtbl*** a1);
+					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_FrameworkElement_j_Windows_UI_Xaml_DataContextChangedEventArgs_V___Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget216(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Input.HoldingEventHandler__Impl.Vtbl*** a1);
+					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_FrameworkElement_j_System_Object_V___Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget217(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Input.ManipulationCompletedEventHandler__Impl.Vtbl*** a1);
+					global::Windows.UI.Xaml.Input.DoubleTappedEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget218(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Input.ManipulationDeltaEventHandler__Impl.Vtbl*** a1);
+					global::Windows.UI.Xaml.DragEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget219(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Input.ManipulationInertiaStartingEventHandler__Impl.Vtbl*** a1);
+					global::Windows.UI.Xaml.Input.HoldingEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget220(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Input.ManipulationStartedEventHandler__Impl.Vtbl*** a1);
+					global::Windows.UI.Xaml.Input.ManipulationCompletedEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget221(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Input.ManipulationStartingEventHandler__Impl.Vtbl*** a1);
+					global::Windows.UI.Xaml.Input.ManipulationDeltaEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget222(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Input.PointerEventHandler__Impl.Vtbl*** a1);
+					global::Windows.UI.Xaml.Input.ManipulationInertiaStartingEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget223(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.Input.RightTappedEventHandler__Impl.Vtbl*** a1);
+					global::Windows.UI.Xaml.Input.ManipulationStartedEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget224(
 					global::System.IntPtr a0, 
-					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_UIElement_j_Windows_UI_Xaml_DragStartingEventArgs_V___Impl.Vtbl*** a1);
+					global::Windows.UI.Xaml.Input.ManipulationStartingEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget225(
 					global::System.IntPtr a0, 
-					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_UIElement_j_Windows_UI_Xaml_DropCompletedEventArgs_V___Impl.Vtbl*** a1);
+					global::Windows.UI.Xaml.Input.PointerEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget226(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.SuspendingEventHandler__Impl.Vtbl*** a1);
+					global::Windows.UI.Xaml.Input.RightTappedEventHandler__Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget227(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.UnhandledExceptionEventHandler__Impl.Vtbl*** a1);
+					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_UIElement_j_Windows_UI_Xaml_DragStartingEventArgs_V___Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget228(
 					global::System.IntPtr a0, 
-					global::Windows.UI.Xaml.DependencyPropertyChangedEventHandler__Impl.Vtbl*** a1);
+					global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_UIElement_j_Windows_UI_Xaml_DropCompletedEventArgs_V___Impl.Vtbl*** a1);
 
 		public delegate int AddrOfTarget229(
 					global::System.IntPtr a0, 
