@@ -322,6 +322,7 @@ Public NotInheritable Class MainPage
         localSettings.Values("History") = root.ToString
 
         ShowHistory()
+        ShowFavorites()
 
     End Sub
 
@@ -553,6 +554,7 @@ Public NotInheritable Class MainPage
             localSettings.Values("SmartSuggest") = True
             localSettings.Values("Favicon") = True
             localSettings.Values("History") = JsonArray.Parse("[]").ToString
+            localSettings.Values("Favorites") = JsonArray.Parse("[]").ToString
         End If
 
         If Not localSettings.Values("FirstBoot") = "Non" Then
@@ -847,6 +849,55 @@ Public NotInheritable Class MainPage
             HistoryList.Children.Add(elemContainer)
 
         Next
+    End Sub
+
+    Sub ShowFavorites()
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        FavList.Children.Clear()
+
+        For Each favsElem In JsonArray.Parse(localSettings.Values("Favorites")).Reverse
+
+            Dim elemContainer As StackPanel = New StackPanel
+            AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                        web.Navigate(New Uri(favsElem.GetObject.GetNamedString("url")))
+                                                                    End Function)
+
+            AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 240, 240, 240))
+                                                                             End Function)
+
+            AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Colors.White)
+                                                                            End Function)
+
+            Dim elemText As TextBlock = New TextBlock
+            elemText.Text = favsElem.GetObject.GetNamedString("title")
+            elemContainer.Children.Add(elemText)
+
+            Dim UrlText As TextBlock = New TextBlock
+            UrlText.Text = favsElem.GetObject.GetNamedString("url")
+            UrlText.Foreground = DefaultThemeColor.Background
+            elemContainer.Children.Add(UrlText)
+
+            FavList.Children.Add(elemContainer)
+
+        Next
+    End Sub
+
+
+    Private Sub AddToFavs_Tapped(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        Dim CurrentTitle As String = web.DocumentTitle
+        Dim VisitDate As DateTime = DateTime.Now
+
+        Dim root As JsonArray = JsonArray.Parse(localSettings.Values("Favorites"))
+        Dim HistoryElem As JsonObject = New JsonObject
+        HistoryElem.Add("url", JsonValue.CreateStringValue(web.Source.ToString))
+        HistoryElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle))
+        root.Add(HistoryElem)
+        localSettings.Values("Favorites") = root.ToString
+        Debug.WriteLine(localSettings.Values("Favorites"))
+        ShowFavorites()
     End Sub
 #End Region
 #Region "Share/Source code Menu"
