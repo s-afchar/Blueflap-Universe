@@ -1,2 +1,0 @@
-obj\x64\Release\Upload\filemap.pri
-obj\x64\Release\Upload\filemap.map.txt
