@@ -191,83 +191,16 @@ Public NotInheritable Class MainPage
         StopEnabled.Stop() 'Ce sont des animation pour le bouton stop/Refresh
         RefreshEnabled.Begin()
 
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-
-        'A terme ceci sera dynamique en fonction des éléments que l'utilisateur a choisi pour le menu
-
-        localSettings.Values("FightBut_Top") = 242
-        localSettings.Values("lockBut_Top") = 286
-        localSettings.Values("memoBut_Top") = 330
-        localSettings.Values("ShareBut_Top") = 374
-        localSettings.Values("WindowBut_Top") = 418
-
-        Try
-            If localSettings.Values("SearchFightIcon") = False Then
-                localSettings.Values("lockBut_Top") = localSettings.Values("lockBut_Top") - 44
-                localSettings.Values("memoBut_Top") = localSettings.Values("memoBut_Top") - 44
-                localSettings.Values("ShareBut_Top") = localSettings.Values("ShareBut_Top") - 44
-                localSettings.Values("WindowBut_Top") = localSettings.Values("WindowBut_Top") - 44
-            End If
-
-            If localSettings.Values("LockIcon") = False Then
-                localSettings.Values("memoBut_Top") = localSettings.Values("memoBut_Top") - 44
-                localSettings.Values("ShareBut_Top") = localSettings.Values("ShareBut_Top") - 44
-                localSettings.Values("WindowBut_Top") = localSettings.Values("WindowBut_Top") - 44
-            End If
-
-            If localSettings.Values("NoteIcon") = False Then
-                localSettings.Values("ShareBut_Top") = localSettings.Values("ShareBut_Top") - 44
-                localSettings.Values("WindowBut_Top") = localSettings.Values("WindowBut_Top") - 44
-            End If
-
-            If localSettings.Values("ShareIcon") = False Then
-                localSettings.Values("WindowBut_Top") = localSettings.Values("WindowBut_Top") - 44
-            End If
-
-            If localSettings.Values("WindowIcon") = False Then
-
-            End If
-        Catch
-        End Try
-
-
-        If web.CanGoBack And web.CanGoForward Then
+        If web.CanGoBack Then
             Back_Button.Visibility = Visibility.Visible
-            Forward_Button.Visibility = Visibility.Visible
-            Fight_Button.Margin = New Thickness(3, localSettings.Values("FightBut_Top"), -1, 0)
-            Lock_Button.Margin = New Thickness(3, localSettings.Values("lockBut_Top"), -1, 0)
-            Memo_Button.Margin = New Thickness(3, localSettings.Values("memoBut_Top"), -1, 0)
-            Share_Button.Margin = New Thickness(3, localSettings.Values("ShareBut_Top"), -1, 0)
-            Window_Button.Margin = New Thickness(3, localSettings.Values("WindowBut_Top"), -1, 0)
-            Forward_Button.Margin = New Thickness(3, 198, -1, 0)
-
-        ElseIf web.CanGoBack And web.CanGoForward = False Then
-            Back_Button.Visibility = Visibility.Visible
-            Forward_Button.Visibility = Visibility.Collapsed
-            Fight_Button.Margin = New Thickness(3, localSettings.Values("FightBut_Top") - 44, -1, 0)
-            Lock_Button.Margin = New Thickness(3, localSettings.Values("lockBut_Top") - 44, -1, 0)
-            Memo_Button.Margin = New Thickness(3, localSettings.Values("memoBut_Top") - 44, -1, 0)
-            Share_Button.Margin = New Thickness(3, localSettings.Values("ShareBut_Top") - 44, -1, 0)
-            Window_Button.Margin = New Thickness(3, localSettings.Values("WindowBut_Top") - 44, -1, 0)
-
-        ElseIf web.CanGoBack = False And web.CanGoForward Then
+        Else
             Back_Button.Visibility = Visibility.Collapsed
-            Forward_Button.Visibility = Visibility.Visible
-            Fight_Button.Margin = New Thickness(3, localSettings.Values("FightBut_Top") - 44, -1, 0)
-            Lock_Button.Margin = New Thickness(3, localSettings.Values("lockBut_Top") - 44, -1, 0)
-            Memo_Button.Margin = New Thickness(3, localSettings.Values("memoBut_Top") - 44, -1, 0)
-            Share_Button.Margin = New Thickness(3, localSettings.Values("ShareBut_Top") - 44, -1, 0)
-            Window_Button.Margin = New Thickness(3, localSettings.Values("WindowBut_Top") - 44, -1, 0)
-            Forward_Button.Margin = New Thickness(3, 154, -1, 0)
+        End If
 
-        ElseIf web.CanGoBack = False And web.CanGoForward = False Then
-            Back_Button.Visibility = Visibility.Collapsed
+        If web.CanGoForward Then
+            Forward_Button.Visibility = Visibility.Visible
+        Else
             Forward_Button.Visibility = Visibility.Collapsed
-            Fight_Button.Margin = New Thickness(3, localSettings.Values("FightBut_Top") - 88, -1, 0)
-            Lock_Button.Margin = New Thickness(3, localSettings.Values("lockBut_Top") - 88, -1, 0)
-            Memo_Button.Margin = New Thickness(3, localSettings.Values("memoBut_Top") - 88, -1, 0)
-            Share_Button.Margin = New Thickness(3, localSettings.Values("ShareBut_Top") - 88, -1, 0)
-            Window_Button.Margin = New Thickness(3, localSettings.Values("WindowBut_Top") - 88, -1, 0)
         End If
 
         AdressBox.IsEnabled = False 'Autre solution provisoire (qui va sans doute rester) parce que sinon l'adressbox obtient le focus à l'ouverture allez savoir pourquoi...
@@ -516,11 +449,19 @@ Public NotInheritable Class MainPage
     End Sub
 
     Private Sub Back_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Back_Button.Tapped
-        web.GoBack() 'Permet de revenir à la page précédente
+        If web.CanGoBack Then
+            web.GoBack() 'Permet de revenir à la page précédente
+        Else
+            Back_Button.Visibility = Visibility.Collapsed
+        End If
     End Sub
 
     Private Sub Forward_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Forward_Button.Tapped
-        web.GoForward() 'Revenir à la page suivante
+        If web.CanGoForward Then
+            web.GoForward() 'Revenir à la page suivante
+        Else
+            Forward_Button.Visibility = Visibility.Collapsed
+        End If
     End Sub
 
     Private Sub OnNewWindowRequested(sender As WebView, e As WebViewNewWindowRequestedEventArgs) Handles web.NewWindowRequested
@@ -554,7 +495,6 @@ Public NotInheritable Class MainPage
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
         If Not localSettings.Values("Config") = True Then
-            Debug.WriteLine("Wesh ! config !")
             localSettings.Values("WallpaperName") = "Degrade.png"
             localSettings.Values("Homepage") = "http://personali.zz.mu"
             localSettings.Values("CustomColorA") = 52
@@ -583,9 +523,7 @@ Public NotInheritable Class MainPage
     Private Sub OpenRightMenu()
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
-        'Soit on ouvre le volet des mémos, soit on le ferme (s'il est déjà ouvert)
-        If MemoPanel.Visibility = Visibility.Collapsed Then
-            MemoPopOut.Stop()
+        MemoPopOut.Stop()
             MemoPopIN.Begin()
             Try
                 MemoText.Text = localSettings.Values("MemoText")
@@ -606,16 +544,22 @@ Public NotInheritable Class MainPage
                 MemoPanel.HorizontalAlignment = HorizontalAlignment.Right
                 Memo_ExpandButton.Visibility = Visibility.Collapsed
             End If
-        Else
-            MemoPopIN.Stop()
-            MemoPopOut.Begin()
-            webcontainer.Margin = New Thickness(48, 66, 0, 0)
-        End If
-        PivotIndicatorPosition()
+            PivotIndicatorPosition()
+    End Sub
+    Private Sub CloseRightMenu()
+        MemoPopIN.Stop()
+        MemoPopOut.Begin()
+        webcontainer.Margin = New Thickness(48, 66, 0, 0)
     End Sub
     Private Sub Notifications_indicator_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Notifications_indicator.Tapped
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        OpenRightMenu()
+        If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 3 Then
+            CloseRightMenu()
+        Else
+            If MemoPanel.Visibility = Visibility.Collapsed Then
+                OpenRightMenu()
+            End If
+        End If
         RightMenuPivot.SelectedIndex = 3
         New_Notif.Stop()
         Notifications_Counter.Text = "0"
@@ -632,7 +576,13 @@ Public NotInheritable Class MainPage
         Me.Frame.Navigate(GetType(Parametres))
     End Sub
     Private Sub Memo_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_Button.Tapped
-        OpenRightMenu()
+        If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 0 Then
+            CloseRightMenu()
+        Else
+            If MemoPanel.Visibility = Visibility.Collapsed Then
+                OpenRightMenu()
+            End If
+        End If
         RightMenuPivot.SelectedIndex = 0
     End Sub
 
