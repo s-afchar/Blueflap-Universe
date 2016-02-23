@@ -4,6 +4,7 @@ Imports Windows.UI.Xaml.Controls
 Imports Windows.ApplicationModel.Core
 Imports Windows.Data.Json
 Imports Windows.UI.Xaml.Documents
+Imports Windows.Storage
 ''' <summary>
 ''' Page dédiée à la navigation web
 ''' </summary>
@@ -140,6 +141,7 @@ Public NotInheritable Class MainPage
         End Try
 
         'Quelles icônes sont affichées
+        ' TODO : utiliser du DataBinding pour ça
 
         If localSettings.Values("SearchFightIcon") = False Then
             Fight_Button.Visibility = Visibility.Collapsed
@@ -283,7 +285,7 @@ Public NotInheritable Class MainPage
 
     End Sub
 
-    Private Sub web_NavigationCompleted(sender As WebView, args As WebViewNavigationCompletedEventArgs) Handles web.NavigationCompleted
+    Private Async Sub web_NavigationCompleted(sender As WebView, args As WebViewNavigationCompletedEventArgs) Handles web.NavigationCompleted
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
         'Navigation terminée
@@ -320,13 +322,13 @@ Public NotInheritable Class MainPage
         Dim CurrentTitle As String = web.DocumentTitle
         Dim VisitDate As DateTime = DateTime.Now
 
-        Dim root As JsonArray = JsonArray.Parse(localSettings.Values("History"))
+        Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("History"))
         Dim HistoryElem As JsonObject = New JsonObject
         HistoryElem.Add("url", JsonValue.CreateStringValue(web.Source.ToString))
         HistoryElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle))
         HistoryElem.Add("date", JsonValue.CreateNumberValue(DateTime.Now.ToBinary))
         root.Add(HistoryElem)
-        localSettings.Values("History") = root.ToString
+        WriteJsonFile(root, "History")
 
         If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
             ShowFavorites()
@@ -341,6 +343,7 @@ Public NotInheritable Class MainPage
         'Page chargée
 
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
         ' Try
         'If localSettings.Values("Adblock") = "En fonction" Then
         '       web.Navigate(New Uri(localSettings.Values("AdblockFonction")))
@@ -564,8 +567,8 @@ Public NotInheritable Class MainPage
             localSettings.Values("WindowIcon") = True
             localSettings.Values("SmartSuggest") = True
             localSettings.Values("Favicon") = True
-            localSettings.Values("History") = JsonArray.Parse("[]").ToString
-            localSettings.Values("Favorites") = JsonArray.Parse("[]").ToString
+            WriteJsonFile(JsonArray.Parse("[]"), "History")
+            WriteJsonFile(JsonArray.Parse("[]"), "Favorites")
         End If
 
         If Not localSettings.Values("FirstBoot") = "Non" Then
@@ -826,11 +829,17 @@ Public NotInheritable Class MainPage
         ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
     End Sub
 
-    Private Sub ShowHistory()
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+    Private Async Sub ShowHistory()
         HistoryList.Children.Clear()
+        Dim Json As String
 
-        For Each histElem In JsonArray.Parse(localSettings.Values("History")).Reverse
+        Try
+            Json = Await ReadJsonFile("History")
+        Catch ex As Exception
+            Json = "[]"
+        End Try
+
+        For Each histElem In JsonArray.Parse(Json).Reverse
 
             Dim elemContainer As StackPanel = New StackPanel
             elemContainer.Padding = New Thickness(8, 8, 0, 8)
@@ -871,11 +880,10 @@ Public NotInheritable Class MainPage
         Next
     End Sub
 
-    Sub ShowFavorites()
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+    Private Async Sub ShowFavorites()
         FavList.Children.Clear()
 
-        For Each favsElem In JsonArray.Parse(localSettings.Values("Favorites")).Reverse
+        For Each favsElem In JsonArray.Parse(Await ReadJsonFile("Favorites")).Reverse
 
             Dim elemContainer As StackPanel = New StackPanel
             elemContainer.Padding = New Thickness(8, 8, 0, 8)
@@ -911,19 +919,16 @@ Public NotInheritable Class MainPage
 
         Next
     End Sub
-    Private Sub AddToFavList()
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+    Private Async Sub AddToFavList()
         Dim CurrentTitle As String = web.DocumentTitle
         Dim VisitDate As DateTime = DateTime.Now
 
-        Dim root As JsonArray = JsonArray.Parse(localSettings.Values("Favorites"))
+        Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Favorites"))
         Dim HistoryElem As JsonObject = New JsonObject
         HistoryElem.Add("url", JsonValue.CreateStringValue(web.Source.ToString))
         HistoryElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle))
         root.Add(HistoryElem)
-        localSettings.Values("Favorites") = root.ToString
-        Debug.WriteLine(localSettings.Values("Favorites"))
-
+        WriteJsonFile(root, "Favorites")
     End Sub
 
     Private Sub AddToFavs_Tapped(sender As Object, e As TappedRoutedEventArgs)
@@ -1224,5 +1229,31 @@ Public NotInheritable Class MainPage
         MiniPlayer()
     End Sub
 #End Region
+
+    Private Async Sub WriteJsonFile(Json As JsonArray, FileName As String)
+        Dim localFolder As StorageFolder = ApplicationData.Current.LocalFolder
+        FileName += ".json"
+
+        If Not Await localFolder.TryGetItemAsync(FileName) Is Nothing Then
+            Dim textfile As StorageFile = Await localFolder.GetFileAsync(FileName)
+            Await FileIO.WriteTextAsync(textfile, Json.ToString)
+        Else
+            Dim textFile As StorageFile = Await localFolder.CreateFileAsync(FileName)
+            Await FileIO.WriteTextAsync(textFile, Json.ToString)
+        End If
+
+    End Sub
+
+    Private Async Function ReadJsonFile(FileName As String) As Task(Of String)
+        Dim localFolder As StorageFolder = ApplicationData.Current.LocalFolder
+        FileName += ".json"
+        Dim content As String = Nothing
+
+        Dim textfile As StorageFile = Await localFolder.GetFileAsync(FileName)
+        content = Await FileIO.ReadTextAsync(textfile)
+        Debug.WriteLine("Content = '" + content + "'")
+
+        Return content
+    End Function
 
 End Class
