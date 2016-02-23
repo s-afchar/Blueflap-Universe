@@ -550,6 +550,7 @@ Public NotInheritable Class MainPage
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
         If Not localSettings.Values("Config") = True Then
+            Debug.WriteLine("Wesh ! config !")
             localSettings.Values("A1") = "http://www.qwant.com/?q="
             localSettings.Values("A2") = ""
             localSettings.Values("SearchEngineIndex") = 1
@@ -567,11 +568,11 @@ Public NotInheritable Class MainPage
             localSettings.Values("WindowIcon") = True
             localSettings.Values("SmartSuggest") = True
             localSettings.Values("Favicon") = True
-            WriteJsonFile(JsonArray.Parse("[]"), "History")
-            WriteJsonFile(JsonArray.Parse("[]"), "Favorites")
         End If
 
         If Not localSettings.Values("FirstBoot") = "Non" Then
+            WriteJsonFile(JsonArray.Parse("[]"), "History")
+            WriteJsonFile(JsonArray.Parse("[]"), "Favorites")
             localSettings.Values("FirstBoot") = "Non"
             Me.Frame.Navigate(GetType(FirstBootScreen))
         End If

@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\Baptiste\Source\Repos\Blueflap-Universe\Blueflap\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-02-23T12:25:38.800</Modified>
+      <Modified>2016-02-23T13:21:34.246</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Baptiste\Source\Repos\Blueflap-Universe\Blueflap\bin\x86\Debug\Blueflap.exe">
       <PackagePath>entrypoint\Blueflap.exe</PackagePath>
-      <Modified>2016-02-23T12:25:33.617</Modified>
+      <Modified>2016-02-23T13:21:30.046</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Baptiste\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -682,7 +682,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Baptiste\Source\Repos\Blueflap-Universe\Blueflap\bin\x86\Debug\Core\Blueflap.exe">
       <PackagePath>Blueflap.exe</PackagePath>
-      <Modified>2016-02-23T12:25:38.777</Modified>
+      <Modified>2016-02-23T13:21:34.222</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
