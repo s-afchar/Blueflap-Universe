@@ -880,7 +880,7 @@ Public NotInheritable Class MainPage
         Next
     End Sub
 
-    Private Async Sub ShowFavorites()
+    Private Async Function ShowFavorites() As Task
         FavList.Children.Clear()
 
         For Each favsElem In JsonArray.Parse(Await ReadJsonFile("Favorites")).Reverse
@@ -918,7 +918,7 @@ Public NotInheritable Class MainPage
             FavList.Children.Add(elemContainer)
 
         Next
-    End Sub
+    End Function
     Private Async Function AddToFavList() As Task
         Dim CurrentTitle As String = web.DocumentTitle
         Dim VisitDate As DateTime = DateTime.Now
@@ -933,7 +933,7 @@ Public NotInheritable Class MainPage
 
     Private Async Sub AddToFavs_Tapped(sender As Object, e As TappedRoutedEventArgs)
         Await AddToFavList()
-        ShowFavorites()
+        Await ShowFavorites()
     End Sub
 #End Region
 #Region "Share/Source code Menu"
