@@ -775,7 +775,7 @@
                     	<Run Text="Bien évidemment, Bluestart vous permettra de lancer des recherches internet grâce à n'importe quel moteur de recherche."/>
                     </TextBlock>
                     <Image Height="241" VerticalAlignment="Top" Source="Assets/welcome_homepage.png" HorizontalAlignment="Left" Width="270" Margin="97,29,0,0"/>
-                    <Button Content="Utiliser Bluestart" HorizontalAlignment="Center" Margin="391,218,571,0" VerticalAlignment="Top" Background="#FF3498DB" Foreground="White" Height="52" Width="165" FontSize="18.667" RequestedTheme="Light" Tapped="Button_Tapped"/>
+                    <Button Content="Utiliser Bluestart" HorizontalAlignment="Center" Margin="391,218,571,0" VerticalAlignment="Top" Background="#FF3498DB" Foreground="White" Height="52" Width="165" FontSize="18.667" RequestedTheme="Light" Tapped="Button_Tapped_5"/>
                     <TextBlock HorizontalAlignment="Center" Margin="0,-43,0,0" TextWrapping="Wrap" Text="CONFIGURATION DE LA PAGE D'ACCUEIL" VerticalAlignment="Top" Foreground="#FF3498DB" FontWeight="SemiBold" FontSize="32"/>
                     <Button Content="Ignorer" HorizontalAlignment="Center" Margin="566,218,422,0" VerticalAlignment="Top" Background="#FFE6E6E6" Foreground="#FF4B4B4B" Height="52" Width="139" FontSize="16" RequestedTheme="Light" BorderBrush="#FF7E7E7E" BorderThickness="1" Tapped="Button_Tapped_1"/>
                 </Grid>

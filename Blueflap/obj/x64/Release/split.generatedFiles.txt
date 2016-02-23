@@ -1,2 +1,0 @@
-obj\x64\Release\split.pri
-obj\x64\Release\split.map.txt
