@@ -14,6 +14,9 @@
     <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
     <UseEmulator>false</UseEmulator>
     <AuthenticationMode>Windows</AuthenticationMode>
+    <DebugEngines>
+    </DebugEngines>
+    <CreateCleanLayout>false</CreateCleanLayout>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
