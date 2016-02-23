@@ -919,7 +919,7 @@ Public NotInheritable Class MainPage
 
         Next
     End Sub
-    Private Async Sub AddToFavList()
+    Private Async Function AddToFavList() As Task
         Dim CurrentTitle As String = web.DocumentTitle
         Dim VisitDate As DateTime = DateTime.Now
 
@@ -929,10 +929,10 @@ Public NotInheritable Class MainPage
         HistoryElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle))
         root.Add(HistoryElem)
         WriteJsonFile(root, "Favorites")
-    End Sub
+    End Function
 
-    Private Sub AddToFavs_Tapped(sender As Object, e As TappedRoutedEventArgs)
-        AddToFavList()
+    Private Async Sub AddToFavs_Tapped(sender As Object, e As TappedRoutedEventArgs)
+        Await AddToFavList()
         ShowFavorites()
     End Sub
 #End Region
