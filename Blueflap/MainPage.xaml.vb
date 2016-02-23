@@ -322,13 +322,17 @@ Public NotInheritable Class MainPage
         Dim CurrentTitle As String = web.DocumentTitle
         Dim VisitDate As DateTime = DateTime.Now
 
-        Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("History"))
-        Dim HistoryElem As JsonObject = New JsonObject
-        HistoryElem.Add("url", JsonValue.CreateStringValue(web.Source.ToString))
-        HistoryElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle))
-        HistoryElem.Add("date", JsonValue.CreateNumberValue(DateTime.Now.ToBinary))
-        root.Add(HistoryElem)
-        WriteJsonFile(root, "History")
+        Try
+            Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("History"))
+            Dim HistoryElem As JsonObject = New JsonObject
+            HistoryElem.Add("url", JsonValue.CreateStringValue(web.Source.ToString))
+            HistoryElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle))
+            HistoryElem.Add("date", JsonValue.CreateNumberValue(DateTime.Now.ToBinary))
+            root.Add(HistoryElem)
+            WriteJsonFile(root, "History")
+        Catch
+            WriteJsonFile(JsonArray.Parse("[]"), "History")
+        End Try
 
         If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
             ShowFavorites()
@@ -600,7 +604,12 @@ Public NotInheritable Class MainPage
                 MemoAncrageToggle.IsOn = localSettings.Values("AncrageMemo")
             Catch
             End Try
-
+            If RightMenuPivot.SelectedIndex = 0 Then
+                MemoPanel.Width = 261
+                MemoPanel.Margin = New Thickness(0, 66, 0, 0)
+                MemoPanel.HorizontalAlignment = HorizontalAlignment.Right
+                Memo_ExpandButton.Visibility = Visibility.Collapsed
+            End If
         Else
             MemoPopIN.Stop()
             MemoPopOut.Begin()
@@ -655,6 +664,25 @@ Public NotInheritable Class MainPage
         End If
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         localSettings.Values("AncrageMemo") = MemoAncrageToggle.IsOn
+    End Sub
+
+    Private Sub Memo_ExpandButton_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_ExpandButton.Tapped
+        If MemoPanel.Width = 261 Then
+            MemoPanel.Width = Double.NaN
+            MemoPanel.Margin = New Thickness(48, 66, 0, 0)
+            MemoPanel.HorizontalAlignment = HorizontalAlignment.Stretch
+            LeftPanelShadow.Visibility = Visibility.Collapsed
+        Else
+            MemoPanel.Width = 261
+            MemoPanel.Margin = New Thickness(0, 66, 0, 0)
+            MemoPanel.HorizontalAlignment = HorizontalAlignment.Right
+            If MemoAncrageToggle.IsOn Then
+                LeftPanelShadow.Visibility = Visibility.Collapsed
+            Else
+                LeftPanelShadow.Visibility = Visibility.Visible
+            End If
+        End If
+
     End Sub
     Private Sub Notification()
         Dim Notifsvisible As String
@@ -782,15 +810,25 @@ Public NotInheritable Class MainPage
     Private Sub PivotIndicatorPosition()
         If RightMenuPivot.SelectedIndex = 0 Then
             MemoIndexIndicator.Margin = New Thickness(4, 8, 0, 0)
+
         ElseIf RightMenuPivot.SelectedIndex = 1 Then
             MemoIndexIndicator.Margin = New Thickness(44, 8, 0, 0)
+            Memo_ExpandButton.Visibility = Visibility.Visible
             ShowFavorites()
         ElseIf RightMenuPivot.SelectedIndex = 2 Then
             MemoIndexIndicator.Margin = New Thickness(84, 8, 0, 0)
+            Memo_ExpandButton.Visibility = Visibility.Visible
             ShowHistory()
         ElseIf RightMenuPivot.SelectedIndex = 3 Then
             MemoIndexIndicator.Margin = New Thickness(124, 8, 0, 0)
+
+            MemoPanel.Width = 261
+            MemoPanel.Margin = New Thickness(0, 66, 0, 0)
+            MemoPanel.HorizontalAlignment = HorizontalAlignment.Right
+            Memo_ExpandButton.Visibility = Visibility.Collapsed
+
         End If
+
     End Sub
     Private Sub RightMenuPivot_PivotItemLoaded(sender As Pivot, args As PivotItemEventArgs) Handles RightMenuPivot.PivotItemLoaded
         PivotIndicatorPosition()
@@ -924,12 +962,16 @@ Public NotInheritable Class MainPage
         Dim CurrentTitle As String = web.DocumentTitle
         Dim VisitDate As DateTime = DateTime.Now
 
-        Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Favorites"))
-        Dim HistoryElem As JsonObject = New JsonObject
-        HistoryElem.Add("url", JsonValue.CreateStringValue(web.Source.ToString))
-        HistoryElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle))
-        root.Add(HistoryElem)
-        WriteJsonFile(root, "Favorites")
+        Try
+            Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Favorites"))
+            Dim HistoryElem As JsonObject = New JsonObject
+            HistoryElem.Add("url", JsonValue.CreateStringValue(web.Source.ToString))
+            HistoryElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle))
+            root.Add(HistoryElem)
+            WriteJsonFile(root, "Favorites")
+        Catch
+            WriteJsonFile(JsonArray.Parse("[]"), "Favorites")
+        End Try
     End Function
 
     Private Async Sub AddToFavs_Tapped(sender As Object, e As TappedRoutedEventArgs)
@@ -1230,7 +1272,7 @@ Public NotInheritable Class MainPage
         MiniPlayer()
     End Sub
 #End Region
-
+#Region "JsonFileManagment"
     Private Async Sub WriteJsonFile(Json As JsonArray, FileName As String)
         Dim localFolder As StorageFolder = ApplicationData.Current.LocalFolder
         FileName += ".json"
@@ -1256,5 +1298,5 @@ Public NotInheritable Class MainPage
 
         Return content
     End Function
-
+#End Region
 End Class

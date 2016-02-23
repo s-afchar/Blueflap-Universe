@@ -1028,13 +1028,14 @@
                     <CompositeTransform ScaleY="-1"/>
                 </Rectangle.RenderTransform>
             </Rectangle>
+            <Button x:Name="Memo_ExpandButton" Content="&#xE052;" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Bottom" FontFamily="Segoe MDL2 Assets" Height="40" Width="40" Background="#00000000" BorderThickness="0,0,2,0"/>
             <Pivot x:Name="RightMenuPivot"  Margin="0,0,0,40" Background="#ADFFFFFF">
                 <Pivot.HeaderTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding}"  FontSize="16" FontFamily="Segoe MDL2 Assets"/>
                     </DataTemplate>
                 </Pivot.HeaderTemplate>
-                <PivotItem Header="">
+                <PivotItem Header="&#xE70B;">
                     <Grid>
                         <TextBox x:Name="MemoText" Margin="-10,-3,-6,-5" TextWrapping="Wrap" Text="&lt;Ecrire un memo&gt;" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2E2E2E" BorderThickness="0" AcceptsReturn="True" RequestedTheme="Light"/>
                     </Grid>
@@ -1048,7 +1049,7 @@
                         </StackPanel>
                     </ScrollViewer>
                 </PivotItem>
-                <PivotItem Header="" Margin="0">
+                <PivotItem Header="&#xE81C;" Margin="0">
                     <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto">
                         <Grid>
                             <StackPanel x:Name="HistoryList"/>
@@ -1057,7 +1058,7 @@
                     </ScrollViewer>
 
                 </PivotItem>
-                <PivotItem Header="">
+                <PivotItem Header="&#xE91C;">
                     <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto" IsHorizontalScrollChainingEnabled="False">
                         <Grid x:Name="NotificationsPanel" Background="{x:Null}">
                             <Grid x:Name="Notif_Home" Height="96" Width="237" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0" VerticalAlignment="Top">

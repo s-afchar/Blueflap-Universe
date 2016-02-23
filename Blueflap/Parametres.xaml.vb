@@ -1,6 +1,7 @@
 ﻿Imports Windows.UI.Core
 Imports Windows.UI.Notifications
 Imports Windows.Data.Json
+Imports Windows.Storage
 ''' <summary>
 ''' Comme son nom l'indique, Page de paramètres
 ''' </summary>
@@ -617,9 +618,25 @@ Public NotInheritable Class Parametres
 #End Region
 #Region "History"
     Private Sub Buton_ClearHistory_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Buton_ClearHistory.Tapped
-        Windows.Storage.ApplicationData.Current.LocalSettings.Values("History") = JsonArray.Parse("[]").ToString
+        Try
+            WriteJsonFile(JsonArray.Parse("[]"), "History")
+        Catch
+        End Try
         Stat1.Text = 0
         Windows.Storage.ApplicationData.Current.LocalSettings.Values("Stat1") = 0
+    End Sub
+    Private Async Sub WriteJsonFile(Json As JsonArray, FileName As String)
+        Dim localFolder As StorageFolder = ApplicationData.Current.LocalFolder
+        FileName += ".json"
+
+        If Not Await localFolder.TryGetItemAsync(FileName) Is Nothing Then
+            Dim textfile As StorageFile = Await localFolder.GetFileAsync(FileName)
+            Await FileIO.WriteTextAsync(textfile, Json.ToString)
+        Else
+            Dim textFile As StorageFile = Await localFolder.CreateFileAsync(FileName)
+            Await FileIO.WriteTextAsync(textFile, Json.ToString)
+        End If
+
     End Sub
 #End Region
 End Class
