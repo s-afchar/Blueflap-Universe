@@ -191,4 +191,14 @@ Public NotInheritable Class FirstBootScreen
             Me.Frame.Navigate(GetType(MainPage))
         End If
     End Sub
+
+    Private Sub Button_Tapped_5(sender As Object, e As TappedRoutedEventArgs)
+        Try
+            StepByStep.SelectedIndex = StepByStep.SelectedIndex + 1
+        Catch
+            StepByStep.SelectedIndex = 0
+        End Try
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("Bluestart") = True
+    End Sub
 End Class

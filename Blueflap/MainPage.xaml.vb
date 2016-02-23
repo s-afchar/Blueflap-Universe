@@ -555,11 +555,7 @@ Public NotInheritable Class MainPage
 
         If Not localSettings.Values("Config") = True Then
             Debug.WriteLine("Wesh ! config !")
-            localSettings.Values("A1") = "http://www.qwant.com/?q="
-            localSettings.Values("A2") = ""
-            localSettings.Values("SearchEngineIndex") = 1
             localSettings.Values("WallpaperName") = "Degrade.png"
-            localSettings.Values("Bluestart") = True
             localSettings.Values("Homepage") = "http://personali.zz.mu"
             localSettings.Values("CustomColorA") = 52
             localSettings.Values("CustomColorB") = 152
