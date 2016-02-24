@@ -11,6 +11,8 @@ Imports Windows.Storage
 Public NotInheritable Class MainPage
     Inherits Page
     Dim NotifPosition As String
+    Dim History_SearchMode As Boolean
+    Dim History_SearchKeywords As String
 #Region "HardwareBackButton"
     Public Sub New()
         Me.InitializeComponent()
@@ -174,11 +176,19 @@ Public NotInheritable Class MainPage
         End If
 
         If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
-            ShowFavorites()
+            Try
+                ShowFavorites()
+            Catch
+            End Try
         End If
         If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 2 Then
-            ShowHistory()
+            Try
+                ShowHistory()
+            Catch
+            End Try
         End If
+
+        History_SearchMode = False
 
         'Animation d'ouverture de Blueflap
         EnterAnim.Begin()
@@ -268,10 +278,16 @@ Public NotInheritable Class MainPage
         End Try
 
         If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
-            ShowFavorites()
+            Try
+                ShowFavorites()
+            Catch
+            End Try
         End If
         If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 2 Then
-            ShowHistory()
+            Try
+                ShowHistory()
+            Catch
+            End Try
         End If
 
     End Sub
@@ -754,17 +770,30 @@ Public NotInheritable Class MainPage
         Notification()
     End Sub
     Private Sub PivotIndicatorPosition()
+        History_SearchMode = False
+
         If RightMenuPivot.SelectedIndex = 0 Then
             MemoIndexIndicator.Margin = New Thickness(4, 8, 0, 0)
+            History_SearchBar.Visibility = Visibility.Collapsed
+            History_ShowSearchBar.Visibility = Visibility.Collapsed
 
         ElseIf RightMenuPivot.SelectedIndex = 1 Then
             MemoIndexIndicator.Margin = New Thickness(44, 8, 0, 0)
             Memo_ExpandButton.Visibility = Visibility.Visible
-            ShowFavorites()
+            History_SearchBar.Visibility = Visibility.Collapsed
+            History_ShowSearchBar.Visibility = Visibility.Collapsed
+            Try
+                ShowFavorites()
+            Catch
+            End Try
         ElseIf RightMenuPivot.SelectedIndex = 2 Then
             MemoIndexIndicator.Margin = New Thickness(84, 8, 0, 0)
             Memo_ExpandButton.Visibility = Visibility.Visible
-            ShowHistory()
+            History_ShowSearchBar.Visibility = Visibility.Visible
+            Try
+                ShowHistory()
+            Catch
+            End Try
         ElseIf RightMenuPivot.SelectedIndex = 3 Then
             MemoIndexIndicator.Margin = New Thickness(124, 8, 0, 0)
 
@@ -772,6 +801,8 @@ Public NotInheritable Class MainPage
             MemoPanel.Margin = New Thickness(0, 66, 0, 0)
             MemoPanel.HorizontalAlignment = HorizontalAlignment.Right
             Memo_ExpandButton.Visibility = Visibility.Collapsed
+            History_SearchBar.Visibility = Visibility.Collapsed
+            History_ShowSearchBar.Visibility = Visibility.Collapsed
 
         End If
 
@@ -825,7 +856,6 @@ Public NotInheritable Class MainPage
         End Try
 
         For Each histElem In JsonArray.Parse(Json).Reverse
-
             Dim elemContainer As StackPanel = New StackPanel
             elemContainer.Padding = New Thickness(8, 8, 0, 8)
             AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
@@ -860,7 +890,13 @@ Public NotInheritable Class MainPage
             visitDate.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 150, 150, 150))
             elemContainer.Children.Add(visitDate)
 
-            HistoryList.Children.Add(elemContainer)
+            If History_SearchMode = True Then
+                If histElem.GetObject.GetNamedString("title").ToLower.Contains(History_SearchKeywords.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(History_SearchKeywords.ToLower) Then
+                    HistoryList.Children.Add(elemContainer)
+                End If
+            Else
+                HistoryList.Children.Add(elemContainer)
+            End If
 
         Next
     End Sub
@@ -987,7 +1023,10 @@ Public NotInheritable Class MainPage
         Like_Anim.Begin()
         AddToFavList()
         If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
-            ShowFavorites()
+            Try
+                ShowFavorites()
+            Catch
+            End Try
         End If
     End Sub
 #End Region
@@ -1244,5 +1283,30 @@ Public NotInheritable Class MainPage
 
         Return content
     End Function
+
+    Private Async Sub SearchHistory_TextChanged(sender As Object, e As TextChangedEventArgs) Handles SearchHistory.TextChanged
+        History_SearchMode = True
+        History_SearchKeywords = SearchHistory.Text
+        Try
+            ShowHistory()
+        Catch
+        End Try
+    End Sub
+
+    Private Sub SearchHistory_LostFocus(sender As Object, e As RoutedEventArgs) Handles SearchHistory.LostFocus
+        History_SearchMode = False
+    End Sub
+
+    Private Sub History_ShowSearchBar_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles History_ShowSearchBar.Tapped
+        If History_SearchBar.Visibility = Visibility.Visible Then
+            History_SearchBar.Visibility = Visibility.Collapsed
+        Else
+            History_SearchBar.Visibility = Visibility.Visible
+        End If
+        Try
+            ShowHistory()
+        Catch
+        End Try
+    End Sub
 #End Region
 End Class
