@@ -161,6 +161,16 @@ Public NotInheritable Class Parametres
         Catch ex As Exception
         End Try
 
+        Try
+            If localSettings.Values("Fav_Confirmation") = False Then
+                Favorites_Confirm_Switch.IsOn = False
+            Else
+                Favorites_Confirm_Switch.IsOn = True
+            End If
+        Catch ex As Exception
+        End Try
+
+
         ParamOpen.Stop()
         ParamOpen.Begin()
 
@@ -440,6 +450,12 @@ Public NotInheritable Class Parametres
             localSettings.Values("SearchFight_Menu") = True
         Else
             localSettings.Values("SearchFight_Menu") = False
+        End If
+
+        If Favorites_Confirm_Switch.IsOn Then
+            localSettings.Values("Fav_Confirmation") = True
+        Else
+            localSettings.Values("Fav_Confirmation") = False
         End If
 
         If Bluestart_Checkbox.IsChecked = True Then

@@ -1040,6 +1040,11 @@
                             <Rectangle Fill="#33D1D1D1" Height="82" Margin="0,327,0,0" Stroke="#7F838383" VerticalAlignment="Top"/>
                             <TextBlock HorizontalAlignment="Left" Margin="11,335,0,0" TextWrapping="Wrap" Text="Données de navigation" VerticalAlignment="Top"/>
                             <Button x:Name="Buton_ClearHistory" Content="Effacer l'historique" HorizontalAlignment="Left" Margin="12,366,0,0" VerticalAlignment="Top" BorderBrush="#27000000" Width="152"/>
+                            <Rectangle Fill="#33D1D1D1" Height="107" Stroke="#7F838383" VerticalAlignment="Top" Margin="0,433,0,0"/>
+                            <ToggleSwitch x:Name="Favorites_Confirm_Switch" HorizontalAlignment="Left" Margin="10,469,0,0" VerticalAlignment="Top" OffContent="Non" OnContent="Oui" IsOn="True">
+                                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Fenêtre de confirmation" FontSize="14.667" Opacity="0.5"/>
+                            </ToggleSwitch>
+                            <TextBlock HorizontalAlignment="Left" Margin="11,443,0,0" TextWrapping="Wrap" Text="Favoris" VerticalAlignment="Top" FontSize="16"/>
                         </Grid>
                     </ScrollViewer>
                 </Grid>
