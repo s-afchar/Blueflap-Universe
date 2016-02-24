@@ -540,27 +540,27 @@ Public NotInheritable Class MainPage
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
         MemoPopOut.Stop()
-            MemoPopIN.Begin()
-            Try
-                MemoText.Text = localSettings.Values("MemoText")
-            Catch
-            End Try
-            LeftPanelShadow.Visibility = Visibility.Visible
-            Try
-                If localSettings.Values("AncrageMemo") = True Then 'On  vérifie si l'utilisateur a ancré le volet des mémos
-                    webcontainer.Margin = New Thickness(48, 66, 261, 0)
-                    LeftPanelShadow.Visibility = Visibility.Collapsed
-                End If
-                MemoAncrageToggle.IsOn = localSettings.Values("AncrageMemo")
-            Catch
-            End Try
-            If RightMenuPivot.SelectedIndex = 0 Then
-                MemoPanel.Width = 261
-                MemoPanel.Margin = New Thickness(0, 66, 0, 0)
-                MemoPanel.HorizontalAlignment = HorizontalAlignment.Right
-                Memo_ExpandButton.Visibility = Visibility.Collapsed
+        MemoPopIN.Begin()
+        Try
+            MemoText.Text = localSettings.Values("MemoText")
+        Catch
+        End Try
+        LeftPanelShadow.Visibility = Visibility.Visible
+        Try
+            If localSettings.Values("AncrageMemo") = True Then 'On  vérifie si l'utilisateur a ancré le volet des mémos
+                webcontainer.Margin = New Thickness(48, 66, 261, 0)
+                LeftPanelShadow.Visibility = Visibility.Collapsed
             End If
-            PivotIndicatorPosition()
+            MemoAncrageToggle.IsOn = localSettings.Values("AncrageMemo")
+        Catch
+        End Try
+        If RightMenuPivot.SelectedIndex = 0 Then
+            MemoPanel.Width = 261
+            MemoPanel.Margin = New Thickness(0, 66, 0, 0)
+            MemoPanel.HorizontalAlignment = HorizontalAlignment.Right
+            Memo_ExpandButton.Visibility = Visibility.Collapsed
+        End If
+        PivotIndicatorPosition()
     End Sub
     Private Sub CloseRightMenu()
         MemoPopIN.Stop()
@@ -925,6 +925,22 @@ Public NotInheritable Class MainPage
                                                                                 elemContainer.Padding = New Thickness(8, 8, 0, 8)
                                                                             End Function)
 
+            Dim menu As MenuFlyout = New MenuFlyout
+            Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
+            menuDelete.Text = "Supprimer"
+            menu.Items.Add(menuDelete)
+
+            AddHandler elemContainer.RightTapped, New RightTappedEventHandler(Function(sender As Object, e As RightTappedRoutedEventArgs)
+                                                                                  menu.ShowAt(CType(sender, FrameworkElement))
+                                                                              End Function)
+
+            AddHandler menuDelete.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
+                                                                     Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Favorites"))
+                                                                     root.Remove(root.First(Function(x) x.GetObject.GetNamedString("url") = favsElem.GetObject.GetNamedString("url")))
+                                                                     WriteJsonFile(root, "Favorites")
+                                                                     ShowFavorites()
+                                                                 End Sub)
+
             Dim elemText As TextBlock = New TextBlock
             elemText.Text = favsElem.GetObject.GetNamedString("title")
             elemText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 40, 40, 40))
@@ -946,6 +962,11 @@ Public NotInheritable Class MainPage
 
         Try
             Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Favorites"))
+
+            If root.Any(Function(x As JsonValue) x.GetObject.GetNamedString("url") = web.Source.ToString) Then
+                Return
+            End If
+
             Dim HistoryElem As JsonObject = New JsonObject
             HistoryElem.Add("url", JsonValue.CreateStringValue(web.Source.ToString))
             HistoryElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle))
