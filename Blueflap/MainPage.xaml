@@ -735,6 +735,21 @@
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="LikePageButton">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Thickness>0,39,45,0</Thickness>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="LikePageButton">
+                <EasingDoubleKeyFrame KeyTime="0" Value="35"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Name="ShowFavicon">
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Favicon">
@@ -910,6 +925,11 @@
                     <CompositeTransform/>
                 </Button.RenderTransform>
             </Button>
+            <TextBlock x:Name="LikePageButton" HorizontalAlignment="Right" Margin="0,39,10,0" TextWrapping="Wrap" Text="&#xE006;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="17.333" Height="19" Width="18" Foreground="#FF7A7A7A" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
         </Grid>
         <Grid x:Name="LeftMenu" HorizontalAlignment="Left" Width="48" RenderTransformOrigin="0.5,0.5" Background="{ThemeResource JumpListDefaultEnabledBackground}">
             <Grid.RenderTransform>
@@ -1049,7 +1069,6 @@
                     <!-- Favoris -->
                     <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto">
                         <StackPanel>
-                            <Button x:Name="AddToFavs" Content="Ajouter cette page" HorizontalAlignment="Stretch" Tapped="AddToFavs_Tapped" Margin="8,0"/>
                             <StackPanel x:Name="FavList"/>
                         </StackPanel>
                     </ScrollViewer>
