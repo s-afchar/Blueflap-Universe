@@ -889,6 +889,22 @@ Public NotInheritable Class MainPage
                                                                                 elemContainer.Padding = New Thickness(8, 8, 0, 8)
                                                                             End Function)
 
+            Dim menu As MenuFlyout = New MenuFlyout
+            Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
+            menuDelete.Text = "Supprimer"
+            menu.Items.Add(menuDelete)
+
+            AddHandler elemContainer.RightTapped, New RightTappedEventHandler(Function(sender As Object, e As RightTappedRoutedEventArgs)
+                                                                                  menu.ShowAt(CType(sender, FrameworkElement))
+                                                                              End Function)
+
+            AddHandler menuDelete.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
+                                                                     Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Favorites"))
+                                                                     root.Remove(root.First(Function(x) x.GetObject.GetNamedString("url") = favsElem.GetObject.GetNamedString("url")))
+                                                                     WriteJsonFile(root, "Favorites")
+                                                                     ShowFavorites()
+                                                                 End Sub)
+
             Dim elemText As TextBlock = New TextBlock
             elemText.Text = favsElem.GetObject.GetNamedString("title")
             elemText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 40, 40, 40))
