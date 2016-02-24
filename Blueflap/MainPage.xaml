@@ -818,7 +818,7 @@
             </ObjectAnimationUsingKeyFrames>
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="AddFavView">
                 <EasingColorKeyFrame KeyTime="0" Value="#00000000"/>
-                <EasingColorKeyFrame KeyTime="0:0:0.8" Value="#33000000">
+                <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#33000000">
                     <EasingColorKeyFrame.EasingFunction>
                         <QuinticEase EasingMode="EaseOut"/>
                     </EasingColorKeyFrame.EasingFunction>
@@ -826,7 +826,7 @@
             </ColorAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="AddFavPopup">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <QuinticEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
@@ -834,7 +834,7 @@
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="AddFavPopup">
                 <EasingDoubleKeyFrame KeyTime="0" Value="-46"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <QuinticEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
@@ -842,24 +842,24 @@
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Name="AddFav_PopUp_Close">
-            <DoubleAnimation Duration="0:0:0.5" To="-40" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="AddFavPopup" d:IsOptimized="True">
+            <DoubleAnimation Duration="0:0:0.4" To="-40" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="AddFavPopup" d:IsOptimized="True">
                 <DoubleAnimation.EasingFunction>
                     <QuarticEase EasingMode="EaseInOut"/>
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
-            <DoubleAnimation Duration="0:0:0.5" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="AddFavPopup" d:IsOptimized="True">
+            <DoubleAnimation Duration="0:0:0.4" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="AddFavPopup" d:IsOptimized="True">
                 <DoubleAnimation.EasingFunction>
                     <QuarticEase EasingMode="EaseInOut"/>
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
-            <ColorAnimation Duration="0:0:0.5" To="#00000000" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="AddFavView" d:IsOptimized="True"/>
+            <ColorAnimation Duration="0:0:0.3" To="#00000000" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="AddFavView" d:IsOptimized="True"/>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="AddFavView">
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
                     <DiscreteObjectKeyFrame.Value>
                         <Visibility>Visible</Visibility>
                     </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.6">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.4">
                     <DiscreteObjectKeyFrame.Value>
                         <Visibility>Collapsed</Visibility>
                     </DiscreteObjectKeyFrame.Value>
@@ -1214,10 +1214,10 @@
                 </Grid.RenderTransform>
                 <TextBlock HorizontalAlignment="Left" Margin="45,20,0,0" TextWrapping="Wrap" Text="AJOUTER CE SITE AUX FAVORIS" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FF4F4F4F"/>
                 <TextBlock HorizontalAlignment="Left" Margin="21,23,0,0" TextWrapping="Wrap" Text="&#xE006;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FFFF00A2"/>
-                <TextBox x:Name="Add_Fav_Title" Margin="21,90,22,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Nom" Width="357"/>
+                <TextBox x:Name="Add_Fav_Title" Margin="21,90,22,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Nom" Width="357"/>
                 <Button Content="&#xE104;" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Background="#00000000" FontSize="10.667" Width="35" Tapped="Button_Tapped_2" Height="24" BorderThickness="2,0,0,0"/>
-                <TextBox x:Name="Add_Fav_Url" Margin="35,42,22,0" TextWrapping="Wrap" Text="http://" VerticalAlignment="Top" BorderThickness="0" PlaceholderText="URL" IsReadOnly="True" Background="Transparent" Foreground="#FF9B9B9B" FontSize="13.333" Height="22"/>
-                <TextBox x:Name="Add_Fav_Tags" Margin="21,152,22,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Tags" Width="357"/>
+                <TextBox x:Name="Add_Fav_Url" Margin="35,42,22,0" TextWrapping="NoWrap" Text="http://" VerticalAlignment="Top" BorderThickness="0" PlaceholderText="URL" IsReadOnly="True" Background="Transparent" Foreground="#FF9B9B9B" FontSize="13.333" Height="22"/>
+                <TextBox x:Name="Add_Fav_Tags" Margin="21,152,22,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Tags" Width="357"/>
                 <TextBlock HorizontalAlignment="Left" Margin="21,72,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" FontSize="12"/>
                 <TextBlock HorizontalAlignment="Left" Margin="21,134,0,0" TextWrapping="Wrap" Text="Tags" VerticalAlignment="Top" FontSize="12"/>
                 <Button x:Name="AddFav_Confirm" Content="Ajouter" HorizontalAlignment="Right" Margin="0,0,21,18" VerticalAlignment="Bottom" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="White" BorderBrush="#33000000" BorderThickness="1" Height="37" Width="92"/>
