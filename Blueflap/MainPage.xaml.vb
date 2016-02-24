@@ -13,6 +13,7 @@ Public NotInheritable Class MainPage
     Dim NotifPosition As String
     Dim History_SearchMode As Boolean
     Dim History_SearchKeywords As String
+    Dim ItemCount As Integer
 #Region "HardwareBackButton"
     Public Sub New()
         Me.InitializeComponent()
@@ -1097,9 +1098,11 @@ Public NotInheritable Class MainPage
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         If localSettings.Values("DarkThemeEnabled") = True Then
             SmartSuggest.RequestedTheme = ElementTheme.Dark
+            SmartSuggest_HeartIcon.RequestedTheme = ElementTheme.Dark
             DerniereRecherche.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(235, 255, 255, 255))
         Else
             SmartSuggest.RequestedTheme = ElementTheme.Light
+            SmartSuggest_HeartIcon.RequestedTheme = ElementTheme.Light
             DerniereRecherche.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(170, 0, 0, 0))
         End If
         Try
@@ -1234,15 +1237,82 @@ Public NotInheritable Class MainPage
         If (AdressBox.Text.Contains(".") = True And AdressBox.Text.Contains(" ") = False And AdressBox.Text.Contains(" .") = False And AdressBox.Text.Contains(". ") = False) Or textArray(0).Contains(":/") = True Or textArray(0).Contains(":\") Then
             SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(20, 52, 152, 213))
             SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-            ExpandSuggestions.Begin()
+            If SmartSuggest.Height < 138 Then
+                ExpandSuggestions.Begin()
+            End If
         ElseIf AdressBox.Text = "" Then
+                SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                HideSuggestions.Begin()
+            Else
+                SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(20, 52, 152, 213))
             SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-            SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-            HideSuggestions.Begin()
-        Else
-            SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(20, 52, 152, 213))
-            SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-            ExpandSuggestions.Begin()
+            If SmartSuggest.Height < 138 Then
+                ExpandSuggestions.Begin()
+            End If
+        End If
+        Try
+            ItemCount = 0
+            SmartSuggest_Histo()
+        Catch
+        End Try
+    End Sub
+    Private Async Sub SmartSuggest_Histo()
+        History_Suggestions.Background = SmartSuggest.Background
+        SmartSuggest_History.Children.Clear()
+        Dim Json As String
+
+        Try
+            Json = Await ReadJsonFile("Favorites")
+        Catch ex As Exception
+            Json = "[]"
+        End Try
+
+        For Each histElem In JsonArray.Parse(Json).Reverse
+            Dim elemContainer As StackPanel = New StackPanel
+            elemContainer.Padding = New Thickness(34, 8, 0, 8)
+            AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                        web.Navigate(New Uri(histElem.GetObject.GetNamedString("url")))
+                                                                    End Function)
+
+            AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
+                                                                             End Function)
+
+            AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                            End Function)
+
+
+            Dim elemText As TextBlock = New TextBlock
+            elemText.Text = histElem.GetObject.GetNamedString("title")
+            elemText.Foreground = SmartSuggest_Search_Text.Foreground
+            elemContainer.Children.Add(elemText)
+
+            Dim UrlText As TextBlock = New TextBlock
+            UrlText.Text = histElem.GetObject.GetNamedString("url")
+            UrlText.Foreground = LeftMenu.Background
+            elemContainer.Children.Add(UrlText)
+
+            If histElem.GetObject.GetNamedString("title").ToLower.Contains(AdressBox.Text.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(AdressBox.Text.ToLower) Then
+                SmartSuggest_History.Children.Add(elemContainer)
+
+                ItemCount = ItemCount + 1
+            End If
+
+        Next
+        If ItemCount = 0 Then
+            History_Suggestions.Height = 0
+            SmartSuggest.Height = 138
+        ElseIf ItemCount = 1 Then
+            History_Suggestions.Height = 56
+            SmartSuggest.Height = 194
+        ElseIf ItemCount = 2 Then
+            History_Suggestions.Height = 112
+            SmartSuggest.Height = 250
+        ElseIf ItemCount > 2 Then
+            History_Suggestions.Height = 168
+            SmartSuggest.Height = 306
         End If
     End Sub
 #End Region

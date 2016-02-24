@@ -818,7 +818,7 @@
             </ObjectAnimationUsingKeyFrames>
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="AddFavView">
                 <EasingColorKeyFrame KeyTime="0" Value="#00000000"/>
-                <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#33000000">
+                <EasingColorKeyFrame KeyTime="0:0:0.8" Value="#33000000">
                     <EasingColorKeyFrame.EasingFunction>
                         <QuinticEase EasingMode="EaseOut"/>
                     </EasingColorKeyFrame.EasingFunction>
@@ -826,7 +826,7 @@
             </ColorAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="AddFavPopup">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <QuinticEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
@@ -834,7 +834,7 @@
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="AddFavPopup">
                 <EasingDoubleKeyFrame KeyTime="0" Value="-46"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <QuinticEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
@@ -842,24 +842,24 @@
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Name="AddFav_PopUp_Close">
-            <DoubleAnimation Duration="0:0:0.2" To="-40" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="AddFavPopup" d:IsOptimized="True">
+            <DoubleAnimation Duration="0:0:0.5" To="-40" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="AddFavPopup" d:IsOptimized="True">
                 <DoubleAnimation.EasingFunction>
                     <QuarticEase EasingMode="EaseInOut"/>
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
-            <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="AddFavPopup" d:IsOptimized="True">
+            <DoubleAnimation Duration="0:0:0.5" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="AddFavPopup" d:IsOptimized="True">
                 <DoubleAnimation.EasingFunction>
                     <QuarticEase EasingMode="EaseInOut"/>
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
-            <ColorAnimation Duration="0:0:0.2" To="#00000000" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="AddFavView" d:IsOptimized="True"/>
+            <ColorAnimation Duration="0:0:0.5" To="#00000000" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="AddFavView" d:IsOptimized="True"/>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="AddFavView">
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
                     <DiscreteObjectKeyFrame.Value>
                         <Visibility>Visible</Visibility>
                     </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.6">
                     <DiscreteObjectKeyFrame.Value>
                         <Visibility>Collapsed</Visibility>
                     </DiscreteObjectKeyFrame.Value>
@@ -1067,7 +1067,7 @@
                 </Button>
             </StackPanel>
         </Grid>
-        <Grid x:Name="SmartSuggest" Height="138" Margin="48,66,0,0" VerticalAlignment="Top">
+        <Grid x:Name="SmartSuggest" Height="189" Margin="48,66,0,0" VerticalAlignment="Top">
             <Grid.Background>
                 <SolidColorBrush Color="#FFE8E8E8"/>
             </Grid.Background>
@@ -1084,6 +1084,13 @@
                 <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE774;" Opacity="0.6"/>
                 <TextBlock x:Name="SmartSuggest_URL_Text" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="http://" Opacity="0.9"/>
             </Grid>
+            <ScrollViewer x:Name="History_Suggestions" HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Height="168" Margin="0,138,0,0" Background="#FFE8E8E8">
+                <Grid>
+                    <StackPanel x:Name="SmartSuggest_History"/>
+                    <TextBlock x:Name="SmartSuggest_HeartIcon" HorizontalAlignment="Left" Margin="11,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE006;" Opacity="0.6"/>
+                </Grid>
+
+            </ScrollViewer>
         </Grid>
         <Grid x:Name="MemoPanel" HorizontalAlignment="Right" Margin="0,66,0,0" Width="261" Background="#EAFDFDFD" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
             <Grid.RenderTransform>
