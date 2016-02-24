@@ -11,6 +11,8 @@ Imports Windows.Storage
 Public NotInheritable Class MainPage
     Inherits Page
     Dim NotifPosition As String
+    Dim History_SearchMode As Boolean
+    Dim History_SearchKeywords As String
 #Region "HardwareBackButton"
     Public Sub New()
         Me.InitializeComponent()
@@ -174,18 +176,26 @@ Public NotInheritable Class MainPage
         End If
 
         If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
-            ShowFavorites()
+            Try
+                ShowFavorites()
+            Catch
+            End Try
         End If
         If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 2 Then
-            ShowHistory()
+            Try
+                ShowHistory()
+            Catch
+            End Try
         End If
+
+        History_SearchMode = False
 
         'Animation d'ouverture de Blueflap
         EnterAnim.Begin()
     End Sub
 #End Region
 #Region "Webview : Navigation"
-    Private Sub BackForward()
+    Private Async Sub BackForward()
         'Blueflap gère ici le placement des boutons dans le menu latéral après chaque page chargée
 
         StopEnabled.Stop() 'Ce sont des animation pour le bouton stop/Refresh
@@ -207,6 +217,7 @@ Public NotInheritable Class MainPage
         AdressBox.IsEnabled = True
         NavigationFailed_Screen.Visibility = Visibility.Collapsed
         WebpageError.Stop()
+
     End Sub
 
     Private Sub web_NavigationStarting(sender As WebView, args As WebViewNavigationStartingEventArgs) Handles web.NavigationStarting
@@ -267,11 +278,32 @@ Public NotInheritable Class MainPage
             WriteJsonFile(JsonArray.Parse("[]"), "History")
         End Try
 
+        Try
+            Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Favorites"))
+
+            If root.Any(Function(x As JsonValue) x.GetObject.GetNamedString("url") = web.Source.ToString) Then
+                Like_Anim.Begin()
+                LikePageButton.Text = ""
+                LikePageButton.Foreground = LeftMenu.Background
+            Else
+                Like_Anim.Stop()
+                LikePageButton.Text = ""
+                LikePageButton.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 166, 166, 166))
+            End If
+        Catch
+        End Try
+
         If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
-            ShowFavorites()
+            Try
+                ShowFavorites()
+            Catch
+            End Try
         End If
         If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 2 Then
-            ShowHistory()
+            Try
+                ShowHistory()
+            Catch
+            End Try
         End If
 
     End Sub
@@ -754,17 +786,30 @@ Public NotInheritable Class MainPage
         Notification()
     End Sub
     Private Sub PivotIndicatorPosition()
+        History_SearchMode = False
+
         If RightMenuPivot.SelectedIndex = 0 Then
             MemoIndexIndicator.Margin = New Thickness(4, 8, 0, 0)
+            History_SearchBar.Visibility = Visibility.Collapsed
+            History_ShowSearchBar.Visibility = Visibility.Collapsed
 
         ElseIf RightMenuPivot.SelectedIndex = 1 Then
             MemoIndexIndicator.Margin = New Thickness(44, 8, 0, 0)
             Memo_ExpandButton.Visibility = Visibility.Visible
-            ShowFavorites()
+            History_SearchBar.Visibility = Visibility.Collapsed
+            History_ShowSearchBar.Visibility = Visibility.Collapsed
+            Try
+                ShowFavorites()
+            Catch
+            End Try
         ElseIf RightMenuPivot.SelectedIndex = 2 Then
             MemoIndexIndicator.Margin = New Thickness(84, 8, 0, 0)
             Memo_ExpandButton.Visibility = Visibility.Visible
-            ShowHistory()
+            History_ShowSearchBar.Visibility = Visibility.Visible
+            Try
+                ShowHistory()
+            Catch
+            End Try
         ElseIf RightMenuPivot.SelectedIndex = 3 Then
             MemoIndexIndicator.Margin = New Thickness(124, 8, 0, 0)
 
@@ -772,6 +817,8 @@ Public NotInheritable Class MainPage
             MemoPanel.Margin = New Thickness(0, 66, 0, 0)
             MemoPanel.HorizontalAlignment = HorizontalAlignment.Right
             Memo_ExpandButton.Visibility = Visibility.Collapsed
+            History_SearchBar.Visibility = Visibility.Collapsed
+            History_ShowSearchBar.Visibility = Visibility.Collapsed
 
         End If
 
@@ -814,56 +861,6 @@ Public NotInheritable Class MainPage
         ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
     End Sub
 
-    Private Async Sub ShowHistory()
-        HistoryList.Children.Clear()
-        Dim Json As String
-
-        Try
-            Json = Await ReadJsonFile("History")
-        Catch ex As Exception
-            Json = "[]"
-        End Try
-
-        For Each histElem In JsonArray.Parse(Json).Reverse
-
-            Dim elemContainer As StackPanel = New StackPanel
-            elemContainer.Padding = New Thickness(8, 8, 0, 8)
-            AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
-                                                                        web.Navigate(New Uri(histElem.GetObject.GetNamedString("url")))
-                                                                    End Function)
-
-            AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
-                                                                                 elemContainer.BorderThickness = New Thickness(2, 0, 0, 0)
-                                                                                 elemContainer.Padding = New Thickness(6, 8, 0, 8)
-                                                                                 elemContainer.BorderBrush = LeftMenu.Background
-                                                                             End Function)
-
-            AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-                                                                                elemContainer.BorderThickness = New Thickness(0, 0, 0, 0)
-                                                                                elemContainer.Padding = New Thickness(8, 8, 0, 8)
-                                                                            End Function)
-
-            Dim elemText As TextBlock = New TextBlock
-            elemText.Text = histElem.GetObject.GetNamedString("title")
-            elemText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 40, 40, 40))
-            elemContainer.Children.Add(elemText)
-
-            Dim UrlText As TextBlock = New TextBlock
-            UrlText.Text = histElem.GetObject.GetNamedString("url")
-            UrlText.Foreground = LeftMenu.Background
-            elemContainer.Children.Add(UrlText)
-
-            Dim visitDate As TextBlock = New TextBlock
-            visitDate.Text = DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString("Le dd MMMMMMMMMMMM yyyy à HH:mm")
-            visitDate.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 150, 150, 150))
-            elemContainer.Children.Add(visitDate)
-
-            HistoryList.Children.Add(elemContainer)
-
-        Next
-    End Sub
 
     Private Async Function ShowFavorites() As Task
         FavList.Children.Clear()
@@ -893,6 +890,9 @@ Public NotInheritable Class MainPage
             Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
             menuDelete.Text = "Supprimer"
             menu.Items.Add(menuDelete)
+            Dim SetFavHomePage As MenuFlyoutItem = New MenuFlyoutItem
+            SetFavHomePage.Text = "Définir comme page d'accueil"
+            menu.Items.Add(SetFavHomePage)
 
             AddHandler elemContainer.RightTapped, New RightTappedEventHandler(Function(sender As Object, e As RightTappedRoutedEventArgs)
                                                                                   menu.ShowAt(CType(sender, FrameworkElement))
@@ -904,6 +904,11 @@ Public NotInheritable Class MainPage
                                                                      WriteJsonFile(root, "Favorites")
                                                                      ShowFavorites()
                                                                  End Sub)
+
+            AddHandler SetFavHomePage.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
+                                                                         Windows.Storage.ApplicationData.Current.LocalSettings.Values("Homepage") = favsElem.GetObject.GetNamedString("url")
+                                                                         Windows.Storage.ApplicationData.Current.LocalSettings.Values("Bluestart") = False
+                                                                     End Sub)
 
             Dim elemText As TextBlock = New TextBlock
             elemText.Text = favsElem.GetObject.GetNamedString("title")
@@ -940,11 +945,6 @@ Public NotInheritable Class MainPage
             WriteJsonFile(JsonArray.Parse("[]"), "Favorites")
         End Try
     End Function
-
-    Private Async Sub AddToFavs_Tapped(sender As Object, e As TappedRoutedEventArgs)
-        Await AddToFavList()
-        Await ShowFavorites()
-    End Sub
 #End Region
 #Region "Share/Source code Menu"
     Private Sub Fight_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Fight_Button.Tapped
@@ -1006,14 +1006,13 @@ Public NotInheritable Class MainPage
     Private Sub Info_Like_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Info_Like.Tapped
         Like_Anim.Stop()
         Like_Anim.Begin()
-        AddToFavList()
-        If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
-            ShowFavorites()
-        End If
+        AddToFavorite_Ask()
+
     End Sub
 #End Region
 #Region "SmartSuggest"
     Private Sub AdressBox_GotFocus(sender As Object, e As RoutedEventArgs) Handles AdressBox.GotFocus
+        LikePageButton.Visibility = Visibility.Collapsed
         Try
             AdressBox.Text = web.Source.ToString
             Titlebox.Text = web.DocumentTitle
@@ -1074,6 +1073,7 @@ Public NotInheritable Class MainPage
         Catch ex As Exception
         End Try
         AdressBox.SelectionStart = AdressBox.Text.Length
+        LikePageButton.Visibility = Visibility.Visible
     End Sub
 
     Private Sub SmartSuggest_LastOne_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles SmartSuggest_LastOne.PointerEntered
@@ -1244,13 +1244,16 @@ Public NotInheritable Class MainPage
         Dim localFolder As StorageFolder = ApplicationData.Current.LocalFolder
         FileName += ".json"
 
-        If Not Await localFolder.TryGetItemAsync(FileName) Is Nothing Then
-            Dim textfile As StorageFile = Await localFolder.GetFileAsync(FileName)
-            Await FileIO.WriteTextAsync(textfile, Json.ToString)
-        Else
-            Dim textFile As StorageFile = Await localFolder.CreateFileAsync(FileName)
-            Await FileIO.WriteTextAsync(textFile, Json.ToString)
-        End If
+        Try
+            If Not Await localFolder.TryGetItemAsync(FileName) Is Nothing Then
+                Dim textfile As StorageFile = Await localFolder.GetFileAsync(FileName)
+                Await FileIO.WriteTextAsync(textfile, Json.ToString)
+            Else
+                Dim textFile As StorageFile = Await localFolder.CreateFileAsync(FileName)
+                Await FileIO.WriteTextAsync(textFile, Json.ToString)
+            End If
+        Catch
+        End Try
 
     End Sub
 
@@ -1266,4 +1269,129 @@ Public NotInheritable Class MainPage
         Return content
     End Function
 #End Region
+#Region "History"
+
+    Private Async Sub ShowHistory()
+        HistoryList.Children.Clear()
+        Dim Json As String
+
+        Try
+            Json = Await ReadJsonFile("History")
+        Catch ex As Exception
+            Json = "[]"
+        End Try
+
+        For Each histElem In JsonArray.Parse(Json).Reverse
+            Dim elemContainer As StackPanel = New StackPanel
+            elemContainer.Padding = New Thickness(8, 8, 0, 8)
+            AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                        web.Navigate(New Uri(histElem.GetObject.GetNamedString("url")))
+                                                                    End Function)
+
+            AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
+                                                                                 elemContainer.BorderThickness = New Thickness(2, 0, 0, 0)
+                                                                                 elemContainer.Padding = New Thickness(6, 8, 0, 8)
+                                                                                 elemContainer.BorderBrush = LeftMenu.Background
+                                                                             End Function)
+
+            AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                                elemContainer.BorderThickness = New Thickness(0, 0, 0, 0)
+                                                                                elemContainer.Padding = New Thickness(8, 8, 0, 8)
+                                                                            End Function)
+
+            Dim menu As MenuFlyout = New MenuFlyout
+            Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
+            menuDelete.Text = "Supprimer"
+            menu.Items.Add(menuDelete)
+            Dim SortByUrl As MenuFlyoutItem = New MenuFlyoutItem
+            Dim HistUrl = New Uri(histElem.GetObject.GetNamedString("url"))
+            SortByUrl.Text = "Afficher toutes les visites sur " + HistUrl.Host
+            menu.Items.Add(SortByUrl)
+
+            AddHandler elemContainer.RightTapped, New RightTappedEventHandler(Function(sender As Object, e As RightTappedRoutedEventArgs)
+                                                                                  menu.ShowAt(CType(sender, FrameworkElement))
+                                                                              End Function)
+
+            AddHandler menuDelete.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
+                                                                     Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("History"))
+                                                                     root.Remove(root.First(Function(x) x.GetObject.GetNamedString("url") = histElem.GetObject.GetNamedString("url")))
+                                                                     WriteJsonFile(root, "History")
+                                                                     ShowHistory()
+                                                                 End Sub)
+
+            AddHandler SortByUrl.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
+                                                                    History_SearchMode = True
+                                                                    History_SearchKeywords = HistUrl.Host.ToString
+                                                                    History_SearchBar.Visibility = Visibility.Visible
+                                                                    SearchHistory.Text = HistUrl.Host.ToString
+                                                                    ShowHistory()
+                                                                End Sub)
+
+            Dim elemText As TextBlock = New TextBlock
+            elemText.Text = histElem.GetObject.GetNamedString("title")
+            elemText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 40, 40, 40))
+            elemContainer.Children.Add(elemText)
+
+            Dim UrlText As TextBlock = New TextBlock
+            UrlText.Text = histElem.GetObject.GetNamedString("url")
+            UrlText.Foreground = LeftMenu.Background
+            elemContainer.Children.Add(UrlText)
+
+            Dim visitDate As TextBlock = New TextBlock
+            visitDate.Text = DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString("Le dd MMMMMMMMMMMM yyyy à HH:mm")
+            visitDate.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 150, 150, 150))
+            elemContainer.Children.Add(visitDate)
+
+            If History_SearchMode = True Then
+                If histElem.GetObject.GetNamedString("title").ToLower.Contains(History_SearchKeywords.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(History_SearchKeywords.ToLower) Then
+                    HistoryList.Children.Add(elemContainer)
+                End If
+            Else
+                HistoryList.Children.Add(elemContainer)
+            End If
+
+        Next
+    End Sub
+    Private Async Sub SearchHistory_TextChanged(sender As Object, e As TextChangedEventArgs) Handles SearchHistory.TextChanged
+        History_SearchMode = True
+        History_SearchKeywords = SearchHistory.Text
+        Try
+            ShowHistory()
+        Catch
+        End Try
+    End Sub
+
+    Private Sub SearchHistory_LostFocus(sender As Object, e As RoutedEventArgs) Handles SearchHistory.LostFocus
+        History_SearchMode = False
+    End Sub
+
+    Private Sub History_ShowSearchBar_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles History_ShowSearchBar.Tapped
+        If History_SearchBar.Visibility = Visibility.Visible Then
+            History_SearchBar.Visibility = Visibility.Collapsed
+        Else
+            History_SearchBar.Visibility = Visibility.Visible
+        End If
+        Try
+            ShowHistory()
+        Catch
+        End Try
+    End Sub
+#End Region
+    Private Async Sub AddToFavorite_Ask()
+        Await AddToFavList()
+        If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
+            Try
+                Await ShowFavorites()
+            Catch
+            End Try
+        End If
+    End Sub
+
+    Private Sub LikePageButton_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles LikePageButton.Tapped
+        AddToFavorite_Ask()
+        LikePageButton.Text = ""
+        LikePageButton.Foreground = LeftMenu.Background
+    End Sub
 End Class

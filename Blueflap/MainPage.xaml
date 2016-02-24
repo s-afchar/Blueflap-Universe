@@ -735,6 +735,21 @@
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="LikePageButton">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Thickness>0,39,45,0</Thickness>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="LikePageButton">
+                <EasingDoubleKeyFrame KeyTime="0" Value="35"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Name="ShowFavicon">
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Favicon">
@@ -910,6 +925,11 @@
                     <CompositeTransform/>
                 </Button.RenderTransform>
             </Button>
+            <TextBlock x:Name="LikePageButton" HorizontalAlignment="Right" Margin="0,39,10,0" TextWrapping="Wrap" Text="&#xE006;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="17.333" Height="19" Width="18" Foreground="#FF7A7A7A" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
         </Grid>
         <Grid x:Name="LeftMenu" HorizontalAlignment="Left" Width="48" RenderTransformOrigin="0.5,0.5" Background="{ThemeResource JumpListDefaultEnabledBackground}">
             <Grid.RenderTransform>
@@ -1033,7 +1053,7 @@
                     <CompositeTransform ScaleY="-1"/>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <Button x:Name="Memo_ExpandButton" Content="&#xE052;" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Bottom" FontFamily="Segoe MDL2 Assets" Height="40" Width="40" Background="#00000000" BorderThickness="0,0,2,0"/>
+            <Button x:Name="Memo_ExpandButton" Content="&#xE052;" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Bottom" FontFamily="Segoe MDL2 Assets" Height="40" Width="40" Background="#00000000" BorderThickness="0,0,0,2"/>
             <Pivot x:Name="RightMenuPivot"  Margin="0,0,0,40" Background="#ADFFFFFF">
                 <Pivot.HeaderTemplate>
                     <DataTemplate>
@@ -1049,7 +1069,6 @@
                     <!-- Favoris -->
                     <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto">
                         <StackPanel>
-                            <Button x:Name="AddToFavs" Content="Ajouter cette page" HorizontalAlignment="Stretch" Tapped="AddToFavs_Tapped" Margin="8,0"/>
                             <StackPanel x:Name="FavList"/>
                         </StackPanel>
                     </ScrollViewer>
@@ -1114,6 +1133,11 @@
 
                 </PivotItem>
             </Pivot>
+            <Grid x:Name="History_SearchBar" Height="45" Margin="0,0,0,40" VerticalAlignment="Bottom" Background="#E5FFFFFF" BorderThickness="0,1,0,0" BorderBrush="#FFB6B6B6" Visibility="Collapsed">
+                <TextBlock HorizontalAlignment="Right" Margin="0,0,14,16" TextWrapping="Wrap" Text="&#xE094;" VerticalAlignment="Bottom" FontFamily="Segoe MDL2 Assets"/>
+                <TextBox x:Name="SearchHistory" Margin="8,0,8,6" TextWrapping="NoWrap" Text="" VerticalAlignment="Bottom" BorderThickness="0,0,0,1" PlaceholderText="Rechercher dans l'historique" Height="27"/>
+            </Grid>
+            <Button x:Name="History_ShowSearchBar" Content="&#xE094;" HorizontalAlignment="Right" Margin="0,0,40,0" VerticalAlignment="Bottom" FontFamily="Segoe MDL2 Assets" Height="40" Width="40" Background="#00000000" BorderThickness="0,0,0,2"/>
         </Grid>
         <Grid x:Name="ExitFullScreen" HorizontalAlignment="Center" Height="77" Margin="0,44,0,0" VerticalAlignment="Top" Width="650" Background="#99000000" CornerRadius="3" Visibility="Collapsed">
             <TextBlock Margin="0,24,0,0" TextWrapping="Wrap" Text="Appuyez sur la touche ECHAP pour quitter le mode plein écran" VerticalAlignment="Top" Foreground="White" Height="43" TextAlignment="Center" FontSize="18.667" Width="517" HorizontalAlignment="Center"/>
