@@ -845,61 +845,6 @@ Public NotInheritable Class MainPage
         ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
     End Sub
 
-    Private Async Sub ShowHistory()
-        HistoryList.Children.Clear()
-        Dim Json As String
-
-        Try
-            Json = Await ReadJsonFile("History")
-        Catch ex As Exception
-            Json = "[]"
-        End Try
-
-        For Each histElem In JsonArray.Parse(Json).Reverse
-            Dim elemContainer As StackPanel = New StackPanel
-            elemContainer.Padding = New Thickness(8, 8, 0, 8)
-            AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
-                                                                        web.Navigate(New Uri(histElem.GetObject.GetNamedString("url")))
-                                                                    End Function)
-
-            AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
-                                                                                 elemContainer.BorderThickness = New Thickness(2, 0, 0, 0)
-                                                                                 elemContainer.Padding = New Thickness(6, 8, 0, 8)
-                                                                                 elemContainer.BorderBrush = LeftMenu.Background
-                                                                             End Function)
-
-            AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-                                                                                elemContainer.BorderThickness = New Thickness(0, 0, 0, 0)
-                                                                                elemContainer.Padding = New Thickness(8, 8, 0, 8)
-                                                                            End Function)
-
-            Dim elemText As TextBlock = New TextBlock
-            elemText.Text = histElem.GetObject.GetNamedString("title")
-            elemText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 40, 40, 40))
-            elemContainer.Children.Add(elemText)
-
-            Dim UrlText As TextBlock = New TextBlock
-            UrlText.Text = histElem.GetObject.GetNamedString("url")
-            UrlText.Foreground = LeftMenu.Background
-            elemContainer.Children.Add(UrlText)
-
-            Dim visitDate As TextBlock = New TextBlock
-            visitDate.Text = DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString("Le dd MMMMMMMMMMMM yyyy à HH:mm")
-            visitDate.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 150, 150, 150))
-            elemContainer.Children.Add(visitDate)
-
-            If History_SearchMode = True Then
-                If histElem.GetObject.GetNamedString("title").ToLower.Contains(History_SearchKeywords.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(History_SearchKeywords.ToLower) Then
-                    HistoryList.Children.Add(elemContainer)
-                End If
-            Else
-                HistoryList.Children.Add(elemContainer)
-            End If
-
-        Next
-    End Sub
 
     Private Async Function ShowFavorites() As Task
         FavList.Children.Clear()
@@ -979,7 +924,10 @@ Public NotInheritable Class MainPage
 
     Private Async Sub AddToFavs_Tapped(sender As Object, e As TappedRoutedEventArgs)
         Await AddToFavList()
-        Await ShowFavorites()
+        Try
+            Await ShowFavorites()
+        Catch
+        End Try
     End Sub
 #End Region
 #Region "Share/Source code Menu"
@@ -1304,7 +1252,64 @@ Public NotInheritable Class MainPage
 
         Return content
     End Function
+#End Region
+#Region "History"
 
+    Private Async Sub ShowHistory()
+        HistoryList.Children.Clear()
+        Dim Json As String
+
+        Try
+            Json = Await ReadJsonFile("History")
+        Catch ex As Exception
+            Json = "[]"
+        End Try
+
+        For Each histElem In JsonArray.Parse(Json).Reverse
+            Dim elemContainer As StackPanel = New StackPanel
+            elemContainer.Padding = New Thickness(8, 8, 0, 8)
+            AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                        web.Navigate(New Uri(histElem.GetObject.GetNamedString("url")))
+                                                                    End Function)
+
+            AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
+                                                                                 elemContainer.BorderThickness = New Thickness(2, 0, 0, 0)
+                                                                                 elemContainer.Padding = New Thickness(6, 8, 0, 8)
+                                                                                 elemContainer.BorderBrush = LeftMenu.Background
+                                                                             End Function)
+
+            AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                                elemContainer.BorderThickness = New Thickness(0, 0, 0, 0)
+                                                                                elemContainer.Padding = New Thickness(8, 8, 0, 8)
+                                                                            End Function)
+
+            Dim elemText As TextBlock = New TextBlock
+            elemText.Text = histElem.GetObject.GetNamedString("title")
+            elemText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 40, 40, 40))
+            elemContainer.Children.Add(elemText)
+
+            Dim UrlText As TextBlock = New TextBlock
+            UrlText.Text = histElem.GetObject.GetNamedString("url")
+            UrlText.Foreground = LeftMenu.Background
+            elemContainer.Children.Add(UrlText)
+
+            Dim visitDate As TextBlock = New TextBlock
+            visitDate.Text = DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString("Le dd MMMMMMMMMMMM yyyy à HH:mm")
+            visitDate.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 150, 150, 150))
+            elemContainer.Children.Add(visitDate)
+
+            If History_SearchMode = True Then
+                If histElem.GetObject.GetNamedString("title").ToLower.Contains(History_SearchKeywords.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(History_SearchKeywords.ToLower) Then
+                    HistoryList.Children.Add(elemContainer)
+                End If
+            Else
+                HistoryList.Children.Add(elemContainer)
+            End If
+
+        Next
+    End Sub
     Private Async Sub SearchHistory_TextChanged(sender As Object, e As TextChangedEventArgs) Handles SearchHistory.TextChanged
         History_SearchMode = True
         History_SearchKeywords = SearchHistory.Text
