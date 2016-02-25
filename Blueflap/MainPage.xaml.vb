@@ -5,6 +5,7 @@ Imports Windows.ApplicationModel.Core
 Imports Windows.Data.Json
 Imports Windows.UI.Xaml.Documents
 Imports Windows.Storage
+Imports Windows.Web.Http
 ''' <summary>
 ''' Page dédiée à la navigation web
 ''' </summary>
@@ -259,7 +260,7 @@ Public NotInheritable Class MainPage
             Favicon.Visibility = Visibility.Visible
         End If
 
-        ContextNotification()
+        'ContextNotification()
 
         ' Ajout de la page à l'historique
 
@@ -693,49 +694,147 @@ Public NotInheritable Class MainPage
 
         NotifPosition = 110 * Notifsvisible
     End Sub
-    Private Sub ContextNotification()
-        If web.Source.ToString.Contains("www.bing.com") Then
-            If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
-                New_Notif.Begin()
-                Notifications_Counter.Text = Notifications_Counter.Text + 1
-                Notif_Home.Visibility = Visibility.Collapsed
+    Private Async Sub ContextNotification()
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        ' Opensearch
+
+        ' Detection du xml
+        Dim xmlUri As Uri
+        Dim html As String = Await (web.InvokeScriptAsync("eval", New String() {"document.documentElement.outerHTML;"}))
+        Debug.WriteLine(html)
+        Dim Found As Boolean = False
+        While Not Found
+            Dim tagStart As Integer = html.IndexOf("<link")
+            Dim tagEnd As Integer = html.Substring(tagStart).IndexOf(">")
+            Dim tag As String = html.Substring(tagStart, tagEnd)
+
+            Debug.WriteLine("\n \n \nTAG = " + tag + "\n \n \n")
+
+            If tag.Contains("application/opensearchdescription+xml") Then
+                Found = True
+                Debug.WriteLine(tag)
+                Dim attStart As Integer = tag.IndexOf("href=""")
+                Dim attEnd As Integer = tag.Substring(attStart + 6).IndexOf("""")
+                Dim att As String = tag.Substring(attStart + 6, attEnd)
+
+                xmlUri = New Uri(web.Source, att)
+            Else
+                html = html.Substring(tagEnd)
             End If
-            Notif_SearchEngineName.Text = "BING"
-            Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Bing.png", UriKind.Absolute))
-            Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
-        ElseIf web.Source.ToString.Contains("www.qwant.com") Then
-            If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
-                New_Notif.Begin()
-                Notifications_Counter.Text = Notifications_Counter.Text + 1
-                Notif_Home.Visibility = Visibility.Collapsed
+
+        End While
+
+        ' Recuperation du XML
+
+        Dim client As HttpClient = New HttpClient
+        Dim xml As String
+
+        Try
+            Dim res As HttpResponseMessage = Await client.GetAsync(xmlUri)
+            res.EnsureSuccessStatusCode()
+            xml = Await res.Content.ReadAsStringAsync
+        Catch ex As Exception
+
+        End Try
+
+        ' Parsage (ce mot existe ?) du XML
+
+        Dim doc As XDocument = XDocument.Parse(xml)
+        Dim root As XElement = doc.Elements.FirstOrDefault
+
+        Dim name As String
+        Dim img As String
+        Dim searchTemplate As String
+
+        Try
+            name = root.Elements.First(Function(x) x.Name.LocalName = "ShortName").Value.ToUpperInvariant
+            img = root.Elements.First(Function(x) x.Name.LocalName = "Image").Value
+            ' Cette ligne est officiellement trop longue  et incompréhensible ...
+            searchTemplate = root.Elements.Where(Function(x) x.Name.LocalName = "Url").First(Function(x) x.Attributes.Any(Function(y) y.Name.LocalName = "text/html")).Attributes.First(Function(x) x.Name.LocalName = "template").Value
+        Catch ex As Exception
+            If img Is Nothing Then
+                img = "http://" & web.Source.Host & "/favicon.ico"
             End If
-            Notif_SearchEngineName.Text = "QWANT"
-            Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Qwant.png", UriKind.Absolute))
-            Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
-        ElseIf web.Source.ToString.Contains("duckduckgo.com") Then
-            If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
-                New_Notif.Begin()
-                Notifications_Counter.Text = Notifications_Counter.Text + 1
-                Notif_Home.Visibility = Visibility.Collapsed
+
+            If name Is Nothing Then
+                name = "INCONNU"
             End If
-            Notif_SearchEngineName.Text = "DUCKDUCKGO"
-            Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Duck.png", UriKind.Absolute))
-            Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
-        ElseIf web.Source.ToString.Contains("yahoo.com") Then
-            If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
-                New_Notif.Begin()
-                Notifications_Counter.Text = Notifications_Counter.Text + 1
-                Notif_Home.Visibility = Visibility.Collapsed
+
+            If searchTemplate Is Nothing Then
+                searchTemplate = "http://" + web.Source.Host + "/?q={searchTerms}"
             End If
-            Notif_SearchEngineName.Text = "YAHOO"
-            Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_yahoo.png", UriKind.Absolute))
-            Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
-        Else
-            Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed
-            If Notifications_Counter.Text > 1 Then
-                Notifications_Counter.Text = Notifications_Counter.Text - 1
-            End If
+        End Try
+
+        If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
+            New_Notif.Begin()
+            Notifications_Counter.Text = Notifications_Counter.Text + 1
+            Notif_Home.Visibility = Visibility.Collapsed
         End If
+        Notif_SearchEngineName.Text = name
+        Notif_SearchEngineIcon.Source = New BitmapImage(New Uri(img, UriKind.Absolute))
+        Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
+
+        AddHandler ChangeEngine.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                   localSettings.Values("Custom_SearchEngine") = True
+
+                                                                   Dim splitter As String = "{searchTerms}"
+                                                                   Dim A() As String = searchTemplate.Split(New String() {splitter}, StringSplitOptions.None)
+                                                                   localSettings.Values("A1") = A(0)
+                                                                   localSettings.Values("Cust1") = A(0)
+
+                                                                   If Not String.IsNullOrEmpty(A(1)) Then
+                                                                       localSettings.Values("A2") = A(1)
+                                                                       localSettings.Values("Cust1") = A(1)
+                                                                   Else
+                                                                       localSettings.Values("A2") = ""
+                                                                       localSettings.Values("Cust1") = ""
+                                                                   End If
+                                                                   localSettings.Values("SearchEngineIndex") = 12
+                                                               End Function)
+
+        'If web.Source.ToString.Contains("www.bing.com") Then
+        '    If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
+        '        New_Notif.Begin()
+        '        Notifications_Counter.Text = Notifications_Counter.Text + 1
+        '        Notif_Home.Visibility = Visibility.Collapsed
+        '    End If
+        '    Notif_SearchEngineName.Text = "BING"
+        '    Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Bing.png", UriKind.Absolute))
+        '    Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
+        'ElseIf web.Source.ToString.Contains("www.qwant.com") Then
+        '    If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
+        '        New_Notif.Begin()
+        '        Notifications_Counter.Text = Notifications_Counter.Text + 1
+        '        Notif_Home.Visibility = Visibility.Collapsed
+        '    End If
+        '    Notif_SearchEngineName.Text = "QWANT"
+        '    Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Qwant.png", UriKind.Absolute))
+        '    Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
+        'ElseIf web.Source.ToString.Contains("duckduckgo.com") Then
+        '    If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
+        '        New_Notif.Begin()
+        '        Notifications_Counter.Text = Notifications_Counter.Text + 1
+        '        Notif_Home.Visibility = Visibility.Collapsed
+        '    End If
+        '    Notif_SearchEngineName.Text = "DUCKDUCKGO"
+        '    Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Duck.png", UriKind.Absolute))
+        '    Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
+        'ElseIf web.Source.ToString.Contains("yahoo.com") Then
+        '    If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
+        '        New_Notif.Begin()
+        '        Notifications_Counter.Text = Notifications_Counter.Text + 1
+        '        Notif_Home.Visibility = Visibility.Collapsed
+        '    End If
+        '    Notif_SearchEngineName.Text = "YAHOO"
+        '    Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_yahoo.png", UriKind.Absolute))
+        '    Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
+        'Else
+        '    Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed
+        '    If Notifications_Counter.Text > 1 Then
+        '        Notifications_Counter.Text = Notifications_Counter.Text - 1
+        '    End If
+        'End If
 
         If web.Source.ToString.Contains("twitter.com") Then
             If Notif_Diminutweet.Visibility = Visibility.Collapsed Then
@@ -772,7 +871,6 @@ Public NotInheritable Class MainPage
                     ShowMiniPlayerIcon.Stop()
                 End If
             End If
-            Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
             If localSettings.Values("DarkThemeEnabled") = True Then
                 MiniPlayer_Button.RequestedTheme = ElementTheme.Dark
             Else
