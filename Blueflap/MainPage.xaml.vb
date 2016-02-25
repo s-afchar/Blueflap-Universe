@@ -713,6 +713,8 @@ Public NotInheritable Class MainPage
     Private Sub ContextNotification()
         Try
             If Windows.Storage.ApplicationData.Current.LocalSettings.Values("Context_Notif") = "No" Then
+                Notif_Diminutweet.Visibility = Visibility.Collapsed
+                Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed
             Else
                 OpenSearchEngine = False
                 If web.Source.ToString.Contains("www.bing.com") Then
@@ -810,12 +812,13 @@ Public NotInheritable Class MainPage
                     ShowMiniPlayerIcon.Stop()
                 End If
 
-                Notification()
+
             End If
         Catch
             Windows.Storage.ApplicationData.Current.LocalSettings.Values("Context_Notif") = "Yes"
             ContextNotification()
         End Try
+        Notification()
     End Sub
     Private Async Sub OpenSearchNotif()
         OpenSearchEngine = True
