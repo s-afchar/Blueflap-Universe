@@ -1045,6 +1045,8 @@
                                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Fenêtre de confirmation" FontSize="14.667" Opacity="0.5"/>
                             </ToggleSwitch>
                             <TextBlock HorizontalAlignment="Left" Margin="11,443,0,0" TextWrapping="Wrap" Text="Favoris" VerticalAlignment="Top" FontSize="16"/>
+                            <Rectangle Fill="#33D1D1D1" Height="84" Stroke="#7F838383" VerticalAlignment="Top" Margin="0,566,0,0"/>
+                            <ToggleSwitch x:Name="Switch_ContextNotifs" Header="Notifications contextuelles" HorizontalAlignment="Left" Margin="11,578,0,0" VerticalAlignment="Top" IsOn="True"/>
                         </Grid>
                     </ScrollViewer>
                 </Grid>

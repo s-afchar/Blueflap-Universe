@@ -170,6 +170,15 @@ Public NotInheritable Class Parametres
         Catch ex As Exception
         End Try
 
+        Try
+            If localSettings.Values("Context_Notif") = "No" Then
+                Switch_ContextNotifs.IsOn = False
+            Else
+                Switch_ContextNotifs.IsOn = True
+            End If
+        Catch ex As Exception
+        End Try
+
 
         ParamOpen.Stop()
         ParamOpen.Begin()
@@ -456,6 +465,12 @@ Public NotInheritable Class Parametres
             localSettings.Values("Fav_Confirmation") = True
         Else
             localSettings.Values("Fav_Confirmation") = False
+        End If
+
+        If Switch_ContextNotifs.IsOn Then
+            localSettings.Values("Context_Notif") = "Yes"
+        Else
+            localSettings.Values("Context_Notif") = "No"
         End If
 
         If Bluestart_Checkbox.IsChecked = True Then
