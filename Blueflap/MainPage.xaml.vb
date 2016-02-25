@@ -836,7 +836,7 @@ Public NotInheritable Class MainPage
                 Dim tagStart As Integer = html.IndexOf("<link")
                 Dim tagEnd As Integer = html.Substring(tagStart).IndexOf(">")
                 Dim tag As String = html.Substring(tagStart, tagEnd)
-                Debug.WriteLine("\n \n \nTAG = " + tag + "\n \n \n")
+                Debug.WriteLine(tag)
                 If tag.Contains("application/opensearchdescription+xml") Then
                     Found = True
                     Debug.WriteLine(tag)
@@ -869,8 +869,17 @@ Public NotInheritable Class MainPage
             Try
                 name = root.Elements.First(Function(x) x.Name.LocalName = "ShortName").Value.ToUpperInvariant
                 img = root.Elements.First(Function(x) x.Name.LocalName = "Image").Value
-                ' Cette ligne est officiellement trop longue  et incompréhensible ...
-                searchTemplate = root.Elements.Where(Function(x) x.Name.LocalName = "Url").First(Function(x) x.Attributes.Any(Function(y) y.Name.LocalName = "text/html")).Attributes.First(Function(x) x.Name.LocalName = "template").Value
+                Dim urlTag = root.Elements.Where(Function(x) x.Name.LocalName = "Url").First(Function(x) x.Attributes.Any(Function(y)
+                                                                                                                              Debug.WriteLine(y.Name.LocalName)
+                                                                                                                              Return y.Name.LocalName = "type" And y.Value = "text/html"
+                                                                                                                          End Function))
+                searchTemplate = urlTag.Attributes.First(Function(x) x.Name.LocalName = "template").Value
+
+                If Not searchTemplate.Contains("{searchTerms}") Then
+                    Dim param = urlTag.Elements.First(Function(x) x.Name.LocalName = "Param")
+                    searchTemplate += "?" + param.Attributes.First(Function(x) x.Name.LocalName = "name").Value + "=" + param.Attributes.First(Function(x) x.Name.LocalName = "value").Value
+                End If
+
             Catch ex As Exception
                 If img Is Nothing Then
                     img = "http://" & web.Source.Host & "/favicon.ico"
