@@ -1029,7 +1029,7 @@
                     <ScrollViewer Margin="-11,20,10,0" VerticalScrollBarVisibility="Auto" HorizontalScrollMode="Disabled">
                         <Grid>
                             <Rectangle Fill="#33D1D1D1" Height="82" Stroke="#7F838383" VerticalAlignment="Top"/>
-                            <ToggleSwitch x:Name="Adblock_Switch" Header="Bloqueur de publicités" HorizontalAlignment="Left" Margin="11,12,0,0" VerticalAlignment="Top" OffContent="Desactivé" OnContent="Activé" Tag="javascript:(function(){function R(w){try{var d=w.document,j,i,t,T,N,b,r=1,C;for(j=0;t=[&quot;object&quot;,&quot;embed&quot;,&quot;applet&quot;,&quot;iframe&quot;][j];++j){T=d.getElementsByTagName(t);for(i=T.length-1;(i+1)&amp;&amp;(N=T[i]);--i)if(j!=3||!R((C=N.contentWindow)?C:N.contentDocument.defaultView)){b=d.createElement(&quot;div&quot;);b.style.width=N.width; b.style.height=N.height;b.innerHTML=&quot;&lt;del&gt;&quot;+(j==3?&quot;third-party &quot;+t:t)+&quot;&lt;/del&gt;&quot;;N.parentNode.replaceChild(b,N);}}}catch(E){r=0}return r}R(self);var i,x;for(i=0;x=frames[i];++i)R(x)})()"/>
+                            <ToggleSwitch x:Name="Adblock_Switch" Header="Bloqueur de publicités" HorizontalAlignment="Left" Margin="11,12,0,0" VerticalAlignment="Top" OffContent="Desactivé" OnContent="Activé" Tag="javascript:(function(){function R(w){try{var d=w.document,j,i,t,T,N,b,r=1,C;for(j=0;t=[&quot;object&quot;,&quot;embed&quot;,&quot;applet&quot;,&quot;iframe&quot;][j];++j){T=d.getElementsByTagName(t);for(i=T.length-1;(i+1)&amp;&amp;(N=T[i]);--i)if(j!=3||!R((C=N.contentWindow)?C:N.contentDocument.defaultView)){b=d.createElement(&quot;div&quot;);b.style.width=N.width; b.style.height=N.height;b.innerHTML=&quot;&lt;del&gt;&quot;+(j==3?&quot;third-party &quot;+t:t)+&quot;&lt;/del&gt;&quot;;N.parentNode.replaceChild(b,N);}}}catch(E){r=0}return r}R(self);var i,x;for(i=0;x=frames[i];++i)R(x)})()" IsEnabled="False"/>
                             <Rectangle Fill="#33D1D1D1" Height="82" Stroke="#7F838383" VerticalAlignment="Top" Margin="0,99,0,0"/>
                             <ToggleSwitch x:Name="Suggest_Switch" Header="Smart Suggest" HorizontalAlignment="Left" Margin="11,111,0,0" VerticalAlignment="Top" OffContent="Desactivé" OnContent="Activé" Tag="javascript:(function(){function R(w){try{var d=w.document,j,i,t,T,N,b,r=1,C;for(j=0;t=[&quot;object&quot;,&quot;embed&quot;,&quot;applet&quot;,&quot;iframe&quot;][j];++j){T=d.getElementsByTagName(t);for(i=T.length-1;(i+1)&amp;&amp;(N=T[i]);--i)if(j!=3||!R((C=N.contentWindow)?C:N.contentDocument.defaultView)){b=d.createElement(&quot;div&quot;);b.style.width=N.width; b.style.height=N.height;b.innerHTML=&quot;&lt;del&gt;&quot;+(j==3?&quot;third-party &quot;+t:t)+&quot;&lt;/del&gt;&quot;;N.parentNode.replaceChild(b,N);}}}catch(E){r=0}return r}R(self);var i,x;for(i=0;x=frames[i];++i)R(x)})()"/>
                             <Rectangle Fill="#33D1D1D1" Height="107" Stroke="#7F838383" VerticalAlignment="Top" Margin="0,199,0,0"/>
@@ -1037,14 +1037,16 @@
                                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Menus d'actions" FontSize="14.667" Opacity="0.5"/>
                             </ToggleSwitch>
                             <TextBlock HorizontalAlignment="Left" Margin="11,209,0,0" TextWrapping="Wrap" Text="Search Fight" VerticalAlignment="Top" FontSize="16"/>
-                            <Rectangle Fill="#33D1D1D1" Height="82" Margin="0,327,0,0" Stroke="#7F838383" VerticalAlignment="Top"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="11,335,0,0" TextWrapping="Wrap" Text="Données de navigation" VerticalAlignment="Top"/>
-                            <Button x:Name="Buton_ClearHistory" Content="Effacer l'historique" HorizontalAlignment="Left" Margin="12,366,0,0" VerticalAlignment="Top" BorderBrush="#27000000" Width="152"/>
-                            <Rectangle Fill="#33D1D1D1" Height="107" Stroke="#7F838383" VerticalAlignment="Top" Margin="0,433,0,0"/>
-                            <ToggleSwitch x:Name="Favorites_Confirm_Switch" HorizontalAlignment="Left" Margin="10,469,0,0" VerticalAlignment="Top" OffContent="Non" OnContent="Oui" IsOn="True">
+                            <Rectangle Fill="#33D1D1D1" Height="82" Margin="0,325,0,0" Stroke="#7F838383" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="11,333,0,0" TextWrapping="Wrap" Text="Données de navigation" VerticalAlignment="Top"/>
+                            <Button x:Name="Buton_ClearHistory" Content="Effacer l'historique" HorizontalAlignment="Left" Margin="12,364,0,0" VerticalAlignment="Top" BorderBrush="#27000000" Width="152"/>
+                            <Rectangle Fill="#33D1D1D1" Height="107" Stroke="#7F838383" VerticalAlignment="Top" Margin="0,427,0,0"/>
+                            <ToggleSwitch x:Name="Favorites_Confirm_Switch" HorizontalAlignment="Left" Margin="10,463,0,0" VerticalAlignment="Top" OffContent="Non" OnContent="Oui" IsOn="True">
                                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Fenêtre de confirmation" FontSize="14.667" Opacity="0.5"/>
                             </ToggleSwitch>
-                            <TextBlock HorizontalAlignment="Left" Margin="11,443,0,0" TextWrapping="Wrap" Text="Favoris" VerticalAlignment="Top" FontSize="16"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="11,437,0,0" TextWrapping="Wrap" Text="Favoris" VerticalAlignment="Top" FontSize="16"/>
+                            <Rectangle Fill="#33D1D1D1" Height="84" Stroke="#7F838383" VerticalAlignment="Top" Margin="0,554,0,0"/>
+                            <ToggleSwitch x:Name="Switch_ContextNotifs" Header="Notifications contextuelles" HorizontalAlignment="Left" Margin="11,566,0,0" VerticalAlignment="Top" IsOn="True"/>
                         </Grid>
                     </ScrollViewer>
                 </Grid>

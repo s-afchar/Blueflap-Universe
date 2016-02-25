@@ -5,6 +5,7 @@ Imports Windows.ApplicationModel.Core
 Imports Windows.Data.Json
 Imports Windows.UI.Xaml.Documents
 Imports Windows.Storage
+Imports Windows.Web.Http
 ''' <summary>
 ''' Page dédiée à la navigation web
 ''' </summary>
@@ -14,6 +15,9 @@ Public NotInheritable Class MainPage
     Dim History_SearchMode As Boolean
     Dim History_SearchKeywords As String
     Dim ItemCount As Integer
+    Dim OpenSearchEngine As Boolean
+    Dim OpenSearch_A1 As String
+    Dim OpenSearch_A2 As String
 #Region "HardwareBackButton"
     Public Sub New()
         Me.InitializeComponent()
@@ -180,12 +184,18 @@ Public NotInheritable Class MainPage
             Try
                 ShowFavorites()
             Catch
+                If MemoPanel.Visibility = Visibility.Visible Then
+                    MemoPopOut.Begin()
+                End If
             End Try
         End If
         If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 2 Then
             Try
                 ShowHistory()
             Catch
+                If MemoPanel.Visibility = Visibility.Visible Then
+                    MemoPopOut.Begin()
+                End If
             End Try
         End If
 
@@ -298,12 +308,18 @@ Public NotInheritable Class MainPage
             Try
                 ShowFavorites()
             Catch
+                If MemoPanel.Visibility = Visibility.Visible Then
+                    MemoPopOut.Begin()
+                End If
             End Try
         End If
         If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 2 Then
             Try
                 ShowHistory()
             Catch
+                If MemoPanel.Visibility = Visibility.Visible Then
+                    MemoPopOut.Begin()
+                End If
             End Try
         End If
 
@@ -695,96 +711,203 @@ Public NotInheritable Class MainPage
         NotifPosition = 110 * Notifsvisible
     End Sub
     Private Sub ContextNotification()
-        If web.Source.ToString.Contains("www.bing.com") Then
-            If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
-                New_Notif.Begin()
-                Notifications_Counter.Text = Notifications_Counter.Text + 1
-                Notif_Home.Visibility = Visibility.Collapsed
-            End If
-            Notif_SearchEngineName.Text = "BING"
-            Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Bing.png", UriKind.Absolute))
-            Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
-        ElseIf web.Source.ToString.Contains("www.qwant.com") Then
-            If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
-                New_Notif.Begin()
-                Notifications_Counter.Text = Notifications_Counter.Text + 1
-                Notif_Home.Visibility = Visibility.Collapsed
-            End If
-            Notif_SearchEngineName.Text = "QWANT"
-            Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Qwant.png", UriKind.Absolute))
-            Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
-        ElseIf web.Source.ToString.Contains("duckduckgo.com") Then
-            If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
-                New_Notif.Begin()
-                Notifications_Counter.Text = Notifications_Counter.Text + 1
-                Notif_Home.Visibility = Visibility.Collapsed
-            End If
-            Notif_SearchEngineName.Text = "DUCKDUCKGO"
-            Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Duck.png", UriKind.Absolute))
-            Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
-        ElseIf web.Source.ToString.Contains("yahoo.com") Then
-            If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
-                New_Notif.Begin()
-                Notifications_Counter.Text = Notifications_Counter.Text + 1
-                Notif_Home.Visibility = Visibility.Collapsed
-            End If
-            Notif_SearchEngineName.Text = "YAHOO"
-            Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_yahoo.png", UriKind.Absolute))
-            Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
-        Else
-            Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed
-            If Notifications_Counter.Text > 1 Then
-                Notifications_Counter.Text = Notifications_Counter.Text - 1
-            End If
-        End If
+        Try
+            If Windows.Storage.ApplicationData.Current.LocalSettings.Values("Context_Notif") = "No" Then
+                Notif_Diminutweet.Visibility = Visibility.Collapsed
+                Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed
+            Else
+                OpenSearchEngine = False
+                If web.Source.ToString.Contains("www.bing.com") Then
+                    If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
+                        New_Notif.Begin()
+                        Notifications_Counter.Text = Notifications_Counter.Text + 1
+                        Notif_Home.Visibility = Visibility.Collapsed
+                    End If
+                    Notif_SearchEngineName.Text = "BING"
+                    Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Bing.png", UriKind.Absolute))
+                    Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
+                ElseIf web.Source.ToString.Contains("www.qwant.com") Then
+                    If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
+                        New_Notif.Begin()
+                        Notifications_Counter.Text = Notifications_Counter.Text + 1
+                        Notif_Home.Visibility = Visibility.Collapsed
+                    End If
+                    Notif_SearchEngineName.Text = "QWANT"
+                    Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Qwant.png", UriKind.Absolute))
+                    Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
+                ElseIf web.Source.ToString.Contains("duckduckgo.com") Then
+                    If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
+                        New_Notif.Begin()
+                        Notifications_Counter.Text = Notifications_Counter.Text + 1
+                        Notif_Home.Visibility = Visibility.Collapsed
+                    End If
+                    Notif_SearchEngineName.Text = "DUCKDUCKGO"
+                    Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Duck.png", UriKind.Absolute))
+                    Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
+                ElseIf web.Source.ToString.Contains("yahoo.com") Then
+                    If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
+                        New_Notif.Begin()
+                        Notifications_Counter.Text = Notifications_Counter.Text + 1
+                        Notif_Home.Visibility = Visibility.Collapsed
+                    End If
+                    Notif_SearchEngineName.Text = "YAHOO"
+                    Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_yahoo.png", UriKind.Absolute))
+                    Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
+                Else
+                    Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed
+                    If Notifications_Counter.Text > 1 Then
+                        Notifications_Counter.Text = Notifications_Counter.Text - 1
+                    End If
+                    Try
+                        Notif_Home.Visibility = Visibility.Collapsed
+                        Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
+                        OpenSearchNotif()
+                    Catch
+                    End Try
+                End If
 
-        If web.Source.ToString.Contains("twitter.com") Then
-            If Notif_Diminutweet.Visibility = Visibility.Collapsed Then
-                New_Notif.Begin()
-                Notifications_Counter.Text = Notifications_Counter.Text + 1
-                Notif_Home.Visibility = Visibility.Collapsed
-            End If
+                If web.Source.ToString.Contains("twitter.com") Then
+                    If Notif_Diminutweet.Visibility = Visibility.Collapsed Then
+                        New_Notif.Begin()
+                        Notifications_Counter.Text = Notifications_Counter.Text + 1
+                        Notif_Home.Visibility = Visibility.Collapsed
+                    End If
 
-            Notif_Diminutweet.Visibility = Visibility.Visible
-        Else
-            Notif_Diminutweet.Visibility = Visibility.Collapsed
-            If Notifications_Counter.Text > 1 Then
-                Notifications_Counter.Text = Notifications_Counter.Text - 1
-            End If
-        End If
+                    Notif_Diminutweet.Visibility = Visibility.Visible
+                Else
+                    Notif_Diminutweet.Visibility = Visibility.Collapsed
+                    If Notifications_Counter.Text > 1 Then
+                        Notifications_Counter.Text = Notifications_Counter.Text - 1
+                    End If
+                End If
 
-        If web.Source.ToString.Contains("vimeo.com/") Or web.Source.ToString.Contains("dailymotion.com/video/") Or web.Source.ToString.Contains("youtube.com/watch") Then
-            If Notif_MiniPlayer.Visibility = Visibility.Collapsed Then
-                New_Notif.Begin()
-                Notifications_Counter.Text = Notifications_Counter.Text + 1
-                Notif_Home.Visibility = Visibility.Collapsed
-            End If
+                If web.Source.ToString.Contains("vimeo.com/") Or web.Source.ToString.Contains("dailymotion.com/video/") Or web.Source.ToString.Contains("youtube.com/watch") Then
+                    If Notif_MiniPlayer.Visibility = Visibility.Collapsed Then
+                        New_Notif.Begin()
+                        Notifications_Counter.Text = Notifications_Counter.Text + 1
+                        Notif_Home.Visibility = Visibility.Collapsed
+                    End If
 
-            Notif_MiniPlayer.Visibility = Visibility.Visible
-            ShowMiniPlayerIcon.Begin()
-
-            If web.Source.ToString.Contains("vimeo.com/") Then
-                If web.Source.ToString.Contains("vimeo.com/0") Or web.Source.ToString.Contains("vimeo.com/1") Or web.Source.ToString.Contains("vimeo.com/2") Or web.Source.ToString.Contains("vimeo.com/3") Or web.Source.ToString.Contains("vimeo.com/4") Or web.Source.ToString.Contains("vimeo.com/5") Or web.Source.ToString.Contains("vimeo.com/6") Or web.Source.ToString.Contains("vimeo.com/7") Or web.Source.ToString.Contains("vimeo.com/8") Or web.Source.ToString.Contains("vimeo.com/9") Then
                     Notif_MiniPlayer.Visibility = Visibility.Visible
                     ShowMiniPlayerIcon.Begin()
+
+                    If web.Source.ToString.Contains("vimeo.com/") Then
+                        If web.Source.ToString.Contains("vimeo.com/0") Or web.Source.ToString.Contains("vimeo.com/1") Or web.Source.ToString.Contains("vimeo.com/2") Or web.Source.ToString.Contains("vimeo.com/3") Or web.Source.ToString.Contains("vimeo.com/4") Or web.Source.ToString.Contains("vimeo.com/5") Or web.Source.ToString.Contains("vimeo.com/6") Or web.Source.ToString.Contains("vimeo.com/7") Or web.Source.ToString.Contains("vimeo.com/8") Or web.Source.ToString.Contains("vimeo.com/9") Then
+                            Notif_MiniPlayer.Visibility = Visibility.Visible
+                            ShowMiniPlayerIcon.Begin()
+                        Else
+                            Notifications_Counter.Text = Notifications_Counter.Text - 1
+                            Notif_MiniPlayer.Visibility = Visibility.Collapsed
+                            ShowMiniPlayerIcon.Stop()
+                        End If
+                    End If
+                    Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+                    If localSettings.Values("DarkThemeEnabled") = True Then
+                        MiniPlayer_Button.RequestedTheme = ElementTheme.Dark
+                    Else
+                        MiniPlayer_Button.RequestedTheme = ElementTheme.Light
+                    End If
                 Else
-                    Notifications_Counter.Text = Notifications_Counter.Text - 1
                     Notif_MiniPlayer.Visibility = Visibility.Collapsed
                     ShowMiniPlayerIcon.Stop()
                 End If
-            End If
-            Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-            If localSettings.Values("DarkThemeEnabled") = True Then
-                MiniPlayer_Button.RequestedTheme = ElementTheme.Dark
-            Else
-                MiniPlayer_Button.RequestedTheme = ElementTheme.Light
-            End If
-        Else
-            Notif_MiniPlayer.Visibility = Visibility.Collapsed
-            ShowMiniPlayerIcon.Stop()
-        End If
 
+
+            End If
+        Catch
+            Windows.Storage.ApplicationData.Current.LocalSettings.Values("Context_Notif") = "Yes"
+            ContextNotification()
+        End Try
         Notification()
+    End Sub
+    Private Async Sub OpenSearchNotif()
+        OpenSearchEngine = True
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        ' Opensearch
+
+        ' Detection du xml
+        Dim xmlUri As Uri
+        Dim html As String = Await (web.InvokeScriptAsync("eval", New String() {"document.documentElement.outerHTML;"}))
+        Debug.WriteLine(html)
+        Dim Found As Boolean = False
+
+        Try
+            While Not Found
+                Dim tagStart As Integer = html.IndexOf("<link")
+                Dim tagEnd As Integer = html.Substring(tagStart).IndexOf(">")
+                Dim tag As String = html.Substring(tagStart, tagEnd)
+                Debug.WriteLine("\n \n \nTAG = " + tag + "\n \n \n")
+                If tag.Contains("application/opensearchdescription+xml") Then
+                    Found = True
+                    Debug.WriteLine(tag)
+                    Dim attStart As Integer = tag.IndexOf("href=""")
+                    Dim attEnd As Integer = tag.Substring(attStart + 6).IndexOf("""")
+                    Dim att As String = tag.Substring(attStart + 6, attEnd)
+                    xmlUri = New Uri(web.Source, att)
+                Else
+                    html = html.Substring(tagEnd)
+                End If
+            End While
+
+            ' Recuperation du XML
+            Dim client As HttpClient = New HttpClient
+            Dim xml As String
+            Try
+                Dim res As HttpResponseMessage = Await client.GetAsync(xmlUri)
+                res.EnsureSuccessStatusCode()
+                xml = Await res.Content.ReadAsStringAsync
+            Catch ex As Exception
+            End Try
+
+            ' Parsage (ce mot existe ?) du XML
+            Dim doc As XDocument = XDocument.Parse(xml)
+            Dim root As XElement = doc.Elements.FirstOrDefault
+            Dim name As String
+            Dim img As String
+            Dim searchTemplate As String
+
+            Try
+                name = root.Elements.First(Function(x) x.Name.LocalName = "ShortName").Value.ToUpperInvariant
+                img = root.Elements.First(Function(x) x.Name.LocalName = "Image").Value
+                ' Cette ligne est officiellement trop longue  et incompréhensible ...
+                searchTemplate = root.Elements.Where(Function(x) x.Name.LocalName = "Url").First(Function(x) x.Attributes.Any(Function(y) y.Name.LocalName = "text/html")).Attributes.First(Function(x) x.Name.LocalName = "template").Value
+            Catch ex As Exception
+                If img Is Nothing Then
+                    img = "http://" & web.Source.Host & "/favicon.ico"
+                End If
+                If name Is Nothing Then
+                    name = "INCONNU"
+                End If
+                If searchTemplate Is Nothing Then
+                    searchTemplate = "http://" + web.Source.Host + "/?q={searchTerms}"
+                End If
+            End Try
+
+
+
+            Dim splitter As String = "{searchTerms}"
+            Dim A() As String = searchTemplate.Split(New String() {splitter}, StringSplitOptions.None)
+            OpenSearch_A1 = A(0)
+
+            If Not String.IsNullOrEmpty(A(1)) Then
+                OpenSearch_A2 = A(1)
+            Else
+                OpenSearch_A2 = ""
+            End If
+
+
+
+            Notif_Home.Visibility = Visibility.Collapsed
+            Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
+
+            Notif_SearchEngineName.Text = name
+            Notif_SearchEngineIcon.Source = New BitmapImage(New Uri(img, UriKind.Absolute))
+
+        Catch
+            OpenSearchEngine = False
+        End Try
+
+
     End Sub
     Private Sub PivotIndicatorPosition()
         History_SearchMode = False
@@ -801,7 +924,7 @@ Public NotInheritable Class MainPage
             History_ShowSearchBar.Visibility = Visibility.Collapsed
             Try
                 ShowFavorites()
-            Catch
+            Catch ex As Exception
             End Try
         ElseIf RightMenuPivot.SelectedIndex = 2 Then
             MemoIndexIndicator.Margin = New Thickness(84, 8, 0, 0)
@@ -809,7 +932,7 @@ Public NotInheritable Class MainPage
             History_ShowSearchBar.Visibility = Visibility.Visible
             Try
                 ShowHistory()
-            Catch
+            Catch ex As Exception
             End Try
         ElseIf RightMenuPivot.SelectedIndex = 3 Then
             MemoIndexIndicator.Margin = New Thickness(124, 8, 0, 0)
@@ -836,22 +959,32 @@ Public NotInheritable Class MainPage
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         'Définit les valeurs du moteur de recherche tel que le navigateur navigue vers (A1 + Mots-clés + A2) = URI
 
-        If Notif_SearchEngineName.Text.ToLower = "qwant" Then
-            localSettings.Values("A1") = "http://www.qwant.com/?q="
-            localSettings.Values("A2") = ""
-            localSettings.Values("SearchEngineIndex") = 1
-        ElseIf Notif_SearchEngineName.Text.ToLower = "bing" Then
-            localSettings.Values("A1") = "http://www.bing.com/search?q="
-            localSettings.Values("A2") = ""
-            localSettings.Values("SearchEngineIndex") = 0
-        ElseIf Notif_SearchEngineName.Text.ToLower = "duckduckgo" Then
-            localSettings.Values("A1") = "http://duckduckgo.com/?q="
-            localSettings.Values("A2") = ""
-            localSettings.Values("SearchEngineIndex") = 2
-        ElseIf Notif_SearchEngineName.Text.ToLower = "yahoo" Then
-            localSettings.Values("A1") = "http://fr.search.yahoo.com/search;_ylt=Ai38ykBDWJSAxF25NrTnjXxNhJp4?p="
-            localSettings.Values("A2") = ""
-            localSettings.Values("SearchEngineIndex") = 3
+        If OpenSearchEngine = True Then
+            localSettings.Values("Custom_SearchEngine") = True
+            localSettings.Values("A1") = OpenSearch_A1.ToString
+            localSettings.Values("A2") = OpenSearch_A2.ToString
+            localSettings.Values("Cust1") = OpenSearch_A1.ToString
+            localSettings.Values("Cust2") = OpenSearch_A2.ToString
+            localSettings.Values("SearchEngineIndex") = 12
+        Else
+            localSettings.Values("Custom_SearchEngine") = False
+            If Notif_SearchEngineName.Text.ToLower = "qwant" Then
+                localSettings.Values("A1") = "http://www.qwant.com/?q="
+                localSettings.Values("A2") = ""
+                localSettings.Values("SearchEngineIndex") = 1
+            ElseIf Notif_SearchEngineName.Text.ToLower = "bing" Then
+                localSettings.Values("A1") = "http://www.bing.com/search?q="
+                localSettings.Values("A2") = ""
+                localSettings.Values("SearchEngineIndex") = 0
+            ElseIf Notif_SearchEngineName.Text.ToLower = "duckduckgo" Then
+                localSettings.Values("A1") = "http://duckduckgo.com/?q="
+                localSettings.Values("A2") = ""
+                localSettings.Values("SearchEngineIndex") = 2
+            ElseIf Notif_SearchEngineName.Text.ToLower = "yahoo" Then
+                localSettings.Values("A1") = "http://fr.search.yahoo.com/search;_ylt=Ai38ykBDWJSAxF25NrTnjXxNhJp4?p="
+                localSettings.Values("A2") = ""
+                localSettings.Values("SearchEngineIndex") = 3
+            End If
         End If
 
         Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
@@ -903,10 +1036,13 @@ Public NotInheritable Class MainPage
                                                                               End Function)
 
             AddHandler menuDelete.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
-                                                                     Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Favorites"))
-                                                                     root.Remove(root.First(Function(x) x.GetObject.GetNamedString("url") = favsElem.GetObject.GetNamedString("url")))
-                                                                     WriteJsonFile(root, "Favorites")
-                                                                     ShowFavorites()
+                                                                     Try
+                                                                         Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Favorites"))
+                                                                         root.Remove(root.First(Function(x) x.GetObject.GetNamedString("url") = favsElem.GetObject.GetNamedString("url")))
+                                                                         WriteJsonFile(root, "Favorites")
+                                                                         ShowFavorites()
+                                                                     Catch ex As Exception
+                                                                     End Try
                                                                  End Sub)
 
             AddHandler MenuCopy.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
@@ -979,7 +1115,7 @@ Public NotInheritable Class MainPage
                     Add_Fav_Url.BorderThickness = New Thickness(0, 0, 0, 0)
                     AddFav_PopUp_Open.Begin()
                 End If
-            Catch
+            Catch ex As Exception
             End Try
 
         Else
@@ -987,7 +1123,7 @@ Public NotInheritable Class MainPage
             If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
                 Try
                     Await ShowFavorites()
-                Catch
+                Catch ex As Exception
                 End Try
 
             End If
@@ -1012,7 +1148,7 @@ Public NotInheritable Class MainPage
         If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
             Try
                 Await ShowFavorites()
-            Catch
+            Catch ex As Exception
             End Try
         End If
         LikePageButton.Text = ""
@@ -1261,6 +1397,7 @@ Public NotInheritable Class MainPage
         History_Suggestions.Background = SmartSuggest.Background
         SmartSuggest_History.Children.Clear()
         Dim Json As String
+        Dim PreventMultipleSameItems As New HashSet(Of String)()
 
         Try
             Json = Await ReadJsonFile("Favorites")
@@ -1294,13 +1431,66 @@ Public NotInheritable Class MainPage
             UrlText.Foreground = LeftMenu.Background
             elemContainer.Children.Add(UrlText)
 
-            If histElem.GetObject.GetNamedString("title").ToLower.Contains(AdressBox.Text.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(AdressBox.Text.ToLower) Then
-                SmartSuggest_History.Children.Add(elemContainer)
 
-                ItemCount = ItemCount + 1
+
+            If Not PreventMultipleSameItems.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
+                If histElem.GetObject.GetNamedString("title").ToLower.Contains(AdressBox.Text.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(AdressBox.Text.ToLower) Then
+                    SmartSuggest_History.Children.Add(elemContainer)
+
+                    ItemCount = ItemCount + 1
+                End If
             End If
 
+            PreventMultipleSameItems.Add(histElem.GetObject.GetNamedString("url").ToLower)
+
         Next
+
+        Try
+            Json = Await ReadJsonFile("History")
+        Catch ex As Exception
+            Json = "[]"
+        End Try
+
+        For Each histElem In JsonArray.Parse(Json).Reverse
+            Dim elemContainer As StackPanel = New StackPanel
+            elemContainer.Padding = New Thickness(34, 8, 0, 8)
+            AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                        web.Navigate(New Uri(histElem.GetObject.GetNamedString("url")))
+                                                                    End Function)
+
+            AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
+                                                                             End Function)
+
+            AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                            End Function)
+
+
+            Dim elemText As TextBlock = New TextBlock
+            elemText.Text = histElem.GetObject.GetNamedString("title")
+            elemText.Foreground = SmartSuggest_Search_Text.Foreground
+            elemContainer.Children.Add(elemText)
+
+            Dim UrlText As TextBlock = New TextBlock
+            UrlText.Text = histElem.GetObject.GetNamedString("url")
+            UrlText.Foreground = LeftMenu.Background
+            elemContainer.Children.Add(UrlText)
+
+
+
+            If Not PreventMultipleSameItems.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
+                If histElem.GetObject.GetNamedString("title").ToLower.Contains(AdressBox.Text.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(AdressBox.Text.ToLower) Then
+                    SmartSuggest_History.Children.Add(elemContainer)
+
+                    ItemCount = ItemCount + 1
+                End If
+            End If
+
+            PreventMultipleSameItems.Add(histElem.GetObject.GetNamedString("url").ToLower)
+
+        Next
+
         If ItemCount = 0 Then
             History_Suggestions.Height = 0
             SmartSuggest.Height = 138
@@ -1426,88 +1616,96 @@ Public NotInheritable Class MainPage
         Catch ex As Exception
             Json = "[]"
         End Try
+        Try
+            For Each histElem In JsonArray.Parse(Json).Reverse
+                Dim elemContainer As StackPanel = New StackPanel
+                elemContainer.Padding = New Thickness(8, 8, 0, 8)
+                AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                            web.Navigate(New Uri(histElem.GetObject.GetNamedString("url")))
+                                                                        End Function)
 
-        For Each histElem In JsonArray.Parse(Json).Reverse
-            Dim elemContainer As StackPanel = New StackPanel
-            elemContainer.Padding = New Thickness(8, 8, 0, 8)
-            AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
-                                                                        web.Navigate(New Uri(histElem.GetObject.GetNamedString("url")))
-                                                                    End Function)
+                AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                     elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
+                                                                                     elemContainer.BorderThickness = New Thickness(2, 0, 0, 0)
+                                                                                     elemContainer.Padding = New Thickness(6, 8, 0, 8)
+                                                                                     elemContainer.BorderBrush = LeftMenu.Background
+                                                                                 End Function)
 
-            AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
-                                                                                 elemContainer.BorderThickness = New Thickness(2, 0, 0, 0)
-                                                                                 elemContainer.Padding = New Thickness(6, 8, 0, 8)
-                                                                                 elemContainer.BorderBrush = LeftMenu.Background
-                                                                             End Function)
+                AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                    elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                                    elemContainer.BorderThickness = New Thickness(0, 0, 0, 0)
+                                                                                    elemContainer.Padding = New Thickness(8, 8, 0, 8)
+                                                                                End Function)
 
-            AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-                                                                                elemContainer.BorderThickness = New Thickness(0, 0, 0, 0)
-                                                                                elemContainer.Padding = New Thickness(8, 8, 0, 8)
-                                                                            End Function)
+                Dim menu As MenuFlyout = New MenuFlyout
+                Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
+                menuDelete.Text = "Supprimer"
+                menu.Items.Add(menuDelete)
+                Dim MenuCopy As MenuFlyoutItem = New MenuFlyoutItem
+                MenuCopy.Text = "Copier l'URL dans le presse-papier"
+                menu.Items.Add(MenuCopy)
+                Dim SortByUrl As MenuFlyoutItem = New MenuFlyoutItem
+                Dim HistUrl = New Uri(histElem.GetObject.GetNamedString("url"))
+                SortByUrl.Text = "Afficher toutes les visites sur " + HistUrl.Host
+                menu.Items.Add(SortByUrl)
 
-            Dim menu As MenuFlyout = New MenuFlyout
-            Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
-            menuDelete.Text = "Supprimer"
-            menu.Items.Add(menuDelete)
-            Dim MenuCopy As MenuFlyoutItem = New MenuFlyoutItem
-            MenuCopy.Text = "Copier l'URL dans le presse-papier"
-            menu.Items.Add(MenuCopy)
-            Dim SortByUrl As MenuFlyoutItem = New MenuFlyoutItem
-            Dim HistUrl = New Uri(histElem.GetObject.GetNamedString("url"))
-            SortByUrl.Text = "Afficher toutes les visites sur " + HistUrl.Host
-            menu.Items.Add(SortByUrl)
+                AddHandler elemContainer.RightTapped, New RightTappedEventHandler(Function(sender As Object, e As RightTappedRoutedEventArgs)
+                                                                                      menu.ShowAt(CType(sender, FrameworkElement))
+                                                                                  End Function)
 
-            AddHandler elemContainer.RightTapped, New RightTappedEventHandler(Function(sender As Object, e As RightTappedRoutedEventArgs)
-                                                                                  menu.ShowAt(CType(sender, FrameworkElement))
-                                                                              End Function)
+                AddHandler MenuCopy.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
+                                                                       Dim DataPackage = New DataPackage
+                                                                       DataPackage.SetText(histElem.GetObject.GetNamedString("url").ToString)
+                                                                       Clipboard.SetContent(DataPackage)
+                                                                   End Sub)
 
-            AddHandler MenuCopy.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
-                                                                   Dim DataPackage = New DataPackage
-                                                                   DataPackage.SetText(histElem.GetObject.GetNamedString("url").ToString)
-                                                                   Clipboard.SetContent(DataPackage)
-                                                               End Sub)
+                AddHandler menuDelete.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
+                                                                         Try
+                                                                             Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("History"))
+                                                                             root.Remove(root.First(Function(x) x.GetObject.GetNamedString("url") = histElem.GetObject.GetNamedString("url")))
+                                                                             WriteJsonFile(root, "History")
+                                                                             ShowHistory()
+                                                                         Catch
+                                                                         End Try
+                                                                     End Sub)
 
-            AddHandler menuDelete.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
-                                                                     Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("History"))
-                                                                     root.Remove(root.First(Function(x) x.GetObject.GetNamedString("url") = histElem.GetObject.GetNamedString("url")))
-                                                                     WriteJsonFile(root, "History")
-                                                                     ShowHistory()
-                                                                 End Sub)
+                AddHandler SortByUrl.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
+                                                                        History_SearchMode = True
+                                                                        History_SearchKeywords = HistUrl.Host.ToString
+                                                                        History_SearchBar.Visibility = Visibility.Visible
+                                                                        SearchHistory.Text = HistUrl.Host.ToString
+                                                                        ShowHistory()
+                                                                    End Sub)
 
-            AddHandler SortByUrl.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
-                                                                    History_SearchMode = True
-                                                                    History_SearchKeywords = HistUrl.Host.ToString
-                                                                    History_SearchBar.Visibility = Visibility.Visible
-                                                                    SearchHistory.Text = HistUrl.Host.ToString
-                                                                    ShowHistory()
-                                                                End Sub)
+                Dim elemText As TextBlock = New TextBlock
+                elemText.Text = histElem.GetObject.GetNamedString("title")
+                elemText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 40, 40, 40))
+                elemContainer.Children.Add(elemText)
 
-            Dim elemText As TextBlock = New TextBlock
-            elemText.Text = histElem.GetObject.GetNamedString("title")
-            elemText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 40, 40, 40))
-            elemContainer.Children.Add(elemText)
+                Dim UrlText As TextBlock = New TextBlock
+                UrlText.Text = histElem.GetObject.GetNamedString("url")
+                UrlText.Foreground = LeftMenu.Background
+                elemContainer.Children.Add(UrlText)
 
-            Dim UrlText As TextBlock = New TextBlock
-            UrlText.Text = histElem.GetObject.GetNamedString("url")
-            UrlText.Foreground = LeftMenu.Background
-            elemContainer.Children.Add(UrlText)
+                Dim visitDate As TextBlock = New TextBlock
+                visitDate.Text = DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString("Le dd MMMMMMMMMMMM yyyy à HH:mm")
+                visitDate.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 150, 150, 150))
+                elemContainer.Children.Add(visitDate)
 
-            Dim visitDate As TextBlock = New TextBlock
-            visitDate.Text = DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString("Le dd MMMMMMMMMMMM yyyy à HH:mm")
-            visitDate.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 150, 150, 150))
-            elemContainer.Children.Add(visitDate)
-
-            If History_SearchMode = True Then
-                If histElem.GetObject.GetNamedString("title").ToLower.Contains(History_SearchKeywords.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(History_SearchKeywords.ToLower) Then
+                If History_SearchMode = True Then
+                    If histElem.GetObject.GetNamedString("title").ToLower.Contains(History_SearchKeywords.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(History_SearchKeywords.ToLower) Then
+                        HistoryList.Children.Add(elemContainer)
+                    End If
+                Else
                     HistoryList.Children.Add(elemContainer)
                 End If
-            Else
-                HistoryList.Children.Add(elemContainer)
-            End If
 
-        Next
+            Next
+        Catch
+            If MemoPanel.Visibility = Visibility.Visible Then
+                MemoPopOut.Begin()
+            End If
+        End Try
     End Sub
     Private Async Sub SearchHistory_TextChanged(sender As Object, e As TextChangedEventArgs) Handles SearchHistory.TextChanged
         History_SearchMode = True
@@ -1515,6 +1713,9 @@ Public NotInheritable Class MainPage
         Try
             ShowHistory()
         Catch
+            If MemoPanel.Visibility = Visibility.Visible Then
+                MemoPopOut.Begin()
+            End If
         End Try
     End Sub
 
@@ -1531,6 +1732,9 @@ Public NotInheritable Class MainPage
         Try
             ShowHistory()
         Catch
+            If MemoPanel.Visibility = Visibility.Visible Then
+                MemoPopOut.Begin()
+            End If
         End Try
     End Sub
 #End Region
