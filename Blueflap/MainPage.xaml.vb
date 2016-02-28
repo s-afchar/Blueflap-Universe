@@ -829,7 +829,6 @@ Public NotInheritable Class MainPage
         ' Detection du xml
         Dim xmlUri As Uri
         Dim html As String = Await (web.InvokeScriptAsync("eval", New String() {"document.documentElement.outerHTML;"}))
-        Debug.WriteLine(html)
         Dim Found As Boolean = False
 
         Try
@@ -837,10 +836,8 @@ Public NotInheritable Class MainPage
                 Dim tagStart As Integer = html.IndexOf("<link")
                 Dim tagEnd As Integer = html.Substring(tagStart).IndexOf(">")
                 Dim tag As String = html.Substring(tagStart, tagEnd)
-                Debug.WriteLine(tag)
                 If tag.Contains("application/opensearchdescription+xml") Then
                     Found = True
-                    Debug.WriteLine(tag)
                     Dim attStart As Integer = tag.IndexOf("href=""")
                     Dim attEnd As Integer = tag.Substring(attStart + 6).IndexOf("""")
                     Dim att As String = tag.Substring(attStart + 6, attEnd)
@@ -871,7 +868,6 @@ Public NotInheritable Class MainPage
                 name = root.Elements.First(Function(x) x.Name.LocalName = "ShortName").Value.ToUpperInvariant
                 img = root.Elements.First(Function(x) x.Name.LocalName = "Image").Value
                 Dim urlTag = root.Elements.Where(Function(x) x.Name.LocalName = "Url").First(Function(x) x.Attributes.Any(Function(y)
-                                                                                                                              Debug.WriteLine(y.Name.LocalName)
                                                                                                                               Return y.Name.LocalName = "type" And y.Value = "text/html"
                                                                                                                           End Function))
                 searchTemplate = urlTag.Attributes.First(Function(x) x.Name.LocalName = "template").Value
@@ -1625,8 +1621,6 @@ Public NotInheritable Class MainPage
 
         Dim textfile As StorageFile = Await localFolder.GetFileAsync(FileName)
         content = Await FileIO.ReadTextAsync(textfile)
-        Debug.WriteLine("Content = '" + content + "'")
-
         Return content
     End Function
 #End Region
