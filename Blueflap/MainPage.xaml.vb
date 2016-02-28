@@ -557,6 +557,7 @@ Public NotInheritable Class MainPage
             localSettings.Values("WindowIcon") = True
             localSettings.Values("SmartSuggest") = True
             localSettings.Values("Favicon") = True
+            localSettings.Values("Fav_Confirmation") = True
         End If
 
         If Not localSettings.Values("FirstBoot") = "Non" Then
@@ -1076,6 +1077,14 @@ Public NotInheritable Class MainPage
             UrlText.Foreground = LeftMenu.Background
             elemContainer.Children.Add(UrlText)
 
+            Dim TagsText As TextBlock = New TextBlock
+
+            For Each favTag As JsonValue In favsElem.GetObject.GetNamedArray("tags")
+                TagsText.Text += "#" + favTag.GetString + " "
+            Next
+            TagsText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 150, 150, 150))
+            elemContainer.Children.Add(TagsText)
+
             FavList.Children.Add(elemContainer)
 
         Next
@@ -1095,6 +1104,13 @@ Public NotInheritable Class MainPage
                 Dim HistoryElem As JsonObject = New JsonObject
                 HistoryElem.Add("url", JsonValue.CreateStringValue(Add_Fav_Url.Text))
                 HistoryElem.Add("title", JsonValue.CreateStringValue(Add_Fav_Title.Text))
+                Dim tags As JsonArray = JsonArray.Parse("[]")
+
+                For Each favTag As String In Add_Fav_Tags.Text.Split(New String() {", "}, StringSplitOptions.None)
+                    tags.Add(JsonValue.CreateStringValue(favTag))
+                Next
+
+                HistoryElem.Add("tags", tags)
                 root.Add(HistoryElem)
                 WriteJsonFile(root, "Favorites")
             Else
