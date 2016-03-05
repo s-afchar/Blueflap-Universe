@@ -557,6 +557,7 @@ Public NotInheritable Class MainPage
             localSettings.Values("WindowIcon") = True
             localSettings.Values("SmartSuggest") = True
             localSettings.Values("Favicon") = True
+            localSettings.Values("Fav_Confirmation") = True
         End If
 
         If Not localSettings.Values("FirstBoot") = "Non" Then
@@ -828,7 +829,6 @@ Public NotInheritable Class MainPage
         ' Detection du xml
         Dim xmlUri As Uri
         Dim html As String = Await (web.InvokeScriptAsync("eval", New String() {"document.documentElement.outerHTML;"}))
-        Debug.WriteLine(html)
         Dim Found As Boolean = False
 
         Try
@@ -836,10 +836,8 @@ Public NotInheritable Class MainPage
                 Dim tagStart As Integer = html.IndexOf("<link")
                 Dim tagEnd As Integer = html.Substring(tagStart).IndexOf(">")
                 Dim tag As String = html.Substring(tagStart, tagEnd)
-                Debug.WriteLine("\n \n \nTAG = " + tag + "\n \n \n")
                 If tag.Contains("application/opensearchdescription+xml") Then
                     Found = True
-                    Debug.WriteLine(tag)
                     Dim attStart As Integer = tag.IndexOf("href=""")
                     Dim attEnd As Integer = tag.Substring(attStart + 6).IndexOf("""")
                     Dim att As String = tag.Substring(attStart + 6, attEnd)
@@ -869,8 +867,16 @@ Public NotInheritable Class MainPage
             Try
                 name = root.Elements.First(Function(x) x.Name.LocalName = "ShortName").Value.ToUpperInvariant
                 img = root.Elements.First(Function(x) x.Name.LocalName = "Image").Value
-                ' Cette ligne est officiellement trop longue  et incompréhensible ...
-                searchTemplate = root.Elements.Where(Function(x) x.Name.LocalName = "Url").First(Function(x) x.Attributes.Any(Function(y) y.Name.LocalName = "text/html")).Attributes.First(Function(x) x.Name.LocalName = "template").Value
+                Dim urlTag = root.Elements.Where(Function(x) x.Name.LocalName = "Url").First(Function(x) x.Attributes.Any(Function(y)
+                                                                                                                              Return y.Name.LocalName = "type" And y.Value = "text/html"
+                                                                                                                          End Function))
+                searchTemplate = urlTag.Attributes.First(Function(x) x.Name.LocalName = "template").Value
+
+                If Not searchTemplate.Contains("{searchTerms}") Then
+                    Dim param = urlTag.Elements.First(Function(x) x.Name.LocalName = "Param")
+                    searchTemplate += "?" + param.Attributes.First(Function(x) x.Name.LocalName = "name").Value + "=" + param.Attributes.First(Function(x) x.Name.LocalName = "value").Value
+                End If
+
             Catch ex As Exception
                 If img Is Nothing Then
                     img = "http://" & web.Source.Host & "/favicon.ico"
@@ -1067,6 +1073,14 @@ Public NotInheritable Class MainPage
             UrlText.Foreground = LeftMenu.Background
             elemContainer.Children.Add(UrlText)
 
+            Dim TagsText As TextBlock = New TextBlock
+
+            For Each favTag As JsonValue In favsElem.GetObject.GetNamedArray("tags")
+                TagsText.Text += "#" + favTag.GetString + " "
+            Next
+            TagsText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 150, 150, 150))
+            elemContainer.Children.Add(TagsText)
+
             FavList.Children.Add(elemContainer)
 
         Next
@@ -1086,6 +1100,13 @@ Public NotInheritable Class MainPage
                 Dim HistoryElem As JsonObject = New JsonObject
                 HistoryElem.Add("url", JsonValue.CreateStringValue(Add_Fav_Url.Text))
                 HistoryElem.Add("title", JsonValue.CreateStringValue(Add_Fav_Title.Text))
+                Dim tags As JsonArray = JsonArray.Parse("[]")
+
+                For Each favTag As String In Add_Fav_Tags.Text.Split(New String() {", "}, StringSplitOptions.None)
+                    tags.Add(JsonValue.CreateStringValue(favTag))
+                Next
+
+                HistoryElem.Add("tags", tags)
                 root.Add(HistoryElem)
                 WriteJsonFile(root, "Favorites")
             Else
@@ -1600,8 +1621,6 @@ Public NotInheritable Class MainPage
 
         Dim textfile As StorageFile = Await localFolder.GetFileAsync(FileName)
         content = Await FileIO.ReadTextAsync(textfile)
-        Debug.WriteLine("Content = '" + content + "'")
-
         Return content
     End Function
 #End Region
