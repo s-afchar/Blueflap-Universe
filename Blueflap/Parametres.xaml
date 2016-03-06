@@ -996,8 +996,8 @@
                                 </Grid>
                             </Grid>
                             <ToggleSwitch x:Name="Theme_switch" Header="Thème" HorizontalAlignment="Left" Margin="11,208,0,0" VerticalAlignment="Top" OffContent="Clair" OnContent="Sombre"/>
-                            <TextBox x:Name="SearchEngine_1" HorizontalAlignment="Left" Margin="206,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="33" Width="405" Visibility="Collapsed" BorderThickness="1" PlaceholderText="Exemple : &quot;https://www.qwant.com/?q=&quot;" FontSize="16"/>
-                            <TextBox x:Name="SearchEngine_2" HorizontalAlignment="Left" Margin="699,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="33" Width="124" Visibility="Collapsed" BorderThickness="1" PlaceholderText="Ex : &quot;&amp;t=web&quot;" FontSize="16"/>
+                            <TextBox x:Name="SearchEngine_1" HorizontalAlignment="Left" Margin="206,35,0,0" Text="" VerticalAlignment="Top" Height="33" Width="405" Visibility="Collapsed" BorderThickness="1" PlaceholderText="Exemple : &quot;https://www.qwant.com/?q=&quot;" FontSize="16"/>
+                            <TextBox x:Name="SearchEngine_2" HorizontalAlignment="Left" Margin="699,35,0,0" Text="" VerticalAlignment="Top" Height="33" Width="124" Visibility="Collapsed" BorderThickness="1" PlaceholderText="Ex : &quot;&amp;t=web&quot;" FontSize="16"/>
                             <CheckBox x:Name="Bluestart_Checkbox" Content="Utiliser Bluestart" HorizontalAlignment="Right" Margin="0,132,15,0" VerticalAlignment="Top" Width="143"/>
                             <TextBox x:Name="Startpage_Settings" Margin="11,131,182,0" TextWrapping="NoWrap" Text="about:blank" VerticalAlignment="Top" Height="33" BorderThickness="1" FontSize="16"/>
                             <TextBlock x:Name="searchengine3" HorizontalAlignment="Left" Margin="623,41,0,0" TextWrapping="Wrap" Text="mots-clés" VerticalAlignment="Top" Foreground="#FF898989" Visibility="Collapsed"/>
