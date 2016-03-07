@@ -570,13 +570,13 @@ Public NotInheritable Class MainPage
     End Sub
 #End Region
 #Region "Right Panel (Memo, history, favorites, notifications)"
-    Private Sub OpenRightMenu()
+    Private Async Sub OpenRightMenu()
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
         MemoPopOut.Stop()
         MemoPopIN.Begin()
         Try
-            MemoText.Text = localSettings.Values("MemoText")
+            Await ShowMemoList()
         Catch
         End Try
         LeftPanelShadow.Visibility = Visibility.Visible
@@ -634,19 +634,6 @@ Public NotInheritable Class MainPage
             End If
         End If
         RightMenuPivot.SelectedIndex = 0
-    End Sub
-
-    Private Sub MemoText_TextChanged(sender As Object, e As TextChangedEventArgs) Handles MemoText.TextChanged
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        localSettings.Values("MemoText") = MemoText.Text 'Là on enregistre le texte des mémos en continu
-    End Sub
-
-    Private Sub MemoPanel_LostFocus(sender As Object, e As RoutedEventArgs) Handles MemoText.LostFocus
-        'Pour aller plus vite, Quand on a fini d'écrire, le volet se referme tout seul
-        If webcontainer.Margin.Right = 0 Then
-            MemoPopIN.Stop()
-            MemoPopOut.Begin()
-        End If
     End Sub
 
     Private Sub MemoAncrageToggle_Toggled(sender As Object, e As RoutedEventArgs) Handles MemoAncrageToggle.Toggled
@@ -906,6 +893,7 @@ Public NotInheritable Class MainPage
             Notif_Home.Visibility = Visibility.Collapsed
             Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
 
+            name = name.Replace("Ã©", "É")
             Notif_SearchEngineName.Text = name
             Notif_SearchEngineIcon.Source = New BitmapImage(New Uri(img, UriKind.Absolute))
 
@@ -1046,10 +1034,12 @@ Public NotInheritable Class MainPage
                                                                          Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Favorites"))
                                                                          root.Remove(root.First(Function(x) x.GetObject.GetNamedString("url") = favsElem.GetObject.GetNamedString("url")))
                                                                          WriteJsonFile(root, "Favorites")
-                                                                         ShowFavorites()
+                                                                         Await ShowFavorites()
                                                                      Catch ex As Exception
                                                                      End Try
                                                                  End Sub)
+
+
 
             AddHandler MenuCopy.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
                                                                    Dim DataPackage = New DataPackage
@@ -1085,6 +1075,7 @@ Public NotInheritable Class MainPage
 
         Next
     End Function
+
     Private Async Function AddToFavList() As Task
         Dim CurrentTitle As String = web.DocumentTitle
         Dim VisitDate As DateTime = DateTime.Now
@@ -1132,6 +1123,7 @@ Public NotInheritable Class MainPage
                 Else
                     Add_Fav_Url.Text = web.Source.ToString
                     Add_Fav_Title.Text = web.DocumentTitle
+                    Add_Fav_Tags.Text = ""
                     Add_Fav_Url.IsReadOnly = True
                     Add_Fav_Url.BorderThickness = New Thickness(0, 0, 0, 0)
                     AddFav_PopUp_Open.Begin()
@@ -1756,6 +1748,130 @@ Public NotInheritable Class MainPage
             End If
         End Try
     End Sub
-#End Region
 
+
+#End Region
+#Region " Memos"
+    Private Async Sub Memo_New_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_New.Tapped
+        Memo_ShowAll.Visibility = Visibility.Visible
+        MemoEdit.Visibility = Visibility.Visible
+        MemooList.Visibility = Visibility.Collapsed
+
+
+    End Sub
+    Private Async Function ShowMemoList() As Task
+        MemoList.Children.Clear()
+        Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Memos"))
+        Dim Json As String
+        Try
+            Json = Await ReadJsonFile("Memos")
+        Catch ex As Exception
+            Json = "[]"
+        End Try
+
+        For Each MemoElem In JsonArray.Parse(Json).Reverse
+
+            Dim elemContainer As StackPanel = New StackPanel
+            elemContainer.Padding = New Thickness(8, 8, 0, 8)
+            AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                        MemoEdit.Visibility = Visibility.Visible
+                                                                        MemooList.Visibility = Visibility.Collapsed
+                                                                        Memo_Edit_Text.Text = MemoElem.GetObject.GetNamedString("Text")
+                                                                        Memo_Edit_Title.Text = MemoElem.GetObject.GetNamedString("title")
+                                                                        AddHandler Memo_Edit_Title.TextChanged, New TextChangedEventHandler(Function(textch As Object, te As TextChangedEventArgs)
+
+                                                                                                                                                'MemoElem.GetObject.GetNamedString("title") = Memo_Edit_Title.Text
+
+                                                                                                                                            End Function)
+                                                                        AddHandler Memo_Edit_Text.TextChanged, New TextChangedEventHandler(Function(textch As Object, te As TextChangedEventArgs)
+
+                                                                                                                                               'MemoElem.GetObject.GetNamedString("Text") = Memo_Edit_Text.Text
+
+                                                                                                                                           End Function)
+                                                                    End Function)
+
+            AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
+                                                                                 elemContainer.BorderThickness = New Thickness(2, 0, 0, 0)
+                                                                                 elemContainer.Padding = New Thickness(6, 8, 0, 8)
+                                                                                 elemContainer.BorderBrush = LeftMenu.Background
+                                                                             End Function)
+
+            AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                                elemContainer.BorderThickness = New Thickness(0, 0, 0, 0)
+                                                                                elemContainer.Padding = New Thickness(8, 8, 0, 8)
+                                                                            End Function)
+
+            Dim menu As MenuFlyout = New MenuFlyout
+            Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
+            menuDelete.Text = "Supprimer"
+            menu.Items.Add(menuDelete)
+
+
+            AddHandler elemContainer.RightTapped, New RightTappedEventHandler(Function(sender As Object, e As RightTappedRoutedEventArgs)
+                                                                                  menu.ShowAt(CType(sender, FrameworkElement))
+                                                                              End Function)
+
+            AddHandler menuDelete.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
+                                                                     Try
+                                                                         root.Remove(root.First(Function(x) x.GetObject.GetNamedString("ID") = MemoElem.GetObject.GetNamedString("ID")))
+                                                                         WriteJsonFile(root, "Memos")
+                                                                         Await ShowFavorites()
+                                                                     Catch ex As Exception
+                                                                     End Try
+                                                                 End Sub)
+
+
+
+
+            Dim elemTitle As TextBlock = New TextBlock
+            elemTitle.Text = MemoElem.GetObject.GetNamedString("title")
+            elemTitle.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 40, 40, 40))
+            elemContainer.Children.Add(elemTitle)
+
+
+            Dim UrlText As TextBlock = New TextBlock
+            UrlText.Text = MemoElem.GetObject.GetNamedString("url")
+            UrlText.Foreground = LeftMenu.Background
+            elemContainer.Children.Add(UrlText)
+
+            ' Dim elemText As TextBlock = New TextBlock
+            'elemText.Text = MemoElem.GetObject.GetNamedString("Text")
+            'elemText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 40, 40, 40))
+            'elemContainer.Children.Add(elemText)
+
+            MemoList.Children.Add(elemContainer)
+
+        Next
+    End Function
+    Private Async Function AddToMemoList() As Task
+        Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Memos"))
+        Dim MemoElem As JsonObject = New JsonObject
+        MemoElem.Add("url", JsonValue.CreateStringValue(web.Source.Host.ToString))
+        MemoElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle.ToString))
+
+        Dim r As New Random
+        Dim rad1 = r.Next(0, 10000)
+        Dim rad2 = r.Next(100, 500)
+        Dim rad3 = r.Next(100000, 200000)
+        Dim rad4 = r.Next(4, 37)
+        Dim mult = (rad1 + rad2) * rad4
+        MemoElem.Add("ID", JsonValue.CreateStringValue(rad4 + rad1 * rad3))
+
+        MemoElem.Add("Text", JsonValue.CreateStringValue("Machin"))
+        root.Add(MemoElem)
+        WriteJsonFile(root, "Memos")
+    End Function
+    Private Async Sub Memo_ShowAll_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_ShowAll.Tapped
+        Memo_ShowAll.Visibility = Visibility.Collapsed
+        MemoEdit.Visibility = Visibility.Collapsed
+        MemooList.Visibility = Visibility.Visible
+        Try
+            Await ShowMemoList()
+        Catch ex As Exception
+
+        End Try
+    End Sub
+#End Region
 End Class
