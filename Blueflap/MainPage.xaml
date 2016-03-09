@@ -1127,16 +1127,19 @@
                 </Pivot.HeaderTemplate>
                 <PivotItem Header="&#xE70B;" Margin="0">
                     <Grid>
+                        <ScrollViewer x:Name="MemListScroll" Margin="0,40,0,0" HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto">
+                            <Grid x:Name="MemooList">
+                                <StackPanel x:Name="MemoList" Margin="0"/>
+                            </Grid>
+                        </ScrollViewer>
+                        <Grid x:Name="MemoEdit" Margin="0,40,0,0" Visibility="Collapsed">
+                            <TextBlock x:Name="Memo_Edit_URL" Margin="10,8,0,0" TextWrapping="Wrap" Text="URL" VerticalAlignment="Top" Foreground="#4C000000" FontWeight="SemiBold" FontSize="12" Height="16"/>
+                            <TextBox x:Name="Memo_Edit_Text" Margin="0,55,0,0" Text="" BorderThickness="0" PlaceholderText="Texte" BorderBrush="#33000000" TextWrapping="Wrap"/>
+                            <TextBox x:Name="Memo_Edit_Title" Margin="0,23,0,0" Text="" VerticalAlignment="Top" Height="32" BorderThickness="0,0,0,1" FontSize="16" PlaceholderText="Titre" BorderBrush="#FFC5C5C5"/>
+                        </Grid>
                         <Grid Height="41" VerticalAlignment="Top" BorderBrush="#33000000" BorderThickness="0,1" Background="#05000000">
                             <Button x:Name="Memo_New" Content="&#xE109;" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Height="40" Width="40" Background="#00000000" BorderThickness="0,0,2,0"/>
                             <Button x:Name="Memo_ShowAll" Content="TOUT AFFICHER" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Height="40" Width="123" Background="#00000000" BorderThickness="0,0,0,2" FontSize="13.333" FontWeight="SemiBold" Foreground="#DC000000" Visibility="Collapsed"/>
-                        </Grid>
-                        <Grid x:Name="MemooList" Margin="0">
-                            <StackPanel x:Name="MemoList" Margin="0,40,0,0"/>
-                        </Grid>
-                        <Grid x:Name="MemoEdit" Margin="0,40,0,0" Visibility="Collapsed">
-                            <TextBox x:Name="Memo_Edit_Title" Margin="10,10,10,0" Text="" VerticalAlignment="Top" Height="35" BorderThickness="0,0,0,2" FontSize="18.667" FontWeight="Medium" PlaceholderText="Titre"/>
-                            <TextBox x:Name="Memo_Edit_Text" Margin="10,55,10,9" Text="" BorderThickness="1" PlaceholderText="Texte" BorderBrush="#33000000" TextWrapping="Wrap"/>
                         </Grid>
                     </Grid>
                 </PivotItem>
@@ -1227,7 +1230,7 @@
                 <TextBox x:Name="Add_Fav_Title" Margin="21,90,22,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Nom" Width="357"/>
                 <Button Content="&#xE104;" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Background="#00000000" FontSize="10.667" Width="35" Tapped="Button_Tapped_2" Height="24" BorderThickness="2,0,0,0"/>
                 <TextBox x:Name="Add_Fav_Url" Margin="35,42,22,0" TextWrapping="NoWrap" Text="http://" VerticalAlignment="Top" BorderThickness="0" PlaceholderText="URL" IsReadOnly="True" Background="Transparent" Foreground="#FF9B9B9B" FontSize="13.333" Height="22"/>
-                <TextBox x:Name="Add_Fav_Tags" Margin="21,152,22,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Tags" Width="357"/>
+                <TextBox x:Name="Add_Fav_Tags" Margin="21,152,22,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Tag1, Tag2, Tag3, etc..." Width="357"/>
                 <TextBlock HorizontalAlignment="Left" Margin="21,72,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" FontSize="12"/>
                 <TextBlock HorizontalAlignment="Left" Margin="21,134,0,0" TextWrapping="Wrap" Text="Tags" VerticalAlignment="Top" FontSize="12"/>
                 <Button x:Name="AddFav_Confirm" Content="Ajouter" HorizontalAlignment="Right" Margin="0,0,21,18" VerticalAlignment="Bottom" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="White" BorderBrush="#33000000" BorderThickness="1" Height="37" Width="92"/>

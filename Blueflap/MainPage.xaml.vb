@@ -16,8 +16,10 @@ Public NotInheritable Class MainPage
     Dim History_SearchKeywords As String
     Dim ItemCount As Integer
     Dim OpenSearchEngine As Boolean
+    Dim EditMemo As Boolean
     Dim OpenSearch_A1 As String
     Dim OpenSearch_A2 As String
+
 #Region "HardwareBackButton"
     Public Sub New()
         Me.InitializeComponent()
@@ -563,6 +565,7 @@ Public NotInheritable Class MainPage
         If Not localSettings.Values("FirstBoot") = "Non" Then
             WriteJsonFile(JsonArray.Parse("[]"), "History")
             WriteJsonFile(JsonArray.Parse("[]"), "Favorites")
+            WriteJsonFile(JsonArray.Parse("[]"), "Memos")
             localSettings.Values("FirstBoot") = "Non"
             Me.Frame.Navigate(GetType(FirstBootScreen))
         End If
@@ -575,10 +578,7 @@ Public NotInheritable Class MainPage
 
         MemoPopOut.Stop()
         MemoPopIN.Begin()
-        Try
-            Await ShowMemoList()
-        Catch
-        End Try
+
         LeftPanelShadow.Visibility = Visibility.Visible
         Try
             If localSettings.Values("AncrageMemo") = True Then 'On  vérifie si l'utilisateur a ancré le volet des mémos
@@ -911,6 +911,14 @@ Public NotInheritable Class MainPage
             History_SearchBar.Visibility = Visibility.Collapsed
             History_ShowSearchBar.Visibility = Visibility.Collapsed
 
+            Memo_ShowAll.Visibility = Visibility.Collapsed
+            MemoEdit.Visibility = Visibility.Collapsed
+            MemListScroll.Visibility = Visibility.Visible
+            Try
+                ShowMemoList()
+            Catch
+            End Try
+
         ElseIf RightMenuPivot.SelectedIndex = 1 Then
             MemoIndexIndicator.Margin = New Thickness(44, 8, 0, 0)
             Memo_ExpandButton.Visibility = Visibility.Visible
@@ -1091,6 +1099,11 @@ Public NotInheritable Class MainPage
                 Dim HistoryElem As JsonObject = New JsonObject
                 HistoryElem.Add("url", JsonValue.CreateStringValue(Add_Fav_Url.Text))
                 HistoryElem.Add("title", JsonValue.CreateStringValue(Add_Fav_Title.Text))
+
+                If Add_Fav_Tags.Text = "" Then
+                    Add_Fav_Tags.Text = Add_Fav_Title.Text
+                End If
+
                 Dim tags As JsonArray = JsonArray.Parse("[]")
 
                 For Each favTag As String In Add_Fav_Tags.Text.Split(New String() {", "}, StringSplitOptions.None)
@@ -1753,10 +1766,33 @@ Public NotInheritable Class MainPage
 #End Region
 #Region " Memos"
     Private Async Sub Memo_New_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_New.Tapped
+        EditMemo = False
+
         Memo_ShowAll.Visibility = Visibility.Visible
         MemoEdit.Visibility = Visibility.Visible
-        MemooList.Visibility = Visibility.Collapsed
+        MemListScroll.Visibility = Visibility.Collapsed
 
+        Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Memos"))
+        Dim MemoElem As JsonObject = New JsonObject
+        MemoElem.Add("url", JsonValue.CreateStringValue(web.Source.Host.ToString))
+        MemoElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle.ToString))
+
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        Try
+            localSettings.Values("MemosID") = localSettings.Values("MemosID") + 1
+        Catch ex As Exception
+            localSettings.Values("MemosID") = 1
+        End Try
+
+        MemoElem.Add("ID", JsonValue.CreateStringValue(localSettings.Values("MemosID")))
+
+        MemoElem.Add("Text", JsonValue.CreateStringValue(localSettings.Values("MemosID")))
+        root.Add(MemoElem)
+        WriteJsonFile(root, "Memos")
+
+        Memo_Edit_Text.Text = localSettings.Values("MemosID")
+        Memo_Edit_Title.Text = web.DocumentTitle.ToString
 
     End Sub
     Private Async Function ShowMemoList() As Task
@@ -1773,20 +1809,36 @@ Public NotInheritable Class MainPage
 
             Dim elemContainer As StackPanel = New StackPanel
             elemContainer.Padding = New Thickness(8, 8, 0, 8)
+
+            Dim elemTitle As TextBlock = New TextBlock
+            elemTitle.Text = MemoElem.GetObject.GetNamedString("title")
+            elemTitle.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 40, 40, 40))
+            elemContainer.Children.Add(elemTitle)
+
+
+            Dim UrlText As TextBlock = New TextBlock
+            UrlText.Text = MemoElem.GetObject.GetNamedString("url")
+            UrlText.Foreground = LeftMenu.Background
+            elemContainer.Children.Add(UrlText)
+
             AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                        Memo_ShowAll.Visibility = Visibility.Visible
                                                                         MemoEdit.Visibility = Visibility.Visible
-                                                                        MemooList.Visibility = Visibility.Collapsed
+                                                                        MemListScroll.Visibility = Visibility.Collapsed
                                                                         Memo_Edit_Text.Text = MemoElem.GetObject.GetNamedString("Text")
                                                                         Memo_Edit_Title.Text = MemoElem.GetObject.GetNamedString("title")
+                                                                        Memo_Edit_URL.Text = MemoElem.GetObject.GetNamedString("url").ToUpper
+                                                                        EditMemo = True
                                                                         AddHandler Memo_Edit_Title.TextChanged, New TextChangedEventHandler(Function(textch As Object, te As TextChangedEventArgs)
-
-                                                                                                                                                MemoElem.GetObject.SetNamedValue("title", JsonValue.CreateStringValue(Memo_Edit_Title.Text))
-
+                                                                                                                                                If EditMemo = True Then
+                                                                                                                                                    MemoElem.GetObject.SetNamedValue("title", JsonValue.CreateStringValue(Memo_Edit_Title.Text))
+                                                                                                                                                End If
                                                                                                                                             End Function)
+
                                                                         AddHandler Memo_Edit_Text.TextChanged, New TextChangedEventHandler(Function(textch As Object, te As TextChangedEventArgs)
-
-                                                                                                                                               MemoElem.GetObject.SetNamedValue("Text", JsonValue.CreateStringValue(Memo_Edit_Text.Text))
-
+                                                                                                                                               If EditMemo = True Then
+                                                                                                                                                   MemoElem.GetObject.SetNamedValue("Text", JsonValue.CreateStringValue(Memo_Edit_Text.Text))
+                                                                                                                                               End If
                                                                                                                                            End Function)
                                                                     End Function)
 
@@ -1822,56 +1874,26 @@ Public NotInheritable Class MainPage
                                                                      End Try
                                                                  End Sub)
 
-
-
-
-            Dim elemTitle As TextBlock = New TextBlock
-            elemTitle.Text = MemoElem.GetObject.GetNamedString("title")
-            elemTitle.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 40, 40, 40))
-            elemContainer.Children.Add(elemTitle)
-
-
-            Dim UrlText As TextBlock = New TextBlock
-            UrlText.Text = MemoElem.GetObject.GetNamedString("url")
-            UrlText.Foreground = LeftMenu.Background
-            elemContainer.Children.Add(UrlText)
-
-            ' Dim elemText As TextBlock = New TextBlock
-            'elemText.Text = MemoElem.GetObject.GetNamedString("Text")
-            'elemText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 40, 40, 40))
-            'elemContainer.Children.Add(elemText)
-
             MemoList.Children.Add(elemContainer)
 
         Next
     End Function
-    Private Async Function AddToMemoList() As Task
-        Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Memos"))
-        Dim MemoElem As JsonObject = New JsonObject
-        MemoElem.Add("url", JsonValue.CreateStringValue(web.Source.Host.ToString))
-        MemoElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle.ToString))
-
-        Dim r As New Random
-        Dim rad1 = r.Next(0, 10000)
-        Dim rad2 = r.Next(100, 500)
-        Dim rad3 = r.Next(100000, 200000)
-        Dim rad4 = r.Next(4, 37)
-        Dim mult = (rad1 + rad2) * rad4
-        MemoElem.Add("ID", JsonValue.CreateStringValue(rad4 + rad1 * rad3))
-
-        MemoElem.Add("Text", JsonValue.CreateStringValue("Machin"))
-        root.Add(MemoElem)
-        WriteJsonFile(root, "Memos")
-    End Function
     Private Async Sub Memo_ShowAll_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_ShowAll.Tapped
         Memo_ShowAll.Visibility = Visibility.Collapsed
         MemoEdit.Visibility = Visibility.Collapsed
-        MemooList.Visibility = Visibility.Visible
+        MemListScroll.Visibility = Visibility.Visible
         Try
             Await ShowMemoList()
         Catch ex As Exception
-
         End Try
+    End Sub
+
+    Private Sub Memo_Edit_Text_GotFocus(sender As Object, e As RoutedEventArgs) Handles Memo_Edit_Text.GotFocus
+        Memo_Edit_Text.BorderThickness = New Thickness(2, 2, 2, 2)
+    End Sub
+
+    Private Sub Memo_Edit_Text_Loaded(sender As Object, e As RoutedEventArgs) Handles Memo_Edit_Text.LostFocus
+        Memo_Edit_Text.BorderThickness = New Thickness(0, 0, 0, 0)
     End Sub
 #End Region
 End Class
