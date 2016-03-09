@@ -1780,12 +1780,12 @@ Public NotInheritable Class MainPage
                                                                         Memo_Edit_Title.Text = MemoElem.GetObject.GetNamedString("title")
                                                                         AddHandler Memo_Edit_Title.TextChanged, New TextChangedEventHandler(Function(textch As Object, te As TextChangedEventArgs)
 
-                                                                                                                                                'MemoElem.GetObject.GetNamedString("title") = Memo_Edit_Title.Text
+                                                                                                                                                MemoElem.GetObject.SetNamedValue("title", JsonValue.CreateStringValue(Memo_Edit_Title.Text))
 
                                                                                                                                             End Function)
                                                                         AddHandler Memo_Edit_Text.TextChanged, New TextChangedEventHandler(Function(textch As Object, te As TextChangedEventArgs)
 
-                                                                                                                                               'MemoElem.GetObject.GetNamedString("Text") = Memo_Edit_Text.Text
+                                                                                                                                               MemoElem.GetObject.SetNamedValue("Text", JsonValue.CreateStringValue(Memo_Edit_Text.Text))
 
                                                                                                                                            End Function)
                                                                     End Function)
