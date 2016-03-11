@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Settings_About.Header" xml:space="preserve">
+    <value>À PROPOS</value>
+  </data>
+  <data name="Settings_AdvancedSettings.Header" xml:space="preserve">
+    <value>OPTIONS AVANCÉES</value>
+  </data>
+  <data name="Back.Text" xml:space="preserve">
+    <value>Retour</value>
+  </data>
+  <data name="Settings_browsingdata.Text" xml:space="preserve">
+    <value>Données de navigation</value>
+  </data>
+  <data name="Cancel.Content" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Settings_ChefProjet.Text" xml:space="preserve">
+    <value>Chef de projet</value>
+  </data>
+  <data name="Settings_clearhistorylist.Content" xml:space="preserve">
+    <value>Effacer l'historique</value>
+  </data>
+  <data name="Settings_ContextNotifs.Header" xml:space="preserve">
+    <value>Notifications contextuelles</value>
+  </data>
+  <data name="Settings_ContextNotifs.OffContent" xml:space="preserve">
+    <value>Désactivées</value>
+  </data>
+  <data name="Settings_ContextNotifs.OnContent" xml:space="preserve">
+    <value>Activées</value>
+  </data>
+  <data name="Settings_Dev.Text" xml:space="preserve">
+    <value>Développeur</value>
+  </data>
+  <data name="Settings_editpassword.Text" xml:space="preserve">
+    <value>Modifier le mot de passe</value>
+  </data>
+  <data name="Settings_enablelock.Header" xml:space="preserve">
+    <value>Verrouillage</value>
+  </data>
+  <data name="enabling.OffContent" xml:space="preserve">
+    <value>Désactivé</value>
+  </data>
+  <data name="enabling.OnContent" xml:space="preserve">
+    <value>Activé</value>
+  </data>
+  <data name="Settings_favconfirmwindow.Text" xml:space="preserve">
+    <value>Fenêtre de confirmation</value>
+  </data>
+  <data name="Settings_Favorites.Text" xml:space="preserve">
+    <value>Coups de cœur</value>
+  </data>
+  <data name="Settings_homepage.Text" xml:space="preserve">
+    <value>Page d'accueil</value>
+  </data>
+  <data name="Settings_Icons.Text" xml:space="preserve">
+    <value>Icônes :</value>
+  </data>
+  <data name="Settings_leftmenu.Text" xml:space="preserve">
+    <value>Menu latéral</value>
+  </data>
+  <data name="Settings_lock.Text" xml:space="preserve">
+    <value>Verrouillage</value>
+  </data>
+  <data name="Settings_lockedit.Content" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="Settings_locksettings.Text" xml:space="preserve">
+    <value>PARAMÈTRES DU VERROUILLAGE</value>
+  </data>
+  <data name="Settings_newpassplaceholder.PlaceholderText" xml:space="preserve">
+    <value>Nouveau mot de passe</value>
+  </data>
+  <data name="Settings_newpassword.Text" xml:space="preserve">
+    <value>Définir un mot de passe</value>
+  </data>
+  <data name="Settings_personalization.Header" xml:space="preserve">
+    <value>PERSONNALISATION</value>
+  </data>
+  <data name="Settings_resetpassword.Content" xml:space="preserve">
+    <value>Supprimer le mot de passe</value>
+  </data>
+  <data name="Save.Content" xml:space="preserve">
+    <value>Enregistrer</value>
+  </data>
+  <data name="Settings_searchengine.Text" xml:space="preserve">
+    <value>Moteur de recherche</value>
+  </data>
+  <data name="Settings_searchengineex1.PlaceholderText" xml:space="preserve">
+    <value>Exemple : "https://www.qwant.com/?q="</value>
+  </data>
+  <data name="Settings_searchengineex2.PlaceholderText" xml:space="preserve">
+    <value>Ex : "&amp;t=web"</value>
+  </data>
+  <data name="Settings_searchenginepers.Content" xml:space="preserve">
+    <value>&lt;Personnaliser&gt;</value>
+  </data>
+  <data name="Settings_SFAction.Text" xml:space="preserve">
+    <value>Menus d'actions</value>
+  </data>
+  <data name="Settings_showfavicon.Content" xml:space="preserve">
+    <value>Afficher la favicon des sites internet</value>
+  </data>
+  <data name="Settings_Stats.Text" xml:space="preserve">
+    <value>Statistiques</value>
+  </data>
+  <data name="Settings_Team.Text" xml:space="preserve">
+    <value>Équipe</value>
+  </data>
+  <data name="Settings_Team_Website.Text" xml:space="preserve">
+    <value>Création du site web</value>
+  </data>
+  <data name="Settings_Team_Website1.Text" xml:space="preserve">
+    <value>Premier site web</value>
+  </data>
+  <data name="Settings_themestate.Header" xml:space="preserve">
+    <value>Thème</value>
+  </data>
+  <data name="Settings_themecolor.OffContent" xml:space="preserve">
+    <value>Couleur automatique</value>
+  </data>
+  <data name="Settings_themecolor.OnContent" xml:space="preserve">
+    <value>Couleur personnalisée</value>
+  </data>
+  <data name="Settings_themestate.OffContent" xml:space="preserve">
+    <value>Clair</value>
+  </data>
+  <data name="Settings_themestate.OnContent" xml:space="preserve">
+    <value>Sombre</value>
+  </data>
+  <data name="Settings_usebluestart.Content" xml:space="preserve">
+    <value>Utiliser Bluestart</value>
+  </data>
+  <data name="YesSwitch.OffContent" xml:space="preserve">
+    <value>Non</value>
+  </data>
+  <data name="YesSwitch.OnContent" xml:space="preserve">
+    <value>Oui</value>
+  </data>
+  <data name="Settings_BluestartDownload.Text" xml:space="preserve">
+    <value>Prolongez votre expérience</value>
+  </data>
+  <data name="Settings_Contribute.Text" xml:space="preserve">
+    <value>Contribuer</value>
+  </data>
+  <data name="Settings_OpenSource.Text" xml:space="preserve">
+    <value>Licence Open Source</value>
+  </data>
+  <data name="Settings_Rate.Content" xml:space="preserve">
+    <value>Notez l'application</value>
+  </data>
+  <data name="Settings_Version.Text" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="Add.Content" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="AddToFavorites.Text" xml:space="preserve">
+    <value>AJOUTER CE SITE AUX COUPS DE CŒUR</value>
+  </data>
+  <data name="CopyURL.Text" xml:space="preserve">
+    <value>Copier l'URL dans le presse-papier</value>
+  </data>
+  <data name="DateList_1.Text" xml:space="preserve">
+    <value>Le </value>
+  </data>
+  <data name="DateList_2.Text" xml:space="preserve">
+    <value>à</value>
+  </data>
+  <data name="Delete.Text" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="FullScreenEsc.Text" xml:space="preserve">
+    <value>Appuyez sur la touche ECHAP pour quitter le mode plein écran</value>
+  </data>
+  <data name="HistorySortByUrl.Text" xml:space="preserve">
+    <value>Afficher toutes les visites sur</value>
+  </data>
+  <data name="LastSearch.Text" xml:space="preserve">
+    <value>Dernière recherche</value>
+  </data>
+  <data name="LastSearchMargin.Margin" xml:space="preserve">
+    <value>165,13,10,0</value>
+  </data>
+  <data name="Name.Text" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="NamePlaceholder.PlaceholderText" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="Notification_Homepage_Content.Text" xml:space="preserve">
+    <value>La page d'accueil définie est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre page d'accueil.</value>
+  </data>
+  <data name="Notification_Homepage_Header.Text" xml:space="preserve">
+    <value>Erreur page d'accueil</value>
+  </data>
+  <data name="Notification_Search_Content.Text" xml:space="preserve">
+    <value>Le moteur de recherche défini est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre moteur de recherche.</value>
+  </data>
+  <data name="Notification_Search_Header.Text" xml:space="preserve">
+    <value>Erreur moteur de recherche</value>
+  </data>
+  <data name="SearchHistory.PlaceholderText" xml:space="preserve">
+    <value>Rechercher dans l'historique</value>
+  </data>
+  <data name="SetAsMyHomepage.Text" xml:space="preserve">
+    <value>Définir comme page d'accueil</value>
+  </data>
+  <data name="Settings_LockEnabled.Header" xml:space="preserve">
+    <value>Verrouillage</value>
+  </data>
+  <data name="Settings_LockEnabled.OffContent" xml:space="preserve">
+    <value>Désactivé</value>
+  </data>
+  <data name="Settings_LockEnabled.OnContent" xml:space="preserve">
+    <value>Activé</value>
+  </data>
+  <data name="WebPageError.Text" xml:space="preserve">
+    <value>LA PAGE N'A PAS PU ÊTRE CHARGÉE</value>
+  </data>
+  <data name="WebPageError_1.Text" xml:space="preserve">
+    <value>Êtes-vous bien connecté à internet ?</value>
+  </data>
+  <data name="WebPageError_2.Text" xml:space="preserve">
+    <value>L'URL saisie est-elle valide ?</value>
+  </data>
+  <data name="WebPageError_3.Text" xml:space="preserve">
+    <value>Essayez de recharger la page</value>
+  </data>
+</root>

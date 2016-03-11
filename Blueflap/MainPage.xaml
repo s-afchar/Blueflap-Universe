@@ -926,7 +926,7 @@
                         </LinearGradientBrush>
                     </Rectangle.Fill>
                 </Rectangle>
-                <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="39,130,0,0" TextWrapping="Wrap" Text="LA PAGE N'A PAS PU ÊTRE CHARGÉE" VerticalAlignment="Top" Foreground="White" FontWeight="SemiBold" FontSize="32" Height="90" Width="309" RenderTransformOrigin="0.5,0.5">
+                <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="39,130,0,0" TextWrapping="Wrap" x:Uid="WebPageError" Text="LA PAGE N'A PAS PU ÊTRE CHARGÉE" VerticalAlignment="Top" Foreground="White" FontWeight="SemiBold" FontSize="32" Height="90" Width="309" RenderTransformOrigin="0.5,0.5">
                     <TextBlock.RenderTransform>
                         <CompositeTransform/>
                     </TextBlock.RenderTransform>
@@ -950,11 +950,11 @@
                     <TextBlock.RenderTransform>
                         <CompositeTransform/>
                     </TextBlock.RenderTransform>
-                	<Run Text="Êtes-vous bien connecté à internet ?"/>
+                	<Run x:Uid="WebPageError_1" Text="Êtes-vous bien connecté à internet ?"/>
                 	<LineBreak/>
-                	<Run Text="L'URL saisie est-elle valide ?"/>
+                	<Run x:Uid="WebPageError_2" Text="L'URL saisie est-elle valide ?"/>
                 	<LineBreak/>
-                	<Run Text="Essayez de recharger la page"/>
+                	<Run x:Uid="WebPageError_3" Text="Essayez de recharger la page"/>
                 </TextBlock>
             </Grid>
         </Grid>
@@ -1073,8 +1073,8 @@
             </Grid.Background>
             <Grid x:Name="SmartSuggest_LastOne" Height="46" VerticalAlignment="Top" Background="#00000000">
                 <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE81C;" Opacity="0.6"/>
-                <TextBlock HorizontalAlignment="Left" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Dernière recherche" Opacity="0.4"/>
-                <TextBlock x:Name="DerniereRecherche" Margin="165,13,10,0" TextWrapping="NoWrap" VerticalAlignment="Top" Text="-" FontSize="14" FontWeight="SemiBold" Height="23"/>
+                <TextBlock HorizontalAlignment="Left" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" x:Uid="LastSearch" Text="Dernière recherche" Opacity="0.4"/>
+                <TextBlock x:Name="DerniereRecherche" x:Uid="LastSearchMargin" Margin="165,13,10,0" TextWrapping="NoWrap" VerticalAlignment="Top" Text="-" FontSize="14" FontWeight="SemiBold" Height="23"/>
             </Grid>
             <Grid x:Name="SmartSuggest_Search" Height="46" VerticalAlignment="Top" Background="#00000000" Margin="0,46,0,0">
                 <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE1A3;" Opacity="0.6"/>
@@ -1213,28 +1213,28 @@
             </Pivot>
             <Grid x:Name="History_SearchBar" Height="45" Margin="0,0,0,40" VerticalAlignment="Bottom" Background="#E5FFFFFF" BorderThickness="0,1,0,0" BorderBrush="#FFB6B6B6" Visibility="Collapsed">
                 <TextBlock HorizontalAlignment="Right" Margin="0,0,14,16" TextWrapping="Wrap" Text="&#xE094;" VerticalAlignment="Bottom" FontFamily="Segoe MDL2 Assets"/>
-                <TextBox x:Name="SearchHistory" Margin="8,0,8,6" TextWrapping="NoWrap" Text="" VerticalAlignment="Bottom" BorderThickness="0,0,0,1" PlaceholderText="Rechercher dans l'historique" Height="27"/>
+                <TextBox x:Name="SearchHistory" Margin="8,0,8,6" TextWrapping="NoWrap" Text="" VerticalAlignment="Bottom" BorderThickness="0,0,0,1" x:Uid="SearchHistory" PlaceholderText="Rechercher dans l'historique" Height="27"/>
             </Grid>
             <Button x:Name="History_ShowSearchBar" Content="&#xE094;" HorizontalAlignment="Right" Margin="0,0,40,0" VerticalAlignment="Bottom" FontFamily="Segoe MDL2 Assets" Height="40" Width="40" Background="#00000000" BorderThickness="0,0,0,2"/>
         </Grid>
         <Grid x:Name="ExitFullScreen" HorizontalAlignment="Center" Height="77" Margin="0,44,0,0" VerticalAlignment="Top" Width="650" Background="#99000000" CornerRadius="3" Visibility="Collapsed">
-            <TextBlock Margin="0,24,0,0" TextWrapping="Wrap" Text="Appuyez sur la touche ECHAP pour quitter le mode plein écran" VerticalAlignment="Top" Foreground="White" Height="43" TextAlignment="Center" FontSize="18.667" Width="517" HorizontalAlignment="Center"/>
+            <TextBlock Margin="0,24,0,0" TextWrapping="Wrap" x:Uid="FullScreenEsc" Text="Appuyez sur la touche ECHAP pour quitter le mode plein écran" VerticalAlignment="Top" Foreground="White" Height="43" TextAlignment="Center" FontSize="18.667" Width="517" HorizontalAlignment="Center"/>
         </Grid>
         <Grid x:Name="AddFavView" Margin="48,66,0,0" Background="#33000000" Visibility="Collapsed">
             <Grid x:Name="AddFavPopup" HorizontalAlignment="Right" Height="259" Margin="0,20,20,0" VerticalAlignment="Top" Width="400" Background="White" CornerRadius="3" RenderTransformOrigin="0.5,0.5">
                 <Grid.RenderTransform>
                     <CompositeTransform/>
                 </Grid.RenderTransform>
-                <TextBlock HorizontalAlignment="Left" Margin="45,20,0,0" TextWrapping="Wrap" Text="AJOUTER CE SITE AUX FAVORIS" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FF4F4F4F"/>
+                <TextBlock HorizontalAlignment="Left" Margin="45,20,0,0" TextWrapping="Wrap" x:Uid="AddToFavorites" Text="AJOUTER CE SITE AUX FAVORIS" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FF4F4F4F"/>
                 <TextBlock HorizontalAlignment="Left" Margin="21,23,0,0" TextWrapping="Wrap" Text="&#xE006;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FFFF00A2"/>
-                <TextBox x:Name="Add_Fav_Title" Margin="21,90,22,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Nom" Width="357"/>
+                <TextBox x:Uid="NamePlaceholder" x:Name="Add_Fav_Title" Margin="21,90,22,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Nom" Width="357"/>
                 <Button Content="&#xE104;" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Background="#00000000" FontSize="10.667" Width="35" Tapped="Button_Tapped_2" Height="24" BorderThickness="2,0,0,0"/>
                 <TextBox x:Name="Add_Fav_Url" Margin="35,42,22,0" TextWrapping="NoWrap" Text="http://" VerticalAlignment="Top" BorderThickness="0" PlaceholderText="URL" IsReadOnly="True" Background="Transparent" Foreground="#FF9B9B9B" FontSize="13.333" Height="22"/>
                 <TextBox x:Name="Add_Fav_Tags" Margin="21,152,22,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Tag1, Tag2, Tag3, etc..." Width="357"/>
-                <TextBlock HorizontalAlignment="Left" Margin="21,72,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" FontSize="12"/>
+                <TextBlock  x:Uid="Name" HorizontalAlignment="Left" Margin="21,72,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" FontSize="12"/>
                 <TextBlock HorizontalAlignment="Left" Margin="21,134,0,0" TextWrapping="Wrap" Text="Tags" VerticalAlignment="Top" FontSize="12"/>
-                <Button x:Name="AddFav_Confirm" Content="Ajouter" HorizontalAlignment="Right" Margin="0,0,21,18" VerticalAlignment="Bottom" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="White" BorderBrush="#33000000" BorderThickness="1" Height="37" Width="92"/>
-                <Button x:Name="AddFav_Cancel" Content="Annuler" HorizontalAlignment="Right" Margin="0,0,118,18" VerticalAlignment="Bottom" Foreground="#FF4B4B4B" BorderBrush="#FF7C7C7C" BorderThickness="1" Height="37" Width="92">
+                <Button x:Uid="Add" x:Name="AddFav_Confirm" Content="Ajouter" HorizontalAlignment="Right" Margin="0,0,21,18" VerticalAlignment="Bottom" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="White" BorderBrush="#33000000" BorderThickness="1" Height="37" Width="92"/>
+                <Button x:Uid="Cancel" x:Name="AddFav_Cancel" Content="Annuler" HorizontalAlignment="Right" Margin="0,0,118,18" VerticalAlignment="Bottom" Foreground="#FF4B4B4B" BorderBrush="#FF7C7C7C" BorderThickness="1" Height="37" Width="92">
                     <Button.Background>
                         <SolidColorBrush Color="#000078D7"/>
                     </Button.Background>

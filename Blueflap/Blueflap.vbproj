@@ -8,7 +8,7 @@
     <OutputType>AppContainerExe</OutputType>
     <RootNamespace>Blueflap</RootNamespace>
     <AssemblyName>Blueflap</AssemblyName>
-    <DefaultLanguage>fr-FR</DefaultLanguage>
+    <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
@@ -109,6 +109,8 @@
     <None Include="Blueflap_StoreKey.pfx" />
     <None Include="Package.StoreAssociation.xml" />
     <None Include="project.json" />
+    <PRIResource Include="Strings\en-US\Resources.resw" />
+    <PRIResource Include="Strings\fr-FR\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.vb">
