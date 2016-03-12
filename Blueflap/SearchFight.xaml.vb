@@ -10,6 +10,7 @@ Public NotInheritable Class SearchFight
     Dim PositionNumber As String
     Dim PositionCurseur As String
     Dim MousePress As Boolean
+    Dim resourceLoader = New Resources.ResourceLoader()
 #Region "Page Loaded"
     Private Sub Page_Loaded_1(sender As Object, e As RoutedEventArgs) Handles Page.Loaded
         AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf MainPage_BackRequested
@@ -65,15 +66,15 @@ Public NotInheritable Class SearchFight
             v.TitleBar.ButtonForegroundColor = Windows.UI.Colors.DarkGray
             v.TitleBar.ButtonInactiveBackgroundColor = Windows.UI.Colors.WhiteSmoke
         End If
-        DragEllipse.Fill = rectangle.Fill
-
         Try
             If localSettings.Values("CustomColorEnabled") = True Then
                 button.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
+                DragEllipse.Fill = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
                 Fight_Butt.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
                 rectangle.Fill = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
             Else
                 button.Background = DefaultThemeColor.Background
+                DragEllipse.Fill = DefaultThemeColor.Background
                 Fight_Butt.Background = DefaultThemeColor.Background
                 rectangle.Fill = DefaultThemeColor.Background
             End If
@@ -566,8 +567,8 @@ Public NotInheritable Class SearchFight
         localSettings.Values("SearchEngineIndex") = FightBox1.SelectedIndex
         Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
         Dim toeastElement = notificationXml.GetElementsByTagName("text")
-        toeastElement(0).AppendChild(notificationXml.CreateTextNode("Moteur de recherche"))
-        toeastElement(1).AppendChild(notificationXml.CreateTextNode("Le moteur de recherche a été modifié"))
+        toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Header/Text")))
+        toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Content/Text")))
         Dim ToastNotification = New ToastNotification(notificationXml)
         ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
     End Sub
@@ -615,8 +616,8 @@ Public NotInheritable Class SearchFight
         localSettings.Values("SearchEngineIndex") = FightBox2.SelectedIndex
         Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
         Dim toeastElement = notificationXml.GetElementsByTagName("text")
-        toeastElement(0).AppendChild(notificationXml.CreateTextNode("Moteur de recherche"))
-        toeastElement(1).AppendChild(notificationXml.CreateTextNode("Le moteur de recherche a été modifié"))
+        toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Header/Text")))
+        toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Content/Text")))
         Dim ToastNotification = New ToastNotification(notificationXml)
         ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
     End Sub

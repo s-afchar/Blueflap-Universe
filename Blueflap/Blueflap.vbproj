@@ -110,7 +110,7 @@
     <None Include="Package.StoreAssociation.xml" />
     <None Include="project.json" />
     <PRIResource Include="Strings\en-US\Resources.resw" />
-    <PRIResource Include="Strings\fr-FR\Resources.resw" />
+    <PRIResource Include="Strings\fr-FuRh\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.vb">

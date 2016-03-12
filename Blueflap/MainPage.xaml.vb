@@ -586,7 +586,7 @@ Public NotInheritable Class MainPage
                 webcontainer.Margin = New Thickness(48, 66, 261, 0)
                 LeftPanelShadow.Visibility = Visibility.Collapsed
             End If
-            MemoAncrageToggle.IsOn = localSettings.Values("AncrageMemo")
+            MemoAncrageToggleButton.IsChecked = localSettings.Values("AncrageMemo")
         Catch
         End Try
         If RightMenuPivot.SelectedIndex = 0 Then
@@ -636,18 +636,19 @@ Public NotInheritable Class MainPage
         End If
         RightMenuPivot.SelectedIndex = 0
     End Sub
+    Private Sub MemoAncrageToggleButton_Checked(sender As Object, e As RoutedEventArgs) Handles MemoAncrageToggleButton.Checked
+        webcontainer.Margin = New Thickness(48, 66, 261, 0)
+        LeftPanelShadow.Visibility = Visibility.Collapsed
 
-    Private Sub MemoAncrageToggle_Toggled(sender As Object, e As RoutedEventArgs) Handles MemoAncrageToggle.Toggled
-        'L'utilisateur choisi d'ancrer ou non le volet des mémos
-        If MemoAncrageToggle.IsOn Then
-            webcontainer.Margin = New Thickness(48, 66, 261, 0)
-            LeftPanelShadow.Visibility = Visibility.Collapsed
-        Else
-            webcontainer.Margin = New Thickness(48, 66, 0, 0)
-            LeftPanelShadow.Visibility = Visibility.Visible
-        End If
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        localSettings.Values("AncrageMemo") = MemoAncrageToggle.IsOn
+        localSettings.Values("AncrageMemo") = True
+    End Sub
+
+    Private Sub MemoAncrageToggleButton_Unloaded(sender As Object, e As RoutedEventArgs) Handles MemoAncrageToggleButton.Unchecked
+        webcontainer.Margin = New Thickness(48, 66, 0, 0)
+        LeftPanelShadow.Visibility = Visibility.Visible
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("AncrageMemo") = False
     End Sub
 
     Private Sub Memo_ExpandButton_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_ExpandButton.Tapped
@@ -660,7 +661,7 @@ Public NotInheritable Class MainPage
             MemoPanel.Width = 261
             MemoPanel.Margin = New Thickness(0, 66, 0, 0)
             MemoPanel.HorizontalAlignment = HorizontalAlignment.Right
-            If MemoAncrageToggle.IsOn Then
+            If MemoAncrageToggleButton.IsChecked Then
                 LeftPanelShadow.Visibility = Visibility.Collapsed
             Else
                 LeftPanelShadow.Visibility = Visibility.Visible
@@ -748,14 +749,13 @@ Public NotInheritable Class MainPage
                         Notifications_Counter.Text = Notifications_Counter.Text - 1
                     End If
                     Try
-                        Notif_Home.Visibility = Visibility.Collapsed
-                        Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
                         OpenSearchNotif()
+                        Notif_Home.Visibility = Visibility.Collapsed
                     Catch
                     End Try
                 End If
 
-                If web.Source.ToString.Contains("twitter.com") Then
+                If web.Source.Host.ToString.Contains("twitter.com") Then
                     If Notif_Diminutweet.Visibility = Visibility.Collapsed Then
                         New_Notif.Begin()
                         Notifications_Counter.Text = Notifications_Counter.Text + 1
@@ -894,6 +894,7 @@ Public NotInheritable Class MainPage
 
                 Notif_Home.Visibility = Visibility.Collapsed
                 Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
+                Notification()
 
                 name = name.Replace("Ã©", "É")
                 Notif_SearchEngineName.Text = name
@@ -994,8 +995,8 @@ Public NotInheritable Class MainPage
 
         Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
         Dim toeastElement = notificationXml.GetElementsByTagName("text")
-        toeastElement(0).AppendChild(notificationXml.CreateTextNode("Moteur de recherche"))
-        toeastElement(1).AppendChild(notificationXml.CreateTextNode("Le moteur de recherche a été modifié"))
+        toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Header/Text")))
+        toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Content/Text")))
         Dim ToastNotification = New ToastNotification(notificationXml)
         ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
     End Sub
@@ -1718,7 +1719,7 @@ Public NotInheritable Class MainPage
                 elemContainer.Children.Add(UrlText)
 
                 Dim visitDate As TextBlock = New TextBlock
-                visitDate.Text = resourceLoader.GetString("DateList_1/Text") + DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString(" dd MMMMMMMMMMMM yyyy ") + resourceLoader.GetString("DateList_2/Text") + DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString(" HH:mm")
+                visitDate.Text = resourceLoader.GetString("DateList_1/Text") + DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString("dd MMMMMMMMMMMM yyyy ") + resourceLoader.GetString("DateList_2/Text") + DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString(" HH:mm")
                 visitDate.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 150, 150, 150))
                 elemContainer.Children.Add(visitDate)
 
@@ -1901,5 +1902,6 @@ Public NotInheritable Class MainPage
     Private Sub Memo_Edit_Text_Loaded(sender As Object, e As RoutedEventArgs) Handles Memo_Edit_Text.LostFocus
         Memo_Edit_Text.BorderThickness = New Thickness(0, 0, 0, 0)
     End Sub
+
 #End Region
 End Class

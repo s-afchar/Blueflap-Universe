@@ -345,4 +345,151 @@
   <data name="WebPageError_3.Text" xml:space="preserve">
     <value>Try to refresh this page</value>
   </data>
+  <data name="AutoSuggestion.Text" xml:space="preserve">
+    <value>Automatic suggestion</value>
+  </data>
+  <data name="Browser_Lock1.Text" xml:space="preserve">
+    <value>You can protect Blueflap with a password  that will be asked at launch</value>
+  </data>
+  <data name="Browser_Lock2.Text" xml:space="preserve">
+    <value>Do you want to enable lock ?</value>
+  </data>
+  <data name="Download.Content" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="FightTextbox.PlaceholderText" xml:space="preserve">
+    <value>Search the web</value>
+  </data>
+  <data name="Homepagenotif.Text" xml:space="preserve">
+    <value>Please check your homepage settings</value>
+  </data>
+  <data name="Ignore.Content" xml:space="preserve">
+    <value>Skip</value>
+  </data>
+  <data name="Lock_Date.Text" xml:space="preserve">
+    <value>LOCKED AT</value>
+  </data>
+  <data name="Lock_Password.PlaceholderText" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Lock_Title.Text" xml:space="preserve">
+    <value>BLUEFLAP HAS BEEN LOCKED</value>
+  </data>
+  <data name="MiniPlayerInfo.Text" xml:space="preserve">
+    <value>MiniPlayer mode available for this video</value>
+  </data>
+  <data name="More.Content" xml:space="preserve">
+    <value>More...</value>
+  </data>
+  <data name="Next.Content" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="NoNotif.Text" xml:space="preserve">
+    <value>Nothing new here...</value>
+  </data>
+  <data name="Notification_SearchEngineSet_Content.Text" xml:space="preserve">
+    <value>A new search engine has been set</value>
+  </data>
+  <data name="Notification_SearchEngineSet_Header.Text" xml:space="preserve">
+    <value>Search Engine</value>
+  </data>
+  <data name="OpenInBF.Text" xml:space="preserve">
+    <value>OPEN IN BLUEFLAP</value>
+  </data>
+  <data name="OpenMiniPlayer.Content" xml:space="preserve">
+    <value>Open MiniPlayer</value>
+  </data>
+  <data name="SearchEngineLike.Text" xml:space="preserve">
+    <value>'Want to use it ?</value>
+  </data>
+  <data name="SearchEngineNotif.Text" xml:space="preserve">
+    <value>Please check your search engine settings</value>
+  </data>
+  <data name="SetSearchEngine.Text" xml:space="preserve">
+    <value>SET AS MY SEARCH ENGINE</value>
+  </data>
+  <data name="SetSearchEngineButton.Content" xml:space="preserve">
+    <value>Set as my search engine</value>
+  </data>
+  <data name="Settings.Content" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="TeamSuggestion.Text" xml:space="preserve">
+    <value>Highlight</value>
+  </data>
+  <data name="UseDuckDuckGo.Content" xml:space="preserve">
+    <value>Use DuckDuckGo</value>
+  </data>
+  <data name="UseGoogle.Content" xml:space="preserve">
+    <value>Use Google</value>
+  </data>
+  <data name="UseQwant.Content" xml:space="preserve">
+    <value>Use Qwant</value>
+  </data>
+  <data name="Welcome.Text" xml:space="preserve">
+    <value>WELCOME</value>
+  </data>
+  <data name="Welcome_Anim1.Value" xml:space="preserve">
+    <value>WE ARE READY</value>
+  </data>
+  <data name="Welcome_Anim2.Value" xml:space="preserve">
+    <value>WELCOME</value>
+  </data>
+  <data name="Welcome_Beta.Text" xml:space="preserve">
+    <value>BLUEFLAP IS STILL IN BETA</value>
+  </data>
+  <data name="Welcome_Beta1.Text" xml:space="preserve">
+    <value>We haven't finished yet but we were dying to show you this all new version of Blueflap.</value>
+  </data>
+  <data name="Welcome_Beta2.Text" xml:space="preserve">
+    <value>That's why if something doesn't work it's not a problem... Well... It's not a problem yet...</value>
+  </data>
+  <data name="Welcome_Beta3.Text" xml:space="preserve">
+    <value>To report an issue send a tweet to @BlueflapBrowser with the hashtag #Blueflap5Beta</value>
+  </data>
+  <data name="Welcome_Beta4.Text" xml:space="preserve">
+    <value>That's why it would be great if you didn't rate us badly (Windows Store) during this beta.</value>
+  </data>
+  <data name="Welcome_Bluestart1.Text" xml:space="preserve">
+    <value>Discover Bluestart, your personal and customizable homepage. Bluestart gives you a quick access to Blueflap's exclusive features.</value>
+  </data>
+  <data name="Welcome_Bluestart2.Text" xml:space="preserve">
+    <value>Of course you will be able to search the web with the search engine you want !</value>
+  </data>
+  <data name="Welcome_HomepageConfig.Text" xml:space="preserve">
+    <value>HOMEPAGE CONFIGURATION</value>
+  </data>
+  <data name="Welcome_Lock.Text" xml:space="preserve">
+    <value>BROWSER LOCK</value>
+  </data>
+  <data name="Welcome_Password1.PlaceholderText" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Welcome_Password2.PlaceholderText" xml:space="preserve">
+    <value>Password verification</value>
+  </data>
+  <data name="Welcome_searchengine.Text" xml:space="preserve">
+    <value>SEARCH ENGINE</value>
+  </data>
+  <data name="Welcome_SearchEngine1.Text" xml:space="preserve">
+    <value>You can use the search engine you want on Blueflap. To find out which fits you the best we created "SearchFight" the first search engine comparator.</value>
+  </data>
+  <data name="Welcome_SearchEngine2.Text" xml:space="preserve">
+    <value>Our recommandation is to use Qwant which doesn't collect your personal data.</value>
+  </data>
+  <data name="Welcome_SetLock.Content" xml:space="preserve">
+    <value>Of course !</value>
+  </data>
+  <data name="Welcome_Start.Content" xml:space="preserve">
+    <value>Let's start !</value>
+  </data>
+  <data name="Welcome_Text_1.Text" xml:space="preserve">
+    <value>Welcome to Blueflap, the web browser that looks like you.</value>
+  </data>
+  <data name="Welcome_Text_2.Text" xml:space="preserve">
+    <value>So... What is a browser that looks like you ? It's a browser made for you and ONLY for you. So, you will be able to protect Blueflap with a password. There is also a lot of customization settings to make it behave and look as you want.</value>
+  </data>
+  <data name="Welcome_Text_3.Text" xml:space="preserve">
+    <value>Oh... By the way... We aren't interested by your personnal data !</value>
+  </data>
 </root>

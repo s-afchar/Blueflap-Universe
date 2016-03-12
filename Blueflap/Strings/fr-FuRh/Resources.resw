@@ -345,4 +345,151 @@
   <data name="WebPageError_3.Text" xml:space="preserve">
     <value>Essayez de recharger la page</value>
   </data>
+  <data name="FightTextbox.PlaceholderText" xml:space="preserve">
+    <value>Entrez votre recherche ici</value>
+  </data>
+  <data name="AutoSuggestion.Text" xml:space="preserve">
+    <value>Suggestion automatique</value>
+  </data>
+  <data name="Download.Content" xml:space="preserve">
+    <value>Télécharger</value>
+  </data>
+  <data name="Homepagenotif.Text" xml:space="preserve">
+    <value>La page d'accueil définie est invalide.</value>
+  </data>
+  <data name="Ignore.Content" xml:space="preserve">
+    <value>Ignorer</value>
+  </data>
+  <data name="Lock_Date.Text" xml:space="preserve">
+    <value>VERROUILLÉ À</value>
+  </data>
+  <data name="Lock_Password.PlaceholderText" xml:space="preserve">
+    <value>Entrer le mot de passe</value>
+  </data>
+  <data name="Lock_Title.Text" xml:space="preserve">
+    <value>BLUEFLAP EST VERROUILLÉ</value>
+  </data>
+  <data name="MiniPlayerInfo.Text" xml:space="preserve">
+    <value>Vous pouvez afficher cette vidéo dans MiniPlayer</value>
+  </data>
+  <data name="More.Content" xml:space="preserve">
+    <value>Autre...</value>
+  </data>
+  <data name="Next.Content" xml:space="preserve">
+    <value>Suivant</value>
+  </data>
+  <data name="NoNotif.Text" xml:space="preserve">
+    <value>Aucun message système</value>
+  </data>
+  <data name="Notification_SearchEngineSet_Content.Text" xml:space="preserve">
+    <value>Le moteur de recherche a été modifié</value>
+  </data>
+  <data name="Notification_SearchEngineSet_Header.Text" xml:space="preserve">
+    <value>Moteur de recherche</value>
+  </data>
+  <data name="OpenInBF.Text" xml:space="preserve">
+    <value>OUVRIR DANS BLUEFLAP</value>
+  </data>
+  <data name="OpenMiniPlayer.Content" xml:space="preserve">
+    <value>Ouvrir MiniPlayer</value>
+  </data>
+  <data name="SearchEngineLike.Text" xml:space="preserve">
+    <value>Ce moteur vous plaît ?</value>
+  </data>
+  <data name="SearchEngineNotif.Text" xml:space="preserve">
+    <value>Le moteur de recherche défini est invalide.</value>
+  </data>
+  <data name="SetSearchEngine.Text" xml:space="preserve">
+    <value>UTILISER COMME MOTEUR DE RECHERCHE</value>
+  </data>
+  <data name="SetSearchEngineButton.Content" xml:space="preserve">
+    <value>Définir comme moteur de recherche</value>
+  </data>
+  <data name="Settings.Content" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="TeamSuggestion.Text" xml:space="preserve">
+    <value>Suggestion de l'équipe</value>
+  </data>
+  <data name="UseDuckDuckGo.Content" xml:space="preserve">
+    <value>Utiliser DuckDuckGo</value>
+  </data>
+  <data name="UseGoogle.Content" xml:space="preserve">
+    <value>Utiliser Google</value>
+  </data>
+  <data name="UseQwant.Content" xml:space="preserve">
+    <value>Utiliser Qwant</value>
+  </data>
+  <data name="Welcome.Text" xml:space="preserve">
+    <value>BIENVENUE</value>
+  </data>
+  <data name="Welcome_Anim1.Value" xml:space="preserve">
+    <value>TOUT EST PRET</value>
+  </data>
+  <data name="Welcome_Anim2.Value" xml:space="preserve">
+    <value>BIENVENUE</value>
+  </data>
+  <data name="Welcome_Beta.Text" xml:space="preserve">
+    <value>EN TRAVAUX</value>
+  </data>
+  <data name="Welcome_Beta1.Text" xml:space="preserve">
+    <value>Nous  n'avons pas encore tout terminé mais nous étions impatients de vous montrer ce nouveau Blueflap.</value>
+  </data>
+  <data name="Welcome_Beta2.Text" xml:space="preserve">
+    <value>Par conséquent, si certaines choses ne fonctionnent pas... c'est normal... ou presque...</value>
+  </data>
+  <data name="Welcome_Beta3.Text" xml:space="preserve">
+    <value>Pour nous rapporter les problèmes, tweetez à @BlueflapBrowser avec le hashtag #Blueflap5Beta</value>
+  </data>
+  <data name="Welcome_Beta4.Text" xml:space="preserve">
+    <value>Merci de ne pas attribuer de mauvais commentaires sur le Windows Store durant cette phase Beta.</value>
+  </data>
+  <data name="Welcome_Bluestart1.Text" xml:space="preserve">
+    <value>Découvrez Bluestart, votre page d'accueil personnelle et personnalisable. Bluestart est complètement intégré à Blueflap et vous permettra d'accéder rapidement à toutes les fonctionnalités.</value>
+  </data>
+  <data name="Welcome_Bluestart2.Text" xml:space="preserve">
+    <value>Bien évidemment, Bluestart vous permettra de lancer des recherches internet grâce à n'importe quel moteur de recherche.</value>
+  </data>
+  <data name="Welcome_HomepageConfig.Text" xml:space="preserve">
+    <value>CONFIGURATION DE LA PAGE D'ACCUEIL</value>
+  </data>
+  <data name="Welcome_Lock.Text" xml:space="preserve">
+    <value>VERROUILLAGE DU NAVIGATEUR</value>
+  </data>
+  <data name="Welcome_Lock1.Text" xml:space="preserve">
+    <value>Blueflap peut être protégé par un mot de passe qui sera demandé à chaque ouverture.</value>
+  </data>
+  <data name="Welcome_Lock2.Text" xml:space="preserve">
+    <value>Voulez vous activer le verrouillage ?</value>
+  </data>
+  <data name="Welcome_Password1.PlaceholderText" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="Welcome_Password2.PlaceholderText" xml:space="preserve">
+    <value>Vérification du mot de passe</value>
+  </data>
+  <data name="Welcome_searchengine.Text" xml:space="preserve">
+    <value>MOTEUR DE RECHERCHE</value>
+  </data>
+  <data name="Welcome_SearchEngine1.Text" xml:space="preserve">
+    <value>Tous les moteurs de recherche sont compatibles avec Blueflap. De plus, nous avons créé SearchFight, un comparateur de moteurs de recherche qui vous permettra de déterminer quel moteur de recherche répond le mieux à vos besoins.</value>
+  </data>
+  <data name="Welcome_SearchEngine2.Text" xml:space="preserve">
+    <value>Nous vous conseillons d'utiliser Qwant, un moteur de recherche français qui ne collecte pas vos données personnelles.</value>
+  </data>
+  <data name="Welcome_SetLock.Content" xml:space="preserve">
+    <value>Configurer le verrouillage</value>
+  </data>
+  <data name="Welcome_Start.Content" xml:space="preserve">
+    <value>C'est parti !</value>
+  </data>
+  <data name="Welcome_Text_1.Text" xml:space="preserve">
+    <value>Bienvenue sur Blueflap, le navigateur qui vous ressemble.</value>
+  </data>
+  <data name="Welcome_Text_2.Text" xml:space="preserve">
+    <value>Un navigateur qui vous ressemble, c'est un navigateur qui vous est destiné, et à vous uniquement. Vous pourrez donc protéger Blueflap par un mot de passe, vous pourrez le personnaliser mais aussi décider des futures fonctionnalités.</value>
+  </data>
+  <data name="Welcome_Text_3.Text" xml:space="preserve">
+    <value>Nous cherchons donc à être le plus proche de vous possible, mais pas trop quand même : vos données personnelles ne nous intéressent pas !</value>
+  </data>
 </root>
