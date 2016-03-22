@@ -21,8 +21,8 @@
                 </DiscreteObjectKeyFrame>
             </ObjectAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Wallpaper">
-                <EasingDoubleKeyFrame KeyTime="0" Value="32"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0">
+                <EasingDoubleKeyFrame KeyTime="0" Value="66"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <QuinticEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
@@ -35,34 +35,6 @@
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="image">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0.8">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <QuinticEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <QuinticEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="image">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0.8">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <QuinticEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <QuinticEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Fight_Button">
                 <EasingDoubleKeyFrame KeyTime="0" Value="-67"/>
@@ -88,122 +60,34 @@
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="grid">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0.7"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <QuinticEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="grid">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0.7"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="image1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-24"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <QuinticEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="scrollViewer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="300"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut" Amplitude="0.2"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:Name="Textboxclick">
-            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid">
-                <EasingColorKeyFrame KeyTime="0" Value="#B2FFFFFF"/>
-                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="White">
-                    <EasingColorKeyFrame.EasingFunction>
-                        <QuinticEase EasingMode="EaseOut"/>
-                    </EasingColorKeyFrame.EasingFunction>
-                </EasingColorKeyFrame>
-            </ColorAnimationUsingKeyFrames>
-            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="grid">
-                <EasingColorKeyFrame KeyTime="0" Value="#7F000000"/>
-                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF3498DB">
-                    <EasingColorKeyFrame.EasingFunction>
-                        <QuinticEase EasingMode="EaseOut"/>
-                    </EasingColorKeyFrame.EasingFunction>
-                </EasingColorKeyFrame>
-            </ColorAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Name="Textboxleave">
-            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid">
-                <EasingColorKeyFrame KeyTime="0" Value="White">
-                    <EasingColorKeyFrame.EasingFunction>
-                        <QuinticEase EasingMode="EaseOut"/>
-                    </EasingColorKeyFrame.EasingFunction>
-                </EasingColorKeyFrame>
-                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#B2FFFFFF"/>
-            </ColorAnimationUsingKeyFrames>
-            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="grid">
-                <EasingColorKeyFrame KeyTime="0" Value="#FF3498DB">
-                    <EasingColorKeyFrame.EasingFunction>
-                        <QuinticEase EasingMode="EaseOut"/>
-                    </EasingColorKeyFrame.EasingFunction>
-                </EasingColorKeyFrame>
-                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#7F000000"/>
-            </ColorAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Name="LoopSuggestions" RepeatBehavior="Forever">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:10.1" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:10.3" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:10.5" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:11.6" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:11.8" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:12" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:12.9" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:13.1" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:13.3" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:14.2" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:14.4" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:14.6" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:15.5" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:15.7" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:15.9" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:16.7" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:16.9" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:17.1" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:18.1" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:18.3" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:18.5" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:19.4" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:19.6" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:19.8" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:20.8" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:21.3" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)" Storyboard.TargetName="textBlock">
-                <DiscreteObjectKeyFrame KeyTime="0:0:10.1" Value="Entrez votre recherche ici"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:10.3" Value="Ex: Recette des cookies"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:10.5" Value="Ex: Recette des cookies"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:11.6" Value="Ex: Recette des cookies"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:11.8" Value="Ex: Word Online"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:12" Value="Ex: Word Online"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:12.9" Value="Ex: Word Online"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:13.1" Value="Ex: YouTube"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:13.3" Value="Ex: YouTube"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:14.2" Value="Ex: YouTube"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:14.4" Value="Ex: Jeux Olympiques"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:14.6" Value="Ex: Jeux Olympiques"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:15.5" Value="Ex: Jeux Olympiques"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:15.7" Value="Ex: Albi Wikipedia"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:15.9" Value="Ex: Albi Wikipedia"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:16.7" Value="Ex: Albi Wikipedia"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:16.9" Value="Ex: Parov Stelar Deezer"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:17.1" Value="Ex: Parov Stelar Deezer"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:18.1" Value="Ex: Parov Stelar Deezer"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:18.3" Value="Ex: Qwant"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:18.5" Value="Ex: Qwant"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:19.4" Value="Ex: Qwant"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:19.6" Value="Ex: Blueflap"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:19.8" Value="Ex: Blueflap"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:20.8" Value="Ex: Blueflap"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
+        <Storyboard x:Name="Textboxclick"/>
+        <Storyboard x:Name="Textboxleave"/>
+        <Storyboard x:Name="LoopSuggestions" RepeatBehavior="Forever"/>
         <Storyboard x:Name="DownloadingWallpaper" RepeatBehavior="Forever">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="textBlock1">
                 <EasingDoubleKeyFrame KeyTime="0" Value="-18"/>
@@ -233,48 +117,7 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:Name="OpenPersonnalize">
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid1">
-                <DiscreteObjectKeyFrame KeyTime="0">
-                    <DiscreteObjectKeyFrame.Value>
-                        <Visibility>Visible</Visibility>
-                    </DiscreteObjectKeyFrame.Value>
-                </DiscreteObjectKeyFrame>
-            </ObjectAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="rectangle">
-                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <QuinticEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="rectangle">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <QuinticEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="rectangle">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <QuinticEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="grid1">
-                <EasingDoubleKeyFrame KeyTime="0" Value="47"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="47"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="294">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <QuinticEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+        <Storyboard x:Name="OpenPersonnalize"/>
         <Storyboard x:Name="OpenMemo">
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid3">
                 <DiscreteObjectKeyFrame KeyTime="0">
@@ -317,10 +160,13 @@
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Name="SearchLessOpacity">
+            <ColorAnimation Duration="0:0:0.1" To="#A5000000" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="SearchGrid" d:IsOptimized="True"/>
+        </Storyboard>
 
     </Page.Resources>
 
-    <Grid Background="#FF595959">
+    <Grid x:Name="Grid" Background="#FF595959">
 
         <Grid x:Name="Loader" HorizontalAlignment="Left" Height="47" Margin="21,55,0,0" VerticalAlignment="Top" Width="314" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
@@ -347,11 +193,6 @@
                 <CompositeTransform/>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="image" HorizontalAlignment="Center" Height="150" Margin="0,80,0,0" VerticalAlignment="Top" Width="150" Source="Assets/Square150x150Logo.png" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <CompositeTransform/>
-            </Image.RenderTransform>
-        </Image>
         <Rectangle x:Name="rectangle1" HorizontalAlignment="Left" Margin="0,32,0,0" Width="166" Opacity="0.6">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -364,20 +205,37 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="rectangle2" HorizontalAlignment="Right" Height="32" Margin="0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="503">
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="90"/>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="#FF1B1B1B" Offset="0.397"/>
-                    <GradientStop Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle x:Name="rectangle3" Fill="#661B1B1B" Height="32" Stroke="Black" VerticalAlignment="Top" StrokeThickness="0"/>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="26" Margin="8,3,0,0" VerticalAlignment="Top" Width="30" Source="Assets/Square150x150Logo.png"/>
-        <TextBlock x:Name="Titlebar" HorizontalAlignment="Left" Margin="38,6,0,0" TextWrapping="Wrap" Text="Date" VerticalAlignment="Top" Foreground="White" FontSize="13.333" FontWeight="SemiLight"/>
+        <ScrollViewer x:Name="scrollViewer" Margin="0,66,0,0" VerticalScrollBarVisibility="Auto" RenderTransformOrigin="0.5,0.5">
+            <ScrollViewer.RenderTransform>
+                <CompositeTransform/>
+            </ScrollViewer.RenderTransform>
+            <StackPanel x:Name="Container">
+                <Grid x:Name="SearchGrid" Height="550" VerticalAlignment="Top" Background="#19000000">
+                    <Rectangle x:Name="AdressBack" Fill="White" Height="75" VerticalAlignment="Top" HorizontalAlignment="Center" Width="519" Margin="0,67,0,0" StrokeThickness="2" RadiusY="3" RadiusX="3" Visibility="Collapsed"/>
+                    <TextBlock HorizontalAlignment="Center" Margin="426,94,0,0" TextWrapping="Wrap" Text="&#xE11A;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="24" Foreground="#D7FFFFFF"/>
+                    <TextBox x:Uid="FightTextbox" x:Name="RechercheBox" HorizontalAlignment="Center" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Height="58" Width="487" BorderThickness="0,0,0,2" FontSize="32" TextAlignment="Left" Margin="0,78,0,0" Background="#00000000" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" PreventKeyboardDisplayOnProgrammaticFocus="True" TextReadingOrder="UseFlowDirection" RequestedTheme="Dark" PlaceholderText="Entrez votre recherche" BorderBrush="White" Foreground="White"/>
+                    <ScrollViewer x:Name="Suggestions" Margin="0,142,0,0" HorizontalAlignment="Center" Width="518" VerticalAlignment="Top" Height="392" VerticalScrollBarVisibility="Auto" Foreground="#A5F7F7F7">
+                        <StackPanel x:Name="SmartSuggest_History" Margin="0"/>
+                    </ScrollViewer>
+                </Grid>
+                <Grid Height="287" VerticalAlignment="Top" Background="#CCFFFFFF" Visibility="Collapsed"/>
+                <Grid x:Name="FavoriteGrid" Height="148" VerticalAlignment="Top" Background="#CCFFFFFF">
+                    <TextBlock HorizontalAlignment="Center" Margin="0,21,0,0" TextWrapping="Wrap" Text="&#xE00B;" VerticalAlignment="Top" Foreground="#FFD40091" FontFamily="Segoe MDL2 Assets"/>
+                    <TextBlock x:Name="Fav_Name" HorizontalAlignment="Center" Margin="0,67,0,0" TextWrapping="Wrap" Text="SITE NAME" VerticalAlignment="Top" Foreground="#FF3A3A3A" FontSize="21.333" FontWeight="Bold" CharacterSpacing="-33"/>
+                    <TextBlock x:Name="Fav_Url" HorizontalAlignment="Center" Margin="0,92,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Foreground="#A93A3A3A" FontSize="18.667"/>
+                    <Rectangle Fill="#4F000000" HorizontalAlignment="Center" Height="1" Margin="0,50,0,0" RadiusY="0.5" RadiusX="0.5" StrokeThickness="2" VerticalAlignment="Top" Width="203"/>
+                </Grid>
+                <Grid VerticalAlignment="Top" Background="#3E000000">
+                    <StackPanel x:Name="Rssfeedcontainer" Margin="0"/>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+        <Rectangle x:Name="rectangle3" Fill="#FF1B1B1B" Height="66.4" Stroke="Black" VerticalAlignment="Top" StrokeThickness="0"/>
+        <Image x:Name="image1" HorizontalAlignment="Center" Height="55" Margin="0,4,0,0" VerticalAlignment="Top" Width="55" Source="Assets/Square150x150Logo.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <CompositeTransform/>
+            </Image.RenderTransform>
+        </Image>
         <Grid x:Name="grid3" HorizontalAlignment="Left" Margin="0,211,0,0" Width="294" Height="256" VerticalAlignment="Top" Visibility="Collapsed">
             <Rectangle HorizontalAlignment="Left" Margin="48,0,0,0" Width="246" Fill="#56000000" Opacity="0.507"/>
             <Rectangle x:Name="rectangle4" HorizontalAlignment="Left" Margin="0,33,0,0" Width="48" Fill="Black" Opacity="0.507" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
@@ -387,74 +245,7 @@
             </Rectangle>
             <TextBox x:Name="memotext" HorizontalAlignment="Left" Margin="48,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RequestedTheme="Dark" BorderThickness="0,1" Height="256" Width="246" PlaceholderText="Memo" AcceptsReturn="True"/>
         </Grid>
-        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="0,32,0,0" Width="294" Height="256" VerticalAlignment="Top">
-            <Rectangle HorizontalAlignment="Left" Margin="48,0,0,0" Width="246" Fill="Black" Opacity="0.507"/>
-            <Rectangle x:Name="rectangle" HorizontalAlignment="Left" Margin="0,33,0,0" Width="48" Fill="Black" Opacity="0.507" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
-                <Rectangle.RenderTransform>
-                    <CompositeTransform/>
-                </Rectangle.RenderTransform>
-            </Rectangle>
-            <TextBox x:Name="OnlineImagePath" HorizontalAlignment="Left" Margin="71,205,0,0" Text="" VerticalAlignment="Top" Width="203" RequestedTheme="Dark" BorderThickness="1" Height="22" PlaceholderText="URL de l'image de fond" TextAlignment="Left" TextWrapping="NoWrap" Visibility="Collapsed"/>
-            <TextBlock HorizontalAlignment="Left" Margin="149,170,0,0" TextWrapping="Wrap" Text="&#xE753;" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe MDL2 Assets"/>
-            <Button Content="" HorizontalAlignment="Left" Margin="71,49,0,0" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper1">
-                <Button.Background>
-                    <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Degrade.png"/>
-                </Button.Background>
-            </Button>
-            <Button Content="" HorizontalAlignment="Left" Margin="123,49,0,0" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper2">
-                <Button.Background>
-                    <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Degrade2.png"/>
-                </Button.Background>
-            </Button>
-            <Button Content="" HorizontalAlignment="Left" Margin="175,49,0,0" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper3">
-                <Button.Background>
-                    <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Ciel.JPG"/>
-                </Button.Background>
-            </Button>
-            <Button Content="" HorizontalAlignment="Left" Margin="227,49,0,0" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper4">
-                <Button.Background>
-                    <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Fleurs.jpg"/>
-                </Button.Background>
-            </Button>
-            <Button Content="" HorizontalAlignment="Left" Margin="71,101,0,0" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper5">
-                <Button.Background>
-                    <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Montagne.jpg"/>
-                </Button.Background>
-            </Button>
-            <Button Content="" HorizontalAlignment="Left" Margin="123,101,0,0" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper6">
-                <Button.Background>
-                    <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Neige.jpg"/>
-                </Button.Background>
-            </Button>
-            <Button Content="" HorizontalAlignment="Left" Margin="175,101,0,0" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper7">
-                <Button.Background>
-                    <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Plage.jpg"/>
-                </Button.Background>
-            </Button>
-            <Button Content="" HorizontalAlignment="Left" Margin="227,101,0,0" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper8">
-                <Button.Background>
-                    <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Soleil.JPG"/>
-                </Button.Background>
-            </Button>
-            <Button Content="" HorizontalAlignment="Left" Margin="71,153,0,0" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper9">
-                <Button.Background>
-                    <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Cailloux.jpg"/>
-                </Button.Background>
-            </Button>
-            <Button Content="       Image en ligne" HorizontalAlignment="Left" Margin="123,153,0,0" VerticalAlignment="Top" Height="47" Width="151" Foreground="#DDFFFFFF" Background="#4C000000" BorderBrush="#64000000" BorderThickness="1" FontSize="12" RequestedTheme="Dark" Tapped="SetCustomWallpaper"/>
-            <TextBlock HorizontalAlignment="Left" Margin="71,23,0,0" TextWrapping="Wrap" Text="Image de fond" VerticalAlignment="Top" RequestedTheme="Dark" FontSize="12"/>
-        </Grid>
-        <Grid x:Name="grid" HorizontalAlignment="Center" Height="82" Margin="0,266,0,0" VerticalAlignment="Top" Width="450" Background="#B2FFFFFF" BorderBrush="#7F000000" BorderThickness="6" CornerRadius="38" RenderTransformOrigin="0.5,0.5">
-            <Grid.RenderTransform>
-                <CompositeTransform/>
-            </Grid.RenderTransform>
-            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="34,14,0,-11" TextWrapping="Wrap" Text="Entrez votre recherche ici" VerticalAlignment="Top" FontSize="29.333" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" Opacity="0.3"/>
-
-            <TextBox x:Name="RechercheBox" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="" VerticalAlignment="Center" Height="49" Width="361" BorderThickness="0" FontSize="29.333" TextAlignment="Left" Margin="18,0,0,0" Background="#00000000" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" PreventKeyboardDisplayOnProgrammaticFocus="True" TextReadingOrder="UseFlowDirection"/>
-            <TextBlock HorizontalAlignment="Left" Margin="393,26,0,0" TextWrapping="Wrap" Text="&#xE11A;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="21.333"/>
-            <Ellipse x:Name="HoverRecherche" Fill="#00000000" HorizontalAlignment="Right" Height="55" Margin="0,0,6,0" VerticalAlignment="Center" Width="55"/>
-        </Grid>
-        <Button Content="&#xE0D5; &#xE12B;" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" RequestedTheme="Dark" Height="32" FontFamily="Segoe MDL2 Assets" Tapped="Button_Tapped"/>
+        <Button Content="&#xE0D5; &#xE12B;" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" RequestedTheme="Dark" Height="66" FontFamily="Segoe MDL2 Assets" Tapped="Button_Tapped" Width="64"/>
         <Button x:Name="Fight_Button" Content="&#xE923;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="0,156,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets" Width="47">
             <Button.RenderTransform>
                 <CompositeTransform/>
@@ -470,7 +261,7 @@
                 <CompositeTransform/>
             </Button.RenderTransform>
         </Button>
-        <Button x:Name="Personnalisation_Button" Content="&#xE2B1;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="#FF00C5FF" Margin="0,65,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Width="47">
+        <Button x:Name="Personnalisation_Button" Content="&#xE2B1;" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="0,0,0,3" BorderBrush="#FF00C5FF" Margin="0,22,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Width="47">
             <Button.RenderTransform>
                 <CompositeTransform/>
             </Button.RenderTransform>

@@ -20,6 +20,7 @@ Public NotInheritable Class MainPage
     Dim OpenSearch_A1 As String
     Dim OpenSearch_A2 As String
     Dim resourceLoader = New Resources.ResourceLoader()
+    Dim favs_tagsearch As Boolean
 
 #Region "HardwareBackButton"
     Public Sub New()
@@ -203,6 +204,7 @@ Public NotInheritable Class MainPage
         End If
 
         History_SearchMode = False
+        favs_tagsearch = False
 
         'Animation d'ouverture de Blueflap
         EnterAnim.Begin()
@@ -928,6 +930,8 @@ Public NotInheritable Class MainPage
             Memo_ExpandButton.Visibility = Visibility.Visible
             History_SearchBar.Visibility = Visibility.Collapsed
             History_ShowSearchBar.Visibility = Visibility.Collapsed
+            sorttag.Visibility = Visibility.Collapsed
+            favs_tagsearch = False
             Try
                 ShowFavorites()
             Catch ex As Exception
@@ -1004,6 +1008,8 @@ Public NotInheritable Class MainPage
 #Region "Favorites"
     Private Async Function ShowFavorites() As Task
         FavList.Children.Clear()
+        TagsContainer.Children.Clear()
+        Dim PreventMultipleSameItems As New HashSet(Of String)()
 
         For Each favsElem In JsonArray.Parse(Await ReadJsonFile("Favorites")).Reverse
 
@@ -1079,14 +1085,68 @@ Public NotInheritable Class MainPage
 
             For Each favTag As JsonValue In favsElem.GetObject.GetNamedArray("tags")
                 TagsText.Text += "#" + favTag.GetString + " "
+
+                If Not PreventMultipleSameItems.Contains("#" + favTag.GetString) Then
+                    Dim taglabel As Grid = New Grid
+                    taglabel.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(30, 150, 150, 150))
+                    taglabel.CornerRadius = New CornerRadius(15)
+                    taglabel.Margin = New Thickness(3, 3, 0, 0)
+                    Dim taglabeltext As TextBlock = New TextBlock
+                    taglabeltext.Text = "#" + favTag.GetString
+                    taglabeltext.Margin = New Thickness(7, 6, 7, 4)
+                    taglabel.Children.Add(taglabeltext)
+                    taglabel.Height = 32
+                    taglabel.Width = Double.NaN
+                    AddHandler taglabel.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                    taglabel.Background = LeftMenu.Background
+                                                                                    taglabeltext.Foreground = New SolidColorBrush(Windows.UI.Colors.White)
+                                                                                End Function)
+
+                    AddHandler taglabel.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                   taglabel.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(30, 150, 150, 150))
+                                                                                   taglabeltext.Foreground = New SolidColorBrush(Windows.UI.Colors.Black)
+                                                                               End Function)
+
+                    AddHandler taglabel.Tapped, New TappedEventHandler(Async Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                           TagFilter.Text = taglabeltext.Text
+                                                                           favs_tagsearch = True
+                                                                           sorttag.Visibility = Visibility.Visible
+                                                                           Await ShowFavorites()
+                                                                       End Function)
+
+                    TagsContainer.Children.Add(taglabel)
+                End If
+                PreventMultipleSameItems.Add("#" + favTag.GetString)
             Next
+
+
             TagsText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 150, 150, 150))
             elemContainer.Children.Add(TagsText)
 
-            FavList.Children.Add(elemContainer)
 
+            If favs_tagsearch = True Then
+                Dim tagsfilter As String = TagFilter.Text.ToLower.Replace("#", "")
+                If favsElem.GetObject.GetNamedArray("tags").ToString.ToLower.Contains(tagsfilter) Then
+                    FavList.Children.Add(elemContainer)
+                End If
+            Else
+                FavList.Children.Add(elemContainer)
+            End If
         Next
+        favs_tagsearch = False
     End Function
+    Private Async Sub sorttag_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles sorttag.Tapped
+        sorttag.Visibility = Visibility.Collapsed
+        favs_tagsearch = False
+        Await ShowFavorites()
+    End Sub
+    Private Sub sorttag_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles sorttag.PointerEntered
+        sorttag.BorderThickness = New Thickness(2, 2, 2, 2)
+    End Sub
+
+    Private Sub sorttag_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles sorttag.PointerExited
+        sorttag.BorderThickness = New Thickness(0, 1, 0, 1)
+    End Sub
 
     Private Async Function AddToFavList() As Task
         Dim CurrentTitle As String = web.DocumentTitle
@@ -1902,6 +1962,5 @@ Public NotInheritable Class MainPage
     Private Sub Memo_Edit_Text_Loaded(sender As Object, e As RoutedEventArgs) Handles Memo_Edit_Text.LostFocus
         Memo_Edit_Text.BorderThickness = New Thickness(0, 0, 0, 0)
     End Sub
-
 #End Region
 End Class

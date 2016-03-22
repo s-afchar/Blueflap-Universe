@@ -118,378 +118,384 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Settings_About.Header" xml:space="preserve">
-    <value>À PROPOS</value>
+    <value>NÉVJEGY</value>
   </data>
   <data name="Settings_AdvancedSettings.Header" xml:space="preserve">
-    <value>OPTIONS AVANCÉES</value>
+    <value>HALADÓ BEÁLLÍTÁSOK</value>
   </data>
   <data name="Back.Text" xml:space="preserve">
-    <value>Retour</value>
+    <value>Vissza</value>
   </data>
   <data name="Settings_browsingdata.Text" xml:space="preserve">
-    <value>Données de navigation</value>
+    <value>Böngészési adatok</value>
   </data>
   <data name="Cancel.Content" xml:space="preserve">
-    <value>Annuler</value>
+    <value>Mégse</value>
   </data>
   <data name="Settings_ChefProjet.Text" xml:space="preserve">
-    <value>Chef de projet</value>
+    <value>Projektvezető</value>
   </data>
   <data name="Settings_clearhistorylist.Content" xml:space="preserve">
-    <value>Effacer l'historique</value>
+    <value>Előzmények törlése</value>
   </data>
   <data name="Settings_ContextNotifs.Header" xml:space="preserve">
-    <value>Notifications contextuelles</value>
+    <value>Kontextuális értesítések</value>
   </data>
   <data name="Settings_ContextNotifs.OffContent" xml:space="preserve">
-    <value>Désactivées</value>
+    <value>Letiltva</value>
   </data>
   <data name="Settings_ContextNotifs.OnContent" xml:space="preserve">
-    <value>Activées</value>
+    <value>Engedélyezve</value>
   </data>
   <data name="Settings_Dev.Text" xml:space="preserve">
-    <value>Développeur</value>
+    <value>Fejlesztő</value>
   </data>
   <data name="Settings_editpassword.Text" xml:space="preserve">
-    <value>Modifier le mot de passe</value>
+    <value>Változtass jelszót</value>
   </data>
   <data name="Settings_enablelock.Header" xml:space="preserve">
-    <value>Verrouillage</value>
+    <value>Jelszavas védelem</value>
   </data>
   <data name="enabling.OffContent" xml:space="preserve">
-    <value>Désactivé</value>
+    <value>Letiltva</value>
   </data>
   <data name="enabling.OnContent" xml:space="preserve">
-    <value>Activé</value>
+    <value>Engedélyezve</value>
   </data>
   <data name="Settings_favconfirmwindow.Text" xml:space="preserve">
-    <value>Fenêtre de confirmation</value>
+    <value>Megerősítés előugró ablaka</value>
   </data>
   <data name="Settings_Favorites.Text" xml:space="preserve">
-    <value>Coups de cœur</value>
+    <value>Kedvencek</value>
   </data>
   <data name="Settings_homepage.Text" xml:space="preserve">
-    <value>Page d'accueil</value>
+    <value>Kezdőlap</value>
   </data>
   <data name="Settings_Icons.Text" xml:space="preserve">
-    <value>Icônes :</value>
+    <value>Ikonok :</value>
   </data>
   <data name="Settings_leftmenu.Text" xml:space="preserve">
-    <value>Menu latéral</value>
+    <value>Odalsáv</value>
   </data>
   <data name="Settings_lock.Text" xml:space="preserve">
-    <value>Verrouillage</value>
+    <value>Jelszavas védelem</value>
   </data>
   <data name="Settings_lockedit.Content" xml:space="preserve">
-    <value>Modifier</value>
+    <value>Szerkesztés</value>
   </data>
   <data name="Settings_locksettings.Text" xml:space="preserve">
-    <value>PARAMÈTRES DU VERROUILLAGE</value>
+    <value>JELSZAVAS VÉDELEM BEÁLLÍTÁSAI</value>
   </data>
   <data name="Settings_newpassplaceholder.PlaceholderText" xml:space="preserve">
-    <value>Nouveau mot de passe</value>
+    <value>Új jelszó</value>
   </data>
   <data name="Settings_newpassword.Text" xml:space="preserve">
-    <value>Définir un mot de passe</value>
+    <value>Jelszó beállítása</value>
   </data>
   <data name="Settings_personalization.Header" xml:space="preserve">
-    <value>PERSONNALISATION</value>
+    <value>SZEMÉLYRESZABÁS</value>
   </data>
   <data name="Settings_resetpassword.Content" xml:space="preserve">
-    <value>Supprimer le mot de passe</value>
+    <value>Jelszó visszaállítása</value>
   </data>
   <data name="Save.Content" xml:space="preserve">
-    <value>Enregistrer</value>
+    <value>Mentés</value>
   </data>
   <data name="Settings_searchengine.Text" xml:space="preserve">
-    <value>Moteur de recherche</value>
+    <value>Keresőmotor</value>
   </data>
   <data name="Settings_searchengineex1.PlaceholderText" xml:space="preserve">
-    <value>Exemple : "https://www.qwant.com/?q="</value>
+    <value>Péda: "https://www.qwant.com/?q="</value>
   </data>
   <data name="Settings_searchengineex2.PlaceholderText" xml:space="preserve">
     <value>Ex : "&amp;t=web"</value>
   </data>
   <data name="Settings_searchenginepers.Content" xml:space="preserve">
-    <value>&lt;Personnaliser&gt;</value>
+    <value>&lt;Egyéni&gt;</value>
   </data>
   <data name="Settings_SFAction.Text" xml:space="preserve">
-    <value>Menus d'actions</value>
+    <value>Múveletmenü</value>
   </data>
   <data name="Settings_showfavicon.Content" xml:space="preserve">
-    <value>Afficher la favicon des sites internet</value>
+    <value>Mutasd a weboldal ikonját</value>
   </data>
   <data name="Settings_Stats.Text" xml:space="preserve">
-    <value>Statistiques</value>
+    <value>Statisztikák</value>
   </data>
   <data name="Settings_Team.Text" xml:space="preserve">
-    <value>Équipe</value>
+    <value>Csapat</value>
   </data>
   <data name="Settings_Team_Website.Text" xml:space="preserve">
-    <value>Création du site web</value>
+    <value>Weboldal építés</value>
   </data>
   <data name="Settings_Team_Website1.Text" xml:space="preserve">
-    <value>Premier site web</value>
+    <value>Első weboldal</value>
   </data>
   <data name="Settings_themestate.Header" xml:space="preserve">
-    <value>Thème</value>
+    <value>Téma</value>
   </data>
   <data name="Settings_themecolor.OffContent" xml:space="preserve">
-    <value>Couleur automatique</value>
+    <value>Automatikus szín</value>
   </data>
   <data name="Settings_themecolor.OnContent" xml:space="preserve">
-    <value>Couleur personnalisée</value>
+    <value>Egyéni szín</value>
   </data>
   <data name="Settings_themestate.OffContent" xml:space="preserve">
-    <value>Clair</value>
+    <value>Világos</value>
   </data>
   <data name="Settings_themestate.OnContent" xml:space="preserve">
-    <value>Sombre</value>
+    <value>Sötét</value>
   </data>
   <data name="Settings_usebluestart.Content" xml:space="preserve">
-    <value>Utiliser Bluestart</value>
+    <value>Használd a Bluestartot</value>
   </data>
   <data name="YesSwitch.OffContent" xml:space="preserve">
-    <value>Non</value>
+    <value>Nem</value>
   </data>
   <data name="YesSwitch.OnContent" xml:space="preserve">
-    <value>Oui</value>
+    <value>Igen</value>
   </data>
   <data name="Settings_BluestartDownload.Text" xml:space="preserve">
-    <value>Prolongez votre expérience</value>
+    <value>Blueflap a telefonodon</value>
   </data>
   <data name="Settings_Contribute.Text" xml:space="preserve">
-    <value>Contribuer</value>
+    <value>Hozzájárulás</value>
   </data>
   <data name="Settings_OpenSource.Text" xml:space="preserve">
-    <value>Licence Open Source</value>
+    <value>Nyílt forráskódú licensz</value>
   </data>
   <data name="Settings_Rate.Content" xml:space="preserve">
-    <value>Notez l'application</value>
+    <value>Értékeld az alkalmazást</value>
   </data>
   <data name="Settings_Version.Text" xml:space="preserve">
-    <value>Version</value>
+    <value>Verzió</value>
   </data>
   <data name="Add.Content" xml:space="preserve">
-    <value>Ajouter</value>
+    <value>Hozzáadás</value>
   </data>
   <data name="AddToFavorites.Text" xml:space="preserve">
-    <value>AJOUTER CE SITE AUX COUPS DE CŒUR</value>
+    <value>HOZZÁADÁS A KEDVENCEKHEZ</value>
   </data>
   <data name="CopyURL.Text" xml:space="preserve">
-    <value>Copier l'URL dans le presse-papier</value>
+    <value>Webcím másolása</value>
   </data>
   <data name="DateList_1.Text" xml:space="preserve">
-    <value>Le </value>
+    <value />
   </data>
   <data name="DateList_2.Text" xml:space="preserve">
-    <value>à</value>
+    <value>kor</value>
   </data>
   <data name="Delete.Text" xml:space="preserve">
-    <value>Supprimer</value>
+    <value>Törlés</value>
   </data>
   <data name="FullScreenEsc.Text" xml:space="preserve">
-    <value>Appuyez sur la touche ECHAP pour quitter le mode plein écran</value>
+    <value>ESC megnyomásával kiéphetsz a teljes képernyős módból</value>
   </data>
   <data name="HistorySortByUrl.Text" xml:space="preserve">
-    <value>Afficher toutes les visites sur</value>
+    <value>Mutasd az ehhez az oldalhoz tartozó böngészési előzményeimet:</value>
   </data>
   <data name="LastSearch.Text" xml:space="preserve">
-    <value>Dernière recherche</value>
+    <value>Utolsó keresés</value>
   </data>
   <data name="LastSearchMargin.Margin" xml:space="preserve">
     <value>165,13,10,0</value>
   </data>
   <data name="Name.Text" xml:space="preserve">
-    <value>Nom</value>
+    <value>Név</value>
   </data>
   <data name="NamePlaceholder.PlaceholderText" xml:space="preserve">
-    <value>Nom</value>
+    <value>Név</value>
   </data>
   <data name="Notification_Homepage_Content.Text" xml:space="preserve">
-    <value>La page d'accueil définie est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre page d'accueil.</value>
+    <value>Ellenőrizd a kezdőappal kapcsolatos beálításaidat</value>
   </data>
   <data name="Notification_Homepage_Header.Text" xml:space="preserve">
-    <value>Erreur page d'accueil</value>
+    <value>Kezdőlap hiba</value>
   </data>
   <data name="Notification_Search_Content.Text" xml:space="preserve">
-    <value>Le moteur de recherche défini est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre moteur de recherche.</value>
+    <value>Ellenőrizd a keresőmotorral kapcsolatos beállításaidat</value>
   </data>
   <data name="Notification_Search_Header.Text" xml:space="preserve">
-    <value>Erreur moteur de recherche</value>
+    <value>Koresómotor hiba</value>
   </data>
   <data name="SearchHistory.PlaceholderText" xml:space="preserve">
-    <value>Rechercher dans l'historique</value>
+    <value>Keresés az előzményekben</value>
   </data>
   <data name="SetAsMyHomepage.Text" xml:space="preserve">
-    <value>Définir comme page d'accueil</value>
+    <value>Beállítás kezdőlapként</value>
   </data>
   <data name="Settings_LockEnabled.Header" xml:space="preserve">
-    <value>Verrouillage</value>
+    <value>Jelszavas védelem</value>
   </data>
   <data name="Settings_LockEnabled.OffContent" xml:space="preserve">
-    <value>Désactivé</value>
+    <value>Letiltva</value>
   </data>
   <data name="Settings_LockEnabled.OnContent" xml:space="preserve">
-    <value>Activé</value>
+    <value>Engedélyezve</value>
   </data>
   <data name="WebPageError.Text" xml:space="preserve">
-    <value>LA PAGE N'A PAS PU ÊTRE CHARGÉE</value>
+    <value>VALAMI NEM JÓ</value>
   </data>
   <data name="WebPageError_1.Text" xml:space="preserve">
-    <value>Êtes-vous bien connecté à internet ?</value>
+    <value>Ellenőrizd az internetkapcsolatodat</value>
   </data>
   <data name="WebPageError_2.Text" xml:space="preserve">
-    <value>L'URL saisie est-elle valide ?</value>
+    <value>Nézd meg, hogy nem írtad-e be hibásan az oldal címét</value>
   </data>
   <data name="WebPageError_3.Text" xml:space="preserve">
-    <value>Essayez de recharger la page</value>
-  </data>
-  <data name="FightTextbox.PlaceholderText" xml:space="preserve">
-    <value>Entrez votre recherche ici</value>
+    <value>Próbáld frissíteni az oldalt</value>
   </data>
   <data name="AutoSuggestion.Text" xml:space="preserve">
-    <value>Suggestion automatique</value>
+    <value>Automatikus kiegészítése javaslatok</value>
+  </data>
+  <data name="Browser_Lock1.Text" xml:space="preserve">
+    <value>Böngészőnket jelszóval védheted, amit utána minden indításkor megkérdez.</value>
+  </data>
+  <data name="Browser_Lock2.Text" xml:space="preserve">
+    <value>Szeretnéd bekapcsoni a jelszavas védelmet?</value>
   </data>
   <data name="Download.Content" xml:space="preserve">
-    <value>Télécharger</value>
+    <value>Download</value>
+  </data>
+  <data name="FightTextbox.PlaceholderText" xml:space="preserve">
+    <value>Keresés a neten</value>
   </data>
   <data name="Homepagenotif.Text" xml:space="preserve">
-    <value>La page d'accueil définie est invalide.</value>
+    <value>Ellenőrizd a kezdőappal kapcsolatos beálításaidat</value>
   </data>
   <data name="Ignore.Content" xml:space="preserve">
-    <value>Ignorer</value>
+    <value>Kihagyás</value>
   </data>
   <data name="Lock_Date.Text" xml:space="preserve">
-    <value>VERROUILLÉ À</value>
+    <value>EKKOR LETT LEZÁRVA</value>
   </data>
   <data name="Lock_Password.PlaceholderText" xml:space="preserve">
-    <value>Entrer le mot de passe</value>
+    <value>Jelszó</value>
   </data>
   <data name="Lock_Title.Text" xml:space="preserve">
-    <value>BLUEFLAP EST VERROUILLÉ</value>
+    <value>A BLUEFLAP LE VAN ZÁRVA</value>
   </data>
   <data name="MiniPlayerInfo.Text" xml:space="preserve">
-    <value>Vous pouvez afficher cette vidéo dans MiniPlayer</value>
+    <value>MiniPlayer mód elérhető ehhez a videóhoz</value>
   </data>
   <data name="More.Content" xml:space="preserve">
-    <value>Autre...</value>
+    <value>Több...</value>
   </data>
   <data name="Next.Content" xml:space="preserve">
-    <value>Suivant</value>
+    <value>Következő</value>
   </data>
   <data name="NoNotif.Text" xml:space="preserve">
-    <value>Aucun message système</value>
+    <value>Nincs semmi új...</value>
   </data>
   <data name="Notification_SearchEngineSet_Content.Text" xml:space="preserve">
-    <value>Le moteur de recherche a été modifié</value>
+    <value>Új keresőmotor lett beállítva</value>
   </data>
   <data name="Notification_SearchEngineSet_Header.Text" xml:space="preserve">
-    <value>Moteur de recherche</value>
+    <value>Keresőmotor</value>
   </data>
   <data name="OpenInBF.Text" xml:space="preserve">
-    <value>OUVRIR DANS BLUEFLAP</value>
+    <value>MEGNYITÁS A BLUEFLAPBEN</value>
   </data>
   <data name="OpenMiniPlayer.Content" xml:space="preserve">
-    <value>Ouvrir MiniPlayer</value>
+    <value>MiniPlayer megnyitása</value>
   </data>
   <data name="SearchEngineLike.Text" xml:space="preserve">
-    <value>Ce moteur vous plaît ?</value>
+    <value>Szeretnéd hasznáni?</value>
   </data>
   <data name="SearchEngineNotif.Text" xml:space="preserve">
-    <value>Le moteur de recherche défini est invalide.</value>
+    <value>Please check your search engine settings</value>
   </data>
   <data name="SetSearchEngine.Text" xml:space="preserve">
-    <value>UTILISER COMME MOTEUR DE RECHERCHE</value>
+    <value>BEÁLLÍRÁS AKTÍV KERESŐMOTORKÉNT</value>
   </data>
   <data name="SetSearchEngineButton.Content" xml:space="preserve">
-    <value>Définir comme moteur de recherche</value>
+    <value>Keresőmotor beálítása</value>
   </data>
   <data name="Settings.Content" xml:space="preserve">
-    <value>Paramètres</value>
+    <value>Beállítások</value>
   </data>
   <data name="TeamSuggestion.Text" xml:space="preserve">
-    <value>Suggestion de l'équipe</value>
+    <value>Kiemelés</value>
   </data>
   <data name="UseDuckDuckGo.Content" xml:space="preserve">
-    <value>Utiliser DuckDuckGo</value>
+    <value>A DuckDuckGo használata</value>
   </data>
   <data name="UseGoogle.Content" xml:space="preserve">
-    <value>Utiliser Google</value>
+    <value>A Google használata</value>
   </data>
   <data name="UseQwant.Content" xml:space="preserve">
-    <value>Utiliser Qwant</value>
+    <value>A Qwant használata</value>
   </data>
   <data name="Welcome.Text" xml:space="preserve">
-    <value>BIENVENUE</value>
+    <value>ÜDVÖZLET</value>
   </data>
   <data name="Welcome_Anim1.Value" xml:space="preserve">
-    <value>TOUT EST PRET</value>
+    <value>KÉSZEN IS VOLNÁNK</value>
   </data>
   <data name="Welcome_Anim2.Value" xml:space="preserve">
-    <value>BIENVENUE</value>
+    <value>ÜDVÖZLET</value>
   </data>
   <data name="Welcome_Beta.Text" xml:space="preserve">
-    <value>EN TRAVAUX</value>
+    <value>A BLUEFLAP EGYELŐRE MÉG MINDIG EGY BÉTA!</value>
   </data>
   <data name="Welcome_Beta1.Text" xml:space="preserve">
-    <value>Nous  n'avons pas encore tout terminé mais nous étions impatients de vous montrer ce nouveau Blueflap.</value>
+    <value>Még nem végeztünk a fejlesztésével, viszont nagyon szerettük volna megmutatni neked ezt a vadonatúj verziót.</value>
   </data>
   <data name="Welcome_Beta2.Text" xml:space="preserve">
-    <value>Par conséquent, si certaines choses ne fonctionnent pas... c'est normal... ou presque...</value>
+    <value>Ezért ha valami nem működik, az nem baj. Vagyis... Még nem baj...</value>
   </data>
   <data name="Welcome_Beta3.Text" xml:space="preserve">
-    <value>Pour nous rapporter les problèmes, tweetez à @BlueflapBrowser avec le hashtag #Blueflap5Beta</value>
+    <value>Ha szeretnél bejelenteni egy hibát, akkor tweetelj nekünk: @BlueflapBrowser, #Blueflap5Beta</value>
   </data>
   <data name="Welcome_Beta4.Text" xml:space="preserve">
-    <value>Merci de ne pas attribuer de mauvais commentaires sur le Windows Store durant cette phase Beta.</value>
+    <value>És ezért lenne jó, hogyha nem értékelnél minket rosszul az Áruházban.</value>
   </data>
   <data name="Welcome_Bluestart1.Text" xml:space="preserve">
-    <value>Découvrez Bluestart, votre page d'accueil personnelle et personnalisable. Bluestart est complètement intégré à Blueflap et vous permettra d'accéder rapidement à toutes les fonctionnalités.</value>
+    <value>Fedezd fel a Bluestartot, a saját, személyes és testreszabható kezdőlapodat, ami gyors hozzáférést biztosít neked a Blueflap exkluzív funkcióihoz.</value>
   </data>
   <data name="Welcome_Bluestart2.Text" xml:space="preserve">
-    <value>Bien évidemment, Bluestart vous permettra de lancer des recherches internet grâce à n'importe quel moteur de recherche.</value>
+    <value>Természetesen olyan keresőmotort használhatsz, amit csak szeretnél!</value>
   </data>
   <data name="Welcome_HomepageConfig.Text" xml:space="preserve">
-    <value>CONFIGURATION DE LA PAGE D'ACCUEIL</value>
+    <value>KEZDŐLAP BEÁLLÍTÁSAI</value>
   </data>
   <data name="Welcome_Lock.Text" xml:space="preserve">
-    <value>VERROUILLAGE DU NAVIGATEUR</value>
-  </data>
-  <data name="Welcome_Lock1.Text" xml:space="preserve">
-    <value>Blueflap peut être protégé par un mot de passe qui sera demandé à chaque ouverture.</value>
-  </data>
-  <data name="Welcome_Lock2.Text" xml:space="preserve">
-    <value>Voulez vous activer le verrouillage ?</value>
+    <value>JELSZAVAS VÉDELEM</value>
   </data>
   <data name="Welcome_Password1.PlaceholderText" xml:space="preserve">
-    <value>Mot de passe</value>
+    <value>Jelszó</value>
   </data>
   <data name="Welcome_Password2.PlaceholderText" xml:space="preserve">
-    <value>Vérification du mot de passe</value>
+    <value>Jelszó megerősítése</value>
   </data>
   <data name="Welcome_searchengine.Text" xml:space="preserve">
-    <value>MOTEUR DE RECHERCHE</value>
+    <value>KERESŐMOTOR</value>
   </data>
   <data name="Welcome_SearchEngine1.Text" xml:space="preserve">
-    <value>Tous les moteurs de recherche sont compatibles avec Blueflap. De plus, nous avons créé SearchFight, un comparateur de moteurs de recherche qui vous permettra de déterminer quel moteur de recherche répond le mieux à vos besoins.</value>
+    <value>Bármilyen keresőmotorral használhatod a Blueflapet. Hogy rájöjj, hogy melyik illik hozzád a legjobban, megalkottuk a "SearchFight"-ot, amivel összehasoníthatod azok eredményeit.</value>
   </data>
   <data name="Welcome_SearchEngine2.Text" xml:space="preserve">
-    <value>Nous vous conseillons d'utiliser Qwant, un moteur de recherche français qui ne collecte pas vos données personnelles.</value>
+    <value>A Qwantot ajánljuk egyébként, mert nem gyűjti a személyes adataidat.</value>
   </data>
   <data name="Welcome_SetLock.Content" xml:space="preserve">
-    <value>Configurer le verrouillage</value>
+    <value>Persze!</value>
   </data>
   <data name="Welcome_Start.Content" xml:space="preserve">
-    <value>C'est parti !</value>
+    <value>Kezdjük el!</value>
   </data>
   <data name="Welcome_Text_1.Text" xml:space="preserve">
-    <value>Bienvenue sur Blueflap, le navigateur qui vous ressemble.</value>
+    <value>Üdvözöl a Blueflap, a böngésző, ami úgy béz ki, mint te</value>
   </data>
   <data name="Welcome_Text_2.Text" xml:space="preserve">
-    <value>Un navigateur qui vous ressemble, c'est un navigateur qui vous est destiné, et à vous uniquement. Vous pourrez donc protéger Blueflap par un mot de passe, vous pourrez le personnaliser mais aussi décider des futures fonctionnalités.</value>
+    <value>Most nyilván azt kérdezed, hogy hogy nézhet ki egy böngésző úgy, mint te. A titok az, hogy egyedül csak neked fejlesztettük. Akár jelszóval is levédheted a Blueflapet, valamint a sok testreszabási beállításnak köszönhetően úgy nézhet ki és viselkedhet, ahogy csak akarod.</value>
   </data>
   <data name="Welcome_Text_3.Text" xml:space="preserve">
-    <value>Nous cherchons donc à être le plus proche de vous possible, mais pas trop quand même : vos données personnelles ne nous intéressent pas !</value>
+    <value>Ja, és igen. Egyébként minket nem érdekelnek a személyes adataid!</value>
+  </data>
+  <data name="AdBlock.Header" xml:space="preserve">
+    <value>Reklámblokkoló</value>
+  </data>
+  <data name="Translate.Content" xml:space="preserve">
+    <value>Fordítás</value>
   </data>
 </root>

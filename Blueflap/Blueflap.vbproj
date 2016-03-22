@@ -109,8 +109,9 @@
     <None Include="Blueflap_StoreKey.pfx" />
     <None Include="Package.StoreAssociation.xml" />
     <None Include="project.json" />
-    <PRIResource Include="Strings\en-US\Resources.resw" />
-    <PRIResource Include="Strings\fr-FR\Resources.resw" />
+    <PRIResource Include="Strings\hu-HU\Resources.resw" />
+    <PRIResource Include="Strings\en\Resources.resw" />
+    <PRIResource Include="Strings\fr\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.vb">
@@ -118,6 +119,9 @@
     </Compile>
     <Compile Include="Bluestart.xaml.vb">
       <DependentUpon>Bluestart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Customization.xaml.vb">
+      <DependentUpon>Customization.xaml</DependentUpon>
     </Compile>
     <Compile Include="FirstBootScreen.xaml.vb">
       <DependentUpon>FirstBootScreen.xaml</DependentUpon>
@@ -170,6 +174,7 @@
     <Content Include="Assets\shadow.png" />
     <Content Include="Assets\Soleil.JPG" />
     <Content Include="Assets\surfacebook.png" />
+    <Content Include="Assets\translator1.jpg" />
     <Content Include="Assets\WelcomeBackground.png" />
     <Content Include="Assets\welcome_code.png" />
     <Content Include="Assets\welcome_homepage.png" />
@@ -205,6 +210,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Bluestart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Customization.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

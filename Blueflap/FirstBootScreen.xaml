@@ -818,8 +818,8 @@
                     <Grid.RenderTransform>
                         <CompositeTransform/>
                     </Grid.RenderTransform>
-                    <TextBlock x:Uid="Browser_Lock1" HorizontalAlignment="Center" Margin="252,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18.667" Width="597" Foreground="Black" >
-                    	<Run Text="Blueflap peut être protégé par un mot de passe qui sera demandé à chaque ouverture."/>
+                    <TextBlock HorizontalAlignment="Center" Margin="252,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18.667" Width="597" Foreground="Black" >
+                    	<Run  x:Uid="Browser_Lock1" Text="Blueflap peut être protégé par un mot de passe qui sera demandé à chaque ouverture."/>
                     	<LineBreak/>
                     	<Run/>
                     	<LineBreak/>

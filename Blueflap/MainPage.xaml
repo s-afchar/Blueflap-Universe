@@ -999,7 +999,7 @@
                 </Image.RenderTransform>
             </Image>
             <Grid x:Name="DefaultThemeColor" HorizontalAlignment="Left" Height="10" Margin="268,207,-229,0" VerticalAlignment="Top" Width="9" Background="{ThemeResource ContentDialogBorderThemeBrush}" Visibility="Collapsed"/>
-            <Button x:Name="Paramètres_Button" Content="&#xE713;" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="#01000000" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,0,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Height="47">
+            <Button x:Name="Paramètres_Button" Content="&#xE713;" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="#01000000" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,0,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Height="47" ToolTipService.ToolTip="Settings">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Button.RenderTransform>
@@ -1014,53 +1014,53 @@
                     <CompositeTransform ScaleX="-1"/>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <Ellipse x:Name="Notifications_indicator" Fill="#26000000" HorizontalAlignment="Left" Height="27" Margin="11,0,0,49" VerticalAlignment="Bottom" Width="27" Stroke="White" StrokeThickness="0"/>
+            <Ellipse x:Name="Notifications_indicator" Fill="#26000000" HorizontalAlignment="Left" Height="27" Margin="11,0,0,49" VerticalAlignment="Bottom" Width="27" Stroke="White" StrokeThickness="0" ToolTipService.ToolTip="Notifications"/>
             <CheckBox x:Name="LockTheBrowser" Content="LockTheBrowser" HorizontalAlignment="Left" Margin="29,31,-101,0" VerticalAlignment="Top" Visibility="Collapsed" IsChecked="True"/>
             <StackPanel HorizontalAlignment="Left" Margin="3,66,-1,90" Width="46" RenderTransformOrigin="0.5,0.5">
                 <StackPanel.RenderTransform>
                     <CompositeTransform/>
                 </StackPanel.RenderTransform>
-                <Button x:Name="Home_button" Content="&#xE80F;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button x:Name="Home_button" Content="&#xE80F;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Home">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Strefresh_Button" Content="&#xE149;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="14.667" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button x:Name="Strefresh_Button" Content="&#xE149;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="14.667" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Refresh">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Back_Button" Content="&#xE016;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button x:Name="Back_Button" Content="&#xE016;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Back">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Forward_Button" Content="&#xE013;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button x:Name="Forward_Button" Content="&#xE013;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Forward">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Fight_Button" Content="&#xE923;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets">
+                <Button x:Name="Fight_Button" Content="&#xE923;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets" ToolTipService.ToolTip="SearchFight">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Lock">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Memo_Button" Content="&#xE70B;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button x:Name="Memo_Button" Content="&#xE70B;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Memos">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Share_Button" Content="&#xE72D;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button x:Name="Share_Button" Content="&#xE72D;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Share">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Window_Button" Content="&#xE109;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button x:Name="Window_Button" Content="&#xE109;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="New window">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
@@ -1142,6 +1142,20 @@
                     <!-- Favoris -->
                     <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto">
                         <StackPanel>
+                            <ScrollViewer HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top" Height="54" RenderTransformOrigin="0.5,0.5">
+                                <ScrollViewer.RenderTransform>
+                                    <CompositeTransform ScaleY="-1"/>
+                                </ScrollViewer.RenderTransform>
+                                <StackPanel x:Name="TagsContainer" Orientation="Horizontal" RenderTransformOrigin="0.5,0.5">
+                                    <StackPanel.RenderTransform>
+                                        <CompositeTransform ScaleY="-1"/>
+                                    </StackPanel.RenderTransform>
+                                </StackPanel>
+                            </ScrollViewer>
+                            <Grid x:Name="sorttag" Height="38" Background="#05000000" BorderBrush="#3B000000" BorderThickness="0,1" Visibility="Collapsed">
+                                <TextBlock HorizontalAlignment="Right" Margin="0,13,11,0" TextWrapping="Wrap" Text="&#xE106;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="10.667"/>
+                                <TextBlock x:Name="TagFilter" HorizontalAlignment="Left" Margin="14,8,0,0" TextWrapping="Wrap" Text="#Tag" VerticalAlignment="Top" Height="20" Opacity="0.695"/>
+                            </Grid>
                             <StackPanel x:Name="FavList"/>
                         </StackPanel>
                     </ScrollViewer>

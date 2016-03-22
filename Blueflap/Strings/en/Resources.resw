@@ -400,7 +400,7 @@
     <value>Open MiniPlayer</value>
   </data>
   <data name="SearchEngineLike.Text" xml:space="preserve">
-    <value>'Want to use it ?</value>
+    <value>Want to use it ?</value>
   </data>
   <data name="SearchEngineNotif.Text" xml:space="preserve">
     <value>Please check your search engine settings</value>
@@ -491,5 +491,11 @@
   </data>
   <data name="Welcome_Text_3.Text" xml:space="preserve">
     <value>Oh... By the way... We aren't interested by your personnal data !</value>
+  </data>
+  <data name="AdBlock.Header" xml:space="preserve">
+    <value>Ad blocker</value>
+  </data>
+  <data name="Translate.Content" xml:space="preserve">
+    <value>Translate</value>
   </data>
 </root>

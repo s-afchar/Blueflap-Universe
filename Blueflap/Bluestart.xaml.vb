@@ -1,29 +1,29 @@
 ﻿' Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
+Imports Windows.ApplicationModel.Core
+Imports Windows.Data.Json
+Imports Windows.UI.Xaml.Documents
+Imports Windows.Storage
+Imports Windows.Web.Http
 
 ''' <summary>
 ''' Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
 ''' </summary>
 Public NotInheritable Class Bluestart
     Inherits Page
-
+    Dim itemcount As Integer
+    Dim PreventAnimationBug As Boolean
 #Region "Page Loaded"
     Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         localSettings.Values("LoadPageFromBluestart") = False
-
-        Titlebar.Text = System.DateTime.Now.ToString("dddd dd MMMM yyyy") 'Affiche la date du jour dans la titlebar
-
         LoadAnim.Begin() 'Animation d'ouverture
+
+        PreventAnimationBug = True
 
         Dim v = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView()
         v.TitleBar.ButtonBackgroundColor = Windows.UI.Color.FromArgb(255, 27, 27, 27)
         v.TitleBar.ButtonForegroundColor = Windows.UI.Colors.White
         v.TitleBar.ButtonInactiveBackgroundColor = Windows.UI.Color.FromArgb(255, 27, 27, 27)
-        If RechercheBox.Text = "" Then
-            textBlock.Visibility = Visibility.Visible
-            LoopSuggestions.Stop()
-            LoopSuggestions.Begin()
-        End If
 
         Try
             If localSettings.Values("WallpaperType") = "Custom" Then 'Définit l'image de fond : image prédéfinie ou image en ligne
@@ -40,52 +40,72 @@ Public NotInheritable Class Bluestart
 
         End Try
 
-        grid1.Visibility = Visibility.Collapsed
         grid3.Visibility = Visibility.Collapsed
 
+        Showlastfav()
+    End Sub
+#End Region
+#Region "LastFav"
+    Private Sub FavoriteGrid_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles FavoriteGrid.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        localSettings.Values("LoadPageFromBluestart") = True
+        localSettings.Values("LoadPageFromBluestart_Adress") = Fav_Url.Text
+        Me.Frame.Navigate(GetType(MainPage))
+    End Sub
+    Private Async Sub Showlastfav()
+        SmartSuggest_History.Children.Clear()
+        Dim Json As String
+        Dim PreventMultipleSameItems As New HashSet(Of String)()
+
+        Try
+            Json = Await ReadJsonFile("Favorites")
+        Catch ex As Exception
+            Json = "[]"
+        End Try
+
+        Dim Favo_Name As String
+        Dim Favo_Url As String
+        Dim favcount As Integer
+        favcount = 0
+        For Each histElem In JsonArray.Parse(Json).Reverse
+            If favcount = 0 Then
+                Favo_Name = histElem.GetObject.GetNamedString("title")
+                Favo_Url = histElem.GetObject.GetNamedString("url")
+                favcount = favcount + 1
+            End If
+        Next
+        If favcount = 0 Then
+            FavoriteGrid.Visibility = Visibility.Collapsed
+        Else
+            FavoriteGrid.Visibility = Visibility.Visible
+            Fav_Name.Text = Favo_Name.ToUpper
+            Fav_Url.Text = Favo_Url
+        End If
+    End Sub
+    Private Sub FavoriteGrid_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles FavoriteGrid.PointerEntered
+        FavoriteGrid.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(240, 255, 255, 255))
+    End Sub
+
+    Private Sub FavoriteGrid_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles FavoriteGrid.PointerExited
+        FavoriteGrid.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(204, 255, 255, 255))
     End Sub
 #End Region
 #Region "Good Looking"
     'Ce qui suit est d'ordre visuel
     '<Visuel>
     Private Sub TextBox_GotFocus(sender As Object, e As RoutedEventArgs)
-        Textboxclick.Begin()
+        AdressBack.Visibility = Visibility.Visible
+        RechercheBox.BorderThickness = New Thickness(0, 0, 0, 0)
     End Sub
 
     Private Sub TextBox_LostFocus(sender As Object, e As RoutedEventArgs)
-        Textboxleave.Begin()
-    End Sub
-
-    Private Sub grid_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles grid.Tapped
-        RechercheBox.Focus(Windows.UI.Xaml.FocusState.Keyboard)
-    End Sub
-
-    Private Sub HoverRecherche_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles HoverRecherche.PointerEntered
-        HoverRecherche.Fill = New SolidColorBrush(Windows.UI.Color.FromArgb(20, 0, 0, 0))
-    End Sub
-
-    Private Sub HoverRecherche_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles HoverRecherche.PointerExited
-        HoverRecherche.Fill = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 0, 0, 0))
-    End Sub
-
-    Private Sub HoverRecherche_PointerPressed(sender As Object, e As PointerRoutedEventArgs) Handles HoverRecherche.PointerPressed
-        HoverRecherche.Fill = New SolidColorBrush(Windows.UI.Color.FromArgb(40, 0, 0, 0))
-    End Sub
-
-    Private Sub HoverRecherche_PointerReleased(sender As Object, e As PointerRoutedEventArgs) Handles HoverRecherche.PointerReleased
-        HoverRecherche.Fill = New SolidColorBrush(Windows.UI.Color.FromArgb(20, 0, 0, 0))
+        AdressBack.Visibility = Visibility.Collapsed
+        RechercheBox.BorderThickness = New Thickness(0, 0, 0, 2)
     End Sub
     '</Visuel>
 #End Region
 #Region "SearchBox"
-    Private Sub HoverRecherche_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles HoverRecherche.Tapped
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-
-        localSettings.Values("LoadPageFromBluestart") = True
-        localSettings.Values("LoadPageFromBluestart_Adress") = RechercheBox.Text
-        Me.Frame.Navigate(GetType(MainPage))
-
-    End Sub
 
     Private Sub RechercheBox_KeyDown(sender As Object, e As KeyRoutedEventArgs) Handles RechercheBox.KeyDown
         If (e.Key = Windows.System.VirtualKey.Enter) Then  'Permet de réagir à l'appui sur la touche entrée
@@ -95,10 +115,6 @@ Public NotInheritable Class Bluestart
             localSettings.Values("LoadPageFromBluestart_Adress") = RechercheBox.Text
             Me.Frame.Navigate(GetType(MainPage))
         End If
-    End Sub
-    Private Sub RechercheBox_TextChanged(sender As Object, e As TextChangedEventArgs) Handles RechercheBox.TextChanged
-        LoopSuggestions.Stop()
-        textBlock.Visibility = Visibility.Collapsed
     End Sub
 #End Region
 #Region "Go to (other frame)"
@@ -112,6 +128,9 @@ Public NotInheritable Class Bluestart
 
     Private Sub Lock_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Lock_Button.Tapped
         Me.Frame.Navigate(GetType(Verrouillage))
+    End Sub
+    Private Sub Personnalisation_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Personnalisation_Button.Tapped
+        Me.Frame.Navigate(GetType(Customization))
     End Sub
 #End Region
 #Region "Personnalization panel"
@@ -138,104 +157,6 @@ Public NotInheritable Class Bluestart
     '    End If
     '    End Sub
 
-    Private Sub Personnalisation_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Personnalisation_Button.Tapped
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        If grid1.Visibility = Visibility.Visible Then
-            grid1.Visibility = Visibility.Collapsed
-        Else
-            Try
-                If localSettings.Values("WallpaperType") = "Custom" Then
-                    OnlineImagePath.Visibility = Visibility.Visible
-                    OnlineImagePath.Text = localSettings.Values("WallpaperSource")
-                Else
-                    OnlineImagePath.Visibility = Visibility.Collapsed
-                End If
-            Catch ex As Exception
-
-            End Try
-
-            OpenPersonnalize.Stop()
-            OpenPersonnalize.Begin()
-            grid3.Visibility = Visibility.Collapsed
-        End If
-    End Sub
-
-    Private Sub OnlineImagePath_TextChanged(sender As Object, e As TextChangedEventArgs) Handles OnlineImagePath.TextChanged
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        localSettings.Values("WallpaperSource") = OnlineImagePath.Text
-        localSettings.Values("WallpaperType") = "Custom"
-    End Sub
-
-    Private Sub SetWallpaper1(sender As Object, e As TappedRoutedEventArgs)
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        localSettings.Values("WallpaperName") = "Degrade.png"
-        Wallpaper.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
-        localSettings.Values("WallpaperType") = "Default"
-    End Sub
-    Private Sub SetWallpaper2(sender As Object, e As TappedRoutedEventArgs)
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        localSettings.Values("WallpaperName") = "Degrade2.png"
-        Wallpaper.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
-        localSettings.Values("WallpaperType") = "Default"
-    End Sub
-    Private Sub SetWallpaper3(sender As Object, e As TappedRoutedEventArgs)
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        localSettings.Values("WallpaperName") = "Ciel.JPG"
-        Wallpaper.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
-        localSettings.Values("WallpaperType") = "Default"
-    End Sub
-    Private Sub SetWallpaper4(sender As Object, e As TappedRoutedEventArgs)
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        localSettings.Values("WallpaperName") = "Fleurs.jpg"
-        Wallpaper.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
-        localSettings.Values("WallpaperType") = "Default"
-    End Sub
-    Private Sub SetWallpaper5(sender As Object, e As TappedRoutedEventArgs)
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        localSettings.Values("WallpaperName") = "Montagne.jpg"
-        Wallpaper.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
-        localSettings.Values("WallpaperType") = "Default"
-    End Sub
-    Private Sub SetWallpaper6(sender As Object, e As TappedRoutedEventArgs)
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        localSettings.Values("WallpaperName") = "Neige.jpg"
-        Wallpaper.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
-        localSettings.Values("WallpaperType") = "Default"
-    End Sub
-    Private Sub SetWallpaper7(sender As Object, e As TappedRoutedEventArgs)
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        localSettings.Values("WallpaperName") = "Plage.jpg"
-        Wallpaper.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
-        localSettings.Values("WallpaperType") = "Default"
-    End Sub
-    Private Sub SetWallpaper8(sender As Object, e As TappedRoutedEventArgs)
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        localSettings.Values("WallpaperName") = "Soleil.JPG"
-        Wallpaper.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
-        localSettings.Values("WallpaperType") = "Default"
-    End Sub
-    Private Sub SetWallpaper9(sender As Object, e As TappedRoutedEventArgs)
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        localSettings.Values("WallpaperName") = "Cailloux.jpg"
-        Wallpaper.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
-        localSettings.Values("WallpaperType") = "Default"
-    End Sub
-
-    Private Sub SetCustomWallpaper(sender As Object, e As TappedRoutedEventArgs)
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        If OnlineImagePath.Visibility = Visibility.Visible Then
-            OnlineImagePath.Visibility = Visibility.Collapsed
-            localSettings.Values("WallpaperType") = "Default"
-        Else
-            OnlineImagePath.Visibility = Visibility.Visible
-            localSettings.Values("WallpaperType") = "Custom"
-            Try
-                OnlineImagePath.Text = localSettings.Values("WallpaperSource")
-            Catch
-            End Try
-        End If
-    End Sub
-
 
 #End Region
 #Region "Memo"
@@ -245,13 +166,12 @@ Public NotInheritable Class Bluestart
             grid3.Visibility = Visibility.Collapsed
         Else
             Try
-                MemoText.Text = localSettings.Values("MemoText")
+                memotext.Text = localSettings.Values("MemoText")
             Catch
             End Try
 
             OpenMemo.Stop()
             OpenMemo.Begin()
-            grid1.Visibility = Visibility.Collapsed
         End If
     End Sub
 
@@ -259,5 +179,142 @@ Public NotInheritable Class Bluestart
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         localSettings.Values("MemoText") = memotext.Text 'Là on enregistre le texte des mémos en continu
     End Sub
+#End Region
+#Region "SmartSuggest"
+    Private Sub AdressBox_TextChanged(sender As Object, e As TextChangedEventArgs) Handles RechercheBox.TextChanged
+        Try
+            itemcount = 0
+            SmartSuggest_Histo()
+        Catch
+        End Try
+
+
+
+        If RechercheBox.Text = "" Then
+            Suggestions.Visibility = Visibility.Collapsed
+            SearchLessOpacity.Stop()
+            PreventAnimationBug = True
+        Else
+            Suggestions.Visibility = Visibility.Visible
+            If PreventAnimationBug = True Then
+                SearchLessOpacity.Begin()
+                PreventAnimationBug = False
+            End If
+        End If
+    End Sub
+    Private Async Sub SmartSuggest_Histo()
+        SmartSuggest_History.Children.Clear()
+        Dim Json As String
+        Dim PreventMultipleSameItems As New HashSet(Of String)()
+
+        Try
+            Json = Await ReadJsonFile("Favorites")
+        Catch ex As Exception
+            Json = "[]"
+        End Try
+
+        For Each histElem In JsonArray.Parse(Json).Reverse
+            Dim elemContainer As StackPanel = New StackPanel
+            elemContainer.Padding = New Thickness(23, 8, 0, 8)
+            AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+                                                                        localSettings.Values("LoadPageFromBluestart") = True
+                                                                        localSettings.Values("LoadPageFromBluestart_Adress") = histElem.GetObject.GetNamedString("url")
+                                                                        Me.Frame.Navigate(GetType(MainPage))
+                                                                    End Function)
+
+            AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
+                                                                             End Function)
+
+            AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                            End Function)
+
+
+            Dim elemText As TextBlock = New TextBlock
+            elemText.Text = histElem.GetObject.GetNamedString("title")
+            elemText.Foreground = New SolidColorBrush(Windows.UI.Colors.White)
+            elemContainer.Children.Add(elemText)
+
+            Dim UrlText As TextBlock = New TextBlock
+            UrlText.Text = histElem.GetObject.GetNamedString("url")
+            elemText.Foreground = New SolidColorBrush(Windows.UI.Colors.White)
+            elemContainer.Children.Add(UrlText)
+
+
+
+            If Not PreventMultipleSameItems.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
+                If histElem.GetObject.GetNamedString("title").ToLower.Contains(RechercheBox.Text.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(RechercheBox.Text.ToLower) Then
+                    SmartSuggest_History.Children.Add(elemContainer)
+
+                    itemcount = itemcount + 1
+                End If
+            End If
+
+            PreventMultipleSameItems.Add(histElem.GetObject.GetNamedString("url").ToLower)
+
+        Next
+
+        Try
+            Json = Await ReadJsonFile("History")
+        Catch ex As Exception
+            Json = "[]"
+        End Try
+
+        For Each histElem In JsonArray.Parse(Json).Reverse
+            Dim elemContainer As StackPanel = New StackPanel
+            elemContainer.Padding = New Thickness(23, 8, 0, 8)
+            AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+                                                                        localSettings.Values("LoadPageFromBluestart") = True
+                                                                        localSettings.Values("LoadPageFromBluestart_Adress") = histElem.GetObject.GetNamedString("url")
+                                                                        Me.Frame.Navigate(GetType(MainPage))
+                                                                    End Function)
+
+            AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
+                                                                             End Function)
+
+            AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                            End Function)
+
+
+            Dim elemText As TextBlock = New TextBlock
+            elemText.Text = histElem.GetObject.GetNamedString("title")
+            elemText.Foreground = New SolidColorBrush(Windows.UI.Colors.White)
+            elemContainer.Children.Add(elemText)
+
+            Dim UrlText As TextBlock = New TextBlock
+            UrlText.Text = histElem.GetObject.GetNamedString("url")
+            elemText.Foreground = New SolidColorBrush(Windows.UI.Colors.White)
+            elemContainer.Children.Add(UrlText)
+
+
+
+            If Not PreventMultipleSameItems.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
+                If histElem.GetObject.GetNamedString("title").ToLower.Contains(RechercheBox.Text.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(RechercheBox.Text.ToLower) Then
+                    SmartSuggest_History.Children.Add(elemContainer)
+
+                    itemcount = itemcount + 1
+                End If
+            End If
+
+            PreventMultipleSameItems.Add(histElem.GetObject.GetNamedString("url").ToLower)
+
+        Next
+    End Sub
+    Private Async Function ReadJsonFile(FileName As String) As Task(Of String)
+        Dim localFolder As StorageFolder = ApplicationData.Current.LocalFolder
+        FileName += ".json"
+        Dim content As String = Nothing
+
+        Dim textfile As StorageFile = Await localFolder.GetFileAsync(FileName)
+        content = Await FileIO.ReadTextAsync(textfile)
+        Return content
+    End Function
 #End Region
 End Class

@@ -562,6 +562,15 @@ Public NotInheritable Class Parametres
         Await Windows.System.Launcher.LaunchUriAsync(New Uri(("ms-windows-store:PDP?PFN=" + Package.Current.Id.FamilyName)))
     End Sub
 
+    Private Sub Button_Tapped(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        localSettings.Values("LoadPageFromBluestart") = True
+        localSettings.Values("LoadPageFromBluestart_Adress") = "http://goo.gl/forms/0KNjt488i5"
+        RemoveHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf Parametres_BackRequested
+        SaveSettings()
+        Me.Frame.Navigate(GetType(MainPage))
+    End Sub
 #End Region
 #Region "Password and security"
     Private Sub Password_SaveSettings(sender As Object, e As TappedRoutedEventArgs)
@@ -660,5 +669,6 @@ Public NotInheritable Class Parametres
         End If
 
     End Sub
+
 #End Region
 End Class
