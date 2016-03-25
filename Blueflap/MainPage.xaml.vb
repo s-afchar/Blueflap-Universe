@@ -1872,7 +1872,7 @@ Public NotInheritable Class MainPage
             Json = "[]"
         End Try
 
-        For Each MemoElem In JsonArray.Parse(Json).Reverse
+        For Each MemoElem In root.Reverse
 
             Dim elemContainer As StackPanel = New StackPanel
             elemContainer.Padding = New Thickness(8, 8, 0, 8)
@@ -1896,17 +1896,23 @@ Public NotInheritable Class MainPage
                                                                         Memo_Edit_Title.Text = MemoElem.GetObject.GetNamedString("title")
                                                                         Memo_Edit_URL.Text = MemoElem.GetObject.GetNamedString("url").ToUpper
                                                                         EditMemo = True
-                                                                        AddHandler Memo_Edit_Title.TextChanged, New TextChangedEventHandler(Function(textch As Object, te As TextChangedEventArgs)
-                                                                                                                                                If EditMemo = True Then
-                                                                                                                                                    MemoElem.GetObject.SetNamedValue("title", JsonValue.CreateStringValue(Memo_Edit_Title.Text))
-                                                                                                                                                End If
-                                                                                                                                            End Function)
+                                                                        AddHandler Memo_Edit_Title.LostFocus, New RoutedEventHandler(Function(textch As Object, te As RoutedEventArgs)
+                                                                                                                                         If EditMemo = True Then
+                                                                                                                                             MemoElem.GetObject.SetNamedValue("title", JsonValue.CreateStringValue(Memo_Edit_Title.Text))
+                                                                                                                                             root.Remove(root.First(Function(x) x.GetObject.GetNamedString("ID") = MemoElem.GetObject.GetNamedString("ID")))
+                                                                                                                                             root.Add(MemoElem)
+                                                                                                                                             WriteJsonFile(root, "Memos")
+                                                                                                                                         End If
+                                                                                                                                     End Function)
 
-                                                                        AddHandler Memo_Edit_Text.TextChanged, New TextChangedEventHandler(Function(textch As Object, te As TextChangedEventArgs)
-                                                                                                                                               If EditMemo = True Then
-                                                                                                                                                   MemoElem.GetObject.SetNamedValue("Text", JsonValue.CreateStringValue(Memo_Edit_Text.Text))
-                                                                                                                                               End If
-                                                                                                                                           End Function)
+                                                                        AddHandler Memo_Edit_Text.LostFocus, New RoutedEventHandler(Function(textch As Object, te As RoutedEventArgs)
+                                                                                                                                        If EditMemo = True Then
+                                                                                                                                            MemoElem.GetObject.SetNamedValue("Text", JsonValue.CreateStringValue(Memo_Edit_Text.Text))
+                                                                                                                                            root.Remove(root.First(Function(x) x.GetObject.GetNamedString("ID") = MemoElem.GetObject.GetNamedString("ID")))
+                                                                                                                                            root.Add(MemoElem)
+                                                                                                                                            WriteJsonFile(root, "Memos")
+                                                                                                                                        End If
+                                                                                                                                    End Function)
                                                                     End Function)
 
             AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
