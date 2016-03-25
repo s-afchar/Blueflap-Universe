@@ -926,7 +926,7 @@
                         </LinearGradientBrush>
                     </Rectangle.Fill>
                 </Rectangle>
-                <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="39,130,0,0" TextWrapping="Wrap" Text="LA PAGE N'A PAS PU ÊTRE CHARGÉE" VerticalAlignment="Top" Foreground="White" FontWeight="SemiBold" FontSize="32" Height="90" Width="309" RenderTransformOrigin="0.5,0.5">
+                <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="39,130,0,0" TextWrapping="Wrap" x:Uid="WebPageError" Text="LA PAGE N'A PAS PU ÊTRE CHARGÉE" VerticalAlignment="Top" Foreground="White" FontWeight="SemiBold" FontSize="32" Height="90" Width="309" RenderTransformOrigin="0.5,0.5">
                     <TextBlock.RenderTransform>
                         <CompositeTransform/>
                     </TextBlock.RenderTransform>
@@ -950,11 +950,11 @@
                     <TextBlock.RenderTransform>
                         <CompositeTransform/>
                     </TextBlock.RenderTransform>
-                	<Run Text="Êtes-vous bien connecté à internet ?"/>
+                	<Run x:Uid="WebPageError_1" Text="Êtes-vous bien connecté à internet ?"/>
                 	<LineBreak/>
-                	<Run Text="L'URL saisie est-elle valide ?"/>
+                	<Run x:Uid="WebPageError_2" Text="L'URL saisie est-elle valide ?"/>
                 	<LineBreak/>
-                	<Run Text="Essayez de recharger la page"/>
+                	<Run x:Uid="WebPageError_3" Text="Essayez de recharger la page"/>
                 </TextBlock>
             </Grid>
         </Grid>
@@ -999,7 +999,7 @@
                 </Image.RenderTransform>
             </Image>
             <Grid x:Name="DefaultThemeColor" HorizontalAlignment="Left" Height="10" Margin="268,207,-229,0" VerticalAlignment="Top" Width="9" Background="{ThemeResource ContentDialogBorderThemeBrush}" Visibility="Collapsed"/>
-            <Button x:Name="Paramètres_Button" Content="&#xE713;" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="#01000000" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,0,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Height="47">
+            <Button x:Name="Paramètres_Button" Content="&#xE713;" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="#01000000" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,0,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Height="47" ToolTipService.ToolTip="Settings">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Button.RenderTransform>
@@ -1014,53 +1014,53 @@
                     <CompositeTransform ScaleX="-1"/>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <Ellipse x:Name="Notifications_indicator" Fill="#26000000" HorizontalAlignment="Left" Height="27" Margin="11,0,0,49" VerticalAlignment="Bottom" Width="27" Stroke="White" StrokeThickness="0"/>
+            <Ellipse x:Name="Notifications_indicator" Fill="#26000000" HorizontalAlignment="Left" Height="27" Margin="11,0,0,49" VerticalAlignment="Bottom" Width="27" Stroke="White" StrokeThickness="0" ToolTipService.ToolTip="Notifications"/>
             <CheckBox x:Name="LockTheBrowser" Content="LockTheBrowser" HorizontalAlignment="Left" Margin="29,31,-101,0" VerticalAlignment="Top" Visibility="Collapsed" IsChecked="True"/>
             <StackPanel HorizontalAlignment="Left" Margin="3,66,-1,90" Width="46" RenderTransformOrigin="0.5,0.5">
                 <StackPanel.RenderTransform>
                     <CompositeTransform/>
                 </StackPanel.RenderTransform>
-                <Button x:Name="Home_button" Content="&#xE80F;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button x:Name="Home_button" Content="&#xE80F;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Home">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Strefresh_Button" Content="&#xE149;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="14.667" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button x:Name="Strefresh_Button" Content="&#xE149;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="14.667" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Refresh">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Back_Button" Content="&#xE016;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button x:Name="Back_Button" Content="&#xE016;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Back">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Forward_Button" Content="&#xE013;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button x:Name="Forward_Button" Content="&#xE013;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Forward">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Fight_Button" Content="&#xE923;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets">
+                <Button x:Name="Fight_Button" Content="&#xE923;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets" ToolTipService.ToolTip="SearchFight">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Lock">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Memo_Button" Content="&#xE70B;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button x:Name="Memo_Button" Content="&#xE70B;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Memos">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Share_Button" Content="&#xE72D;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button x:Name="Share_Button" Content="&#xE72D;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Share">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Window_Button" Content="&#xE109;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}">
+                <Button x:Name="Window_Button" Content="&#xE109;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="New window">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
@@ -1073,8 +1073,8 @@
             </Grid.Background>
             <Grid x:Name="SmartSuggest_LastOne" Height="46" VerticalAlignment="Top" Background="#00000000">
                 <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE81C;" Opacity="0.6"/>
-                <TextBlock HorizontalAlignment="Left" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Dernière recherche" Opacity="0.4"/>
-                <TextBlock x:Name="DerniereRecherche" Margin="165,13,10,0" TextWrapping="NoWrap" VerticalAlignment="Top" Text="-" FontSize="14" FontWeight="SemiBold" Height="23"/>
+                <TextBlock HorizontalAlignment="Left" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" x:Uid="LastSearch" Text="Dernière recherche" Opacity="0.4"/>
+                <TextBlock x:Name="DerniereRecherche" x:Uid="LastSearchMargin" Margin="165,13,10,0" TextWrapping="NoWrap" VerticalAlignment="Top" Text="-" FontSize="14" FontWeight="SemiBold" Height="23"/>
             </Grid>
             <Grid x:Name="SmartSuggest_Search" Height="46" VerticalAlignment="Top" Background="#00000000" Margin="0,46,0,0">
                 <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE1A3;" Opacity="0.6"/>
@@ -1096,11 +1096,6 @@
             <Grid.RenderTransform>
                 <CompositeTransform/>
             </Grid.RenderTransform>
-            <ToggleSwitch x:Name="MemoAncrageToggle" Header="" HorizontalAlignment="Left" Margin="-3,0,0,-1" VerticalAlignment="Bottom" RequestedTheme="Light" OffContent="NON ANCRÉ" OnContent="ANCRÉ" RenderTransformOrigin="0.5,0.5">
-                <ToggleSwitch.RenderTransform>
-                    <CompositeTransform ScaleX="0.8" ScaleY="0.8"/>
-                </ToggleSwitch.RenderTransform>
-            </ToggleSwitch>
             <Rectangle x:Name="LeftPanelShadow" HorizontalAlignment="Left" Margin="-88,0,0,0" Width="88" Opacity="0.15">
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -1147,6 +1142,20 @@
                     <!-- Favoris -->
                     <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto">
                         <StackPanel>
+                            <ScrollViewer HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top" Height="54" RenderTransformOrigin="0.5,0.5">
+                                <ScrollViewer.RenderTransform>
+                                    <CompositeTransform ScaleY="-1"/>
+                                </ScrollViewer.RenderTransform>
+                                <StackPanel x:Name="TagsContainer" Orientation="Horizontal" RenderTransformOrigin="0.5,0.5">
+                                    <StackPanel.RenderTransform>
+                                        <CompositeTransform ScaleY="-1"/>
+                                    </StackPanel.RenderTransform>
+                                </StackPanel>
+                            </ScrollViewer>
+                            <Grid x:Name="sorttag" Height="38" Background="#05000000" BorderBrush="#3B000000" BorderThickness="0,1" Visibility="Collapsed">
+                                <TextBlock HorizontalAlignment="Right" Margin="0,13,11,0" TextWrapping="Wrap" Text="&#xE106;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="10.667"/>
+                                <TextBlock x:Name="TagFilter" HorizontalAlignment="Left" Margin="14,8,0,0" TextWrapping="Wrap" Text="#Tag" VerticalAlignment="Top" Height="20" Opacity="0.695"/>
+                            </Grid>
                             <StackPanel x:Name="FavList"/>
                         </StackPanel>
                     </ScrollViewer>
@@ -1164,45 +1173,37 @@
                     <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto" IsHorizontalScrollChainingEnabled="False">
                         <Grid x:Name="NotificationsPanel" Background="{x:Null}">
                             <Grid x:Name="Notif_Home" Height="96" Width="237" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0" VerticalAlignment="Top">
-                                <TextBlock HorizontalAlignment="Left" Margin="1,19,0,0" TextWrapping="Wrap" Text="&#xE209;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FF19B3CB" FontSize="29.333" TextAlignment="Center" Width="236"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="11,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FFA2A2A2" Width="216" TextAlignment="Center" Text="Aucun message système"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="1,19,0,0" TextWrapping="Wrap" Text="&#xE209;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="{ThemeResource ContentDialogBorderThemeBrush}" FontSize="29.333" TextAlignment="Center" Width="236"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="11,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FFA2A2A2" Width="216" TextAlignment="Center" x:Uid="NoNotif" Text="Aucun message système"/>
                             </Grid>
                             <Grid x:Name="Notif_HomePageError" Height="96" Width="237" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0,110,0,0" VerticalAlignment="Top" Visibility="Collapsed">
                                 <TextBlock HorizontalAlignment="Left" Margin="11,9,0,0" TextWrapping="Wrap" Text="&#xEB90;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FFC51212" FontSize="16"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="35,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FF4B4B4B">
-                					<Run Text="La page d'accueil définie"/>
-                					<LineBreak/>
-                					<Run Text="est invalide."/>
-                                </TextBlock>
-                                <Button Content="Paramètres" HorizontalAlignment="Left" Margin="0,59,-1,0" VerticalAlignment="Top" Height="36" Width="238" Background="#339E9E9E" BorderBrush="#FFC5C5C5" BorderThickness="0,1,0,0" FontSize="12" Tapped="Button_Tapped"/>
+                                <TextBlock x:Uid="Homepagenotif" HorizontalAlignment="Left" Margin="36,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FF4B4B4B" Width="192" Height="42" Text="La page d'accueil définie est invalide."/>
+                                <Button x:Uid="Settings" Content="Paramètres" HorizontalAlignment="Left" Margin="0,59,-1,0" VerticalAlignment="Top" Height="36" Width="238" Background="#339E9E9E" BorderBrush="#FFC5C5C5" BorderThickness="0,1,0,0" FontSize="12" Tapped="Button_Tapped"/>
                             </Grid>
                             <Grid x:Name="Notif_SearchEngineError" Height="96" Width="237" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0,220,0,0" VerticalAlignment="Top" Visibility="Collapsed">
                                 <TextBlock HorizontalAlignment="Left" Margin="11,9,0,0" TextWrapping="Wrap" Text="&#xEB90;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FFC51212" FontSize="16"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="35,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FF4B4B4B">
-                					<Run Text="Le moteur de recherche"/>
-                					<LineBreak/>
-                					<Run Text="défini est invalide."/>
-                                </TextBlock>
-                                <Button Content="Paramètres" HorizontalAlignment="Left" Margin="0,59,-1,0" VerticalAlignment="Top" Height="36" Width="238" Background="#339E9E9E" BorderBrush="#FFC5C5C5" BorderThickness="0,1,0,0" FontSize="12" Tapped="Button_Tapped"/>
+                                <TextBlock x:Uid="SearchEngineNotif" HorizontalAlignment="Left" Margin="37,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FF4B4B4B" Width="190" Height="41" Text="Le moteur de recherche défini est invalide."/>
+                                <Button x:Uid="Settings" Content="Paramètres" HorizontalAlignment="Left" Margin="0,59,-1,0" VerticalAlignment="Top" Height="36" Width="238" Background="#339E9E9E" BorderBrush="#FFC5C5C5" BorderThickness="0,1,0,0" FontSize="12" Tapped="Button_Tapped"/>
                             </Grid>
                             <Grid x:Name="Notif_SearchEngineSuggestion" Height="96" Width="237" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0,220,0,0" VerticalAlignment="Top" Visibility="Collapsed">
-                                <TextBlock HorizontalAlignment="Left" Margin="54,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13.333" Foreground="#FF4B4B4B" Text="Ce moteur vous plaît ?" Height="40" Width="167" CharacterSpacing="-29"/>
-                                <Button x:Name="ChangeEngine" Content="Définir comme moteur de recherche" HorizontalAlignment="Left" Margin="0,63,0,0" VerticalAlignment="Top" Height="31" Width="235" Background="{ThemeResource ContentDialogBorderThemeBrush}" BorderBrush="{ThemeResource SystemControlHighlightAltListAccentLowBrush}" BorderThickness="1" FontSize="12.667" Tapped="ChangSearchEngine" Foreground="White"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="54,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13.333" Foreground="#FF4B4B4B" x:Uid="SearchEngineLike" Text="Ce moteur vous plaît ?" Height="40" Width="167" CharacterSpacing="-29"/>
+                                <Button x:Name="ChangeEngine" x:Uid="SetSearchEngineButton" Content="Définir comme moteur de recherche" HorizontalAlignment="Left" Margin="0,63,0,0" VerticalAlignment="Top" Height="31" Width="235" Background="{ThemeResource ContentDialogBorderThemeBrush}" BorderBrush="{ThemeResource SystemControlHighlightAltListAccentLowBrush}" BorderThickness="1" FontSize="12.667" Tapped="ChangSearchEngine" Foreground="White"/>
                                 <TextBlock x:Name="Notif_SearchEngineName" HorizontalAlignment="Left" Margin="54,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13.333" Foreground="#FF555555" Text="QWANT" FontWeight="SemiBold" CharacterSpacing="-36" Width="179" Height="18"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="55,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10.667" Foreground="#FF0097FF" Text="Suggestion automatique" Height="16" Width="167"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="55,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10.667" Foreground="#FF0097FF" x:Uid="AutoSuggestion" Text="Suggestion automatique" Height="16" Width="167"/>
                                 <Image x:Name="Notif_SearchEngineIcon" HorizontalAlignment="Left" Height="39" Margin="11,11,0,0" VerticalAlignment="Top" Width="39" Source="Assets/Engine_Qwant.png"/>
                             </Grid>
                             <Grid x:Name="Notif_Diminutweet" Height="96" Width="237" Background="#FF005FBD" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0,220,0,0" VerticalAlignment="Top" Visibility="Collapsed">
                                 <TextBlock HorizontalAlignment="Left" Margin="56,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13.333" Foreground="White" Text="Le compacteur de tweets" Height="40" Width="167" CharacterSpacing="-29"/>
-                                <Button Content="Télécharger" HorizontalAlignment="Left" Margin="0,63,0,0" VerticalAlignment="Top" Height="31" Width="235" Background="{ThemeResource ContentDialogBorderThemeBrush}" BorderBrush="{ThemeResource SystemControlHighlightAltListAccentLowBrush}" BorderThickness="1" FontSize="12.667" Tapped="Button_Tapped_1" Foreground="White"/>
+                                <Button x:Uid="Download" Content="Télécharger" HorizontalAlignment="Left" Margin="0,63,0,0" VerticalAlignment="Top" Height="31" Width="235" Background="{ThemeResource ContentDialogBorderThemeBrush}" BorderBrush="{ThemeResource SystemControlHighlightAltListAccentLowBrush}" BorderThickness="1" FontSize="12.667" Tapped="Button_Tapped_1" Foreground="White"/>
                                 <TextBlock x:Name="Notif_SearchEngineName1" HorizontalAlignment="Left" Margin="56,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13.333" Foreground="White" Text="DiminuTweet" FontWeight="SemiBold" CharacterSpacing="-36"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="57,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10.667" Foreground="#FF8DD0FF" Text="Suggestion de l'équipe" Height="16" Width="167"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="57,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10.667" Foreground="#FF8DD0FF" x:Uid="TeamSuggestion" Text="Suggestion de l'équipe" Height="16" Width="167"/>
                                 <Image x:Name="Notif_SearchEngineIcon1" HorizontalAlignment="Left" Height="39" Margin="11,11,0,0" VerticalAlignment="Top" Width="39" Source="Assets/promo2.png"/>
                             </Grid>
                             <Grid x:Name="Notif_MiniPlayer" Height="96" Width="237" Background="#FF0C0C0C" BorderBrush="#FF323232" BorderThickness="1" Margin="0,220,0,0" VerticalAlignment="Top" Visibility="Collapsed">
                                 <TextBlock HorizontalAlignment="Left" Margin="10,18,0,0" TextWrapping="Wrap" Text="&#xE173;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="{ThemeResource ContentDialogBorderThemeBrush}" FontSize="24"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="49,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FFD6D6D6" Width="178" Text="Vous pouvez afficher cette vidéo dans MiniPlayer"/>
-                                <Button Content="Ouvrir MiniPlayer" HorizontalAlignment="Left" Margin="0,59,-1,0" VerticalAlignment="Top" Height="36" Width="238" Background="#FF474747" BorderBrush="#FF555555" BorderThickness="0,1,0,0" FontSize="12.667" Tapped="OpenMiniP" Foreground="White" RequestedTheme="Dark"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="49,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FFD6D6D6" Width="178" x:Uid="MiniPlayerInfo" Text="Vous pouvez afficher cette vidéo dans MiniPlayer"/>
+                                <Button x:Uid="OpenMiniPlayer" Content="Ouvrir MiniPlayer" HorizontalAlignment="Left" Margin="0,59,-1,0" VerticalAlignment="Top" Height="36" Width="238" Background="#FF474747" BorderBrush="#FF555555" BorderThickness="0,1,0,0" FontSize="12.667" Tapped="OpenMiniP" Foreground="White" RequestedTheme="Dark"/>
                             </Grid>
 
                         </Grid>
@@ -1213,28 +1214,29 @@
             </Pivot>
             <Grid x:Name="History_SearchBar" Height="45" Margin="0,0,0,40" VerticalAlignment="Bottom" Background="#E5FFFFFF" BorderThickness="0,1,0,0" BorderBrush="#FFB6B6B6" Visibility="Collapsed">
                 <TextBlock HorizontalAlignment="Right" Margin="0,0,14,16" TextWrapping="Wrap" Text="&#xE094;" VerticalAlignment="Bottom" FontFamily="Segoe MDL2 Assets"/>
-                <TextBox x:Name="SearchHistory" Margin="8,0,8,6" TextWrapping="NoWrap" Text="" VerticalAlignment="Bottom" BorderThickness="0,0,0,1" PlaceholderText="Rechercher dans l'historique" Height="27"/>
+                <TextBox x:Name="SearchHistory" Margin="8,0,8,6" TextWrapping="NoWrap" Text="" VerticalAlignment="Bottom" BorderThickness="0,0,0,1" x:Uid="SearchHistory" PlaceholderText="Rechercher dans l'historique" Height="27"/>
             </Grid>
             <Button x:Name="History_ShowSearchBar" Content="&#xE094;" HorizontalAlignment="Right" Margin="0,0,40,0" VerticalAlignment="Bottom" FontFamily="Segoe MDL2 Assets" Height="40" Width="40" Background="#00000000" BorderThickness="0,0,0,2"/>
+            <ToggleButton x:Name="MemoAncrageToggleButton" Content="&#xE840;" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Bottom" Width="40" Height="40" Background="#00000000" FontFamily="Segoe MDL2 Assets" FontSize="16" BorderThickness="2,0,0,0"/>
         </Grid>
         <Grid x:Name="ExitFullScreen" HorizontalAlignment="Center" Height="77" Margin="0,44,0,0" VerticalAlignment="Top" Width="650" Background="#99000000" CornerRadius="3" Visibility="Collapsed">
-            <TextBlock Margin="0,24,0,0" TextWrapping="Wrap" Text="Appuyez sur la touche ECHAP pour quitter le mode plein écran" VerticalAlignment="Top" Foreground="White" Height="43" TextAlignment="Center" FontSize="18.667" Width="517" HorizontalAlignment="Center"/>
+            <TextBlock Margin="0,24,0,0" TextWrapping="Wrap" x:Uid="FullScreenEsc" Text="Appuyez sur la touche ECHAP pour quitter le mode plein écran" VerticalAlignment="Top" Foreground="White" Height="43" TextAlignment="Center" FontSize="18.667" Width="517" HorizontalAlignment="Center"/>
         </Grid>
         <Grid x:Name="AddFavView" Margin="48,66,0,0" Background="#33000000" Visibility="Collapsed">
             <Grid x:Name="AddFavPopup" HorizontalAlignment="Right" Height="259" Margin="0,20,20,0" VerticalAlignment="Top" Width="400" Background="White" CornerRadius="3" RenderTransformOrigin="0.5,0.5">
                 <Grid.RenderTransform>
                     <CompositeTransform/>
                 </Grid.RenderTransform>
-                <TextBlock HorizontalAlignment="Left" Margin="45,20,0,0" TextWrapping="Wrap" Text="AJOUTER CE SITE AUX FAVORIS" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FF4F4F4F"/>
+                <TextBlock HorizontalAlignment="Left" Margin="45,20,0,0" TextWrapping="Wrap" x:Uid="AddToFavorites" Text="AJOUTER CE SITE AUX FAVORIS" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FF4F4F4F"/>
                 <TextBlock HorizontalAlignment="Left" Margin="21,23,0,0" TextWrapping="Wrap" Text="&#xE006;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FFFF00A2"/>
-                <TextBox x:Name="Add_Fav_Title" Margin="21,90,22,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Nom" Width="357"/>
+                <TextBox x:Uid="NamePlaceholder" x:Name="Add_Fav_Title" Margin="21,90,22,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Nom" Width="357"/>
                 <Button Content="&#xE104;" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Background="#00000000" FontSize="10.667" Width="35" Tapped="Button_Tapped_2" Height="24" BorderThickness="2,0,0,0"/>
                 <TextBox x:Name="Add_Fav_Url" Margin="35,42,22,0" TextWrapping="NoWrap" Text="http://" VerticalAlignment="Top" BorderThickness="0" PlaceholderText="URL" IsReadOnly="True" Background="Transparent" Foreground="#FF9B9B9B" FontSize="13.333" Height="22"/>
                 <TextBox x:Name="Add_Fav_Tags" Margin="21,152,22,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Tag1, Tag2, Tag3, etc..." Width="357"/>
-                <TextBlock HorizontalAlignment="Left" Margin="21,72,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" FontSize="12"/>
+                <TextBlock  x:Uid="Name" HorizontalAlignment="Left" Margin="21,72,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" FontSize="12"/>
                 <TextBlock HorizontalAlignment="Left" Margin="21,134,0,0" TextWrapping="Wrap" Text="Tags" VerticalAlignment="Top" FontSize="12"/>
-                <Button x:Name="AddFav_Confirm" Content="Ajouter" HorizontalAlignment="Right" Margin="0,0,21,18" VerticalAlignment="Bottom" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="White" BorderBrush="#33000000" BorderThickness="1" Height="37" Width="92"/>
-                <Button x:Name="AddFav_Cancel" Content="Annuler" HorizontalAlignment="Right" Margin="0,0,118,18" VerticalAlignment="Bottom" Foreground="#FF4B4B4B" BorderBrush="#FF7C7C7C" BorderThickness="1" Height="37" Width="92">
+                <Button x:Uid="Add" x:Name="AddFav_Confirm" Content="Ajouter" HorizontalAlignment="Right" Margin="0,0,21,18" VerticalAlignment="Bottom" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="White" BorderBrush="#33000000" BorderThickness="1" Height="37" Width="92"/>
+                <Button x:Uid="Cancel" x:Name="AddFav_Cancel" Content="Annuler" HorizontalAlignment="Right" Margin="0,0,118,18" VerticalAlignment="Bottom" Foreground="#FF4B4B4B" BorderBrush="#FF7C7C7C" BorderThickness="1" Height="37" Width="92">
                     <Button.Background>
                         <SolidColorBrush Color="#000078D7"/>
                     </Button.Background>

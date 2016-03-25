@@ -17,7 +17,7 @@ Public NotInheritable Class Verrouillage
     Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         localSettings.Values("ShowLockScreen") = True
-
+        LoadAnim.Begin() 'Animation d'ouverture
         Dim v = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView()
         v.TitleBar.ButtonBackgroundColor = Windows.UI.Color.FromArgb(255, 27, 27, 27)
         v.TitleBar.ButtonForegroundColor = Windows.UI.Colors.White
@@ -56,5 +56,14 @@ Public NotInheritable Class Verrouillage
             Catch
             End Try
         End If
+    End Sub
+
+    Private Sub PaswwordBox_GotFocus(sender As Object, e As RoutedEventArgs) Handles PaswwordBox.GotFocus
+        Backrec.Fill = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 255, 255))
+        PaswwordBox.BorderThickness = New Thickness(0, 0, 0, 0)
+    End Sub
+    Private Sub PaswwordBox_LostFocus(sender As Object, e As RoutedEventArgs) Handles PaswwordBox.LostFocus
+        Backrec.Fill = New SolidColorBrush(Windows.UI.Color.FromArgb(61, 0, 0, 0))
+        PaswwordBox.BorderThickness = New Thickness(0, 0, 0, 2)
     End Sub
 End Class

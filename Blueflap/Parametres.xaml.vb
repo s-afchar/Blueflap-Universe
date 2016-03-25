@@ -7,6 +7,7 @@ Imports Windows.Storage
 ''' </summary>
 Public NotInheritable Class Parametres
     Inherits Page
+    Dim resourceLoader = New Resources.ResourceLoader()
 #Region "Frame.GoBack"
     Public Sub New()
         Me.InitializeComponent()
@@ -556,22 +557,20 @@ Public NotInheritable Class Parametres
         SaveSettings()
         Me.Frame.Navigate(GetType(MainPage))
     End Sub
-
-    Private Sub Button_Tapped_3(sender As Object, e As TappedRoutedEventArgs)
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-
-        localSettings.Values("LoadPageFromBluestart") = True
-        localSettings.Values("LoadPageFromBluestart_Adress") = "http://personali.zz.mu/"
-        RemoveHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf Parametres_BackRequested
-        SaveSettings()
-        Me.Frame.Navigate(GetType(MainPage))
-    End Sub
-
     Private Async Sub Button_Tapped_4(sender As Object, e As TappedRoutedEventArgs)
         'Ouverture de la page du store associée à Blueflap
         Await Windows.System.Launcher.LaunchUriAsync(New Uri(("ms-windows-store:PDP?PFN=" + Package.Current.Id.FamilyName)))
     End Sub
 
+    Private Sub Button_Tapped(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        localSettings.Values("LoadPageFromBluestart") = True
+        localSettings.Values("LoadPageFromBluestart_Adress") = "http://goo.gl/forms/0KNjt488i5"
+        RemoveHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf Parametres_BackRequested
+        SaveSettings()
+        Me.Frame.Navigate(GetType(MainPage))
+    End Sub
 #End Region
 #Region "Password and security"
     Private Sub Password_SaveSettings(sender As Object, e As TappedRoutedEventArgs)
@@ -583,7 +582,8 @@ Public NotInheritable Class Parametres
             localSettings.Values("Password") = NewPasswordBox.Password
         End If
         NewPasswordBox.IsEnabled = True
-        TextBlockNewPassword.Text = "Modifier le mot de passe"
+
+        TextBlockNewPassword.Text = resourceLoader.GetString("Settings_editpassword/text")
         localSettings.Values("VerrouillageEnabled") = VerrouillageSwitch.IsOn
         localSettings.Values("ShowLockScreen") = False
     End Sub
@@ -592,7 +592,7 @@ Public NotInheritable Class Parametres
         CloseVerrouillagePopup.Begin()
         NewPasswordBox.Password = ""
         NewPasswordBox.IsEnabled = True
-        TextBlockNewPassword.Text = "Modifier le mot de passe"
+        TextBlockNewPassword.Text = resourceLoader.GetString("Settings_editpassword/text")
     End Sub
     Private Sub ShowPasswordConfigurationPopup(sender As Object, e As TappedRoutedEventArgs) Handles Buton_LockSetings.Tapped
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
@@ -603,7 +603,7 @@ Public NotInheritable Class Parametres
             Else
                 CloseVerrouillagePopup.Stop()
                 ShowVerrouillagePopup.Begin()
-                TextBlockNewPassword.Text = "Définir un mot de passe"
+                TextBlockNewPassword.Text = resourceLoader.GetString("Settings_newpassword/text")
             End If
         Catch
             CloseVerrouillagePopup.Stop()
@@ -669,5 +669,6 @@ Public NotInheritable Class Parametres
         End If
 
     End Sub
+
 #End Region
 End Class

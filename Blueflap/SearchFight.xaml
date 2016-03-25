@@ -473,7 +473,7 @@
             <Grid.RenderTransform>
                 <CompositeTransform/>
             </Grid.RenderTransform>
-            <TextBox x:Name="AdressBox" Margin="11,39,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" FontSize="16" Height="32" BorderThickness="1" HorizontalAlignment="Left" Width="219" RenderTransformOrigin="0.5,0.5" PlaceholderText="Entrez votre recherche ici">
+            <TextBox x:Name="AdressBox" Margin="11,39,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" FontSize="16" Height="32" BorderThickness="1" HorizontalAlignment="Left" Width="219" RenderTransformOrigin="0.5,0.5" x:Uid="FightTextbox" PlaceholderText="Entrez votre recherche ici">
                 <TextBox.RenderTransform>
                     <CompositeTransform/>
                 </TextBox.RenderTransform>
@@ -548,7 +548,7 @@
                 <CompositeTransform/>
             </Grid.RenderTransform>
             <TextBlock HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Foreground="#FF767676" Text="&#xE81C;"/>
-            <TextBlock HorizontalAlignment="Left" Margin="35,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF919191" Text="Dernière recherche" FontSize="13.333"/>
+            <TextBlock x:Uid="LastSearch" HorizontalAlignment="Left" Margin="35,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF919191" Text="Dernière recherche" FontSize="13.333"/>
             <TextBlock x:Name="DerniereRecherche" HorizontalAlignment="Left" Margin="36,20,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Foreground="#FF535353" Text="BLUEFLAP" FontSize="14" FontWeight="SemiBold" Width="209" Height="22"/>
         </Grid>
         <Image x:Name="ShadowEffect" HorizontalAlignment="Center" Height="62" Margin="0,-195,0,0" VerticalAlignment="Center" Width="165" Source="Assets/shadow.png" RenderTransformOrigin="0.5,0.5" Opacity="0.696">
@@ -588,7 +588,7 @@
             <Rectangle Fill="White" HorizontalAlignment="Left" Height="18" Margin="36,33,0,0" VerticalAlignment="Top" Width="146" Stroke="#33000000" RadiusY="1.75" RadiusX="1.75"/>
             <Rectangle Fill="White" HorizontalAlignment="Left" Height="18" Margin="36,61,0,0" VerticalAlignment="Top" Width="244" Stroke="#33000000" RadiusY="1.75" RadiusX="1.75"/>
             <TextBlock HorizontalAlignment="Left" Margin="0,7,0,0" TextWrapping="Wrap" Text="&#xE10C;" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe MDL2 Assets" Width="31" TextAlignment="Center"/>
-            <TextBlock HorizontalAlignment="Left" Margin="40,33,0,0" TextWrapping="Wrap" Text="OUVRIR DANS BLUEFLAP" VerticalAlignment="Top" FontSize="12" FontWeight="SemiBold" Opacity="0.8" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
+            <TextBlock x:Uid="OpenInBF" HorizontalAlignment="Left" Margin="40,33,0,0" TextWrapping="Wrap" Text="OUVRIR DANS BLUEFLAP" VerticalAlignment="Top" FontSize="12" FontWeight="SemiBold" Opacity="0.8" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
             <Button x:Name="Left_OpenInBrowser" Content="&#xE12B;" HorizontalAlignment="Left" Margin="-4,24,0,0" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="White" Background="#00000000" Width="39" Height="35" BorderThickness="0" RenderTransformOrigin="0.5,0.5" FontSize="21.333">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="0.8" ScaleY="0.8"/>
@@ -599,7 +599,7 @@
                     <CompositeTransform ScaleX="0.8" ScaleY="0.8"/>
                 </Button.RenderTransform>
             </Button>
-            <TextBlock HorizontalAlignment="Left" Margin="41,62,0,0" TextWrapping="Wrap" Text="UTILISER COMME MOTEUR DE RECHERCHE" VerticalAlignment="Top" FontSize="12" FontWeight="SemiBold" Opacity="0.8" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
+            <TextBlock x:Uid="SetSearchEngine" HorizontalAlignment="Left" Margin="41,62,0,0" TextWrapping="Wrap" Text="UTILISER COMME MOTEUR DE RECHERCHE" VerticalAlignment="Top" FontSize="12" FontWeight="SemiBold" Opacity="0.8" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
         </Grid>
         <Grid x:Name="RightMenu" HorizontalAlignment="Right" Height="88" Margin="0,90,10,0" VerticalAlignment="Top" Width="290" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
@@ -609,7 +609,7 @@
             <Rectangle Fill="White" HorizontalAlignment="Left" Height="18" Margin="36,33,0,0" VerticalAlignment="Top" Width="146" Stroke="#33000000" RadiusY="1.75" RadiusX="1.75"/>
             <Rectangle Fill="White" HorizontalAlignment="Left" Height="18" Margin="36,61,0,0" VerticalAlignment="Top" Width="244" Stroke="#33000000" RadiusY="1.75" RadiusX="1.75"/>
             <TextBlock HorizontalAlignment="Left" Margin="0,7,0,0" TextWrapping="Wrap" Text="&#xE10C;" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe MDL2 Assets" Width="31" TextAlignment="Center"/>
-            <TextBlock HorizontalAlignment="Left" Margin="40,33,0,0" TextWrapping="Wrap" Text="OUVRIR DANS BLUEFLAP" VerticalAlignment="Top" FontSize="12" FontWeight="SemiBold" Opacity="0.8" Foreground="{ThemeResource ContentDialogBorderThemeBrush}" RenderTransformOrigin="0.5,0.5">
+            <TextBlock  x:Uid="OpenInBF"  HorizontalAlignment="Left" Margin="40,33,0,0" TextWrapping="Wrap" Text="OUVRIR DANS BLUEFLAP" VerticalAlignment="Top" FontSize="12" FontWeight="SemiBold" Opacity="0.8" Foreground="{ThemeResource ContentDialogBorderThemeBrush}" RenderTransformOrigin="0.5,0.5">
                 <TextBlock.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </TextBlock.RenderTransform>
@@ -624,7 +624,7 @@
                     <CompositeTransform ScaleX="0.8" ScaleY="0.8"/>
                 </Button.RenderTransform>
             </Button>
-            <TextBlock HorizontalAlignment="Left" Margin="41,62,0,0" TextWrapping="Wrap" Text="UTILISER COMME MOTEUR DE RECHERCHE" VerticalAlignment="Top" FontSize="12" FontWeight="SemiBold" Opacity="0.8" Foreground="{ThemeResource ContentDialogBorderThemeBrush}" RenderTransformOrigin="0.5,0.5">
+            <TextBlock x:Uid="SetSearchEngine" HorizontalAlignment="Left" Margin="41,62,0,0" TextWrapping="Wrap" Text="UTILISER COMME MOTEUR DE RECHERCHE" VerticalAlignment="Top" FontSize="12" FontWeight="SemiBold" Opacity="0.8" Foreground="{ThemeResource ContentDialogBorderThemeBrush}" RenderTransformOrigin="0.5,0.5">
                 <TextBlock.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </TextBlock.RenderTransform>

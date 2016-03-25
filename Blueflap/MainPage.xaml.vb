@@ -19,6 +19,8 @@ Public NotInheritable Class MainPage
     Dim EditMemo As Boolean
     Dim OpenSearch_A1 As String
     Dim OpenSearch_A2 As String
+    Dim resourceLoader = New Resources.ResourceLoader()
+    Dim favs_tagsearch As Boolean
 
 #Region "HardwareBackButton"
     Public Sub New()
@@ -108,8 +110,8 @@ Public NotInheritable Class MainPage
                 Catch
                     Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
                     Dim toeastElement = notificationXml.GetElementsByTagName("text")
-                    toeastElement(0).AppendChild(notificationXml.CreateTextNode("Erreur page d'accueil"))
-                    toeastElement(1).AppendChild(notificationXml.CreateTextNode("La page d'accueil définie est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre page d'accueil."))
+                    toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Homepage_Header/Text")))
+                    toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Homepage_Content/Text")))
                     Dim ToastNotification = New ToastNotification(notificationXml)
                     ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
 
@@ -202,6 +204,7 @@ Public NotInheritable Class MainPage
         End If
 
         History_SearchMode = False
+        favs_tagsearch = False
 
         'Animation d'ouverture de Blueflap
         EnterAnim.Begin()
@@ -384,8 +387,8 @@ Public NotInheritable Class MainPage
                 Catch
                     Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
                     Dim toeastElement = notificationXml.GetElementsByTagName("text")
-                    toeastElement(0).AppendChild(notificationXml.CreateTextNode("Erreur page d'accueil"))
-                    toeastElement(1).AppendChild(notificationXml.CreateTextNode("La page d'accueil définie est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre page d'accueil."))
+                    toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Homepage_Header/Text")))
+                    toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Homepage_Content/Text")))
                     Dim ToastNotification = New ToastNotification(notificationXml)
                     ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
 
@@ -455,8 +458,8 @@ Public NotInheritable Class MainPage
             Catch
                 Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
                 Dim toeastElement = notificationXml.GetElementsByTagName("text")
-                toeastElement(0).AppendChild(notificationXml.CreateTextNode("Erreur moteur de recherche"))
-                toeastElement(1).AppendChild(notificationXml.CreateTextNode("Le moteur de recherche défini est invalide. Rendez-vous dans les paramètres et vérifiez la configuration de votre moteur de recherche."))
+                toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Search_Header/Text")))
+                toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Search_Content/Text")))
                 Dim ToastNotification = New ToastNotification(notificationXml)
                 ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
 
@@ -585,7 +588,7 @@ Public NotInheritable Class MainPage
                 webcontainer.Margin = New Thickness(48, 66, 261, 0)
                 LeftPanelShadow.Visibility = Visibility.Collapsed
             End If
-            MemoAncrageToggle.IsOn = localSettings.Values("AncrageMemo")
+            MemoAncrageToggleButton.IsChecked = localSettings.Values("AncrageMemo")
         Catch
         End Try
         If RightMenuPivot.SelectedIndex = 0 Then
@@ -635,18 +638,19 @@ Public NotInheritable Class MainPage
         End If
         RightMenuPivot.SelectedIndex = 0
     End Sub
+    Private Sub MemoAncrageToggleButton_Checked(sender As Object, e As RoutedEventArgs) Handles MemoAncrageToggleButton.Checked
+        webcontainer.Margin = New Thickness(48, 66, 261, 0)
+        LeftPanelShadow.Visibility = Visibility.Collapsed
 
-    Private Sub MemoAncrageToggle_Toggled(sender As Object, e As RoutedEventArgs) Handles MemoAncrageToggle.Toggled
-        'L'utilisateur choisi d'ancrer ou non le volet des mémos
-        If MemoAncrageToggle.IsOn Then
-            webcontainer.Margin = New Thickness(48, 66, 261, 0)
-            LeftPanelShadow.Visibility = Visibility.Collapsed
-        Else
-            webcontainer.Margin = New Thickness(48, 66, 0, 0)
-            LeftPanelShadow.Visibility = Visibility.Visible
-        End If
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        localSettings.Values("AncrageMemo") = MemoAncrageToggle.IsOn
+        localSettings.Values("AncrageMemo") = True
+    End Sub
+
+    Private Sub MemoAncrageToggleButton_Unloaded(sender As Object, e As RoutedEventArgs) Handles MemoAncrageToggleButton.Unchecked
+        webcontainer.Margin = New Thickness(48, 66, 0, 0)
+        LeftPanelShadow.Visibility = Visibility.Visible
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        localSettings.Values("AncrageMemo") = False
     End Sub
 
     Private Sub Memo_ExpandButton_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_ExpandButton.Tapped
@@ -659,7 +663,7 @@ Public NotInheritable Class MainPage
             MemoPanel.Width = 261
             MemoPanel.Margin = New Thickness(0, 66, 0, 0)
             MemoPanel.HorizontalAlignment = HorizontalAlignment.Right
-            If MemoAncrageToggle.IsOn Then
+            If MemoAncrageToggleButton.IsChecked Then
                 LeftPanelShadow.Visibility = Visibility.Collapsed
             Else
                 LeftPanelShadow.Visibility = Visibility.Visible
@@ -747,14 +751,13 @@ Public NotInheritable Class MainPage
                         Notifications_Counter.Text = Notifications_Counter.Text - 1
                     End If
                     Try
-                        Notif_Home.Visibility = Visibility.Collapsed
-                        Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
                         OpenSearchNotif()
+                        Notif_Home.Visibility = Visibility.Collapsed
                     Catch
                     End Try
                 End If
 
-                If web.Source.ToString.Contains("twitter.com") Then
+                If web.Source.Host.ToString.Contains("twitter.com") Then
                     If Notif_Diminutweet.Visibility = Visibility.Collapsed Then
                         New_Notif.Begin()
                         Notifications_Counter.Text = Notifications_Counter.Text + 1
@@ -809,98 +812,101 @@ Public NotInheritable Class MainPage
         Notification()
     End Sub
     Private Async Sub OpenSearchNotif()
-        OpenSearchEngine = True
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        ' Opensearch
-
-        ' Detection du xml
-        Dim xmlUri As Uri
-        Dim html As String = Await (web.InvokeScriptAsync("eval", New String() {"document.documentElement.outerHTML;"}))
-        Dim Found As Boolean = False
-
         Try
-            While Not Found
-                Dim tagStart As Integer = html.IndexOf("<link")
-                Dim tagEnd As Integer = html.Substring(tagStart).IndexOf(">")
-                Dim tag As String = html.Substring(tagStart, tagEnd)
-                If tag.Contains("application/opensearchdescription+xml") Then
-                    Found = True
-                    Dim attStart As Integer = tag.IndexOf("href=""")
-                    Dim attEnd As Integer = tag.Substring(attStart + 6).IndexOf("""")
-                    Dim att As String = tag.Substring(attStart + 6, attEnd)
-                    xmlUri = New Uri(web.Source, att)
+            OpenSearchEngine = True
+            Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+            ' Opensearch
+
+            ' Detection du xml
+            Dim xmlUri As Uri
+            Dim html As String = Await (web.InvokeScriptAsync("eval", New String() {"document.documentElement.outerHTML;"}))
+            Dim Found As Boolean = False
+
+            Try
+                While Not Found
+                    Dim tagStart As Integer = html.IndexOf("<link")
+                    Dim tagEnd As Integer = html.Substring(tagStart).IndexOf(">")
+                    Dim tag As String = html.Substring(tagStart, tagEnd)
+                    If tag.Contains("application/opensearchdescription+xml") Then
+                        Found = True
+                        Dim attStart As Integer = tag.IndexOf("href=""")
+                        Dim attEnd As Integer = tag.Substring(attStart + 6).IndexOf("""")
+                        Dim att As String = tag.Substring(attStart + 6, attEnd)
+                        xmlUri = New Uri(web.Source, att)
+                    Else
+                        html = html.Substring(tagEnd)
+                    End If
+                End While
+
+                ' Recuperation du XML
+                Dim client As HttpClient = New HttpClient
+                Dim xml As String
+                Try
+                    Dim res As HttpResponseMessage = Await client.GetAsync(xmlUri)
+                    res.EnsureSuccessStatusCode()
+                    xml = Await res.Content.ReadAsStringAsync
+                Catch ex As Exception
+                End Try
+
+                ' Parsage (ce mot existe ?) du XML
+                Dim doc As XDocument = XDocument.Parse(xml)
+                Dim root As XElement = doc.Elements.FirstOrDefault
+                Dim name As String
+                Dim img As String
+                Dim searchTemplate As String
+
+                Try
+                    name = root.Elements.First(Function(x) x.Name.LocalName = "ShortName").Value.ToUpperInvariant
+                    img = root.Elements.First(Function(x) x.Name.LocalName = "Image").Value
+                    Dim urlTag = root.Elements.Where(Function(x) x.Name.LocalName = "Url").First(Function(x) x.Attributes.Any(Function(y)
+                                                                                                                                  Return y.Name.LocalName = "type" And y.Value = "text/html"
+                                                                                                                              End Function))
+                    searchTemplate = urlTag.Attributes.First(Function(x) x.Name.LocalName = "template").Value
+
+                    If Not searchTemplate.Contains("{searchTerms}") Then
+                        Dim param = urlTag.Elements.First(Function(x) x.Name.LocalName = "Param")
+                        searchTemplate += "?" + param.Attributes.First(Function(x) x.Name.LocalName = "name").Value + "=" + param.Attributes.First(Function(x) x.Name.LocalName = "value").Value
+                    End If
+
+                Catch ex As Exception
+                    If img Is Nothing Then
+                        img = "http://" & web.Source.Host & "/favicon.ico"
+                    End If
+                    If name Is Nothing Then
+                        name = "INCONNU"
+                    End If
+                    If searchTemplate Is Nothing Then
+                        searchTemplate = "http://" + web.Source.Host + "/?q={searchTerms}"
+                    End If
+                End Try
+
+
+
+                Dim splitter As String = "{searchTerms}"
+                Dim A() As String = searchTemplate.Split(New String() {splitter}, StringSplitOptions.None)
+                OpenSearch_A1 = A(0)
+
+                If Not String.IsNullOrEmpty(A(1)) Then
+                    OpenSearch_A2 = A(1)
                 Else
-                    html = html.Substring(tagEnd)
+                    OpenSearch_A2 = ""
                 End If
-            End While
 
-            ' Recuperation du XML
-            Dim client As HttpClient = New HttpClient
-            Dim xml As String
-            Try
-                Dim res As HttpResponseMessage = Await client.GetAsync(xmlUri)
-                res.EnsureSuccessStatusCode()
-                xml = Await res.Content.ReadAsStringAsync
-            Catch ex As Exception
+
+
+                Notif_Home.Visibility = Visibility.Collapsed
+                Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
+                Notification()
+
+                name = name.Replace("Ã©", "É")
+                Notif_SearchEngineName.Text = name
+                Notif_SearchEngineIcon.Source = New BitmapImage(New Uri(img, UriKind.Absolute))
+
+            Catch
+                OpenSearchEngine = False
             End Try
-
-            ' Parsage (ce mot existe ?) du XML
-            Dim doc As XDocument = XDocument.Parse(xml)
-            Dim root As XElement = doc.Elements.FirstOrDefault
-            Dim name As String
-            Dim img As String
-            Dim searchTemplate As String
-
-            Try
-                name = root.Elements.First(Function(x) x.Name.LocalName = "ShortName").Value.ToUpperInvariant
-                img = root.Elements.First(Function(x) x.Name.LocalName = "Image").Value
-                Dim urlTag = root.Elements.Where(Function(x) x.Name.LocalName = "Url").First(Function(x) x.Attributes.Any(Function(y)
-                                                                                                                              Return y.Name.LocalName = "type" And y.Value = "text/html"
-                                                                                                                          End Function))
-                searchTemplate = urlTag.Attributes.First(Function(x) x.Name.LocalName = "template").Value
-
-                If Not searchTemplate.Contains("{searchTerms}") Then
-                    Dim param = urlTag.Elements.First(Function(x) x.Name.LocalName = "Param")
-                    searchTemplate += "?" + param.Attributes.First(Function(x) x.Name.LocalName = "name").Value + "=" + param.Attributes.First(Function(x) x.Name.LocalName = "value").Value
-                End If
-
-            Catch ex As Exception
-                If img Is Nothing Then
-                    img = "http://" & web.Source.Host & "/favicon.ico"
-                End If
-                If name Is Nothing Then
-                    name = "INCONNU"
-                End If
-                If searchTemplate Is Nothing Then
-                    searchTemplate = "http://" + web.Source.Host + "/?q={searchTerms}"
-                End If
-            End Try
-
-
-
-            Dim splitter As String = "{searchTerms}"
-            Dim A() As String = searchTemplate.Split(New String() {splitter}, StringSplitOptions.None)
-            OpenSearch_A1 = A(0)
-
-            If Not String.IsNullOrEmpty(A(1)) Then
-                OpenSearch_A2 = A(1)
-            Else
-                OpenSearch_A2 = ""
-            End If
-
-
-
-            Notif_Home.Visibility = Visibility.Collapsed
-            Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
-
-            name = name.Replace("Ã©", "É")
-            Notif_SearchEngineName.Text = name
-            Notif_SearchEngineIcon.Source = New BitmapImage(New Uri(img, UriKind.Absolute))
-
         Catch
-            OpenSearchEngine = False
         End Try
-
 
     End Sub
     Private Sub PivotIndicatorPosition()
@@ -924,6 +930,8 @@ Public NotInheritable Class MainPage
             Memo_ExpandButton.Visibility = Visibility.Visible
             History_SearchBar.Visibility = Visibility.Collapsed
             History_ShowSearchBar.Visibility = Visibility.Collapsed
+            sorttag.Visibility = Visibility.Collapsed
+            favs_tagsearch = False
             Try
                 ShowFavorites()
             Catch ex As Exception
@@ -991,8 +999,8 @@ Public NotInheritable Class MainPage
 
         Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
         Dim toeastElement = notificationXml.GetElementsByTagName("text")
-        toeastElement(0).AppendChild(notificationXml.CreateTextNode("Moteur de recherche"))
-        toeastElement(1).AppendChild(notificationXml.CreateTextNode("Le moteur de recherche a été modifié"))
+        toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Header/Text")))
+        toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Content/Text")))
         Dim ToastNotification = New ToastNotification(notificationXml)
         ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
     End Sub
@@ -1000,6 +1008,8 @@ Public NotInheritable Class MainPage
 #Region "Favorites"
     Private Async Function ShowFavorites() As Task
         FavList.Children.Clear()
+        TagsContainer.Children.Clear()
+        Dim PreventMultipleSameItems As New HashSet(Of String)()
 
         For Each favsElem In JsonArray.Parse(Await ReadJsonFile("Favorites")).Reverse
 
@@ -1024,13 +1034,13 @@ Public NotInheritable Class MainPage
 
             Dim menu As MenuFlyout = New MenuFlyout
             Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
-            menuDelete.Text = "Supprimer"
+            menuDelete.Text = resourceLoader.GetString("Delete/Text")
             menu.Items.Add(menuDelete)
             Dim MenuCopy As MenuFlyoutItem = New MenuFlyoutItem
-            MenuCopy.Text = "Copier l'URL dans le presse-papier"
+            MenuCopy.Text = resourceLoader.GetString("CopyURL/Text")
             menu.Items.Add(MenuCopy)
             Dim SetFavHomePage As MenuFlyoutItem = New MenuFlyoutItem
-            SetFavHomePage.Text = "Définir comme page d'accueil"
+            SetFavHomePage.Text = resourceLoader.GetString("SetAsMyHomepage/Text")
             menu.Items.Add(SetFavHomePage)
 
             AddHandler elemContainer.RightTapped, New RightTappedEventHandler(Function(sender As Object, e As RightTappedRoutedEventArgs)
@@ -1075,14 +1085,68 @@ Public NotInheritable Class MainPage
 
             For Each favTag As JsonValue In favsElem.GetObject.GetNamedArray("tags")
                 TagsText.Text += "#" + favTag.GetString + " "
+
+                If Not PreventMultipleSameItems.Contains("#" + favTag.GetString) Then
+                    Dim taglabel As Grid = New Grid
+                    taglabel.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(30, 150, 150, 150))
+                    taglabel.CornerRadius = New CornerRadius(15)
+                    taglabel.Margin = New Thickness(3, 3, 0, 0)
+                    Dim taglabeltext As TextBlock = New TextBlock
+                    taglabeltext.Text = "#" + favTag.GetString
+                    taglabeltext.Margin = New Thickness(7, 6, 7, 4)
+                    taglabel.Children.Add(taglabeltext)
+                    taglabel.Height = 32
+                    taglabel.Width = Double.NaN
+                    AddHandler taglabel.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                    taglabel.Background = LeftMenu.Background
+                                                                                    taglabeltext.Foreground = New SolidColorBrush(Windows.UI.Colors.White)
+                                                                                End Function)
+
+                    AddHandler taglabel.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                   taglabel.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(30, 150, 150, 150))
+                                                                                   taglabeltext.Foreground = New SolidColorBrush(Windows.UI.Colors.Black)
+                                                                               End Function)
+
+                    AddHandler taglabel.Tapped, New TappedEventHandler(Async Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                           TagFilter.Text = taglabeltext.Text
+                                                                           favs_tagsearch = True
+                                                                           sorttag.Visibility = Visibility.Visible
+                                                                           Await ShowFavorites()
+                                                                       End Function)
+
+                    TagsContainer.Children.Add(taglabel)
+                End If
+                PreventMultipleSameItems.Add("#" + favTag.GetString)
             Next
+
+
             TagsText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 150, 150, 150))
             elemContainer.Children.Add(TagsText)
 
-            FavList.Children.Add(elemContainer)
 
+            If favs_tagsearch = True Then
+                Dim tagsfilter As String = TagFilter.Text.ToLower.Replace("#", "")
+                If favsElem.GetObject.GetNamedArray("tags").ToString.ToLower.Contains(tagsfilter) Then
+                    FavList.Children.Add(elemContainer)
+                End If
+            Else
+                FavList.Children.Add(elemContainer)
+            End If
         Next
+        favs_tagsearch = False
     End Function
+    Private Async Sub sorttag_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles sorttag.Tapped
+        sorttag.Visibility = Visibility.Collapsed
+        favs_tagsearch = False
+        Await ShowFavorites()
+    End Sub
+    Private Sub sorttag_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles sorttag.PointerEntered
+        sorttag.BorderThickness = New Thickness(2, 2, 2, 2)
+    End Sub
+
+    Private Sub sorttag_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles sorttag.PointerExited
+        sorttag.BorderThickness = New Thickness(0, 1, 0, 1)
+    End Sub
 
     Private Async Function AddToFavList() As Task
         Dim CurrentTitle As String = web.DocumentTitle
@@ -1297,10 +1361,13 @@ Public NotInheritable Class MainPage
         End If
         AdressBox.SelectAll()
 
-        If web.Source.HostNameType = UriHostNameType.Dns And loader.IsActive = False And Not localSettings.Values("Favicon") = False Then
-            Favicon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
-            Favicon.Visibility = Visibility.Visible
-        End If
+        Try
+            If web.Source.HostNameType = UriHostNameType.Dns And loader.IsActive = False And Not localSettings.Values("Favicon") = False Then
+                Favicon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
+                Favicon.Visibility = Visibility.Visible
+            End If
+        Catch
+        End Try
 
     End Sub
 
@@ -1663,14 +1730,14 @@ Public NotInheritable Class MainPage
 
                 Dim menu As MenuFlyout = New MenuFlyout
                 Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
-                menuDelete.Text = "Supprimer"
+                menuDelete.Text = resourceLoader.GetString("Delete/Text")
                 menu.Items.Add(menuDelete)
                 Dim MenuCopy As MenuFlyoutItem = New MenuFlyoutItem
-                MenuCopy.Text = "Copier l'URL dans le presse-papier"
+                MenuCopy.Text = resourceLoader.GetString("CopyURL/Text")
                 menu.Items.Add(MenuCopy)
                 Dim SortByUrl As MenuFlyoutItem = New MenuFlyoutItem
                 Dim HistUrl = New Uri(histElem.GetObject.GetNamedString("url"))
-                SortByUrl.Text = "Afficher toutes les visites sur " + HistUrl.Host
+                SortByUrl.Text = resourceLoader.GetString("HistorySortByUrl/Text") + " " + HistUrl.Host
                 menu.Items.Add(SortByUrl)
 
                 AddHandler elemContainer.RightTapped, New RightTappedEventHandler(Function(sender As Object, e As RightTappedRoutedEventArgs)
@@ -1712,7 +1779,7 @@ Public NotInheritable Class MainPage
                 elemContainer.Children.Add(UrlText)
 
                 Dim visitDate As TextBlock = New TextBlock
-                visitDate.Text = DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString("Le dd MMMMMMMMMMMM yyyy à HH:mm")
+                visitDate.Text = resourceLoader.GetString("DateList_1/Text") + DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString("dd MMMMMMMMMMMM yyyy ") + resourceLoader.GetString("DateList_2/Text") + DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString(" HH:mm")
                 visitDate.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 150, 150, 150))
                 elemContainer.Children.Add(visitDate)
 
@@ -1857,7 +1924,7 @@ Public NotInheritable Class MainPage
 
             Dim menu As MenuFlyout = New MenuFlyout
             Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
-            menuDelete.Text = "Supprimer"
+            menuDelete.Text = resourceLoader.GetString("Delete/Text")
             menu.Items.Add(menuDelete)
 
 

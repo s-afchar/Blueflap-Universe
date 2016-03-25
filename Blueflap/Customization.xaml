@@ -1,0 +1,94 @@
+﻿<Page
+    x:Class="Blueflap.Customization"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Blueflap"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="Page_Loaded">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Image x:Name="Wallpaper" Margin="0" Source="Assets/Degrade.png" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <CompositeTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Rectangle Fill="#4C000000" Margin="0"/>
+        <Rectangle x:Name="rectangle3" Fill="#FF1B1B1B" Height="66.4" Stroke="Black" VerticalAlignment="Top" StrokeThickness="0"/>
+        <Image x:Name="image1" HorizontalAlignment="Center" Height="55" Margin="0,4,0,0" VerticalAlignment="Top" Width="55" Source="Assets/Square150x150Logo.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <CompositeTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Rectangle x:Name="rectangle" Fill="{ThemeResource ContentDialogBorderThemeBrush}" HorizontalAlignment="Left" Height="66" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <CompositeTransform/>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Button x:Name="button" Content="&#xE0C4;" HorizontalAlignment="Left" Height="66" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5" Background="#00000000" Tapped="Button_Tapped" RequestedTheme="Light" FontFamily="Segoe MDL2 Assets" FontWeight="Bold" FontSize="16" BorderThickness="0">
+            <Button.RenderTransform>
+                <CompositeTransform/>
+            </Button.RenderTransform>
+            <Button.Foreground>
+                <SolidColorBrush Color="White"/>
+            </Button.Foreground>
+        </Button>
+        <StackPanel Margin="0,66,0,0">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Image de fond" VerticalAlignment="Top" RequestedTheme="Dark" FontSize="12" Margin="200,40,0,10"/>
+            <VariableSizedWrapGrid Margin="200,0,200,20" VerticalAlignment="Top" Orientation="Horizontal">
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper1" Margin="0,0,3,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Degrade.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper2" Margin="0,0,3,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Degrade2.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper3" Margin="0,0,3,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Ciel.JPG"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper4" Margin="0,0,3,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Fleurs.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper5" Margin="0,0,3,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Montagne.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper6" Margin="0,0,3,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Neige.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper7" Margin="0,0,3,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Plage.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper8" Margin="0,0,3,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Soleil.JPG"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper9" Margin="0,0,3,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Cailloux.jpg"/>
+                    </Button.Background>
+                </Button>
+            </VariableSizedWrapGrid>
+            <Grid Margin="200,0,0,0" VerticalAlignment="Top">
+                <TextBox x:Name="OnlineImagePath" HorizontalAlignment="Left" Text="" VerticalAlignment="Top" Width="278" RequestedTheme="Dark" BorderThickness="1" Height="22" PlaceholderText="URL de l'image de fond" TextAlignment="Left" TextWrapping="NoWrap" Margin="168,9,0,0" Visibility="Collapsed"/>
+                <TextBlock HorizontalAlignment="Left" Margin="25,17,0,0" TextWrapping="Wrap" Text="&#xE753;" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe MDL2 Assets"/>
+                <Button Content="       Image en ligne" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="151" Foreground="#DDFFFFFF" Background="#4C000000" BorderBrush="#64000000" BorderThickness="1" FontSize="12" RequestedTheme="Dark" Tapped="SetCustomWallpaper"/>
+            </Grid>
+        </StackPanel>
+
+    </Grid>
+</Page>

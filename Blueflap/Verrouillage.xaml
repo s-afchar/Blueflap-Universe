@@ -50,6 +50,48 @@
                 <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#99000000"/>
             </ColorAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Name="LoadAnim">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Wallpaper">
+                <EasingDoubleKeyFrame KeyTime="0" Value="66"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuarticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Wallpaper">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuarticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="400"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut" Amplitude="0.2"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-32"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Page.Resources>
     <Grid Background="#FF3E3E3E">
         <Grid x:Name="Loader" HorizontalAlignment="Left" Height="47" Margin="21,55,0,0" VerticalAlignment="Top" Width="314" RenderTransformOrigin="0.5,0.5">
@@ -71,32 +113,31 @@
             </TextBlock>
             <TextBlock HorizontalAlignment="Left" Margin="44,22,0,0" TextWrapping="Wrap" Text="Téléchargement de l'image de fond" VerticalAlignment="Top" Foreground="White" FontSize="13.333"/>
         </Grid>
-        <Image x:Name="Wallpaper" Margin="0" Source="Assets/Degrade.png" Stretch="UniformToFill"/>
-        <Rectangle Fill="#661B1B1B" Height="32" Stroke="Black" VerticalAlignment="Top" StrokeThickness="0"/>
-        <Rectangle HorizontalAlignment="Right" Height="32" Margin="0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="503">
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="90"/>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="#FF1B1B1B" Offset="0.397"/>
-                    <GradientStop Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Image HorizontalAlignment="Left" Height="26" Margin="8,3,0,0" VerticalAlignment="Top" Width="30" Source="Assets/Square150x150Logo.png"/>
-        <TextBlock HorizontalAlignment="Left" Margin="36,8,0,0" TextWrapping="Wrap" Text="Blueflap" VerticalAlignment="Top" Foreground="White" FontSize="12"/>
-        <Grid HorizontalAlignment="Center" Height="400" Margin="0,0,0,40" VerticalAlignment="Center" Width="500" Padding="0" BorderThickness="0">
-            <Rectangle x:Name="rectangle" Fill="#9A000000" HorizontalAlignment="Left" Margin="0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Height="400" Width="500" RadiusX="10" RadiusY="10"/>
-            <Rectangle Fill="#3E000000" HorizontalAlignment="Left" Height="91" Margin="0,177,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="500"/>
+        <Image x:Name="Wallpaper" Margin="0" Source="Assets/Degrade.png" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <CompositeTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Rectangle Fill="#FF1B1B1B" Height="66" Stroke="Black" VerticalAlignment="Top" StrokeThickness="0"/>
+        <Image x:Name="image" HorizontalAlignment="Center" Height="55" Margin="0,4,0,0" VerticalAlignment="Top" Width="66" Source="Assets/Square150x150Logo.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <CompositeTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Grid x:Name="grid" Height="400" Margin="0,0,0,40" VerticalAlignment="Center" Width="500" Padding="0" BorderThickness="0" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
+            <Rectangle x:Name="rectangle" Fill="#9A000000" HorizontalAlignment="Left" Margin="0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Height="400" Width="500" RadiusX="5" RadiusY="5"/>
+            <Rectangle x:Name="Backrec" Fill="#3E000000" HorizontalAlignment="Left" Height="91" Margin="0,177,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="500"/>
             <Image Height="100" Margin="0,12,0,0" VerticalAlignment="Top" Source="Assets/Square150x150Logo.png"/>
-            <PasswordBox x:Name="PaswwordBox" HorizontalAlignment="Center" Margin="0,202,0,0" VerticalAlignment="Top" Width="331" RequestedTheme="Dark" FontSize="20"  PlaceholderText="Entrer le mot de passe" Height="39" RenderTransformOrigin="0.5,0.5" BorderThickness="1">
+            <PasswordBox x:Uid="Lock_Password" x:Name="PaswwordBox" HorizontalAlignment="Center" Margin="0,204,0,0" VerticalAlignment="Top" Width="331" RequestedTheme="Dark" FontSize="20"  PlaceholderText="Entrer le mot de passe" Height="39" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,2" Background="{x:Null}">
                 <PasswordBox.RenderTransform>
                     <CompositeTransform/>
                 </PasswordBox.RenderTransform>
             </PasswordBox>
-            <TextBlock HorizontalAlignment="Center" Margin="0,110,0,0" TextWrapping="Wrap" Text="BLUEFLAP EST VERROUILLÉ" VerticalAlignment="Top" RequestedTheme="Dark" FontWeight="SemiBold" FontSize="18.667" Opacity="0.8"/>
-            <TextBlock HorizontalAlignment="Center" Margin="0,304,0,0" TextWrapping="Wrap" Text="VERROUILLÉ À" VerticalAlignment="Top" FontWeight="SemiBold">
+            <TextBlock HorizontalAlignment="Center" Margin="0,110,0,0" TextWrapping="Wrap" x:Uid="Lock_Title" Text="BLUEFLAP EST VERROUILLÉ" VerticalAlignment="Top" RequestedTheme="Dark" FontWeight="SemiBold" FontSize="18.667" Opacity="0.8" TextAlignment="Center"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,304,0,0" TextWrapping="Wrap" x:Uid="Lock_Date" Text="VERROUILLÉ À" VerticalAlignment="Top" FontWeight="SemiBold">
                 <TextBlock.Foreground>
                     <SolidColorBrush Color="#95FFFFFF"/>
                 </TextBlock.Foreground>
