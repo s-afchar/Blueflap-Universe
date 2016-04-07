@@ -484,7 +484,7 @@
     <value>Kezdjük el!</value>
   </data>
   <data name="Welcome_Text_1.Text" xml:space="preserve">
-    <value>Üdvözöl a Blueflap, a böngésző, ami úgy béz ki, mint te</value>
+    <value>Üdvözöl a Blueflap, a böngésző, ami úgy néz ki, mint te</value>
   </data>
   <data name="Welcome_Text_2.Text" xml:space="preserve">
     <value>Most nyilván azt kérdezed, hogy hogy nézhet ki egy böngésző úgy, mint te. A titok az, hogy egyedül csak neked fejlesztettük. Akár jelszóval is levédheted a Blueflapet, valamint a sok testreszabási beállításnak köszönhetően úgy nézhet ki és viselkedhet, ahogy csak akarod.</value>
@@ -497,5 +497,68 @@
   </data>
   <data name="Translate.Content" xml:space="preserve">
     <value>Fordítás</value>
+  </data>
+  <data name="Menu_Refresh.Text" xml:space="preserve">
+    <value>Frissítés</value>
+  </data>
+  <data name="Menu_Stop.Text" xml:space="preserve">
+    <value>Leállítás</value>
+  </data>
+  <data name="Menu_Favorites.Text" xml:space="preserve">
+    <value>Hozzáadás a kedvencekhez</value>
+  </data>
+  <data name="Menu_Home.Text" xml:space="preserve">
+    <value>Kezdőlap</value>
+  </data>
+  <data name="Menu_Memos.Text" xml:space="preserve">
+    <value>Emlékeztetők</value>
+  </data>
+  <data name="Menu_Notifications.Text" xml:space="preserve">
+    <value>Értesítések</value>
+  </data>
+  <data name="Menu_Settings.Text" xml:space="preserve">
+    <value>Beállítások</value>
+  </data>
+  <data name="Menu_Share.Text" xml:space="preserve">
+    <value>Megosztás</value>
+  </data>
+  <data name="Menu_Window.Text" xml:space="preserve">
+    <value>Új ablak</value>
+  </data>
+  <data name="Menu_Lock.Text" xml:space="preserve">
+    <value>Lezárás</value>
+  </data>
+  <data name="Menu_Favorites_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Hozzáadás a kedvencekhez</value>
+  </data>
+  <data name="Menu_Home_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Kezdőlap</value>
+  </data>
+  <data name="Menu_Lock_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Lezárás</value>
+  </data>
+  <data name="Menu_Memos_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Emlékeztetők</value>
+  </data>
+  <data name="Menu_Notifications_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Értesítések</value>
+  </data>
+  <data name="Menu_Refresh_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Frissítés</value>
+  </data>
+  <data name="Menu_Settings_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Beállítások</value>
+  </data>
+  <data name="Menu_Share_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Megosztás</value>
+  </data>
+  <data name="Menu_Stop_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Leállítás</value>
+  </data>
+  <data name="Menu_Window_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Új ablak</value>
+  </data>
+  <data name="Menu_Customize.Text" xml:space="preserve">
+    <value>Személyreszabás</value>
   </data>
 </root>

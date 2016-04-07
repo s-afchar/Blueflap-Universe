@@ -118,184 +118,184 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Settings_About.Header" xml:space="preserve">
-    <value>ABOUT</value>
+    <value>ÜBER</value>
   </data>
   <data name="Settings_AdvancedSettings.Header" xml:space="preserve">
-    <value>ADVANCED SETTINGS</value>
+    <value>ERWEITERTEN EINSTELLUNGEN</value>
   </data>
   <data name="Back.Text" xml:space="preserve">
-    <value>Back</value>
+    <value>Zurück</value>
   </data>
   <data name="Settings_browsingdata.Text" xml:space="preserve">
-    <value>Browsing data</value>
+    <value>Navigationsdaten</value>
   </data>
   <data name="Cancel.Content" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Abbrechen</value>
   </data>
   <data name="Settings_ChefProjet.Text" xml:space="preserve">
-    <value>Project leader</value>
+    <value>Projekts Leiter</value>
   </data>
   <data name="Settings_clearhistorylist.Content" xml:space="preserve">
-    <value>Clear history</value>
+    <value>Chronik löschen</value>
   </data>
   <data name="Settings_ContextNotifs.Header" xml:space="preserve">
-    <value>Contextual notifications</value>
+    <value>Pop-up Benachrichtigung</value>
   </data>
   <data name="Settings_ContextNotifs.OffContent" xml:space="preserve">
-    <value>Disabled</value>
+    <value>Deaktiviert</value>
   </data>
   <data name="Settings_ContextNotifs.OnContent" xml:space="preserve">
-    <value>Enabled</value>
+    <value>Aktiviert</value>
   </data>
   <data name="Settings_Dev.Text" xml:space="preserve">
-    <value>Developer</value>
+    <value>Entwickler</value>
   </data>
   <data name="Settings_editpassword.Text" xml:space="preserve">
     <value>Change password</value>
   </data>
   <data name="Settings_enablelock.Header" xml:space="preserve">
-    <value>Browser lock</value>
+    <value>Browser sperren</value>
   </data>
   <data name="enabling.OffContent" xml:space="preserve">
-    <value>Disabled</value>
+    <value>Deaktiviert</value>
   </data>
   <data name="enabling.OnContent" xml:space="preserve">
-    <value>Enabled</value>
+    <value>Aktiviert</value>
   </data>
   <data name="Settings_favconfirmwindow.Text" xml:space="preserve">
-    <value>Confirmation pop-up</value>
+    <value>Pop-up Bestätigung</value>
   </data>
   <data name="Settings_Favorites.Text" xml:space="preserve">
-    <value>Favorites</value>
+    <value>Favoriten</value>
   </data>
   <data name="Settings_homepage.Text" xml:space="preserve">
-    <value>Homepage</value>
+    <value>Startseite</value>
   </data>
   <data name="Settings_Icons.Text" xml:space="preserve">
-    <value>Icons :</value>
+    <value>Ikone :</value>
   </data>
   <data name="Settings_leftmenu.Text" xml:space="preserve">
-    <value>Sidebar</value>
+    <value>Side Bar</value>
   </data>
   <data name="Settings_lock.Text" xml:space="preserve">
-    <value>Browser lock</value>
+    <value>Browser sperren</value>
   </data>
   <data name="Settings_lockedit.Content" xml:space="preserve">
-    <value>Edit</value>
+    <value>Modifizieren</value>
   </data>
   <data name="Settings_locksettings.Text" xml:space="preserve">
-    <value>BROWSER LOCK SETTINGS</value>
+    <value>BROWSER SPERRENS EINSTELLUNGEN</value>
   </data>
   <data name="Settings_newpassplaceholder.PlaceholderText" xml:space="preserve">
-    <value>New password</value>
+    <value>Neues Passwort</value>
   </data>
   <data name="Settings_newpassword.Text" xml:space="preserve">
-    <value>Set a password</value>
+    <value>Als Passwort festlegen</value>
   </data>
   <data name="Settings_personalization.Header" xml:space="preserve">
-    <value>PERSONALIZATION</value>
+    <value>PERSONALISIERUNG</value>
   </data>
   <data name="Settings_resetpassword.Content" xml:space="preserve">
-    <value>Reset password</value>
+    <value>Passwort wiederherstellen</value>
   </data>
   <data name="Save.Content" xml:space="preserve">
-    <value>Save</value>
+    <value>Speichern</value>
   </data>
   <data name="Settings_searchengine.Text" xml:space="preserve">
-    <value>Search engine</value>
+    <value>Suchmaschine</value>
   </data>
   <data name="Settings_searchengineex1.PlaceholderText" xml:space="preserve">
-    <value>Example : "https://www.qwant.com/?q="</value>
+    <value>Beispiel : "https://www.qwant.com/?q="</value>
   </data>
   <data name="Settings_searchengineex2.PlaceholderText" xml:space="preserve">
-    <value>Ex : "&amp;t=web"</value>
+    <value>Bsp : "&amp;t=web"</value>
   </data>
   <data name="Settings_searchenginepers.Content" xml:space="preserve">
-    <value>&lt;Custom&gt;</value>
+    <value>&lt;Nutzerspezifisch&gt;</value>
   </data>
   <data name="Settings_SFAction.Text" xml:space="preserve">
-    <value>Action menu</value>
+    <value>Aktionsmenü</value>
   </data>
   <data name="Settings_showfavicon.Content" xml:space="preserve">
-    <value>Show websites favicon</value>
+    <value>Websites Favicon zeigen</value>
   </data>
   <data name="Settings_Stats.Text" xml:space="preserve">
-    <value>Statistics</value>
+    <value>Statistiken</value>
   </data>
   <data name="Settings_Team.Text" xml:space="preserve">
     <value>Team</value>
   </data>
   <data name="Settings_Team_Website.Text" xml:space="preserve">
-    <value>Website building</value>
+    <value>Website Aufbau</value>
   </data>
   <data name="Settings_Team_Website1.Text" xml:space="preserve">
-    <value>First website</value>
+    <value>Erste Website</value>
   </data>
   <data name="Settings_themestate.Header" xml:space="preserve">
     <value>Theme</value>
   </data>
   <data name="Settings_themecolor.OffContent" xml:space="preserve">
-    <value>Automatic color</value>
+    <value>Automatische Farbe</value>
   </data>
   <data name="Settings_themecolor.OnContent" xml:space="preserve">
-    <value>Custom color</value>
+    <value>Nutzerspezifische Farbe</value>
   </data>
   <data name="Settings_themestate.OffContent" xml:space="preserve">
-    <value>Light</value>
+    <value>Hell</value>
   </data>
   <data name="Settings_themestate.OnContent" xml:space="preserve">
-    <value>Dark</value>
+    <value>Dunkel</value>
   </data>
   <data name="Settings_usebluestart.Content" xml:space="preserve">
-    <value>Use Bluestart</value>
+    <value>Bluestart benutzen</value>
   </data>
   <data name="YesSwitch.OffContent" xml:space="preserve">
-    <value>No</value>
+    <value>Nein</value>
   </data>
   <data name="YesSwitch.OnContent" xml:space="preserve">
-    <value>Yes</value>
+    <value>Ja</value>
   </data>
   <data name="Settings_BluestartDownload.Text" xml:space="preserve">
-    <value>Blueflap on your phone</value>
+    <value>Blueflap auf Ihres Handy</value>
   </data>
   <data name="Settings_Contribute.Text" xml:space="preserve">
-    <value>Contribute</value>
+    <value>Beitragen</value>
   </data>
   <data name="Settings_OpenSource.Text" xml:space="preserve">
-    <value>Open Source License</value>
+    <value>Open Source Lizenz</value>
   </data>
   <data name="Settings_Rate.Content" xml:space="preserve">
-    <value>Rate the app</value>
+    <value>Die App bewerten</value>
   </data>
   <data name="Settings_Version.Text" xml:space="preserve">
     <value>Version</value>
   </data>
   <data name="Add.Content" xml:space="preserve">
-    <value>Add</value>
+    <value>Hinzufügen</value>
   </data>
   <data name="AddToFavorites.Text" xml:space="preserve">
-    <value>ADD TO MY FAVORITES LIST</value>
+    <value>ZU FAVORITEN HINZUFÜGEN</value>
   </data>
   <data name="CopyURL.Text" xml:space="preserve">
-    <value>Copy the URL</value>
+    <value>Die URL kopieren</value>
   </data>
   <data name="DateList_1.Text" xml:space="preserve">
     <value />
   </data>
   <data name="DateList_2.Text" xml:space="preserve">
-    <value>at</value>
+    <value>um</value>
   </data>
   <data name="Delete.Text" xml:space="preserve">
-    <value>Delete</value>
+    <value>Löschen</value>
   </data>
   <data name="FullScreenEsc.Text" xml:space="preserve">
-    <value>Press ESC to exit fullscreen mode</value>
+    <value>Drücken Sie ESC um dem Vollbildmodus zu beenden</value>
   </data>
   <data name="HistorySortByUrl.Text" xml:space="preserve">
-    <value>Show my browsing history for</value>
+    <value>Zeigen meine Chronik für</value>
   </data>
   <data name="LastSearch.Text" xml:space="preserve">
-    <value>Last search</value>
+    <value>Lätze Suche</value>
   </data>
   <data name="LastSearchMargin.Margin" xml:space="preserve">
     <value>116,13,10,0</value>
@@ -307,205 +307,205 @@
     <value>Name</value>
   </data>
   <data name="Notification_Homepage_Content.Text" xml:space="preserve">
-    <value>Please check your homepage settings</value>
+    <value>Überprüfen Sie bitte die Einstellungen Ihrer Startseite</value>
   </data>
   <data name="Notification_Homepage_Header.Text" xml:space="preserve">
-    <value>Homepage error</value>
+    <value>Startseite Fehler</value>
   </data>
   <data name="Notification_Search_Content.Text" xml:space="preserve">
-    <value>Please check your Search Engine settings</value>
+    <value>Überprüfen Sie bitte die Einstellungen Ihrer Suchmaschine</value>
   </data>
   <data name="Notification_Search_Header.Text" xml:space="preserve">
-    <value>Search Engine error</value>
+    <value>Suchmaschine Fehler</value>
   </data>
   <data name="SearchHistory.PlaceholderText" xml:space="preserve">
-    <value>Search in history</value>
+    <value>In der Chronik suchen</value>
   </data>
   <data name="SetAsMyHomepage.Text" xml:space="preserve">
-    <value>Set as my homepage</value>
+    <value>Als Startseite festlegen</value>
   </data>
   <data name="Settings_LockEnabled.Header" xml:space="preserve">
-    <value>Browser lock</value>
+    <value>Browser sperren</value>
   </data>
   <data name="Settings_LockEnabled.OffContent" xml:space="preserve">
-    <value>Disabled</value>
+    <value>Deaktiviert</value>
   </data>
   <data name="Settings_LockEnabled.OnContent" xml:space="preserve">
-    <value>Enabled</value>
+    <value>Aktiviert</value>
   </data>
   <data name="WebPageError.Text" xml:space="preserve">
-    <value>SOMETHING WENT WRONG</value>
+    <value>ETWAS IST SCHIEF GEGANGEN</value>
   </data>
   <data name="WebPageError_1.Text" xml:space="preserve">
-    <value>Check your network connection</value>
+    <value>Überprüfen Sie bitte Ihre Netzwerkverbindung</value>
   </data>
   <data name="WebPageError_2.Text" xml:space="preserve">
-    <value>Check if there is any mistake in the adressbox</value>
+    <value>Überprüfen Sie bitte, ob die Internetadresse richtig ist</value>
   </data>
   <data name="WebPageError_3.Text" xml:space="preserve">
-    <value>Try to refresh this page</value>
+    <value>Probierien Sie bitte, die Webseite neu zu laden</value>
   </data>
   <data name="AutoSuggestion.Text" xml:space="preserve">
-    <value>Automatic suggestion</value>
+    <value>Automatische Vorschläge</value>
   </data>
   <data name="Browser_Lock1.Text" xml:space="preserve">
-    <value>You can protect Blueflap with a password  that will be asked at launch</value>
+    <value>Sie können Blueflap mit einem Passwort sperren. Dieser wird dann beim Programmstart gefragt.</value>
   </data>
   <data name="Browser_Lock2.Text" xml:space="preserve">
-    <value>Do you want to enable lock ?</value>
+    <value>Wollen Sie das Aktivierungssperre aktivieren ?</value>
   </data>
   <data name="Download.Content" xml:space="preserve">
     <value>Download</value>
   </data>
   <data name="FightTextbox.PlaceholderText" xml:space="preserve">
-    <value>Search the web</value>
+    <value>Auf dem Web surchen</value>
   </data>
   <data name="Homepagenotif.Text" xml:space="preserve">
-    <value>Please check your homepage settings</value>
+    <value>Überprüfen Sie bitte die Einstellungen Ihrer Startseite</value>
   </data>
   <data name="Ignore.Content" xml:space="preserve">
-    <value>Skip</value>
+    <value>Weiter</value>
   </data>
   <data name="Lock_Date.Text" xml:space="preserve">
-    <value>LOCKED AT</value>
+    <value>GESPERRT UM</value>
   </data>
   <data name="Lock_Password.PlaceholderText" xml:space="preserve">
-    <value>Password</value>
+    <value>Passwort</value>
   </data>
   <data name="Lock_Title.Text" xml:space="preserve">
-    <value>BLUEFLAP HAS BEEN LOCKED</value>
+    <value>BLUEFLAP WURDE GESPERRT</value>
   </data>
   <data name="MiniPlayerInfo.Text" xml:space="preserve">
-    <value>MiniPlayer mode available for this video</value>
+    <value>Der MiniPlayermodus ist für dieses Video verfügbar</value>
   </data>
   <data name="More.Content" xml:space="preserve">
-    <value>More...</value>
+    <value>Mehr...</value>
   </data>
   <data name="Next.Content" xml:space="preserve">
-    <value>Next</value>
+    <value>Nächste</value>
   </data>
   <data name="NoNotif.Text" xml:space="preserve">
-    <value>Nothing new here...</value>
+    <value>Nichts Neues hier...</value>
   </data>
   <data name="Notification_SearchEngineSet_Content.Text" xml:space="preserve">
-    <value>A new search engine has been set</value>
+    <value>Eine neue Suchmaschine wurde ausgewählt</value>
   </data>
   <data name="Notification_SearchEngineSet_Header.Text" xml:space="preserve">
-    <value>Search Engine</value>
+    <value>Suchmaschine</value>
   </data>
   <data name="OpenInBF.Text" xml:space="preserve">
-    <value>OPEN IN BLUEFLAP</value>
+    <value>MIT BLUEFLAP ÖFFNEN</value>
   </data>
   <data name="OpenMiniPlayer.Content" xml:space="preserve">
-    <value>Open MiniPlayer</value>
+    <value>MiniPlayer öffnen</value>
   </data>
   <data name="SearchEngineLike.Text" xml:space="preserve">
-    <value>Want to use it ?</value>
+    <value>Wollen Sie es benutzen ?</value>
   </data>
   <data name="SearchEngineNotif.Text" xml:space="preserve">
-    <value>Please check your search engine settings</value>
+    <value>Überprüfen Sie bitte die Einstellungen Ihrer Suchmaschine</value>
   </data>
   <data name="SetSearchEngine.Text" xml:space="preserve">
-    <value>SET AS MY SEARCH ENGINE</value>
+    <value>ALS STANDARDSUCHMASCHINE FESTLEGEN</value>
   </data>
   <data name="SetSearchEngineButton.Content" xml:space="preserve">
-    <value>Set as my search engine</value>
+    <value>Als Standardsuchmaschine festlegen</value>
   </data>
   <data name="Settings.Content" xml:space="preserve">
-    <value>Settings</value>
+    <value>Einstellungen</value>
   </data>
   <data name="TeamSuggestion.Text" xml:space="preserve">
     <value>Highlight</value>
   </data>
   <data name="UseDuckDuckGo.Content" xml:space="preserve">
-    <value>Use DuckDuckGo</value>
+    <value>DuckDuckGo benutzen</value>
   </data>
   <data name="UseGoogle.Content" xml:space="preserve">
-    <value>Use Google</value>
+    <value>Google benutzen</value>
   </data>
   <data name="UseQwant.Content" xml:space="preserve">
-    <value>Use Qwant</value>
+    <value>Qwant benutzen</value>
   </data>
   <data name="Welcome.Text" xml:space="preserve">
-    <value>WELCOME</value>
+    <value>WILLKOMMEN</value>
   </data>
   <data name="Welcome_Anim1.Value" xml:space="preserve">
-    <value>WE ARE READY</value>
+    <value>WIR SIND BEREIT</value>
   </data>
   <data name="Welcome_Anim2.Value" xml:space="preserve">
-    <value>WELCOME</value>
+    <value>WILLKOMMEN</value>
   </data>
   <data name="Welcome_Beta.Text" xml:space="preserve">
-    <value>BLUEFLAP IS STILL IN BETA</value>
+    <value>BLUEFLAP IST NOCH IN DER BETA-ENTWICKLUNGSPHASE</value>
   </data>
   <data name="Welcome_Beta1.Text" xml:space="preserve">
-    <value>We haven't finished yet but we were dying to show you this all new version of Blueflap.</value>
+    <value>Wir sind mit der Entwicklung Blueflaps noch nicht vertig aber wir brannten darauf, diese neue Version Ihnen zu zeigen.</value>
   </data>
   <data name="Welcome_Beta2.Text" xml:space="preserve">
-    <value>That's why if something doesn't work it's not a problem... Well... It's not a problem yet...</value>
+    <value>Deshalb ist es kein riesiges Problem, ob etwas nicht funktionniert... zurzeit kein Problem</value>
   </data>
   <data name="Welcome_Beta3.Text" xml:space="preserve">
-    <value>To report an issue send a tweet to @BlueflapBrowser with the hashtag #Blueflap5Beta</value>
+    <value>Um ein Problem auf unsere Aufmerksamkeit zu bringen senden Sie bitte @BlueflapBrowser einen Tweet mit dem Hashtag #Blueflap5Beta</value>
   </data>
   <data name="Welcome_Beta4.Text" xml:space="preserve">
-    <value>That's why it would be great if you didn't rate us badly (Windows Store) during this beta.</value>
+    <value>Deswegen wäre es nett, wenn Sie uns während dieser Beta-Version nicht schlecht auf dem Windows Store bewerten.</value>
   </data>
   <data name="Welcome_Bluestart1.Text" xml:space="preserve">
-    <value>Discover Bluestart, your personal and customizable homepage. Bluestart gives you a quick access to Blueflap's exclusive features.</value>
+    <value>Entdecken Sie Bluestart, Ihre nutzerspezifische konfigurierbare Startseite. Bluestart erlaubt Ihnen einen schnellen Zugriff zu alle exklusiven Blueflaps Optionen.</value>
   </data>
   <data name="Welcome_Bluestart2.Text" xml:space="preserve">
-    <value>Of course you will be able to search the web with the search engine you want !</value>
+    <value>Natürlich können Sie die Suchmaschine Ihren Wahl benutzen !</value>
   </data>
   <data name="Welcome_HomepageConfig.Text" xml:space="preserve">
-    <value>HOMEPAGE CONFIGURATION</value>
+    <value>PERSONALISIERUNG DER STARTSEITE</value>
   </data>
   <data name="Welcome_Lock.Text" xml:space="preserve">
-    <value>BROWSER LOCK</value>
+    <value>BROWSER SPERREN</value>
   </data>
   <data name="Welcome_Password1.PlaceholderText" xml:space="preserve">
-    <value>Password</value>
+    <value>Passwort</value>
   </data>
   <data name="Welcome_Password2.PlaceholderText" xml:space="preserve">
-    <value>Password verification</value>
+    <value>Passwort Bestätigung</value>
   </data>
   <data name="Welcome_searchengine.Text" xml:space="preserve">
-    <value>SEARCH ENGINE</value>
+    <value>SUCHMASCHINE</value>
   </data>
   <data name="Welcome_SearchEngine1.Text" xml:space="preserve">
-    <value>You can use the search engine you want on Blueflap. To find out which fits you the best we created "SearchFight" the first search engine comparator.</value>
+    <value>Mit Blueflap können Sie die Suchmaschine Ihren Wahl benutzen. Zu finden welche Ihnen am besten passt haben wir dem Suchmaschinenvergleicher "SearchFight" kreirt.</value>
   </data>
   <data name="Welcome_SearchEngine2.Text" xml:space="preserve">
-    <value>Our recommandation is to use Qwant which doesn't collect your personal data.</value>
+    <value>Wir empfehlen Ihnen Qwant zu beutzen, die Ihre persönnliche Daten nicht sammelt.</value>
   </data>
   <data name="Welcome_SetLock.Content" xml:space="preserve">
-    <value>Of course !</value>
+    <value>Natürlich !</value>
   </data>
   <data name="Welcome_Start.Content" xml:space="preserve">
-    <value>Let's start !</value>
+    <value>Los geht's !</value>
   </data>
   <data name="Welcome_Text_1.Text" xml:space="preserve">
-    <value>Welcome to Blueflap, the web browser that looks like you.</value>
+    <value>Willkommen auf Blueflap. Der Browser, der Ihnen perfekt passt.</value>
   </data>
   <data name="Welcome_Text_2.Text" xml:space="preserve">
-    <value>So... What is a browser that looks like you ? It's a browser made for you and ONLY for you. So, you will be able to protect Blueflap with a password. There is also a lot of customization settings to make it behave and look as you want.</value>
+    <value>Also... Was ist ein Browser, der Ihnen gut passt ? Ein Browser, der für Sie allein gemacht ist, und zwar Blueflap kann gesperrt werden, damit nur Sie ihn benutzen können. Es gibt auch viele Personalisierungsoptionen, damit Blueflap genau wie Sie wollen aussieht und funktionniert.</value>
   </data>
   <data name="Welcome_Text_3.Text" xml:space="preserve">
-    <value>Oh... By the way... We aren't interested by your personnal data !</value>
+    <value>Wir sind an Ihre persönnliche Daten nicht interessiert !</value>
   </data>
   <data name="AdBlock.Header" xml:space="preserve">
-    <value>Ad blocker</value>
+    <value>Werbeblocker</value>
   </data>
   <data name="Translate.Content" xml:space="preserve">
-    <value>Translate</value>
+    <value>Übersetzen</value>
   </data>
   <data name="Menu_Refresh.Text" xml:space="preserve">
-    <value>Refresh</value>
+    <value>Aktualisieren</value>
   </data>
   <data name="Menu_Stop.Text" xml:space="preserve">
-    <value>Stop</value>
+    <value>Abbrechen</value>
   </data>
   <data name="Menu_Favorites.Text" xml:space="preserve">
-    <value>Add to my favorites list</value>
+    <value>Zu Favoriten hinzufügen</value>
   </data>
   <data name="Menu_Home.Text" xml:space="preserve">
     <value>Home</value>
@@ -514,54 +514,51 @@
     <value>Memos</value>
   </data>
   <data name="Menu_Notifications.Text" xml:space="preserve">
-    <value>Notifications</value>
+    <value>Benachrichtigungen</value>
   </data>
   <data name="Menu_Settings.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>Einstellungen</value>
   </data>
   <data name="Menu_Share.Text" xml:space="preserve">
-    <value>Share</value>
+    <value>Teilen</value>
   </data>
   <data name="Menu_Window.Text" xml:space="preserve">
-    <value>New window</value>
+    <value>Neues Fenster</value>
   </data>
   <data name="Menu_Lock.Text" xml:space="preserve">
-    <value>Lock</value>
+    <value>Sperren</value>
   </data>
   <data name="Menu_Favorites_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Add to my favorites list</value>
+    <value>Zu Favoriten hinzufügen</value>
   </data>
   <data name="Menu_Home_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
     <value>Home</value>
   </data>
   <data name="Menu_Lock_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Lock</value>
+    <value>Sperren</value>
   </data>
   <data name="Menu_Memos_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
     <value>Memos</value>
   </data>
   <data name="Menu_Notifications_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Notifications</value>
+    <value>Benachrichtigungen</value>
   </data>
   <data name="Menu_Refresh_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Refresh</value>
+    <value>Aktualisieren</value>
   </data>
   <data name="Menu_Settings_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Settings</value>
+    <value>Einstellungen</value>
   </data>
   <data name="Menu_Share_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Share</value>
+    <value>Teilen</value>
   </data>
   <data name="Menu_Stop_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Stop</value>
+    <value>Abbrechen</value>
   </data>
   <data name="Menu_Window_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>New window</value>
+    <value>Neues Fenster</value>
   </data>
   <data name="Menu_Customize.Text" xml:space="preserve">
-    <value>Customize</value>
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value />
+    <value>Personalisierung</value>
   </data>
 </root>
