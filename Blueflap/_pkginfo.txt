@@ -1,1 +1,1 @@
-C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\AppPackages\Blueflap_5.2016.220.0\Blueflap_5.2016.220.0_x86_x64_arm.appxbundle
+C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\AppPackages\Blueflap_5.2016.413.0\Blueflap_5.2016.413.0_x86_x64_arm.appxbundle
