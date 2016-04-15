@@ -1,2 +1,5 @@
-MainPackage=C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\ARM\Release\Blueflap_5.2016.220.0_ARM.appx
-SymbolPackage=C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\AppPackages\Blueflap_5.2016.220.0_Test\Blueflap_5.2016.220.0_ARM.appxsym
+MainPackage=C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\ARM\Release\Blueflap_5.2016.413.0_ARM.appx
+SymbolPackage=C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\AppPackages\Blueflap_5.2016.413.0_Test\Blueflap_5.2016.413.0_ARM.appxsym
+ResourcePack=C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\ARM\Release\Blueflap_5.2016.413.0_language-es.appx
+ResourcePack=C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\ARM\Release\Blueflap_5.2016.413.0_language-fr.appx
+ResourcePack=C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\ARM\Release\Blueflap_5.2016.413.0_language-hu.appx

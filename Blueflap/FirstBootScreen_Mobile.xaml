@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Blueflap.FirstBootScreen"
+    x:Class="Blueflap.FirstBootScreen_Mobile"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Blueflap"
@@ -686,14 +686,14 @@
     </Page.Resources>
 
     <Grid Background="#FFF0F0F0">
-       
-        <Pivot x:Name="StepByStep" RequestedTheme="Dark">
-            <PivotItem Margin="0" >
-                <Grid x:Name="grid" Margin="0" Height="426" HorizontalAlignment="Center" Width="1127" RenderTransformOrigin="0.5,0.5">
+
+        <Pivot x:Name="StepByStep" RequestedTheme="Dark" Margin="0,-48,0,0">
+            <PivotItem Height="640" Margin="0" >
+                <Grid x:Name="grid" Margin="0,66,0,0" RenderTransformOrigin="0.5,0.5">
                     <Grid.RenderTransform>
                         <CompositeTransform/>
                     </Grid.RenderTransform>
-                    <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="0,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18.667" Width="597" Foreground="Black" TextAlignment="Center">
+                    <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="20,29,20,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF464646" TextAlignment="Center">
                     	<Run x:Uid="Welcome_Text_1" Text="Bienvenue sur Blueflap, le navigateur qui vous ressemble."/>
                     	<LineBreak/>
                     	<Run/>
@@ -704,7 +704,7 @@
                     	<LineBreak/>
                     	<Run x:Uid="Welcome_Text_3" Text="Nous cherchons donc à être le plus proche de vous possible, mais pas trop quand même : vos données personnelles ne nous intéressent pas !"/>
                     </TextBlock>
-                    <Button x:Uid="Welcome_Start" x:Name="button" Content="C'est parti !" HorizontalAlignment="Center" Margin="0,302,0,0" VerticalAlignment="Top" Background="#FF3498DB" Foreground="White" Height="52" Width="165" FontSize="18.667" RequestedTheme="Light" Tapped="Button_Tapped"/>
+                    <Button x:Uid="Welcome_Start" x:Name="button" Content="C'est parti !" HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Bottom" Background="#FF3498DB" Foreground="White" Height="52" FontSize="18.667" RequestedTheme="Light" Tapped="Button_Tapped"/>
                     <TextBlock x:Name="textBlock1" HorizontalAlignment="Center" Margin="0,-43,0,0" TextWrapping="Wrap" x:Uid="Welcome" Text="BIENVENUE" VerticalAlignment="Top" Foreground="#FF3498DB" FontWeight="SemiBold" FontSize="32"/>
                     <Image x:Name="image" HorizontalAlignment="Left" Width="168" Source="Assets/logo_B.png" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
                         <Image.RenderTransform>
@@ -733,12 +733,12 @@
                     </TextBlock>
                 </Grid>
             </PivotItem>
-            <PivotItem Margin="0,16" >
-                <Grid Margin="0" VerticalAlignment="Center" Height="426" HorizontalAlignment="Center" Width="1127" RenderTransformOrigin="0.5,0.5">
+            <PivotItem Height="640" Margin="0" >
+                <Grid Margin="0,66,0,0" RenderTransformOrigin="0.5,0.5">
                     <Grid.RenderTransform>
                         <CompositeTransform/>
                     </Grid.RenderTransform>
-                    <TextBlock HorizontalAlignment="Center" Margin="252,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18.667" Width="597" Foreground="Black" >
+                    <TextBlock Margin="20,29,20,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF464646" >
                                <Run x:Uid="Welcome_Beta1" Text="Nous  n'avons pas encore tout terminé mais nous étions impatients de vous montrer ce nouveau Blueflap."/>
                     	<LineBreak/>
                     	<Run/>
@@ -755,48 +755,45 @@
                     	<LineBreak/>
                     	<Run/>
                     </TextBlock>
-                    <Image Height="241" VerticalAlignment="Top" Source="Assets/finger.png" HorizontalAlignment="Left" Width="270" Margin="97,29,0,0"/>
-                    <Button x:Uid="Next" Content="Suivant" HorizontalAlignment="Center" Margin="0,334,176,0" VerticalAlignment="Top" Background="#FF3498DB" Foreground="White" Height="52" Width="165" FontSize="18.667" RequestedTheme="Light" Tapped="Button_Tapped"/>
-                    <TextBlock x:Uid="Welcome_Beta" HorizontalAlignment="Center" Margin="0,-43,0,0" TextWrapping="Wrap" Text="EN TRAVAUX" VerticalAlignment="Top" Foreground="#FF3498DB" FontWeight="SemiBold" FontSize="32"/>
+                    <Button x:Uid="Next" Content="Suivant" HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Bottom" Background="#FF3498DB" Foreground="White" Height="52" FontSize="18.667" RequestedTheme="Light" Tapped="Button_Tapped"/>
+                    <TextBlock x:Uid="Welcome_Beta" HorizontalAlignment="Center" Margin="0,-43,0,0" TextWrapping="Wrap" Text="EN TRAVAUX" VerticalAlignment="Top" Foreground="#FF3498DB" FontWeight="SemiBold" FontSize="26.667"/>
                 </Grid>
             </PivotItem>
-            <PivotItem Margin="0,16" >
-                <Grid Margin="0" VerticalAlignment="Center" Height="426" HorizontalAlignment="Center" Width="1127" RenderTransformOrigin="0.5,0.5">
+            <PivotItem Height="640" Margin="0" >
+                <Grid Margin="0,66,0,0" RenderTransformOrigin="0.5,0.5">
                     <Grid.RenderTransform>
                         <CompositeTransform/>
                     </Grid.RenderTransform>
-                    <TextBlock HorizontalAlignment="Center" Margin="252,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18.667" Width="597" Foreground="Black" >
+                    <TextBlock Margin="20,54,20,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF464646" >
                     	<Run x:Uid="Welcome_Bluestart1" Text="Découvrez Bluestart, votre page d'accueil personnelle et personnalisable. Bluestart est complètement intégré à Blueflap et vous permettra d'accéder rapidement à toutes les fonctionnalités."/>
                     	<LineBreak/>
                     	<Run/>
                     	<LineBreak/>
                     	<Run x:Uid="Welcome_Bluestart2" Text="Bien évidemment, Bluestart vous permettra de lancer des recherches internet grâce à n'importe quel moteur de recherche."/>
                     </TextBlock>
-                    <Image Height="241" VerticalAlignment="Top" Source="Assets/welcome_homepage.png" HorizontalAlignment="Left" Width="270" Margin="97,29,0,0"/>
-                    <Button x:Uid="Settings_usebluestart" Content="Utiliser Bluestart" HorizontalAlignment="Center" Margin="391,218,571,0" VerticalAlignment="Top" Background="#FF3498DB" Foreground="White" Height="52" Width="165" FontSize="18.667" RequestedTheme="Light" Tapped="Button_Tapped_5"/>
-                    <TextBlock x:Uid="Welcome_HomepageConfig" HorizontalAlignment="Center" Margin="0,-43,0,0" TextWrapping="Wrap" Text="CONFIGURATION DE LA PAGE D'ACCUEIL" VerticalAlignment="Top" Foreground="#FF3498DB" FontWeight="SemiBold" FontSize="32"/>
-                    <Button x:Uid="Ignore" Content="Ignorer" HorizontalAlignment="Center" Margin="566,218,422,0" VerticalAlignment="Top" Background="#FFE6E6E6" Foreground="#FF4B4B4B" Height="52" Width="139" FontSize="16" RequestedTheme="Light" BorderBrush="#FF7E7E7E" BorderThickness="1" Tapped="Button_Tapped_1"/>
+                    <Button x:Uid="Settings_usebluestart" Content="Utiliser Bluestart" HorizontalAlignment="Stretch" Margin="0,0,0,52" VerticalAlignment="Bottom" Background="#FF3498DB" Foreground="White" Height="52" FontSize="18.667" RequestedTheme="Light" Tapped="Button_Tapped_5"/>
+                    <TextBlock x:Uid="Welcome_HomepageConfig" HorizontalAlignment="Center" Margin="20,-43,20,0" TextWrapping="Wrap" Text="CONFIGURATION DE LA PAGE D'ACCUEIL" VerticalAlignment="Top" Foreground="#FF3498DB" FontWeight="SemiBold" FontSize="26.667"/>
+                    <Button x:Uid="Ignore" Content="Ignorer" HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Bottom" Background="#FFE6E6E6" Foreground="#FF4B4B4B" Height="52" FontSize="16" RequestedTheme="Light" BorderBrush="#FF7E7E7E" BorderThickness="1" Tapped="Button_Tapped_1"/>
                 </Grid>
             </PivotItem>
-            <PivotItem Margin="0,16" >
-                <Grid Margin="0" VerticalAlignment="Center" Height="426" HorizontalAlignment="Center" Width="1127" RenderTransformOrigin="0.5,0.5">
+            <PivotItem Height="640" Margin="0" >
+                <Grid Margin="0,66,0,0" RenderTransformOrigin="0.5,0.5">
                     <Grid.RenderTransform>
                         <CompositeTransform/>
                     </Grid.RenderTransform>
-                    <TextBlock HorizontalAlignment="Center" Margin="391,29,139,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18.667" Width="597" Foreground="Black" Height="176" >
+                    <TextBlock Margin="20,56,20,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF464646" >
                     	<Run x:Uid="Welcome_SearchEngine1" Text="Tous les moteurs de recherche sont compatibles avec Blueflap. De plus, nous avons créé SearchFight, un comparateur de moteurs de recherche qui vous permettra de déterminer quel moteur de recherche répond le mieux à vos besoins."/>
                     	<LineBreak/>
                     	<Run/>
                     	<LineBreak/>
                     	<Run x:Uid="Welcome_SearchEngine2" Text="Nous vous conseillons d'utiliser Qwant, un moteur de recherche français qui ne collecte pas vos données personnelles."/>
                     </TextBlock>
-                    <Image Height="241" VerticalAlignment="Top" Source="Assets/welcome_search.png" HorizontalAlignment="Left" Width="270" Margin="97,29,0,0"/>
-                    <Button x:Uid="UseQwant" Content="Utiliser Qwant" HorizontalAlignment="Center" Margin="391,232,596,0" VerticalAlignment="Top" Background="#FF3498DB" Foreground="White" Height="52" Width="140" FontSize="16" RequestedTheme="Light" Tapped="Qwant"/>
-                    <TextBlock x:Uid="Welcome_searchengine" HorizontalAlignment="Center" Margin="0,-43,0,0" TextWrapping="Wrap" Text="MOTEUR DE RECHERCHE" VerticalAlignment="Top" Foreground="#FF3498DB" FontWeight="SemiBold" FontSize="32"/>
-                    <Button x:Uid="UseDuckDuckGo" Content="Utiliser DuckDuckGo" HorizontalAlignment="Center" Margin="536,232,417,0" VerticalAlignment="Top" Background="#FFE1ECF3" Foreground="#FF4D98CA" Height="52" Width="174" FontSize="16" RequestedTheme="Light" BorderBrush="#FF3498DB" BorderThickness="1" Tapped="DuckDuck"/>
-                    <Button x:Uid="UseGoogle" Content="Utiliser Google" HorizontalAlignment="Center" Margin="715,232,258,0" VerticalAlignment="Top" Background="#FFE1ECF3" Foreground="#FF3498DB" Height="52" Width="154" FontSize="16" RequestedTheme="Light" BorderBrush="#FF3498DB" BorderThickness="1" Tapped="Google"/>
-                    <Button x:Uid="More" Content="Autre..." HorizontalAlignment="Center" Margin="874,232,129,0" VerticalAlignment="Top" Background="#02FFFFFF" Foreground="#FF858585" Height="52" Width="124" FontSize="16" RequestedTheme="Light" BorderBrush="#FFB0B0B0" BorderThickness="1" Tapped="Button_Tapped_2"/>
-                    <ComboBox x:Name="Settings_SearchEngine" HorizontalAlignment="Left" Height="52" Margin="391,329,0,0" VerticalAlignment="Top" Width="319" SelectedIndex="0" BorderThickness="1" RequestedTheme="Light" Visibility="Collapsed">
+                    <Button x:Name="UseQwant" x:Uid="UseQwant" Content="Utiliser Qwant" HorizontalAlignment="Stretch" Margin="0,0,0,156" VerticalAlignment="Bottom" Background="#FF3498DB" Foreground="White" Height="52" FontSize="16" RequestedTheme="Light" Tapped="Qwant"/>
+                    <TextBlock x:Uid="Welcome_searchengine" HorizontalAlignment="Center" Margin="0,-43,0,0" TextWrapping="Wrap" Text="MOTEUR DE RECHERCHE" VerticalAlignment="Top" Foreground="#FF3498DB" FontWeight="SemiBold" FontSize="26.667"/>
+                    <Button x:Name="UseDuck" x:Uid="UseDuckDuckGo" Content="Utiliser DuckDuckGo" HorizontalAlignment="Stretch" Margin="0,0,0,104" VerticalAlignment="Bottom" Background="#FFE1ECF3" Foreground="#FF4D98CA" Height="52" FontSize="16" RequestedTheme="Light" BorderBrush="#FF3498DB" BorderThickness="1" Tapped="DuckDuck"/>
+                    <Button x:Name="UseGoogle" x:Uid="UseGoogle" Content="Utiliser Google" HorizontalAlignment="Stretch" Margin="0,0,0,52" VerticalAlignment="Bottom" Background="#FFE1ECF3" Foreground="#FF3498DB" Height="52" FontSize="16" RequestedTheme="Light" BorderBrush="#FF3498DB" BorderThickness="1" Tapped="Google"/>
+                    <Button x:Uid="More" Content="Autre..." HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Bottom" Background="#02FFFFFF" Foreground="#FF858585" Height="52" FontSize="16" RequestedTheme="Light" BorderBrush="#FFB0B0B0" BorderThickness="1" Tapped="Button_Tapped_2"/>
+                    <ComboBox x:Name="Settings_SearchEngine" HorizontalAlignment="Stretch" Height="52" Margin="0,0,0,52" VerticalAlignment="Bottom" SelectedIndex="0" BorderThickness="1" RequestedTheme="Light" Visibility="Collapsed">
                         <ComboBoxItem Content="Bing"/>
                         <ComboBoxItem Content="Qwant"/>
                         <ComboBoxItem Content="DuckDuckGo"/>
@@ -810,43 +807,42 @@
                         <ComboBoxItem Content="Wikipedia"/>
                         <ComboBoxItem Content="Twitter"/>
                     </ComboBox>
-                    <Button x:Uid="Next" x:Name="SuivBut" Content="Suivant" HorizontalAlignment="Center" Margin="715,329,275,0" VerticalAlignment="Top" Background="#FF3498DB" Foreground="White" Height="52" Width="137" FontSize="16" RequestedTheme="Light" Visibility="Collapsed"/>
+                    <Button x:Uid="Next" x:Name="SuivBut" Content="Suivant" HorizontalAlignment="Stretch" Margin="0,329,0,0" VerticalAlignment="Bottom" Background="#FF3498DB" Foreground="White" Height="52" FontSize="16" RequestedTheme="Light" Visibility="Collapsed"/>
                 </Grid>
             </PivotItem>
-            <PivotItem Margin="0,15,0,17" >
-                <Grid Margin="0" VerticalAlignment="Center" Height="426" HorizontalAlignment="Center" Width="1127" RenderTransformOrigin="0.5,0.5">
+            <PivotItem Height="640" Margin="0" >
+                <Grid Margin="0,66,0,0" RenderTransformOrigin="0.5,0.5">
                     <Grid.RenderTransform>
                         <CompositeTransform/>
                     </Grid.RenderTransform>
-                    <TextBlock HorizontalAlignment="Center" Margin="252,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18.667" Width="597" Foreground="Black" >
+                    <TextBlock Margin="20,59,20,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF464646" >
                     	<Run  x:Uid="Browser_Lock_1" Text="Blueflap peut être protégé par un mot de passe qui sera demandé à chaque ouverture."/>
                     	<LineBreak/>
                     	<Run/>
                     	<LineBreak/>
                     	<Run x:Uid="Browser_Lock_2" Text="Voulez vous activer le verrouillage ?"/>
                     </TextBlock>
-                    <Image Height="241" VerticalAlignment="Top" Source="Assets/welcome_protect.png" HorizontalAlignment="Left" Width="270" Margin="97,29,0,0"/>
-                    <Button x:Uid="Welcome_SetLock" Content="Configurer le verrouillage" HorizontalAlignment="Center" Margin="391,166,477,0" VerticalAlignment="Top" Background="#FF3498DB" Foreground="White" Height="52" Width="259" FontSize="18.667" RequestedTheme="Light" Tapped="Verrouillage"/>
-                    <TextBlock x:Uid="Welcome_Lock" HorizontalAlignment="Center" Margin="0,-43,0,0" TextWrapping="Wrap" Text="VERROUILLAGE DU NAVIGATEUR" VerticalAlignment="Top" Foreground="#FF3498DB" FontWeight="SemiBold" FontSize="32"/>
-                    <Button x:Uid="Ignore" Content="Ignorer" HorizontalAlignment="Center" Margin="665,166,323,0" VerticalAlignment="Top" Background="#FFE6E6E6" Foreground="#FF4B4B4B" Height="52" Width="139" FontSize="16" RequestedTheme="Light" BorderBrush="#FF7E7E7E" BorderThickness="1" Tapped="Button_Tapped_3"/>
-                    <Grid x:Name="Verrouillageconfig" HorizontalAlignment="Left" Height="110" Margin="391,229,0,0" VerticalAlignment="Top" Width="452" Background="#FFF3F3F3" BorderBrush="#FFB8B8B8" BorderThickness="1" Visibility="Collapsed">
-                        <PasswordBox x:Name="Password1" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" RequestedTheme="Light" Width="271" BorderThickness="1" x:Uid="Welcome_Password1" PlaceholderText="Mot de passe" Height="31"/>
-                        <PasswordBox x:Name="Password2" HorizontalAlignment="Left" Margin="20,58,0,0" VerticalAlignment="Top" RequestedTheme="Light" Width="271" BorderThickness="1" x:Uid="Welcome_Password2" PlaceholderText="Vérification du mot de passe" Height="31" KeyDown="PasswordBox_KeyDown"/>
-                        <Button x:Name="Password3" x:Uid="Next" Content="Suivant" HorizontalAlignment="Center" Margin="297,20,20,0" VerticalAlignment="Top" Background="#FF3498DB" Foreground="White" Height="70" Width="135" FontSize="18.667" RequestedTheme="Light" IsEnabled="False"/>
+                    <Button x:Uid="Welcome_SetLock" Content="Configurer le verrouillage" HorizontalAlignment="Stretch" Margin="0,0,0,52" VerticalAlignment="Bottom" Background="#FF3498DB" Foreground="White" Height="52" FontSize="18.667" RequestedTheme="Light" Tapped="Verrouillage"/>
+                    <TextBlock x:Uid="Welcome_Lock" HorizontalAlignment="Center" Margin="0,-43,0,0" TextWrapping="Wrap" Text="VERROUILLAGE DU NAVIGATEUR" VerticalAlignment="Top" Foreground="#FF3498DB" FontWeight="SemiBold" FontSize="26.667"/>
+                    <Button x:Uid="Ignore" Content="Ignorer" HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Bottom" Background="#FFE6E6E6" Foreground="#FF4B4B4B" Height="52" FontSize="16" RequestedTheme="Light" BorderBrush="#FF7E7E7E" BorderThickness="1" Tapped="Button_Tapped_3"/>
+                    <Grid x:Name="Verrouillageconfig" Height="110" Margin="0,0,0,104" VerticalAlignment="Bottom" Background="#FFF3F3F3" BorderBrush="#FFB8B8B8" BorderThickness="1" Visibility="Collapsed">
+                        <PasswordBox x:Name="Password1" Margin="20,20,158,0" VerticalAlignment="Top" RequestedTheme="Light" BorderThickness="1" x:Uid="Welcome_Password1" PlaceholderText="Mot de passe" Height="31"/>
+                        <PasswordBox x:Name="Password2" Margin="20,58,158,0" VerticalAlignment="Top" RequestedTheme="Light" BorderThickness="1" x:Uid="Welcome_Password2" PlaceholderText="Vérification du mot de passe" Height="31" KeyDown="PasswordBox_KeyDown"/>
+                        <Button x:Name="Password3" x:Uid="Next" Content="Suivant" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Stretch" Background="#FF3498DB" Foreground="White" Width="135" FontSize="18.667" RequestedTheme="Light" IsEnabled="False"/>
                     </Grid>
                 </Grid>
             </PivotItem>
-            <PivotItem Margin="0,16" >
-                <Grid Margin="0" VerticalAlignment="Center" Height="426" HorizontalAlignment="Center" Width="1127" RenderTransformOrigin="0.5,0.5">
+            <PivotItem Height="640" BorderThickness="0" Margin="0" >
+                <Grid Margin="0" RenderTransformOrigin="0.5,0.5">
                     <Grid.RenderTransform>
                         <CompositeTransform/>
                     </Grid.RenderTransform>
-                    <TextBlock x:Name="textBlock5" HorizontalAlignment="Center" Margin="0,-91,0,0" TextWrapping="Wrap" Text="CONFIGURATION DE LA PAGE D'ACCUEIL" VerticalAlignment="Center" Foreground="#FF3498DB" FontWeight="SemiBold" FontSize="37.333" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock x:Name="textBlock5" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" Text="CONFIGURATION DE LA PAGE D'ACCUEIL" VerticalAlignment="Center" Foreground="#FF3498DB" FontWeight="SemiBold" FontSize="37.333" RenderTransformOrigin="0.5,0.5">
                         <TextBlock.RenderTransform>
                             <CompositeTransform/>
                         </TextBlock.RenderTransform>
                     </TextBlock>
-                    <Button x:Name="button1" Content="Lancez-vous !" HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Center" Background="#FF3498DB" Foreground="White" Height="52" Width="140" FontSize="16" RequestedTheme="Light" Tapped="Button_Tapped_4"/>
+                    <Button x:Name="button1" Content="Lancez-vous !" HorizontalAlignment="Stretch" Margin="0,250,0,0" VerticalAlignment="Bottom" Background="#FF3498DB" Foreground="White" Height="52" FontSize="16" RequestedTheme="Light" Tapped="Button_Tapped_4"/>
                     <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="0,394,0,0" TextWrapping="Wrap" Text="State" VerticalAlignment="Top" Opacity="0"/>
                 </Grid>
             </PivotItem>

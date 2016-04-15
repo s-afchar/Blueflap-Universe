@@ -118,447 +118,450 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Settings_About.Header" xml:space="preserve">
-    <value>ÜBER</value>
+    <value>关于</value>
   </data>
   <data name="Settings_AdvancedSettings.Header" xml:space="preserve">
-    <value>ERWEITERTEN EINSTELLUNGEN</value>
+    <value>进阶设置</value>
   </data>
   <data name="Back.Text" xml:space="preserve">
-    <value>Zurück</value>
+    <value>回去</value>
   </data>
   <data name="Settings_browsingdata.Text" xml:space="preserve">
-    <value>Navigationsdaten</value>
+    <value>浏览资料</value>
   </data>
   <data name="Cancel.Content" xml:space="preserve">
-    <value>Abbrechen</value>
+    <value>取消</value>
   </data>
   <data name="Settings_ChefProjet.Text" xml:space="preserve">
-    <value>Projekts Leiter</value>
+    <value>计划领导</value>
   </data>
   <data name="Settings_clearhistorylist.Content" xml:space="preserve">
-    <value>Chronik löschen</value>
+    <value>清除历史</value>
   </data>
   <data name="Settings_ContextNotifs.Header" xml:space="preserve">
-    <value>Pop-up Benachrichtigung</value>
+    <value>通知</value>
   </data>
   <data name="Settings_ContextNotifs.OffContent" xml:space="preserve">
-    <value>Deaktiviert</value>
+    <value>已关闭</value>
   </data>
   <data name="Settings_ContextNotifs.OnContent" xml:space="preserve">
-    <value>Aktiviert</value>
+    <value>已开启</value>
   </data>
   <data name="Settings_Dev.Text" xml:space="preserve">
-    <value>Entwickler</value>
+    <value>开发者</value>
   </data>
   <data name="Settings_editpassword.Text" xml:space="preserve">
-    <value>Passwort ändern</value>
+    <value>更改密码</value>
   </data>
   <data name="Settings_enablelock.Header" xml:space="preserve">
-    <value>Browser sperren</value>
+    <value>浏览器保护</value>
   </data>
   <data name="enabling.OffContent" xml:space="preserve">
-    <value>Deaktiviert</value>
+    <value>已关闭</value>
   </data>
   <data name="enabling.OnContent" xml:space="preserve">
-    <value>Aktiviert</value>
+    <value>已开启</value>
   </data>
   <data name="Settings_favconfirmwindow.Text" xml:space="preserve">
-    <value>Pop-up Bestätigung</value>
+    <value>确认跳窗</value>
   </data>
   <data name="Settings_Favorites.Text" xml:space="preserve">
-    <value>Favoriten</value>
+    <value>最爱</value>
   </data>
   <data name="Settings_homepage.Text" xml:space="preserve">
-    <value>Startseite</value>
+    <value>主页</value>
   </data>
   <data name="Settings_Icons.Text" xml:space="preserve">
-    <value>Ikone :</value>
+    <value>图标</value>
   </data>
   <data name="Settings_leftmenu.Text" xml:space="preserve">
-    <value>Side Bar</value>
+    <value>侧边目录</value>
   </data>
   <data name="Settings_lock.Text" xml:space="preserve">
-    <value>Browser sperren</value>
+    <value>浏览器保护</value>
   </data>
   <data name="Settings_lockedit.Content" xml:space="preserve">
-    <value>Modifizieren</value>
+    <value>更改</value>
   </data>
   <data name="Settings_locksettings.Text" xml:space="preserve">
-    <value>BROWSER SPERRENS EINSTELLUNGEN</value>
+    <value>浏览器保护设置</value>
   </data>
   <data name="Settings_newpassplaceholder.PlaceholderText" xml:space="preserve">
-    <value>Neues Passwort</value>
+    <value>新密码</value>
   </data>
   <data name="Settings_newpassword.Text" xml:space="preserve">
-    <value>Als Passwort festlegen</value>
+    <value>设定密码</value>
   </data>
   <data name="Settings_personalization.Header" xml:space="preserve">
-    <value>PERSONALISIERUNG</value>
+    <value>个性化</value>
   </data>
   <data name="Settings_resetpassword.Content" xml:space="preserve">
-    <value>Passwort wiederherstellen</value>
+    <value>重设密码</value>
   </data>
   <data name="Save.Content" xml:space="preserve">
-    <value>Speichern</value>
+    <value>存档</value>
   </data>
   <data name="Settings_searchengine.Text" xml:space="preserve">
-    <value>Suchmaschine</value>
+    <value>搜索引擎</value>
   </data>
   <data name="Settings_searchengineex1.PlaceholderText" xml:space="preserve">
-    <value>Beispiel : "https://www.qwant.com/?q="</value>
+    <value>例子： "https://www.qwant.com/?q="</value>
   </data>
   <data name="Settings_searchengineex2.PlaceholderText" xml:space="preserve">
-    <value>Bsp : "&amp;t=web"</value>
+    <value>例子： "&amp;t=web"</value>
   </data>
   <data name="Settings_searchenginepers.Content" xml:space="preserve">
-    <value>&lt;Nutzerspezifisch&gt;</value>
+    <value>&lt;自定义&gt;</value>
   </data>
   <data name="Settings_SFAction.Text" xml:space="preserve">
-    <value>Aktionsmenü</value>
+    <value>操作目录</value>
   </data>
   <data name="Settings_showfavicon.Content" xml:space="preserve">
-    <value>Websites Favicon zeigen</value>
+    <value>显示网站图标</value>
   </data>
   <data name="Settings_Stats.Text" xml:space="preserve">
-    <value>Statistiken</value>
+    <value>统计</value>
   </data>
   <data name="Settings_Team.Text" xml:space="preserve">
-    <value>Team</value>
+    <value>队伍</value>
   </data>
   <data name="Settings_Team_Website.Text" xml:space="preserve">
-    <value>Website Aufbau</value>
+    <value>页面开发者</value>
   </data>
   <data name="Settings_Team_Website1.Text" xml:space="preserve">
-    <value>Erste Website</value>
+    <value>第一个页面</value>
   </data>
   <data name="Settings_themestate.Header" xml:space="preserve">
-    <value>Theme</value>
+    <value>主题</value>
   </data>
   <data name="Settings_themecolor.OffContent" xml:space="preserve">
-    <value>Automatische Farbe</value>
+    <value>自动颜色</value>
   </data>
   <data name="Settings_themecolor.OnContent" xml:space="preserve">
-    <value>Nutzerspezifische Farbe</value>
+    <value>自定义颜色</value>
   </data>
   <data name="Settings_themestate.OffContent" xml:space="preserve">
-    <value>Hell</value>
+    <value>雪白</value>
   </data>
   <data name="Settings_themestate.OnContent" xml:space="preserve">
-    <value>Dunkel</value>
+    <value>暗夜</value>
   </data>
   <data name="Settings_usebluestart.Content" xml:space="preserve">
-    <value>Bluestart benutzen</value>
+    <value>使用Bluestart</value>
   </data>
   <data name="YesSwitch.OffContent" xml:space="preserve">
-    <value>Nein</value>
+    <value>否</value>
   </data>
   <data name="YesSwitch.OnContent" xml:space="preserve">
-    <value>Ja</value>
+    <value>是</value>
   </data>
   <data name="Settings_BluestartDownload.Text" xml:space="preserve">
-    <value>Blueflap auf Ihres Handy</value>
+    <value>Blueflap移动版</value>
   </data>
   <data name="Settings_Contribute.Text" xml:space="preserve">
-    <value>Beitragen</value>
+    <value>贡献</value>
   </data>
   <data name="Settings_OpenSource.Text" xml:space="preserve">
-    <value>Open Source Lizenz</value>
+    <value>开放源码许可</value>
   </data>
   <data name="Settings_Rate.Content" xml:space="preserve">
-    <value>Die App bewerten</value>
+    <value>给予评价</value>
   </data>
   <data name="Settings_Version.Text" xml:space="preserve">
-    <value>Version</value>
+    <value>版本</value>
   </data>
   <data name="Add.Content" xml:space="preserve">
-    <value>Hinzufügen</value>
+    <value>加入</value>
   </data>
   <data name="AddToFavorites.Text" xml:space="preserve">
-    <value>ZU FAVORITEN HINZUFÜGEN</value>
+    <value>加入最爱列表</value>
   </data>
   <data name="CopyURL.Text" xml:space="preserve">
-    <value>Die URL kopieren</value>
+    <value>抄下网址</value>
   </data>
   <data name="DateList_1.Text" xml:space="preserve">
     <value />
   </data>
   <data name="DateList_2.Text" xml:space="preserve">
-    <value>um</value>
+    <value>于</value>
   </data>
   <data name="Delete.Text" xml:space="preserve">
-    <value>Löschen</value>
+    <value>删除</value>
   </data>
   <data name="FullScreenEsc.Text" xml:space="preserve">
-    <value>Drücken Sie ESC um dem Vollbildmodus zu beenden</value>
+    <value>按下ESC键以退出全屏模式</value>
   </data>
   <data name="HistorySortByUrl.Text" xml:space="preserve">
-    <value>Zeigen meine Chronik für</value>
+    <value>Show my browsing history for</value>
   </data>
   <data name="LastSearch.Text" xml:space="preserve">
-    <value>Lätze Suche</value>
+    <value>上次搜索</value>
   </data>
   <data name="LastSearchMargin.Margin" xml:space="preserve">
     <value>116,13,10,0</value>
   </data>
   <data name="Name.Text" xml:space="preserve">
-    <value>Name</value>
+    <value>名字</value>
   </data>
   <data name="NamePlaceholder.PlaceholderText" xml:space="preserve">
-    <value>Name</value>
+    <value>名字</value>
   </data>
   <data name="Notification_Homepage_Content.Text" xml:space="preserve">
-    <value>Überprüfen Sie bitte die Einstellungen Ihrer Startseite</value>
+    <value>请检查主页设置</value>
   </data>
   <data name="Notification_Homepage_Header.Text" xml:space="preserve">
-    <value>Startseite Fehler</value>
+    <value>主页错误</value>
   </data>
   <data name="Notification_Search_Content.Text" xml:space="preserve">
-    <value>Überprüfen Sie bitte die Einstellungen Ihrer Suchmaschine</value>
+    <value>请检查搜索引擎设置</value>
   </data>
   <data name="Notification_Search_Header.Text" xml:space="preserve">
-    <value>Suchmaschine Fehler</value>
+    <value>搜索引擎错误</value>
   </data>
   <data name="SearchHistory.PlaceholderText" xml:space="preserve">
-    <value>In der Chronik suchen</value>
+    <value>寻找历史</value>
   </data>
   <data name="SetAsMyHomepage.Text" xml:space="preserve">
-    <value>Als Startseite festlegen</value>
+    <value>设为主页</value>
   </data>
   <data name="Settings_LockEnabled.Header" xml:space="preserve">
-    <value>Browser sperren</value>
+    <value>浏览器保护</value>
   </data>
   <data name="Settings_LockEnabled.OffContent" xml:space="preserve">
-    <value>Deaktiviert</value>
+    <value>已关闭</value>
   </data>
   <data name="Settings_LockEnabled.OnContent" xml:space="preserve">
-    <value>Aktiviert</value>
+    <value>已开启</value>
   </data>
   <data name="WebPageError.Text" xml:space="preserve">
-    <value>ETWAS IST SCHIEF GEGANGEN</value>
+    <value>有些不对劲！</value>
   </data>
   <data name="WebPageError_1.Text" xml:space="preserve">
-    <value>Überprüfen Sie bitte Ihre Netzwerkverbindung</value>
+    <value>请检查网络连接</value>
   </data>
   <data name="WebPageError_2.Text" xml:space="preserve">
-    <value>Überprüfen Sie bitte, ob die Internetadresse richtig ist</value>
+    <value>请检查网址是否正确</value>
   </data>
   <data name="WebPageError_3.Text" xml:space="preserve">
-    <value>Probierien Sie bitte, die Webseite neu zu laden</value>
+    <value>请尝试刷新页面</value>
   </data>
   <data name="AutoSuggestion.Text" xml:space="preserve">
-    <value>Automatische Vorschläge</value>
+    <value>自动推荐</value>
   </data>
   <data name="Browser_Lock_1.Text" xml:space="preserve">
-    <value>Sie können Blueflap mit einem Passwort sperren. Dieser wird dann beim Programmstart gefragt.</value>
+    <value>您可以选择设置开启浏览器密码</value>
   </data>
   <data name="Browser_Lock_2.Text" xml:space="preserve">
-    <value>Wollen Sie das Aktivierungssperre aktivieren ?</value>
+    <value>启用密码保护？</value>
   </data>
   <data name="Download.Content" xml:space="preserve">
-    <value>Download</value>
+    <value>下载</value>
   </data>
   <data name="FightTextbox.PlaceholderText" xml:space="preserve">
-    <value>Auf dem Web surchen</value>
+    <value>在网路中搜索</value>
   </data>
   <data name="Homepagenotif.Text" xml:space="preserve">
-    <value>Überprüfen Sie bitte die Einstellungen Ihrer Startseite</value>
+    <value>请检查主页设置</value>
   </data>
   <data name="Ignore.Content" xml:space="preserve">
-    <value>Weiter</value>
+    <value>跳过</value>
   </data>
   <data name="Lock_Date.Text" xml:space="preserve">
-    <value>GESPERRT UM</value>
+    <value>封锁时间</value>
   </data>
   <data name="Lock_Password.PlaceholderText" xml:space="preserve">
-    <value>Passwort</value>
+    <value>密码</value>
   </data>
   <data name="Lock_Title.Text" xml:space="preserve">
-    <value>BLUEFLAP WURDE GESPERRT</value>
+    <value>Blueflap已被锁上</value>
   </data>
   <data name="MiniPlayerInfo.Text" xml:space="preserve">
-    <value>Der MiniPlayermodus ist für dieses Video verfügbar</value>
+    <value>此影片支持迷你播放器</value>
   </data>
   <data name="More.Content" xml:space="preserve">
-    <value>Mehr...</value>
+    <value>更多。。。</value>
   </data>
   <data name="Next.Content" xml:space="preserve">
-    <value>Nächste</value>
+    <value>下一页</value>
   </data>
   <data name="NoNotif.Text" xml:space="preserve">
-    <value>Nichts Neues hier...</value>
+    <value>一切依旧。。。</value>
   </data>
   <data name="Notification_SearchEngineSet_Content.Text" xml:space="preserve">
-    <value>Eine neue Suchmaschine wurde ausgewählt</value>
+    <value>已设定新的搜索引擎</value>
   </data>
   <data name="Notification_SearchEngineSet_Header.Text" xml:space="preserve">
-    <value>Suchmaschine</value>
+    <value>搜索引擎</value>
   </data>
   <data name="OpenInBF.Text" xml:space="preserve">
-    <value>MIT BLUEFLAP ÖFFNEN</value>
+    <value>在Blueflap内开启</value>
   </data>
   <data name="OpenMiniPlayer.Content" xml:space="preserve">
-    <value>MiniPlayer öffnen</value>
+    <value>开启迷你播放器</value>
   </data>
   <data name="SearchEngineLike.Text" xml:space="preserve">
-    <value>Wollen Sie es benutzen ?</value>
+    <value>是否使用？</value>
   </data>
   <data name="SearchEngineNotif.Text" xml:space="preserve">
-    <value>Überprüfen Sie bitte die Einstellungen Ihrer Suchmaschine</value>
+    <value>请检查搜索引擎设置</value>
   </data>
   <data name="SetSearchEngine.Text" xml:space="preserve">
-    <value>ALS STANDARDSUCHMASCHINE FESTLEGEN</value>
+    <value>设为搜索引擎</value>
   </data>
   <data name="SetSearchEngineButton.Content" xml:space="preserve">
-    <value>Als Standardsuchmaschine festlegen</value>
+    <value>设为搜索引擎</value>
   </data>
   <data name="Settings.Content" xml:space="preserve">
-    <value>Einstellungen</value>
+    <value>设置</value>
   </data>
   <data name="TeamSuggestion.Text" xml:space="preserve">
-    <value>Highlight</value>
+    <value>突出显示</value>
   </data>
   <data name="UseDuckDuckGo.Content" xml:space="preserve">
-    <value>DuckDuckGo benutzen</value>
+    <value>使用DuckDuckGo</value>
   </data>
   <data name="UseGoogle.Content" xml:space="preserve">
-    <value>Google benutzen</value>
+    <value>使用Google</value>
   </data>
   <data name="UseQwant.Content" xml:space="preserve">
-    <value>Qwant benutzen</value>
+    <value>使用Qwant</value>
   </data>
   <data name="Welcome.Text" xml:space="preserve">
-    <value>WILLKOMMEN</value>
+    <value>欢迎</value>
   </data>
   <data name="Welcome_Anim1.Value" xml:space="preserve">
-    <value>WIR SIND BEREIT</value>
+    <value>一切准备就绪！</value>
   </data>
   <data name="Welcome_Anim2.Value" xml:space="preserve">
-    <value>WILLKOMMEN</value>
+    <value>欢迎</value>
   </data>
   <data name="Welcome_Beta.Text" xml:space="preserve">
-    <value>BLUEFLAP IST NOCH IN DER BETA-ENTWICKLUNGSPHASE</value>
+    <value>Blueflap目前依然处于测试阶段中</value>
   </data>
   <data name="Welcome_Beta1.Text" xml:space="preserve">
-    <value>Wir sind mit der Entwicklung Blueflaps noch nicht vertig aber wir brannten darauf, diese neue Version Ihnen zu zeigen.</value>
+    <value>虽然还是个未成品，但我们已迫不及待想让大家目睹最新版本的Blueflap。</value>
   </data>
   <data name="Welcome_Beta2.Text" xml:space="preserve">
-    <value>Deshalb ist es kein riesiges Problem, ob etwas nicht funktionniert... zurzeit kein Problem</value>
+    <value>因此，若您在使用时遇上问题，或许是我们还未完成的部分。</value>
   </data>
   <data name="Welcome_Beta3.Text" xml:space="preserve">
-    <value>Um ein Problem auf unsere Aufmerksamkeit zu bringen senden Sie bitte @BlueflapBrowser einen Tweet mit dem Hashtag #Blueflap5Beta</value>
+    <value>若想要举报问题或提供回馈，不妨在推特（Twitter）以hashtag #Blueflap5Beta 发送推文至 @BlueflapBrowser 。</value>
   </data>
   <data name="Welcome_Beta4.Text" xml:space="preserve">
-    <value>Deswegen wäre es nett, wenn Sie uns während dieser Beta-Version nicht schlecht auf dem Windows Store bewerten.</value>
+    <value>希望大家能在测试阶段期间避免在Windows Store里为我们留下差评。</value>
   </data>
   <data name="Welcome_Bluestart1.Text" xml:space="preserve">
-    <value>Entdecken Sie Bluestart, Ihre nutzerspezifische konfigurierbare Startseite. Bluestart erlaubt Ihnen einen schnellen Zugriff zu alle exklusiven Blueflaps Optionen.</value>
+    <value>推介Bluestart，您个性化的主页。通过Bluestart，您可以快速启用Blueflap内专有的功能。</value>
   </data>
   <data name="Welcome_Bluestart2.Text" xml:space="preserve">
-    <value>Natürlich können Sie die Suchmaschine Ihren Wahl benutzen !</value>
+    <value>当然，您可以使用最爱的搜索引擎在网海中探索！</value>
   </data>
   <data name="Welcome_HomepageConfig.Text" xml:space="preserve">
-    <value>PERSONALISIERUNG DER STARTSEITE</value>
+    <value>主页设置</value>
   </data>
   <data name="Welcome_Lock.Text" xml:space="preserve">
-    <value>BROWSER SPERREN</value>
+    <value>浏览器保护</value>
   </data>
   <data name="Welcome_Password1.PlaceholderText" xml:space="preserve">
-    <value>Passwort</value>
+    <value>密码</value>
   </data>
   <data name="Welcome_Password2.PlaceholderText" xml:space="preserve">
-    <value>Passwort Bestätigung</value>
+    <value>密码验证</value>
   </data>
   <data name="Welcome_searchengine.Text" xml:space="preserve">
-    <value>SUCHMASCHINE</value>
+    <value>搜索引擎</value>
   </data>
   <data name="Welcome_SearchEngine1.Text" xml:space="preserve">
-    <value>Mit Blueflap können Sie die Suchmaschine Ihren Wahl benutzen. Zu finden welche Ihnen am besten passt haben wir dem Suchmaschinenvergleicher "SearchFight" kreirt.</value>
+    <value>在Blueflap内，您可以使用您意想中的搜索引擎。若想要找出最适合您的搜索引擎，可以试试我们开发的第一款搜索引擎比较器，SearchFight。</value>
   </data>
   <data name="Welcome_SearchEngine2.Text" xml:space="preserve">
-    <value>Wir empfehlen Ihnen Qwant zu beutzen, die Ihre persönnliche Daten nicht sammelt.</value>
+    <value>在搜索引擎方面，我们强力推荐不收集个人资料的Qwant。</value>
   </data>
   <data name="Welcome_SetLock.Content" xml:space="preserve">
-    <value>Natürlich !</value>
+    <value>当然！</value>
   </data>
   <data name="Welcome_Start.Content" xml:space="preserve">
-    <value>Los geht's !</value>
+    <value>开始吧！</value>
   </data>
   <data name="Welcome_Text_1.Text" xml:space="preserve">
-    <value>Willkommen auf Blueflap. Der Browser, der Ihnen perfekt passt.</value>
+    <value>欢迎使用Blueflap，与您一样的浏览器</value>
   </data>
   <data name="Welcome_Text_2.Text" xml:space="preserve">
-    <value>Also... Was ist ein Browser, der Ihnen gut passt ? Ein Browser, der für Sie allein gemacht ist, und zwar Blueflap kann gesperrt werden, damit nur Sie ihn benutzen können. Es gibt auch viele Personalisierungsoptionen, damit Blueflap genau wie Sie wollen aussieht und funktionniert.</value>
+    <value>所以。。。何为与您一样的浏览器？那就是一款专门为您而设的浏览器。没错，就专属与您。使用Blueflap，您可以使用密码保护您的浏览器，也可以通过各式各样的个性化设定将浏览器调成你的喜好。</value>
   </data>
   <data name="Welcome_Text_3.Text" xml:space="preserve">
-    <value>Wir sind an Ihre persönnliche Daten nicht interessiert !</value>
+    <value>另外一提，我们对您的个人资料完全不感兴趣！</value>
   </data>
   <data name="AdBlock.Header" xml:space="preserve">
-    <value>Werbeblocker</value>
+    <value>广告移除</value>
   </data>
   <data name="Translate.Content" xml:space="preserve">
-    <value>Übersetzen</value>
+    <value>翻译</value>
   </data>
   <data name="Menu_Refresh.Text" xml:space="preserve">
-    <value>Aktualisieren</value>
+    <value>刷新</value>
   </data>
   <data name="Menu_Stop.Text" xml:space="preserve">
-    <value>Abbrechen</value>
+    <value>停止</value>
   </data>
   <data name="Menu_Favorites.Text" xml:space="preserve">
-    <value>Zu Favoriten hinzufügen</value>
+    <value>加入最爱列表</value>
   </data>
   <data name="Menu_Home.Text" xml:space="preserve">
-    <value>Home</value>
+    <value>主页</value>
   </data>
   <data name="Menu_Memos.Text" xml:space="preserve">
-    <value>Memos</value>
+    <value>备注</value>
   </data>
   <data name="Menu_Notifications.Text" xml:space="preserve">
-    <value>Benachrichtigungen</value>
+    <value>通知</value>
   </data>
   <data name="Menu_Settings.Text" xml:space="preserve">
-    <value>Einstellungen</value>
+    <value>设置</value>
   </data>
   <data name="Menu_Share.Text" xml:space="preserve">
-    <value>Teilen</value>
+    <value>分享</value>
   </data>
   <data name="Menu_Window.Text" xml:space="preserve">
-    <value>Neues Fenster</value>
+    <value>新视窗</value>
   </data>
   <data name="Menu_Lock.Text" xml:space="preserve">
-    <value>Sperren</value>
+    <value>锁上</value>
   </data>
   <data name="Menu_Favorites_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Zu Favoriten hinzufügen</value>
+    <value>加入最爱列表</value>
   </data>
   <data name="Menu_Home_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Home</value>
+    <value>主页</value>
   </data>
   <data name="Menu_Lock_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Sperren</value>
+    <value>锁上</value>
   </data>
   <data name="Menu_Memos_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Memos</value>
+    <value>备注</value>
   </data>
   <data name="Menu_Notifications_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Benachrichtigungen</value>
+    <value>通知</value>
   </data>
   <data name="Menu_Refresh_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Aktualisieren</value>
+    <value>刷新</value>
   </data>
   <data name="Menu_Settings_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Einstellungen</value>
+    <value>设置</value>
   </data>
   <data name="Menu_Share_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Teilen</value>
+    <value>分享</value>
   </data>
   <data name="Menu_Stop_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Abbrechen</value>
+    <value>停止</value>
   </data>
   <data name="Menu_Window_Tooltip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Neues Fenster</value>
+    <value>新视窗</value>
   </data>
   <data name="Menu_Customize.Text" xml:space="preserve">
-    <value>Personalisierung</value>
+    <value>自定义</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
   </data>
 </root>
