@@ -7,50 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" Loaded="Page_Loaded">
 
-    <Grid x:Name="grid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <VisualStateManager.VisualStateGroups>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-            <VisualStateGroup>
-                <VisualState x:Name="Small">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" MinWindowHeight="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-
-                        <Setter Target="Label_Wallpaper.Margin"  
-                    Value="15,40,0,10" />
-                        <Setter Target="VariableGrid.Margin"  
-                    Value="15,0,15,20" />
-                        <Setter Target="grid.Margin"  
-                    Value="0,-66,0,0" />
-                        <Setter Target="OnlineImage.Margin"  
-                    Value="15,0,0,0" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Normal">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="600" MinWindowHeight="600" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="Label_Wallpaper.Margin"  
-                    Value="200,40,0,10" />
-                        <Setter Target="VariableGrid.Margin"  
-                    Value="200,0,200,20" />
-                        <Setter Target="OnlineImage.Margin"  
-                    Value="200,0,0,0" />
-                        <Setter Target="grid.Margin"  
-                    Value="0,0,0,0" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
         <Image x:Name="Wallpaper" Margin="0" Source="Assets/Degrade.png" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <CompositeTransform/>
             </Image.RenderTransform>
         </Image>
         <Rectangle Fill="#4C000000" Margin="0"/>
-        <Rectangle x:Name="rectangle3" Fill="#FF1B1B1B" Height="66" Stroke="Black" VerticalAlignment="Top" StrokeThickness="0"/>
+        <Rectangle x:Name="rectangle3" Fill="#FF1B1B1B" Height="66.4" Stroke="Black" VerticalAlignment="Top" StrokeThickness="0"/>
         <Image x:Name="image1" HorizontalAlignment="Center" Height="55" Margin="0,4,0,0" VerticalAlignment="Top" Width="55" Source="Assets/Square150x150Logo.png" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <CompositeTransform/>
@@ -70,8 +35,8 @@
             </Button.Foreground>
         </Button>
         <StackPanel Margin="0,66,0,0">
-            <TextBlock x:Name="Label_Wallpaper" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Image de fond" VerticalAlignment="Top" RequestedTheme="Dark" FontSize="12" Margin="200,40,0,10"/>
-            <VariableSizedWrapGrid x:Name="VariableGrid" Margin="200,0,200,20" VerticalAlignment="Top" Orientation="Horizontal">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Image de fond" VerticalAlignment="Top" RequestedTheme="Dark" FontSize="12" Margin="200,40,0,10"/>
+            <VariableSizedWrapGrid Margin="200,0,200,20" VerticalAlignment="Top" Orientation="Horizontal">
                 <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper1" Margin="0,0,3,3">
                     <Button.Background>
                         <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Degrade.png"/>
@@ -118,7 +83,7 @@
                     </Button.Background>
                 </Button>
             </VariableSizedWrapGrid>
-            <Grid x:Name="OnlineImage" Margin="200,0,0,0" VerticalAlignment="Top">
+            <Grid Margin="200,0,0,0" VerticalAlignment="Top">
                 <TextBox x:Name="OnlineImagePath" HorizontalAlignment="Left" Text="" VerticalAlignment="Top" Width="278" RequestedTheme="Dark" BorderThickness="1" Height="22" PlaceholderText="URL de l'image de fond" TextAlignment="Left" TextWrapping="NoWrap" Margin="168,9,0,0" Visibility="Collapsed"/>
                 <TextBlock HorizontalAlignment="Left" Margin="25,17,0,0" TextWrapping="Wrap" Text="&#xE753;" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe MDL2 Assets"/>
                 <Button Content="       Image en ligne" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="151" Foreground="#DDFFFFFF" Background="#4C000000" BorderBrush="#64000000" BorderThickness="1" FontSize="12" RequestedTheme="Dark" Tapped="SetCustomWallpaper"/>

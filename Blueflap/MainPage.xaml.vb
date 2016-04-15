@@ -22,7 +22,6 @@ Public NotInheritable Class MainPage
     Dim resourceLoader = New Resources.ResourceLoader()
     Dim favs_tagsearch As Boolean
 
-
 #Region "HardwareBackButton"
     Public Sub New()
         Me.InitializeComponent()
@@ -31,34 +30,27 @@ Public NotInheritable Class MainPage
     Private Sub MainPage_BackRequested(sender As Object, e As Windows.UI.Core.BackRequestedEventArgs)
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         'Appui sur la touche retour "physique" d'un appareil Windows
-
         e.Handled = True
-        If web.CanGoBack And MemoPanel.Visibility = Visibility.Collapsed And Ellipsis.Visibility = Visibility.Collapsed And AddFavView.Visibility = Visibility.Collapsed Then
-            web.GoBack()
-        ElseIf MemoPanel.Visibility = Visibility.Visible And Ellipsis.Visibility = Visibility.Collapsed And AddFavView.Visibility = Visibility.Collapsed Then
+        If MemoPanel.Visibility = Visibility.Visible Then
+            MemoPopIN.Stop()
             MemoPopOut.Begin()
-        ElseIf Ellipsis.Visibility = Visibility.Visible Then
-            Ellipsis_Close.Begin()
-        ElseIf AddFavView.Visibility = Visibility.Visible And Ellipsis.Visibility = Visibility.Collapsed Then
-            AddFav_PopUp_Close.Begin()
+
+        Else
+            If web.CanGoBack Then
+                e.Handled = True
+                web.GoBack()
+            End If
         End If
     End Sub
 #End Region
 #Region "Page Loaded"
-    Private Async Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
+    Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
         AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf MainPage_BackRequested
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings 'Permet l'accés aux paramètres
 
         FirstLaunch()
 
         SmartSuggest.Visibility = Visibility.Collapsed
-
-        Try
-            If (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
-                Await Windows.UI.ViewManagement.StatusBar.GetForCurrentView.HideAsync()
-            End If
-        Catch
-        End Try
 
         If localSettings.Values("DarkThemeEnabled") = True Then 'Theme Sombre
 
@@ -75,7 +67,6 @@ Public NotInheritable Class MainPage
 
             AdressBox.Foreground = New SolidColorBrush(Windows.UI.Colors.White)
             PhoneNavBar.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 21, 21, 21))
-            PhoneNavBar.BorderBrush = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 70, 70, 70))
             PhoneNavBar.RequestedTheme = ElementTheme.Dark
         Else 'Theme Clair
 
@@ -93,7 +84,6 @@ Public NotInheritable Class MainPage
             Adressbar.Background = New SolidColorBrush(Windows.UI.Colors.WhiteSmoke)
             AdressBox.Foreground = New SolidColorBrush(Windows.UI.Colors.DimGray)
             PhoneNavBar.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 255, 255))
-            PhoneNavBar.BorderBrush = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 147, 147, 147))
             PhoneNavBar.RequestedTheme = ElementTheme.Light
         End If
 
@@ -106,7 +96,6 @@ Public NotInheritable Class MainPage
             LockTheBrowser.IsChecked = False
         End If
         localSettings.Values("ShowLockScreen") = True
-
 
         Try
             If localSettings.Values("VerrouillageEnabled") = True And LockTheBrowser.IsChecked = True Then
@@ -162,10 +151,6 @@ Public NotInheritable Class MainPage
         Catch
         End Try
 
-        Ellipsis_Button.Background = LeftMenu.Background
-        Ellipsis.Background = LeftMenu.Background
-        Loader_MemoPanel.Foreground = LeftMenu.Background
-
         Try
             If localSettings.Values("LoadPageFromBluestart") = True Then
                 web.Stop()
@@ -180,42 +165,32 @@ Public NotInheritable Class MainPage
 
         If localSettings.Values("SearchFightIcon") = False Then
             Fight_Button.Visibility = Visibility.Collapsed
-            Fight_Button_M.Visibility = Visibility.Collapsed
         Else
             Fight_Button.Visibility = Visibility.Visible
-            Fight_Button_M.Visibility = Visibility.Visible
         End If
 
         If localSettings.Values("LockIcon") = False Then
             Lock_Button.Visibility = Visibility.Collapsed
-            Lock_Button_M.Visibility = Visibility.Collapsed
         Else
             Lock_Button.Visibility = Visibility.Visible
-            Lock_Button_M.Visibility = Visibility.Visible
         End If
 
         If localSettings.Values("NoteIcon") = False Then
             Memo_Button.Visibility = Visibility.Collapsed
-            Memo_Button_M.Visibility = Visibility.Collapsed
         Else
             Memo_Button.Visibility = Visibility.Visible
-            Memo_Button_M.Visibility = Visibility.Visible
         End If
 
         If localSettings.Values("ShareIcon") = False Then
             Share_Button.Visibility = Visibility.Collapsed
-            Share_Button_M.Visibility = Visibility.Collapsed
         Else
             Share_Button.Visibility = Visibility.Visible
-            Share_Button_M.Visibility = Visibility.Visible
         End If
 
         If localSettings.Values("WindowIcon") = False Then
             Window_Button.Visibility = Visibility.Collapsed
-            Window_Button_M.Visibility = Visibility.Collapsed
         Else
             Window_Button.Visibility = Visibility.Visible
-            Window_Button_M.Visibility = Visibility.Visible
         End If
 
         If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
@@ -250,8 +225,6 @@ Public NotInheritable Class MainPage
 
         StopEnabled.Stop() 'Ce sont des animation pour le bouton stop/Refresh
         RefreshEnabled.Begin()
-        MobileRefreshIcon.Text = ""
-        MobileRefreshLabel.Text = resourceLoader.GetString("Menu_Refresh/Text")
 
         If web.CanGoBack Then
             Back_Button.Visibility = Visibility.Visible
@@ -278,13 +251,10 @@ Public NotInheritable Class MainPage
 
     Private Sub web_NavigationStarting(sender As WebView, args As WebViewNavigationStartingEventArgs) Handles web.NavigationStarting
         loader.IsActive = True 'Les petites billes de chargement apparaissent quand une page se charge
-        mobileloader.Visibility = Visibility.Visible
         Favicon.Visibility = Visibility.Collapsed
         BackForward()
         RefreshEnabled.Stop()
         StopEnabled.Begin()
-        MobileRefreshIcon.Text = ""
-        MobileRefreshLabel.Text = resourceLoader.GetString("Menu_Stop/Text")
 
     End Sub
 
@@ -301,7 +271,6 @@ Public NotInheritable Class MainPage
         End If
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
-        mobileloader.Visibility = Visibility.Collapsed
 
         'Met à jour les stats dispos dans les paramètres de Blueflap
         Try
@@ -397,7 +366,6 @@ Public NotInheritable Class MainPage
         End If
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
-        mobileloader.Visibility = Visibility.Collapsed
         SourceCode.Text = "..."
         BackForward()
         localSettings.Values("LoadPageFromBluestart") = False
@@ -409,7 +377,8 @@ Public NotInheritable Class MainPage
 
         ContextNotification()
     End Sub
-    Private Sub Go_Home()
+
+    Private Sub Home_button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Home_button.Tapped
         'Clic sur le bouton home
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
@@ -453,9 +422,6 @@ Public NotInheritable Class MainPage
         Catch
             localSettings.Values("Bluestart") = True
         End Try
-    End Sub
-    Private Sub Home_button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Home_button.Tapped
-        Go_Home()
     End Sub
 
     Private Sub AdressBox_KeyDown(sender As Object, e As KeyRoutedEventArgs) Handles AdressBox.KeyDown
@@ -549,7 +515,6 @@ Public NotInheritable Class MainPage
         End If
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
-        mobileloader.Visibility = Visibility.Collapsed
         BackForward()
     End Sub
 
@@ -681,7 +646,6 @@ Public NotInheritable Class MainPage
         MemoPopOut.Begin()
         webcontainer.Margin = New Thickness(webcontainer.Margin.Left, webcontainer.Margin.Top, 0, 0)
         Me.Frame.Navigate(GetType(Parametres))
-
     End Sub
     Private Sub Memo_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_Button.Tapped
         If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 0 Then
@@ -1013,10 +977,7 @@ Public NotInheritable Class MainPage
             History_ShowSearchBar.Visibility = Visibility.Collapsed
 
         End If
-        If LeftMenu.Visibility = Visibility.Collapsed Then
-            MemoAncrageToggleButton.Visibility = Visibility.Collapsed
-            Memo_ExpandButton.IsEnabled = False
-        End If
+
     End Sub
     Private Sub RightMenuPivot_PivotItemLoaded(sender As Pivot, args As PivotItemEventArgs) Handles RightMenuPivot.PivotItemLoaded
         PivotIndicatorPosition()
@@ -1071,7 +1032,7 @@ Public NotInheritable Class MainPage
         FavList.Children.Clear()
         TagsContainer.Children.Clear()
         Dim PreventMultipleSameItems As New HashSet(Of String)()
-        Loader_MemoPanel.IsActive = True
+
         For Each favsElem In JsonArray.Parse(Await ReadJsonFile("Favorites")).Reverse
 
             Dim elemContainer As StackPanel = New StackPanel
@@ -1080,20 +1041,18 @@ Public NotInheritable Class MainPage
                                                                         web.Navigate(New Uri(favsElem.GetObject.GetNamedString("url")))
                                                                     End Function)
 
-            If PhoneNavBar.Visibility = Visibility.Collapsed Then
-                AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                     elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
-                                                                                     elemContainer.BorderThickness = New Thickness(2, 0, 0, 0)
-                                                                                     elemContainer.Padding = New Thickness(6, 8, 0, 8)
-                                                                                     elemContainer.BorderBrush = LeftMenu.Background
-                                                                                 End Function)
+            AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
+                                                                                 elemContainer.BorderThickness = New Thickness(2, 0, 0, 0)
+                                                                                 elemContainer.Padding = New Thickness(6, 8, 0, 8)
+                                                                                 elemContainer.BorderBrush = LeftMenu.Background
+                                                                             End Function)
 
-                AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                    elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-                                                                                    elemContainer.BorderThickness = New Thickness(0, 0, 0, 0)
-                                                                                    elemContainer.Padding = New Thickness(8, 8, 0, 8)
-                                                                                End Function)
-            End If
+            AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                                elemContainer.BorderThickness = New Thickness(0, 0, 0, 0)
+                                                                                elemContainer.Padding = New Thickness(8, 8, 0, 8)
+                                                                            End Function)
 
             Dim menu As MenuFlyout = New MenuFlyout
             Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
@@ -1160,29 +1119,26 @@ Public NotInheritable Class MainPage
                     taglabel.Children.Add(taglabeltext)
                     taglabel.Height = 32
                     taglabel.Width = Double.NaN
+                    AddHandler taglabel.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                    taglabel.Background = LeftMenu.Background
+                                                                                    taglabeltext.Foreground = New SolidColorBrush(Windows.UI.Colors.White)
+                                                                                End Function)
 
-                    If PhoneNavBar.Visibility = Visibility.Collapsed Then
-                        AddHandler taglabel.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                        taglabel.Background = LeftMenu.Background
-                                                                                        taglabeltext.Foreground = New SolidColorBrush(Windows.UI.Colors.White)
-                                                                                    End Function)
+                    AddHandler taglabel.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                   taglabel.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(30, 150, 150, 150))
+                                                                                   taglabeltext.Foreground = New SolidColorBrush(Windows.UI.Colors.Black)
+                                                                               End Function)
 
-                        AddHandler taglabel.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                       taglabel.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(30, 150, 150, 150))
-                                                                                       taglabeltext.Foreground = New SolidColorBrush(Windows.UI.Colors.Black)
-                                                                                   End Function)
-
-                    End If
                     AddHandler taglabel.Tapped, New TappedEventHandler(Async Function(sender As Object, e As TappedRoutedEventArgs)
-                                                                               TagFilter.Text = taglabeltext.Text
-                                                                               favs_tagsearch = True
-                                                                               sorttag.Visibility = Visibility.Visible
-                                                                               Await ShowFavorites()
-                                                                           End Function)
+                                                                           TagFilter.Text = taglabeltext.Text
+                                                                           favs_tagsearch = True
+                                                                           sorttag.Visibility = Visibility.Visible
+                                                                           Await ShowFavorites()
+                                                                       End Function)
 
-                        TagsContainer.Children.Add(taglabel)
-                    End If
-                    PreventMultipleSameItems.Add("#" + favTag.GetString)
+                    TagsContainer.Children.Add(taglabel)
+                End If
+                PreventMultipleSameItems.Add("#" + favTag.GetString)
             Next
 
 
@@ -1200,7 +1156,6 @@ Public NotInheritable Class MainPage
             End If
         Next
         favs_tagsearch = False
-        Loader_MemoPanel.IsActive = False
     End Function
     Private Async Sub sorttag_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles sorttag.Tapped
         sorttag.Visibility = Visibility.Collapsed
@@ -1453,7 +1408,6 @@ Public NotInheritable Class MainPage
             Adressbar.Visibility = Visibility.Collapsed
             SmartSuggest.Visibility = Visibility.Collapsed
         End If
-        DarkBackground.Visibility = Visibility.Collapsed
     End Sub
 
     Private Sub SmartSuggest_LastOne_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles SmartSuggest_LastOne.PointerEntered
@@ -1576,16 +1530,16 @@ Public NotInheritable Class MainPage
             AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
                                                                         web.Navigate(New Uri(histElem.GetObject.GetNamedString("url")))
                                                                     End Function)
-            If PhoneNavBar.Visibility = Visibility.Collapsed Then
-                AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                     elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
-                                                                                 End Function)
 
-                AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                    elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-                                                                                End Function)
+            AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
+                                                                             End Function)
 
-            End If
+            AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                            End Function)
+
+
             Dim elemText As TextBlock = New TextBlock
             elemText.Text = histElem.GetObject.GetNamedString("title")
             elemText.Foreground = SmartSuggest_Search_Text.Foreground
@@ -1624,16 +1578,15 @@ Public NotInheritable Class MainPage
                                                                             web.Navigate(New Uri(histElem.GetObject.GetNamedString("url")))
                                                                         End Function)
 
-                If PhoneNavBar.Visibility = Visibility.Collapsed Then
-                    AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                         elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
-                                                                                     End Function)
+                AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                     elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
+                                                                                 End Function)
 
-                    AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                        elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-                                                                                    End Function)
+                AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                    elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                                End Function)
 
-                End If
+
                 Dim elemText As TextBlock = New TextBlock
                 elemText.Text = histElem.GetObject.GetNamedString("title")
                 elemText.Foreground = SmartSuggest_Search_Text.Foreground
@@ -1777,7 +1730,7 @@ Public NotInheritable Class MainPage
     Private Async Sub ShowHistory()
         HistoryList.Children.Clear()
         Dim Json As String
-        Loader_MemoPanel.IsActive = True
+
         Try
             Json = Await ReadJsonFile("History")
         Catch ex As Exception
@@ -1791,20 +1744,19 @@ Public NotInheritable Class MainPage
                                                                             web.Navigate(New Uri(histElem.GetObject.GetNamedString("url")))
                                                                         End Function)
 
-                If PhoneNavBar.Visibility = Visibility.Collapsed Then
-                    AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                         elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
-                                                                                         elemContainer.BorderThickness = New Thickness(2, 0, 0, 0)
-                                                                                         elemContainer.Padding = New Thickness(6, 8, 0, 8)
-                                                                                         elemContainer.BorderBrush = LeftMenu.Background
-                                                                                     End Function)
+                AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                     elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
+                                                                                     elemContainer.BorderThickness = New Thickness(2, 0, 0, 0)
+                                                                                     elemContainer.Padding = New Thickness(6, 8, 0, 8)
+                                                                                     elemContainer.BorderBrush = LeftMenu.Background
+                                                                                 End Function)
 
-                    AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                        elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-                                                                                        elemContainer.BorderThickness = New Thickness(0, 0, 0, 0)
-                                                                                        elemContainer.Padding = New Thickness(8, 8, 0, 8)
-                                                                                    End Function)
-                End If
+                AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                    elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                                    elemContainer.BorderThickness = New Thickness(0, 0, 0, 0)
+                                                                                    elemContainer.Padding = New Thickness(8, 8, 0, 8)
+                                                                                End Function)
+
                 Dim menu As MenuFlyout = New MenuFlyout
                 Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
                 menuDelete.Text = resourceLoader.GetString("Delete/Text")
@@ -1874,7 +1826,6 @@ Public NotInheritable Class MainPage
                 MemoPopOut.Begin()
             End If
         End Try
-        Loader_MemoPanel.IsActive = False
     End Sub
     Private Async Sub SearchHistory_TextChanged(sender As Object, e As TextChangedEventArgs) Handles SearchHistory.TextChanged
         History_SearchMode = True
@@ -1949,7 +1900,7 @@ Public NotInheritable Class MainPage
         Catch ex As Exception
             Json = "[]"
         End Try
-        Loader_MemoPanel.IsActive = True
+
         For Each MemoElem In root.Reverse
 
             Dim elemContainer As StackPanel = New StackPanel
@@ -1993,20 +1944,19 @@ Public NotInheritable Class MainPage
                                                                                                                                     End Function)
                                                                     End Function)
 
-            If PhoneNavBar.Visibility = Visibility.Collapsed Then
-                AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                     elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
-                                                                                     elemContainer.BorderThickness = New Thickness(2, 0, 0, 0)
-                                                                                     elemContainer.Padding = New Thickness(6, 8, 0, 8)
-                                                                                     elemContainer.BorderBrush = LeftMenu.Background
-                                                                                 End Function)
+            AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
+                                                                                 elemContainer.BorderThickness = New Thickness(2, 0, 0, 0)
+                                                                                 elemContainer.Padding = New Thickness(6, 8, 0, 8)
+                                                                                 elemContainer.BorderBrush = LeftMenu.Background
+                                                                             End Function)
 
-                AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                    elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-                                                                                    elemContainer.BorderThickness = New Thickness(0, 0, 0, 0)
-                                                                                    elemContainer.Padding = New Thickness(8, 8, 0, 8)
-                                                                                End Function)
-            End If
+            AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                                elemContainer.BorderThickness = New Thickness(0, 0, 0, 0)
+                                                                                elemContainer.Padding = New Thickness(8, 8, 0, 8)
+                                                                            End Function)
+
             Dim menu As MenuFlyout = New MenuFlyout
             Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
             menuDelete.Text = resourceLoader.GetString("Delete/Text")
@@ -2029,7 +1979,6 @@ Public NotInheritable Class MainPage
             MemoList.Children.Add(elemContainer)
 
         Next
-        Loader_MemoPanel.IsActive = False
     End Function
     Private Async Sub Memo_ShowAll_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_ShowAll.Tapped
         Memo_ShowAll.Visibility = Visibility.Collapsed
@@ -2055,8 +2004,6 @@ Public NotInheritable Class MainPage
     Private Sub Grid_Tapped(sender As Object, e As TappedRoutedEventArgs)
         Adressbar.Visibility = Visibility.Visible
         AdressBox.Focus(Windows.UI.Xaml.FocusState.Keyboard)
-        DarkBackground.Visibility = Visibility.Visible
-        Ellipsis_Close.Begin()
     End Sub
 
     Private Sub Phone_Back_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Phone_Back.Tapped
@@ -2068,125 +2015,6 @@ Public NotInheritable Class MainPage
         If web.CanGoForward Then
             web.GoForward()
         End If
-    End Sub
-
-    Private Sub Grid_PointerPressed(sender As Object, e As PointerRoutedEventArgs)
-        Tilt_Out.Stop()
-        Tilt_In.Stop()
-        Tilt_In.Begin()
-    End Sub
-
-    Private Sub Grid_PointerReleased(sender As Object, e As PointerRoutedEventArgs)
-        Tilt_Out.Begin()
-    End Sub
-
-    Private Sub Grid_PointerExited(sender As Object, e As PointerRoutedEventArgs)
-        Tilt_Out.Begin()
-    End Sub
-
-    Private Sub Grid_Tapped_1(sender As Object, e As TappedRoutedEventArgs)
-        If Ellipsis.Visibility = Visibility.Visible Then
-            Ellipsis_Close.Begin()
-        Else
-            Ellipsis_Open.Begin()
-        End If
-    End Sub
-
-    Private Sub grid_SizeChanged(sender As Object, e As SizeChangedEventArgs) Handles grid.SizeChanged
-        If LeftMenu.Visibility = Visibility.Visible Then
-            Ellipsis_Open.Stop()
-        End If
-    End Sub
-
-    Private Sub Settings_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Settings_Button_M.Tapped
-        ' Ellipsis_Close.Begin()
-        Me.Frame.Navigate(GetType(Parametres))
-    End Sub
-
-    Private Sub Lock_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Lock_Button_M.Tapped
-        'Ellipsis_Close.Begin()
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        LockTheBrowser.IsChecked = True
-        Me.Frame.Navigate(GetType(Verrouillage))
-    End Sub
-
-    Private Sub Memo_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_Button_M.Tapped
-        Ellipsis_Close.Begin()
-        If MemoPanel.Visibility = Visibility.Collapsed Then
-            MemoPopOut.Stop()
-            MemoPopIN.Begin()
-        End If
-
-        RightMenuPivot.SelectedIndex = 0
-    End Sub
-
-    Private Sub Fight_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Fight_Button_M.Tapped
-        'Ellipsis_Close.Begin()
-        Me.Frame.Navigate(GetType(SearchFight))
-    End Sub
-
-    Private Sub Notifications_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Notifications_Button_M.Tapped
-        Ellipsis_Close.Begin()
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        If MemoPanel.Visibility = Visibility.Collapsed Then
-            MemoPopOut.Stop()
-            MemoPopIN.Begin()
-        End If
-        RightMenuPivot.SelectedIndex = 3
-        New_Notif.Stop()
-        Notifications_Counter.Text = "0"
-        If NotifPosition = 0 Then
-            Notif_Home.Visibility = Visibility.Visible
-        End If
-    End Sub
-
-    Private Sub Share_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Share_Button_M.Tapped
-        Ellipsis_Close.Begin()
-        Windows.ApplicationModel.DataTransfer.DataTransferManager.ShowShareUI()
-    End Sub
-
-    Private Sub Like_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Like_Button_M.Tapped
-        Ellipsis_Close.Begin()
-        AddToFavorite_Ask()
-    End Sub
-
-    Private Sub Window_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Window_Button_M.Tapped
-        Ellipsis_Close.Begin()
-        NewWindow()
-    End Sub
-
-    Private Sub Strefresh_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Strefresh_Button_M.Tapped
-        Ellipsis_Close.Begin()
-        If MobileRefreshIcon.Text = "" Then
-            web.Refresh()
-            MobileRefreshIcon.Text = ""
-            MobileRefreshLabel.Text = resourceLoader.GetString("Menu_Stop/Text")
-
-        Else
-            MobileRefreshIcon.Text = ""
-            MobileRefreshLabel.Text = resourceLoader.GetString("Menu_Refresh/Text")
-            web.Stop()
-        End If
-        AdressBox.Text = web.Source.ToString
-        Phone_URL.Text = web.Source.Host
-        If web.Source.ToString.Contains("https://") Then
-            SecurityTag.Visibility = Visibility.Visible
-        Else
-            SecurityTag.Visibility = Visibility.Collapsed
-        End If
-        Titlebox.Text = web.DocumentTitle
-        loader.IsActive = False
-        mobileloader.Visibility = Visibility.Collapsed
-        BackForward()
-    End Sub
-
-    Private Sub Home_button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Home_button_M.Tapped
-        Ellipsis_Close.Begin()
-        Go_Home()
-    End Sub
-
-    Private Sub DarkBackground_Ellipsis_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles DarkBackground_Ellipsis.Tapped
-        Ellipsis_Close.Begin()
     End Sub
 #End Region
 End Class

@@ -163,172 +163,11 @@
         <Storyboard x:Name="SearchLessOpacity">
             <ColorAnimation Duration="0:0:0.1" To="#A5000000" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="SearchGrid" d:IsOptimized="True"/>
         </Storyboard>
-        <Storyboard x:Name="Ellipsis_Open">
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Ellipsis">
-                <DiscreteObjectKeyFrame KeyTime="0">
-                    <DiscreteObjectKeyFrame.Value>
-                        <Visibility>Visible</Visibility>
-                    </DiscreteObjectKeyFrame.Value>
-                </DiscreteObjectKeyFrame>
-            </ObjectAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Ellipsis">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <QuinticEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Ellipsis">
-                <EasingDoubleKeyFrame KeyTime="0" Value="53"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <QuinticEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimation Duration="0" To="49" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="PhoneNavBar" d:IsOptimized="True"/>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.BorderThickness)" Storyboard.TargetName="PhoneNavBar">
-                <DiscreteObjectKeyFrame KeyTime="0">
-                    <DiscreteObjectKeyFrame.Value>
-                        <Thickness>0</Thickness>
-                    </DiscreteObjectKeyFrame.Value>
-                </DiscreteObjectKeyFrame>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DarkBackground_Ellipsis">
-                <DiscreteObjectKeyFrame KeyTime="0">
-                    <DiscreteObjectKeyFrame.Value>
-                        <Visibility>Visible</Visibility>
-                    </DiscreteObjectKeyFrame.Value>
-                </DiscreteObjectKeyFrame>
-            </ObjectAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="DarkBackground_Ellipsis">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <QuarticEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Name="Ellipsis_Close">
-            <DoubleAnimation Duration="0:0:0.2" To="66" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Ellipsis" d:IsOptimized="True">
-                <DoubleAnimation.EasingFunction>
-                    <QuinticEase EasingMode="EaseIn"/>
-                </DoubleAnimation.EasingFunction>
-            </DoubleAnimation>
-            <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Ellipsis" d:IsOptimized="True">
-                <DoubleAnimation.EasingFunction>
-                    <QuinticEase EasingMode="EaseIn"/>
-                </DoubleAnimation.EasingFunction>
-            </DoubleAnimation>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Ellipsis">
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
-                    <DiscreteObjectKeyFrame.Value>
-                        <Visibility>Collapsed</Visibility>
-                    </DiscreteObjectKeyFrame.Value>
-                </DiscreteObjectKeyFrame>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.BorderThickness)" Storyboard.TargetName="PhoneNavBar">
-                <DiscreteObjectKeyFrame KeyTime="0">
-                    <DiscreteObjectKeyFrame.Value>
-                        <Thickness>0,1,0,0</Thickness>
-                    </DiscreteObjectKeyFrame.Value>
-                </DiscreteObjectKeyFrame>
-            </ObjectAnimationUsingKeyFrames>
-            <DoubleAnimation Duration="0" To="50" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="PhoneNavBar" d:IsOptimized="True"/>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DarkBackground_Ellipsis">
-                <DiscreteObjectKeyFrame KeyTime="0">
-                    <DiscreteObjectKeyFrame.Value>
-                        <Visibility>Collapsed</Visibility>
-                    </DiscreteObjectKeyFrame.Value>
-                </DiscreteObjectKeyFrame>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
 
     </Page.Resources>
 
     <Grid x:Name="Grid" Background="#FF595959">
-        <VisualStateManager.VisualStateGroups>
 
-            <VisualStateGroup>
-                <VisualState x:Name="Small">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" MinWindowHeight="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="AdressBox.Margin"  
-                    Value="15,67,15,408" />
-                        <Setter Target="Grid.Margin"  
-                    Value="0,-66,0,0" />
-                        <Setter Target="AdressBox.HorizontalAlignment"  
-                    Value="Stretch" />
-                        <Setter Target="AdressBox.Width"  
-                    Value="Auto" />
-                        <Setter Target="scrollViewer.Margin"  
-                    Value="0,66,0,50" />
-                        <Setter Target="Suggestions.Margin"  
-                    Value="15,142,15,0" />
-                        <Setter Target="Suggestions.HorizontalAlignment"  
-                    Value="Stretch" />
-                        <Setter Target="Suggestions.Width"  
-                    Value="Auto" />
-                        <Setter Target="Fight_Button.Visibility"  
-                    Value="Collapsed" />
-                        <Setter Target="Memo_Button.Visibility"  
-                    Value="Collapsed" />
-                        <Setter Target="Lock_Button.Visibility"  
-                    Value="Collapsed" />
-                        <Setter Target="RechercheBox.FontSize"  
-                    Value="22" />
-                        <Setter Target="RechercheBox.Height"  
-                    Value="51" />
-                        <Setter Target="searchicon.FontSize"  
-                    Value="20" />
-                        <Setter Target="PhoneNavBar.Visibility"  
-                    Value="Visible" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Normal">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="600" MinWindowHeight="600" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="Grid.Margin"  
-                    Value="0,0,0,0" />
-                        <Setter Target="AdressBox.Margin"  
-                    Value="0,67,0,408" />
-                        <Setter Target="AdressBox.HorizontalAlignment"  
-                    Value="Center" />
-                        <Setter Target="AdressBox.Width"  
-                    Value="519" />
-                        <Setter Target="PhoneNavBar.Visibility"  
-                    Value="Collapsed" />
-                        <Setter Target="Suggestions.Margin"  
-                    Value="0,142,0,0" />
-                        <Setter Target="Suggestions.HorizontalAlignment"  
-                    Value="Center" />
-                        <Setter Target="Suggestions.Width"  
-                    Value="518" />
-                        <Setter Target="Fight_Button.Visibility"  
-                    Value="Visible" />
-                        <Setter Target="Memo_Button.Visibility"  
-                    Value="Visible" />
-                        <Setter Target="Lock_Button.Visibility"  
-                    Value="Visible" />
-                        <Setter Target="RechercheBox.FontSize"  
-                    Value="32" />
-                        <Setter Target="RechercheBox.Height"  
-                    Value="58" />
-                        <Setter Target="searchicon.FontSize"  
-                    Value="24" />
-                        <Setter Target="scrollViewer.Margin"  
-                    Value="0,66,0,0" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-        <Grid x:Name="DefaultThemeColor" HorizontalAlignment="Left" Height="10" Margin="268,207,-229,0" VerticalAlignment="Top" Width="9" Background="{ThemeResource ContentDialogBorderThemeBrush}" Visibility="Collapsed"/>
         <Grid x:Name="Loader" HorizontalAlignment="Left" Height="47" Margin="21,55,0,0" VerticalAlignment="Top" Width="314" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <CompositeTransform ScaleY="0.9" ScaleX="0.9"/>
@@ -372,15 +211,14 @@
             </ScrollViewer.RenderTransform>
             <StackPanel x:Name="Container">
                 <Grid x:Name="SearchGrid" Height="550" VerticalAlignment="Top" Background="#19000000">
-                    <Grid x:Name="AdressBox" Margin="0,67,0,408" Width="519" HorizontalAlignment="Center">
-                        <Rectangle x:Name="AdressBack" Height="75" VerticalAlignment="Top" StrokeThickness="2" RadiusY="3" RadiusX="3" Fill="White" Visibility="Collapsed"/>
-                        <TextBlock x:Name="searchicon" HorizontalAlignment="Right" Margin="0,27,34,0" TextWrapping="Wrap" Text="&#xE11A;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="24" Foreground="#D7FFFFFF"/>
-                        <TextBox x:Uid="FightTextbox" x:Name="RechercheBox" TextWrapping="NoWrap" Text="" VerticalAlignment="Bottom" Height="58" BorderThickness="0,0,0,2" FontSize="32" TextAlignment="Left" Margin="16,11,16,6" Background="#00000000" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" PreventKeyboardDisplayOnProgrammaticFocus="True" TextReadingOrder="UseFlowDirection" RequestedTheme="Dark" PlaceholderText="Entrez votre recherche" BorderBrush="White" Foreground="White"/>
-                    </Grid>
+                    <Rectangle x:Name="AdressBack" Fill="White" Height="75" VerticalAlignment="Top" HorizontalAlignment="Center" Width="519" Margin="0,67,0,0" StrokeThickness="2" RadiusY="3" RadiusX="3" Visibility="Collapsed"/>
+                    <TextBlock HorizontalAlignment="Center" Margin="426,94,0,0" TextWrapping="Wrap" Text="&#xE11A;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="24" Foreground="#D7FFFFFF"/>
+                    <TextBox x:Uid="FightTextbox" x:Name="RechercheBox" HorizontalAlignment="Center" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Height="58" Width="487" BorderThickness="0,0,0,2" FontSize="32" TextAlignment="Left" Margin="0,78,0,0" Background="#00000000" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" PreventKeyboardDisplayOnProgrammaticFocus="True" TextReadingOrder="UseFlowDirection" RequestedTheme="Dark" PlaceholderText="Entrez votre recherche" BorderBrush="White" Foreground="White"/>
                     <ScrollViewer x:Name="Suggestions" Margin="0,142,0,0" HorizontalAlignment="Center" Width="518" VerticalAlignment="Top" Height="392" VerticalScrollBarVisibility="Auto" Foreground="#A5F7F7F7">
                         <StackPanel x:Name="SmartSuggest_History" Margin="0"/>
                     </ScrollViewer>
                 </Grid>
+                <Grid Height="287" VerticalAlignment="Top" Background="#CCFFFFFF" Visibility="Collapsed"/>
                 <Grid x:Name="FavoriteGrid" Height="148" VerticalAlignment="Top" Background="#CCFFFFFF">
                     <TextBlock HorizontalAlignment="Center" Margin="0,21,0,0" TextWrapping="Wrap" Text="&#xE00B;" VerticalAlignment="Top" Foreground="#FFD40091" FontFamily="Segoe MDL2 Assets"/>
                     <TextBlock x:Name="Fav_Name" HorizontalAlignment="Center" Margin="0,67,0,0" TextWrapping="Wrap" Text="SITE NAME" VerticalAlignment="Top" Foreground="#FF3A3A3A" FontSize="21.333" FontWeight="Bold" CharacterSpacing="-33"/>
@@ -392,7 +230,7 @@
                 </Grid>
             </StackPanel>
         </ScrollViewer>
-        <Rectangle x:Name="rectangle3" Fill="#FF1B1B1B" Height="66" Stroke="Black" VerticalAlignment="Top" StrokeThickness="0"/>
+        <Rectangle x:Name="rectangle3" Fill="#FF1B1B1B" Height="66.4" Stroke="Black" VerticalAlignment="Top" StrokeThickness="0"/>
         <Image x:Name="image1" HorizontalAlignment="Center" Height="55" Margin="0,4,0,0" VerticalAlignment="Top" Width="55" Source="Assets/Square150x150Logo.png" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <CompositeTransform/>
@@ -428,64 +266,5 @@
                 <CompositeTransform/>
             </Button.RenderTransform>
         </Button>
-        <Grid x:Name="DarkBackground_Ellipsis" Margin="0" Background="#64000000" Visibility="Collapsed"/>
-        <Grid x:Name="Ellipsis" Margin="0,0,0,48" VerticalAlignment="Bottom" Background="{ThemeResource SystemControlDisabledAccentBrush}" MaxHeight="277" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" Visibility="Collapsed">
-            <Grid.Projection>
-                <PlaneProjection/>
-            </Grid.Projection>
-            <Grid.RenderTransform>
-                <CompositeTransform/>
-            </Grid.RenderTransform>
-            <ScrollViewer Margin="0,0,0,2" VerticalScrollBarVisibility="Auto">
-                <StackPanel x:Name="Ellipsis_Content" RenderTransformOrigin="0.5,0.5">
-                    <StackPanel.RenderTransform>
-                        <CompositeTransform ScaleY="-1"/>
-                    </StackPanel.RenderTransform>
-                    <Button x:Name="Settings_Button_M" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" RenderTransformOrigin="0.5,0.5" Margin="-10,5" Background="#00000000" RequestedTheme="Dark" BorderThickness="0">
-                        <Button.RenderTransform>
-                            <CompositeTransform ScaleY="-1"/>
-                        </Button.RenderTransform>
-                        <Grid UseLayoutRounding="True" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" x:Uid="Menu_Settings" Text="Paramètres" VerticalAlignment="Center" RequestedTheme="Dark"/>
-                            <TextBlock HorizontalAlignment="Center" Margin="0,0,200,0" TextWrapping="Wrap" Text="&#xE115;" VerticalAlignment="Center" RequestedTheme="Dark" FontFamily="Segoe MDL2 Assets"/>
-                        </Grid>
-                    </Button>
-                    <Button x:Name="Lock_Button_M" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" RenderTransformOrigin="0.5,0.5" Margin="-10,0,-10,5" Background="#00000000" RequestedTheme="Dark" BorderThickness="0">
-                        <Button.RenderTransform>
-                            <CompositeTransform ScaleY="-1"/>
-                        </Button.RenderTransform>
-                        <Grid UseLayoutRounding="True" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" x:Uid="Menu_Lock" Text="Verrouiller" VerticalAlignment="Center" RequestedTheme="Dark"/>
-                            <TextBlock HorizontalAlignment="Center" Margin="0,0,200,0" TextWrapping="Wrap" Text="&#xE1F6;" VerticalAlignment="Center" RequestedTheme="Dark" FontFamily="Segoe MDL2 Assets"/>
-                        </Grid>
-                    </Button>
-                    <Button x:Name="Fight_Button_M" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" RenderTransformOrigin="0.5,0.5" Margin="-10,0,-10,5" Background="#00000000" RequestedTheme="Dark" BorderThickness="0">
-                        <Button.RenderTransform>
-                            <CompositeTransform ScaleY="-1"/>
-                        </Button.RenderTransform>
-                        <Grid UseLayoutRounding="True" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Search Fight" VerticalAlignment="Center" RequestedTheme="Dark"/>
-                            <TextBlock HorizontalAlignment="Center" Margin="0,0,200,0" TextWrapping="Wrap" Text="&#xE923;" VerticalAlignment="Center" RequestedTheme="Dark" FontFamily="Segoe MDL2 Assets"/>
-                        </Grid>
-                    </Button>
-                    <Button x:Name="Customization_Button_M" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" RenderTransformOrigin="0.5,0.5" Margin="-10,0,-10,5" Background="#00000000" RequestedTheme="Dark" BorderThickness="0">
-                        <Button.RenderTransform>
-                            <CompositeTransform ScaleY="-1"/>
-                        </Button.RenderTransform>
-                        <Grid UseLayoutRounding="True" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" x:Uid="Menu_Customize" Text="Personnalisation" VerticalAlignment="Center" RequestedTheme="Dark"/>
-                            <TextBlock HorizontalAlignment="Center" Margin="0,0,200,0" TextWrapping="Wrap" Text="&#xE2B1;" VerticalAlignment="Center" RequestedTheme="Dark" FontFamily="Segoe MDL2 Assets"/>
-                        </Grid>
-                    </Button>
-                </StackPanel>
-            </ScrollViewer>
-        </Grid>
-        <Grid x:Name="PhoneNavBar" Height="50" Margin="0" VerticalAlignment="Bottom" Background="White" BorderBrush="#FF939393" BorderThickness="0,1,0,0">
-            <Grid x:Name="Ellipsis_Button" HorizontalAlignment="Right" Height="50" Margin="0" VerticalAlignment="Bottom" Width="50" Background="{ThemeResource ContentDialogBorderThemeBrush}" Tapped="Grid_Tapped_1">
-                <TextBlock HorizontalAlignment="Center" Margin="1,2,0,0" TextWrapping="Wrap" Text="&#xE10C;" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16"/>
-            </Grid>
-            <ProgressBar x:Name="mobileloader" Height="1" Margin="0,-1,50,0" VerticalAlignment="Top" Background="{x:Null}" Value="20" IsIndeterminate="True" Visibility="Collapsed"/>
-            <Button x:Name="Phone_Forward" Content="&#xE0D5; &#xE12B;" HorizontalAlignment="Left" Margin="0,0,50,0" VerticalAlignment="Stretch" Width="64" FontFamily="Segoe MDL2 Assets" Background="#00787878" BorderThickness="1,0,0,0"/>
-        </Grid>
     </Grid>
 </Page>

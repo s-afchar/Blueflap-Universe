@@ -109,7 +109,6 @@
     <None Include="Blueflap_StoreKey.pfx" />
     <None Include="Package.StoreAssociation.xml" />
     <None Include="project.json" />
-    <PRIResource Include="Strings\de\Resources.resw" />
     <PRIResource Include="Strings\hu-HU\Resources.resw" />
     <PRIResource Include="Strings\en\Resources.resw" />
     <PRIResource Include="Strings\fr\Resources.resw" />
@@ -272,11 +271,6 @@
     <Import Include="Windows.UI.Xaml.Media" />
     <Import Include="Windows.UI.Xaml.Media.Imaging" />
     <Import Include="Windows.UI.Xaml.Navigation" />
-  </ItemGroup>
-  <ItemGroup>
-    <SDKReference Include="WindowsMobile, Version=10.0.10240.0">
-      <Name>Windows Mobile Extensions for the UWP</Name>
-    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

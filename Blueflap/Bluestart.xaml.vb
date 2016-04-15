@@ -12,19 +12,6 @@ Public NotInheritable Class Bluestart
     Inherits Page
     Dim itemcount As Integer
     Dim PreventAnimationBug As Boolean
-#Region "Frame.GoBack"
-    Public Sub New()
-        Me.InitializeComponent()
-        AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf MainPage_BackRequested
-    End Sub
-    Private Sub MainPage_BackRequested(sender As Object, e As Windows.UI.Core.BackRequestedEventArgs)
-        'On retourne à la page principale quand le bouton retour "physique" est pressé
-        If Ellipsis.Visibility = Visibility.Visible Then
-            Ellipsis_Close.Begin()
-            e.Handled = True
-        End If
-    End Sub
-#End Region
 #Region "Page Loaded"
     Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
@@ -33,32 +20,10 @@ Public NotInheritable Class Bluestart
 
         PreventAnimationBug = True
 
-        'Définition du thème avec couleur personnalisée
-        Try
-            If localSettings.Values("CustomColorEnabled") = True Then
-                Ellipsis_Button.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(localSettings.Values("CustomColorD"), localSettings.Values("CustomColorA"), localSettings.Values("CustomColorB"), localSettings.Values("CustomColorC")))
-            Else
-                Ellipsis_Button.Background = DefaultThemeColor.Background
-            End If
-        Catch
-        End Try
-
-        Ellipsis.Background = Ellipsis_Button.Background
-
         Dim v = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView()
         v.TitleBar.ButtonBackgroundColor = Windows.UI.Color.FromArgb(255, 27, 27, 27)
         v.TitleBar.ButtonForegroundColor = Windows.UI.Colors.White
         v.TitleBar.ButtonInactiveBackgroundColor = Windows.UI.Color.FromArgb(255, 27, 27, 27)
-
-        If localSettings.Values("DarkThemeEnabled") = True Then
-            PhoneNavBar.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 21, 21, 21))
-            PhoneNavBar.BorderBrush = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 70, 70, 70))
-            PhoneNavBar.RequestedTheme = ElementTheme.Dark
-        Else
-            PhoneNavBar.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 255, 255))
-            PhoneNavBar.BorderBrush = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 147, 147, 147))
-            PhoneNavBar.RequestedTheme = ElementTheme.Light
-        End If
 
         Try
             If localSettings.Values("WallpaperType") = "Custom" Then 'Définit l'image de fond : image prédéfinie ou image en ligne
@@ -78,7 +43,6 @@ Public NotInheritable Class Bluestart
         grid3.Visibility = Visibility.Collapsed
 
         Showlastfav()
-        RechercheBox.Focus(Windows.UI.Xaml.FocusState.Keyboard)
     End Sub
 #End Region
 #Region "LastFav"
@@ -260,16 +224,15 @@ Public NotInheritable Class Bluestart
                                                                         Me.Frame.Navigate(GetType(MainPage))
                                                                     End Function)
 
-            If PhoneNavBar.Visibility = Visibility.Collapsed Then
-                AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                     elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
-                                                                                 End Function)
+            AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
+                                                                             End Function)
 
-                AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                    elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-                                                                                End Function)
+            AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                            End Function)
 
-            End If
+
             Dim elemText As TextBlock = New TextBlock
             elemText.Text = histElem.GetObject.GetNamedString("title")
             elemText.Foreground = New SolidColorBrush(Windows.UI.Colors.White)
@@ -311,15 +274,14 @@ Public NotInheritable Class Bluestart
                                                                         Me.Frame.Navigate(GetType(MainPage))
                                                                     End Function)
 
-            If PhoneNavBar.Visibility = Visibility.Collapsed Then
-                AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                     elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
-                                                                                 End Function)
+            AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
+                                                                             End Function)
 
-                AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                    elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-                                                                                End Function)
-            End If
+            AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                            End Function)
+
 
             Dim elemText As TextBlock = New TextBlock
             elemText.Text = histElem.GetObject.GetNamedString("title")
@@ -354,40 +316,5 @@ Public NotInheritable Class Bluestart
         content = Await FileIO.ReadTextAsync(textfile)
         Return content
     End Function
-
-
-#End Region
-#Region "ellipsis"
-    Private Sub Customization_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Customization_Button_M.Tapped
-        Me.Frame.Navigate(GetType(Customization))
-    End Sub
-
-    Private Sub Fight_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Fight_Button_M.Tapped
-        Me.Frame.Navigate(GetType(SearchFight))
-    End Sub
-
-    Private Sub Lock_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Lock_Button_M.Tapped
-        Me.Frame.Navigate(GetType(Verrouillage))
-    End Sub
-
-    Private Sub Settings_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Settings_Button_M.Tapped
-        Me.Frame.Navigate(GetType(Parametres))
-    End Sub
-
-    Private Sub Grid_Tapped_1(sender As Object, e As TappedRoutedEventArgs)
-        If Ellipsis.Visibility = Visibility.Visible Then
-            Ellipsis_Close.Begin()
-        Else
-            Ellipsis_Open.Begin()
-        End If
-    End Sub
-
-    Private Sub DarkBackground_Ellipsis_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles DarkBackground_Ellipsis.Tapped
-        Ellipsis_Close.Begin()
-    End Sub
-
-    Private Sub Phone_Forward_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Phone_Forward.Tapped
-        Me.Frame.Navigate(GetType(MainPage))
-    End Sub
 #End Region
 End Class

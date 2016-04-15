@@ -93,71 +93,7 @@
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Page.Resources>
-    
     <Grid Background="#FF3E3E3E">
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState x:Name="Small">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" MinWindowHeight="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="HeaderRectangle.Visibility"  
-                    Value="Collapsed" />
-                        <Setter Target="image.Visibility"  
-                    Value="Collapsed" />
-                        <Setter Target="grid.Margin"  
-                    Value="0,0,0,0" />
-                        <Setter Target="grid.VerticalAlignment"  
-                    Value="Stretch" />
-                        <Setter Target="grid.Width"  
-                    Value="Auto" />
-                        <Setter Target="grid.Height"  
-                    Value="Auto" />
-                        <Setter Target="rectangle.RadiusX"  
-                    Value="0" />
-                        <Setter Target="rectangle.RadiusY"  
-                    Value="0" />
-                        <Setter Target="PaswwordBox.Width"  
-                    Value="Auto" />
-                        <Setter Target="PaswwordBox.Margin"  
-                    Value="15,204,15,0" />
-                        <Setter Target="PaswwordBox.HorizontalAlignment"  
-                    Value="Stretch" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Normal">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="600" MinWindowHeight="600" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="HeaderRectangle.Visibility"  
-                    Value="Visible" />
-                        <Setter Target="image.Visibility"  
-                    Value="Visible" />
-                        <Setter Target="grid.Margin"  
-                    Value="0,0,0,40" />
-                        <Setter Target="grid.VerticalAlignment"  
-                    Value="Center" />
-                        <Setter Target="grid.Width"  
-                    Value="500" />
-                        <Setter Target="grid.Height"  
-                    Value="400" />
-                        <Setter Target="rectangle.RadiusX"  
-                    Value="5" />
-                        <Setter Target="rectangle.RadiusY"  
-                    Value="5" />
-                        <Setter Target="PaswwordBox.Width"  
-                    Value="331" />
-                        <Setter Target="PaswwordBox.Margin"  
-                    Value="0,204,0,0" />
-                        <Setter Target="PaswwordBox.HorizontalAlignment"  
-                    Value="Center" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-        
         <Grid x:Name="Loader" HorizontalAlignment="Left" Height="47" Margin="21,55,0,0" VerticalAlignment="Top" Width="314" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <CompositeTransform ScaleY="0.9" ScaleX="0.9"/>
@@ -182,7 +118,7 @@
                 <CompositeTransform/>
             </Image.RenderTransform>
         </Image>
-        <Rectangle x:Name="HeaderRectangle" Fill="#FF1B1B1B" Height="66" Stroke="Black" VerticalAlignment="Top" StrokeThickness="0"/>
+        <Rectangle Fill="#FF1B1B1B" Height="66" Stroke="Black" VerticalAlignment="Top" StrokeThickness="0"/>
         <Image x:Name="image" HorizontalAlignment="Center" Height="55" Margin="0,4,0,0" VerticalAlignment="Top" Width="66" Source="Assets/Square150x150Logo.png" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <CompositeTransform/>
@@ -192,8 +128,8 @@
             <Grid.RenderTransform>
                 <CompositeTransform/>
             </Grid.RenderTransform>
-            <Rectangle x:Name="rectangle" Fill="#9A000000" Margin="0" Stroke="Black" StrokeThickness="0" RadiusX="5" RadiusY="5"/>
-            <Rectangle x:Name="Backrec" Fill="#3E000000" Height="91" Margin="0,177,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top"/>
+            <Rectangle x:Name="rectangle" Fill="#9A000000" HorizontalAlignment="Left" Margin="0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Height="400" Width="500" RadiusX="5" RadiusY="5"/>
+            <Rectangle x:Name="Backrec" Fill="#3E000000" HorizontalAlignment="Left" Height="91" Margin="0,177,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="500"/>
             <Image Height="100" Margin="0,12,0,0" VerticalAlignment="Top" Source="Assets/Square150x150Logo.png"/>
             <PasswordBox x:Uid="Lock_Password" x:Name="PaswwordBox" HorizontalAlignment="Center" Margin="0,204,0,0" VerticalAlignment="Top" Width="331" RequestedTheme="Dark" FontSize="20"  PlaceholderText="Entrer le mot de passe" Height="39" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,2" Background="{x:Null}">
                 <PasswordBox.RenderTransform>
