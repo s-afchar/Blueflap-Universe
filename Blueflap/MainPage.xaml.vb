@@ -31,15 +31,9 @@ Public NotInheritable Class MainPage
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         'Appui sur la touche retour "physique" d'un appareil Windows
         e.Handled = True
-        If MemoPanel.Visibility = Visibility.Visible Then
-            MemoPopIN.Stop()
-            MemoPopOut.Begin()
-
-        Else
-            If web.CanGoBack Then
-                e.Handled = True
-                web.GoBack()
-            End If
+        If web.CanGoBack Then
+            e.Handled = True
+            web.GoBack()
         End If
     End Sub
 #End Region
@@ -66,8 +60,7 @@ Public NotInheritable Class MainPage
             Core.CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = True
 
             AdressBox.Foreground = New SolidColorBrush(Windows.UI.Colors.White)
-            PhoneNavBar.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 21, 21, 21))
-            PhoneNavBar.RequestedTheme = ElementTheme.Dark
+
         Else 'Theme Clair
 
             'Bon... Je vais pas recommenter la même chose... Débrouillez vous avec ce qu'il y a avant...
@@ -83,8 +76,6 @@ Public NotInheritable Class MainPage
 
             Adressbar.Background = New SolidColorBrush(Windows.UI.Colors.WhiteSmoke)
             AdressBox.Foreground = New SolidColorBrush(Windows.UI.Colors.DimGray)
-            PhoneNavBar.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 255, 255))
-            PhoneNavBar.RequestedTheme = ElementTheme.Light
         End If
 
         AdressBox.IsEnabled = False 'Autre solution provisoire (qui va sans doute rester) parce que sinon l'adressbox obtient le focus à l'ouverture allez savoir pourquoi...
@@ -259,7 +250,6 @@ Public NotInheritable Class MainPage
 
         'Navigation terminée
         AdressBox.Text = web.Source.ToString
-        Phone_URL.Text = web.Source.Host
         If web.Source.ToString.Contains("https://") Then
             SecurityTag.Visibility = Visibility.Visible
         Else
@@ -354,7 +344,6 @@ Public NotInheritable Class MainPage
         ' End Try
 
         AdressBox.Text = web.Source.ToString
-        Phone_URL.Text = web.Source.Host
         If web.Source.ToString.Contains("https://") Then
             SecurityTag.Visibility = Visibility.Visible
         Else
@@ -503,7 +492,6 @@ Public NotInheritable Class MainPage
             web.Stop()
         End If
         AdressBox.Text = web.Source.ToString
-        Phone_URL.Text = web.Source.Host
         If web.Source.ToString.Contains("https://") Then
             SecurityTag.Visibility = Visibility.Visible
         Else
@@ -597,18 +585,15 @@ Public NotInheritable Class MainPage
         LeftPanelShadow.Visibility = Visibility.Visible
         Try
             If localSettings.Values("AncrageMemo") = True Then 'On  vérifie si l'utilisateur a ancré le volet des mémos
-                webcontainer.Margin = New Thickness(webcontainer.Margin.Left, webcontainer.Margin.Top, 261, 0)
+                webcontainer.Margin = New Thickness(48, 66, 261, 0)
                 LeftPanelShadow.Visibility = Visibility.Collapsed
             End If
             MemoAncrageToggleButton.IsChecked = localSettings.Values("AncrageMemo")
         Catch
         End Try
         If RightMenuPivot.SelectedIndex = 0 Then
-
-            If LeftMenu.Visibility = Visibility.Visible Then
-                MemoPanel.Width = 261
-                MemoPanel.Margin = New Thickness(0, 66, 0, 0)
-            End If
+            MemoPanel.Width = 261
+            MemoPanel.Margin = New Thickness(0, 66, 0, 0)
             MemoPanel.HorizontalAlignment = HorizontalAlignment.Right
             Memo_ExpandButton.Visibility = Visibility.Collapsed
         End If
@@ -617,7 +602,7 @@ Public NotInheritable Class MainPage
     Private Sub CloseRightMenu()
         MemoPopIN.Stop()
         MemoPopOut.Begin()
-        webcontainer.Margin = New Thickness(webcontainer.Margin.Left, webcontainer.Margin.Top, 0, 0)
+        webcontainer.Margin = New Thickness(48, 66, 0, 0)
     End Sub
     Private Sub Notifications_indicator_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Notifications_indicator.Tapped
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
@@ -640,7 +625,7 @@ Public NotInheritable Class MainPage
         'Clic sur le bouton d'accès au paramètres présent sur certaines notifications
         MemoPopIN.Stop()
         MemoPopOut.Begin()
-        webcontainer.Margin = New Thickness(webcontainer.Margin.Left, webcontainer.Margin.Top, 0, 0)
+        webcontainer.Margin = New Thickness(48, 66, 0, 0)
         Me.Frame.Navigate(GetType(Parametres))
     End Sub
     Private Sub Memo_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_Button.Tapped
@@ -654,7 +639,7 @@ Public NotInheritable Class MainPage
         RightMenuPivot.SelectedIndex = 0
     End Sub
     Private Sub MemoAncrageToggleButton_Checked(sender As Object, e As RoutedEventArgs) Handles MemoAncrageToggleButton.Checked
-        webcontainer.Margin = New Thickness(webcontainer.Margin.Left, webcontainer.Margin.Top, 261, 0)
+        webcontainer.Margin = New Thickness(48, 66, 261, 0)
         LeftPanelShadow.Visibility = Visibility.Collapsed
 
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
@@ -662,7 +647,7 @@ Public NotInheritable Class MainPage
     End Sub
 
     Private Sub MemoAncrageToggleButton_Unloaded(sender As Object, e As RoutedEventArgs) Handles MemoAncrageToggleButton.Unchecked
-        webcontainer.Margin = New Thickness(webcontainer.Margin.Left, webcontainer.Margin.Top, 0, 0)
+        webcontainer.Margin = New Thickness(48, 66, 0, 0)
         LeftPanelShadow.Visibility = Visibility.Visible
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         localSettings.Values("AncrageMemo") = False
@@ -962,11 +947,8 @@ Public NotInheritable Class MainPage
         ElseIf RightMenuPivot.SelectedIndex = 3 Then
             MemoIndexIndicator.Margin = New Thickness(124, 8, 0, 0)
 
-
-            If LeftMenu.Visibility = Visibility.Visible Then
-                MemoPanel.Width = 261
-                MemoPanel.Margin = New Thickness(0, 66, 0, 0)
-            End If
+            MemoPanel.Width = 261
+            MemoPanel.Margin = New Thickness(0, 66, 0, 0)
             MemoPanel.HorizontalAlignment = HorizontalAlignment.Right
             Memo_ExpandButton.Visibility = Visibility.Collapsed
             History_SearchBar.Visibility = Visibility.Collapsed
@@ -1400,10 +1382,6 @@ Public NotInheritable Class MainPage
         End Try
         AdressBox.SelectionStart = AdressBox.Text.Length
         LikePageButton.Visibility = Visibility.Visible
-        If LeftMenu.Visibility = Visibility.Collapsed Then
-            Adressbar.Visibility = Visibility.Collapsed
-            SmartSuggest.Visibility = Visibility.Collapsed
-        End If
     End Sub
 
     Private Sub SmartSuggest_LastOne_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles SmartSuggest_LastOne.PointerEntered
@@ -1566,62 +1544,59 @@ Public NotInheritable Class MainPage
             Json = "[]"
         End Try
 
-        Try
-            For Each histElem In JsonArray.Parse(Json).Reverse
-                Dim elemContainer As StackPanel = New StackPanel
-                elemContainer.Padding = New Thickness(34, 8, 0, 8)
-                AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
-                                                                            web.Navigate(New Uri(histElem.GetObject.GetNamedString("url")))
-                                                                        End Function)
+        For Each histElem In JsonArray.Parse(Json).Reverse
+            Dim elemContainer As StackPanel = New StackPanel
+            elemContainer.Padding = New Thickness(34, 8, 0, 8)
+            AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                        web.Navigate(New Uri(histElem.GetObject.GetNamedString("url")))
+                                                                    End Function)
 
-                AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                     elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
-                                                                                 End Function)
+            AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
+                                                                             End Function)
 
-                AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                    elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-                                                                                End Function)
-
-
-                Dim elemText As TextBlock = New TextBlock
-                elemText.Text = histElem.GetObject.GetNamedString("title")
-                elemText.Foreground = SmartSuggest_Search_Text.Foreground
-                elemContainer.Children.Add(elemText)
-
-                Dim UrlText As TextBlock = New TextBlock
-                UrlText.Text = histElem.GetObject.GetNamedString("url")
-                UrlText.Foreground = LeftMenu.Background
-                elemContainer.Children.Add(UrlText)
+            AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                            End Function)
 
 
+            Dim elemText As TextBlock = New TextBlock
+            elemText.Text = histElem.GetObject.GetNamedString("title")
+            elemText.Foreground = SmartSuggest_Search_Text.Foreground
+            elemContainer.Children.Add(elemText)
 
-                If Not PreventMultipleSameItems.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
-                    If histElem.GetObject.GetNamedString("title").ToLower.Contains(AdressBox.Text.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(AdressBox.Text.ToLower) Then
-                        SmartSuggest_History.Children.Add(elemContainer)
+            Dim UrlText As TextBlock = New TextBlock
+            UrlText.Text = histElem.GetObject.GetNamedString("url")
+            UrlText.Foreground = LeftMenu.Background
+            elemContainer.Children.Add(UrlText)
 
-                        ItemCount = ItemCount + 1
-                    End If
+
+
+            If Not PreventMultipleSameItems.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
+                If histElem.GetObject.GetNamedString("title").ToLower.Contains(AdressBox.Text.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(AdressBox.Text.ToLower) Then
+                    SmartSuggest_History.Children.Add(elemContainer)
+
+                    ItemCount = ItemCount + 1
                 End If
-
-                PreventMultipleSameItems.Add(histElem.GetObject.GetNamedString("url").ToLower)
-
-            Next
-
-            If ItemCount = 0 Then
-                History_Suggestions.Height = 0
-                SmartSuggest.Height = 138
-            ElseIf ItemCount = 1 Then
-                History_Suggestions.Height = 56
-                SmartSuggest.Height = 194
-            ElseIf ItemCount = 2 Then
-                History_Suggestions.Height = 112
-                SmartSuggest.Height = 250
-            ElseIf ItemCount > 2 Then
-                History_Suggestions.Height = 168
-                SmartSuggest.Height = 306
             End If
-        Catch
-        End Try
+
+            PreventMultipleSameItems.Add(histElem.GetObject.GetNamedString("url").ToLower)
+
+        Next
+
+        If ItemCount = 0 Then
+            History_Suggestions.Height = 0
+            SmartSuggest.Height = 138
+        ElseIf ItemCount = 1 Then
+            History_Suggestions.Height = 56
+            SmartSuggest.Height = 194
+        ElseIf ItemCount = 2 Then
+            History_Suggestions.Height = 112
+            SmartSuggest.Height = 250
+        ElseIf ItemCount > 2 Then
+            History_Suggestions.Height = 168
+            SmartSuggest.Height = 306
+        End If
     End Sub
 #End Region
 #Region "Go to (other frame)"
@@ -1992,25 +1967,6 @@ Public NotInheritable Class MainPage
 
     Private Sub Memo_Edit_Text_Loaded(sender As Object, e As RoutedEventArgs) Handles Memo_Edit_Text.LostFocus
         Memo_Edit_Text.BorderThickness = New Thickness(0, 0, 0, 0)
-    End Sub
-
-
-#End Region
-#Region "PhoneControl"
-    Private Sub Grid_Tapped(sender As Object, e As TappedRoutedEventArgs)
-        Adressbar.Visibility = Visibility.Visible
-        AdressBox.Focus(Windows.UI.Xaml.FocusState.Keyboard)
-    End Sub
-
-    Private Sub Phone_Back_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Phone_Back.Tapped
-        If web.CanGoBack Then
-            web.GoBack()
-        End If
-    End Sub
-    Private Sub Phone_Forward_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Phone_Forward.Tapped
-        If web.CanGoForward Then
-            web.GoForward()
-        End If
     End Sub
 #End Region
 End Class

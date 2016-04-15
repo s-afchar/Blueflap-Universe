@@ -870,72 +870,6 @@
 
 
     <Grid x:Name="grid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RenderTransformOrigin="0.5,0.5">
-
-        <VisualStateManager.VisualStateGroups>
-
-            <VisualStateGroup>
-                <VisualState x:Name="Small">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-
-                        <Setter Target="Adressbar.Margin"  
-                    Value="0,0,0,0" />
-                        <Setter Target="Adressbar.Visibility"  
-                    Value="Collapsed" />
-                        <Setter Target="SmartSuggest.Margin"  
-                    Value="0,66,0,0" />
-                        <Setter Target="webcontainer.Margin"  
-                    Value="0,0,0,0" />
-                        <Setter Target="LeftMenu.Visibility"  
-                    Value="Collapsed" />
-                        <Setter Target="PhoneNavBar.Visibility"  
-                    Value="Visible" />
-                        <Setter Target="Memo_ExpandButton.Visibility"  
-                    Value="Collapsed" />
-                        <Setter Target="MemoPanel.HorizontalAlignment"  
-                    Value="Stretch" />
-                        <Setter Target="LeftPanelShadow.Visibility"  
-                    Value="Collapsed" />
-                        <Setter Target="MemoPanel.Width"  
-                    Value="Auto" />
-                        <Setter Target="MemoPanel.Margin"  
-                    Value="0, 0, 0, 0" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Normal">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="750" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="Adressbar.Visibility"  
-                    Value="Visible" />
-                        <Setter Target="Adressbar.Margin"  
-                    Value="48,0,0,0" />
-                        <Setter Target="SmartSuggest.Margin"  
-                    Value="48,66,0,0" />
-                        <Setter Target="webcontainer.Margin"  
-                    Value="48,66,0,0" />
-                        <Setter Target="LeftMenu.Visibility"  
-                    Value="Visible" />
-                        <Setter Target="Memo_ExpandButton.Visibility"  
-                    Value="Visible" />
-                        <Setter Target="MemoPanel.HorizontalAlignment"  
-                    Value="Right" />
-                        <Setter Target="LeftPanelShadow.Visibility"  
-                    Value="Visible" />
-                        <Setter Target="MemoPanel.Width"  
-                    Value="261" />
-                        <Setter Target="MemoPanel.Margin"  
-                    Value="0, 66, 0, 0" />
-                        <Setter Target="PhoneNavBar.Visibility"  
-                    Value="Collapsed" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
         <Grid.RenderTransform>
             <CompositeTransform/>
         </Grid.RenderTransform>
@@ -974,7 +908,7 @@
             </Grid.RenderTransform>
             <WebView x:Name="web" RenderTransformOrigin="0.5,0.5"/>
             <Grid x:Name="NavigationFailed_Screen" Background="#FF171717">
-                <Image x:Name="image" Source="Assets/grumpy.png" RenderTransformOrigin="0.5,0.5" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,-80,0,-87">
+                <Image x:Name="image" Source="Assets/grumpy.png" RenderTransformOrigin="0.5,0.5" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                     <Image.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Image.RenderTransform>
@@ -1308,16 +1242,6 @@
                     </Button.Background>
                 </Button>
             </Grid>
-        </Grid>
-        <Grid x:Name="PhoneNavBar" Height="45" Margin="0" VerticalAlignment="Bottom" Background="White" BorderBrush="#FF939393" BorderThickness="0,1,0,0">
-            <Grid HorizontalAlignment="Right" Height="44" Margin="0" VerticalAlignment="Bottom" Width="44" Background="{ThemeResource ContentDialogBorderThemeBrush}">
-                <TextBlock HorizontalAlignment="Center" Margin="1,2,0,0" TextWrapping="Wrap" Text="&#xE10C;" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16"/>
-            </Grid>
-            <Grid Height="45" Margin="44,0,88,0" VerticalAlignment="Top" Tapped="Grid_Tapped" Background="#00C7C7C7">
-                <TextBlock x:Name="Phone_URL" Margin="0,0,0,2" TextWrapping="Wrap" Text="url.com" VerticalAlignment="Center" Height="20" TextAlignment="Center" Opacity="0.775"/>
-            </Grid>
-            <Button x:Name="Phone_Back" Content="&#xE00E;" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Stretch" Width="44" FontFamily="Segoe MDL2 Assets" Background="#19787878"/>
-            <Button x:Name="Phone_Forward" Content="&#xE00F;" HorizontalAlignment="Right" Margin="0,0,44,0" VerticalAlignment="Stretch" Width="44" FontFamily="Segoe MDL2 Assets" Background="#19787878"/>
         </Grid>
 
     </Grid>
