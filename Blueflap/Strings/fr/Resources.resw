@@ -456,6 +456,12 @@
   <data name="Welcome_Lock.Text" xml:space="preserve">
     <value>VERROUILLAGE DU NAVIGATEUR</value>
   </data>
+  <data name="Welcome_Lock1.Text" xml:space="preserve">
+    <value>Blueflap peut être protégé par un mot de passe qui sera demandé à chaque ouverture.</value>
+  </data>
+  <data name="Welcome_Lock2.Text" xml:space="preserve">
+    <value>Voulez vous activer le verrouillage ?</value>
+  </data>
   <data name="Welcome_Password1.PlaceholderText" xml:space="preserve">
     <value>Mot de passe</value>
   </data>
