@@ -228,14 +228,18 @@ Public NotInheritable Class MainPage
 
         If web.CanGoBack Then
             Back_Button.Visibility = Visibility.Visible
+            Phone_Back.Opacity = 1
         Else
             Back_Button.Visibility = Visibility.Collapsed
+            Phone_Back.Opacity = 0.2
         End If
 
         If web.CanGoForward Then
             Forward_Button.Visibility = Visibility.Visible
+            Phone_Forward.Opacity = 1
         Else
             Forward_Button.Visibility = Visibility.Collapsed
+            Phone_Forward.Opacity = 0.2
         End If
 
         AdressBox.IsEnabled = False 'Autre solution provisoire (qui va sans doute rester) parce que sinon l'adressbox obtient le focus à l'ouverture allez savoir pourquoi...
