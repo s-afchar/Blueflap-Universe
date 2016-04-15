@@ -866,6 +866,157 @@
                 </DiscreteObjectKeyFrame>
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Name="Tilt_Out">
+            <DoubleAnimation Duration="0:0:0.3" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.3" To="1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.3" To="1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.3" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.3" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationZ)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.3" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+        <Storyboard x:Name="Tilt_In">
+            <DoubleAnimation Duration="0:0:0.5" To="-41" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.5" To="6" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.5" To="-1" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationZ)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.5" To="0.95" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.5" To="0.95" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.5" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.5" To="3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+        <Storyboard x:Name="Ellipsis_Open">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Ellipsis">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Ellipsis">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Ellipsis">
+                <EasingDoubleKeyFrame KeyTime="0" Value="53"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="0" To="49" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="PhoneNavBar" d:IsOptimized="True"/>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.BorderThickness)" Storyboard.TargetName="PhoneNavBar">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Thickness>0</Thickness>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DarkBackground_Ellipsis">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="DarkBackground_Ellipsis">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuarticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="Ellipsis_Close">
+            <DoubleAnimation Duration="0:0:0.2" To="66" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Ellipsis" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Ellipsis" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Ellipsis">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.BorderThickness)" Storyboard.TargetName="PhoneNavBar">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Thickness>0,1,0,0</Thickness>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="0" To="50" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="PhoneNavBar" d:IsOptimized="True"/>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DarkBackground_Ellipsis">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
     </Page.Resources>
 
 
@@ -876,7 +1027,7 @@
             <VisualStateGroup>
                 <VisualState x:Name="Small">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
+                        <AdaptiveTrigger MinWindowWidth="0" MinWindowHeight="0" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
 
@@ -887,13 +1038,13 @@
                         <Setter Target="SmartSuggest.Margin"  
                     Value="0,66,0,0" />
                         <Setter Target="webcontainer.Margin"  
-                    Value="0,0,0,0" />
+                    Value="0,0,0,50" />
                         <Setter Target="LeftMenu.Visibility"  
                     Value="Collapsed" />
                         <Setter Target="PhoneNavBar.Visibility"  
                     Value="Visible" />
-                        <Setter Target="Memo_ExpandButton.Visibility"  
-                    Value="Collapsed" />
+                        <Setter Target="Memo_ExpandButton.IsEnabled"  
+                    Value="False" />
                         <Setter Target="MemoPanel.HorizontalAlignment"  
                     Value="Stretch" />
                         <Setter Target="LeftPanelShadow.Visibility"  
@@ -901,12 +1052,27 @@
                         <Setter Target="MemoPanel.Width"  
                     Value="Auto" />
                         <Setter Target="MemoPanel.Margin"  
+                    Value="0, 0, 0, 50" />
+                        <Setter Target="AddFavPopup.Margin"  
+                    Value="0, 0, 0, 50" />
+                        <Setter Target="AddFavPopup.VerticalAlignment"  
+                    Value="Stretch" />
+                        <Setter Target="AddFavPopup.HorizontalAlignment"  
+                    Value="Stretch" />
+                        <Setter Target="AddFavPopup.Width"  
+                    Value="Auto" />
+                        <Setter Target="AddFavPopup.Height"  
+                    Value="Auto" />
+                        <Setter Target="AddFavPopup.CornerRadius"  
+                    Value="0" />
+                        <Setter Target="AddFavView.Margin"  
                     Value="0, 0, 0, 0" />
+
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="Normal">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="600" />
+                        <AdaptiveTrigger MinWindowWidth="600" MinWindowHeight="600" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="Adressbar.Visibility"  
@@ -919,8 +1085,8 @@
                     Value="48,66,0,0" />
                         <Setter Target="LeftMenu.Visibility"  
                     Value="Visible" />
-                        <Setter Target="Memo_ExpandButton.Visibility"  
-                    Value="Visible" />
+                        <Setter Target="Memo_ExpandButton.IsEnabled"  
+                    Value="True" />
                         <Setter Target="MemoPanel.HorizontalAlignment"  
                     Value="Right" />
                         <Setter Target="LeftPanelShadow.Visibility"  
@@ -931,6 +1097,20 @@
                     Value="0, 66, 0, 0" />
                         <Setter Target="PhoneNavBar.Visibility"  
                     Value="Collapsed" />
+                        <Setter Target="AddFavPopup.Margin"  
+                    Value="0, 20, 20, 0" />
+                        <Setter Target="AddFavView.Margin"  
+                    Value="48, 66, 0, 0" />
+                        <Setter Target="AddFavPopup.VerticalAlignment"  
+                    Value="Top" />
+                        <Setter Target="AddFavPopup.HorizontalAlignment"  
+                    Value="Right" />
+                        <Setter Target="AddFavPopup.Width"  
+                    Value="400" />
+                        <Setter Target="AddFavPopup.Height"  
+                    Value="259" />
+                        <Setter Target="AddFavPopup.CornerRadius"  
+                    Value="3" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -939,6 +1119,7 @@
         <Grid.RenderTransform>
             <CompositeTransform/>
         </Grid.RenderTransform>
+
         <Grid x:Name="Infos_grid" Margin="48,66,0,0" Background="#FF111111" Visibility="Collapsed">
             <Grid HorizontalAlignment="Left" Height="233" Margin="15,0,0,0" VerticalAlignment="Center" Width="50" RenderTransformOrigin="0.5,0.5">
                 <Grid x:Name="grid1" Margin="0,0,0,113" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Visibility="Collapsed">
@@ -1024,6 +1205,7 @@
                 </TextBlock>
             </Grid>
         </Grid>
+        <Grid x:Name="DarkBackground" Margin="0" Background="#64000000" Visibility="Collapsed"/>
         <Grid x:Name="Adressbar" Height="66" VerticalAlignment="Top" Background="WhiteSmoke" Margin="48,0,0,0" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <CompositeTransform/>
@@ -1049,7 +1231,7 @@
                     <CompositeTransform/>
                 </Button.RenderTransform>
             </Button>
-            <TextBlock x:Name="LikePageButton" HorizontalAlignment="Right" Margin="0,39,10,0" TextWrapping="Wrap" Text="&#xE006;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="17.333" Height="19" Width="18" Foreground="#FF7A7A7A" RenderTransformOrigin="0.5,0.5">
+            <TextBlock x:Uid="Menu_Favorites_Tooltip" x:Name="LikePageButton" HorizontalAlignment="Right" Margin="0,39,10,0" TextWrapping="Wrap" Text="&#xE006;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="17.333" Height="19" Width="18" Foreground="#FF7A7A7A" RenderTransformOrigin="0.5,0.5">
                 <TextBlock.RenderTransform>
                     <CompositeTransform/>
                 </TextBlock.RenderTransform>
@@ -1065,7 +1247,7 @@
                 </Image.RenderTransform>
             </Image>
             <Grid x:Name="DefaultThemeColor" HorizontalAlignment="Left" Height="10" Margin="268,207,-229,0" VerticalAlignment="Top" Width="9" Background="{ThemeResource ContentDialogBorderThemeBrush}" Visibility="Collapsed"/>
-            <Button x:Name="Paramètres_Button" Content="&#xE713;" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="#01000000" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,0,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Height="47" ToolTipService.ToolTip="Settings">
+            <Button x:Uid="Menu_Settings_Tooltip" x:Name="Paramètres_Button" Content="&#xE713;" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="#01000000" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="3,0,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Height="47" ToolTipService.ToolTip="Settings">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="-1"/>
                 </Button.RenderTransform>
@@ -1080,18 +1262,18 @@
                     <CompositeTransform ScaleX="-1"/>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <Ellipse x:Name="Notifications_indicator" Fill="#26000000" HorizontalAlignment="Left" Height="27" Margin="11,0,0,49" VerticalAlignment="Bottom" Width="27" Stroke="White" StrokeThickness="0" ToolTipService.ToolTip="Notifications"/>
+            <Ellipse x:Uid="Menu_Notifications_Tooltip" x:Name="Notifications_indicator" Fill="#26000000" HorizontalAlignment="Left" Height="27" Margin="11,0,0,49" VerticalAlignment="Bottom" Width="27" Stroke="White" StrokeThickness="0" ToolTipService.ToolTip="Notifications"/>
             <CheckBox x:Name="LockTheBrowser" Content="LockTheBrowser" HorizontalAlignment="Left" Margin="29,31,-101,0" VerticalAlignment="Top" Visibility="Collapsed" IsChecked="True"/>
             <StackPanel HorizontalAlignment="Left" Margin="3,66,-1,90" Width="46" RenderTransformOrigin="0.5,0.5">
                 <StackPanel.RenderTransform>
                     <CompositeTransform/>
                 </StackPanel.RenderTransform>
-                <Button x:Name="Home_button" Content="&#xE80F;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Home">
+                <Button x:Uid="Menu_Home_Tooltip"  x:Name="Home_button" Content="&#xE80F;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Home">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Strefresh_Button" Content="&#xE149;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="14.667" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Refresh">
+                <Button x:Uid="Menu_Refresh_Tooltip" x:Name="Strefresh_Button" Content="&#xE149;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="14.667" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Refresh">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
@@ -1111,32 +1293,29 @@
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Lock">
+                <Button x:Uid="Menu_Lock_Tooltip" x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Lock">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Memo_Button" Content="&#xE70B;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Memos">
+                <Button x:Uid="Menu_Memos_Tooltip" x:Name="Memo_Button" Content="&#xE70B;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Memos">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Share_Button" Content="&#xE72D;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Share">
+                <Button x:Uid="Menu_Share_Tooltip" x:Name="Share_Button" Content="&#xE72D;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Share">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="Window_Button" Content="&#xE109;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="New window">
+                <Button x:Uid="Menu_Window_Tooltip" x:Name="Window_Button" Content="&#xE109;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="New window">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
             </StackPanel>
         </Grid>
-        <Grid x:Name="SmartSuggest" Height="189" Margin="48,66,0,0" VerticalAlignment="Top">
-            <Grid.Background>
-                <SolidColorBrush Color="#FFE8E8E8"/>
-            </Grid.Background>
+        <Grid x:Name="SmartSuggest" Height="189" Margin="48,66,0,0" VerticalAlignment="Top" Background="#FFE8E8E8">
             <Grid x:Name="SmartSuggest_LastOne" Height="46" VerticalAlignment="Top" Background="#00000000">
                 <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE81C;" Opacity="0.6"/>
                 <TextBlock HorizontalAlignment="Left" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" x:Uid="LastSearch" Text="Dernière recherche" Opacity="0.4"/>
@@ -1284,6 +1463,7 @@
             </Grid>
             <Button x:Name="History_ShowSearchBar" Content="&#xE094;" HorizontalAlignment="Right" Margin="0,0,40,0" VerticalAlignment="Bottom" FontFamily="Segoe MDL2 Assets" Height="40" Width="40" Background="#00000000" BorderThickness="0,0,0,2"/>
             <ToggleButton x:Name="MemoAncrageToggleButton" Content="&#xE840;" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Bottom" Width="40" Height="40" Background="#00000000" FontFamily="Segoe MDL2 Assets" FontSize="16" BorderThickness="2,0,0,0"/>
+            <ProgressRing x:Name="Loader_MemoPanel" HorizontalAlignment="Right" Margin="0,11,7,0" VerticalAlignment="Top" Height="25" Foreground="#FF3A3A3A" Width="25"/>
         </Grid>
         <Grid x:Name="ExitFullScreen" HorizontalAlignment="Center" Height="77" Margin="0,44,0,0" VerticalAlignment="Top" Width="650" Background="#99000000" CornerRadius="3" Visibility="Collapsed">
             <TextBlock Margin="0,24,0,0" TextWrapping="Wrap" x:Uid="FullScreenEsc" Text="Appuyez sur la touche ECHAP pour quitter le mode plein écran" VerticalAlignment="Top" Foreground="White" Height="43" TextAlignment="Center" FontSize="18.667" Width="517" HorizontalAlignment="Center"/>
@@ -1295,29 +1475,139 @@
                 </Grid.RenderTransform>
                 <TextBlock HorizontalAlignment="Left" Margin="45,20,0,0" TextWrapping="Wrap" x:Uid="AddToFavorites" Text="AJOUTER CE SITE AUX FAVORIS" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FF4F4F4F"/>
                 <TextBlock HorizontalAlignment="Left" Margin="21,23,0,0" TextWrapping="Wrap" Text="&#xE006;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FFFF00A2"/>
-                <TextBox x:Uid="NamePlaceholder" x:Name="Add_Fav_Title" Margin="21,90,22,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Nom" Width="357"/>
+                <TextBox x:Uid="NamePlaceholder" x:Name="Add_Fav_Title" Margin="21,90,22,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Nom"/>
                 <Button Content="&#xE104;" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Background="#00000000" FontSize="10.667" Width="35" Tapped="Button_Tapped_2" Height="24" BorderThickness="2,0,0,0"/>
                 <TextBox x:Name="Add_Fav_Url" Margin="35,42,22,0" TextWrapping="NoWrap" Text="http://" VerticalAlignment="Top" BorderThickness="0" PlaceholderText="URL" IsReadOnly="True" Background="Transparent" Foreground="#FF9B9B9B" FontSize="13.333" Height="22"/>
-                <TextBox x:Name="Add_Fav_Tags" Margin="21,152,22,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Tag1, Tag2, Tag3, etc..." Width="357"/>
+                <TextBox x:Name="Add_Fav_Tags" Margin="21,152,22,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Tag1, Tag2, Tag3, etc..."/>
                 <TextBlock  x:Uid="Name" HorizontalAlignment="Left" Margin="21,72,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" FontSize="12"/>
                 <TextBlock HorizontalAlignment="Left" Margin="21,134,0,0" TextWrapping="Wrap" Text="Tags" VerticalAlignment="Top" FontSize="12"/>
                 <Button x:Uid="Add" x:Name="AddFav_Confirm" Content="Ajouter" HorizontalAlignment="Right" Margin="0,0,21,18" VerticalAlignment="Bottom" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="White" BorderBrush="#33000000" BorderThickness="1" Height="37" Width="92"/>
-                <Button x:Uid="Cancel" x:Name="AddFav_Cancel" Content="Annuler" HorizontalAlignment="Right" Margin="0,0,118,18" VerticalAlignment="Bottom" Foreground="#FF4B4B4B" BorderBrush="#FF7C7C7C" BorderThickness="1" Height="37" Width="92">
-                    <Button.Background>
-                        <SolidColorBrush Color="#000078D7"/>
-                    </Button.Background>
-                </Button>
+                <Button x:Uid="Cancel" x:Name="AddFav_Cancel" Content="Annuler" HorizontalAlignment="Right" Margin="0,0,118,18" VerticalAlignment="Bottom" Foreground="#FF4B4B4B" BorderBrush="#FF7C7C7C" BorderThickness="1" Height="37" Width="92" Background="#000078D7"/>
             </Grid>
         </Grid>
-        <Grid x:Name="PhoneNavBar" Height="45" Margin="0" VerticalAlignment="Bottom" Background="White" BorderBrush="#FF939393" BorderThickness="0,1,0,0">
-            <Grid HorizontalAlignment="Right" Height="44" Margin="0" VerticalAlignment="Bottom" Width="44" Background="{ThemeResource ContentDialogBorderThemeBrush}">
+        <Grid x:Name="DarkBackground_Ellipsis" Margin="0" Background="#64000000" Visibility="Collapsed"/>
+        <Grid x:Name="Ellipsis" Margin="0,0,0,48" VerticalAlignment="Bottom" Background="{ThemeResource SystemControlDisabledAccentBrush}" MaxHeight="277" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" Visibility="Collapsed">
+            <Grid.Projection>
+                <PlaneProjection/>
+            </Grid.Projection>
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
+            <ScrollViewer Margin="0,0,0,2" VerticalScrollBarVisibility="Auto">
+                <StackPanel x:Name="Ellipsis_Content" RenderTransformOrigin="0.5,0.5">
+                    <StackPanel.RenderTransform>
+                        <CompositeTransform ScaleY="-1"/>
+                    </StackPanel.RenderTransform>
+                    <Button x:Name="Settings_Button_M" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" RenderTransformOrigin="0.5,0.5" Margin="-10,0,-10,5" Background="#00000000" RequestedTheme="Dark" BorderThickness="0">
+                        <Button.RenderTransform>
+                            <CompositeTransform ScaleY="-1"/>
+                        </Button.RenderTransform>
+                        <Grid UseLayoutRounding="True" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" x:Uid="Menu_Settings" Text="Paramètres" VerticalAlignment="Center" RequestedTheme="Dark"/>
+                            <TextBlock HorizontalAlignment="Center" Margin="0,0,200,0" TextWrapping="Wrap" Text="&#xE115;" VerticalAlignment="Center" RequestedTheme="Dark" FontFamily="Segoe MDL2 Assets"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="Lock_Button_M" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" RenderTransformOrigin="0.5,0.5" Margin="-10,0,-10,5" Background="#00000000" RequestedTheme="Dark" BorderThickness="0">
+                        <Button.RenderTransform>
+                            <CompositeTransform ScaleY="-1"/>
+                        </Button.RenderTransform>
+                        <Grid UseLayoutRounding="True" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" x:Uid="Menu_Lock" Text="Verrouiller" VerticalAlignment="Center" RequestedTheme="Dark"/>
+                            <TextBlock HorizontalAlignment="Center" Margin="0,0,200,0" TextWrapping="Wrap" Text="&#xE1F6;" VerticalAlignment="Center" RequestedTheme="Dark" FontFamily="Segoe MDL2 Assets"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="Memo_Button_M" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" RenderTransformOrigin="0.5,0.5" Margin="-10,0,-10,5" Background="#00000000" RequestedTheme="Dark" BorderThickness="0">
+                        <Button.RenderTransform>
+                            <CompositeTransform ScaleY="-1"/>
+                        </Button.RenderTransform>
+                        <Grid UseLayoutRounding="True" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" x:Uid="Menu_Memos" Text="Memos" VerticalAlignment="Center" RequestedTheme="Dark"/>
+                            <TextBlock HorizontalAlignment="Center" Margin="0,0,200,0" TextWrapping="Wrap" Text="&#xE70B;" VerticalAlignment="Center" RequestedTheme="Dark" FontFamily="Segoe MDL2 Assets"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="Fight_Button_M" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" RenderTransformOrigin="0.5,0.5" Margin="-10,0,-10,5" Background="#00000000" RequestedTheme="Dark" BorderThickness="0">
+                        <Button.RenderTransform>
+                            <CompositeTransform ScaleY="-1"/>
+                        </Button.RenderTransform>
+                        <Grid UseLayoutRounding="True" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Search Fight" VerticalAlignment="Center" RequestedTheme="Dark"/>
+                            <TextBlock HorizontalAlignment="Center" Margin="0,0,200,0" TextWrapping="Wrap" Text="&#xE923;" VerticalAlignment="Center" RequestedTheme="Dark" FontFamily="Segoe MDL2 Assets"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="Notifications_Button_M" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" RenderTransformOrigin="0.5,0.5" Margin="-10,0,-10,5" Background="#00000000" RequestedTheme="Dark" BorderThickness="0">
+                        <Button.RenderTransform>
+                            <CompositeTransform ScaleY="-1"/>
+                        </Button.RenderTransform>
+                        <Grid UseLayoutRounding="True" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" x:Uid="Menu_Notifications" Text="Notifications" VerticalAlignment="Center" RequestedTheme="Dark"/>
+                            <TextBlock HorizontalAlignment="Center" Margin="0,0,200,0" TextWrapping="Wrap" Text="&#xE91C;" VerticalAlignment="Center" RequestedTheme="Dark" FontFamily="Segoe MDL2 Assets"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="Share_Button_M" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" RenderTransformOrigin="0.5,0.5" Margin="-10,0,-10,5" Background="#00000000" RequestedTheme="Dark" BorderThickness="0">
+                        <Button.RenderTransform>
+                            <CompositeTransform ScaleY="-1"/>
+                        </Button.RenderTransform>
+                        <Grid UseLayoutRounding="True" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" x:Uid="Menu_Share" Text="Partager" VerticalAlignment="Center" RequestedTheme="Dark"/>
+                            <TextBlock HorizontalAlignment="Center" Margin="0,0,200,0" TextWrapping="Wrap" Text="&#xE72D;" VerticalAlignment="Center" RequestedTheme="Dark" FontFamily="Segoe MDL2 Assets"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="Like_Button_M" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" RenderTransformOrigin="0.5,0.5" Margin="-10,0,-10,5" Background="#00000000" RequestedTheme="Dark" BorderThickness="0">
+                        <Button.RenderTransform>
+                            <CompositeTransform ScaleY="-1"/>
+                        </Button.RenderTransform>
+                        <Grid UseLayoutRounding="True" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" x:Uid="Menu_Favorites" Text="Ajouter aux favoris" VerticalAlignment="Center" RequestedTheme="Dark"/>
+                            <TextBlock HorizontalAlignment="Center" Margin="0,0,200,0" TextWrapping="Wrap" Text="&#xE006;" VerticalAlignment="Center" RequestedTheme="Dark" FontFamily="Segoe MDL2 Assets"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="Window_Button_M" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" RenderTransformOrigin="0.5,0.5" Margin="-10,0,-10,5" Background="#00000000" RequestedTheme="Dark" BorderThickness="0">
+                        <Button.RenderTransform>
+                            <CompositeTransform ScaleY="-1"/>
+                        </Button.RenderTransform>
+                        <Grid UseLayoutRounding="True" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" x:Uid="Menu_Window" Text="Nouvelle fenêtre" VerticalAlignment="Center" RequestedTheme="Dark"/>
+                            <TextBlock HorizontalAlignment="Center" Margin="0,0,200,0" TextWrapping="Wrap" Text="&#xE109;" VerticalAlignment="Center" RequestedTheme="Dark" FontFamily="Segoe MDL2 Assets"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="Strefresh_Button_M" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" RenderTransformOrigin="0.5,0.5" Margin="-10,0,-10,5" Background="#00000000" RequestedTheme="Dark" BorderThickness="0">
+                        <Button.RenderTransform>
+                            <CompositeTransform ScaleY="-1"/>
+                        </Button.RenderTransform>
+                        <Grid UseLayoutRounding="True" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                            <TextBlock x:Name="MobileRefreshLabel" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Actualiser" VerticalAlignment="Center" RequestedTheme="Dark"/>
+                            <TextBlock x:Name="MobileRefreshIcon" HorizontalAlignment="Center" Margin="0,0,200,0" TextWrapping="Wrap" Text="&#xE1CD;" VerticalAlignment="Center" RequestedTheme="Dark" FontFamily="Segoe MDL2 Assets"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="Home_button_M" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" RenderTransformOrigin="0.5,0.5" Margin="-10,0,-10,5" Background="#00000000" RequestedTheme="Dark" BorderThickness="0">
+                        <Button.RenderTransform>
+                            <CompositeTransform ScaleY="-1"/>
+                        </Button.RenderTransform>
+                        <Grid UseLayoutRounding="True" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                            <TextBlock  HorizontalAlignment="Center" TextWrapping="Wrap"  x:Uid="Menu_Home" Text="Accueil" VerticalAlignment="Center" RequestedTheme="Dark"/>
+                            <TextBlock HorizontalAlignment="Center" Margin="0,0,200,0" TextWrapping="Wrap" Text="&#xE10F;" VerticalAlignment="Center" RequestedTheme="Dark" FontFamily="Segoe MDL2 Assets"/>
+                        </Grid>
+                    </Button>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+        <Grid x:Name="PhoneNavBar" Height="50" Margin="0" VerticalAlignment="Bottom" Background="White" BorderBrush="#FF939393" BorderThickness="0,1,0,0">
+            <Grid x:Name="Ellipsis_Button" HorizontalAlignment="Right" Height="50" Margin="0" VerticalAlignment="Bottom" Width="50" Background="{ThemeResource ContentDialogBorderThemeBrush}" Tapped="Grid_Tapped_1">
                 <TextBlock HorizontalAlignment="Center" Margin="1,2,0,0" TextWrapping="Wrap" Text="&#xE10C;" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16"/>
             </Grid>
-            <Grid Height="45" Margin="44,0,88,0" VerticalAlignment="Top" Tapped="Grid_Tapped" Background="#00C7C7C7">
-                <TextBlock x:Name="Phone_URL" Margin="0,0,0,2" TextWrapping="Wrap" Text="url.com" VerticalAlignment="Center" Height="20" TextAlignment="Center" Opacity="0.775"/>
+            <ProgressBar x:Name="mobileloader" Height="1" Margin="0,-1,50,0" VerticalAlignment="Top" Background="{x:Null}" Value="20" IsIndeterminate="True" Visibility="Collapsed"/>
+            <Grid Height="50" Margin="50,0,100,0" VerticalAlignment="Top" Tapped="Grid_Tapped" Background="#00C7C7C7" PointerPressed="Grid_PointerPressed" PointerReleased="Grid_PointerReleased" PointerExited="Grid_PointerExited">
+                <TextBlock x:Name="Phone_URL" Margin="0,0,0,2" TextWrapping="Wrap" Text="url.com" VerticalAlignment="Center" Height="20" TextAlignment="Center" Opacity="0.775" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <CompositeTransform/>
+                    </TextBlock.RenderTransform>
+                    <TextBlock.Projection>
+                        <PlaneProjection/>
+                    </TextBlock.Projection>
+                </TextBlock>
             </Grid>
-            <Button x:Name="Phone_Back" Content="&#xE00E;" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Stretch" Width="44" FontFamily="Segoe MDL2 Assets" Background="#19787878" BorderThickness="0,0,1,0"/>
-            <Button x:Name="Phone_Forward" Content="&#xE00F;" HorizontalAlignment="Right" Margin="0,0,44,0" VerticalAlignment="Stretch" Width="44" FontFamily="Segoe MDL2 Assets" Background="#19787878" BorderThickness="1,0,0,0"/>
+            <Button x:Name="Phone_Back" Content="&#xE00E;" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Stretch" Width="50" FontFamily="Segoe MDL2 Assets" Background="#19787878" BorderThickness="0,0,1,0"/>
+            <Button x:Name="Phone_Forward" Content="&#xE00F;" HorizontalAlignment="Right" Margin="0,0,50,0" VerticalAlignment="Stretch" Width="50" FontFamily="Segoe MDL2 Assets" Background="#19787878" BorderThickness="1,0,0,0"/>
         </Grid>
 
     </Grid>
