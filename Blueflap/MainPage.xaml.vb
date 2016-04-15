@@ -26,7 +26,6 @@ Public NotInheritable Class MainPage
 #Region "HardwareBackButton"
     Public Sub New()
         Me.InitializeComponent()
-        RemoveHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf MainPage_BackRequested
         AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf MainPage_BackRequested
     End Sub
     Private Sub MainPage_BackRequested(sender As Object, e As Windows.UI.Core.BackRequestedEventArgs)
@@ -47,6 +46,7 @@ Public NotInheritable Class MainPage
 #End Region
 #Region "Page Loaded"
     Private Async Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
+        AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf MainPage_BackRequested
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings 'Permet l'accés aux paramètres
 
         FirstLaunch()
@@ -621,12 +621,9 @@ Public NotInheritable Class MainPage
             WriteJsonFile(JsonArray.Parse("[]"), "Favorites")
             WriteJsonFile(JsonArray.Parse("[]"), "Memos")
             localSettings.Values("FirstBoot") = "Non"
-            If PhoneNavBar.Visibility = Visibility.Visible Then
-                Me.Frame.Navigate(GetType(FirstBootScreen_Mobile))
-            Else
-                Me.Frame.Navigate(GetType(FirstBootScreen))
-            End If
+            Me.Frame.Navigate(GetType(FirstBootScreen))
         End If
+
     End Sub
 #End Region
 #Region "Right Panel (Memo, history, favorites, notifications)"

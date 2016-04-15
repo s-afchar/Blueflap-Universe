@@ -561,10 +561,4 @@
   <data name="Menu_Customize.Text" xml:space="preserve">
     <value>Personnaliser</value>
   </data>
-  <data name="Browser_Lock_1.Text" xml:space="preserve">
-    <value>Blueflap peut être protégé par un mot de passe qui sera demandé à chaque ouverture.</value>
-  </data>
-  <data name="Browser_Lock_2.Text" xml:space="preserve">
-    <value>Voulez vous activer le verrouillage ?</value>
-  </data>
 </root>

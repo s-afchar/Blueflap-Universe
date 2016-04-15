@@ -686,10 +686,10 @@
     </Page.Resources>
 
     <Grid Background="#FFF0F0F0">
-       
+
         <Pivot x:Name="StepByStep" RequestedTheme="Dark">
-            <PivotItem Margin="0" >
-                <Grid x:Name="grid" Margin="0" Height="426" HorizontalAlignment="Center" Width="1127" RenderTransformOrigin="0.5,0.5">
+            <PivotItem Height="640" Margin="0" >
+                <Grid x:Name="grid" Margin="0" VerticalAlignment="Center" Height="426" HorizontalAlignment="Center" Width="1127" RenderTransformOrigin="0.5,0.5">
                     <Grid.RenderTransform>
                         <CompositeTransform/>
                     </Grid.RenderTransform>
@@ -733,7 +733,7 @@
                     </TextBlock>
                 </Grid>
             </PivotItem>
-            <PivotItem Margin="0,16" >
+            <PivotItem Height="640" Margin="0,16" >
                 <Grid Margin="0" VerticalAlignment="Center" Height="426" HorizontalAlignment="Center" Width="1127" RenderTransformOrigin="0.5,0.5">
                     <Grid.RenderTransform>
                         <CompositeTransform/>
@@ -760,7 +760,7 @@
                     <TextBlock x:Uid="Welcome_Beta" HorizontalAlignment="Center" Margin="0,-43,0,0" TextWrapping="Wrap" Text="EN TRAVAUX" VerticalAlignment="Top" Foreground="#FF3498DB" FontWeight="SemiBold" FontSize="32"/>
                 </Grid>
             </PivotItem>
-            <PivotItem Margin="0,16" >
+            <PivotItem Height="640" Margin="0,16" >
                 <Grid Margin="0" VerticalAlignment="Center" Height="426" HorizontalAlignment="Center" Width="1127" RenderTransformOrigin="0.5,0.5">
                     <Grid.RenderTransform>
                         <CompositeTransform/>
@@ -778,7 +778,7 @@
                     <Button x:Uid="Ignore" Content="Ignorer" HorizontalAlignment="Center" Margin="566,218,422,0" VerticalAlignment="Top" Background="#FFE6E6E6" Foreground="#FF4B4B4B" Height="52" Width="139" FontSize="16" RequestedTheme="Light" BorderBrush="#FF7E7E7E" BorderThickness="1" Tapped="Button_Tapped_1"/>
                 </Grid>
             </PivotItem>
-            <PivotItem Margin="0,16" >
+            <PivotItem Height="640" Margin="0,16" >
                 <Grid Margin="0" VerticalAlignment="Center" Height="426" HorizontalAlignment="Center" Width="1127" RenderTransformOrigin="0.5,0.5">
                     <Grid.RenderTransform>
                         <CompositeTransform/>
@@ -813,17 +813,17 @@
                     <Button x:Uid="Next" x:Name="SuivBut" Content="Suivant" HorizontalAlignment="Center" Margin="715,329,275,0" VerticalAlignment="Top" Background="#FF3498DB" Foreground="White" Height="52" Width="137" FontSize="16" RequestedTheme="Light" Visibility="Collapsed"/>
                 </Grid>
             </PivotItem>
-            <PivotItem Margin="0,15,0,17" >
+            <PivotItem Height="640" Margin="0,15,0,17" >
                 <Grid Margin="0" VerticalAlignment="Center" Height="426" HorizontalAlignment="Center" Width="1127" RenderTransformOrigin="0.5,0.5">
                     <Grid.RenderTransform>
                         <CompositeTransform/>
                     </Grid.RenderTransform>
                     <TextBlock HorizontalAlignment="Center" Margin="252,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18.667" Width="597" Foreground="Black" >
-                    	<Run  x:Uid="Browser_Lock_1" Text="Blueflap peut être protégé par un mot de passe qui sera demandé à chaque ouverture."/>
+                    	<Run  x:Uid="Browser_Lock1" Text="Blueflap peut être protégé par un mot de passe qui sera demandé à chaque ouverture."/>
                     	<LineBreak/>
                     	<Run/>
                     	<LineBreak/>
-                    	<Run x:Uid="Browser_Lock_2" Text="Voulez vous activer le verrouillage ?"/>
+                    	<Run x:Uid="Browser_Lock2" Text="Voulez vous activer le verrouillage ?"/>
                     </TextBlock>
                     <Image Height="241" VerticalAlignment="Top" Source="Assets/welcome_protect.png" HorizontalAlignment="Left" Width="270" Margin="97,29,0,0"/>
                     <Button x:Uid="Welcome_SetLock" Content="Configurer le verrouillage" HorizontalAlignment="Center" Margin="391,166,477,0" VerticalAlignment="Top" Background="#FF3498DB" Foreground="White" Height="52" Width="259" FontSize="18.667" RequestedTheme="Light" Tapped="Verrouillage"/>
@@ -836,7 +836,7 @@
                     </Grid>
                 </Grid>
             </PivotItem>
-            <PivotItem Margin="0,16" >
+            <PivotItem Height="640" Margin="0,16" >
                 <Grid Margin="0" VerticalAlignment="Center" Height="426" HorizontalAlignment="Center" Width="1127" RenderTransformOrigin="0.5,0.5">
                     <Grid.RenderTransform>
                         <CompositeTransform/>

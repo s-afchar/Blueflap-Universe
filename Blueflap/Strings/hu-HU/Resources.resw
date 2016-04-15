@@ -348,10 +348,10 @@
   <data name="AutoSuggestion.Text" xml:space="preserve">
     <value>Automatikus kiegészítése javaslatok</value>
   </data>
-  <data name="Browser_Lock_1.Text" xml:space="preserve">
+  <data name="Browser_Lock1.Text" xml:space="preserve">
     <value>Böngészőnket jelszóval védheted, amit utána minden indításkor megkérdez.</value>
   </data>
-  <data name="Browser_Lock_2.Text" xml:space="preserve">
+  <data name="Browser_Lock2.Text" xml:space="preserve">
     <value>Szeretnéd bekapcsoni a jelszavas védelmet?</value>
   </data>
   <data name="Download.Content" xml:space="preserve">

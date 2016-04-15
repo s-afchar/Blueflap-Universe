@@ -151,7 +151,7 @@
     <value>Entwickler</value>
   </data>
   <data name="Settings_editpassword.Text" xml:space="preserve">
-    <value>Passwort ändern</value>
+    <value>Change password</value>
   </data>
   <data name="Settings_enablelock.Header" xml:space="preserve">
     <value>Browser sperren</value>
@@ -348,10 +348,10 @@
   <data name="AutoSuggestion.Text" xml:space="preserve">
     <value>Automatische Vorschläge</value>
   </data>
-  <data name="Browser_Lock_1.Text" xml:space="preserve">
+  <data name="Browser_Lock1.Text" xml:space="preserve">
     <value>Sie können Blueflap mit einem Passwort sperren. Dieser wird dann beim Programmstart gefragt.</value>
   </data>
-  <data name="Browser_Lock_2.Text" xml:space="preserve">
+  <data name="Browser_Lock2.Text" xml:space="preserve">
     <value>Wollen Sie das Aktivierungssperre aktivieren ?</value>
   </data>
   <data name="Download.Content" xml:space="preserve">
