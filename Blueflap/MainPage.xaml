@@ -906,7 +906,7 @@
                 </VisualState>
                 <VisualState x:Name="Normal">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="600" />
+                        <AdaptiveTrigger MinWindowWidth="750" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="Adressbar.Visibility"  
@@ -1316,8 +1316,8 @@
             <Grid Height="45" Margin="44,0,88,0" VerticalAlignment="Top" Tapped="Grid_Tapped" Background="#00C7C7C7">
                 <TextBlock x:Name="Phone_URL" Margin="0,0,0,2" TextWrapping="Wrap" Text="url.com" VerticalAlignment="Center" Height="20" TextAlignment="Center" Opacity="0.775"/>
             </Grid>
-            <Button x:Name="Phone_Back" Content="&#xE00E;" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Stretch" Width="44" FontFamily="Segoe MDL2 Assets" Background="#19787878" BorderThickness="0,0,1,0"/>
-            <Button x:Name="Phone_Forward" Content="&#xE00F;" HorizontalAlignment="Right" Margin="0,0,44,0" VerticalAlignment="Stretch" Width="44" FontFamily="Segoe MDL2 Assets" Background="#19787878" BorderThickness="1,0,0,0"/>
+            <Button x:Name="Phone_Back" Content="&#xE00E;" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Stretch" Width="44" FontFamily="Segoe MDL2 Assets" Background="#19787878"/>
+            <Button x:Name="Phone_Forward" Content="&#xE00F;" HorizontalAlignment="Right" Margin="0,0,44,0" VerticalAlignment="Stretch" Width="44" FontFamily="Segoe MDL2 Assets" Background="#19787878"/>
         </Grid>
 
     </Grid>
