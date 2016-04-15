@@ -561,7 +561,4 @@
   <data name="Menu_Customize.Text" xml:space="preserve">
     <value>Customize</value>
   </data>
-  <data name="String1" xml:space="preserve">
-    <value />
-  </data>
 </root>
