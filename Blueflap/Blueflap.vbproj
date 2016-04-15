@@ -110,8 +110,8 @@
     <None Include="Package.StoreAssociation.xml" />
     <None Include="project.json" />
     <PRIResource Include="Strings\es\Resources.resw" />
-    <PRIResource Include="Strings\zh-SG\Resources.resw" />
     <PRIResource Include="Strings\de\Resources.resw" />
+    <PRIResource Include="Strings\zh-SG\Resources.resw" />
     <PRIResource Include="Strings\en-US\Resources.resw" />
     <PRIResource Include="Strings\hu-HU\Resources.resw" />
     <PRIResource Include="Strings\fr\Resources.resw" />
@@ -126,11 +126,11 @@
     <Compile Include="Customization.xaml.vb">
       <DependentUpon>Customization.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FirstBootScreen.xaml.vb">
-      <DependentUpon>FirstBootScreen.xaml</DependentUpon>
-    </Compile>
     <Compile Include="FirstBootScreen_Mobile.xaml.vb">
       <DependentUpon>FirstBootScreen_Mobile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FirstBootScreen.xaml.vb">
+      <DependentUpon>FirstBootScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.vb">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -224,11 +224,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FirstBootScreen.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="FirstBootScreen_Mobile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FirstBootScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
