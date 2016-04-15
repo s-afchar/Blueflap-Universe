@@ -284,6 +284,7 @@ Public NotInheritable Class MainPage
         RefreshEnabled.Stop()
         StopEnabled.Begin()
         MobileRefreshIcon.Text = ""
+
         MobileRefreshLabel.Text = resourceLoader.GetString("Menu_Stop/Text")
 
     End Sub
@@ -622,7 +623,7 @@ Public NotInheritable Class MainPage
             WriteJsonFile(JsonArray.Parse("[]"), "Memos")
             localSettings.Values("FirstBoot") = "Non"
             If PhoneNavBar.Visibility = Visibility.Visible Then
-                Me.Frame.Navigate(GetType(FirstBootScreen_Mobile))
+                ' Me.Frame.Navigate(GetType(FirstBootScreen_Mobile))
             Else
                 Me.Frame.Navigate(GetType(FirstBootScreen))
             End If
