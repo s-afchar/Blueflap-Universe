@@ -583,7 +583,8 @@ Public NotInheritable Class Parametres
         End If
         NewPasswordBox.IsEnabled = True
 
-        TextBlockNewPassword.Text = resourceLoader.GetString("Settings_editpassword/text")
+        'TextBlockNewPassword.Text = resourceLoader.GetString("Settings_editpassword/text")
+        TextBlockNewPassword.Text = Label_ChangePassword.Text
         localSettings.Values("VerrouillageEnabled") = VerrouillageSwitch.IsOn
         localSettings.Values("ShowLockScreen") = False
     End Sub
@@ -592,7 +593,8 @@ Public NotInheritable Class Parametres
         CloseVerrouillagePopup.Begin()
         NewPasswordBox.Password = ""
         NewPasswordBox.IsEnabled = True
-        TextBlockNewPassword.Text = resourceLoader.GetString("Settings_editpassword/text")
+        'TextBlockNewPassword.Text = resourceLoader.GetString("Settings_editpassword/text")
+        TextBlockNewPassword.Text = Label_ChangePassword.Text
     End Sub
     Private Sub ShowPasswordConfigurationPopup(sender As Object, e As TappedRoutedEventArgs) Handles Buton_LockSetings.Tapped
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
@@ -603,7 +605,8 @@ Public NotInheritable Class Parametres
             Else
                 CloseVerrouillagePopup.Stop()
                 ShowVerrouillagePopup.Begin()
-                TextBlockNewPassword.Text = resourceLoader.GetString("Settings_newpassword/text")
+                'TextBlockNewPassword.Text = resourceLoader.GetString("Settings_newpassword/text")
+                TextBlockNewPassword.Text = Label_NewPassword.Text
             End If
         Catch
             CloseVerrouillagePopup.Stop()

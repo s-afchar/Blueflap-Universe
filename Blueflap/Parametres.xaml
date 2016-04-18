@@ -778,6 +778,11 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+        <Grid HorizontalAlignment="Left" Height="100" Margin="1056,288,0,0" VerticalAlignment="Top" Width="100" Visibility="Collapsed">
+            <TextBlock x:Uid="Settings_newpassword" x:Name="Label_NewPassword" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock x:Uid="Settings_editpassword" x:Name="Label_ChangePassword" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="0,20,0,0"/>
+        </Grid>
+
         <Grid x:Name="grid" HorizontalAlignment="Left" Width="209" RenderTransformOrigin="0.5,0.5" Background="{ThemeResource JumpListDefaultEnabledBackground}">
             <Grid.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>

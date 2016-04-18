@@ -1120,6 +1120,23 @@
             <CompositeTransform/>
         </Grid.RenderTransform>
 
+        <Grid HorizontalAlignment="Left" Height="458" Margin="890,172,0,0" VerticalAlignment="Top" Width="276" Visibility="Collapsed">
+            <TextBlock x:Uid="Menu_Stop" x:Name="Label_Stop" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock x:Uid="Menu_Refresh" x:Name="Label_Refresh" HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock x:Uid="Delete" x:Name="Label_Delete" HorizontalAlignment="Left" Margin="10,60,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock x:Uid="CopyURL" x:Name="Label_CopyURL" HorizontalAlignment="Left" Margin="10,85,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock x:Uid="SetAsMyHomepage" x:Name="Label_SetAsHomepage" HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock x:Uid="HistorySortByUrl" x:Name="Label_SearchHistory" HorizontalAlignment="Left" Margin="10,135,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock x:Uid="Notification_Search_Header" x:Name="Label_Notif_Search_Header" HorizontalAlignment="Left" Margin="10,160,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock x:Uid="Notification_Search_Content" x:Name="Label_Notif_Search_Content" HorizontalAlignment="Left" Margin="10,185,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock x:Uid="Notification_SearchEngineSet_Header" x:Name="Label_Notif_SearchSet_Header" HorizontalAlignment="Left" Margin="10,160,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock x:Uid="Notification_SearchEngineSet_Content" x:Name="Label_Notif_SearchSet_Content" HorizontalAlignment="Left" Margin="10,185,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock x:Uid="Notification_Homepage_Header" x:Name="Label_Notif_Home_Header" HorizontalAlignment="Left" Margin="10,208,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock x:Uid="Notification_Homepage_Content" x:Name="Label_Notif_Home_Content" HorizontalAlignment="Left" Margin="10,233,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock x:Uid="DateList_1" x:Name="Label_Date1" HorizontalAlignment="Left" Margin="10,258,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock x:Uid="DateList_2" x:Name="Label_Date2" HorizontalAlignment="Left" Margin="10,283,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        </Grid>
+
         <Grid x:Name="Infos_grid" Margin="48,66,0,0" Background="#FF111111" Visibility="Collapsed">
             <Grid HorizontalAlignment="Left" Height="233" Margin="15,0,0,0" VerticalAlignment="Center" Width="50" RenderTransformOrigin="0.5,0.5">
                 <Grid x:Name="grid1" Margin="0,0,0,113" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Visibility="Collapsed">

@@ -21,6 +21,7 @@
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
     <PackageCertificateThumbprint>D6A0C0975F8E5573CC1AF99B0E22E9518F6CDA87</PackageCertificateThumbprint>
     <AppxBundle>Never</AppxBundle>
+    <AppxSymbolPackageEnabled>True</AppxSymbolPackageEnabled>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -73,6 +74,8 @@
     <DocumentationFile>Blueflap.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>false</DefineDebug>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -99,7 +102,9 @@
     <Prefer32Bit>true</Prefer32Bit>
     <DocumentationFile>Blueflap.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
-    <UseDotNetNativeToolchain>false</UseDotNetNativeToolchain>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>false</DefineDebug>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
@@ -109,12 +114,12 @@
     <None Include="Blueflap_StoreKey.pfx" />
     <None Include="Package.StoreAssociation.xml" />
     <None Include="project.json" />
+    <PRIResource Include="Strings\de\Resources.resw" />
+    <PRIResource Include="Strings\hu-HU\Resources.resw" />
     <PRIResource Include="Strings\es\Resources.resw" />
     <PRIResource Include="Strings\zh-SG\Resources.resw" />
-    <PRIResource Include="Strings\de\Resources.resw" />
-    <PRIResource Include="Strings\en-US\Resources.resw" />
-    <PRIResource Include="Strings\hu-HU\Resources.resw" />
     <PRIResource Include="Strings\fr\Resources.resw" />
+    <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.vb">

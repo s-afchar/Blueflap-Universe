@@ -130,8 +130,10 @@ Public NotInheritable Class MainPage
                 Catch
                     Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
                     Dim toeastElement = notificationXml.GetElementsByTagName("text")
-                    toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Homepage_Header/Text")))
-                    toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Homepage_Content/Text")))
+                    'toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Homepage_Header/Text")))
+                    'toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Homepage_Content/Text")))
+                    toeastElement(0).AppendChild(notificationXml.CreateTextNode(Label_Notif_Home_Header.Text))
+                    toeastElement(1).AppendChild(notificationXml.CreateTextNode(Label_Notif_Home_Content.Text))
                     Dim ToastNotification = New ToastNotification(notificationXml)
                     ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
 
@@ -251,7 +253,8 @@ Public NotInheritable Class MainPage
         StopEnabled.Stop() 'Ce sont des animation pour le bouton stop/Refresh
         RefreshEnabled.Begin()
         MobileRefreshIcon.Text = ""
-        MobileRefreshLabel.Text = resourceLoader.GetString("Menu_Refresh/Text")
+        'MobileRefreshLabel.Text = resourceLoader.GetString("Menu_Refresh/Text")
+        MobileRefreshLabel.Text = Label_Refresh.Text
 
         If web.CanGoBack Then
             Back_Button.Visibility = Visibility.Visible
@@ -285,7 +288,8 @@ Public NotInheritable Class MainPage
         StopEnabled.Begin()
         MobileRefreshIcon.Text = ""
 
-        MobileRefreshLabel.Text = resourceLoader.GetString("Menu_Stop/Text")
+        'MobileRefreshLabel.Text = resourceLoader.GetString("Menu_Stop/Text")
+        MobileRefreshLabel.Text = Label_Stop.Text
 
     End Sub
 
@@ -434,8 +438,10 @@ Public NotInheritable Class MainPage
                 Catch
                     Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
                     Dim toeastElement = notificationXml.GetElementsByTagName("text")
-                    toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Homepage_Header/Text")))
-                    toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Homepage_Content/Text")))
+                    'toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Homepage_Header/Text")))
+                    'toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Homepage_Content/Text")))
+                    toeastElement(0).AppendChild(notificationXml.CreateTextNode(Label_Notif_Home_Header.Text))
+                    toeastElement(1).AppendChild(notificationXml.CreateTextNode(Label_Notif_Home_Content.Text))
                     Dim ToastNotification = New ToastNotification(notificationXml)
                     ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
 
@@ -508,8 +514,10 @@ Public NotInheritable Class MainPage
             Catch
                 Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
                 Dim toeastElement = notificationXml.GetElementsByTagName("text")
-                toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Search_Header/Text")))
-                toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Search_Content/Text")))
+                'toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Search_Header/Text")))
+                'toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Search_Content/Text")))
+                toeastElement(0).AppendChild(notificationXml.CreateTextNode(Label_Notif_Search_Header.Text))
+                toeastElement(1).AppendChild(notificationXml.CreateTextNode(Label_Notif_Search_Content.Text))
                 Dim ToastNotification = New ToastNotification(notificationXml)
                 ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
 
@@ -623,7 +631,7 @@ Public NotInheritable Class MainPage
             WriteJsonFile(JsonArray.Parse("[]"), "Memos")
             localSettings.Values("FirstBoot") = "Non"
             If PhoneNavBar.Visibility = Visibility.Visible Then
-                ' Me.Frame.Navigate(GetType(FirstBootScreen_Mobile))
+                Me.Frame.Navigate(GetType(FirstBootScreen_Mobile))
             Else
                 Me.Frame.Navigate(GetType(FirstBootScreen))
             End If
@@ -1064,8 +1072,10 @@ Public NotInheritable Class MainPage
 
         Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
         Dim toeastElement = notificationXml.GetElementsByTagName("text")
-        toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Header/Text")))
-        toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Content/Text")))
+        'toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Header/Text")))
+        'toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Content/Text")))
+        toeastElement(0).AppendChild(notificationXml.CreateTextNode(Label_Notif_SearchSet_Header.Text))
+        toeastElement(1).AppendChild(notificationXml.CreateTextNode(Label_Notif_SearchSet_Content.Text))
         Dim ToastNotification = New ToastNotification(notificationXml)
         ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
     End Sub
@@ -1101,13 +1111,16 @@ Public NotInheritable Class MainPage
 
             Dim menu As MenuFlyout = New MenuFlyout
             Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
-            menuDelete.Text = resourceLoader.GetString("Delete/Text")
+            'menuDelete.Text = resourceLoader.GetString("Delete/Text")
+            menuDelete.Text = Label_Delete.Text
             menu.Items.Add(menuDelete)
             Dim MenuCopy As MenuFlyoutItem = New MenuFlyoutItem
-            MenuCopy.Text = resourceLoader.GetString("CopyURL/Text")
+            'MenuCopy.Text = resourceLoader.GetString("CopyURL/Text")
+            MenuCopy.Text = Label_CopyURL.Text
             menu.Items.Add(MenuCopy)
             Dim SetFavHomePage As MenuFlyoutItem = New MenuFlyoutItem
-            SetFavHomePage.Text = resourceLoader.GetString("SetAsMyHomepage/Text")
+            'SetFavHomePage.Text = resourceLoader.GetString("SetAsMyHomepage/Text")
+            SetFavHomePage.Text = Label_SetAsHomepage.Text
             menu.Items.Add(SetFavHomePage)
 
             AddHandler elemContainer.RightTapped, New RightTappedEventHandler(Function(sender As Object, e As RightTappedRoutedEventArgs)
@@ -1811,14 +1824,17 @@ Public NotInheritable Class MainPage
                 End If
                 Dim menu As MenuFlyout = New MenuFlyout
                 Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
-                menuDelete.Text = resourceLoader.GetString("Delete/Text")
+                'menuDelete.Text = resourceLoader.GetString("Delete/Text")
+                menuDelete.Text = Label_Delete.Text
                 menu.Items.Add(menuDelete)
                 Dim MenuCopy As MenuFlyoutItem = New MenuFlyoutItem
-                MenuCopy.Text = resourceLoader.GetString("CopyURL/Text")
+                'MenuCopy.Text = resourceLoader.GetString("CopyURL/Text")
+                MenuCopy.Text = Label_CopyURL.Text
                 menu.Items.Add(MenuCopy)
                 Dim SortByUrl As MenuFlyoutItem = New MenuFlyoutItem
                 Dim HistUrl = New Uri(histElem.GetObject.GetNamedString("url"))
-                SortByUrl.Text = resourceLoader.GetString("HistorySortByUrl/Text") + " " + HistUrl.Host
+                'SortByUrl.Text = resourceLoader.GetString("HistorySortByUrl/Text") + " " + HistUrl.Host
+                SortByUrl.Text = Label_SearchHistory.Text + " " + HistUrl.Host
                 menu.Items.Add(SortByUrl)
 
                 AddHandler elemContainer.RightTapped, New RightTappedEventHandler(Function(sender As Object, e As RightTappedRoutedEventArgs)
@@ -1860,7 +1876,8 @@ Public NotInheritable Class MainPage
                 elemContainer.Children.Add(UrlText)
 
                 Dim visitDate As TextBlock = New TextBlock
-                visitDate.Text = resourceLoader.GetString("DateList_1/Text") + DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString("dd MMMMMMMMMMMM yyyy ") + resourceLoader.GetString("DateList_2/Text") + DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString(" HH:mm")
+                'visitDate.Text = resourceLoader.GetString("DateList_1/Text") + DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString("dd MMMMMMMMMMMM yyyy ") + resourceLoader.GetString("DateList_2/Text") + DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString(" HH:mm")
+                visitDate.Text = Label_Date1.Text + DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString("dd MMMMMMMMMMMM yyyy ") + Label_Date2.Text + DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString(" HH:mm")
                 visitDate.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 150, 150, 150))
                 elemContainer.Children.Add(visitDate)
 
@@ -2013,7 +2030,8 @@ Public NotInheritable Class MainPage
             End If
             Dim menu As MenuFlyout = New MenuFlyout
             Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
-            menuDelete.Text = resourceLoader.GetString("Delete/Text")
+            ' menuDelete.Text = resourceLoader.GetString("Delete/Text")
+            menuDelete.Text = Label_Delete.Text
             menu.Items.Add(menuDelete)
 
 
@@ -2164,11 +2182,12 @@ Public NotInheritable Class MainPage
         If MobileRefreshIcon.Text = "" Then
             web.Refresh()
             MobileRefreshIcon.Text = ""
-            MobileRefreshLabel.Text = resourceLoader.GetString("Menu_Stop/Text")
-
+            'MobileRefreshLabel.Text = resourceLoader.GetString("Menu_Stop/Text")
+            MobileRefreshLabel.Text = Label_Stop.Text
         Else
             MobileRefreshIcon.Text = ""
-            MobileRefreshLabel.Text = resourceLoader.GetString("Menu_Refresh/Text")
+            'MobileRefreshLabel.Text = resourceLoader.GetString("Menu_Refresh/Text")
+            MobileRefreshLabel.Text = Label_Refresh.Text
             web.Stop()
         End If
         AdressBox.Text = web.Source.ToString

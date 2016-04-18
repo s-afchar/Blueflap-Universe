@@ -468,6 +468,11 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Left" Height="100" Margin="248,207,0,0" VerticalAlignment="Top" Width="100" Visibility="Collapsed">
+            <TextBlock x:Uid="Notification_SearchEngineSet_Header" x:Name="Label_Notif_Header" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock x:Uid="Notification_SearchEngineSet_Content"  x:Name="Label_Notif_Content" HorizontalAlignment="Left" Margin="10,30,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        </Grid>
+
         <Grid x:Name="DefaultThemeColor" HorizontalAlignment="Left" Height="10" Margin="268,207,0,0" VerticalAlignment="Top" Width="9" Background="{ThemeResource ContentDialogBorderThemeBrush}" Visibility="Collapsed"/>
         <Grid x:Name="Fightbar" Height="81" VerticalAlignment="Top" Background="WhiteSmoke" RequestedTheme="Light" Margin="48,0,0,0" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
@@ -535,13 +540,10 @@
                 <CompositeTransform/>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Button x:Name="button" Content="&#xE0C4;" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5" Background="#00000000" Tapped="Button_Tapped" RequestedTheme="Light" FontFamily="Segoe MDL2 Assets" FontWeight="Bold" FontSize="16" BorderThickness="0">
+        <Button x:Name="button" Content="&#xE0C4;" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5" Background="#00000000" Tapped="Button_Tapped" RequestedTheme="Light" FontFamily="Segoe MDL2 Assets" FontWeight="Bold" FontSize="16" BorderThickness="0" Foreground="White">
             <Button.RenderTransform>
                 <CompositeTransform/>
             </Button.RenderTransform>
-            <Button.Foreground>
-                <SolidColorBrush Color="White"/>
-            </Button.Foreground>
         </Button>
         <Grid x:Name="Suggest" HorizontalAlignment="Left" Height="48" Margin="59,73,0,0" VerticalAlignment="Top" Width="250" BorderBrush="{ThemeResource ContentDialogBorderThemeBrush}" Background="White" BorderThickness="1" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>

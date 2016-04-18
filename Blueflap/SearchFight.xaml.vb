@@ -567,8 +567,10 @@ Public NotInheritable Class SearchFight
         localSettings.Values("SearchEngineIndex") = FightBox1.SelectedIndex
         Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
         Dim toeastElement = notificationXml.GetElementsByTagName("text")
-        toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Header/Text")))
-        toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Content/Text")))
+        'toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Header/Text")))
+        'toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Content/Text")))
+        toeastElement(0).AppendChild(notificationXml.CreateTextNode(Label_Notif_Header.Text))
+        toeastElement(1).AppendChild(notificationXml.CreateTextNode(Label_Notif_Content.Text))
         Dim ToastNotification = New ToastNotification(notificationXml)
         ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
     End Sub
@@ -616,8 +618,10 @@ Public NotInheritable Class SearchFight
         localSettings.Values("SearchEngineIndex") = FightBox2.SelectedIndex
         Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
         Dim toeastElement = notificationXml.GetElementsByTagName("text")
-        toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Header/Text")))
-        toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Content/Text")))
+        'toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Header/Text")))
+        'toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Content/Text")))
+        toeastElement(0).AppendChild(notificationXml.CreateTextNode(Label_Notif_Header.Text))
+        toeastElement(1).AppendChild(notificationXml.CreateTextNode(Label_Notif_Content.Text))
         Dim ToastNotification = New ToastNotification(notificationXml)
         ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
     End Sub
