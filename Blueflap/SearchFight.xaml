@@ -51,22 +51,6 @@
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="FightBox1">
-                <EasingDoubleKeyFrame KeyTime="0" Value="-15"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <QuinticEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="FightBox2">
-                <EasingDoubleKeyFrame KeyTime="0" Value="-15"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <QuinticEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Fight_Butt">
                 <EasingDoubleKeyFrame KeyTime="0" Value="-15"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
@@ -76,14 +60,6 @@
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="AdressBox">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="FightBox1">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="FightBox2">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0.3"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
@@ -361,6 +337,75 @@
                 </DiscreteObjectKeyFrame>
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Name="Tilt_Out">
+            <DoubleAnimation Duration="0:0:0.3" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.3" To="1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.3" To="1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.3" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.3" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationZ)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.3" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+        <Storyboard x:Name="Tilt_In">
+            <DoubleAnimation Duration="0:0:0.5" To="-41" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.5" To="6" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.5" To="-1" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationZ)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.5" To="0.95" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.5" To="0.95" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.5" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.5" To="3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Phone_URL" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
         <Storyboard x:Name="ShowSuggestions">
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Suggest">
                 <DiscreteObjectKeyFrame KeyTime="0">
@@ -435,7 +480,7 @@
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
-          </Storyboard>
+        </Storyboard>
         <Storyboard x:Name="Right_HideMenu">
             <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="RightMenu">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="31">
@@ -462,9 +507,219 @@
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Name="PopupClose">
+            <DoubleAnimation Duration="0:0:0.2" To="-900" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="SelectionPopup" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <ExponentialEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="SelectionPopup" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Selector_Background" d:IsOptimized="True"/>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Selector_Background">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="ShowPopupSuggestion">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Suggest_Copy">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Suggest_Copy">
+                <EasingDoubleKeyFrame KeyTime="0" Value="38"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Suggest_Copy">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="HidePopipSuggestion">
+            <DoubleAnimation Duration="0:0:0.2" To="29" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Suggest_Copy" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuarticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Suggest_Copy" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuarticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Suggest_Copy">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="PopupShow">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Selector_Background">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Selector_Background">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="SelectionPopup">
+                <EasingDoubleKeyFrame KeyTime="0" Value="800"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="StartLoading" RepeatBehavior="Forever">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="load_screen">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="image" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)" Storyboard.TargetName="image" d:IsOptimized="True"/>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationZ)" Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-361"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Page.Resources>
 
-    <Grid x:Name="Dragger" Background="#FFB9B9B9">
+    <Grid x:Name="Dragger" Background="#FFB9B9B9" Margin="0">
+        <VisualStateManager.VisualStateGroups>
+
+            <VisualStateGroup>
+                <VisualState x:Name="Small">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" MinWindowHeight="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="SelectionPopup.Margin"  
+                    Value="0,81,0,0" />
+                        <Setter Target="Dragger.Margin"  
+                    Value="0,-81,0,0" />
+                        <Setter Target="WebContainer.Margin"  
+                    Value="0,81,0,50" />
+                        <Setter Target="SelectionPopup.HorizontalAlignment"  
+                    Value="Stretch" />
+                        <Setter Target="SelectionPopup.Width"  
+                    Value="Auto" />
+                        <Setter Target="PhoneNavBar.Visibility"  
+                    Value="Visible" />
+                        <Setter Target="DropDown.Visibility"  
+                    Value="Collapsed" />
+                        <Setter Target="button.Visibility"  
+                    Value="Collapsed" />
+                        <Setter Target="rectangle.Visibility"  
+                    Value="Collapsed" />
+                        <Setter Target="Fightbar.Margin"  
+                    Value="0,0,0,0" />
+                        <Setter Target="Fight_Butt.Margin"  
+                    Value="0,39,11,0" />
+                        <Setter Target="AdressBox.Margin"  
+                    Value="11,39,40,0" />
+                        <Setter Target="AdressBox.Width"  
+                    Value="Auto" />
+                        <Setter Target="AdressBox.HorizontalAlignment"  
+                    Value="Stretch" />
+                        <Setter Target="Fight_Butt.HorizontalAlignment"  
+                    Value="Right" />
+                        <Setter Target="Suggest.Width"  
+                    Value="Auto" />
+                        <Setter Target="Suggest.Margin"  
+                    Value="11,73,11,0" />
+                        <Setter Target="Suggest.HorizontalAlignment"  
+                    Value="Stretch" />
+                        <Setter Target="Resize.Visibility"  
+                    Value="Collapsed" />
+                        <Setter Target="SelectionPopup.CornerRadius"  
+                    Value="0" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Normal">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600" MinWindowHeight="600" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Dragger.Margin"  
+                    Value="0,0,0,0" />
+                        <Setter Target="SelectionPopup.Margin"  
+                    Value="0,30" />
+                        <Setter Target="SelectionPopup.CornerRadius"  
+                    Value="3" />
+                        <Setter Target="SelectionPopup.HorizontalAlignment"  
+                    Value="Center" />
+                        <Setter Target="SelectionPopup.Width"  
+                    Value="600" />
+                        <Setter Target="PhoneNavBar.Visibility"  
+                    Value="Collapsed" />
+                        <Setter Target="DropDown.Visibility"  
+                    Value="Visible" />
+                        <Setter Target="button.Visibility"  
+                    Value="Visible" />
+                        <Setter Target="rectangle.Visibility"  
+                    Value="Visible" />
+                        <Setter Target="WebContainer.Margin"  
+                    Value="0,81,0,0" />
+                        <Setter Target="Fightbar.Margin"  
+                    Value="48,0,0,0" />
+                        <Setter Target="Fight_Butt.Margin"  
+                    Value="229,39,0,0" />
+                        <Setter Target="AdressBox.Margin"  
+                    Value="11,39,0,0" />
+                        <Setter Target="AdressBox.Width"  
+                    Value="219" />
+                        <Setter Target="Suggest.Width"  
+                    Value="250" />
+                        <Setter Target="AdressBox.HorizontalAlignment"  
+                    Value="Left" />
+                        <Setter Target="Fight_Butt.HorizontalAlignment"  
+                    Value="Left" />
+                        <Setter Target="Suggest.Margin"  
+                    Value="59,73,0,0" />
+                        <Setter Target="Suggest.HorizontalAlignment"  
+                    Value="Left" />
+                        <Setter Target="Resize.Visibility"  
+                    Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -474,6 +729,48 @@
         </Grid>
 
         <Grid x:Name="DefaultThemeColor" HorizontalAlignment="Left" Height="10" Margin="268,207,0,0" VerticalAlignment="Top" Width="9" Background="{ThemeResource ContentDialogBorderThemeBrush}" Visibility="Collapsed"/>
+        <Grid x:Name="WebContainer" Margin="0,81,0,0">
+
+            <WebView x:Name="W1" HorizontalAlignment="Left" Margin="0" Width="514" RenderTransformOrigin="0.5,0.5">
+                <WebView.RenderTransform>
+                    <CompositeTransform/>
+                </WebView.RenderTransform>
+            </WebView>
+            <WebView x:Name="W2" HorizontalAlignment="Right" Margin="0" Width="514" RenderTransformOrigin="0.5,0.5">
+                <WebView.RenderTransform>
+                    <CompositeTransform/>
+                </WebView.RenderTransform>
+            </WebView>
+            <Grid x:Name="load_screen" Margin="0" Background="#7F000000" Visibility="Collapsed">
+                <Image x:Name="image" HorizontalAlignment="Center" Height="100" Margin="0" VerticalAlignment="Center" Width="100" Source="Assets/spinner.png">
+                    <Image.Projection>
+                        <PlaneProjection/>
+                    </Image.Projection>
+                </Image>
+            </Grid>
+        </Grid>
+        <Grid x:Name="BackgroundAdressMobile" Margin="0" Background="#33000000" Visibility="Collapsed"/>
+        <Grid x:Name="PhoneNavBar" Height="50" VerticalAlignment="Bottom" Background="White" BorderBrush="#FF939393" BorderThickness="0,1,0,0">
+            <Grid x:Name="Ellipsis_Button" HorizontalAlignment="Right" Height="50" Margin="0" VerticalAlignment="Bottom" Width="50" Background="{ThemeResource ContentDialogBorderThemeBrush}">
+                <TextBlock HorizontalAlignment="Center" Margin="1,1,0,0" TextWrapping="Wrap" Text="&#xE0E4;" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="15"/>
+            </Grid>
+            <ProgressBar x:Name="mobileloader" Height="1" Margin="0,-1,50,0" VerticalAlignment="Top" Background="{x:Null}" Value="20" IsIndeterminate="True" Visibility="Collapsed"/>
+            <Grid Height="50" Margin="50,0" VerticalAlignment="Top" Tapped="Grid_Tapped" Background="#00C7C7C7" PointerPressed="Grid_PointerPressed" PointerReleased="Grid_PointerReleased" PointerExited="Grid_PointerExited">
+                <TextBlock x:Name="Phone_URL" Margin="0,0,0,2" TextWrapping="Wrap" Text="url.com" VerticalAlignment="Center" Height="20" TextAlignment="Center" Opacity="0.775" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <CompositeTransform/>
+                    </TextBlock.RenderTransform>
+                    <TextBlock.Projection>
+                        <PlaneProjection/>
+                    </TextBlock.Projection>
+                </TextBlock>
+            </Grid>
+            <Button x:Name="MenuBut" Content="&#xE10C;" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Stretch" Width="49" FontFamily="Segoe MDL2 Assets" Background="#19787878" BorderThickness="0,0,1,0" Opacity="0.8" RenderTransformOrigin="0.5,0.5" Height="49" Visibility="Collapsed" >
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="90"/>
+                </Button.RenderTransform>
+            </Button>
+        </Grid>
         <Grid x:Name="Fightbar" Height="81" VerticalAlignment="Top" Background="WhiteSmoke" RequestedTheme="Light" Margin="48,0,0,0" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <CompositeTransform/>
@@ -484,57 +781,22 @@
                 </TextBox.RenderTransform>
             </TextBox>
             <TextBlock x:Name="Window_Title" HorizontalAlignment="Left" Margin="12,10,0,0" TextWrapping="Wrap" Text="SEARCHFIGHT" VerticalAlignment="Top" Opacity="0.295" FontSize="12"/>
-            <ComboBox x:Name="FightBox1" HorizontalAlignment="Left" Margin="307,39,0,0" VerticalAlignment="Top" Width="162" BorderThickness="1" BorderBrush="#66636363" SelectedIndex="0" DropDownClosed="ComboBox_DropDownClosed" RenderTransformOrigin="0.5,0.5">
-                <ComboBox.RenderTransform>
-                    <CompositeTransform/>
-                </ComboBox.RenderTransform>
-                <ComboBoxItem Content="Bing"/>
-                <ComboBoxItem Content="Qwant"/>
-                <ComboBoxItem Content="DuckDuckGo"/>
-                <ComboBoxItem Content="Yahoo"/>
-                <ComboBoxItem Content="Google"/>
-                <ComboBoxItem Content="Qwant (Web)"/>
-                <ComboBoxItem Content="Ask"/>
-                <ComboBoxItem Content="Youtube"/>
-                <ComboBoxItem Content="Vimeo"/>
-                <ComboBoxItem Content="Dailymotion"/>
-                <ComboBoxItem Content="Wikipedia"/>
-                <ComboBoxItem Content="Twitter"/>
-            </ComboBox>
-            <ComboBox x:Name="FightBox2" HorizontalAlignment="Left" Margin="474,39,0,0" VerticalAlignment="Top" Width="162" BorderThickness="1" BorderBrush="#66636363" SelectedIndex="0" RenderTransformOrigin="0.5,0.5">
-                <ComboBox.RenderTransform>
-                    <CompositeTransform/>
-                </ComboBox.RenderTransform>
-                <ComboBoxItem Content="Bing"/>
-                <ComboBoxItem Content="Qwant"/>
-                <ComboBoxItem Content="DuckDuckGo"/>
-                <ComboBoxItem Content="Yahoo"/>
-                <ComboBoxItem Content="Google"/>
-                <ComboBoxItem Content="Qwant (Web)"/>
-                <ComboBoxItem Content="Ask"/>
-                <ComboBoxItem Content="Youtube"/>
-                <ComboBoxItem Content="Vimeo"/>
-                <ComboBoxItem Content="Dailymotion"/>
-                <ComboBoxItem Content="Wikipedia"/>
-                <ComboBoxItem Content="Twitter"/>
-            </ComboBox>
             <Button x:Name="Fight_Butt" Content="&#xE11A;" HorizontalAlignment="Left" Height="32" Margin="229,39,0,0" VerticalAlignment="Top" Width="32" BorderBrush="#66000000" BorderThickness="1" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="13.333" RenderTransformOrigin="0.5,0.5">
                 <Button.RenderTransform>
                     <CompositeTransform/>
                 </Button.RenderTransform>
             </Button>
             <ProgressRing x:Name="load" HorizontalAlignment="Left" Margin="266,45,0,0" VerticalAlignment="Top" Background="{x:Null}"/>
+            <Grid x:Name="DropDown" HorizontalAlignment="Left" Height="32" Margin="290,39,0,0" VerticalAlignment="Top" Background="{ThemeResource AppBarItemPressedForegroundThemeBrush}" BorderBrush="#99808080" BorderThickness="1">
+                <Rectangle x:Name="DropDownBackground" Fill="{ThemeResource ContentDialogBorderThemeBrush}" Margin="0" Opacity="0.25" Visibility="Collapsed"/>
+                <TextBlock HorizontalAlignment="Right" Margin="0,1,10,0" TextWrapping="Wrap" Text="&#xE099;" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" FontSize="12"/>
+                <StackPanel Margin="0,0,35,0" Orientation="Horizontal">
+                    <TextBlock x:Name="Drop1" TextWrapping="Wrap" Text="--" VerticalAlignment="Center" Margin="10,5,0,5"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="|" VerticalAlignment="Center" Margin="7,-4,7,0" Opacity="0.7"/>
+                    <TextBlock x:Name="Drop2" TextWrapping="Wrap" Text="--" VerticalAlignment="Center" Margin="0,5"/>
+                </StackPanel>
+            </Grid>
         </Grid>
-        <WebView x:Name="W1" HorizontalAlignment="Left" Margin="0,81,0,0" Width="514" RenderTransformOrigin="0.5,0.5">
-            <WebView.RenderTransform>
-                <CompositeTransform/>
-            </WebView.RenderTransform>
-        </WebView>
-        <WebView x:Name="W2" HorizontalAlignment="Right" Margin="0,81,0,0" Width="514" RenderTransformOrigin="0.5,0.5">
-            <WebView.RenderTransform>
-                <CompositeTransform/>
-            </WebView.RenderTransform>
-        </WebView>
         <Rectangle x:Name="rectangle" Fill="{ThemeResource ContentDialogBorderThemeBrush}" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <CompositeTransform/>
@@ -545,13 +807,13 @@
                 <CompositeTransform/>
             </Button.RenderTransform>
         </Button>
-        <Grid x:Name="Suggest" HorizontalAlignment="Left" Height="48" Margin="59,73,0,0" VerticalAlignment="Top" Width="250" BorderBrush="{ThemeResource ContentDialogBorderThemeBrush}" Background="White" BorderThickness="1" RenderTransformOrigin="0.5,0.5">
+        <Grid x:Name="Suggest" HorizontalAlignment="Left" Height="48" Margin="59,73,0,0" VerticalAlignment="Top" Width="250" BorderBrush="{ThemeResource ContentDialogBorderThemeBrush}" Background="White" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
             <Grid.RenderTransform>
                 <CompositeTransform/>
             </Grid.RenderTransform>
             <TextBlock HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Foreground="#FF767676" Text="&#xE81C;"/>
             <TextBlock x:Uid="LastSearch" HorizontalAlignment="Left" Margin="35,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF919191" Text="Dernière recherche" FontSize="13.333"/>
-            <TextBlock x:Name="DerniereRecherche" HorizontalAlignment="Left" Margin="36,20,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Foreground="#FF535353" Text="BLUEFLAP" FontSize="14" FontWeight="SemiBold" Width="209" Height="22"/>
+            <TextBlock x:Name="DerniereRecherche" Margin="36,20,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Foreground="#FF535353" Text="BLUEFLAP" FontSize="14" FontWeight="SemiBold" Height="22"/>
         </Grid>
         <Image x:Name="ShadowEffect" HorizontalAlignment="Center" Height="62" Margin="0,-195,0,0" VerticalAlignment="Center" Width="165" Source="Assets/shadow.png" RenderTransformOrigin="0.5,0.5" Opacity="0.696">
             <Image.RenderTransform>
@@ -590,7 +852,7 @@
             <Rectangle Fill="White" HorizontalAlignment="Left" Height="18" Margin="36,33,0,0" VerticalAlignment="Top" Width="146" Stroke="#33000000" RadiusY="1.75" RadiusX="1.75"/>
             <Rectangle Fill="White" HorizontalAlignment="Left" Height="18" Margin="36,61,0,0" VerticalAlignment="Top" Width="244" Stroke="#33000000" RadiusY="1.75" RadiusX="1.75"/>
             <TextBlock HorizontalAlignment="Left" Margin="0,7,0,0" TextWrapping="Wrap" Text="&#xE10C;" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe MDL2 Assets" Width="31" TextAlignment="Center"/>
-            <TextBlock x:Uid="OpenInBF" HorizontalAlignment="Left" Margin="40,33,0,0" TextWrapping="Wrap" Text="OUVRIR DANS BLUEFLAP" VerticalAlignment="Top" FontSize="12" FontWeight="SemiBold" Opacity="0.8" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
+            <TextBlock x:Name="Label_OpenInBlueflap" x:Uid="OpenInBF" HorizontalAlignment="Left" Margin="40,33,0,0" TextWrapping="Wrap" Text="OUVRIR DANS BLUEFLAP" VerticalAlignment="Top" FontSize="12" FontWeight="SemiBold" Opacity="0.8" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
             <Button x:Name="Left_OpenInBrowser" Content="&#xE12B;" HorizontalAlignment="Left" Margin="-4,24,0,0" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="White" Background="#00000000" Width="39" Height="35" BorderThickness="0" RenderTransformOrigin="0.5,0.5" FontSize="21.333">
                 <Button.RenderTransform>
                     <CompositeTransform ScaleX="0.8" ScaleY="0.8"/>
@@ -601,7 +863,7 @@
                     <CompositeTransform ScaleX="0.8" ScaleY="0.8"/>
                 </Button.RenderTransform>
             </Button>
-            <TextBlock x:Uid="SetSearchEngine" HorizontalAlignment="Left" Margin="41,62,0,0" TextWrapping="Wrap" Text="UTILISER COMME MOTEUR DE RECHERCHE" VerticalAlignment="Top" FontSize="12" FontWeight="SemiBold" Opacity="0.8" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
+            <TextBlock x:Name="Label_SetSearchEngine" x:Uid="SetSearchEngine" HorizontalAlignment="Left" Margin="41,62,0,0" TextWrapping="Wrap" Text="UTILISER COMME MOTEUR DE RECHERCHE" VerticalAlignment="Top" FontSize="12" FontWeight="SemiBold" Opacity="0.8" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
         </Grid>
         <Grid x:Name="RightMenu" HorizontalAlignment="Right" Height="88" Margin="0,90,10,0" VerticalAlignment="Top" Width="290" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
@@ -631,6 +893,77 @@
                     <CompositeTransform ScaleX="-1"/>
                 </TextBlock.RenderTransform>
             </TextBlock>
+        </Grid>
+        <Grid x:Name="Selector_Background" Margin="0" Background="#3F000000" Visibility="Collapsed">
+            <Rectangle x:Name="Close" Fill="#00000000" Margin="0" Stroke="Black" StrokeThickness="0"/>
+            <Grid x:Name="SelectionPopup" HorizontalAlignment="Center" Margin="0,30" Width="600" Background="{ThemeResource AppBarItemPressedForegroundThemeBrush}" CornerRadius="3" RenderTransformOrigin="0.5,0.5" RequestedTheme="Light">
+                <Grid.RenderTransform>
+                    <CompositeTransform/>
+                </Grid.RenderTransform>
+                <Rectangle Margin="0" StrokeThickness="3" Fill="#33FFFFFF" RadiusX="2" RadiusY="2"/>
+                <Rectangle Fill="Black" HorizontalAlignment="Center" Margin="0,20,0,90" Stroke="Black" Width="1" StrokeThickness="0" Opacity="0.4"/>
+                <Ellipse Fill="{ThemeResource AppBarBackgroundThemeBrush}" HorizontalAlignment="Center" Height="30" Margin="285,25,285,0" StrokeThickness="3" VerticalAlignment="Top" Width="30"/>
+                <Ellipse Fill="{ThemeResource AppBarBorderThemeBrush}" HorizontalAlignment="Center" Height="30" Margin="0,25,0,0" Stroke="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" StrokeThickness="3" VerticalAlignment="Top" Width="30" Opacity="0.6"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0,32,0,0" TextWrapping="Wrap" Text="VS" VerticalAlignment="Top" FontSize="12"/>
+                <Grid Height="60" Margin="0" VerticalAlignment="Bottom" CornerRadius="2" Background="#26858585">
+                    <TextBox x:Name="Popup_Adressbox" x:Uid="FightTextbox" Margin="20,0,52,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" BorderThickness="1" KeyDown="TextBox_KeyDown"/>
+                    <Button Content="&#xE11A;" HorizontalAlignment="Right" Height="32" Margin="0,0,20,0" VerticalAlignment="Center" Width="32" BorderBrush="#66000000" BorderThickness="1" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="13.333" RenderTransformOrigin="0.5,0.5" Tapped="Button_Tapped_1">
+                        <Button.RenderTransform>
+                            <CompositeTransform/>
+                        </Button.RenderTransform>
+                    </Button>
+                </Grid>
+                <Grid x:Name="List_Right" HorizontalAlignment="Right" Margin="0,0,0,60" Width="250">
+                    <TextBlock x:Name="Header2" HorizontalAlignment="Center" Margin="0,24,0,0" TextWrapping="Wrap" Text="BING" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Opacity="0.9"/>
+                    <ScrollViewer Margin="0,62,0,0" VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <StackPanel>
+                                <Button x:Name="Bing" Content="Bing" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button x:Name="Qwant" Content="Qwant" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button x:Name="DuckDuckGo" Content="DuckDuckGo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button  x:Name="Yahoo" Content="Yahoo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button  x:Name="Google" Content="Google" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button x:Name="Qwant_W"  Content="Qwant (Web)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button x:Name="Ask"  Content="Ask" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button x:Name="Youtube"  Content="YouTube" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button x:Name="Vimeo"  Content="Vimeo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button  x:Name="Dailymotion" Content="Dailymotion" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button  x:Name="Wiki" Content="Wikipedia" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button  x:Name="Twitter" Content="Twitter" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+                <Grid x:Name="List_Left" HorizontalAlignment="Left" Margin="0,0,0,60" Width="250">
+                    <TextBlock x:Name="Header1" HorizontalAlignment="Center" Margin="0,24,0,0" TextWrapping="Wrap" Text="BING" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Opacity="0.9"/>
+                    <ScrollViewer Margin="0,62,0,0" VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <StackPanel>
+                                <Button x:Name="Bing1" Content="Bing" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button x:Name="Qwant1" Content="Qwant" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button x:Name="DuckDuckGo1" Content="DuckDuckGo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button  x:Name="Yahoo1" Content="Yahoo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button  x:Name="Google1" Content="Google" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button x:Name="Qwant_W1"  Content="Qwant (Web)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button x:Name="Ask1"  Content="Ask" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button x:Name="Youtube1"  Content="YouTube" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button x:Name="Vimeo1"  Content="Vimeo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button  x:Name="Dailymotion1" Content="Dailymotion" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button  x:Name="Wiki1" Content="Wikipedia" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                <Button  x:Name="Twitter1" Content="Twitter" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+                <Grid x:Name="Suggest_Copy" Height="48" Margin="20,0,20,52" VerticalAlignment="Bottom" BorderBrush="{ThemeResource ContentDialogBorderThemeBrush}" Background="White" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+                    <Grid.RenderTransform>
+                        <CompositeTransform/>
+                    </Grid.RenderTransform>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Foreground="#FF767676" Text="&#xE81C;"/>
+                    <TextBlock x:Uid="LastSearch" HorizontalAlignment="Left" Margin="35,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF919191" Text="Dernière recherche" FontSize="13.333"/>
+                    <TextBlock x:Name="DerniereRecherche1" Margin="36,20,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Foreground="#FF535353" Text="BLUEFLAP" FontSize="14" FontWeight="SemiBold" Height="22"/>
+                </Grid>
+            </Grid>
         </Grid>
 
     </Grid>

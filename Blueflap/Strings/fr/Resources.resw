@@ -561,4 +561,7 @@
   <data name="Browser_Lock_2.Text" xml:space="preserve">
     <value>Voulez vous activer le verrouillage ?</value>
   </data>
+  <data name="Wallpaper.Text" xml:space="preserve">
+    <value>Image de fond</value>
+  </data>
 </root>

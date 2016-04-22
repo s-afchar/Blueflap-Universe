@@ -70,21 +70,11 @@
             </Button.Foreground>
         </Button>
         <StackPanel Margin="0,66,0,0">
-            <TextBlock x:Name="Label_Wallpaper" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Image de fond" VerticalAlignment="Top" RequestedTheme="Dark" FontSize="12" Margin="200,40,0,10"/>
+            <TextBlock x:Uid="Wallpaper" x:Name="Label_Wallpaper" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Wallpaper" VerticalAlignment="Top" RequestedTheme="Dark" FontSize="12" Margin="200,40,0,10"/>
             <VariableSizedWrapGrid x:Name="VariableGrid" Margin="200,0,200,20" VerticalAlignment="Top" Orientation="Horizontal">
                 <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper1" Margin="0,0,3,3">
                     <Button.Background>
                         <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Degrade.png"/>
-                    </Button.Background>
-                </Button>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper2" Margin="0,0,3,3">
-                    <Button.Background>
-                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Degrade2.png"/>
-                    </Button.Background>
-                </Button>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper3" Margin="0,0,3,3">
-                    <Button.Background>
-                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Ciel.JPG"/>
                     </Button.Background>
                 </Button>
                 <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper4" Margin="0,0,3,3">
@@ -92,9 +82,59 @@
                         <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Fleurs.jpg"/>
                     </Button.Background>
                 </Button>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper5" Margin="0,0,3,3">
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="Button_Tapped_3" Margin="0,0,0,3">
                     <Button.Background>
-                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Montagne.jpg"/>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Wallpaper_building.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="Button_Tapped_4" Margin="0,0,0,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Wallpaper_Clouds.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Margin="0,0,0,3" Tapped="Button_Tapped_5">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Wallpaper_Clouds2.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="Button_Tapped_6" Margin="0,0,0,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Wallpaper_Door.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="Button_Tapped_7" Margin="0,0,0,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Wallpaper_leap.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="Button_Tapped_8" Margin="0,0,0,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Wallpaper_Moon.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="Button_Tapped_9" Margin="0,0,0,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Wallpaper_Morning.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="Button_Tapped_10" Margin="0,0,0,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Wallpaper_sky.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="Button_Tapped_11" Margin="0,0,0,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Wallpaper_Street.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="Button_Tapped_12" Margin="0,0,0,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Wallpaper_tree.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Margin="0,0,0,3" Tapped="Button_Tapped_13">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Wallpaper_Wall.jpg"/>
                     </Button.Background>
                 </Button>
                 <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper6" Margin="0,0,3,3">
@@ -102,14 +142,39 @@
                         <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Neige.jpg"/>
                     </Button.Background>
                 </Button>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper7" Margin="0,0,3,3">
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper3" Margin="0,0,3,3">
                     <Button.Background>
-                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Plage.jpg"/>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Ciel.JPG"/>
                     </Button.Background>
                 </Button>
                 <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper8" Margin="0,0,3,3">
                     <Button.Background>
                         <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Soleil.JPG"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="Button_Tapped_1" Margin="0,0,0,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Wallpaper_Bird.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="Button_Tapped_2" Margin="0,0,0,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Wallpaper_bokeh.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper7" Margin="0,0,3,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Plage.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper2" Margin="0,0,3,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Degrade2.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper5" Margin="0,0,3,3">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Montagne.jpg"/>
                     </Button.Background>
                 </Button>
                 <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="47" Tapped="SetWallpaper9" Margin="0,0,3,3">

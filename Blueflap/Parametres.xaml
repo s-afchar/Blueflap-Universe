@@ -1086,6 +1086,14 @@
                                     <ToggleSwitch x:Name="Theme_switch" Header="Thème" HorizontalAlignment="Left" Margin="11,11,0,0" VerticalAlignment="Top" x:Uid="Settings_themestate" OffContent="Clair" OnContent="Sombre"/>
                                     <ToggleSwitch x:Name="Color_Switch" Header="" HorizontalAlignment="Left" Height="37" Margin="11,71,0,0" VerticalAlignment="Top" Width="238" x:Uid="Settings_themecolor" OnContent="Couleur personnalisée" OffContent="Couleur automatique"/>
                                 </Grid>
+                                <Grid x:Name="Wallpaper" Height="82" Margin="0,0,-0.333,10" Canvas.ZIndex="-1" RequestedTheme="Dark">
+                                    <Image x:Name="Wallpaper_Preview" Margin="0" Source="Assets/Degrade.png" Stretch="UniformToFill"/>
+                                    <Rectangle Fill="#99000000" Height="82" Stroke="#7F838383" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="11,8,0,0" TextWrapping="Wrap" x:Uid="Wallpaper" Text="Wallpaper" VerticalAlignment="Top"/>
+                                    <Button x:Name="Buton_Customize_Button" HorizontalAlignment="Left" Margin="12,39,0,0" VerticalAlignment="Top" BorderBrush="#27000000" Width="228">
+                                        <TextBlock x:Uid="Menu_Customize" x:Name="Customize_Button" HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="Customiser"/>
+                                    </Button>
+                                </Grid>
                                 <Grid x:Name="SearchEngine" Margin="0,0,0,10">
 
                                     <Rectangle x:Name="Rectanglee" Fill="#33D1D1D1" Height="82" Stroke="#7F838383"/>

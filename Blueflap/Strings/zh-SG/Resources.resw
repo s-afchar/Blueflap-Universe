@@ -561,4 +561,7 @@
   <data name="Menu_Customize.Text" xml:space="preserve">
     <value>自定义</value>
   </data>
+  <data name="Wallpaper.Text" xml:space="preserve">
+    <value>背景图片</value>
+  </data>
 </root>

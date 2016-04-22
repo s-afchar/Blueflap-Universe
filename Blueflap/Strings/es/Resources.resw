@@ -561,4 +561,7 @@
   <data name="Browser_Lock_2.Text" xml:space="preserve">
     <value>¿Quieres activar el bloqueo del navegador</value>
   </data>
+  <data name="Wallpaper.Text" xml:space="preserve">
+    <value>Imagen de fondo</value>
+  </data>
 </root>

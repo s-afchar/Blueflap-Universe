@@ -6,6 +6,7 @@ Imports Windows.Data.Json
 Imports Windows.UI.Xaml.Documents
 Imports Windows.Storage
 Imports Windows.Web.Http
+Imports Windows.Graphics.Imaging
 ''' <summary>
 ''' Page dédiée à la navigation web
 ''' </summary>
@@ -739,35 +740,7 @@ Public NotInheritable Class MainPage
 
     End Sub
     Private Sub Notification()
-        Dim Notifsvisible As String
-        Notifsvisible = 0
-        If Notif_MiniPlayer.Visibility = Visibility.Visible Then
-            NotifPosition = 110 * Notifsvisible
-            Notif_MiniPlayer.Margin = New Thickness(0, NotifPosition, 0, 0)
-            Notifsvisible = Notifsvisible + 1
-        End If
-        If Notif_HomePageError.Visibility = Visibility.Visible Then
-            NotifPosition = 110 * Notifsvisible
-            Notif_HomePageError.Margin = New Thickness(0, NotifPosition, 0, 0)
-            Notifsvisible = Notifsvisible + 1
-        End If
-        If Notif_SearchEngineError.Visibility = Visibility.Visible Then
-            NotifPosition = 110 * Notifsvisible
-            Notif_SearchEngineError.Margin = New Thickness(0, NotifPosition, 0, 0)
-            Notifsvisible = Notifsvisible + 1
-        End If
-        If Notif_SearchEngineSuggestion.Visibility = Visibility.Visible Then
-            NotifPosition = 110 * Notifsvisible
-            Notif_SearchEngineSuggestion.Margin = New Thickness(0, NotifPosition, 0, 0)
-            Notifsvisible = Notifsvisible + 1
-        End If
-        If Notif_Diminutweet.Visibility = Visibility.Visible Then
-            NotifPosition = 110 * Notifsvisible
-            Notif_Diminutweet.Margin = New Thickness(0, NotifPosition, 0, 0)
-            Notifsvisible = Notifsvisible + 1
-        End If
 
-        NotifPosition = 110 * Notifsvisible
     End Sub
     Private Sub ContextNotification()
         Try
@@ -1191,15 +1164,15 @@ Public NotInheritable Class MainPage
 
                     End If
                     AddHandler taglabel.Tapped, New TappedEventHandler(Async Function(sender As Object, e As TappedRoutedEventArgs)
-                                                                               TagFilter.Text = taglabeltext.Text
-                                                                               favs_tagsearch = True
-                                                                               sorttag.Visibility = Visibility.Visible
-                                                                               Await ShowFavorites()
-                                                                           End Function)
+                                                                           TagFilter.Text = taglabeltext.Text
+                                                                           favs_tagsearch = True
+                                                                           sorttag.Visibility = Visibility.Visible
+                                                                           Await ShowFavorites()
+                                                                       End Function)
 
-                        TagsContainer.Children.Add(taglabel)
-                    End If
-                    PreventMultipleSameItems.Add("#" + favTag.GetString)
+                    TagsContainer.Children.Add(taglabel)
+                End If
+                PreventMultipleSameItems.Add("#" + favTag.GetString)
             Next
 
 
@@ -1559,11 +1532,11 @@ Public NotInheritable Class MainPage
                 ExpandSuggestions.Begin()
             End If
         ElseIf AdressBox.Text = "" Then
-                SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-                SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-                HideSuggestions.Begin()
-            Else
-                SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(20, 52, 152, 213))
+            SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+            SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+            HideSuggestions.Begin()
+        Else
+            SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(20, 52, 152, 213))
             SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
             If SmartSuggest.Height < 138 Then
                 ExpandSuggestions.Begin()
@@ -1726,7 +1699,6 @@ Public NotInheritable Class MainPage
 
     Private Sub Window_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Window_Button.Tapped
         NewWindow()
-        'MiniPlayer()
     End Sub
     Private Async Sub MiniPlayer()
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
@@ -2211,5 +2183,7 @@ Public NotInheritable Class MainPage
     Private Sub DarkBackground_Ellipsis_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles DarkBackground_Ellipsis.Tapped
         Ellipsis_Close.Begin()
     End Sub
+
+
 #End Region
 End Class

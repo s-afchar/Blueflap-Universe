@@ -1,2 +1,2 @@
-MainPackage=C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\Upload\Blueflap_5.2016.413.0_x64.appx
-SymbolPackage=C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\AppPackages\Blueflap_5.2016.413.0\Blueflap_5.2016.413.0_x64.appxsym
+MainPackage=C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\bin\x64\Release\Upload\Blueflap_5.2016.421.0_x64.appx
+SymbolPackage=C:\Users\Sâm\Documents\Visual Studio 2015\Projects\Blueflap\Blueflap\AppPackages\Blueflap_5.2016.421.0\Blueflap_5.2016.421.0_x64.appxsym

@@ -190,6 +190,15 @@ Public NotInheritable Class Parametres
         Icon_Share.IsChecked = localSettings.Values("ShareIcon")
         Icon_Window.IsChecked = localSettings.Values("WindowIcon")
 
+        Try
+            If localSettings.Values("WallpaperType") = "Custom" Then 'Définit l'image de fond : image prédéfinie ou image en ligne
+                Wallpaper_Preview.Source = New BitmapImage(New Uri(localSettings.Values("WallpaperSource"), UriKind.Absolute))
+            Else
+                Wallpaper_Preview.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
+            End If
+        Catch ex As Exception
+        End Try
+
     End Sub
 #End Region
 #Region "Theme"
@@ -571,6 +580,9 @@ Public NotInheritable Class Parametres
         SaveSettings()
         Me.Frame.Navigate(GetType(MainPage))
     End Sub
+    Private Sub Buton_Customize_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Buton_Customize_Button.Tapped
+        Me.Frame.Navigate(GetType(Customization))
+    End Sub
 #End Region
 #Region "Password and security"
     Private Sub Password_SaveSettings(sender As Object, e As TappedRoutedEventArgs)
@@ -672,6 +684,8 @@ Public NotInheritable Class Parametres
         End If
 
     End Sub
+
+
 
 #End Region
 End Class

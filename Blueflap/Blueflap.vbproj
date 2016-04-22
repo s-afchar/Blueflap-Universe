@@ -20,7 +20,7 @@
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
     <PackageCertificateThumbprint>D6A0C0975F8E5573CC1AF99B0E22E9518F6CDA87</PackageCertificateThumbprint>
-    <AppxBundle>Never</AppxBundle>
+    <AppxBundle>Always</AppxBundle>
     <AppxSymbolPackageEnabled>True</AppxSymbolPackageEnabled>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
@@ -114,6 +114,7 @@
     <None Include="Blueflap_StoreKey.pfx" />
     <None Include="Package.StoreAssociation.xml" />
     <None Include="project.json" />
+    <PRIResource Include="Strings\pt-BR\Resources.resw" />
     <PRIResource Include="Strings\de\Resources.resw" />
     <PRIResource Include="Strings\hu-HU\Resources.resw" />
     <PRIResource Include="Strings\es\Resources.resw" />
@@ -177,6 +178,7 @@
     <Content Include="Assets\grumpy.png" />
     <Content Include="Assets\logo_B.png" />
     <Content Include="Assets\logo_F.png" />
+    <Content Include="Assets\MiniPlayerIcon.png" />
     <Content Include="Assets\Montagne.jpg" />
     <Content Include="Assets\Neige.jpg" />
     <Content Include="Assets\noprofilepicture.png" />
@@ -184,8 +186,22 @@
     <Content Include="Assets\promo2.png" />
     <Content Include="Assets\shadow.png" />
     <Content Include="Assets\Soleil.JPG" />
+    <Content Include="Assets\spinner.png" />
     <Content Include="Assets\surfacebook.png" />
     <Content Include="Assets\translator1.jpg" />
+    <Content Include="Assets\Wallpaper_Bird.jpg" />
+    <Content Include="Assets\Wallpaper_bokeh.jpg" />
+    <Content Include="Assets\Wallpaper_building.jpg" />
+    <Content Include="Assets\Wallpaper_Clouds.jpg" />
+    <Content Include="Assets\Wallpaper_Clouds2.jpg" />
+    <Content Include="Assets\Wallpaper_Door.jpg" />
+    <Content Include="Assets\Wallpaper_leap.jpg" />
+    <Content Include="Assets\Wallpaper_Moon.jpg" />
+    <Content Include="Assets\Wallpaper_Morning.jpg" />
+    <Content Include="Assets\Wallpaper_sky.jpg" />
+    <Content Include="Assets\Wallpaper_Street.jpg" />
+    <Content Include="Assets\Wallpaper_tree.jpg" />
+    <Content Include="Assets\Wallpaper_Wall.jpg" />
     <Content Include="Assets\WelcomeBackground.png" />
     <Content Include="Assets\welcome_code.png" />
     <Content Include="Assets\welcome_homepage.png" />
