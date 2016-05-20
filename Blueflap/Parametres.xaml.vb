@@ -384,7 +384,7 @@ Public NotInheritable Class Parametres
             localSettings.Values("A1") = "http://www.qwant.com/?q="
             localSettings.Values("A2") = ""
         ElseIf Settings_SearchEngine.SelectedIndex = 4 Then
-            localSettings.Values("A1") = "http://www.google.fr/search?q="
+            localSettings.Values("A1") = "http://www.google.com/search?q="
             localSettings.Values("A2") = ""
         ElseIf Settings_SearchEngine.SelectedIndex = 0 Then
             localSettings.Values("A1") = "http://www.bing.com/search?q="

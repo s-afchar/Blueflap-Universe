@@ -177,7 +177,7 @@ Public NotInheritable Class SearchFight
         Phone_URL.Text = AdressBox.Text
 
         If localSettings.Values("F1Text") = "GOOGLE" Then
-            W1.Navigate(New Uri("http://www.google.fr/search?q=" + localSettings.Values("textboxe")))
+            W1.Navigate(New Uri("http://www.google.com/search?q=" + localSettings.Values("textboxe")))
 
         ElseIf localSettings.Values("F1Text") = "BING" Then
             W1.Navigate(New Uri("http://www.bing.com/search?q=" + localSettings.Values("textboxe")))
@@ -216,7 +216,7 @@ Public NotInheritable Class SearchFight
 
 
         If localSettings.Values("F2Text") = "GOOGLE" Then
-            W2.Navigate(New Uri("http://www.google.fr/search?q=" + localSettings.Values("textboxe")))
+            W2.Navigate(New Uri("http://www.google.com/search?q=" + localSettings.Values("textboxe")))
 
         ElseIf localSettings.Values("F2Text") = "BING" Then
             W2.Navigate(New Uri("http://www.bing.com/search?q=" + localSettings.Values("textboxe")))
@@ -610,7 +610,7 @@ Public NotInheritable Class SearchFight
             localSettings.Values("A2") = ""
             localSettings.Values("SearchEngineIndex") = 1
         ElseIf Header1.Text = "GOOGLE" Then
-            localSettings.Values("A1") = "http://www.google.fr/search?q="
+            localSettings.Values("A1") = "http://www.google.com/search?q="
             localSettings.Values("A2") = ""
             localSettings.Values("SearchEngineIndex") = 4
         ElseIf Header1.Text = "BING" Then
@@ -675,7 +675,7 @@ Public NotInheritable Class SearchFight
             localSettings.Values("A2") = ""
             localSettings.Values("SearchEngineIndex") = 1
         ElseIf Header2.Text = "GOOGLE" Then
-            localSettings.Values("A1") = "http://www.google.fr/search?q="
+            localSettings.Values("A1") = "http://www.google.com/search?q="
             localSettings.Values("A2") = ""
             localSettings.Values("SearchEngineIndex") = 4
         ElseIf Header2.Text = "BING" Then

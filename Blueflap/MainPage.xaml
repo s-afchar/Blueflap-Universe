@@ -1017,6 +1017,48 @@
                 </DiscreteObjectKeyFrame>
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Name="MobileProgressBegin">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(RangeBase.Value)" Storyboard.TargetName="mobileloader">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:11" Value="85">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <PowerEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="mobileloader">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="0" To="0.24" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="mobileloader" d:IsOptimized="True"/>
+        </Storyboard>
+        <Storyboard x:Name="MobileProgressFinish">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="mobileloader">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.6">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(RangeBase.Value)" Storyboard.TargetName="mobileloader">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="100">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="mobileloader">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.24"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Page.Resources>
 
 
@@ -1612,7 +1654,11 @@
             <Grid x:Name="Ellipsis_Button" HorizontalAlignment="Right" Height="50" Margin="0" VerticalAlignment="Bottom" Width="50" Background="{ThemeResource ContentDialogBorderThemeBrush}" Tapped="Grid_Tapped_1">
                 <TextBlock HorizontalAlignment="Center" Margin="1,2,0,0" TextWrapping="Wrap" Text="&#xE10C;" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16"/>
             </Grid>
-            <ProgressBar x:Name="mobileloader" Height="1" Margin="0,-1,50,0" VerticalAlignment="Top" Background="{x:Null}" Value="20" IsIndeterminate="True" Visibility="Collapsed"/>
+            <ProgressBar x:Name="mobileloader" Margin="0,-1,50,0" VerticalAlignment="Stretch" Background="{x:Null}" Opacity="0.24" Value="20" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+                <ProgressBar.RenderTransform>
+                    <CompositeTransform/>
+                </ProgressBar.RenderTransform>
+            </ProgressBar>
             <Grid Height="50" Margin="50,0,100,0" VerticalAlignment="Top" Tapped="Grid_Tapped" Background="#00C7C7C7" PointerPressed="Grid_PointerPressed" PointerReleased="Grid_PointerReleased" PointerExited="Grid_PointerExited">
                 <TextBlock x:Name="Phone_URL" Margin="0,0,0,2" TextWrapping="Wrap" Text="url.com" VerticalAlignment="Center" Height="20" TextAlignment="Center" Opacity="0.775" RenderTransformOrigin="0.5,0.5">
                     <TextBlock.RenderTransform>

@@ -282,7 +282,8 @@ Public NotInheritable Class MainPage
 
     Private Sub web_NavigationStarting(sender As WebView, args As WebViewNavigationStartingEventArgs) Handles web.NavigationStarting
         loader.IsActive = True 'Les petites billes de chargement apparaissent quand une page se charge
-        mobileloader.Visibility = Visibility.Visible
+        MobileProgressFinish.Stop()
+        MobileProgressBegin.Begin()
         Favicon.Visibility = Visibility.Collapsed
         BackForward()
         RefreshEnabled.Stop()
@@ -307,7 +308,7 @@ Public NotInheritable Class MainPage
         End If
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
-        mobileloader.Visibility = Visibility.Collapsed
+        MobileProgressFinish.Begin()
 
         'Met à jour les stats dispos dans les paramètres de Blueflap
         Try
@@ -403,7 +404,7 @@ Public NotInheritable Class MainPage
         End If
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
-        mobileloader.Visibility = Visibility.Collapsed
+        MobileProgressFinish.Begin()
         SourceCode.Text = "..."
         BackForward()
         localSettings.Values("LoadPageFromBluestart") = False
@@ -559,7 +560,7 @@ Public NotInheritable Class MainPage
         End If
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
-        mobileloader.Visibility = Visibility.Collapsed
+        MobileProgressFinish.Begin()
         BackForward()
     End Sub
 
@@ -581,8 +582,17 @@ Public NotInheritable Class MainPage
 
     Private Sub OnNewWindowRequested(sender As WebView, e As WebViewNewWindowRequestedEventArgs) Handles web.NewWindowRequested
         'Force l'ouverture dans Blueflap de liens censés s'ouvrir dans une nouvelle fenêtre
-        web.Navigate(e.Uri)
-        e.Handled = True
+        If (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
+            e.Handled = True
+            Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+            localSettings.Values("LoadPageFromBluestart") = True
+            localSettings.Values("LoadPageFromBluestart_Adress") = e.Uri.ToString
+            NewWindow()
+        Else
+            web.Navigate(e.Uri)
+                e.Handled = True
+            End If
     End Sub
     Private Sub web_NavigationFailed(sender As Object, e As WebViewNavigationFailedEventArgs) Handles web.NavigationFailed
         NavigationFailed_Screen.Visibility = Visibility.Visible
@@ -611,7 +621,7 @@ Public NotInheritable Class MainPage
 
         If Not localSettings.Values("Config") = True Then
             localSettings.Values("WallpaperName") = "Degrade.png"
-            localSettings.Values("Homepage") = "http://personali.zz.mu"
+            localSettings.Values("Homepage") = "https://www.youtube.com/playlist?list=PLTpU6RJ7jTGx2zaffbccbiNq0Rd2bPsOr"
             localSettings.Values("CustomColorA") = 52
             localSettings.Values("CustomColorB") = 152
             localSettings.Values("CustomColorC") = 219
@@ -2171,7 +2181,7 @@ Public NotInheritable Class MainPage
         End If
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
-        mobileloader.Visibility = Visibility.Collapsed
+        MobileProgressFinish.Begin()
         BackForward()
     End Sub
 

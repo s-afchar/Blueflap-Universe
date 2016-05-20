@@ -60,7 +60,7 @@ Public NotInheritable Class FirstBootScreen
             localSettings.Values("A1") = "http://www.qwant.com/?q="
             localSettings.Values("A2") = ""
         ElseIf Settings_SearchEngine.SelectedIndex = 4 Then
-            localSettings.Values("A1") = "http://www.google.fr/search?q="
+            localSettings.Values("A1") = "http://www.google.com/search?q="
             localSettings.Values("A2") = ""
         ElseIf Settings_SearchEngine.SelectedIndex = 0 Then
             localSettings.Values("A1") = "http://www.bing.com/search?q="
@@ -133,7 +133,7 @@ Public NotInheritable Class FirstBootScreen
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         'Définit les valeurs du moteur de recherche tel que le navigateur navigue vers (A1 + Mots-clés + A2) = URI
 
-        localSettings.Values("A1") = "http://www.google.fr/search?q="
+        localSettings.Values("A1") = "http://www.google.com/search?q="
         localSettings.Values("A2") = ""
         localSettings.Values("SearchEngineIndex") = 4
         Try
