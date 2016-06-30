@@ -2,6 +2,11 @@
 Imports Windows.UI.Notifications
 Imports Windows.ApplicationModel.DataTransfer
 Imports Windows.UI.Xaml.Controls
+Imports Windows.ApplicationModel.Core
+Imports Windows.Data.Json
+Imports Windows.UI.Xaml.Documents
+Imports Windows.Storage
+Imports Windows.Web.Http
 ''' <summary>
 ''' Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
 ''' </summary>
@@ -11,6 +16,10 @@ Public NotInheritable Class SearchFight
     Dim PositionCurseur As String
     Dim MousePress As Boolean
     Dim resourceLoader = New Resources.ResourceLoader()
+    Dim Custom1R As String
+    Dim Custom2R As String
+    Dim Custom1L As String
+    Dim Custom2L As String
 #Region "Page Loaded"
     Private Sub Page_Loaded_1(sender As Object, e As RoutedEventArgs) Handles Page.Loaded
         AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested, AddressOf MainPage_BackRequested
@@ -118,11 +127,27 @@ Public NotInheritable Class SearchFight
         End If
 
         Ellipsis_Button.Background = rectangle.Fill
+        H1.Fill = rectangle.Fill
+        H2.Fill = rectangle.Fill
+
         If PhoneNavBar.Visibility = Visibility.Visible Then
             AdressBox.IsEnabled = False
             AdressBox.IsEnabled = True
             Resize.Visibility = Visibility.Collapsed
-            ShowPopup()
+
+            Selector_Background.Visibility = Visibility.Visible
+            Try
+                Header1.Text = localSettings.Values("F1Text")
+                Header2.Text = localSettings.Values("F2Text")
+            Catch
+                Header1.Text = "QWANT"
+                Header2.Text = "BING"
+            End Try
+            Popup_Adressbox.Text = AdressBox.Text
+            List_Right.Width = Page.ActualWidth / 2
+            List_Left.Width = Page.ActualWidth / 2
+
+            Popup_Adressbox.Focus(Windows.UI.Xaml.FocusState.Keyboard)
         End If
         Phone_URL.Text = AdressBox.PlaceholderText.ToString
     End Sub
@@ -211,6 +236,17 @@ Public NotInheritable Class SearchFight
 
         ElseIf localSettings.Values("F1Text") = "TWITTER" Then
             W1.Navigate(New Uri("http://twitter.com/search?q=" + localSettings.Values("textboxe")))
+        ElseIf localSettings.Values("F1Text").ToString.Contains("#") Then
+            Try
+                If Custom1L.Contains("http://") Or Custom1L.Contains("https://") Then
+                    W1.Navigate(New Uri(Custom1L + localSettings.Values("textboxe") + Custom2L))
+                Else
+                    W1.Navigate(New Uri("http://" + Custom1L + localSettings.Values("textboxe") + Custom2L))
+                End If
+
+            Catch
+                W1.Navigate(New Uri("about:blank"))
+            End Try
         End If
 
 
@@ -250,6 +286,17 @@ Public NotInheritable Class SearchFight
 
         ElseIf localSettings.Values("F2Text") = "TWITTER" Then
             W2.Navigate(New Uri("http://twitter.com/search?q=" + localSettings.Values("textboxe")))
+        ElseIf localSettings.Values("F2Text").ToString.Contains("#") Then
+            Try
+                If Custom1R.Contains("http://") Or Custom1R.Contains("https://") Then
+                    W2.Navigate(New Uri(Custom1R + localSettings.Values("textboxe") + Custom2R))
+                Else
+                    W2.Navigate(New Uri("http://" + Custom1R + localSettings.Values("textboxe") + Custom2R))
+                End If
+
+            Catch
+                W2.Navigate(New Uri("about:blank"))
+            End Try
         End If
 
         'Incrémentation des statistiques concernant SearchFight dans les paramètres de Blueflap
@@ -653,6 +700,13 @@ Public NotInheritable Class SearchFight
             localSettings.Values("A1") = "http://twitter.com/search?q="
             localSettings.Values("A2") = ""
             localSettings.Values("SearchEngineIndex") = 11
+        ElseIf Header1.Text.Contains("#") Then
+            localSettings.Values("Custom_SearchEngine") = True
+            localSettings.Values("A1") = Custom1L
+            localSettings.Values("A2") = Custom2L
+            localSettings.Values("Cust1") = Custom1L
+            localSettings.Values("Cust2") = Custom2L
+            localSettings.Values("SearchEngineIndex") = 12
         End If
         Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
         Dim toeastElement = notificationXml.GetElementsByTagName("text")
@@ -718,6 +772,13 @@ Public NotInheritable Class SearchFight
             localSettings.Values("A1") = "http://twitter.com/search?q="
             localSettings.Values("A2") = ""
             localSettings.Values("SearchEngineIndex") = 11
+        ElseIf Header2.Text.Contains("#") Then
+            localSettings.Values("Custom_SearchEngine") = True
+            localSettings.Values("A1") = Custom1R
+            localSettings.Values("A2") = Custom2R
+            localSettings.Values("Cust1") = Custom1R
+            localSettings.Values("Cust2") = Custom2R
+            localSettings.Values("SearchEngineIndex") = 12
         End If
         Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
         Dim toeastElement = notificationXml.GetElementsByTagName("text")
@@ -863,7 +924,6 @@ Public NotInheritable Class SearchFight
             Header1.Text = "QWANT"
             Header2.Text = "BING"
         End Try
-        Popup_Adressbox.Focus(Windows.UI.Xaml.FocusState.Keyboard)
         Popup_Adressbox.Text = AdressBox.Text
     End Sub
 
@@ -968,5 +1028,241 @@ Public NotInheritable Class SearchFight
         menu.ShowAt(MenuBut)
 
     End Sub
+#End Region
+#Region "Custom Search Engine"
+    Private Sub AddFav_Confirm_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles AddFav_Confirm.PointerEntered
+        Addfav_Background.Opacity = 0.8
+    End Sub
+
+    Private Sub AddFav_Confirm_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles AddFav_Confirm.PointerExited
+        Addfav_Background.Opacity = 1
+    End Sub
+
+    Private Sub button1_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles button1.Tapped
+        If grid1.ActualHeight > 50 Then
+            AddSE_Reduce.Begin()
+        Else
+            AddSE_Reduce.Stop()
+        End If
+    End Sub
+
+    Private Sub grid1_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles grid1.Tapped
+        If grid1.ActualHeight > 50 Then
+
+        Else
+            AddSE_Reduce.Stop()
+        End If
+    End Sub
+
+    Private Async Sub AddFav_Confirm_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles AddFav_Confirm.Tapped
+
+        If Not Add_Fav_Title.Text = "" And Not SearchEngine_1.Text = "" Then
+            Try
+                Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("CustomSearchEngine"))
+
+                Dim HistoryElem As JsonObject = New JsonObject
+                HistoryElem.Add("name", JsonValue.CreateStringValue("#" + Add_Fav_Title.Text))
+                HistoryElem.Add("url", JsonValue.CreateStringValue(SearchEngine_1.Text))
+                HistoryElem.Add("more", JsonValue.CreateStringValue(SearchEngine_2.Text))
+
+                root.Add(HistoryElem)
+                WriteJsonFile(root, "CustomSearchEngine")
+
+            Catch
+                WriteJsonFile(JsonArray.Parse("[]"), "CustomSearchEngine")
+            End Try
+        End If
+
+        Await ShowCustomSearchEngine()
+
+    End Sub
+    Private Async Function ShowCustomSearchEngine() As Task
+
+
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        Try
+            SE_Custom_List.Children.Clear()
+            Dim Json As String
+
+            Try
+                Json = Await ReadJsonFile("CustomSearchEngine")
+            Catch ex As Exception
+                Json = "[]"
+            End Try
+
+            loading.Visibility = Visibility.Visible
+            For Each histElem In JsonArray.Parse(Json).Reverse
+
+                Dim elemContainer As StackPanel = New StackPanel
+                elemContainer.Padding = New Thickness(8, 8, 0, 8)
+
+                Dim menu As MenuFlyout = New MenuFlyout
+                Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
+                menuDelete.FontFamily = New FontFamily("Segoe MDL2 Assets")
+                menuDelete.FontSize = 25
+                menuDelete.Text = ""
+                menu.Items.Add(menuDelete)
+
+
+                AddHandler elemContainer.RightTapped, New RightTappedEventHandler(Function(sender As Object, e As RightTappedRoutedEventArgs)
+                                                                                      menu.ShowAt(CType(sender, FrameworkElement))
+                                                                                  End Function)
+
+                AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                            menu.ShowAt(CType(sender, FrameworkElement))
+                                                                        End Function)
+
+                AddHandler menuDelete.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
+                                                                         Try
+                                                                             Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("CustomSearchEngine"))
+                                                                             root.Remove(root.First(Function(x) x.GetObject.GetNamedString("url") = histElem.GetObject.GetNamedString("url")))
+                                                                             WriteJsonFile(root, "CustomSearchEngine")
+                                                                             Await ShowCustomSearchEngine()
+                                                                         Catch
+                                                                         End Try
+                                                                     End Sub)
+
+                AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                            menu.ShowAt(CType(sender, FrameworkElement))
+                                                                        End Function)
+
+
+
+                AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                     elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
+                                                                                     elemContainer.BorderThickness = New Thickness(3, 0, 0, 0)
+                                                                                     elemContainer.Padding = New Thickness(5, 8, 0, 8)
+                                                                                     elemContainer.BorderBrush = rectangle.Fill
+                                                                                 End Function)
+
+                AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                    elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                                    elemContainer.BorderThickness = New Thickness(0, 0, 0, 0)
+                                                                                    elemContainer.Padding = New Thickness(8, 8, 0, 8)
+                                                                                End Function)
+
+
+
+
+                Dim SE_Name As TextBlock = New TextBlock
+                SE_Name.Text = histElem.GetObject.GetNamedString("name")
+                elemContainer.Children.Add(SE_Name)
+
+                Dim SE_URL As TextBlock = New TextBlock
+                SE_URL.Text = histElem.GetObject.GetNamedString("url")
+                SE_URL.Text = SE_URL.Text + Popup_Adressbox.Text + histElem.GetObject.GetNamedString("more")
+                SE_URL.Opacity = 0.7
+                elemContainer.Children.Add(SE_URL)
+
+                SE_Custom_List.Children.Add(elemContainer)
+
+            Next
+            loading.Visibility = Visibility.Collapsed
+        Catch ex As Exception
+        End Try
+
+    End Function
+    Private Async Sub Pivot_PivotItemLoaded(sender As Pivot, args As PivotItemEventArgs) Handles Pivot.PivotItemLoaded
+        If Pivot.SelectedIndex = 1 Then
+            Await ShowCustomSearchEngine()
+        Else
+
+
+            Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+            Try
+                CustomRight.Children.Clear()
+                CustomLeft.Children.Clear()
+
+                Dim Json As String
+
+                Try
+                    Json = Await ReadJsonFile("CustomSearchEngine")
+                Catch ex As Exception
+                    Json = "[]"
+                End Try
+
+                loading.Visibility = Visibility.Visible
+                For Each histElem In JsonArray.Parse(Json).Reverse
+
+                    Dim elemContainer As Button = New Button
+                    elemContainer.Opacity = 0.65
+                    elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 0, 0, 0))
+                    elemContainer.BorderThickness = New Thickness(2, 0, 0, 0)
+                    elemContainer.FontWeight = Google.FontWeight
+                    elemContainer.Width = Double.NaN
+                    elemContainer.Height = 40
+                    elemContainer.FontSize = 15
+                    elemContainer.HorizontalAlignment = HorizontalAlignment.Stretch
+                    AddHandler elemContainer.Tapped, New TappedEventHandler(Function(truc As Object, e As TappedRoutedEventArgs)
+                                                                                Header2.Text = histElem.GetObject.GetNamedString("name").ToUpper
+                                                                                Custom1R = histElem.GetObject.GetNamedString("url")
+                                                                                Custom2R = histElem.GetObject.GetNamedString("more")
+                                                                            End Function)
+                    elemContainer.Content = histElem.GetObject.GetNamedString("name")
+                    CustomRight.Children.Add(elemContainer)
+
+
+
+
+
+                    Dim elemContainer1 As Button = New Button
+                    elemContainer1.Opacity = 0.65
+                    elemContainer1.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 0, 0, 0))
+                    elemContainer1.BorderThickness = New Thickness(0, 0, 2, 0)
+                    elemContainer1.FontWeight = Google.FontWeight
+                    elemContainer1.Width = Double.NaN
+                    elemContainer1.HorizontalAlignment = HorizontalAlignment.Stretch
+                    elemContainer1.Height = 40
+                    elemContainer1.FontSize = 15
+                    AddHandler elemContainer1.Tapped, New TappedEventHandler(Function(truc As Object, e As TappedRoutedEventArgs)
+                                                                                 Header1.Text = histElem.GetObject.GetNamedString("name").ToUpper
+                                                                                 Custom1L = histElem.GetObject.GetNamedString("url")
+                                                                                 Custom2L = histElem.GetObject.GetNamedString("more")
+                                                                             End Function)
+                    elemContainer1.Content = histElem.GetObject.GetNamedString("name")
+                    CustomLeft.Children.Add(elemContainer1)
+                Next
+            Catch ex As Exception
+            End Try
+
+
+        End If
+    End Sub
+    Private Async Sub Button_Tapped_2(sender As Object, e As TappedRoutedEventArgs)
+        Await ShowCustomSearchEngine()
+    End Sub
+
+
+#End Region
+#Region "JsonFileManagment"
+    Private Async Sub WriteJsonFile(Json As JsonArray, FileName As String)
+        Dim localFolder As StorageFolder = ApplicationData.Current.LocalFolder
+        FileName += ".json"
+
+        Try
+            If Not Await localFolder.TryGetItemAsync(FileName) Is Nothing Then
+                Dim textfile As StorageFile = Await localFolder.GetFileAsync(FileName)
+                Await FileIO.WriteTextAsync(textfile, Json.ToString)
+            Else
+                Dim textFile As StorageFile = Await localFolder.CreateFileAsync(FileName)
+                Await FileIO.WriteTextAsync(textFile, Json.ToString)
+            End If
+        Catch
+        End Try
+
+    End Sub
+
+    Private Async Function ReadJsonFile(FileName As String) As Task(Of String)
+        Dim localFolder As StorageFolder = ApplicationData.Current.LocalFolder
+        FileName += ".json"
+        Dim content As String = Nothing
+
+        Dim textfile As StorageFile = Await localFolder.GetFileAsync(FileName)
+        content = Await FileIO.ReadTextAsync(textfile)
+        Return content
+    End Function
+
 #End Region
 End Class

@@ -364,6 +364,8 @@
     </ReservedNames>
   </ProductReservedInfo>
   <AccountPackageIdentityNames>
+    <MainPackageIdentityName>26841SmA.IMC</MainPackageIdentityName>
+    <MainPackageIdentityName>26841SmA.BlueflapBeta</MainPackageIdentityName>
     <MainPackageIdentityName>26841SmA.Bluestart</MainPackageIdentityName>
     <MainPackageIdentityName>26841SmA.DiminuTweet</MainPackageIdentityName>
   </AccountPackageIdentityNames>

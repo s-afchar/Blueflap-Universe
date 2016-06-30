@@ -508,29 +508,30 @@
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Name="PopupClose">
-            <DoubleAnimation Duration="0:0:0.2" To="-900" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="SelectionPopup" d:IsOptimized="True">
+            <DoubleAnimation Duration="0:0:0.1" To="100" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="SelectionPopup" d:IsOptimized="True">
                 <DoubleAnimation.EasingFunction>
-                    <ExponentialEase EasingMode="EaseIn"/>
+                    <QuarticEase EasingMode="EaseOut"/>
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
-            <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="SelectionPopup" d:IsOptimized="True">
+            <DoubleAnimation Duration="0:0:0.1" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="SelectionPopup" d:IsOptimized="True">
                 <DoubleAnimation.EasingFunction>
                     <QuinticEase EasingMode="EaseIn"/>
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
-            <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Selector_Background" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.1" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Selector_Background" d:IsOptimized="True"/>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Selector_Background">
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
                     <DiscreteObjectKeyFrame.Value>
                         <Visibility>Visible</Visibility>
                     </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
                     <DiscreteObjectKeyFrame.Value>
                         <Visibility>Collapsed</Visibility>
                     </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
             </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="addfavshadow" d:IsOptimized="True"/>
         </Storyboard>
         <Storyboard x:Name="ShowPopupSuggestion">
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Suggest_Copy">
@@ -586,20 +587,45 @@
             </ObjectAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Selector_Background">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <QuinticEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="SelectionPopup">
-                <EasingDoubleKeyFrame KeyTime="0" Value="800"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="100"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="addfavshadow">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.4"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="List_Right">
+                <EasingDoubleKeyFrame KeyTime="0" Value="100"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <QuinticEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="List_Left">
+                <EasingDoubleKeyFrame KeyTime="0" Value="100"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Selector_Background">
+                <EasingColorKeyFrame KeyTime="0" Value="#3F686868"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#3F686868"/>
+            </ColorAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Name="StartLoading" RepeatBehavior="Forever">
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="load_screen">
@@ -615,6 +641,113 @@
                 <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-361"/>
             </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="AddSE_Reduce">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="grid1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="40">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="0:0:0.6" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="SearchEngine_1" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.1" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="SearchEngine_2" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.1" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="searchengine3" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.1" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Add_Fav_Title" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.1" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.1" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock1" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.1" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle1" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.1" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle2" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.1" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock2" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.1" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock3" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.1" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Addfav_Background" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.1" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="AddFav_Confirm" d:IsOptimized="True"/>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="SearchEngine_1">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.6">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="SearchEngine_2">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="searchengine3">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Add_Fav_Title">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock1">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectangle1">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectangle2">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock2">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock3">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Addfav_Background">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="AddFav_Confirm">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <PointAnimation Duration="0" To="0.5,0.5" Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="button1" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0" To="-1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="button1" d:IsOptimized="True"/>
         </Storyboard>
     </Page.Resources>
 
@@ -781,7 +914,7 @@
                 </TextBox.RenderTransform>
             </TextBox>
             <TextBlock x:Name="Window_Title" HorizontalAlignment="Left" Margin="12,10,0,0" TextWrapping="Wrap" Text="SEARCHFIGHT" VerticalAlignment="Top" Opacity="0.295" FontSize="12"/>
-            <Button x:Name="Fight_Butt" Content="&#xE11A;" HorizontalAlignment="Left" Height="32" Margin="229,39,0,0" VerticalAlignment="Top" Width="32" BorderBrush="#66000000" BorderThickness="1" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="13.333" RenderTransformOrigin="0.5,0.5">
+            <Button x:Name="Fight_Butt" Content="&#xE11A;" HorizontalAlignment="Left" Height="32" Margin="229,39,0,0" VerticalAlignment="Top" Width="32" BorderBrush="{ThemeResource BackButtonDisabledForegroundThemeBrush}" BorderThickness="1" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="13.333" RenderTransformOrigin="0.5,0.5">
                 <Button.RenderTransform>
                     <CompositeTransform/>
                 </Button.RenderTransform>
@@ -895,65 +1028,163 @@
             </TextBlock>
         </Grid>
         <Grid x:Name="Selector_Background" Margin="0" Background="#3F000000" Visibility="Collapsed">
-            <Rectangle x:Name="Close" Fill="#00000000" Margin="0" Stroke="Black" StrokeThickness="0"/>
-            <Grid x:Name="SelectionPopup" HorizontalAlignment="Center" Margin="0,30" Width="600" Background="{ThemeResource AppBarItemPressedForegroundThemeBrush}" CornerRadius="3" RenderTransformOrigin="0.5,0.5" RequestedTheme="Light">
+            <Grid x:Name="addfavshadow" Margin="0,6,0,0" Opacity="0.3" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Width="650">
                 <Grid.RenderTransform>
                     <CompositeTransform/>
                 </Grid.RenderTransform>
-                <Rectangle Margin="0" StrokeThickness="3" Fill="#33FFFFFF" RadiusX="2" RadiusY="2"/>
-                <Rectangle Fill="Black" HorizontalAlignment="Center" Margin="0,20,0,90" Stroke="Black" Width="1" StrokeThickness="0" Opacity="0.4"/>
-                <Ellipse Fill="{ThemeResource AppBarBackgroundThemeBrush}" HorizontalAlignment="Center" Height="30" Margin="285,25,285,0" StrokeThickness="3" VerticalAlignment="Top" Width="30"/>
-                <Ellipse Fill="{ThemeResource AppBarBorderThemeBrush}" HorizontalAlignment="Center" Height="30" Margin="0,25,0,0" Stroke="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" StrokeThickness="3" VerticalAlignment="Top" Width="30" Opacity="0.6"/>
-                <TextBlock HorizontalAlignment="Center" Margin="0,32,0,0" TextWrapping="Wrap" Text="VS" VerticalAlignment="Top" FontSize="12"/>
+                <Image HorizontalAlignment="Left" Height="73" Margin="0" VerticalAlignment="Bottom" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image HorizontalAlignment="Right" Height="73" Margin="0" VerticalAlignment="Bottom" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <CompositeTransform/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image HorizontalAlignment="Left" Height="100" Margin="0" VerticalAlignment="Top" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleY="-1" ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image HorizontalAlignment="Right" Height="100" Margin="0" VerticalAlignment="Top" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleY="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Height="73" Margin="100,0" VerticalAlignment="Bottom" Source="Assets/shadowline.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Margin="0,73" Source="Assets/shadowlineright.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" HorizontalAlignment="Left" Width="100">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Margin="0,73" Source="Assets/shadowlineright.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" HorizontalAlignment="Right" Width="100">
+                    <Image.RenderTransform>
+                        <CompositeTransform/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Height="73" Margin="100,0" VerticalAlignment="Top" Source="Assets/shadowline.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleY="-1" ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+            </Grid>
+            <Rectangle x:Name="Close" Fill="#00000000" Margin="0" Stroke="Black" StrokeThickness="0"/>
+            <Grid x:Name="SelectionPopup" HorizontalAlignment="Center" Margin="0,30" Width="600" Background="{ThemeResource AppBarItemPressedForegroundThemeBrush}" CornerRadius="2" RenderTransformOrigin="0.5,0.5" RequestedTheme="Light">
+                <Grid.RenderTransform>
+                    <CompositeTransform/>
+                </Grid.RenderTransform>
+                <Rectangle Margin="0" StrokeThickness="3" Fill="#21FFFFFF" RadiusX="2" RadiusY="2"/>
+                <Rectangle x:Name="H1" Fill="{ThemeResource ContentDialogBorderThemeBrush}" Height="55" Margin="0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" RadiusX="2" RadiusY="2"/>
+                <Rectangle x:Name="H2" Fill="{ThemeResource ContentDialogBorderThemeBrush}" Height="50" Margin="0,5,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top"/>
+                <Pivot x:Name="Pivot" Title="" Margin="0,-23,0,60">
+                    <Pivot.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}"  RequestedTheme="Dark" FontSize="14" FontWeight="SemiBold"/>
+                        </DataTemplate>
+                    </Pivot.HeaderTemplate>
+                    <PivotItem x:Uid="SearchFight_Choose" Header="   SEARCH FIGHT" Margin="0">
+                        <Grid Margin="0">
+                            <Rectangle Fill="Black" HorizontalAlignment="Center" Margin="0,20" Stroke="Black" Width="1" StrokeThickness="0" Opacity="0.4"/>
+                            <Ellipse Fill="{ThemeResource AppBarBackgroundThemeBrush}" HorizontalAlignment="Center" Height="26" Margin="0,27,0,0" StrokeThickness="3" VerticalAlignment="Top" Width="26"/>
+                            <Ellipse Fill="{ThemeResource AppBarBorderThemeBrush}" HorizontalAlignment="Center" Height="26" Margin="0,27,0,0" Stroke="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" StrokeThickness="2.5" VerticalAlignment="Top" Width="26" Opacity="0.6"/>
+                            <TextBlock HorizontalAlignment="Center" Margin="0,32,0,0" TextWrapping="Wrap" Text="VS" VerticalAlignment="Top" FontSize="12"/>
+                            <Grid x:Name="List_Right" HorizontalAlignment="Right" Margin="0" Width="250" RenderTransformOrigin="0.5,0.5">
+                                <Grid.RenderTransform>
+                                    <CompositeTransform/>
+                                </Grid.RenderTransform>
+                                <TextBlock x:Name="Header2" HorizontalAlignment="Center" Margin="0,24,0,0" TextWrapping="Wrap" Text="BING" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Opacity="0.9"/>
+                                <ScrollViewer Margin="0,62,0,0" VerticalScrollBarVisibility="Auto">
+                                    <StackPanel>
+                                        <StackPanel>
+                                            <Button x:Name="Bing" Content="Bing" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button x:Name="Qwant" Content="Qwant" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button x:Name="DuckDuckGo" Content="DuckDuckGo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button  x:Name="Yahoo" Content="Yahoo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button  x:Name="Google" Content="Google" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button x:Name="Qwant_W"  Content="Qwant (Web)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button x:Name="Ask"  Content="Ask" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button x:Name="Youtube"  Content="YouTube" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button x:Name="Vimeo"  Content="Vimeo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button  x:Name="Dailymotion" Content="Dailymotion" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button  x:Name="Wiki" Content="Wikipedia" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button  x:Name="Twitter" Content="Twitter" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                        </StackPanel>
+                                        <StackPanel x:Name="CustomRight"/>
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </Grid>
+                            <Grid x:Name="List_Left" HorizontalAlignment="Left" Margin="0" Width="250" RenderTransformOrigin="0.5,0.5">
+                                <Grid.RenderTransform>
+                                    <CompositeTransform/>
+                                </Grid.RenderTransform>
+                                <TextBlock x:Name="Header1" HorizontalAlignment="Center" Margin="0,24,0,0" TextWrapping="Wrap" Text="BING" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Opacity="0.9"/>
+                                <ScrollViewer Margin="0,62,0,0" VerticalScrollBarVisibility="Auto">
+                                    <StackPanel>
+                                        <StackPanel>
+                                            <Button x:Name="Bing1" Content="Bing" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button x:Name="Qwant1" Content="Qwant" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button x:Name="DuckDuckGo1" Content="DuckDuckGo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button  x:Name="Yahoo1" Content="Yahoo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button  x:Name="Google1" Content="Google" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button x:Name="Qwant_W1"  Content="Qwant (Web)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button x:Name="Ask1"  Content="Ask" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button x:Name="Youtube1"  Content="YouTube" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button x:Name="Vimeo1"  Content="Vimeo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button  x:Name="Dailymotion1" Content="Dailymotion" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button  x:Name="Wiki1" Content="Wikipedia" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                            <Button  x:Name="Twitter1" Content="Twitter" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
+                                        </StackPanel>
+                                        <StackPanel x:Name="CustomLeft"/>
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </Grid>
+                        </Grid>
+                    </PivotItem>
+                    <PivotItem  x:Uid="Settings_personalization" Header="Personnalisation" Margin="0">
+                        <Grid>
+                            <ScrollViewer Margin="0,3,0,0" VerticalScrollBarVisibility="Auto">
+                                <StackPanel>
+                                    <Grid x:Name="grid1" Height="289" Background="#19838383">
+                                        <TextBox x:Name="SearchEngine_1" Text="" VerticalAlignment="Top" Height="33" x:Uid="Settings_searchengineex1" PlaceholderText="Exemple : &quot;https://www.qwant.com/?q=&quot;" FontSize="16" Margin="10,98,10,0" BorderThickness="1"/>
+                                        <TextBox x:Name="SearchEngine_2" Text="" VerticalAlignment="Top" Height="33" x:Uid="Settings_searchengineex2" PlaceholderText="Ex : &quot;&amp;t=web&quot;" FontSize="16" Margin="10,190,10,0" BorderThickness="1"/>
+                                        <TextBlock x:Name="searchengine3" TextWrapping="Wrap" Text="mots-clés" VerticalAlignment="Top" Foreground="#FF898989" Margin="10,149,10,0" TextAlignment="Center"/>
+                                        <TextBox x:Uid="NamePlaceholder" x:Name="Add_Fav_Title" Margin="10,30,10,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" PlaceholderText="Nom" BorderThickness="1"/>
+                                        <TextBlock x:Name="textBlock"  x:Uid="Name" HorizontalAlignment="Left" Margin="10,12,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" FontSize="12"/>
+                                        <TextBlock x:Name="textBlock1"   HorizontalAlignment="Left" Margin="10,78,0,0" TextWrapping="Wrap" Text="URL" VerticalAlignment="Top" FontSize="12"/>
+                                        <Rectangle x:Name="rectangle1" HorizontalAlignment="Left" Height="53" Margin="0,12,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="3" Fill="{ThemeResource ContentDialogBorderThemeBrush}"/>
+                                        <Rectangle x:Name="rectangle2" HorizontalAlignment="Left" Height="149" Margin="0,78,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="3" Fill="{ThemeResource ContentDialogBorderThemeBrush}"/>
+                                        <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Text="+" VerticalAlignment="Top" Foreground="#FF898989" Margin="10,133,10,0" TextAlignment="Center"/>
+                                        <TextBlock x:Name="textBlock3" TextWrapping="Wrap" Text="+" VerticalAlignment="Top" Foreground="#FF898989" Margin="10,167,10,0" TextAlignment="Center"/>
+                                        <Rectangle x:Name="Addfav_Background" Fill="{ThemeResource ContentDialogBorderThemeBrush}" HorizontalAlignment="Center" Height="37" Margin="0,0,0,11" VerticalAlignment="Bottom" Width="92" RadiusY="18.5" RadiusX="18.5"/>
+                                        <Button x:Uid="Add" x:Name="AddFav_Confirm" Content="Ajouter" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Foreground="White" BorderBrush="#33000000" BorderThickness="0" Height="40" Width="94" RequestedTheme="Dark" Background="#000078D7"/>
+                                        <Button x:Name="button1" Content="&#xE010;" HorizontalAlignment="Right" Margin="0,0,5,0" VerticalAlignment="Bottom" Width="40" Height="40" Background="#00000000" FontFamily="Segoe MDL2 Assets">
+                                            <Button.RenderTransform>
+                                                <CompositeTransform/>
+                                            </Button.RenderTransform>
+                                        </Button>
+                                    </Grid>
+                                    <Grid x:Name="loading" Height="50" Background="#00838383" Visibility="Collapsed">
+                                        <ProgressBar Height="4" Margin="10,0,70,0" VerticalAlignment="Center" Foreground="#FF787878" Background="{x:Null}" IsIndeterminate="True"/>
+                                        <Button Content="&#xE1CD;" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Stretch" Background="#00000000" Width="50" FontFamily="Segoe MDL2 Assets" Tapped="Button_Tapped_2"/>
+                                    </Grid>
+                                    <StackPanel x:Name="SE_Custom_List"/>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Grid>
+                    </PivotItem>
+                </Pivot>
                 <Grid Height="60" Margin="0" VerticalAlignment="Bottom" CornerRadius="2" Background="#26858585">
-                    <TextBox x:Name="Popup_Adressbox" x:Uid="FightTextbox" Margin="20,0,52,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" BorderThickness="1" KeyDown="TextBox_KeyDown"/>
-                    <Button Content="&#xE11A;" HorizontalAlignment="Right" Height="32" Margin="0,0,20,0" VerticalAlignment="Center" Width="32" BorderBrush="#66000000" BorderThickness="1" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="13.333" RenderTransformOrigin="0.5,0.5" Tapped="Button_Tapped_1">
+                    <TextBox x:Name="Popup_Adressbox" x:Uid="FightTextbox" Margin="20,0,49,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" BorderThickness="1" KeyDown="TextBox_KeyDown"/>
+                    <Button Content="&#xE11A;" HorizontalAlignment="Right" Height="32" Margin="0,0,20,0" VerticalAlignment="Center" Width="32" BorderBrush="{ThemeResource BackButtonDisabledForegroundThemeBrush}" BorderThickness="1" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="13.333" RenderTransformOrigin="0.5,0.5" Tapped="Button_Tapped_1">
                         <Button.RenderTransform>
                             <CompositeTransform/>
                         </Button.RenderTransform>
                     </Button>
-                </Grid>
-                <Grid x:Name="List_Right" HorizontalAlignment="Right" Margin="0,0,0,60" Width="250">
-                    <TextBlock x:Name="Header2" HorizontalAlignment="Center" Margin="0,24,0,0" TextWrapping="Wrap" Text="BING" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Opacity="0.9"/>
-                    <ScrollViewer Margin="0,62,0,0" VerticalScrollBarVisibility="Auto">
-                        <StackPanel>
-                            <StackPanel>
-                                <Button x:Name="Bing" Content="Bing" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button x:Name="Qwant" Content="Qwant" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button x:Name="DuckDuckGo" Content="DuckDuckGo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button  x:Name="Yahoo" Content="Yahoo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button  x:Name="Google" Content="Google" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button x:Name="Qwant_W"  Content="Qwant (Web)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button x:Name="Ask"  Content="Ask" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button x:Name="Youtube"  Content="YouTube" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button x:Name="Vimeo"  Content="Vimeo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button  x:Name="Dailymotion" Content="Dailymotion" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button  x:Name="Wiki" Content="Wikipedia" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button  x:Name="Twitter" Content="Twitter" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </ScrollViewer>
-                </Grid>
-                <Grid x:Name="List_Left" HorizontalAlignment="Left" Margin="0,0,0,60" Width="250">
-                    <TextBlock x:Name="Header1" HorizontalAlignment="Center" Margin="0,24,0,0" TextWrapping="Wrap" Text="BING" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Opacity="0.9"/>
-                    <ScrollViewer Margin="0,62,0,0" VerticalScrollBarVisibility="Auto">
-                        <StackPanel>
-                            <StackPanel>
-                                <Button x:Name="Bing1" Content="Bing" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button x:Name="Qwant1" Content="Qwant" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button x:Name="DuckDuckGo1" Content="DuckDuckGo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button  x:Name="Yahoo1" Content="Yahoo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button  x:Name="Google1" Content="Google" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button x:Name="Qwant_W1"  Content="Qwant (Web)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button x:Name="Ask1"  Content="Ask" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button x:Name="Youtube1"  Content="YouTube" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button x:Name="Vimeo1"  Content="Vimeo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button  x:Name="Dailymotion1" Content="Dailymotion" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button  x:Name="Wiki1" Content="Wikipedia" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                                <Button  x:Name="Twitter1" Content="Twitter" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,2,0" Background="#00000000" Height="40" FontWeight="SemiBold" Opacity="0.65"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </ScrollViewer>
                 </Grid>
                 <Grid x:Name="Suggest_Copy" Height="48" Margin="20,0,20,52" VerticalAlignment="Bottom" BorderBrush="{ThemeResource ContentDialogBorderThemeBrush}" Background="White" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
                     <Grid.RenderTransform>

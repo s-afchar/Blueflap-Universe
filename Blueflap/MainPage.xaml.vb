@@ -22,6 +22,7 @@ Public NotInheritable Class MainPage
     Dim OpenSearch_A2 As String
     Dim resourceLoader = New Resources.ResourceLoader()
     Dim favs_tagsearch As Boolean
+    Dim AdressBoxEditing As Boolean
 
 
 #Region "HardwareBackButton"
@@ -35,7 +36,7 @@ Public NotInheritable Class MainPage
         'Appui sur la touche retour "physique" d'un appareil Windows
 
         e.Handled = True
-        If web.CanGoBack And MemoPanel.Visibility = Visibility.Collapsed And Ellipsis.Visibility = Visibility.Collapsed And AddFavView.Visibility = Visibility.Collapsed Then
+        If web.CanGoBack And MemoPanel.Visibility = Visibility.Collapsed And Ellipsis.Visibility = Visibility.Collapsed And AddFavView.Visibility = Visibility.Collapsed And Not MiniPlayer_Background.VerticalAlignment = VerticalAlignment.Stretch Then
             web.GoBack()
         ElseIf MemoPanel.Visibility = Visibility.Visible And Ellipsis.Visibility = Visibility.Collapsed And AddFavView.Visibility = Visibility.Collapsed Then
             MemoPopOut.Begin()
@@ -43,6 +44,8 @@ Public NotInheritable Class MainPage
             Ellipsis_Close.Begin()
         ElseIf AddFavView.Visibility = Visibility.Visible And Ellipsis.Visibility = Visibility.Collapsed Then
             AddFav_PopUp_Close.Begin()
+        ElseIf MiniPlayer_Background.VerticalAlignment = VerticalAlignment.Stretch Then
+            ReduceMiniPlayer()
         End If
     End Sub
 #End Region
@@ -284,6 +287,8 @@ Public NotInheritable Class MainPage
         loader.IsActive = True 'Les petites billes de chargement apparaissent quand une page se charge
         MobileProgressFinish.Stop()
         MobileProgressBegin.Begin()
+        PCProgressFinish.Stop()
+        PCProgressBegin.Begin()
         Favicon.Visibility = Visibility.Collapsed
         BackForward()
         RefreshEnabled.Stop()
@@ -309,6 +314,7 @@ Public NotInheritable Class MainPage
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
         MobileProgressFinish.Begin()
+        PCProgressFinish.Begin()
 
         'Met à jour les stats dispos dans les paramètres de Blueflap
         Try
@@ -405,6 +411,7 @@ Public NotInheritable Class MainPage
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
         MobileProgressFinish.Begin()
+        PCProgressFinish.Begin()
         SourceCode.Text = "..."
         BackForward()
         localSettings.Values("LoadPageFromBluestart") = False
@@ -561,6 +568,7 @@ Public NotInheritable Class MainPage
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
         MobileProgressFinish.Begin()
+        PCProgressFinish.Begin()
         BackForward()
     End Sub
 
@@ -591,8 +599,8 @@ Public NotInheritable Class MainPage
             NewWindow()
         Else
             web.Navigate(e.Uri)
-                e.Handled = True
-            End If
+            e.Handled = True
+        End If
     End Sub
     Private Sub web_NavigationFailed(sender As Object, e As WebViewNavigationFailedEventArgs) Handles web.NavigationFailed
         NavigationFailed_Screen.Visibility = Visibility.Visible
@@ -603,14 +611,25 @@ Public NotInheritable Class MainPage
         If web.ContainsFullScreenElement Then
             Dim appView = ApplicationView.GetForCurrentView
             appView.TryEnterFullScreenMode()
-            Enterfullscreen.Begin()
-            EchapFullScreen.Begin()
+            If (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
+                webcontainer.Margin = New Thickness(0, 0, 0, 0)
+                Enterfullscreen_Mobile.Begin()
+            Else
+                Enterfullscreen.Begin()
+                EchapFullScreen.Begin()
+            End If
+
 
         Else
             Dim appView = ApplicationView.GetForCurrentView
             appView.ExitFullScreenMode()
-            Enterfullscreen.Stop()
-            EchapFullScreen.Stop()
+            If (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
+                Enterfullscreen_Mobile.Stop()
+                webcontainer.Margin = New Thickness(0, 0, 0, 50)
+            Else
+                Enterfullscreen.Stop()
+                EchapFullScreen.Stop()
+            End If
 
         End If
     End Sub
@@ -836,6 +855,7 @@ Public NotInheritable Class MainPage
                         If web.Source.ToString.Contains("vimeo.com/0") Or web.Source.ToString.Contains("vimeo.com/1") Or web.Source.ToString.Contains("vimeo.com/2") Or web.Source.ToString.Contains("vimeo.com/3") Or web.Source.ToString.Contains("vimeo.com/4") Or web.Source.ToString.Contains("vimeo.com/5") Or web.Source.ToString.Contains("vimeo.com/6") Or web.Source.ToString.Contains("vimeo.com/7") Or web.Source.ToString.Contains("vimeo.com/8") Or web.Source.ToString.Contains("vimeo.com/9") Then
                             Notif_MiniPlayer.Visibility = Visibility.Visible
                             ShowMiniPlayerIcon.Begin()
+                            Notif_Home.Visibility = Visibility.Collapsed
                         Else
                             Notifications_Counter.Text = Notifications_Counter.Text - 1
                             Notif_MiniPlayer.Visibility = Visibility.Collapsed
@@ -946,6 +966,7 @@ Public NotInheritable Class MainPage
 
                 Notif_Home.Visibility = Visibility.Collapsed
                 Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
+
                 Notification()
 
                 name = name.Replace("Ã©", "É")
@@ -1237,7 +1258,11 @@ Public NotInheritable Class MainPage
 
                 Dim tags As JsonArray = JsonArray.Parse("[]")
 
-                For Each favTag As String In Add_Fav_Tags.Text.Split(New String() {", "}, StringSplitOptions.None)
+                Add_Fav_Tags.Text = Add_Fav_Tags.Text.Replace(" , ", ",")
+                Add_Fav_Tags.Text = Add_Fav_Tags.Text.Replace(", ", ",")
+                Add_Fav_Tags.Text = Add_Fav_Tags.Text.ToLower
+
+                For Each favTag As String In Add_Fav_Tags.Text.Split(New String() {","}, StringSplitOptions.None)
                     tags.Add(JsonValue.CreateStringValue(favTag))
                 Next
 
@@ -1318,6 +1343,13 @@ Public NotInheritable Class MainPage
     Private Sub AddFav_Cancel_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles AddFav_Cancel.Tapped
         AddFav_PopUp_Close.Begin()
     End Sub
+    Private Sub AddFav_Confirm_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles AddFav_Confirm.PointerEntered
+        Addfav_Background.Opacity = 0.8
+    End Sub
+
+    Private Sub AddFav_Confirm_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles AddFav_Confirm.PointerExited
+        Addfav_Background.Opacity = 1
+    End Sub
 #End Region
 #Region "Share/Source code Menu"
     Private Sub Fight_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Fight_Button.Tapped
@@ -1357,6 +1389,7 @@ Public NotInheritable Class MainPage
     End Sub
     Private Sub Web_Share_Share_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Web_Share_Share.Tapped
         Windows.ApplicationModel.DataTransfer.DataTransferManager.ShowShareUI()
+        Sharing.Begin()
     End Sub
 
     Private Async Sub Web_Share_Source_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Web_Share_Source.Tapped
@@ -1382,7 +1415,10 @@ Public NotInheritable Class MainPage
 #End Region
 #Region "SmartSuggest"
     Private Sub AdressBox_GotFocus(sender As Object, e As RoutedEventArgs) Handles AdressBox.GotFocus
+        AdressBoxEditing = True
         LikePageButton.Visibility = Visibility.Collapsed
+        SmartSuggest.Background = Adressbar.Background
+        History_Suggestions.Background = SmartSuggest.Background
         Try
             AdressBox.Text = web.Source.ToString
             Titlebox.Text = web.DocumentTitle
@@ -1454,6 +1490,7 @@ Public NotInheritable Class MainPage
             SmartSuggest.Visibility = Visibility.Collapsed
         End If
         DarkBackground.Visibility = Visibility.Collapsed
+        AdressBoxEditing = False
     End Sub
 
     Private Sub SmartSuggest_LastOne_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles SmartSuggest_LastOne.PointerEntered
@@ -1535,143 +1572,170 @@ Public NotInheritable Class MainPage
         End If
         SmartSuggest_Search_Text.Text = s
 
-        If (AdressBox.Text.Contains(".") = True And AdressBox.Text.Contains(" ") = False And AdressBox.Text.Contains(" .") = False And AdressBox.Text.Contains(". ") = False) Or textArray(0).Contains(":/") = True Or textArray(0).Contains(":\") Then
-            SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(20, 52, 152, 213))
-            SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-            If SmartSuggest.Height < 138 Then
-                ExpandSuggestions.Begin()
-            End If
-        ElseIf AdressBox.Text = "" Then
-            SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-            SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-            HideSuggestions.Begin()
-        Else
-            SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(20, 52, 152, 213))
-            SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-            If SmartSuggest.Height < 138 Then
-                ExpandSuggestions.Begin()
-            End If
-        End If
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         Try
-            ItemCount = 0
-            SmartSuggest_Histo()
-        Catch
-        End Try
-    End Sub
-    Private Async Sub SmartSuggest_Histo()
-        History_Suggestions.Background = SmartSuggest.Background
-        SmartSuggest_History.Children.Clear()
-        Dim Json As String
-        Dim PreventMultipleSameItems As New HashSet(Of String)()
-
-        Try
-            Json = Await ReadJsonFile("Favorites")
-        Catch ex As Exception
-            Json = "[]"
-        End Try
-
-        For Each histElem In JsonArray.Parse(Json).Reverse
-            Dim elemContainer As StackPanel = New StackPanel
-            elemContainer.Padding = New Thickness(34, 8, 0, 8)
-            AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
-                                                                        web.Navigate(New Uri(histElem.GetObject.GetNamedString("url")))
-                                                                    End Function)
-            If PhoneNavBar.Visibility = Visibility.Collapsed Then
-                AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                     elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
-                                                                                 End Function)
-
-                AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                    elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-                                                                                End Function)
-
-            End If
-            Dim elemText As TextBlock = New TextBlock
-            elemText.Text = histElem.GetObject.GetNamedString("title")
-            elemText.Foreground = SmartSuggest_Search_Text.Foreground
-            elemContainer.Children.Add(elemText)
-
-            Dim UrlText As TextBlock = New TextBlock
-            UrlText.Text = histElem.GetObject.GetNamedString("url")
-            UrlText.Foreground = LeftMenu.Background
-            elemContainer.Children.Add(UrlText)
-
-
-
-            If Not PreventMultipleSameItems.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
-                If histElem.GetObject.GetNamedString("title").ToLower.Contains(AdressBox.Text.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(AdressBox.Text.ToLower) Then
-                    SmartSuggest_History.Children.Add(elemContainer)
-
-                    ItemCount = ItemCount + 1
-                End If
-            End If
-
-            PreventMultipleSameItems.Add(histElem.GetObject.GetNamedString("url").ToLower)
-
-        Next
-
-        Try
-            Json = Await ReadJsonFile("History")
-        Catch ex As Exception
-            Json = "[]"
-        End Try
-
-        Try
-            For Each histElem In JsonArray.Parse(Json).Reverse
-                Dim elemContainer As StackPanel = New StackPanel
-                elemContainer.Padding = New Thickness(34, 8, 0, 8)
-                AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
-                                                                            web.Navigate(New Uri(histElem.GetObject.GetNamedString("url")))
-                                                                        End Function)
-
-                If PhoneNavBar.Visibility = Visibility.Collapsed Then
-                    AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                         elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
-                                                                                     End Function)
-
-                    AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                        elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-                                                                                    End Function)
-
-                End If
-                Dim elemText As TextBlock = New TextBlock
-                elemText.Text = histElem.GetObject.GetNamedString("title")
-                elemText.Foreground = SmartSuggest_Search_Text.Foreground
-                elemContainer.Children.Add(elemText)
-
-                Dim UrlText As TextBlock = New TextBlock
-                UrlText.Text = histElem.GetObject.GetNamedString("url")
-                UrlText.Foreground = LeftMenu.Background
-                elemContainer.Children.Add(UrlText)
-
-
-
-                If Not PreventMultipleSameItems.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
-                    If histElem.GetObject.GetNamedString("title").ToLower.Contains(AdressBox.Text.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(AdressBox.Text.ToLower) Then
-                        SmartSuggest_History.Children.Add(elemContainer)
-
-                        ItemCount = ItemCount + 1
+            If localSettings.Values("SmartSuggest") = True Then
+                If (AdressBox.Text.Contains(".") = True And AdressBox.Text.Contains(" ") = False And AdressBox.Text.Contains(" .") = False And AdressBox.Text.Contains(". ") = False) Or textArray(0).Contains(":/") = True Or textArray(0).Contains(":\") Then
+                    SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(20, 52, 152, 213))
+                    SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                    If SmartSuggest.Height < 138 Then
+                        ExpandSuggestions.Begin()
+                    End If
+                ElseIf AdressBox.Text = "" Then
+                    SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                    SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                    HideSuggestions.Begin()
+                Else
+                    SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(20, 52, 152, 213))
+                    SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                    If SmartSuggest.Height < 138 Then
+                        ExpandSuggestions.Begin()
                     End If
                 End If
-
-                PreventMultipleSameItems.Add(histElem.GetObject.GetNamedString("url").ToLower)
-
-            Next
-
-            If ItemCount = 0 Then
-                History_Suggestions.Height = 0
-                SmartSuggest.Height = 138
-            ElseIf ItemCount = 1 Then
-                History_Suggestions.Height = 56
-                SmartSuggest.Height = 194
-            ElseIf ItemCount = 2 Then
-                History_Suggestions.Height = 112
-                SmartSuggest.Height = 250
-            ElseIf ItemCount > 2 Then
-                History_Suggestions.Height = 168
-                SmartSuggest.Height = 306
+                Try
+                    ItemCount = 0
+                    SmartSuggest_Histo()
+                Catch
+                End Try
             End If
-        Catch
+        Catch ex As Exception
+        End Try
+
+
+    End Sub
+    Private Async Sub SmartSuggest_Histo()
+
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        Try
+            If localSettings.Values("SmartSuggest") = True Then
+
+
+
+                History_Suggestions.Background = SmartSuggest.Background
+                SmartSuggest_History.Children.Clear()
+                Dim Json As String
+                Dim PreventMultipleSameItems As New HashSet(Of String)()
+
+                Try
+                    Json = Await ReadJsonFile("Favorites")
+                Catch ex As Exception
+                    Json = "[]"
+                End Try
+
+                For Each histElem In JsonArray.Parse(Json).Reverse
+                    Dim elemContainer As StackPanel = New StackPanel
+                    elemContainer.Padding = New Thickness(34, 8, 0, 8)
+                    AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                                web.Navigate(New Uri(histElem.GetObject.GetNamedString("url")))
+                                                                            End Function)
+                    If PhoneNavBar.Visibility = Visibility.Collapsed Then
+                        AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                             elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
+                                                                                         End Function)
+
+                        AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                            elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                                        End Function)
+
+                    End If
+                    Dim elemText As TextBlock = New TextBlock
+                    elemText.Text = histElem.GetObject.GetNamedString("title")
+                    elemText.Foreground = SmartSuggest_Search_Text.Foreground
+                    elemContainer.Children.Add(elemText)
+
+                    Dim UrlText As TextBlock = New TextBlock
+                    UrlText.Text = histElem.GetObject.GetNamedString("url")
+                    UrlText.Foreground = LeftMenu.Background
+                    elemContainer.Children.Add(UrlText)
+
+
+
+                    If Not PreventMultipleSameItems.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
+                        If histElem.GetObject.GetNamedString("title").ToLower.Contains(AdressBox.Text.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(AdressBox.Text.ToLower) Then
+                            SmartSuggest_History.Children.Add(elemContainer)
+
+                            ItemCount = ItemCount + 1
+                        End If
+                    End If
+
+                    PreventMultipleSameItems.Add(histElem.GetObject.GetNamedString("url").ToLower)
+
+                Next
+
+                Try
+                    Json = Await ReadJsonFile("History")
+                Catch ex As Exception
+                    Json = "[]"
+                End Try
+
+                Try
+                    For Each histElem In JsonArray.Parse(Json).Reverse
+                        Dim elemContainer As StackPanel = New StackPanel
+                        elemContainer.Padding = New Thickness(34, 8, 0, 8)
+                        AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                                    web.Navigate(New Uri(histElem.GetObject.GetNamedString("url")))
+                                                                                End Function)
+
+                        If PhoneNavBar.Visibility = Visibility.Collapsed Then
+                            AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                                 elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
+                                                                                             End Function)
+
+                            AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                                            End Function)
+
+                        End If
+                        Dim elemText As TextBlock = New TextBlock
+                        elemText.Text = histElem.GetObject.GetNamedString("title")
+                        elemText.Foreground = SmartSuggest_Search_Text.Foreground
+                        elemContainer.Children.Add(elemText)
+
+                        Dim UrlText As TextBlock = New TextBlock
+                        UrlText.Text = histElem.GetObject.GetNamedString("url")
+                        UrlText.Foreground = LeftMenu.Background
+                        elemContainer.Children.Add(UrlText)
+
+
+
+                        If Not PreventMultipleSameItems.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
+                            If histElem.GetObject.GetNamedString("title").ToLower.Contains(AdressBox.Text.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(AdressBox.Text.ToLower) Then
+                                SmartSuggest_History.Children.Add(elemContainer)
+
+                                ItemCount = ItemCount + 1
+                            End If
+                        End If
+
+                        PreventMultipleSameItems.Add(histElem.GetObject.GetNamedString("url").ToLower)
+
+                    Next
+
+                    If ItemCount = 0 Then
+                        History_Suggestions.Height = 0 + 138
+                        SmartSuggest.Height = 138
+                        SmartSuggest_HeartIcon.Visibility = Visibility.Collapsed
+                        SmartSuggest_History.Visibility = Visibility.Collapsed
+                    ElseIf ItemCount = 1 Then
+                        History_Suggestions.Height = 56 + 138
+                        SmartSuggest.Height = 194
+                        SmartSuggest_HeartIcon.Visibility = Visibility.Visible
+                        SmartSuggest_History.Visibility = Visibility.Visible
+                    ElseIf ItemCount = 2 Then
+                        History_Suggestions.Height = 112 + 138
+                        SmartSuggest.Height = 250
+                        SmartSuggest_HeartIcon.Visibility = Visibility.Visible
+                        SmartSuggest_History.Visibility = Visibility.Visible
+                    ElseIf ItemCount > 2 Then
+                        History_Suggestions.Height = 168 + 138
+                        SmartSuggest.Height = 306
+                        SmartSuggest_HeartIcon.Visibility = Visibility.Visible
+                        SmartSuggest_History.Visibility = Visibility.Visible
+                    End If
+                Catch
+                End Try
+
+            End If
+        Catch ex As Exception
         End Try
     End Sub
 #End Region
@@ -1710,38 +1774,7 @@ Public NotInheritable Class MainPage
     Private Sub Window_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Window_Button.Tapped
         NewWindow()
     End Sub
-    Private Async Sub MiniPlayer()
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        Dim t As String
-        t = web.Source.ToString
-        t = t.Replace("vimeo.com/", "player.vimeo.com/video/")
-        t = t.Replace("dailymotion.com/video/", "dailymotion.com/embed/video/")
-        t = t.Replace("youtube.com/watch", "youtube.com/watch_popup")
-        localSettings.Values("MiniPlayerUri") = t
 
-        Dim newView As CoreApplicationView = CoreApplication.CreateNewView()
-        Dim newViewId As Integer = 0
-        Await newView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, Function()
-                                                                                             Dim frame As New Frame()
-                                                                                             frame.Navigate(GetType(MiniPlayer), Nothing)
-                                                                                             Window.Current.Content = frame
-                                                                                             ' You have to activate the window in order to show it later.
-                                                                                             Window.Current.Activate()
-
-                                                                                             newViewId = ApplicationView.GetForCurrentView().Id
-
-                                                                                         End Function)
-        Dim viewShown As Boolean = Await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId)
-
-    End Sub
-
-    Private Sub OpenMiniP(sender As Object, e As TappedRoutedEventArgs)
-        MiniPlayer()
-    End Sub
-
-    Private Sub MiniPlayer_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles MiniPlayer_Button.Tapped
-        MiniPlayer()
-    End Sub
 #End Region
 #Region "JsonFileManagment"
     Private Async Sub WriteJsonFile(Json As JsonArray, FileName As String)
@@ -2057,6 +2090,16 @@ Public NotInheritable Class MainPage
 #End Region
 #Region "PhoneControl"
     Private Sub Grid_Tapped(sender As Object, e As TappedRoutedEventArgs)
+
+
+        Dim scope = New InputScope
+        Dim scopeName = New InputScopeName
+        scopeName.NameValue = InputScopeNameValue.Url
+        scope.Names.Add(scopeName)
+        AdressBox.InputScope = scope
+        AdressBox.IsTextPredictionEnabled = True
+
+
         Adressbar.Visibility = Visibility.Visible
         AdressBox.Focus(Windows.UI.Xaml.FocusState.Keyboard)
         DarkBackground.Visibility = Visibility.Visible
@@ -2099,6 +2142,9 @@ Public NotInheritable Class MainPage
     Private Sub grid_SizeChanged(sender As Object, e As SizeChangedEventArgs) Handles grid.SizeChanged
         If LeftMenu.Visibility = Visibility.Visible Then
             Ellipsis_Open.Stop()
+        End If
+        If Not PhoneNavBar.Opacity = 1 Then
+            webcontainer.Margin = New Thickness(0, 0, 0, 0)
         End If
     End Sub
 
@@ -2147,6 +2193,7 @@ Public NotInheritable Class MainPage
     Private Sub Share_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Share_Button_M.Tapped
         Ellipsis_Close.Begin()
         Windows.ApplicationModel.DataTransfer.DataTransferManager.ShowShareUI()
+        Sharing.Begin()
     End Sub
 
     Private Sub Like_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Like_Button_M.Tapped
@@ -2182,6 +2229,7 @@ Public NotInheritable Class MainPage
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
         MobileProgressFinish.Begin()
+        PCProgressFinish.Begin()
         BackForward()
     End Sub
 
@@ -2193,7 +2241,312 @@ Public NotInheritable Class MainPage
     Private Sub DarkBackground_Ellipsis_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles DarkBackground_Ellipsis.Tapped
         Ellipsis_Close.Begin()
     End Sub
+    Private Async Sub web_UnviewableContentIdentified(sender As WebView, args As WebViewUnviewableContentIdentifiedEventArgs) Handles web.UnviewableContentIdentified
+        Dim success = Await Windows.System.Launcher.LaunchUriAsync(web.Source)
+
+        ' URI launched
+        If success Then
+            ' URI launch failed
+        Else
+        End If
+    End Sub
+
+
 
 
 #End Region
+#Region "MiniPlayer"
+    Private Async Sub MiniPlayer()
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        Dim t As String
+        t = web.Source.ToString
+        t = t.Replace("vimeo.com/", "player.vimeo.com/video/")
+        t = t.Replace("dailymotion.com/video/", "dailymotion.com/embed/video/")
+        If (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
+            t = t.Replace("youtube.com/watch", "youtube.com/watch_popup")
+        Else
+            t = t.Replace("youtube.com/watch", "youtube.com/embed")
+            t = t + "?autoplay=0&showinfo=0&controls=0"
+        End If
+
+        localSettings.Values("MiniPlayerUri") = t
+
+
+
+        If localSettings.Values("MiniPlayerDisplayMode") = 1 Then
+            Dim newView As CoreApplicationView = CoreApplication.CreateNewView()
+            Dim newViewId As Integer = 0
+            Await newView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, Function()
+                                                                                                 Dim frame As New Frame()
+                                                                                                 frame.Navigate(GetType(MiniPlayer), Nothing)
+                                                                                                 Window.Current.Content = frame
+                                                                                                 'You have to activate the window in order to show it later.
+                                                                                                 Window.Current.Activate()
+
+                                                                                                 newViewId = ApplicationView.GetForCurrentView().Id
+
+                                                                                             End Function)
+            Dim viewShown As Boolean = Await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId)
+        Else
+            If (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
+                Dim HttpRequestMessage = New Windows.Web.Http.HttpRequestMessage(Windows.Web.Http.HttpMethod.Get, New Uri(t))
+                HttpRequestMessage.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246")
+                MiniPlayer_Player.NavigateWithHttpRequestMessage(HttpRequestMessage)
+            Else
+                MiniPlayer_Player.Source = New Uri(t)
+            End If
+
+
+            MiniPlayer_Close1.Stop()
+            MiniPlayer_Background.Visibility = Visibility.Visible
+
+            ReduceMiniPlayer()
+        End If
+
+
+
+
+    End Sub
+
+    Private Sub OpenMiniP(sender As Object, e As TappedRoutedEventArgs)
+        MiniPlayer()
+    End Sub
+
+    Private Sub MiniPlayer_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles MiniPlayer_Button.Tapped
+        MiniPlayer()
+    End Sub
+    Private Sub ProgressBarre_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles ProgressBarre.ValueChanged
+
+        Try
+            If ProgressBarre.Value > 5 Then
+                If AdressBoxEditing = False Then
+                    AdressBox.Text = web.Source.ToString
+                    Phone_URL.Text = web.Source.Host
+                    Titlebox.Text = web.DocumentTitle
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub web_ContentLoading(sender As WebView, args As WebViewContentLoadingEventArgs) Handles web.ContentLoading
+        InvisibleLoading.Begin()
+    End Sub
+
+    Private Sub web_FrameNavigationStarting(sender As WebView, args As WebViewNavigationStartingEventArgs) Handles web.FrameNavigationStarting
+        InvisibleLoading.Begin()
+    End Sub
+
+    Private Sub web_Loading(sender As FrameworkElement, args As Object) Handles web.Loading
+        InvisibleLoading.Begin()
+    End Sub
+    Private Sub BackgroundProgressBarre_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles BackgroundProgressBarre.ValueChanged
+
+        Try
+            If ProgressBarre.Value > 5 Then
+                If AdressBoxEditing = False Then
+
+                    If Not AdressBox.Text = web.Source.ToString Then
+                        PageChanged()
+                    End If
+                    AdressBox.Text = web.Source.ToString
+                    Phone_URL.Text = web.Source.Host
+                    Titlebox.Text = web.DocumentTitle
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Async Sub PageChanged()
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        'Navigation terminée
+        AdressBox.Text = web.Source.ToString
+        Phone_URL.Text = web.Source.Host
+        If web.Source.ToString.Contains("https://") Then
+            SecurityTag.Visibility = Visibility.Visible
+        Else
+            SecurityTag.Visibility = Visibility.Collapsed
+        End If
+        Titlebox.Text = web.DocumentTitle
+
+        'Met à jour les stats dispos dans les paramètres de Blueflap
+        Try
+            localSettings.Values("Stat1") = localSettings.Values("Stat1") + 1
+        Catch
+            localSettings.Values("Stat1") = 1
+        End Try
+
+        SourceCode.Text = "..."
+
+        BackForward()
+        localSettings.Values("LoadPageFromBluestart") = False
+
+        If web.Source.HostNameType = UriHostNameType.Dns And Not localSettings.Values("Favicon") = False Then
+            Favicon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
+            Favicon.Visibility = Visibility.Visible
+        End If
+
+        ContextNotification()
+
+        ' Ajout de la page à l'historique
+
+        Dim CurrentTitle As String = web.DocumentTitle
+        Dim VisitDate As DateTime = DateTime.Now
+
+        Try
+            Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("History"))
+            Dim HistoryElem As JsonObject = New JsonObject
+            HistoryElem.Add("url", JsonValue.CreateStringValue(web.Source.ToString))
+            HistoryElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle))
+            HistoryElem.Add("date", JsonValue.CreateNumberValue(DateTime.Now.ToBinary))
+            root.Add(HistoryElem)
+            WriteJsonFile(root, "History")
+        Catch
+            WriteJsonFile(JsonArray.Parse("[]"), "History")
+        End Try
+
+        Try
+            Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Favorites"))
+
+            If root.Any(Function(x As JsonValue) x.GetObject.GetNamedString("url") = web.Source.ToString) Then
+                Like_Anim.Begin()
+                LikePageButton.Text = ""
+                LikePageButton.Foreground = LeftMenu.Background
+            Else
+                Like_Anim.Stop()
+                LikePageButton.Text = ""
+                LikePageButton.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 166, 166, 166))
+            End If
+        Catch
+        End Try
+
+        If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
+            Try
+                ShowFavorites()
+            Catch
+                If MemoPanel.Visibility = Visibility.Visible Then
+                    MemoPopOut.Begin()
+                End If
+            End Try
+        End If
+        If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 2 Then
+            Try
+                ShowHistory()
+            Catch
+                If MemoPanel.Visibility = Visibility.Visible Then
+                    MemoPopOut.Begin()
+                End If
+            End Try
+        End If
+    End Sub
+
+    Private Sub MiniPlayer_Background_SizeChanged(sender As Object, e As SizeChangedEventArgs) Handles MiniPlayer_Background.SizeChanged
+        Dim h = (1 / 16) * 9 * MiniPlayer_Resize.ActualWidth
+        Dim s = MiniPlayer_Background.ActualHeight - 20
+        If MiniPlayer_Background.VerticalAlignment = VerticalAlignment.Stretch Then
+
+            If h < MiniPlayer_Background.ActualHeight Then
+                MiniPlayer_Resize.Height = h
+            Else
+                MiniPlayer_Resize.Height = s
+            End If
+        End If
+    End Sub
+
+    Private Sub Button_Tapped_3(sender As Object, e As TappedRoutedEventArgs)
+        ReduceMiniPlayer()
+    End Sub
+    Private Sub ReduceMiniPlayer()
+        MiniPlayer_Background.VerticalAlignment = VerticalAlignment.Bottom
+        MiniPlayer_Background.HorizontalAlignment = HorizontalAlignment.Right
+        MiniPlayer_Background.Width = 280
+        MiniPlayer_Background.Height = 210
+
+        MiniPlayer_Background.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 0, 0, 0))
+        MiniPlayer_Resize.Height = 180
+        If (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
+            MiniPlayer_Background.Margin = New Thickness(0, 0, -38, -35)
+        End If
+        MiniPlayer_Show.Visibility = Visibility.Visible
+        MiniPlayer_PopOut.Begin()
+        MiniPlayer_Reduce.Visibility = Visibility.Collapsed
+        MiniPlayer_Close.Visibility = Visibility.Collapsed
+    End Sub
+
+
+    Private Sub MiniPlayer_Show_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles MiniPlayer_Show.Tapped
+        MiniPlayer_Background.VerticalAlignment = VerticalAlignment.Stretch
+        MiniPlayer_Background.HorizontalAlignment = HorizontalAlignment.Stretch
+        MiniPlayer_Background.Width = Double.NaN
+        MiniPlayer_Background.Height = Double.NaN
+
+        MiniPlayer_Background.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(153, 0, 0, 0))
+        MiniPlayer_Show.Visibility = Visibility.Collapsed
+        MiniPlayer_PopIN.Begin()
+        MiniPlayer_Reduce.Visibility = Visibility.Visible
+        MiniPlayer_Close.Visibility = Visibility.Collapsed
+        If (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
+            MiniPlayer_Close.Visibility = Visibility.Visible
+            MiniPlayer_Background.Margin = New Thickness(0, 0, 0, 0)
+        End If
+
+
+    End Sub
+
+    Private Sub MiniPlayer_Close_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles MiniPlayer_Close.Tapped
+        MiniPlayer_Player.Source = New Uri("about:blank")
+        MiniPlayer_Close1.Begin()
+    End Sub
+
+    Private Sub MiniPlayer_Show_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles MiniPlayer_Show.PointerEntered
+        If Not (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
+            MiniPlayer_MouseHover.Begin()
+        End If
+
+    End Sub
+
+    Private Sub MiniPlayer_Show_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles MiniPlayer_Show.PointerExited
+        If Not (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
+            MiniPlayer_Mouseleave.Begin()
+        End If
+
+    End Sub
+
+    Private Sub MiniPlayer_Background_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles MiniPlayer_Background.PointerEntered
+        If Not (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
+            MiniPlayer_Close.Visibility = Visibility.Visible
+        End If
+
+    End Sub
+
+    Private Sub MiniPlayer_Background_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles MiniPlayer_Background.PointerExited
+
+        If Not (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
+            MiniPlayer_Close.Visibility = Visibility.Collapsed
+        End If
+    End Sub
+
+    Private Sub MiniPlayer_Close_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles MiniPlayer_Close.PointerEntered
+        MiniPlayer_CloseButHover.Begin()
+    End Sub
+
+    Private Sub MiniPlayer_Close_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles MiniPlayer_Close.PointerExited
+        MiniPlayer_CloseButHover.Stop()
+    End Sub
+
+    Private Sub LikePageButton_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles LikePageButton.PointerEntered
+        If LikePageButton.Text = "" Then
+            LikePageButton.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 224, 139, 213))
+        End If
+
+    End Sub
+
+    Private Sub LikePageButton_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles LikePageButton.PointerExited
+        If LikePageButton.Text = "" Then
+            LikePageButton.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 122, 122, 122))
+        End If
+    End Sub
+#End Region
+
+
 End Class

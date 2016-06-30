@@ -840,26 +840,50 @@
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Name="AddFav_PopUp_Close">
-            <DoubleAnimation Duration="0:0:0.4" To="-40" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="AddFavPopup" d:IsOptimized="True">
-                <DoubleAnimation.EasingFunction>
-                    <QuarticEase EasingMode="EaseInOut"/>
-                </DoubleAnimation.EasingFunction>
-            </DoubleAnimation>
-            <DoubleAnimation Duration="0:0:0.4" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="AddFavPopup" d:IsOptimized="True">
-                <DoubleAnimation.EasingFunction>
-                    <QuarticEase EasingMode="EaseInOut"/>
-                </DoubleAnimation.EasingFunction>
-            </DoubleAnimation>
-            <ColorAnimation Duration="0:0:0.3" To="#00000000" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="AddFavView" d:IsOptimized="True"/>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="AddFavView">
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="addfavshadow">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
                     <DiscreteObjectKeyFrame.Value>
                         <Visibility>Visible</Visibility>
                     </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.4">
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="addfavshadow">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.35"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="AddFav_PopUp_Close">
+            <DoubleAnimation Duration="0:0:0.2" To="-40" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="AddFavPopup" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuarticEase EasingMode="EaseInOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="AddFavPopup" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuarticEase EasingMode="EaseInOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <ColorAnimation Duration="0:0:0.2" To="#00000000" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="AddFavView" d:IsOptimized="True"/>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="AddFavView">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="0:0:0.1" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="addfavshadow" d:IsOptimized="True"/>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="addfavshadow">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
                     <DiscreteObjectKeyFrame.Value>
                         <Visibility>Collapsed</Visibility>
                     </DiscreteObjectKeyFrame.Value>
@@ -1059,6 +1083,263 @@
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Name="Enterfullscreen_Mobile">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="webcontainer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="webcontainer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="0:0:0.5" To="0.25" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PhoneNavBar" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.5" To="53" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="PhoneNavBar" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="webcontainer">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Thickness>0</Thickness>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="PCProgressBegin">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(RangeBase.Value)" Storyboard.TargetName="ProgressBarre">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:11" Value="75">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <PowerEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ProgressBarre" d:IsOptimized="True"/>
+        </Storyboard>
+        <Storyboard x:Name="PCProgressFinish">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(RangeBase.Value)" Storyboard.TargetName="ProgressBarre">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="100">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <PowerEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ProgressBarre">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.99"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="InvisibleLoading">
+            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="BackgroundProgressBarre" d:IsOptimized="True"/>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(RangeBase.Value)" Storyboard.TargetName="BackgroundProgressBarre">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:10" Value="100"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="MiniPlayer_PopOut">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="MiniPlayer_Background">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut" Amplitude="0.5"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="MiniPlayer_Background">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut" Amplitude="0.5"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="MiniPlayer_PopIN">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="MiniPlayer_Resize">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut" Amplitude="0.5"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="MiniPlayer_Resize">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut" Amplitude="0.5"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="MiniPlayer_Resize">
+                <EasingDoubleKeyFrame KeyTime="0" Value="118"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut" Amplitude="0.5"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="MiniPlayer_Resize">
+                <EasingDoubleKeyFrame KeyTime="0" Value="81"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut" Amplitude="0.5"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="MiniPlayer_Mouseleave">
+            <DoubleAnimation Duration="0:0:0.3" To="0.51" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="miniplayer_Shadow" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.3" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="miniplayer_Shadow" d:IsOptimized="True"/>
+        </Storyboard>
+        <Storyboard x:Name="MiniPlayer_CloseButHover">
+            <ColorAnimation Duration="0:0:0.1" To="White" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse1" d:IsOptimized="True"/>
+            <ColorAnimation Duration="0:0:0.1" To="#FFB6B6B6" Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse1" d:IsOptimized="True"/>
+        </Storyboard>
+        <Storyboard x:Name="MiniPlayer_Close1">
+            <DoubleAnimation Duration="0:0:0.1" To="0.5" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="MiniPlayer_Resize" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.1" To="0.5" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="MiniPlayer_Resize" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.1" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MiniPlayer_Resize" d:IsOptimized="True"/>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="MiniPlayer_Background">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="MiniPlayer_MouseHover">
+            <DoubleAnimation Duration="0:0:0.3" To="0.8" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="miniplayer_Shadow" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <ExponentialEase EasingMode="EaseInOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.3" To="5" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="miniplayer_Shadow" d:IsOptimized="True"/>
+        </Storyboard>
+        <Storyboard x:Name="Sharing">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DarkBackground">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2.4">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2.5">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock4">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2.4">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2.5">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="progressBar">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2.4">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2.5">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="DarkBackground">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.4" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock4">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.4" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="progressBar">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.4" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="DarkBackground">
+                <EasingColorKeyFrame KeyTime="0" Value="#64000000"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#B2000000"/>
+                <EasingColorKeyFrame KeyTime="0:0:2" Value="#63000000"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="textBlock4">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-62.526"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Page.Resources>
 
 
@@ -1152,7 +1433,7 @@
                         <Setter Target="AddFavPopup.Height"  
                     Value="259" />
                         <Setter Target="AddFavPopup.CornerRadius"  
-                    Value="3" />
+                    Value="2" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -1263,8 +1544,78 @@
                 	<Run x:Uid="WebPageError_3" Text="Essayez de recharger la page"/>
                 </TextBlock>
             </Grid>
+            <Grid x:Name="MiniPlayer_Background" Margin="0" Background="#99000000" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+                <Grid.RenderTransform>
+                    <CompositeTransform/>
+                </Grid.RenderTransform>
+                <Grid x:Name="MiniPlayer_Resize" Margin="20,0" BorderThickness="0" VerticalAlignment="Center" Height="469" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <CompositeTransform/>
+                    </Grid.RenderTransform>
+                    <Grid x:Name="miniplayer_Shadow" Margin="0" Opacity="0.51" RenderTransformOrigin="0.5,0.5">
+                        <Grid.RenderTransform>
+                            <CompositeTransform/>
+                        </Grid.RenderTransform>
+                        <Image HorizontalAlignment="Left" Height="73" Margin="0" VerticalAlignment="Bottom" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <CompositeTransform ScaleX="-1"/>
+                            </Image.RenderTransform>
+                        </Image>
+                        <Image HorizontalAlignment="Right" Height="73" Margin="0" VerticalAlignment="Bottom" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <CompositeTransform/>
+                            </Image.RenderTransform>
+                        </Image>
+                        <Image HorizontalAlignment="Left" Height="100" Margin="0" VerticalAlignment="Top" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <CompositeTransform ScaleY="-1" ScaleX="-1"/>
+                            </Image.RenderTransform>
+                        </Image>
+                        <Image HorizontalAlignment="Right" Height="100" Margin="0" VerticalAlignment="Top" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <CompositeTransform ScaleY="-1"/>
+                            </Image.RenderTransform>
+                        </Image>
+                        <Image Height="73" Margin="100,0" VerticalAlignment="Bottom" Source="Assets/shadowline.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                            <Image.RenderTransform>
+                                <CompositeTransform ScaleX="-1"/>
+                            </Image.RenderTransform>
+                        </Image>
+                        <Image Margin="0,73" Source="Assets/shadowlineright.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" HorizontalAlignment="Left" Width="100">
+                            <Image.RenderTransform>
+                                <CompositeTransform ScaleX="-1"/>
+                            </Image.RenderTransform>
+                        </Image>
+                        <Image Margin="0,73" Source="Assets/shadowlineright.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" HorizontalAlignment="Right" Width="100">
+                            <Image.RenderTransform>
+                                <CompositeTransform/>
+                            </Image.RenderTransform>
+                        </Image>
+                        <Image Height="73" Margin="100,0" VerticalAlignment="Top" Source="Assets/shadowline.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                            <Image.RenderTransform>
+                                <CompositeTransform ScaleY="-1" ScaleX="-1"/>
+                            </Image.RenderTransform>
+                        </Image>
+                    </Grid>
+                    <Grid x:Name="MiniPlayer_Container" Margin="30,30,30,35" Background="Black">
+                        <WebView x:Name="MiniPlayer_Player" Margin="0"/>
+                        <Grid x:Name="MiniPlayer_Show" Margin="0" Background="#02000000"/>
+                        <Grid x:Name="MiniPlayer_Close" HorizontalAlignment="Right" Height="30" Margin="0,-15,-15,0" VerticalAlignment="Top" Width="30">
+                            <Ellipse x:Name="ellipse1" Fill="#FFE6E6E6" HorizontalAlignment="Left" Height="30" Margin="0" Stroke="LightGray" VerticalAlignment="Top" Width="30" StrokeThickness="2"/>
+                            <TextBlock HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" Text="&#xE106;" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" FontSize="12" FontWeight="Black" Foreground="#FF343434"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Button x:Name="MiniPlayer_Reduce" Content="&#xE0A6;" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Background="#E5252525" Height="50" Width="50" Tapped="Button_Tapped_3" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="22" RequestedTheme="Dark"/>
+            </Grid>
         </Grid>
         <Grid x:Name="DarkBackground" Margin="0" Background="#64000000" Visibility="Collapsed"/>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" Text="&#xE72D;" VerticalAlignment="Center" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="48" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <CompositeTransform/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <ProgressBar x:Name="progressBar" HorizontalAlignment="Center" Height="10" Margin="0,87,0,0" VerticalAlignment="Center" Width="150" Background="{x:Null}" Foreground="White" IsIndeterminate="True" Visibility="Collapsed"/>
         <Grid x:Name="Adressbar" Height="66" VerticalAlignment="Top" Background="WhiteSmoke" Margin="48,0,0,0" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <CompositeTransform/>
@@ -1295,6 +1646,8 @@
                     <CompositeTransform/>
                 </TextBlock.RenderTransform>
             </TextBlock>
+            <ProgressBar x:Name="BackgroundProgressBarre" Height="4" Margin="0" VerticalAlignment="Top" Background="#007C7C7C" Foreground="#FFC5C5C5" Value="23" Opacity="0"/>
+            <ProgressBar x:Name="ProgressBarre" Height="4" Margin="0" VerticalAlignment="Top" Background="#007C7C7C" Foreground="#FFC5C5C5" Value="23"/>
         </Grid>
         <Grid x:Name="LeftMenu" HorizontalAlignment="Left" Width="48" RenderTransformOrigin="0.5,0.5" Background="{ThemeResource JumpListDefaultEnabledBackground}">
             <Grid.RenderTransform>
@@ -1327,10 +1680,13 @@
                 <StackPanel.RenderTransform>
                     <CompositeTransform/>
                 </StackPanel.RenderTransform>
-                <Button x:Uid="Menu_Home_Tooltip"  x:Name="Home_button" Content="&#xE80F;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Home">
+                <Button x:Uid="Menu_Home_Tooltip"  x:Name="Home_button" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Home">
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
+                    <Grid HorizontalAlignment="Center" Height="15" VerticalAlignment="Center" Width="15" Margin="0">
+                        <Path Data="M26.3,21 L26.3,28.25 L14,28.25 L14,21 L20.2,13.15 z" Margin="0,-0.125,-0.125,-0.125" Stretch="Fill" Stroke="White" UseLayoutRounding="False" HorizontalAlignment="Center" VerticalAlignment="Center" Height="15.25" Width="15.125" StrokeThickness="1.15"/>
+                    </Grid>
                 </Button>
                 <Button x:Uid="Menu_Refresh_Tooltip" x:Name="Strefresh_Button" Content="&#xE149;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="14.667" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Refresh">
                     <Button.RenderTransform>
@@ -1351,6 +1707,7 @@
                     <Button.RenderTransform>
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
+
                 </Button>
                 <Button x:Uid="Menu_Lock_Tooltip" x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Lock">
                     <Button.RenderTransform>
@@ -1372,26 +1729,28 @@
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
+                <Grid HorizontalAlignment="Center" Height="15" VerticalAlignment="Center" Width="15" Margin="0,0,31,0"/>
             </StackPanel>
         </Grid>
-        <Grid x:Name="SmartSuggest" Height="189" Margin="48,66,0,0" VerticalAlignment="Top" Background="#FFE8E8E8">
-            <Grid x:Name="SmartSuggest_LastOne" Height="46" VerticalAlignment="Top" Background="#00000000">
-                <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE81C;" Opacity="0.6"/>
-                <TextBlock HorizontalAlignment="Left" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" x:Uid="LastSearch" Text="Dernière recherche" Opacity="0.4"/>
-                <TextBlock x:Name="DerniereRecherche" x:Uid="LastSearchMargin" Margin="165,13,10,0" TextWrapping="NoWrap" VerticalAlignment="Top" Text="-" FontSize="14" FontWeight="SemiBold" Height="23"/>
-            </Grid>
-            <Grid x:Name="SmartSuggest_Search" Height="46" VerticalAlignment="Top" Background="#00000000" Margin="0,46,0,0">
-                <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE1A3;" Opacity="0.6"/>
-                <TextBlock x:Name="SmartSuggest_Search_Text" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="-" Opacity="0.9"/>
-            </Grid>
-            <Grid x:Name="SmartSuggest_URL" Height="46" VerticalAlignment="Top" Background="#00000000" Margin="0,92,0,0">
-                <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE774;" Opacity="0.6"/>
-                <TextBlock x:Name="SmartSuggest_URL_Text" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="http://" Opacity="0.9"/>
-            </Grid>
-            <ScrollViewer x:Name="History_Suggestions" HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Height="168" Margin="0,138,0,0" Background="#FFE8E8E8">
+        <Grid x:Name="SmartSuggest" Height="189" Margin="48,66,0,0" VerticalAlignment="Top" Background="#FFE8E8E8" d:IsHidden="True">
+
+            <ScrollViewer x:Name="History_Suggestions" HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Height="168" Margin="0" Background="#FFE8E8E8">
                 <Grid>
-                    <StackPanel x:Name="SmartSuggest_History"/>
-                    <TextBlock x:Name="SmartSuggest_HeartIcon" HorizontalAlignment="Left" Margin="11,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE006;" Opacity="0.6"/>
+                    <Grid x:Name="SmartSuggest_LastOne" Height="46" VerticalAlignment="Top" Background="#00000000">
+                        <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE81C;" Opacity="0.6"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" x:Uid="LastSearch" Text="Dernière recherche" Opacity="0.4"/>
+                        <TextBlock x:Name="DerniereRecherche" x:Uid="LastSearchMargin" Margin="165,13,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Text="-" FontSize="14" FontWeight="SemiBold" Height="23"/>
+                    </Grid>
+                    <Grid x:Name="SmartSuggest_Search" Height="46" VerticalAlignment="Top" Background="#00000000" Margin="0,46,0,0">
+                        <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE1A3;" Opacity="0.6"/>
+                        <TextBlock x:Name="SmartSuggest_Search_Text" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="-" Opacity="0.9" Height="20"/>
+                    </Grid>
+                    <Grid x:Name="SmartSuggest_URL" Height="46" VerticalAlignment="Top" Background="#00000000" Margin="0,92,0,0">
+                        <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE774;" Opacity="0.6"/>
+                        <TextBlock x:Name="SmartSuggest_URL_Text" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="http://" Opacity="0.9" Height="20"/>
+                    </Grid>
+                    <StackPanel x:Name="SmartSuggest_History" Margin="0,138,0,0"/>
+                    <TextBlock x:Name="SmartSuggest_HeartIcon" HorizontalAlignment="Left" Margin="11,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE006;" Opacity="0.6"/>
                 </Grid>
 
             </ScrollViewer>
@@ -1476,38 +1835,82 @@
                 <PivotItem Header="&#xE91C;">
                     <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto" IsHorizontalScrollChainingEnabled="False">
                         <StackPanel Margin="0">
-                            <Grid x:Name="Notif_Home" Height="96" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0,0,0,10" VerticalAlignment="Top" CornerRadius="2" Visibility="Collapsed">
-                                <TextBlock HorizontalAlignment="Center" Margin="1,19,0,0" TextWrapping="Wrap" Text="&#xE209;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="{ThemeResource ContentDialogBorderThemeBrush}" FontSize="29.333" TextAlignment="Center"/>
-                                <TextBlock HorizontalAlignment="Center" Margin="11,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FFA2A2A2" TextAlignment="Center" x:Uid="NoNotif" Text="Aucun message système"/>
+                            <Grid x:Name="Notif_Home" BorderThickness="1" Margin="0,0,0,10" VerticalAlignment="Top" CornerRadius="2" Visibility="Collapsed">
+                                <Grid  Margin="1,9,25,0">
+                                    <Path Data="M0,1.25 L202.75,0 0,0 z" Fill="#FFE6E6E6" HorizontalAlignment="Right" Height="22" Margin="0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="22"/>
+                                    <Rectangle Fill="#FFE6E6E6" Margin="0,0,16,0" StrokeThickness="0" RadiusX="2" RadiusY="2"/>
+                                </Grid>
+                                <TextBlock HorizontalAlignment="Right" Margin="0" TextWrapping="Wrap" Text="&#xE209;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="{ThemeResource ContentDialogBorderThemeBrush}" FontSize="16" TextAlignment="Center"/>
+                                <TextBlock Margin="14,14,53,5" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="#FF7C7C7C" TextAlignment="Center" x:Uid="NoNotif" Text="Aucun message système"/>
                             </Grid>
-                            <Grid x:Name="Notif_HomePageError" Height="96" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0,0,0,10" VerticalAlignment="Top" Visibility="Collapsed">
-                                <TextBlock HorizontalAlignment="Left" Margin="11,9,0,0" TextWrapping="Wrap" Text="&#xEB90;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FFC51212" FontSize="16"/>
-                                <TextBlock x:Uid="Homepagenotif" Margin="36,4,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FF4B4B4B" Height="42" Text="La page d'accueil définie est invalide."/>
-                                <Button x:Uid="Settings" Content="Paramètres" HorizontalAlignment="Stretch" Margin="0,59,-1,0" VerticalAlignment="Top" Height="36" Background="#339E9E9E" BorderBrush="#FFC5C5C5" BorderThickness="0,1,0,0" FontSize="12" Tapped="Button_Tapped"/>
+                            <Grid x:Name="Notif_HomePageError" BorderThickness="1" Margin="0,0,0,10" VerticalAlignment="Top" Visibility="Collapsed">
+                                <Grid  Margin="2,8,26,0">
+                                    <Path Data="M0,1.25 L202.75,0 0,0 z" Fill="#FFE6E6E6" HorizontalAlignment="Right" Height="22" Margin="0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="22"/>
+                                    <Rectangle Fill="#FFE6E6E6" Margin="0,0,16,0" StrokeThickness="0" RadiusX="2" RadiusY="2"/>
+                                </Grid>
+                                <TextBlock HorizontalAlignment="Right" Margin="0" TextWrapping="Wrap" Text="&#xEB90;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FFC51212" FontSize="16"/>
+                                <TextBlock x:Uid="Homepagenotif" Margin="11,13,53,35" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF4B4B4B" Height="42" Text="La page d'accueil définie est invalide." FontSize="14"/>
+                                <Button x:Uid="Settings" Content="Paramètres" HorizontalAlignment="Left" Margin="8,0,0,7" VerticalAlignment="Bottom" Background="#339E9E9E" BorderBrush="#FFC5C5C5" FontSize="12" Tapped="Button_Tapped" BorderThickness="1"/>
                             </Grid>
-                            <Grid x:Name="Notif_SearchEngineError" Height="96" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0,0,0,10" VerticalAlignment="Top" Visibility="Collapsed">
-                                <TextBlock HorizontalAlignment="Left" Margin="11,9,0,0" TextWrapping="Wrap" Text="&#xEB90;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FFC51212" FontSize="16"/>
-                                <TextBlock x:Uid="SearchEngineNotif" Margin="37,5,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FF4B4B4B" Height="41" Text="Le moteur de recherche défini est invalide."/>
-                                <Button x:Uid="Settings" Content="Paramètres" HorizontalAlignment="Stretch" Margin="0,59,-1,0" VerticalAlignment="Top" Height="36" Background="#339E9E9E" BorderBrush="#FFC5C5C5" BorderThickness="0,1,0,0" FontSize="12" Tapped="Button_Tapped"/>
+                            <Grid x:Name="Notif_SearchEngineError" BorderThickness="1" Margin="0,0,0,10" VerticalAlignment="Top" Visibility="Collapsed">
+                                <Grid  Margin="2,8,26,0">
+                                    <Path Data="M0,1.25 L202.75,0 0,0 z" Fill="#FFE6E6E6" HorizontalAlignment="Right" Height="22" Margin="0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="22"/>
+                                    <Rectangle Fill="#FFE6E6E6" Margin="0,0,16,0" StrokeThickness="0" RadiusX="2" RadiusY="2"/>
+                                </Grid>
+                                <TextBlock HorizontalAlignment="Right" Margin="0" TextWrapping="Wrap" Text="&#xEB90;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="#FFC51212" FontSize="16"/>
+                                <TextBlock x:Uid="SearchEngineNotif" Text="Le moteur de recherche défini est invalide." Margin="11,13,53,35" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF4B4B4B" Height="42" FontSize="14"/>
+                                <Button x:Uid="Settings" Content="Paramètres" HorizontalAlignment="Left" Margin="8,0,0,7" VerticalAlignment="Bottom" Background="#339E9E9E" BorderBrush="#FFC5C5C5" FontSize="12" Tapped="Button_Tapped" BorderThickness="1"/>
                             </Grid>
-                            <Grid x:Name="Notif_MiniPlayer" Background="#FF0C0C0C" BorderBrush="#FF323232" BorderThickness="1" Margin="0,0,0,10" VerticalAlignment="Top" Height="167" Visibility="Collapsed">
-                                <TextBlock Margin="20,67,20,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Foreground="#FFD6D6D6" x:Uid="MiniPlayerInfo" Text="Vous pouvez afficher cette vidéo dans MiniPlayer" TextAlignment="Center"/>
-                                <Button x:Uid="OpenMiniPlayer" Content="Ouvrir MiniPlayer" HorizontalAlignment="Stretch" Margin="0,59,-1,0" VerticalAlignment="Bottom" Height="41" Background="#FF474747" BorderBrush="#FF555555" BorderThickness="0,1,0,0" Tapped="OpenMiniP" Foreground="White" RequestedTheme="Dark"/>
-                                <Image HorizontalAlignment="Center" Height="78" Margin="0" VerticalAlignment="Top" Source="Assets/MiniPlayerIcon.png"/>
+                            <Grid x:Name="Notif_MiniPlayer" BorderThickness="1" Margin="0,0,0,10" VerticalAlignment="Top" Visibility="Collapsed">
+                                <Grid  Margin="1,9,0,0" RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <CompositeTransform ScaleX="-1"/>
+                                    </Grid.RenderTransform>
+                                    <Path Data="M0,1.25 L202.75,0 0,0 z" Fill="#FF0C0C0C" HorizontalAlignment="Right" Height="22" Margin="0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="22"/>
+                                    <Rectangle Fill="#FF0C0C0C" Margin="0,0,16,0" StrokeThickness="0" RadiusX="2" RadiusY="2"/>
+                                </Grid>
+                                <TextBlock Margin="32,55,15,53" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Foreground="#FFD6D6D6" x:Uid="MiniPlayerInfo" Text="Vous pouvez afficher cette vidéo dans MiniPlayer" TextAlignment="Center"/>
+                                <Button x:Uid="OpenMiniPlayer" Content="Ouvrir MiniPlayer" HorizontalAlignment="Center" Margin="32,0,15,11" VerticalAlignment="Bottom" Background="#7F474747" BorderBrush="#7F7E7E7E" BorderThickness="1" Tapped="OpenMiniP" Foreground="White" RequestedTheme="Dark" FontSize="13" Height="30"/>
+                                <Image Height="50" Margin="32,9,15,0" VerticalAlignment="Top" Source="Assets/MiniPlayerIcon.png"/>
                             </Grid>
-                            <Grid x:Name="Notif_SearchEngineSuggestion" Height="149" Background="#19A2A2A2" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0,0,0,10" VerticalAlignment="Top" Visibility="Collapsed">
-                                <TextBlock Margin="3,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF4B4B4B" x:Uid="SearchEngineLike" Text="Ce moteur vous plaît ?" CharacterSpacing="-29" HorizontalAlignment="Center" Opacity="0.81" FontSize="13"/>
-                                <Button x:Name="ChangeEngine" x:Uid="SetSearchEngineButton" Content="Définir comme moteur de recherche" HorizontalAlignment="Stretch" Margin="0,63,0,0" VerticalAlignment="Bottom" Height="31" Background="{ThemeResource ContentDialogBorderThemeBrush}" BorderBrush="{ThemeResource SystemControlHighlightAltListAccentLowBrush}" BorderThickness="1" FontSize="12.667" Tapped="ChangSearchEngine" Foreground="White"/>
-                                <TextBlock x:Name="Notif_SearchEngineName" Margin="0,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="15" Foreground="#FF555555" Text="QWANT" FontWeight="SemiBold" CharacterSpacing="-36" Height="21" HorizontalAlignment="Center"/>
-                                <TextBlock Margin="0,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" Foreground="#FF0097FF" x:Uid="AutoSuggestion" Text="Suggestion automatique" Height="16" HorizontalAlignment="Center"/>
-                                <Image x:Name="Notif_SearchEngineIcon" HorizontalAlignment="Center" Height="39" Margin="0,29,0,0" VerticalAlignment="Top" Width="39" Source="Assets/Engine_Qwant.png"/>
+                            <Grid x:Name="Notif_SearchEngineSuggestion" BorderThickness="1" Margin="0,0,0,10" VerticalAlignment="Top" Visibility="Collapsed">
+                                <Grid  Margin="2,8,0,0" RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <CompositeTransform ScaleX="-1"/>
+                                    </Grid.RenderTransform>
+                                    <Path Data="M0,1.25 L202.75,0 0,0 z" Fill="#FFE6E6E6" HorizontalAlignment="Right" Height="22" Margin="0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="22"/>
+                                    <Rectangle Fill="#FFE6E6E6" Margin="0,0,16,0" StrokeThickness="0" RadiusX="2" RadiusY="2"/>
+                                </Grid>
+                                <Button x:Name="ChangeEngine" x:Uid="SetSearchEngineButton" Content="Définir comme moteur de recherche" HorizontalAlignment="Stretch" Margin="26,0,5,6" VerticalAlignment="Bottom" Background="{ThemeResource ContentDialogBorderThemeBrush}" BorderThickness="1" FontSize="11" Tapped="ChangSearchEngine" Foreground="White" FontWeight="SemiBold">
+                                    <Button.BorderBrush>
+                                        <SolidColorBrush Color="#19000000" Opacity="0.4"/>
+                                    </Button.BorderBrush>
+                                </Button>
+                                <TextBlock Margin="19,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" Foreground="#FF0097FF" x:Uid="AutoSuggestion" Text="Suggestion automatique" Height="16" TextAlignment="Center"/>
+                                <Image x:Name="Notif_SearchEngineIcon" Height="30" Margin="29,37,13,0" VerticalAlignment="Top" Width="30" Source="Assets/Engine_Qwant.png"/>
+                                <StackPanel Margin="30,71,12,39" VerticalAlignment="Top">
+                                    <TextBlock x:Name="Notif_SearchEngineName" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="15" Foreground="#FF555555" Text="QWANT" FontWeight="SemiBold" CharacterSpacing="-36" TextAlignment="Center"/>
+                                    <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF4B4B4B" x:Uid="SearchEngineLike" Text="Ce moteur vous plaît ?" CharacterSpacing="-29" Opacity="0.81" FontSize="13" TextAlignment="Center" Margin="0,-2,0,0"/>
+                                </StackPanel>
                             </Grid>
-                            <Grid x:Name="Notif_Diminutweet" Height="163" Background="#FF005FBD" BorderBrush="#303C3C3C" BorderThickness="1" Margin="0,0,0,10" VerticalAlignment="Top" CornerRadius="2" Visibility="Collapsed">
-                                <TextBlock HorizontalAlignment="Center" Margin="0,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13.333" Foreground="White" Text="Le compacteur de tweets" CharacterSpacing="-29" Opacity="0.81"/>
-                                <Button x:Uid="Download" Content="Télécharger" HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Bottom" Height="39" Background="{ThemeResource ContentDialogBorderThemeBrush}" BorderBrush="{ThemeResource SystemControlHighlightAltListAccentLowBrush}" BorderThickness="1" Tapped="Button_Tapped_1" Foreground="White"/>
-                                <TextBlock x:Name="Notif_SearchEngineName1" HorizontalAlignment="Center" Margin="0,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Foreground="White" Text="DiminuTweet" FontWeight="SemiBold" CharacterSpacing="-36"/>
-                                <TextBlock HorizontalAlignment="Center" Margin="0,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" Foreground="#FF8DD0FF" x:Uid="TeamSuggestion" Text="Suggestion de l'équipe" Height="16"/>
-                                <Image x:Name="Notif_SearchEngineIcon1" HorizontalAlignment="Center" Height="39" Margin="0,31,0,0" VerticalAlignment="Top" Width="39" Source="Assets/promo2.png"/>
+                            <Grid x:Name="Notif_Diminutweet" BorderThickness="1" Margin="0,0,0,10" VerticalAlignment="Top" CornerRadius="2" Visibility="Collapsed">
+
+                                <Grid  Margin="1,9,0,0" RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <CompositeTransform ScaleX="-1"/>
+                                    </Grid.RenderTransform>
+                                    <Path Data="M0,1.25 L202.75,0 0,0 z" Fill="#FF005FBD" HorizontalAlignment="Right" Height="22" Margin="0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="22"/>
+                                    <Rectangle Fill="#FF005FBD" Margin="0,0,16,0" StrokeThickness="0" RadiusX="2" RadiusY="2"/>
+                                </Grid>
+                                <TextBlock HorizontalAlignment="Center" Margin="27,103,11,48" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13.333" Foreground="White" Text="Le compacteur de tweets" CharacterSpacing="-29" Opacity="0.81"/>
+                                <Button x:Uid="Download" Content="Télécharger" HorizontalAlignment="Stretch" Margin="27,0,11,9" VerticalAlignment="Bottom" Background="{ThemeResource ContentDialogBorderThemeBrush}" BorderThickness="1" Tapped="Button_Tapped_1" Foreground="White" FontSize="14">
+                                    <Button.BorderBrush>
+                                        <SolidColorBrush Color="#B2000000" Opacity="0.4"/>
+                                    </Button.BorderBrush>
+                                </Button>
+                                <TextBlock x:Name="Notif_SearchEngineName1" HorizontalAlignment="Center" Margin="27,84,11,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Foreground="White" Text="DiminuTweet" FontWeight="SemiBold" CharacterSpacing="-36"/>
+                                <TextBlock HorizontalAlignment="Center" Margin="27,13,11,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" Foreground="#FF8DD0FF" x:Uid="TeamSuggestion" Text="Suggestion de l'équipe" Height="16"/>
+                                <Image x:Name="Notif_SearchEngineIcon1" HorizontalAlignment="Center" Height="39" Margin="27,42,11,0" VerticalAlignment="Top" Width="39" Source="Assets/promo2.png"/>
                             </Grid>
 
                         </StackPanel>
@@ -1528,6 +1931,51 @@
             <TextBlock Margin="0,24,0,0" TextWrapping="Wrap" x:Uid="FullScreenEsc" Text="Appuyez sur la touche ECHAP pour quitter le mode plein écran" VerticalAlignment="Top" Foreground="White" Height="43" TextAlignment="Center" FontSize="18.667" Width="517" HorizontalAlignment="Center"/>
         </Grid>
         <Grid x:Name="AddFavView" Margin="48,66,0,0" Background="#33000000" Visibility="Collapsed">
+            <Grid x:Name="addfavshadow" Margin="0,-3,-6,0" Opacity="0.5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" VerticalAlignment="Top" Width="450" Height="320">
+                <Grid.RenderTransform>
+                    <CompositeTransform/>
+                </Grid.RenderTransform>
+                <Image HorizontalAlignment="Left" Height="73" Margin="0" VerticalAlignment="Bottom" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image HorizontalAlignment="Right" Height="73" Margin="0" VerticalAlignment="Bottom" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <CompositeTransform/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image HorizontalAlignment="Left" Height="100" Margin="0" VerticalAlignment="Top" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleY="-1" ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image HorizontalAlignment="Right" Height="100" Margin="0" VerticalAlignment="Top" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleY="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Height="73" Margin="100,0" VerticalAlignment="Bottom" Source="Assets/shadowline.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Margin="0,73" Source="Assets/shadowlineright.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" HorizontalAlignment="Left" Width="100">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Margin="0,73" Source="Assets/shadowlineright.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" HorizontalAlignment="Right" Width="100">
+                    <Image.RenderTransform>
+                        <CompositeTransform/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Height="73" Margin="100,0" VerticalAlignment="Top" Source="Assets/shadowline.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleY="-1" ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+            </Grid>
             <Grid x:Name="AddFavPopup" HorizontalAlignment="Right" Height="259" Margin="0,20,20,0" VerticalAlignment="Top" Width="400" Background="White" CornerRadius="3" RenderTransformOrigin="0.5,0.5">
                 <Grid.RenderTransform>
                     <CompositeTransform/>
@@ -1540,12 +1988,17 @@
                 <TextBox x:Name="Add_Fav_Tags" Margin="21,152,22,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Tag1, Tag2, Tag3, etc..."/>
                 <TextBlock  x:Uid="Name" HorizontalAlignment="Left" Margin="21,72,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" FontSize="12"/>
                 <TextBlock HorizontalAlignment="Left" Margin="21,134,0,0" TextWrapping="Wrap" Text="Tags" VerticalAlignment="Top" FontSize="12"/>
-                <Button x:Uid="Add" x:Name="AddFav_Confirm" Content="Ajouter" HorizontalAlignment="Right" Margin="0,0,21,18" VerticalAlignment="Bottom" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="White" BorderBrush="#33000000" BorderThickness="1" Height="37" Width="92"/>
-                <Button x:Uid="Cancel" x:Name="AddFav_Cancel" Content="Annuler" HorizontalAlignment="Right" Margin="0,0,118,18" VerticalAlignment="Bottom" Foreground="#FF4B4B4B" BorderBrush="#FF7C7C7C" BorderThickness="1" Height="37" Width="92" Background="#000078D7"/>
+                <Button x:Uid="Cancel" x:Name="AddFav_Cancel" Content="Annuler" HorizontalAlignment="Right" Margin="0,0,115,18" VerticalAlignment="Bottom" Foreground="#FF4B4B4B" BorderBrush="LightGray" BorderThickness="0" Height="37" Width="88" Background="#000078D7"/>
+                <Rectangle x:Name="Addfav_Background" Fill="{ThemeResource ContentDialogBorderThemeBrush}" HorizontalAlignment="Right" Height="37" Margin="0,0,21,18" VerticalAlignment="Bottom" Width="92" RadiusY="18.5" RadiusX="18.5"/>
+                <Button x:Uid="Add" x:Name="AddFav_Confirm" Content="Ajouter" HorizontalAlignment="Right" Margin="0,0,20,17" VerticalAlignment="Bottom" Foreground="White" BorderBrush="#33000000" BorderThickness="0" Height="40" Width="94" RequestedTheme="Dark">
+                    <Button.Background>
+                        <SolidColorBrush Color="#000078D7"/>
+                    </Button.Background>
+                </Button>
             </Grid>
         </Grid>
         <Grid x:Name="DarkBackground_Ellipsis" Margin="0" Background="#64000000" Visibility="Collapsed"/>
-        <Grid x:Name="Ellipsis" Margin="0,0,0,48" VerticalAlignment="Bottom" Background="{ThemeResource SystemControlDisabledAccentBrush}" MaxHeight="277" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" Visibility="Collapsed">
+        <Grid x:Name="Ellipsis" Margin="0,0,0,48" VerticalAlignment="Bottom" Background="{ThemeResource SystemControlDisabledAccentBrush}" MaxHeight="300" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" Visibility="Collapsed">
             <Grid.Projection>
                 <PlaneProjection/>
             </Grid.Projection>
@@ -1644,13 +2097,18 @@
                         </Button.RenderTransform>
                         <Grid UseLayoutRounding="True" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                             <TextBlock  HorizontalAlignment="Center" TextWrapping="Wrap"  x:Uid="Menu_Home" Text="Accueil" VerticalAlignment="Center" RequestedTheme="Dark"/>
-                            <TextBlock HorizontalAlignment="Center" Margin="0,0,200,0" TextWrapping="Wrap" Text="&#xE10F;" VerticalAlignment="Center" RequestedTheme="Dark" FontFamily="Segoe MDL2 Assets"/>
+                            <Grid HorizontalAlignment="Center" Height="15" VerticalAlignment="Center" Width="15" Margin="0,0,200,0" RenderTransformOrigin="0.5,0.5">
+                                <Path Data="M26.3,21 L26.3,28.25 L14,28.25 L14,21 L20.2,13.15 z" Margin="0,-0.125,-0.125,-0.125" Stretch="Fill" Stroke="White" UseLayoutRounding="False" HorizontalAlignment="Center" VerticalAlignment="Center" Height="15.25" Width="15.125" StrokeThickness="1.2"/>
+                            </Grid>
                         </Grid>
                     </Button>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
-        <Grid x:Name="PhoneNavBar" Height="50" Margin="0" VerticalAlignment="Bottom" Background="White" BorderBrush="#FF939393" BorderThickness="0,1,0,0">
+        <Grid x:Name="PhoneNavBar" Height="50" Margin="0" VerticalAlignment="Bottom" Background="White" BorderBrush="#FF939393" BorderThickness="0,1,0,0" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
             <Grid x:Name="Ellipsis_Button" HorizontalAlignment="Right" Height="50" Margin="0" VerticalAlignment="Bottom" Width="50" Background="{ThemeResource ContentDialogBorderThemeBrush}" Tapped="Grid_Tapped_1">
                 <TextBlock HorizontalAlignment="Center" Margin="1,2,0,0" TextWrapping="Wrap" Text="&#xE10C;" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16"/>
             </Grid>

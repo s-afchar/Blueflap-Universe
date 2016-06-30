@@ -16,6 +16,15 @@ Public NotInheritable Class MiniPlayer
         v.TitleBar.InactiveBackgroundColor = Windows.UI.Color.FromArgb(255, 27, 27, 27)
         Core.CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = False
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        Player.Source = New Uri(localSettings.Values("MiniPlayerUri"))
+
+        If (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
+            Dim HttpRequestMessage = New Windows.Web.Http.HttpRequestMessage(Windows.Web.Http.HttpMethod.Get, New Uri(localSettings.Values("MiniPlayerUri")))
+            HttpRequestMessage.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246")
+            Player.NavigateWithHttpRequestMessage(HttpRequestMessage)
+        Else
+            Player.Source = New Uri(localSettings.Values("MiniPlayerUri"))
+        End If
+
+
     End Sub
 End Class

@@ -185,6 +185,11 @@
     <Content Include="Assets\Plage.jpg" />
     <Content Include="Assets\promo2.png" />
     <Content Include="Assets\shadow.png" />
+    <Content Include="Assets\shadowcorner.png" />
+    <Content Include="Assets\shadowline.png" />
+    <Content Include="Assets\shadowlineleft.png" />
+    <Content Include="Assets\shadowlineright.png" />
+    <Content Include="Assets\shadowlinetop.png" />
     <Content Include="Assets\Soleil.JPG" />
     <Content Include="Assets\spinner.png" />
     <Content Include="Assets\surfacebook.png" />

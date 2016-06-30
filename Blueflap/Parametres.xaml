@@ -725,6 +725,10 @@
                     Value="10,145,10,10" />
                         <Setter Target="SearchEngine_1.Width"  
                     Value="Auto" />
+                        <Setter Target="SearchEngine_1.HorizontalAlignment"  
+                    Value="Stretch" />
+                        <Setter Target="SearchEngine_2.HorizontalAlignment"  
+                    Value="Stretch" />
                         <Setter Target="SearchEngine_2.Width"  
                     Value="Auto" />
                         <Setter Target="searchengine3.Margin"  
@@ -774,6 +778,10 @@
                     Value="121,43,0,0" />
                         <Setter Target="Translate_Button.Margin"  
                     Value="294,43,0,10" />
+                        <Setter Target="SearchEngine_1.HorizontalAlignment"  
+                    Value="Left" />
+                        <Setter Target="SearchEngine_2.HorizontalAlignment"  
+                    Value="Left" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -1113,8 +1121,8 @@
                                         <ComboBoxItem x:Uid="Settings_searchenginepers"  Content="&lt;Personnaliser&gt;"/>
                                     </ComboBox>
                                     <TextBlock HorizontalAlignment="Left" Margin="11,10,0,0" TextWrapping="Wrap" x:Uid="Settings_searchengine" Text="Moteur de recherche" VerticalAlignment="Top"/>
-                                    <TextBox x:Name="SearchEngine_1" Margin="206,35,0,0" Text="" VerticalAlignment="Top" Height="33" Width="405" BorderThickness="1" x:Uid="Settings_searchengineex1" PlaceholderText="Exemple : &quot;https://www.qwant.com/?q=&quot;" FontSize="16" Visibility="Collapsed"/>
-                                    <TextBox x:Name="SearchEngine_2" Margin="699,35,0,0" Text="" VerticalAlignment="Top" Height="33" Width="124" BorderThickness="1" x:Uid="Settings_searchengineex2" PlaceholderText="Ex : &quot;&amp;t=web&quot;" FontSize="16" Visibility="Collapsed"/>
+                                    <TextBox x:Name="SearchEngine_1" Margin="206,35,0,0" Text="" VerticalAlignment="Top" Height="33" Width="405" BorderThickness="1" x:Uid="Settings_searchengineex1" PlaceholderText="Exemple : &quot;https://www.qwant.com/?q=&quot;" FontSize="16" HorizontalAlignment="Left" Visibility="Collapsed"/>
+                                    <TextBox x:Name="SearchEngine_2" Margin="699,35,0,0" Text="" VerticalAlignment="Top" Height="33" Width="124" BorderThickness="1" x:Uid="Settings_searchengineex2" PlaceholderText="Ex : &quot;&amp;t=web&quot;" FontSize="16" HorizontalAlignment="Left" Visibility="Collapsed"/>
                                     <TextBlock x:Name="searchengine3" HorizontalAlignment="Left" Margin="623,41,0,0" TextWrapping="Wrap" Text="mots-clés" VerticalAlignment="Top" Foreground="#FF898989" Width="64" Visibility="Collapsed"/>
                                 </Grid>
                                 <Grid x:Name="Lock" Margin="0,0,0,10">
@@ -1178,6 +1186,14 @@
                                 <Grid Height="84" Margin="0,0,0,10" Canvas.ZIndex="-1">
                                     <Rectangle Fill="#33D1D1D1" Height="84" Stroke="#7F838383" VerticalAlignment="Top"/>
                                     <ToggleSwitch x:Name="Switch_ContextNotifs" x:Uid="Settings_ContextNotifs" Header="Notifications contextuelles" HorizontalAlignment="Left" Margin="11,12,0,0" VerticalAlignment="Top" IsOn="True"/>
+                                </Grid>
+                                <Grid Height="90" Margin="0,0,0,10" Canvas.ZIndex="-1">
+                                    <Rectangle Fill="#33D1D1D1" Height="90" Stroke="#7F838383" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="11,10,0,0" TextWrapping="Wrap" Text="MiniPlayer" VerticalAlignment="Top" FontSize="16"/>
+                                    <ComboBox x:Name="Settings_MiniPlayer" HorizontalAlignment="Left" Margin="11,42,8,0" VerticalAlignment="Top" BorderThickness="1" SelectedIndex="0">
+                                        <ComboBoxItem  x:Uid="Settings_MiniPlayer0" Content="Default"/>
+                                        <ComboBoxItem x:Uid="Settings_MiniPlayer1" Content="Open a new window"/>
+                                    </ComboBox>
                                 </Grid>
                             </StackPanel>
                         </Grid>

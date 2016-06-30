@@ -48,6 +48,11 @@ Public NotInheritable Class Parametres
             Adblock_Switch.IsOn = False
         End If
 
+        Try
+            Settings_MiniPlayer.SelectedIndex = localSettings.Values("MiniPlayerDisplayMode")
+        Catch
+        End Try
+
         Settings_SearchEngine.SelectedIndex = localSettings.Values("SearchEngineIndex") 'Définit la bonne valeur pour la combobox moteurs de recherches
         If Settings_SearchEngine.SelectedIndex = 12 Then
             SearchEngine_1.Visibility = Visibility.Visible
@@ -449,6 +454,7 @@ Public NotInheritable Class Parametres
         localSettings.Values("Config") = True
         ChangeSearchEngine()
         localSettings.Values("SearchEngineIndex") = Settings_SearchEngine.SelectedIndex
+        localSettings.Values("MiniPlayerDisplayMode") = Settings_MiniPlayer.SelectedIndex
         localSettings.Values("Homepage") = Startpage_Settings.Text
 
         If Adblock_Switch.IsOn Then

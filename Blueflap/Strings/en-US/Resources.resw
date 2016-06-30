@@ -564,4 +564,13 @@
   <data name="Wallpaper.Text" xml:space="preserve">
     <value>Wallpaper</value>
   </data>
+  <data name="Settings_MiniPlayer0.Content" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="Settings_MiniPlayer1.Content" xml:space="preserve">
+    <value>Open in a new window</value>
+  </data>
+  <data name="SearchFight_Choose.Header" xml:space="preserve">
+    <value>    LIST</value>
+  </data>
 </root>
