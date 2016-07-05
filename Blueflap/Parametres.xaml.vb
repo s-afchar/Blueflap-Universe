@@ -670,12 +670,13 @@ Public NotInheritable Class Parametres
 #End Region
 #Region "History"
     Private Sub Buton_ClearHistory_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Buton_ClearHistory.Tapped
-        Try
-            WriteJsonFile(JsonArray.Parse("[]"), "History")
-        Catch
-        End Try
-        Stat1.Text = 0
-        Windows.Storage.ApplicationData.Current.LocalSettings.Values("Stat1") = 0
+
+        FlyoutBase.ShowAttachedFlyout(DirectCast(sender, FrameworkElement))
+
+        Flyout_Confirmbut.Content = Favorites_Confirm_Switch.OnContent.ToString
+        Flyout_Confirm_Label.Text = Buton_ClearHistory.Content.ToString + " ?"
+        Flyout_Confirmbut.IsEnabled = True
+
     End Sub
     Private Async Sub WriteJsonFile(Json As JsonArray, FileName As String)
         Dim localFolder As StorageFolder = ApplicationData.Current.LocalFolder
@@ -689,6 +690,16 @@ Public NotInheritable Class Parametres
             Await FileIO.WriteTextAsync(textFile, Json.ToString)
         End If
 
+    End Sub
+
+    Private Sub Flyout_Confirmbut_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Flyout_Confirmbut.Tapped
+        Flyout_Confirmbut.IsEnabled = False
+        Try
+            WriteJsonFile(JsonArray.Parse("[]"), "History")
+        Catch
+        End Try
+        Stat1.Text = 0
+        Windows.Storage.ApplicationData.Current.LocalSettings.Values("Stat1") = 0
     End Sub
 
 

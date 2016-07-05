@@ -23,7 +23,7 @@ Public NotInheritable Class MainPage
     Dim resourceLoader = New Resources.ResourceLoader()
     Dim favs_tagsearch As Boolean
     Dim AdressBoxEditing As Boolean
-
+    Dim limitedOpenSearch As Boolean
 
 #Region "HardwareBackButton"
     Public Sub New()
@@ -489,7 +489,7 @@ Public NotInheritable Class MainPage
 
         If (AdressBox.Text.Contains(".") = True And AdressBox.Text.Contains(" ") = False And AdressBox.Text.Contains(" .") = False And AdressBox.Text.Contains(". ") = False) Or textArray(0).Contains(":/") = True Or textArray(0).Contains(":\") Then
             Try
-                If AdressBox.Text.Contains("http://") OrElse AdressBox.Text.Contains("https://") Then  'URL invalide si pas de http://
+                If AdressBox.Text.ToLower.Contains("http://") OrElse AdressBox.Text.ToLower.Contains("https://") Then  'URL invalide si pas de http://
                     web.Navigate(New Uri(AdressBox.Text))
                 Else
                     web.Navigate(New Uri("http://" + AdressBox.Text))
@@ -772,13 +772,19 @@ Public NotInheritable Class MainPage
 
     End Sub
     Private Sub ContextNotification()
+        SmartSuggest_OpenSearch.Visibility = Visibility.Collapsed
         Try
             If Windows.Storage.ApplicationData.Current.LocalSettings.Values("Context_Notif") = "No" Then
                 Notif_Diminutweet.Visibility = Visibility.Collapsed
                 Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed
+
             Else
                 OpenSearchEngine = False
                 If web.Source.ToString.Contains("www.bing.com") Then
+                    limitedOpenSearch = True
+                    OpenSearchNotif()
+                    SmartSuggest_OpenSearchIcon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
+
                     If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
                         New_Notif.Begin()
                         Notifications_Counter.Text = Notifications_Counter.Text + 1
@@ -788,6 +794,10 @@ Public NotInheritable Class MainPage
                     Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Bing.png", UriKind.Absolute))
                     Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
                 ElseIf web.Source.ToString.Contains("www.qwant.com") Then
+                    limitedOpenSearch = True
+                    OpenSearchNotif()
+                    SmartSuggest_OpenSearchIcon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
+
                     If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
                         New_Notif.Begin()
                         Notifications_Counter.Text = Notifications_Counter.Text + 1
@@ -795,8 +805,13 @@ Public NotInheritable Class MainPage
                     End If
                     Notif_SearchEngineName.Text = "QWANT"
                     Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Qwant.png", UriKind.Absolute))
+
                     Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
                 ElseIf web.Source.ToString.Contains("duckduckgo.com") Then
+                    limitedOpenSearch = True
+                    OpenSearchNotif()
+                    SmartSuggest_OpenSearchIcon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
+
                     If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
                         New_Notif.Begin()
                         Notifications_Counter.Text = Notifications_Counter.Text + 1
@@ -804,8 +819,13 @@ Public NotInheritable Class MainPage
                     End If
                     Notif_SearchEngineName.Text = "DUCKDUCKGO"
                     Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Duck.png", UriKind.Absolute))
+
                     Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
                 ElseIf web.Source.ToString.Contains("yahoo.com") Then
+                    limitedOpenSearch = True
+                    OpenSearchNotif()
+                    SmartSuggest_OpenSearchIcon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
+
                     If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
                         New_Notif.Begin()
                         Notifications_Counter.Text = Notifications_Counter.Text + 1
@@ -813,6 +833,7 @@ Public NotInheritable Class MainPage
                     End If
                     Notif_SearchEngineName.Text = "YAHOO"
                     Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_yahoo.png", UriKind.Absolute))
+
                     Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
                 Else
                     Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed
@@ -820,6 +841,7 @@ Public NotInheritable Class MainPage
                         Notifications_Counter.Text = Notifications_Counter.Text - 1
                     End If
                     Try
+                        limitedOpenSearch = False
                         OpenSearchNotif()
                         Notif_Home.Visibility = Visibility.Collapsed
                     Catch
@@ -841,7 +863,7 @@ Public NotInheritable Class MainPage
                     End If
                 End If
 
-                If web.Source.ToString.Contains("vimeo.com/") Or web.Source.ToString.Contains("dailymotion.com/video/") Or web.Source.ToString.Contains("youtube.com/watch") Then
+                If web.Source.ToString.Contains("vimeo.com/") Or web.Source.ToString.Contains("dailymotion.com/video/") Or web.Source.ToString.Contains("youtube.com/watch?v=") Then
                     If Notif_MiniPlayer.Visibility = Visibility.Collapsed Then
                         New_Notif.Begin()
                         Notifications_Counter.Text = Notifications_Counter.Text + 1
@@ -883,7 +905,10 @@ Public NotInheritable Class MainPage
     End Sub
     Private Async Sub OpenSearchNotif()
         Try
-            OpenSearchEngine = True
+
+            If limitedOpenSearch = False Then
+                OpenSearchEngine = True
+            End If
             Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
             ' Opensearch
 
@@ -970,8 +995,14 @@ Public NotInheritable Class MainPage
                 Notification()
 
                 name = name.Replace("Ã©", "É")
-                Notif_SearchEngineName.Text = name
-                Notif_SearchEngineIcon.Source = New BitmapImage(New Uri(img, UriKind.Absolute))
+
+                If limitedOpenSearch = False Then
+                    Notif_SearchEngineName.Text = name
+                    Notif_SearchEngineIcon.Source = New BitmapImage(New Uri(img, UriKind.Absolute))
+                    SmartSuggest_OpenSearchIcon.Source = New BitmapImage(New Uri(img, UriKind.Absolute))
+                End If
+
+                SmartSuggest_OpenSearch.Visibility = Visibility.Visible
 
             Catch
                 OpenSearchEngine = False
@@ -1419,11 +1450,13 @@ Public NotInheritable Class MainPage
         LikePageButton.Visibility = Visibility.Collapsed
         SmartSuggest.Background = Adressbar.Background
         History_Suggestions.Background = SmartSuggest.Background
+
         Try
             AdressBox.Text = web.Source.ToString
             Titlebox.Text = web.DocumentTitle
         Catch
         End Try
+
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         If localSettings.Values("DarkThemeEnabled") = True Then
             SmartSuggest.RequestedTheme = ElementTheme.Dark
@@ -1472,6 +1505,8 @@ Public NotInheritable Class MainPage
         Catch
         End Try
 
+        SmartSuggest_History.Children.Clear()
+        History_Suggestions.Height = 300
     End Sub
 
     Private Sub AdressBox_LostFocus(sender As Object, e As RoutedEventArgs) Handles AdressBox.LostFocus
@@ -1505,6 +1540,12 @@ Public NotInheritable Class MainPage
     Private Sub SmartSuggest_Search_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles SmartSuggest_Search.PointerExited
         SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
     End Sub
+    Private Sub SmartSuggest_OpenSearch_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles SmartSuggest_OpenSearch.PointerEntered
+        SmartSuggest_OpenSearch.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
+    End Sub
+    Private Sub SmartSuggest_OpenSearch_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles SmartSuggest_OpenSearch.PointerExited
+        SmartSuggest_OpenSearch.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+    End Sub
     Private Sub SmartSuggest_URL_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles SmartSuggest_URL.PointerEntered
         SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
     End Sub
@@ -1523,6 +1564,20 @@ Public NotInheritable Class MainPage
     Private Sub SmartSuggest_Search_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles SmartSuggest_Search.Tapped
         AdressBox.Text = SmartSuggest_Search_Text.Text + " "
         Rechercher()
+    End Sub
+    Private Sub SmartSuggest_OpenSearch_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles SmartSuggest_OpenSearch.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+        Try
+            Dim Rech As String
+            Rech = AdressBox.Text
+            localSettings.Values("textboxe") = AdressBox.Text
+            Dim s As String
+            s = Rech.ToString
+            s = s.Replace("+", "%2B")
+
+            web.Navigate(New Uri(OpenSearch_A1 + s + OpenSearch_A2))
+        Catch
+        End Try
     End Sub
     Private Sub SmartSuggest_Url_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles SmartSuggest_URL.Tapped
         AdressBox.Text = SmartSuggest_URL_Text.Text
@@ -1571,6 +1626,7 @@ Public NotInheritable Class MainPage
             s = s.Replace(".aspx", "")
         End If
         SmartSuggest_Search_Text.Text = s
+        SmartSuggest_OpenSearch_Text.Text = s
 
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         Try
@@ -1579,7 +1635,12 @@ Public NotInheritable Class MainPage
                     SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(20, 52, 152, 213))
                     SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
                     If SmartSuggest.Height < 138 Then
-                        ExpandSuggestions.Begin()
+                        If SmartSuggest_OpenSearch.Visibility = Visibility.Visible Then
+                            SmartSuggest.Height = 184
+                        Else
+                            ExpandSuggestions.Begin()
+                        End If
+
                     End If
                 ElseIf AdressBox.Text = "" Then
                     SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
@@ -1589,7 +1650,11 @@ Public NotInheritable Class MainPage
                     SmartSuggest_Search.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(20, 52, 152, 213))
                     SmartSuggest_URL.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
                     If SmartSuggest.Height < 138 Then
-                        ExpandSuggestions.Begin()
+                        If SmartSuggest_OpenSearch.Visibility = Visibility.Visible Then
+                            SmartSuggest.Height = 184
+                        Else
+                            ExpandSuggestions.Begin()
+                        End If
                     End If
                 End If
                 Try
@@ -1710,24 +1775,30 @@ Public NotInheritable Class MainPage
 
                     Next
 
+                    Dim h As Integer
+                    If SmartSuggest_OpenSearch.Visibility = Visibility.Visible Then
+                        h = 46
+                    Else
+                        h = 0
+                    End If
                     If ItemCount = 0 Then
-                        History_Suggestions.Height = 0 + 138
-                        SmartSuggest.Height = 138
+                        History_Suggestions.Height = 0 + 138 + h
+                        SmartSuggest.Height = 138 + h
                         SmartSuggest_HeartIcon.Visibility = Visibility.Collapsed
                         SmartSuggest_History.Visibility = Visibility.Collapsed
                     ElseIf ItemCount = 1 Then
-                        History_Suggestions.Height = 56 + 138
-                        SmartSuggest.Height = 194
+                        History_Suggestions.Height = 56 + 138 + h
+                        SmartSuggest.Height = 194 + h
                         SmartSuggest_HeartIcon.Visibility = Visibility.Visible
                         SmartSuggest_History.Visibility = Visibility.Visible
                     ElseIf ItemCount = 2 Then
-                        History_Suggestions.Height = 112 + 138
-                        SmartSuggest.Height = 250
+                        History_Suggestions.Height = 112 + 138 + h
+                        SmartSuggest.Height = 250 + h
                         SmartSuggest_HeartIcon.Visibility = Visibility.Visible
                         SmartSuggest_History.Visibility = Visibility.Visible
                     ElseIf ItemCount > 2 Then
-                        History_Suggestions.Height = 168 + 138
-                        SmartSuggest.Height = 306
+                        History_Suggestions.Height = 168 + 138 + h
+                        SmartSuggest.Height = 306 + h
                         SmartSuggest_HeartIcon.Visibility = Visibility.Visible
                         SmartSuggest_History.Visibility = Visibility.Visible
                     End If
@@ -2262,10 +2333,12 @@ Public NotInheritable Class MainPage
         t = web.Source.ToString
         t = t.Replace("vimeo.com/", "player.vimeo.com/video/")
         t = t.Replace("dailymotion.com/video/", "dailymotion.com/embed/video/")
-        If (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
+
+        If Not (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
             t = t.Replace("youtube.com/watch", "youtube.com/watch_popup")
         Else
-            t = t.Replace("youtube.com/watch", "youtube.com/embed")
+            t = t.Replace("m.youtube.com", "www.youtube.com")
+            t = t.Replace("youtube.com/watch?v=", "youtube.com/embed/")
             t = t + "?autoplay=0&showinfo=0&controls=0"
         End If
 
@@ -2288,6 +2361,9 @@ Public NotInheritable Class MainPage
                                                                                              End Function)
             Dim viewShown As Boolean = Await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId)
         Else
+            If MemoPanel.Visibility = Visibility.Visible Then
+                CloseRightMenu()
+            End If
             If (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
                 Dim HttpRequestMessage = New Windows.Web.Http.HttpRequestMessage(Windows.Web.Http.HttpMethod.Get, New Uri(t))
                 HttpRequestMessage.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246")
@@ -2546,7 +2622,10 @@ Public NotInheritable Class MainPage
             LikePageButton.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 122, 122, 122))
         End If
     End Sub
+
+
 #End Region
+
 
 
 End Class

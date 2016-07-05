@@ -52,14 +52,6 @@
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Memo_Button">
-                <EasingDoubleKeyFrame KeyTime="0" Value="-63"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <QuinticEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image1">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1">
@@ -275,8 +267,6 @@
                     Value="Auto" />
                         <Setter Target="Fight_Button.Visibility"  
                     Value="Collapsed" />
-                        <Setter Target="Memo_Button.Visibility"  
-                    Value="Collapsed" />
                         <Setter Target="Lock_Button.Visibility"  
                     Value="Collapsed" />
                         <Setter Target="RechercheBox.FontSize"  
@@ -311,8 +301,6 @@
                         <Setter Target="Suggestions.Width"  
                     Value="518" />
                         <Setter Target="Fight_Button.Visibility"  
-                    Value="Visible" />
-                        <Setter Target="Memo_Button.Visibility"  
                     Value="Visible" />
                         <Setter Target="Lock_Button.Visibility"  
                     Value="Visible" />
@@ -373,22 +361,49 @@
             <StackPanel x:Name="Container">
                 <Grid x:Name="SearchGrid" Height="550" VerticalAlignment="Top" Background="#19000000">
                     <Grid x:Name="AdressBox" Margin="0,67,0,408" Width="519" HorizontalAlignment="Center">
-                        <Rectangle x:Name="AdressBack" Height="75" VerticalAlignment="Top" StrokeThickness="2" RadiusY="3" RadiusX="3" Fill="White" Visibility="Collapsed"/>
+                        <Rectangle x:Name="AdressBack" Height="75" VerticalAlignment="Top" StrokeThickness="2" RadiusY="3" RadiusX="3" Fill="White"/>
                         <TextBlock x:Name="searchicon" HorizontalAlignment="Right" Margin="0,27,34,0" TextWrapping="Wrap" Text="&#xE11A;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="24" Foreground="#D7FFFFFF"/>
                         <TextBox x:Uid="FightTextbox" x:Name="RechercheBox" TextWrapping="NoWrap" Text="" VerticalAlignment="Bottom" Height="58" BorderThickness="0,0,0,2" FontSize="32" TextAlignment="Left" Margin="16,11,16,6" Background="#00000000" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" PreventKeyboardDisplayOnProgrammaticFocus="True" TextReadingOrder="UseFlowDirection" RequestedTheme="Dark" PlaceholderText="Entrez votre recherche" BorderBrush="White" Foreground="White"/>
                     </Grid>
-                    <ScrollViewer x:Name="Suggestions" Margin="0,142,0,0" HorizontalAlignment="Center" Width="518" VerticalAlignment="Top" Height="392" VerticalScrollBarVisibility="Auto" Foreground="#A5F7F7F7">
-                        <StackPanel x:Name="SmartSuggest_History" Margin="0"/>
+                    <ScrollViewer x:Name="Suggestions" Margin="0,142,0,0" HorizontalAlignment="Center" Width="518" VerticalAlignment="Top" Height="408" VerticalScrollBarVisibility="Auto" Foreground="#A5F7F7F7">
+                        <Grid Margin="0">
+                            <StackPanel x:Name="SmartSuggest_History" Margin="0"/>
+                            <StackPanel x:Name="FavSuggest" Margin="0,10,0,0" Padding="17,0,0,0" Background="#00000000">
+                                <Grid Margin="0,5,0,0">
+                                    <Ellipse Fill="#4F000000" HorizontalAlignment="Left" Height="30" Margin="0" StrokeThickness="2" VerticalAlignment="Center" Width="30"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="35,0,0,0" TextWrapping="Wrap" Text="Bing" VerticalAlignment="Center" Foreground="#FFF7F7F7"/>
+                                    <Image HorizontalAlignment="Left" Height="20" Margin="5,0,0,0" VerticalAlignment="Center" Width="20" Source="Assets/Engine_Bing.png"/>
+                                </Grid>
+                                <Grid Margin="0,5,0,0">
+                                    <Ellipse Fill="#4F000000" HorizontalAlignment="Left" Height="30" Margin="0" StrokeThickness="2" VerticalAlignment="Center" Width="30"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="35,0,0,0" TextWrapping="Wrap" Text="Bing" VerticalAlignment="Center" Foreground="#FFF7F7F7"/>
+                                    <Image HorizontalAlignment="Left" Height="20" Margin="5,0,0,0" VerticalAlignment="Center" Width="20" Source="Assets/Engine_Qwant.png"/>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
                     </ScrollViewer>
                 </Grid>
-                <Grid x:Name="FavoriteGrid" Height="148" VerticalAlignment="Top" Background="#CCFFFFFF">
-                    <TextBlock HorizontalAlignment="Center" Margin="0,21,0,0" TextWrapping="Wrap" Text="&#xE00B;" VerticalAlignment="Top" Foreground="#FFD40091" FontFamily="Segoe MDL2 Assets"/>
-                    <TextBlock x:Name="Fav_Name" HorizontalAlignment="Center" Margin="0,67,0,0" TextWrapping="Wrap" Text="SITE NAME" VerticalAlignment="Top" Foreground="#FF3A3A3A" FontSize="21.333" FontWeight="Bold" CharacterSpacing="-33"/>
-                    <TextBlock x:Name="Fav_Url" HorizontalAlignment="Center" Margin="0,92,0,0" TextWrapping="Wrap" Text="about:blank" VerticalAlignment="Top" Foreground="#A93A3A3A" FontSize="18.667"/>
-                    <Rectangle Fill="#4F000000" HorizontalAlignment="Center" Height="1" Margin="0,50,0,0" RadiusY="0.5" RadiusX="0.5" StrokeThickness="2" VerticalAlignment="Top" Width="203"/>
+                <Grid x:Name="FavoriteGrid" Height="75" VerticalAlignment="Top" Background="#CCFFFFFF">
+                    <TextBlock HorizontalAlignment="Center" Margin="0,0,0,28" TextWrapping="Wrap" Text="&#xE14B;" VerticalAlignment="Bottom" Foreground="#FF474747" FontSize="32" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets"/>
+                    <TextBlock HorizontalAlignment="Center" Margin="0,0,0,12" TextWrapping="Wrap" Text="RANDOM" VerticalAlignment="Bottom" FontSize="14" FontWeight="SemiBold" Foreground="#7F000000"/>
+                    <ProgressBar x:Name="randomprogress" Height="4" Margin="0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#4D000000" IsIndeterminate="True" Value="56" Visibility="Collapsed"/>
                 </Grid>
                 <Grid VerticalAlignment="Top" Background="#3E000000">
                     <StackPanel x:Name="Rssfeedcontainer" Margin="0"/>
+                </Grid>
+                <Grid x:Name="Actions" Height="100" Background="#66000000">
+                    <VariableSizedWrapGrid Margin="0" HorizontalAlignment="Center">
+                        <Button x:Name="Fight_Button" Content="&#xE923;" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#01000000" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" FontSize="25" BorderThickness="0.5,0" BorderBrush="#33FFFFFF" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets" Width="100" Height="100">
+                            <Button.RenderTransform>
+                                <CompositeTransform/>
+                            </Button.RenderTransform>
+                        </Button>
+                        <Button x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#01000000" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="25" BorderThickness="0.5,0" BorderBrush="#33FFFFFF" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Width="100" Height="100">
+                            <Button.RenderTransform>
+                                <CompositeTransform/>
+                            </Button.RenderTransform>
+                        </Button>
+                    </VariableSizedWrapGrid>
                 </Grid>
             </StackPanel>
         </ScrollViewer>
@@ -408,21 +423,6 @@
             <TextBox x:Name="memotext" HorizontalAlignment="Left" Margin="48,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RequestedTheme="Dark" BorderThickness="0,1" Height="256" Width="246" PlaceholderText="Memo" AcceptsReturn="True"/>
         </Grid>
         <Button Content="&#xE0D5; &#xE12B;" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" RequestedTheme="Dark" Height="66" FontFamily="Segoe MDL2 Assets" Tapped="Button_Tapped" Width="64"/>
-        <Button x:Name="Fight_Button" Content="&#xE923;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="0,156,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets" Width="47">
-            <Button.RenderTransform>
-                <CompositeTransform/>
-            </Button.RenderTransform>
-        </Button>
-        <Button x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="0,200,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Width="47">
-            <Button.RenderTransform>
-                <CompositeTransform/>
-            </Button.RenderTransform>
-        </Button>
-        <Button x:Name="Memo_Button" Content="&#xE70B;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="{x:Null}" Margin="0,244,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Width="47">
-            <Button.RenderTransform>
-                <CompositeTransform/>
-            </Button.RenderTransform>
-        </Button>
         <Button x:Name="Personnalisation_Button" Content="&#xE2B1;" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="0,0,0,3" BorderBrush="#FF00C5FF" Margin="0,22,0,0" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Width="47">
             <Button.RenderTransform>
                 <CompositeTransform/>

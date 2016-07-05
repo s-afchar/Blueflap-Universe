@@ -467,6 +467,11 @@
                     </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
             </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="0:0:0.4" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="suggestions" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
         </Storyboard>
         <Storyboard x:Name="HideSuggestions">
             <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="SmartSuggest">
@@ -1732,25 +1737,36 @@
                 <Grid HorizontalAlignment="Center" Height="15" VerticalAlignment="Center" Width="15" Margin="0,0,31,0"/>
             </StackPanel>
         </Grid>
-        <Grid x:Name="SmartSuggest" Height="189" Margin="48,66,0,0" VerticalAlignment="Top" Background="#FFE8E8E8" d:IsHidden="True">
+        <Grid x:Name="SmartSuggest" Height="189" Margin="48,66,0,0" VerticalAlignment="Top" Background="#FFE8E8E8">
 
             <ScrollViewer x:Name="History_Suggestions" HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Height="168" Margin="0" Background="#FFE8E8E8">
                 <Grid>
-                    <Grid x:Name="SmartSuggest_LastOne" Height="46" VerticalAlignment="Top" Background="#00000000">
-                        <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE81C;" Opacity="0.6"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" x:Uid="LastSearch" Text="Dernière recherche" Opacity="0.4"/>
-                        <TextBlock x:Name="DerniereRecherche" x:Uid="LastSearchMargin" Margin="165,13,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Text="-" FontSize="14" FontWeight="SemiBold" Height="23"/>
-                    </Grid>
-                    <Grid x:Name="SmartSuggest_Search" Height="46" VerticalAlignment="Top" Background="#00000000" Margin="0,46,0,0">
-                        <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE1A3;" Opacity="0.6"/>
-                        <TextBlock x:Name="SmartSuggest_Search_Text" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="-" Opacity="0.9" Height="20"/>
-                    </Grid>
-                    <Grid x:Name="SmartSuggest_URL" Height="46" VerticalAlignment="Top" Background="#00000000" Margin="0,92,0,0">
-                        <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE774;" Opacity="0.6"/>
-                        <TextBlock x:Name="SmartSuggest_URL_Text" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="http://" Opacity="0.9" Height="20"/>
-                    </Grid>
-                    <StackPanel x:Name="SmartSuggest_History" Margin="0,138,0,0"/>
-                    <TextBlock x:Name="SmartSuggest_HeartIcon" HorizontalAlignment="Left" Margin="11,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE006;" Opacity="0.6"/>
+                    <StackPanel x:Name="suggestions" Margin="0" RenderTransformOrigin="0.5,0.5">
+                        <StackPanel.RenderTransform>
+                            <CompositeTransform TranslateY="-30"/>
+                        </StackPanel.RenderTransform>
+                        <Grid x:Name="SmartSuggest_LastOne" Height="46" VerticalAlignment="Top" Background="#00000000" Margin="0">
+                            <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE81C;" Opacity="0.6"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" x:Uid="LastSearch" Text="Dernière recherche" Opacity="0.4"/>
+                            <TextBlock x:Name="DerniereRecherche" x:Uid="LastSearchMargin" Margin="165,13,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Text="-" FontSize="14" FontWeight="SemiBold"/>
+                        </Grid>
+                        <Grid x:Name="SmartSuggest_Search" Height="46" VerticalAlignment="Top" Background="#00000000" Margin="0">
+                            <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE1A3;" Opacity="0.6"/>
+                            <TextBlock x:Name="SmartSuggest_Search_Text" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="-" Opacity="0.9" Height="20"/>
+                        </Grid>
+                        <Grid x:Name="SmartSuggest_OpenSearch" Height="46" VerticalAlignment="Top" Background="#00000000" Margin="0" Visibility="Collapsed">
+                            <TextBlock x:Name="SmartSuggest_OpenSearch_Text" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="-" Opacity="0.9" Height="20"/>
+                            <Image x:Name="SmartSuggest_OpenSearchIcon" HorizontalAlignment="Left" Height="15" Margin="10,0,0,0" VerticalAlignment="Center" Width="15"/>
+                        </Grid>
+                        <Grid x:Name="SmartSuggest_URL" Height="46" VerticalAlignment="Top" Background="#00000000" Margin="0">
+                            <TextBlock HorizontalAlignment="Left" Margin="11,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE774;" Opacity="0.6"/>
+                            <TextBlock x:Name="SmartSuggest_URL_Text" Margin="34,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="http://" Opacity="0.9" Height="20"/>
+                        </Grid>
+                        <Grid Margin="0,0,-1132,0">
+                            <StackPanel x:Name="SmartSuggest_History" Margin="0"/>
+                            <TextBlock x:Name="SmartSuggest_HeartIcon" HorizontalAlignment="Left" Margin="11,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="14.667" Text="&#xE006;" Opacity="0.6"/>
+                        </Grid>
+                    </StackPanel>
                 </Grid>
 
             </ScrollViewer>

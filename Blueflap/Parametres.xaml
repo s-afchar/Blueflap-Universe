@@ -629,11 +629,11 @@
             </ObjectAnimationUsingKeyFrames>
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Verrouillage_Popup">
                 <EasingColorKeyFrame KeyTime="0" Value="#00000000"/>
-                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#B2000000"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#B2000000"/>
             </ColorAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="grid1">
-                <EasingDoubleKeyFrame KeyTime="0" Value="500"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
+                <EasingDoubleKeyFrame KeyTime="0" Value="100"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <QuinticEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
@@ -641,7 +641,48 @@
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid1">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="addfavshadow">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.54"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="NewPasswordBox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="VerrouillageSwitch">
+                <EasingDoubleKeyFrame KeyTime="0" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="TextBlockNewPassword">
+                <EasingDoubleKeyFrame KeyTime="0" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="button">
+                <EasingDoubleKeyFrame KeyTime="0" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Name="CloseVerrouillagePopup">
@@ -651,41 +692,30 @@
                         <Visibility>Visible</Visibility>
                     </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.4">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
                     <DiscreteObjectKeyFrame.Value>
                         <Visibility>Collapsed</Visibility>
                     </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
                     <DiscreteObjectKeyFrame.Value>
                         <Visibility>Collapsed</Visibility>
                     </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
             </ObjectAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="grid1">
-                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <QuinticEase EasingMode="EaseInOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="grid1">
-                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <QuinticEase EasingMode="EaseInOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid1">
                 <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Verrouillage_Popup">
                 <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="grid1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="100"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="addfavshadow" d:IsOptimized="True"/>
         </Storyboard>
         <Storyboard x:Name="WrongPassword">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Passwordbox">
@@ -697,6 +727,7 @@
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+
     </Page.Resources>
     <Grid x:Name="ParaPage" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <VisualStateManager.VisualStateGroups>
@@ -989,7 +1020,7 @@
                 </Grid>
             </ScrollViewer>
         </Grid>
-        <Pivot x:Name="pivot" Margin="227,0,0,0" Title="" RenderTransformOrigin="0.5,0.5">
+        <Pivot x:Name="pivot" Margin="220,0,0,0" Title="" RenderTransformOrigin="0.5,0.5">
             <Pivot.HeaderTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding}"  FontSize="14" FontWeight="SemiBold"/>
@@ -1174,7 +1205,18 @@
                                 <Grid Height="82" Margin="0,0,0,10" Canvas.ZIndex="-1">
                                     <Rectangle Fill="#33D1D1D1" Height="82" Stroke="#7F838383" VerticalAlignment="Top"/>
                                     <TextBlock HorizontalAlignment="Left" Margin="11,8,0,0" TextWrapping="Wrap" x:Uid="Settings_browsingdata" Text="Données de navigation" VerticalAlignment="Top"/>
-                                    <Button x:Name="Buton_ClearHistory" x:Uid="Settings_clearhistorylist" Content="Effacer l'historique" HorizontalAlignment="Left" Margin="12,39,0,0" VerticalAlignment="Top" BorderBrush="#27000000" Width="152"/>
+                                    <Button x:Name="Buton_ClearHistory" x:Uid="Settings_clearhistorylist" Content="Effacer l'historique" HorizontalAlignment="Left" Margin="12,39,0,0" VerticalAlignment="Top" BorderBrush="#27000000" Width="152">
+                                        <FlyoutBase.AttachedFlyout>
+                                            <Flyout>
+                                                <Grid>
+                                                    <StackPanel Margin="0">
+                                                        <TextBlock x:Name="Flyout_Confirm_Label" HorizontalAlignment="Left" Margin="0" Text="Confirm" VerticalAlignment="Top"/>
+                                                        <Button x:Name="Flyout_Confirmbut" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,15,0,0"/>
+                                                    </StackPanel>
+                                                </Grid>
+                                                </Flyout>
+                                        </FlyoutBase.AttachedFlyout>
+                                    </Button>
                                 </Grid>
                                 <Grid Height="107" Margin="0,0,0,10" Canvas.ZIndex="-1">
                                     <Rectangle Fill="#33D1D1D1" Height="107" Stroke="#7F838383" VerticalAlignment="Top"/>
@@ -1252,20 +1294,81 @@
             </PivotItem>
         </Pivot>
         <Grid x:Name="Verrouillage_Popup" Margin="0" Background="#B2000000" RequestedTheme="Light" Visibility="Collapsed">
+            <Grid x:Name="addfavshadow" Margin="0" Opacity="0.54" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Width="478" VerticalAlignment="Center" Height="347">
+                <Grid.RenderTransform>
+                    <CompositeTransform/>
+                </Grid.RenderTransform>
+                <Image HorizontalAlignment="Left" Height="73" Margin="0" VerticalAlignment="Bottom" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image HorizontalAlignment="Right" Height="73" Margin="0" VerticalAlignment="Bottom" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <CompositeTransform/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image HorizontalAlignment="Left" Height="100" Margin="0" VerticalAlignment="Top" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleY="-1" ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image HorizontalAlignment="Right" Height="100" Margin="0" VerticalAlignment="Top" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleY="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Height="73" Margin="100,0" VerticalAlignment="Bottom" Source="Assets/shadowline.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Margin="0,73" Source="Assets/shadowlineright.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" HorizontalAlignment="Left" Width="100">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Margin="0,73" Source="Assets/shadowlineright.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" HorizontalAlignment="Right" Width="100">
+                    <Image.RenderTransform>
+                        <CompositeTransform/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Height="73" Margin="100,0" VerticalAlignment="Top" Source="Assets/shadowline.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleY="-1" ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+            </Grid>
             <Grid x:Name="grid1" Height="323" Margin="0,0,0,40" Width="431" RenderTransformOrigin="0.5,0.5">
                 <Grid.RenderTransform>
                     <CompositeTransform/>
                 </Grid.RenderTransform>
-                <Rectangle Fill="#EAFFFFFF" Margin="0" RadiusX="5" RadiusY="5"/>
+                <Rectangle Fill="#EAFFFFFF" Margin="0" RadiusX="2" RadiusY="2"/>
                 <Rectangle Fill="#B2FFFFFF" Height="83" Margin="0,60,0,0" VerticalAlignment="Top"/>
                 <Rectangle Fill="#B2FFFFFF" Height="120" Margin="0,145,0,0" VerticalAlignment="Top"/>
                 <Button x:Uid="Save" Content="Enregistrer" HorizontalAlignment="Right" Margin="0,0,17,10" VerticalAlignment="Bottom" Tapped="Password_SaveSettings" RequestedTheme="Light" Foreground="White" Background="{ThemeResource ContentDialogBorderThemeBrush}" Height="35" Width="92"/>
-                <PasswordBox x:Uid="Settings_newpassplaceholder" x:Name="NewPasswordBox" Margin="11,188,11,0" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Nouveau mot de passe" FontSize="16"/>
+                <PasswordBox x:Uid="Settings_newpassplaceholder" x:Name="NewPasswordBox" Margin="11,188,11,0" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Nouveau mot de passe" FontSize="16" RenderTransformOrigin="0.5,0.5">
+                    <PasswordBox.RenderTransform>
+                        <CompositeTransform/>
+                    </PasswordBox.RenderTransform>
+                </PasswordBox>
                 <Button x:Uid="Cancel" Content="Annuler" HorizontalAlignment="Right" Margin="0,0,115,10" VerticalAlignment="Bottom" RequestedTheme="Light" Background="#19000000" Height="35" Tapped="Password_CancelConfiguration" Width="72"/>
                 <TextBlock HorizontalAlignment="Left" Margin="21,20,0,0" TextWrapping="Wrap" x:Uid="Settings_locksettings" Text="PARAMÈTRES DU VERROUILLAGE " VerticalAlignment="Top" FontSize="14.667" FontWeight="Bold" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
-                <ToggleSwitch x:Name="VerrouillageSwitch" x:Uid="Settings_LockEnabled" Header="Verrouillage" HorizontalAlignment="Left" Margin="11,73,0,0" VerticalAlignment="Top" RequestedTheme="Light"/>
-                <TextBlock x:Name="TextBlockNewPassword" HorizontalAlignment="Left" Margin="11,160,0,0" TextWrapping="Wrap" Text="Modifier le mot de passe" VerticalAlignment="Top"/>
-                <Button x:Uid="Settings_resetpassword" Content="Supprimer le mot de passe" HorizontalAlignment="Right" Margin="0,220,12,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FFC30000" Width="201" Height="31" Tapped="ResetPassword" BorderThickness="0"/>
+                <ToggleSwitch x:Name="VerrouillageSwitch" x:Uid="Settings_LockEnabled" Header="Verrouillage" HorizontalAlignment="Left" Margin="11,73,0,0" VerticalAlignment="Top" RequestedTheme="Light" RenderTransformOrigin="0.5,0.5">
+                    <ToggleSwitch.RenderTransform>
+                        <CompositeTransform/>
+                    </ToggleSwitch.RenderTransform>
+                </ToggleSwitch>
+                <TextBlock x:Name="TextBlockNewPassword" HorizontalAlignment="Left" Margin="11,160,0,0" TextWrapping="Wrap" Text="Modifier le mot de passe" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <CompositeTransform/>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+                <Button x:Name="button" x:Uid="Settings_resetpassword" Content="Supprimer le mot de passe" HorizontalAlignment="Right" Margin="0,220,12,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FFC30000" Width="201" Height="31" Tapped="ResetPassword" BorderThickness="0" RenderTransformOrigin="0.5,0.5">
+                    <Button.RenderTransform>
+                        <CompositeTransform/>
+                    </Button.RenderTransform>
+                </Button>
             </Grid>
         </Grid>
 

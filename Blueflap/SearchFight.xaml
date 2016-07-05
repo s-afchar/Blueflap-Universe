@@ -604,7 +604,7 @@
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="addfavshadow">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.54"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="List_Right">
                 <EasingDoubleKeyFrame KeyTime="0" Value="100"/>
