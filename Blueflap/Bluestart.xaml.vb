@@ -83,88 +83,91 @@ Public NotInheritable Class Bluestart
 #End Region
 #Region "LastFav"
     Private Async Sub FavoriteGrid_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles FavoriteGrid.Tapped
-        randomprogress.Visibility = Visibility.Visible
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        itemcount = 0
-        Dim Json As String
-        Dim PreventMultipleSameItems As New HashSet(Of String)()
-
         Try
-            Json = Await ReadJsonFile("Favorites")
-        Catch ex As Exception
-            Json = "[]"
-        End Try
+            randomprogress.Visibility = Visibility.Visible
+            Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+            itemcount = 0
+            Dim Json As String
+            Dim PreventMultipleSameItems As New HashSet(Of String)()
 
-        For Each histElem In JsonArray.Parse(Json).Reverse
+            Try
+                Json = Await ReadJsonFile("Favorites")
+            Catch ex As Exception
+                Json = "[]"
+            End Try
 
-            If Not PreventMultipleSameItems.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
-                itemcount = itemcount + 1
-            End If
-            PreventMultipleSameItems.Add(histElem.GetObject.GetNamedString("url").ToLower)
+            For Each histElem In JsonArray.Parse(Json).Reverse
 
-        Next
-
-        Try
-            Json = Await ReadJsonFile("History")
-        Catch ex As Exception
-            Json = "[]"
-        End Try
-
-        For Each histElem In JsonArray.Parse(Json).Reverse
-
-            If Not PreventMultipleSameItems.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
-                itemcount = itemcount + 1
-            End If
-
-            PreventMultipleSameItems.Add(histElem.GetObject.GetNamedString("url").ToLower)
-        Next
-
-        Dim random As New Random()
-        Dim randomNumber As Integer = random.[Next](0, itemcount)
-        Dim RandomCount As Integer = 0
-
-
-        Dim Json2 As String
-        Dim PreventMultipleSameItems2 As New HashSet(Of String)()
-
-        Try
-            Json2 = Await ReadJsonFile("Favorites")
-        Catch ex As Exception
-            Json2 = "[]"
-        End Try
-
-        For Each histElem In JsonArray.Parse(Json2).Reverse
-
-            If RandomCount < randomNumber Then
-                If Not PreventMultipleSameItems2.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
-                    RandomCount = RandomCount + 1
-                    localSettings.Values("LoadPageFromBluestart_Adress") = histElem.GetObject.GetNamedString("url")
+                If Not PreventMultipleSameItems.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
+                    itemcount = itemcount + 1
                 End If
-                PreventMultipleSameItems2.Add(histElem.GetObject.GetNamedString("url").ToLower)
-            End If
-        Next
+                PreventMultipleSameItems.Add(histElem.GetObject.GetNamedString("url").ToLower)
 
-        Try
-            Json2 = Await ReadJsonFile("History")
-        Catch ex As Exception
-            Json2 = "[]"
-        End Try
+            Next
 
-        For Each histElem In JsonArray.Parse(Json2).Reverse
+            Try
+                Json = Await ReadJsonFile("History")
+            Catch ex As Exception
+                Json = "[]"
+            End Try
 
-            If RandomCount < randomNumber Then
-                If Not PreventMultipleSameItems2.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
-                    RandomCount = RandomCount + 1
-                    localSettings.Values("LoadPageFromBluestart_Adress") = histElem.GetObject.GetNamedString("url")
+            For Each histElem In JsonArray.Parse(Json).Reverse
+
+                If Not PreventMultipleSameItems.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
+                    itemcount = itemcount + 1
                 End If
-                PreventMultipleSameItems2.Add(histElem.GetObject.GetNamedString("url").ToLower)
-            End If
 
-        Next
-        randomprogress.Visibility = Visibility.Collapsed
+                PreventMultipleSameItems.Add(histElem.GetObject.GetNamedString("url").ToLower)
+            Next
 
-        localSettings.Values("LoadPageFromBluestart") = True
-        Me.Frame.Navigate(GetType(MainPage))
+            Dim random As New Random()
+            Dim randomNumber As Integer = random.[Next](0, itemcount)
+            Dim RandomCount As Integer = 0
+
+
+            Dim Json2 As String
+            Dim PreventMultipleSameItems2 As New HashSet(Of String)()
+
+            Try
+                Json2 = Await ReadJsonFile("Favorites")
+            Catch ex As Exception
+                Json2 = "[]"
+            End Try
+
+            For Each histElem In JsonArray.Parse(Json2).Reverse
+
+                If RandomCount < randomNumber Then
+                    If Not PreventMultipleSameItems2.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
+                        RandomCount = RandomCount + 1
+                        localSettings.Values("LoadPageFromBluestart_Adress") = histElem.GetObject.GetNamedString("url")
+                    End If
+                    PreventMultipleSameItems2.Add(histElem.GetObject.GetNamedString("url").ToLower)
+                End If
+            Next
+
+            Try
+                Json2 = Await ReadJsonFile("History")
+            Catch ex As Exception
+                Json2 = "[]"
+            End Try
+
+            For Each histElem In JsonArray.Parse(Json2).Reverse
+
+                If RandomCount < randomNumber Then
+                    If Not PreventMultipleSameItems2.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
+                        RandomCount = RandomCount + 1
+                        localSettings.Values("LoadPageFromBluestart_Adress") = histElem.GetObject.GetNamedString("url")
+                    End If
+                    PreventMultipleSameItems2.Add(histElem.GetObject.GetNamedString("url").ToLower)
+                End If
+
+            Next
+            randomprogress.Visibility = Visibility.Collapsed
+
+            localSettings.Values("LoadPageFromBluestart") = True
+            Me.Frame.Navigate(GetType(MainPage))
+        Catch
+        End Try
     End Sub
 
     Private Sub FavoriteGrid_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles FavoriteGrid.PointerEntered
@@ -268,180 +271,186 @@ Public NotInheritable Class Bluestart
         End If
     End Sub
     Private Async Sub SmartSuggest_Histo()
-        SmartSuggest_History.Children.Clear()
-        Dim Json As String
-        Dim PreventMultipleSameItems As New HashSet(Of String)()
-
         Try
-            Json = Await ReadJsonFile("Favorites")
-        Catch ex As Exception
-            Json = "[]"
-        End Try
+            SmartSuggest_History.Children.Clear()
+            Dim Json As String
+            Dim PreventMultipleSameItems As New HashSet(Of String)()
 
-        For Each histElem In JsonArray.Parse(Json).Reverse
-            Dim elemContainer As StackPanel = New StackPanel
-            elemContainer.Padding = New Thickness(23, 8, 0, 8)
-            AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
-                                                                        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+            Try
+                Json = Await ReadJsonFile("Favorites")
+            Catch ex As Exception
+                Json = "[]"
+            End Try
 
-                                                                        localSettings.Values("LoadPageFromBluestart") = True
-                                                                        localSettings.Values("LoadPageFromBluestart_Adress") = histElem.GetObject.GetNamedString("url")
-                                                                        Me.Frame.Navigate(GetType(MainPage))
-                                                                    End Function)
+            For Each histElem In JsonArray.Parse(Json).Reverse
+                Dim elemContainer As StackPanel = New StackPanel
+                elemContainer.Padding = New Thickness(23, 8, 0, 8)
+                AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                            Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
-            If PhoneNavBar.Visibility = Visibility.Collapsed Then
-                AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                     elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
-                                                                                 End Function)
+                                                                            localSettings.Values("LoadPageFromBluestart") = True
+                                                                            localSettings.Values("LoadPageFromBluestart_Adress") = histElem.GetObject.GetNamedString("url")
+                                                                            Me.Frame.Navigate(GetType(MainPage))
+                                                                        End Function)
 
-                AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                    elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-                                                                                End Function)
+                If PhoneNavBar.Visibility = Visibility.Collapsed Then
+                    AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                         elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
+                                                                                     End Function)
 
-            End If
-            Dim elemText As TextBlock = New TextBlock
-            elemText.Text = histElem.GetObject.GetNamedString("title")
-            elemText.Foreground = New SolidColorBrush(Windows.UI.Colors.White)
-            elemContainer.Children.Add(elemText)
+                    AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                        elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                                    End Function)
 
-            Dim UrlText As TextBlock = New TextBlock
-            UrlText.Text = histElem.GetObject.GetNamedString("url")
-            elemText.Foreground = New SolidColorBrush(Windows.UI.Colors.White)
-            elemContainer.Children.Add(UrlText)
-
-
-
-            If Not PreventMultipleSameItems.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
-                If histElem.GetObject.GetNamedString("title").ToLower.Contains(RechercheBox.Text.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(RechercheBox.Text.ToLower) Then
-                    SmartSuggest_History.Children.Add(elemContainer)
-
-                    itemcount = itemcount + 1
                 End If
-            End If
+                Dim elemText As TextBlock = New TextBlock
+                elemText.Text = histElem.GetObject.GetNamedString("title")
+                elemText.Foreground = New SolidColorBrush(Windows.UI.Colors.White)
+                elemContainer.Children.Add(elemText)
 
-            PreventMultipleSameItems.Add(histElem.GetObject.GetNamedString("url").ToLower)
-
-        Next
-
-        Try
-            Json = Await ReadJsonFile("History")
-        Catch ex As Exception
-            Json = "[]"
-        End Try
-
-        For Each histElem In JsonArray.Parse(Json).Reverse
-            Dim elemContainer As StackPanel = New StackPanel
-            elemContainer.Padding = New Thickness(23, 8, 0, 8)
-            AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
-                                                                        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-
-                                                                        localSettings.Values("LoadPageFromBluestart") = True
-                                                                        localSettings.Values("LoadPageFromBluestart_Adress") = histElem.GetObject.GetNamedString("url")
-                                                                        Me.Frame.Navigate(GetType(MainPage))
-                                                                    End Function)
-
-            If PhoneNavBar.Visibility = Visibility.Collapsed Then
-                AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                     elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
-                                                                                 End Function)
-
-                AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                    elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-                                                                                End Function)
-            End If
-
-            Dim elemText As TextBlock = New TextBlock
-            elemText.Text = histElem.GetObject.GetNamedString("title")
-            elemText.Foreground = New SolidColorBrush(Windows.UI.Colors.White)
-            elemContainer.Children.Add(elemText)
-
-            Dim UrlText As TextBlock = New TextBlock
-            UrlText.Text = histElem.GetObject.GetNamedString("url")
-            elemText.Foreground = New SolidColorBrush(Windows.UI.Colors.White)
-            elemContainer.Children.Add(UrlText)
+                Dim UrlText As TextBlock = New TextBlock
+                UrlText.Text = histElem.GetObject.GetNamedString("url")
+                elemText.Foreground = New SolidColorBrush(Windows.UI.Colors.White)
+                elemContainer.Children.Add(UrlText)
 
 
 
-            If Not PreventMultipleSameItems.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
-                If histElem.GetObject.GetNamedString("title").ToLower.Contains(RechercheBox.Text.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(RechercheBox.Text.ToLower) Then
-                    SmartSuggest_History.Children.Add(elemContainer)
+                If Not PreventMultipleSameItems.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
+                    If histElem.GetObject.GetNamedString("title").ToLower.Contains(RechercheBox.Text.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(RechercheBox.Text.ToLower) Then
+                        SmartSuggest_History.Children.Add(elemContainer)
 
-                    itemcount = itemcount + 1
+                        itemcount = itemcount + 1
+                    End If
                 End If
-            End If
 
-            PreventMultipleSameItems.Add(histElem.GetObject.GetNamedString("url").ToLower)
+                PreventMultipleSameItems.Add(histElem.GetObject.GetNamedString("url").ToLower)
 
-        Next
+            Next
+
+            Try
+                Json = Await ReadJsonFile("History")
+            Catch ex As Exception
+                Json = "[]"
+            End Try
+
+            For Each histElem In JsonArray.Parse(Json).Reverse
+                Dim elemContainer As StackPanel = New StackPanel
+                elemContainer.Padding = New Thickness(23, 8, 0, 8)
+                AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                            Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+                                                                            localSettings.Values("LoadPageFromBluestart") = True
+                                                                            localSettings.Values("LoadPageFromBluestart_Adress") = histElem.GetObject.GetNamedString("url")
+                                                                            Me.Frame.Navigate(GetType(MainPage))
+                                                                        End Function)
+
+                If PhoneNavBar.Visibility = Visibility.Collapsed Then
+                    AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                         elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(70, 52, 152, 213))
+                                                                                     End Function)
+
+                    AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                        elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                                    End Function)
+                End If
+
+                Dim elemText As TextBlock = New TextBlock
+                elemText.Text = histElem.GetObject.GetNamedString("title")
+                elemText.Foreground = New SolidColorBrush(Windows.UI.Colors.White)
+                elemContainer.Children.Add(elemText)
+
+                Dim UrlText As TextBlock = New TextBlock
+                UrlText.Text = histElem.GetObject.GetNamedString("url")
+                elemText.Foreground = New SolidColorBrush(Windows.UI.Colors.White)
+                elemContainer.Children.Add(UrlText)
+
+
+
+                If Not PreventMultipleSameItems.Contains(histElem.GetObject.GetNamedString("url").ToLower) Then
+                    If histElem.GetObject.GetNamedString("title").ToLower.Contains(RechercheBox.Text.ToLower) Or histElem.GetObject.GetNamedString("url").ToLower.Contains(RechercheBox.Text.ToLower) Then
+                        SmartSuggest_History.Children.Add(elemContainer)
+
+                        itemcount = itemcount + 1
+                    End If
+                End If
+
+                PreventMultipleSameItems.Add(histElem.GetObject.GetNamedString("url").ToLower)
+
+            Next
+        Catch
+        End Try
     End Sub
     Private Async Function ShowFavorites() As Task
-        FavSuggest.Children.Clear()
 
-        For Each favsElem In JsonArray.Parse(Await ReadJsonFile("Favorites")).Reverse
+        Try
+            FavSuggest.Children.Clear()
 
-            Dim elemContainer As Grid = New Grid
-            elemContainer.Margin = New Thickness(0, 7, 0, 7)
-            elemContainer.VerticalAlignment = VerticalAlignment.Stretch
-            elemContainer.HorizontalAlignment = HorizontalAlignment.Stretch
-            elemContainer.Height = 30
-            elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 0, 0, 0))
+            For Each favsElem In JsonArray.Parse(Await ReadJsonFile("Favorites")).Reverse
 
-            Dim rond As Grid = New Grid
-            rond.Height = 30
-            rond.Width = 30
-            rond.CornerRadius = New CornerRadius(30)
-            rond.HorizontalAlignment = HorizontalAlignment.Left
-            rond.VerticalAlignment = VerticalAlignment.Center
-            rond.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 0, 0, 0))
-            elemContainer.Children.Add(rond)
+                Dim elemContainer As Grid = New Grid
+                elemContainer.Margin = New Thickness(0, 7, 0, 7)
+                elemContainer.VerticalAlignment = VerticalAlignment.Stretch
+                elemContainer.HorizontalAlignment = HorizontalAlignment.Stretch
+                elemContainer.Height = 30
+                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 0, 0, 0))
 
-            Dim image As Image = New Image
-            image.Margin = New Thickness(5, 0, 0, 0)
-            image.Width = 20
-            image.Height = 20
-            image.HorizontalAlignment = HorizontalAlignment.Left
-            Try
-                Dim str As Uri = New Uri(favsElem.GetObject.GetNamedString("url"))
-                image.Source = New BitmapImage(New Uri("http://" & str.Host & "/favicon.ico", UriKind.Absolute))
-            Catch ex As Exception
+                Dim rond As Grid = New Grid
+                rond.Height = 30
+                rond.Width = 30
+                rond.CornerRadius = New CornerRadius(30)
+                rond.HorizontalAlignment = HorizontalAlignment.Left
+                rond.VerticalAlignment = VerticalAlignment.Center
+                rond.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 0, 0, 0))
+                elemContainer.Children.Add(rond)
 
-            End Try
-            elemContainer.Children.Add(image)
+                Dim image As Image = New Image
+                image.Margin = New Thickness(5, 0, 0, 0)
+                image.Width = 20
+                image.Height = 20
+                image.HorizontalAlignment = HorizontalAlignment.Left
+                Try
+                    Dim str As Uri = New Uri(favsElem.GetObject.GetNamedString("url"))
+                    image.Source = New BitmapImage(New Uri("http://" & str.Host & "/favicon.ico", UriKind.Absolute))
+                Catch ex As Exception
 
-
-
-            Dim elemText As TextBlock = New TextBlock
-            elemText.Text = favsElem.GetObject.GetNamedString("title")
-            elemText.Margin = New Thickness(35, 0, 0, 0)
-            elemText.VerticalAlignment = VerticalAlignment.Center
-            elemText.HorizontalAlignment = HorizontalAlignment.Left
-            elemText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 255, 255))
-            elemContainer.Children.Add(elemText)
+                End Try
+                elemContainer.Children.Add(image)
 
 
-            FavSuggest.Children.Add(elemContainer)
 
-            AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
-                                                                        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+                Dim elemText As TextBlock = New TextBlock
+                elemText.Text = favsElem.GetObject.GetNamedString("title")
+                elemText.Margin = New Thickness(35, 0, 0, 0)
+                elemText.VerticalAlignment = VerticalAlignment.Center
+                elemText.HorizontalAlignment = HorizontalAlignment.Left
+                elemText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 255, 255))
+                elemContainer.Children.Add(elemText)
 
-                                                                        localSettings.Values("LoadPageFromBluestart") = True
-                                                                        localSettings.Values("LoadPageFromBluestart_Adress") = favsElem.GetObject.GetNamedString("url")
-                                                                        Me.Frame.Navigate(GetType(MainPage))
-                                                                    End Function)
 
-            If PhoneNavBar.Visibility = Visibility.Collapsed Then
-                AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                     rond.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(100, 255, 255, 255))
-                                                                                     elemText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(190, 255, 255, 255))
-                                                                                 End Function)
+                FavSuggest.Children.Add(elemContainer)
 
-                AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                    rond.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 0, 0, 0))
-                                                                                    elemText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 255, 255))
-                                                                                End Function)
-            End If
-        Next
+                AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                            Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
+                                                                            localSettings.Values("LoadPageFromBluestart") = True
+                                                                            localSettings.Values("LoadPageFromBluestart_Adress") = favsElem.GetObject.GetNamedString("url")
+                                                                            Me.Frame.Navigate(GetType(MainPage))
+                                                                        End Function)
+
+                If PhoneNavBar.Visibility = Visibility.Collapsed Then
+                    AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                         rond.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(100, 255, 255, 255))
+                                                                                         elemText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(190, 255, 255, 255))
+                                                                                     End Function)
+
+                    AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                        rond.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 0, 0, 0))
+                                                                                        elemText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 255, 255))
+                                                                                    End Function)
+                End If
+            Next
+        Catch
+        End Try
     End Function
     Private Async Function ReadJsonFile(FileName As String) As Task(Of String)
         Dim localFolder As StorageFolder = ApplicationData.Current.LocalFolder
@@ -453,17 +462,22 @@ Public NotInheritable Class Bluestart
         Return content
     End Function
     Private Sub FavSuggest_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles FavSuggest.PointerEntered
-        If PreventAnimationBug = True Then
-            SearchLessOpacity.Begin()
-            PreventAnimationBug = False
+        If PhoneNavBar.Visibility = Visibility.Collapsed Then
+            If PreventAnimationBug = True Then
+                SearchLessOpacity.Begin()
+                PreventAnimationBug = False
+            End If
+
+            Suggestions.VerticalScrollBarVisibility = ScrollBarVisibility.Auto
         End If
-        Suggestions.VerticalScrollBarVisibility = ScrollBarVisibility.Auto
     End Sub
 
     Private Sub FavSuggest_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles FavSuggest.PointerExited
-        SearchLessOpacity.Stop()
-        PreventAnimationBug = True
-        Suggestions.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden
+        If PhoneNavBar.Visibility = Visibility.Collapsed Then
+            SearchLessOpacity.Stop()
+            PreventAnimationBug = True
+            Suggestions.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden
+            End If
     End Sub
 
 #End Region
