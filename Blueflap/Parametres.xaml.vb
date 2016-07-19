@@ -48,6 +48,18 @@ Public NotInheritable Class Parametres
             Adblock_Switch.IsOn = False
         End If
 
+        If localSettings.Values("GhostMode") = False Then
+            Ghost_Switch.IsOn = False
+        Else
+            Ghost_Switch.IsOn = True
+        End If
+
+        If localSettings.Values("NewWin") = True Then
+            NewWin_Switch.IsOn = True
+        Else
+            NewWin_Switch.IsOn = False
+        End If
+
         Try
             Settings_MiniPlayer.SelectedIndex = localSettings.Values("MiniPlayerDisplayMode")
         Catch
@@ -149,7 +161,7 @@ Public NotInheritable Class Parametres
         FaviconCheck.IsChecked = localSettings.Values("Favicon")
 
 
-                Try
+        Try
             If localSettings.Values("SmartSuggest") = True Then
                 Suggest_Switch.IsOn = True
             Else
@@ -195,6 +207,12 @@ Public NotInheritable Class Parametres
         Icon_Share.IsChecked = localSettings.Values("ShareIcon")
         Icon_Window.IsChecked = localSettings.Values("WindowIcon")
 
+        If localSettings.Values("GhostIcon") = True Then
+            Icon_Ghost.IsChecked = True
+        Else
+            Icon_Ghost.IsChecked = False
+        End If
+
         Try
             If localSettings.Values("WallpaperType") = "Custom" Then 'Définit l'image de fond : image prédéfinie ou image en ligne
                 Wallpaper_Preview.Source = New BitmapImage(New Uri(localSettings.Values("WallpaperSource"), UriKind.Absolute))
@@ -204,6 +222,14 @@ Public NotInheritable Class Parametres
         Catch ex As Exception
         End Try
 
+    End Sub
+
+    Private Sub Grid_PointerEntered(sender As Object, e As PointerRoutedEventArgs)
+        scrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto
+    End Sub
+
+    Private Sub Grid_PointerExited(sender As Object, e As PointerRoutedEventArgs)
+        scrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden
     End Sub
 #End Region
 #Region "Theme"
@@ -464,6 +490,18 @@ Public NotInheritable Class Parametres
         End If
         localSettings.Values("AdblockFonction") = Adblock_Switch.Tag.ToString
 
+        If Ghost_Switch.IsOn = True Then
+            localSettings.Values("GhostMode") = True
+        Else
+            localSettings.Values("GhostMode") = False
+        End If
+
+
+        If NewWin_Switch.IsOn = True Then
+            localSettings.Values("NewWin") = True
+        Else
+            localSettings.Values("NewWin") = False
+        End If
 
         If Suggest_Switch.IsOn Then
             localSettings.Values("SmartSuggest") = True
@@ -500,6 +538,8 @@ Public NotInheritable Class Parametres
         localSettings.Values("NoteIcon") = Icon_Note.IsChecked
         localSettings.Values("ShareIcon") = Icon_Share.IsChecked
         localSettings.Values("WindowIcon") = Icon_Window.IsChecked
+        localSettings.Values("GhostIcon") = Icon_Ghost.IsChecked
+
 
     End Sub
 #End Region
@@ -701,6 +741,7 @@ Public NotInheritable Class Parametres
         Stat1.Text = 0
         Windows.Storage.ApplicationData.Current.LocalSettings.Values("Stat1") = 0
     End Sub
+
 
 
 

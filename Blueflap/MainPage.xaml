@@ -1345,6 +1345,20 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Name="GhostModeNotif">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Gost_Button">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Control.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="Gost_Button">
+                <EasingColorKeyFrame KeyTime="0:0:0.5" Value="Red"/>
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="White"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(Control.FontSize)" Storyboard.TargetName="Gost_Button">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="20"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="16"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Page.Resources>
 
 
@@ -1482,7 +1496,7 @@
                 </Grid>
                 <Button x:Name="Web_Share_Share" Content="&#xE72D;" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
                 <Button x:Name="Info_Like" Content="&#xEB51;" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
-                <Button x:Name="Info_Pin" Content="&#xE840;" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark" IsEnabled="False"/>
+                <Button x:Name="Info_Pin" Content="&#xE840;" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
                 <Button x:Name="Web_Share_Source" Content="&#xE8FF;" HorizontalAlignment="Left" Margin="0,182,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" Height="50" Opacity="0.7" Width="50" BorderBrush="{x:Null}" RequestedTheme="Dark"/>
             </Grid>
             <TextBox x:Name="SourceCode" Margin="70,30,0,0" TextWrapping="Wrap" Text="..." RequestedTheme="Dark" BorderBrush="{x:Null}" Background="{x:Null}" AcceptsReturn="True" Visibility="Collapsed" BorderThickness="0,0,7,0" RenderTransformOrigin="0.5,0.5" ScrollViewer.VerticalScrollBarVisibility="Auto" InputScope="NativeScript">
@@ -1734,6 +1748,11 @@
                         <CompositeTransform ScaleX="-1"/>
                     </Button.RenderTransform>
                 </Button>
+                <Button x:Name="Gost_Button" Content="&#xE1E0;" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#01000000" Height="44" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16" BorderThickness="3,0,0,0" BorderBrush="White" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" ToolTipService.ToolTip="Ghost Mode">
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleX="-1"/>
+                    </Button.RenderTransform>
+                </Button>
                 <Grid HorizontalAlignment="Center" Height="15" VerticalAlignment="Center" Width="15" Margin="0,0,31,0"/>
             </StackPanel>
         </Grid>
@@ -1771,6 +1790,7 @@
 
             </ScrollViewer>
         </Grid>
+        <Grid x:Name="RightMenuCache" Margin="0" Background="#00000000" Visibility="Collapsed"/>
         <Grid x:Name="MemoPanel" HorizontalAlignment="Right" Margin="0,66,0,0" Width="261" Background="#EAFDFDFD" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
             <Grid.RenderTransform>
                 <CompositeTransform/>
@@ -1821,7 +1841,7 @@
                     <!-- Favoris -->
                     <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto">
                         <StackPanel>
-                            <ScrollViewer HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top" Height="54" RenderTransformOrigin="0.5,0.5">
+                            <ScrollViewer x:Name="tagscrol" HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top" Height="54" RenderTransformOrigin="0.5,0.5">
                                 <ScrollViewer.RenderTransform>
                                     <CompositeTransform ScaleY="-1"/>
                                 </ScrollViewer.RenderTransform>

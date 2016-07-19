@@ -118,14 +118,7 @@
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock6">
-                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock5">
-                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
+
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="textBox">
                 <DiscreteObjectKeyFrame KeyTime="0">
                     <DiscreteObjectKeyFrame.Value>
@@ -187,8 +180,7 @@
                     </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
             </ObjectAnimationUsingKeyFrames>
-            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock5" d:IsOptimized="True"/>
-            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock6" d:IsOptimized="True"/>
+
         </Storyboard>
         <Storyboard x:Name="ShowCustomColor">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Color_Bleu">
@@ -650,7 +642,7 @@
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="addfavshadow">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.54"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.7"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="NewPasswordBox">
                 <EasingDoubleKeyFrame KeyTime="0" Value="50"/>
@@ -748,6 +740,8 @@
                     Value="0,122,0,0" />
                         <Setter Target="Passwordbox.Width"  
                     Value="Auto" />
+                        <Setter Target="Passwordbox.HorizontalAlignment"  
+                    Value="Stretch" />
                         <Setter Target="Rectanglee.Height"  
                     Value="Auto" />
                         <Setter Target="SearchEngine_1.Margin"  
@@ -779,6 +773,8 @@
                         <AdaptiveTrigger MinWindowWidth="750" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
+                        <Setter Target="Passwordbox.HorizontalAlignment"  
+                    Value="Left" />
                         <Setter Target="ParaPage.Margin"  
                     Value="0,0,0,0" />
                         <Setter Target="grid1.Margin"  
@@ -914,7 +910,7 @@
                 <ScrollViewer.RenderTransform>
                     <CompositeTransform/>
                 </ScrollViewer.RenderTransform>
-                <Grid>
+                <Grid Background="#00000000" PointerEntered="Grid_PointerEntered" PointerExited="Grid_PointerExited">
                     <Grid Margin="0,1,0,0" RenderTransformOrigin="0.5,0.5" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="122">
                         <Grid.RenderTransform>
                             <CompositeTransform ScaleX="-1"/>
@@ -1176,6 +1172,7 @@
                                     <ToggleButton x:Name="Icon_Note" Content="&#xE70B;" HorizontalAlignment="Left" Height="43" Margin="107,115,0,0" VerticalAlignment="Top" Width="43" FontFamily="Segoe MDL2 Assets" FontSize="18.667" BorderThickness="1" BorderBrush="#00686868" Background="#00000000" Opacity="0.935" IsChecked="True"/>
                                     <ToggleButton x:Name="Icon_Share" Content="&#xE72D;" HorizontalAlignment="Left" Height="43" Margin="155,115,0,0" VerticalAlignment="Top" Width="43" FontFamily="Segoe MDL2 Assets" FontSize="18.667" BorderThickness="1" BorderBrush="#00686868" Background="#00000000" Opacity="0.935" IsChecked="True"/>
                                     <ToggleButton x:Name="Icon_Window" Content="&#xE109;" HorizontalAlignment="Left" Height="43" Margin="203,115,0,0" VerticalAlignment="Top" Width="43" FontFamily="Segoe MDL2 Assets" FontSize="18.667" BorderThickness="1" BorderBrush="#00686868" Background="#00000000" Opacity="0.935" IsChecked="True"/>
+                                    <ToggleButton x:Name="Icon_Ghost" Content="&#xE1E0;" HorizontalAlignment="Left" Height="43" Margin="251,115,0,0" VerticalAlignment="Top" Width="43" FontFamily="Segoe MDL2 Assets" FontSize="18.667" BorderThickness="1" BorderBrush="#00686868" Background="#00000000" Opacity="0.935"/>
                                 </Grid>
                             </StackPanel>
                         </Grid>
@@ -1189,18 +1186,8 @@
                             <StackPanel Margin="0">
                                 <Grid Height="82" Margin="0,0,0,10" Canvas.ZIndex="-1">
                                     <Rectangle Fill="#33D1D1D1" Height="82" Stroke="#7F838383" VerticalAlignment="Top"/>
-                                    <ToggleSwitch x:Name="Adblock_Switch" x:Uid="enabling" Header="Bloqueur de publicités" HorizontalAlignment="Left" Margin="11,12,0,0" VerticalAlignment="Top" OffContent="Desactivé" OnContent="Activé" Tag="javascript:(function(){function R(w){try{var d=w.document,j,i,t,T,N,b,r=1,C;for(j=0;t=[&quot;object&quot;,&quot;embed&quot;,&quot;applet&quot;,&quot;iframe&quot;][j];++j){T=d.getElementsByTagName(t);for(i=T.length-1;(i+1)&amp;&amp;(N=T[i]);--i)if(j!=3||!R((C=N.contentWindow)?C:N.contentDocument.defaultView)){b=d.createElement(&quot;div&quot;);b.style.width=N.width; b.style.height=N.height;b.innerHTML=&quot;&lt;del&gt;&quot;+(j==3?&quot;third-party &quot;+t:t)+&quot;&lt;/del&gt;&quot;;N.parentNode.replaceChild(b,N);}}}catch(E){r=0}return r}R(self);var i,x;for(i=0;x=frames[i];++i)R(x)})()" IsEnabled="False"/>
-                                </Grid>
-                                <Grid Height="82" Margin="0,0,0,10" Canvas.ZIndex="-1">
-                                    <Rectangle Fill="#33D1D1D1" Height="82" Stroke="#7F838383" VerticalAlignment="Top"/>
-                                    <ToggleSwitch x:Name="Suggest_Switch" x:Uid="enabling" Header="Smart Suggest" HorizontalAlignment="Left" Margin="11,12,0,0" VerticalAlignment="Top" OffContent="Desactivé" OnContent="Activé" Tag="javascript:(function(){function R(w){try{var d=w.document,j,i,t,T,N,b,r=1,C;for(j=0;t=[&quot;object&quot;,&quot;embed&quot;,&quot;applet&quot;,&quot;iframe&quot;][j];++j){T=d.getElementsByTagName(t);for(i=T.length-1;(i+1)&amp;&amp;(N=T[i]);--i)if(j!=3||!R((C=N.contentWindow)?C:N.contentDocument.defaultView)){b=d.createElement(&quot;div&quot;);b.style.width=N.width; b.style.height=N.height;b.innerHTML=&quot;&lt;del&gt;&quot;+(j==3?&quot;third-party &quot;+t:t)+&quot;&lt;/del&gt;&quot;;N.parentNode.replaceChild(b,N);}}}catch(E){r=0}return r}R(self);var i,x;for(i=0;x=frames[i];++i)R(x)})()"/>
-                                </Grid>
-                                <Grid Height="107" Margin="0,0,0,10" Canvas.ZIndex="-1">
-                                    <Rectangle Fill="#33D1D1D1" Height="107" Stroke="#7F838383" VerticalAlignment="Top"/>
-                                    <ToggleSwitch x:Name="SearchFight_Menu_Switch" x:Uid="enabling" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" OffContent="Desactivé" OnContent="Activé" IsOn="True">
-                                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" x:Uid="Settings_SFAction" Text="Menus d'actions" FontSize="14.667" Opacity="0.5"/>
-                                    </ToggleSwitch>
-                                    <TextBlock HorizontalAlignment="Left" Margin="11,10,0,0" TextWrapping="Wrap" Text="Search Fight" VerticalAlignment="Top" FontSize="16"/>
+                                    <ToggleSwitch x:Name="Ghost_Switch" x:Uid="YesSwitch" HorizontalAlignment="Left" Margin="11,33,0,0" VerticalAlignment="Top" OffContent="No" OnContent="Yes" Tag="javascript:(function(){function R(w){try{var d=w.document,j,i,t,T,N,b,r=1,C;for(j=0;t=[&quot;object&quot;,&quot;embed&quot;,&quot;applet&quot;,&quot;iframe&quot;][j];++j){T=d.getElementsByTagName(t);for(i=T.length-1;(i+1)&amp;&amp;(N=T[i]);--i)if(j!=3||!R((C=N.contentWindow)?C:N.contentDocument.defaultView)){b=d.createElement(&quot;div&quot;);b.style.width=N.width; b.style.height=N.height;b.innerHTML=&quot;&lt;del&gt;&quot;+(j==3?&quot;third-party &quot;+t:t)+&quot;&lt;/del&gt;&quot;;N.parentNode.replaceChild(b,N);}}}catch(E){r=0}return r}R(self);var i,x;for(i=0;x=frames[i];++i)R(x)})()"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="11,12,0,0" TextWrapping="Wrap" Text="Ghost Mode (Private Browsing)" VerticalAlignment="Top"/>
                                 </Grid>
                                 <Grid Height="82" Margin="0,0,0,10" Canvas.ZIndex="-1">
                                     <Rectangle Fill="#33D1D1D1" Height="82" Stroke="#7F838383" VerticalAlignment="Top"/>
@@ -1214,20 +1201,13 @@
                                                         <Button x:Name="Flyout_Confirmbut" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,15,0,0"/>
                                                     </StackPanel>
                                                 </Grid>
-                                                </Flyout>
+                                            </Flyout>
                                         </FlyoutBase.AttachedFlyout>
                                     </Button>
                                 </Grid>
-                                <Grid Height="107" Margin="0,0,0,10" Canvas.ZIndex="-1">
-                                    <Rectangle Fill="#33D1D1D1" Height="107" Stroke="#7F838383" VerticalAlignment="Top"/>
-                                    <ToggleSwitch x:Name="Favorites_Confirm_Switch" x:Uid="YesSwitch" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" OffContent="Non" OnContent="Oui" IsOn="True">
-                                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" x:Uid="Settings_favconfirmwindow" Text="Fenêtre de confirmation" FontSize="14.667" Opacity="0.5"/>
-                                    </ToggleSwitch>
-                                    <TextBlock HorizontalAlignment="Left" Margin="11,10,0,0" TextWrapping="Wrap" x:Uid="Settings_Favorites" Text="Favoris" VerticalAlignment="Top" FontSize="16"/>
-                                </Grid>
-                                <Grid Height="84" Margin="0,0,0,10" Canvas.ZIndex="-1">
-                                    <Rectangle Fill="#33D1D1D1" Height="84" Stroke="#7F838383" VerticalAlignment="Top"/>
-                                    <ToggleSwitch x:Name="Switch_ContextNotifs" x:Uid="Settings_ContextNotifs" Header="Notifications contextuelles" HorizontalAlignment="Left" Margin="11,12,0,0" VerticalAlignment="Top" IsOn="True"/>
+                                <Grid Height="82" Margin="0,0,0,10" Canvas.ZIndex="-1">
+                                    <Rectangle Fill="#33D1D1D1" Height="82" Stroke="#7F838383" VerticalAlignment="Top"/>
+                                    <ToggleSwitch x:Name="Adblock_Switch" x:Uid="enabling" Header="Bloqueur de publicités" HorizontalAlignment="Left" Margin="11,12,0,0" VerticalAlignment="Top" OffContent="Desactivé" OnContent="Activé" Tag="javascript:(function(){function R(w){try{var d=w.document,j,i,t,T,N,b,r=1,C;for(j=0;t=[&quot;object&quot;,&quot;embed&quot;,&quot;applet&quot;,&quot;iframe&quot;][j];++j){T=d.getElementsByTagName(t);for(i=T.length-1;(i+1)&amp;&amp;(N=T[i]);--i)if(j!=3||!R((C=N.contentWindow)?C:N.contentDocument.defaultView)){b=d.createElement(&quot;div&quot;);b.style.width=N.width; b.style.height=N.height;b.innerHTML=&quot;&lt;del&gt;&quot;+(j==3?&quot;third-party &quot;+t:t)+&quot;&lt;/del&gt;&quot;;N.parentNode.replaceChild(b,N);}}}catch(E){r=0}return r}R(self);var i,x;for(i=0;x=frames[i];++i)R(x)})()" IsEnabled="False"/>
                                 </Grid>
                                 <Grid Height="90" Margin="0,0,0,10" Canvas.ZIndex="-1">
                                     <Rectangle Fill="#33D1D1D1" Height="90" Stroke="#7F838383" VerticalAlignment="Top"/>
@@ -1236,6 +1216,33 @@
                                         <ComboBoxItem  x:Uid="Settings_MiniPlayer0" Content="Default"/>
                                         <ComboBoxItem x:Uid="Settings_MiniPlayer1" Content="Open a new window"/>
                                     </ComboBox>
+                                </Grid>
+                                <Grid Height="82" Margin="0,0,0,10" Canvas.ZIndex="-1">
+                                    <Rectangle Fill="#33D1D1D1" Height="82" Stroke="#7F838383" VerticalAlignment="Top"/>
+                                    <ToggleSwitch x:Name="Suggest_Switch" x:Uid="enabling" Header="Smart Suggest" HorizontalAlignment="Left" Margin="11,12,0,0" VerticalAlignment="Top" OffContent="Desactivé" OnContent="Activé" Tag="javascript:(function(){function R(w){try{var d=w.document,j,i,t,T,N,b,r=1,C;for(j=0;t=[&quot;object&quot;,&quot;embed&quot;,&quot;applet&quot;,&quot;iframe&quot;][j];++j){T=d.getElementsByTagName(t);for(i=T.length-1;(i+1)&amp;&amp;(N=T[i]);--i)if(j!=3||!R((C=N.contentWindow)?C:N.contentDocument.defaultView)){b=d.createElement(&quot;div&quot;);b.style.width=N.width; b.style.height=N.height;b.innerHTML=&quot;&lt;del&gt;&quot;+(j==3?&quot;third-party &quot;+t:t)+&quot;&lt;/del&gt;&quot;;N.parentNode.replaceChild(b,N);}}}catch(E){r=0}return r}R(self);var i,x;for(i=0;x=frames[i];++i)R(x)})()"/>
+                                </Grid>
+                                <Grid Height="84" Margin="0,0,0,10" Canvas.ZIndex="-1">
+                                    <Rectangle Fill="#33D1D1D1" Height="84" Stroke="#7F838383" VerticalAlignment="Top"/>
+                                    <ToggleSwitch x:Name="Switch_ContextNotifs" x:Uid="Settings_ContextNotifs" Header="Notifications contextuelles" HorizontalAlignment="Left" Margin="11,12,0,0" VerticalAlignment="Top" IsOn="True"/>
+                                </Grid>
+                                <Grid Height="107" Margin="0,0,0,10" Canvas.ZIndex="-1">
+                                    <Rectangle Fill="#33D1D1D1" Height="107" Stroke="#7F838383" VerticalAlignment="Top"/>
+                                    <ToggleSwitch x:Name="Favorites_Confirm_Switch" x:Uid="YesSwitch" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" OffContent="Non" OnContent="Oui" IsOn="True">
+                                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" x:Uid="Settings_favconfirmwindow" Text="Fenêtre de confirmation" FontSize="14.667" Opacity="0.5"/>
+                                    </ToggleSwitch>
+                                    <TextBlock HorizontalAlignment="Left" Margin="11,10,0,0" TextWrapping="Wrap" x:Uid="Settings_Favorites" Text="Favoris" VerticalAlignment="Top" FontSize="16"/>
+                                </Grid>
+                                <Grid Height="107" Margin="0,0,0,10" Canvas.ZIndex="-1">
+                                    <Rectangle Fill="#33D1D1D1" Height="107" Stroke="#7F838383" VerticalAlignment="Top"/>
+                                    <ToggleSwitch x:Name="SearchFight_Menu_Switch" x:Uid="enabling" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" OffContent="Desactivé" OnContent="Activé" IsOn="True">
+                                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" x:Uid="Settings_SFAction" Text="Menus d'actions" FontSize="14.667" Opacity="0.5"/>
+                                    </ToggleSwitch>
+                                    <TextBlock HorizontalAlignment="Left" Margin="11,10,0,0" TextWrapping="Wrap" Text="Search Fight" VerticalAlignment="Top" FontSize="16"/>
+                                </Grid>
+                                <Grid Height="82" Margin="0.167,0,0.166,10" Canvas.ZIndex="-1">
+                                    <Rectangle Fill="#33D1D1D1" Height="82" Stroke="#7F838383" VerticalAlignment="Top"/>
+                                    <ToggleSwitch x:Name="NewWin_Switch" x:Uid="YesSwitch" HorizontalAlignment="Left" Margin="11,33,0,0" VerticalAlignment="Top" OffContent="No" OnContent="Yes" Tag="javascript:(function(){function R(w){try{var d=w.document,j,i,t,T,N,b,r=1,C;for(j=0;t=[&quot;object&quot;,&quot;embed&quot;,&quot;applet&quot;,&quot;iframe&quot;][j];++j){T=d.getElementsByTagName(t);for(i=T.length-1;(i+1)&amp;&amp;(N=T[i]);--i)if(j!=3||!R((C=N.contentWindow)?C:N.contentDocument.defaultView)){b=d.createElement(&quot;div&quot;);b.style.width=N.width; b.style.height=N.height;b.innerHTML=&quot;&lt;del&gt;&quot;+(j==3?&quot;third-party &quot;+t:t)+&quot;&lt;/del&gt;&quot;;N.parentNode.replaceChild(b,N);}}}catch(E){r=0}return r}R(self);var i,x;for(i=0;x=frames[i];++i)R(x)})()" IsOn="True"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="11,12,0,0" TextWrapping="Wrap" Text="Open all the pages in the same window" VerticalAlignment="Top"/>
                                 </Grid>
                             </StackPanel>
                         </Grid>
@@ -1263,7 +1270,7 @@
                                     <Button x:Name="Rate_Button" x:Uid="Settings_Rate" Content="Notez l'application" HorizontalAlignment="Left" Margin="121,43,0,0" VerticalAlignment="Top" Width="161" Background="#19000000" BorderBrush="#4C7C7C7C" BorderThickness="1" Height="35" Tapped="Button_Tapped_4"/>
                                     <Button x:Name="Translate_Button" x:Uid="Translate" Content="Traduire" HorizontalAlignment="Left" Margin="294,43,0,10" VerticalAlignment="Top" Width="145" Background="#19000000" BorderBrush="#4C7C7C7C" BorderThickness="1" Height="35" Tapped="Button_Tapped"/>
                                 </Grid>
-                                <Grid Margin="0,0,0,10">
+                                <Grid Margin="0,0,0,10" Visibility="Collapsed">
                                     <Rectangle Fill="#33D1D1D1" Height="208" Stroke="#7F838383" VerticalAlignment="Top"/>
                                     <TextBlock HorizontalAlignment="Left" Margin="10,11,0,0" TextWrapping="Wrap" x:Uid="Settings_BluestartDownload" Text="Prolongez votre expérience" VerticalAlignment="Top"/>
                                     <Button Content="&#xE896;" HorizontalAlignment="Left" Margin="166,46,0,0" VerticalAlignment="Top" Width="37" Background="#19000000" BorderBrush="#4C7C7C7C" BorderThickness="1" Height="35" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" Tapped="Button_Tapped_2">

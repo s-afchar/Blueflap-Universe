@@ -173,6 +173,7 @@
     <Content Include="Assets\Engine_Duck.png" />
     <Content Include="Assets\Engine_Qwant.png" />
     <Content Include="Assets\Engine_yahoo.png" />
+    <Content Include="Assets\faviconNeutral.png" />
     <Content Include="Assets\finger.png" />
     <Content Include="Assets\Fleurs.jpg" />
     <Content Include="Assets\grumpy.png" />
@@ -190,6 +191,7 @@
     <Content Include="Assets\shadowlineleft.png" />
     <Content Include="Assets\shadowlineright.png" />
     <Content Include="Assets\shadowlinetop.png" />
+    <Content Include="Assets\shwdow.png" />
     <Content Include="Assets\Soleil.JPG" />
     <Content Include="Assets\spinner.png" />
     <Content Include="Assets\translator1.jpg" />

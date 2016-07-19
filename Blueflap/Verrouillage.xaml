@@ -68,10 +68,10 @@
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="grid">
-                <EasingDoubleKeyFrame KeyTime="0" Value="400"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                <EasingDoubleKeyFrame KeyTime="0" Value="150"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
                     <EasingDoubleKeyFrame.EasingFunction>
-                        <BackEase EasingMode="EaseOut" Amplitude="0.2"/>
+                        <QuadraticEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
@@ -91,9 +91,17 @@
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="grid1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-26.565"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Page.Resources>
-    
+
     <Grid Background="#FF3E3E3E">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
@@ -121,7 +129,7 @@
                         <Setter Target="PaswwordBox.Width"  
                     Value="Auto" />
                         <Setter Target="PaswwordBox.Margin"  
-                    Value="15,204,15,0" />
+                    Value="15,150,15,0" />
                         <Setter Target="PaswwordBox.HorizontalAlignment"  
                     Value="Stretch" />
                     </VisualState.Setters>
@@ -142,7 +150,7 @@
                         <Setter Target="grid.Width"  
                     Value="500" />
                         <Setter Target="grid.Height"  
-                    Value="400" />
+                    Value="300" />
                         <Setter Target="rectangle.RadiusX"  
                     Value="5" />
                         <Setter Target="rectangle.RadiusY"  
@@ -150,14 +158,14 @@
                         <Setter Target="PaswwordBox.Width"  
                     Value="331" />
                         <Setter Target="PaswwordBox.Margin"  
-                    Value="0,204,0,0" />
+                    Value="0,150,0,0" />
                         <Setter Target="PaswwordBox.HorizontalAlignment"  
                     Value="Center" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        
+
         <Grid x:Name="Loader" HorizontalAlignment="Left" Height="47" Margin="21,55,0,0" VerticalAlignment="Top" Width="314" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <CompositeTransform ScaleY="0.9" ScaleX="0.9"/>
@@ -192,21 +200,25 @@
             <Grid.RenderTransform>
                 <CompositeTransform/>
             </Grid.RenderTransform>
-            <Rectangle x:Name="rectangle" Fill="#9A000000" Margin="0" Stroke="Black" StrokeThickness="0" RadiusX="5" RadiusY="5"/>
-            <Rectangle x:Name="Backrec" Fill="#3E000000" Height="91" Margin="0,177,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top"/>
-            <Image Height="100" Margin="0,12,0,0" VerticalAlignment="Top" Source="Assets/Square150x150Logo.png"/>
-            <PasswordBox x:Uid="Lock_Password" x:Name="PaswwordBox" HorizontalAlignment="Center" Margin="0,204,0,0" VerticalAlignment="Top" Width="331" RequestedTheme="Dark" FontSize="20"  PlaceholderText="Entrer le mot de passe" Height="39" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,2" Background="{x:Null}">
+            <Rectangle x:Name="rectangle" Fill="#9A000000" Margin="0" Stroke="Black" StrokeThickness="0" RadiusX="2" RadiusY="2"/>
+            <PasswordBox x:Uid="Lock_Password" x:Name="PaswwordBox" HorizontalAlignment="Center" Margin="0,204,0,0" VerticalAlignment="Top" Width="331" RequestedTheme="Dark"  PlaceholderText="Entrer le mot de passe" RenderTransformOrigin="0.5,0.5" BorderThickness="2" Background="Black" Password="" Height="32">
                 <PasswordBox.RenderTransform>
                     <CompositeTransform/>
                 </PasswordBox.RenderTransform>
             </PasswordBox>
-            <TextBlock HorizontalAlignment="Center" Margin="0,110,0,0" TextWrapping="Wrap" x:Uid="Lock_Title" Text="BLUEFLAP EST VERROUILLÉ" VerticalAlignment="Top" RequestedTheme="Dark" FontWeight="SemiBold" FontSize="18.667" Opacity="0.8" TextAlignment="Center"/>
-            <TextBlock HorizontalAlignment="Center" Margin="0,304,0,0" TextWrapping="Wrap" x:Uid="Lock_Date" Text="VERROUILLÉ À" VerticalAlignment="Top" FontWeight="SemiBold">
+            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,67" TextWrapping="Wrap" x:Uid="Lock_Date" Text="VERROUILLÉ À" VerticalAlignment="Bottom" FontWeight="SemiBold" FontSize="12">
                 <TextBlock.Foreground>
                     <SolidColorBrush Color="#95FFFFFF"/>
                 </TextBlock.Foreground>
             </TextBlock>
-            <TextBlock x:Name="DateHours" HorizontalAlignment="Center" Margin="0,319,0,0" TextWrapping="Wrap" Text="HH:HH" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#CDFFFFFF" FontSize="32"/>
+            <TextBlock x:Name="DateHours" HorizontalAlignment="Center" Margin="0,0,0,35" TextWrapping="Wrap" Text="HH:HH" VerticalAlignment="Bottom" FontWeight="SemiBold" Foreground="#CDFFFFFF" FontSize="26"/>
+            <Grid x:Name="grid1" HorizontalAlignment="Center" Height="100" Margin="0,29,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <CompositeTransform/>
+                </Grid.RenderTransform>
+                <Ellipse Fill="#FF111111" Margin="0"/>
+                <TextBlock Margin="0" TextWrapping="Wrap" Text="&#xE13D;" FontFamily="Segoe MDL2 Assets" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36"/>
+            </Grid>
         </Grid>
 
     </Grid>

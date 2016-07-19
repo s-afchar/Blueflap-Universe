@@ -7,6 +7,7 @@ Imports Windows.UI.Xaml.Documents
 Imports Windows.Storage
 Imports Windows.Web.Http
 Imports Windows.Graphics.Imaging
+Imports Windows.UI.StartScreen
 ''' <summary>
 ''' Page dédiée à la navigation web
 ''' </summary>
@@ -113,10 +114,10 @@ Public NotInheritable Class MainPage
 
 
         Try
-            If localSettings.Values("VerrouillageEnabled") = True And LockTheBrowser.IsChecked = True Then
+            If localSettings.Values("VerrouillageEnabled") = True And LockTheBrowser.IsChecked = True And Not localSettings.Values("LoadPageFromBluestart") = True Then
                 LockTheBrowser.IsChecked = True
                 Me.Frame.Navigate(GetType(Verrouillage))
-            ElseIf localSettings.Values("Bluestart") = True And AdressBox.Text = "about:blank" And Frame.CanGoBack = False Then
+            ElseIf localSettings.Values("Bluestart") = True And AdressBox.Text = "about:blank" And Frame.CanGoBack = False And Not localSettings.Values("LoadPageFromBluestart") = True Then
                 Me.Frame.Navigate(GetType(Bluestart))
             ElseIf AdressBox.Text = "about:blank" Then
                 'Vérification de l'existence d'une page d'accueil valide
@@ -224,6 +225,12 @@ Public NotInheritable Class MainPage
             Window_Button_M.Visibility = Visibility.Visible
         End If
 
+        If localSettings.Values("GhostIcon") = True Then
+            Gost_Button.Visibility = Visibility.Visible
+        Else
+            Gost_Button.Visibility = Visibility.Collapsed
+        End If
+
         If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
             Try
                 ShowFavorites()
@@ -241,6 +248,12 @@ Public NotInheritable Class MainPage
                     MemoPopOut.Begin()
                 End If
             End Try
+        End If
+
+        If localSettings.Values("GhostMode") = True Then
+            Gost_Button.BorderBrush = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 255, 255))
+        Else
+            Gost_Button.BorderBrush = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 255, 255, 255))
         End If
 
         History_SearchMode = False
@@ -339,18 +352,22 @@ Public NotInheritable Class MainPage
 
         Dim CurrentTitle As String = web.DocumentTitle
         Dim VisitDate As DateTime = DateTime.Now
-
-        Try
-            Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("History"))
-            Dim HistoryElem As JsonObject = New JsonObject
-            HistoryElem.Add("url", JsonValue.CreateStringValue(web.Source.ToString))
-            HistoryElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle))
-            HistoryElem.Add("date", JsonValue.CreateNumberValue(DateTime.Now.ToBinary))
-            root.Add(HistoryElem)
-            WriteJsonFile(root, "History")
-        Catch
-            WriteJsonFile(JsonArray.Parse("[]"), "History")
-        End Try
+        If localSettings.Values("GhostMode") = True Then
+            GhostModeNotif.Stop()
+            GhostModeNotif.Begin()
+        Else
+            Try
+                Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("History"))
+                Dim HistoryElem As JsonObject = New JsonObject
+                HistoryElem.Add("url", JsonValue.CreateStringValue(web.Source.ToString))
+                HistoryElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle))
+                HistoryElem.Add("date", JsonValue.CreateNumberValue(DateTime.Now.ToBinary))
+                root.Add(HistoryElem)
+                WriteJsonFile(root, "History")
+            Catch
+                WriteJsonFile(JsonArray.Parse("[]"), "History")
+            End Try
+        End If
 
         Try
             Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Favorites"))
@@ -589,10 +606,11 @@ Public NotInheritable Class MainPage
     End Sub
 
     Private Sub OnNewWindowRequested(sender As WebView, e As WebViewNewWindowRequestedEventArgs) Handles web.NewWindowRequested
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         'Force l'ouverture dans Blueflap de liens censés s'ouvrir dans une nouvelle fenêtre
-        If (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
+        If localSettings.Values("NewWin") = False Then
             e.Handled = True
-            Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
 
             localSettings.Values("LoadPageFromBluestart") = True
             localSettings.Values("LoadPageFromBluestart_Adress") = e.Uri.ToString
@@ -676,10 +694,12 @@ Public NotInheritable Class MainPage
         MemoPopIN.Begin()
 
         LeftPanelShadow.Visibility = Visibility.Visible
+        RightMenuCache.Visibility = Visibility.Visible
         Try
             If localSettings.Values("AncrageMemo") = True Then 'On  vérifie si l'utilisateur a ancré le volet des mémos
                 webcontainer.Margin = New Thickness(webcontainer.Margin.Left, webcontainer.Margin.Top, 261, 0)
                 LeftPanelShadow.Visibility = Visibility.Collapsed
+                RightMenuCache.Visibility = Visibility.Collapsed
             End If
             MemoAncrageToggleButton.IsChecked = localSettings.Values("AncrageMemo")
         Catch
@@ -699,6 +719,7 @@ Public NotInheritable Class MainPage
         MemoPopIN.Stop()
         MemoPopOut.Begin()
         webcontainer.Margin = New Thickness(webcontainer.Margin.Left, webcontainer.Margin.Top, 0, 0)
+        RightMenuCache.Visibility = Visibility.Collapsed
     End Sub
     Private Sub Notifications_indicator_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Notifications_indicator.Tapped
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
@@ -738,6 +759,7 @@ Public NotInheritable Class MainPage
     Private Sub MemoAncrageToggleButton_Checked(sender As Object, e As RoutedEventArgs) Handles MemoAncrageToggleButton.Checked
         webcontainer.Margin = New Thickness(webcontainer.Margin.Left, webcontainer.Margin.Top, 261, 0)
         LeftPanelShadow.Visibility = Visibility.Collapsed
+        RightMenuCache.Visibility = Visibility.Collapsed
 
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         localSettings.Values("AncrageMemo") = True
@@ -746,6 +768,7 @@ Public NotInheritable Class MainPage
     Private Sub MemoAncrageToggleButton_Unloaded(sender As Object, e As RoutedEventArgs) Handles MemoAncrageToggleButton.Unchecked
         webcontainer.Margin = New Thickness(webcontainer.Margin.Left, webcontainer.Margin.Top, 0, 0)
         LeftPanelShadow.Visibility = Visibility.Visible
+        RightMenuCache.Visibility = Visibility.Visible
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
         localSettings.Values("AncrageMemo") = False
     End Sub
@@ -756,14 +779,17 @@ Public NotInheritable Class MainPage
             MemoPanel.Margin = New Thickness(48, 66, 0, 0)
             MemoPanel.HorizontalAlignment = HorizontalAlignment.Stretch
             LeftPanelShadow.Visibility = Visibility.Collapsed
+            RightMenuCache.Visibility = Visibility.Collapsed
         Else
             MemoPanel.Width = 261
             MemoPanel.Margin = New Thickness(0, 66, 0, 0)
             MemoPanel.HorizontalAlignment = HorizontalAlignment.Right
             If MemoAncrageToggleButton.IsChecked Then
                 LeftPanelShadow.Visibility = Visibility.Collapsed
+                RightMenuCache.Visibility = Visibility.Collapsed
             Else
                 LeftPanelShadow.Visibility = Visibility.Visible
+                RightMenuCache.Visibility = Visibility.Visible
             End If
         End If
 
@@ -1437,7 +1463,9 @@ Public NotInheritable Class MainPage
             HideSourceCode.Begin()
         End If
     End Sub
-    Private Sub Info_Pin_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Info_Pin.Tapped
+
+
+    Private Async Sub Info_Pin_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Info_Pin.Tapped
 
     End Sub
     Private Sub Info_Like_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Info_Like.Tapped
@@ -2469,18 +2497,22 @@ Public NotInheritable Class MainPage
         Dim CurrentTitle As String = web.DocumentTitle
         Dim VisitDate As DateTime = DateTime.Now
 
-        Try
-            Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("History"))
-            Dim HistoryElem As JsonObject = New JsonObject
-            HistoryElem.Add("url", JsonValue.CreateStringValue(web.Source.ToString))
-            HistoryElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle))
-            HistoryElem.Add("date", JsonValue.CreateNumberValue(DateTime.Now.ToBinary))
-            root.Add(HistoryElem)
-            WriteJsonFile(root, "History")
-        Catch
-            WriteJsonFile(JsonArray.Parse("[]"), "History")
-        End Try
-
+        If localSettings.Values("GhostMode") = True Then
+            GhostModeNotif.Stop()
+            GhostModeNotif.Begin()
+        Else
+            Try
+                Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("History"))
+                Dim HistoryElem As JsonObject = New JsonObject
+                HistoryElem.Add("url", JsonValue.CreateStringValue(web.Source.ToString))
+                HistoryElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle))
+                HistoryElem.Add("date", JsonValue.CreateNumberValue(DateTime.Now.ToBinary))
+                root.Add(HistoryElem)
+                WriteJsonFile(root, "History")
+            Catch
+                WriteJsonFile(JsonArray.Parse("[]"), "History")
+            End Try
+        End If
         Try
             Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Favorites"))
 
@@ -2622,10 +2654,29 @@ Public NotInheritable Class MainPage
             LikePageButton.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 122, 122, 122))
         End If
     End Sub
-
-
 #End Region
 
 
+    Private Sub Gost_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Gost_Button.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
+        If localSettings.Values("GhostMode") = True Then
+            localSettings.Values("GhostMode") = False
+            Gost_Button.BorderBrush = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 255, 255, 255))
+        Else
+            localSettings.Values("GhostMode") = True
+            Gost_Button.BorderBrush = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 255, 255))
+        End If
+    End Sub
+
+    Private Sub TagsContainer_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles TagsContainer.PointerEntered
+        tagscrol.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto
+    End Sub
+    Private Sub TagsContainer_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles TagsContainer.PointerExited
+        tagscrol.HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden
+    End Sub
+
+    Private Sub RightMenuCache_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles RightMenuCache.Tapped
+        CloseRightMenu()
+    End Sub
 End Class

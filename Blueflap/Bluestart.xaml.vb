@@ -4,6 +4,7 @@ Imports Windows.Data.Json
 Imports Windows.UI.Xaml.Documents
 Imports Windows.Storage
 Imports Windows.Web.Http
+Imports System.IO
 
 ''' <summary>
 ''' Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
@@ -12,6 +13,7 @@ Public NotInheritable Class Bluestart
     Inherits Page
     Dim itemcount As Integer
     Dim PreventAnimationBug As Boolean
+
 #Region "Frame.GoBack"
     Public Sub New()
         Me.InitializeComponent()
@@ -32,7 +34,7 @@ Public NotInheritable Class Bluestart
         LoadAnim.Begin() 'Animation d'ouverture
 
         PreventAnimationBug = True
-        Await ShowFavorites()
+
 
         'Définition du thème avec couleur personnalisée
         Try
@@ -61,6 +63,12 @@ Public NotInheritable Class Bluestart
             PhoneNavBar.RequestedTheme = ElementTheme.Light
         End If
 
+        grid3.Visibility = Visibility.Collapsed
+        RechercheBox.Focus(Windows.UI.Xaml.FocusState.Keyboard)
+
+
+
+        Loader.Visibility = Visibility.Collapsed
         Try
             If localSettings.Values("WallpaperType") = "Custom" Then 'Définit l'image de fond : image prédéfinie ou image en ligne
                 Loader.Visibility = Visibility.Visible
@@ -75,16 +83,16 @@ Public NotInheritable Class Bluestart
         Catch ex As Exception
 
         End Try
-
-        grid3.Visibility = Visibility.Collapsed
-
-        RechercheBox.Focus(Windows.UI.Xaml.FocusState.Keyboard)
+        Await ShowFavorites()
     End Sub
 #End Region
 #Region "LastFav"
     Private Async Sub FavoriteGrid_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles FavoriteGrid.Tapped
+        Randomize()
+    End Sub
+    Private Async Sub Randomize()
         Try
-            randomprogress.Visibility = Visibility.Visible
+            randomprogress.IsActive = True
             Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
             itemcount = 0
             Dim Json As String
@@ -162,20 +170,19 @@ Public NotInheritable Class Bluestart
                 End If
 
             Next
-            randomprogress.Visibility = Visibility.Collapsed
+            randomprogress.IsActive = False
 
             localSettings.Values("LoadPageFromBluestart") = True
             Me.Frame.Navigate(GetType(MainPage))
         Catch
         End Try
     End Sub
-
     Private Sub FavoriteGrid_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles FavoriteGrid.PointerEntered
-        FavoriteGrid.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(240, 255, 255, 255))
+        RandomEnter.Begin()
     End Sub
 
     Private Sub FavoriteGrid_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles FavoriteGrid.PointerExited
-        FavoriteGrid.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(204, 255, 255, 255))
+        RandomExit.Begin()
     End Sub
 #End Region
 #Region "Good Looking"
@@ -381,7 +388,7 @@ Public NotInheritable Class Bluestart
         End Try
     End Sub
     Private Async Function ShowFavorites() As Task
-
+        FavSuggest.Visibility = Visibility.Collapsed
         Try
             FavSuggest.Children.Clear()
 
@@ -410,7 +417,21 @@ Public NotInheritable Class Bluestart
                 image.HorizontalAlignment = HorizontalAlignment.Left
                 Try
                     Dim str As Uri = New Uri(favsElem.GetObject.GetNamedString("url"))
-                    image.Source = New BitmapImage(New Uri("http://" & str.Host & "/favicon.ico", UriKind.Absolute))
+
+                    Dim request As Net.HttpWebRequest = DirectCast(Net.HttpWebRequest.Create("http://" & str.Host & "/favicon.ico"), Net.HttpWebRequest)
+                    request.Method = "HEAD"
+                    Try
+                        Await request.GetResponseAsync()
+                        image.Source = New BitmapImage(New Uri("http://" & str.Host & "/favicon.ico", UriKind.Absolute))
+                    Catch
+                        Dim Black1 As BitmapImage = New BitmapImage
+                        Black1.UriSource = New Uri("ms-appx:/Assets/faviconNeutral.png", UriKind.Absolute)
+                        image.Source = Black1
+
+                    End Try
+
+
+
                 Catch ex As Exception
 
                 End Try
@@ -451,6 +472,9 @@ Public NotInheritable Class Bluestart
             Next
         Catch
         End Try
+        If RechercheBox.Text = "" Then
+            ShowFavoritesAnim.Begin()
+        End If
     End Function
     Private Async Function ReadJsonFile(FileName As String) As Task(Of String)
         Dim localFolder As StorageFolder = ApplicationData.Current.LocalFolder
@@ -477,7 +501,7 @@ Public NotInheritable Class Bluestart
             SearchLessOpacity.Stop()
             PreventAnimationBug = True
             Suggestions.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden
-            End If
+        End If
     End Sub
 
 #End Region
@@ -514,6 +538,11 @@ Public NotInheritable Class Bluestart
         Me.Frame.Navigate(GetType(MainPage))
     End Sub
 
+    Private Sub Phone_Random_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Phone_Random.Tapped
+        Randomize()
+    End Sub
+
 
 #End Region
+
 End Class

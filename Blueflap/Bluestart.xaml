@@ -237,6 +237,46 @@
                 </DiscreteObjectKeyFrame>
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Name="ShowFavoritesAnim">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="FavSuggest">
+                <EasingDoubleKeyFrame KeyTime="0" Value="90"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="FavSuggest">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="FavSuggest">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="RandomExit">
+            <DoubleAnimation Duration="0:0:0.1" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="image" d:IsOptimized="True"/>
+            <ColorAnimation Duration="0:0:0.1" To="#FF3498DB" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
+        </Storyboard>
+        <Storyboard x:Name="RandomEnter">
+            <DoubleAnimation Duration="0:0:0.1" To="2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="image" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.1" To="1.1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="image" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.1" To="1.1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="image" d:IsOptimized="True"/>
+            <ColorAnimation Duration="0:0:0.1" To="#FF239DF0" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
+        </Storyboard>
 
     </Page.Resources>
 
@@ -273,6 +313,10 @@
                     Value="20" />
                         <Setter Target="PhoneNavBar.Visibility"  
                     Value="Visible" />
+                        <Setter Target="FavoriteGrid.Visibility"  
+                    Value="Collapsed" />
+                        <Setter Target="searchicon.Visibility"  
+                    Value="Collapsed" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="Normal">
@@ -304,6 +348,10 @@
                     Value="24" />
                         <Setter Target="scrollViewer.Margin"  
                     Value="0,66,0,0" />
+                        <Setter Target="FavoriteGrid.Visibility"  
+                    Value="Visible" />
+                        <Setter Target="searchicon.Visibility"  
+                    Value="Visible" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -329,7 +377,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="44,22,0,0" TextWrapping="Wrap" Text="Téléchargement de l'image de fond" VerticalAlignment="Top" Foreground="White" FontSize="13.333"/>
         </Grid>
 
-        <Image x:Name="Wallpaper" Margin="0" Source="Assets/Degrade.png" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="Wallpaper" Margin="0" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <CompositeTransform/>
             </Image.RenderTransform>
@@ -360,7 +408,10 @@
                     <ScrollViewer x:Name="Suggestions" Margin="0,142,0,0" HorizontalAlignment="Center" Width="518" VerticalAlignment="Top" Height="408" VerticalScrollBarVisibility="Auto" Foreground="#A5F7F7F7">
                         <Grid Margin="0">
                             <StackPanel x:Name="SmartSuggest_History" Margin="0"/>
-                            <StackPanel x:Name="FavSuggest" Margin="0,10,0,0" Padding="17,0,0,0" Background="#00000000">
+                            <StackPanel x:Name="FavSuggest" Margin="0,10,0,0" Padding="17,0,0,0" Background="#00000000" RenderTransformOrigin="0.5,0.5">
+                                <StackPanel.RenderTransform>
+                                    <CompositeTransform/>
+                                </StackPanel.RenderTransform>
                                 <Grid Margin="0,5,0,0">
                                     <Ellipse Fill="#4F000000" HorizontalAlignment="Left" Height="30" Margin="0" StrokeThickness="2" VerticalAlignment="Center" Width="30"/>
                                     <TextBlock HorizontalAlignment="Left" Margin="35,0,0,0" TextWrapping="Wrap" Text="Bing" VerticalAlignment="Center" Foreground="#FFF7F7F7"/>
@@ -375,22 +426,17 @@
                         </Grid>
                     </ScrollViewer>
                 </Grid>
-                <Grid x:Name="FavoriteGrid" Height="75" VerticalAlignment="Top" Background="#CCFFFFFF">
-                    <TextBlock HorizontalAlignment="Center" Margin="0,0,0,28" TextWrapping="Wrap" Text="&#xE14B;" VerticalAlignment="Bottom" Foreground="#FF474747" FontSize="32" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets"/>
-                    <TextBlock HorizontalAlignment="Center" Margin="0,0,0,12" TextWrapping="Wrap" Text="RANDOM" VerticalAlignment="Bottom" FontSize="14" FontWeight="SemiBold" Foreground="#7F000000"/>
-                    <ProgressBar x:Name="randomprogress" Height="4" Margin="0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#4D000000" IsIndeterminate="True" Value="56" Visibility="Collapsed"/>
-                </Grid>
                 <Grid VerticalAlignment="Top" Background="#3E000000">
                     <StackPanel x:Name="Rssfeedcontainer" Margin="0"/>
                 </Grid>
-                <Grid x:Name="Actions" Height="100" Background="#66000000">
+                <Grid x:Name="Actions" Height="60" Background="#CCFFFFFF">
                     <VariableSizedWrapGrid Margin="0" HorizontalAlignment="Center">
-                        <Button x:Name="Fight_Button" Content="&#xE923;" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#01000000" RenderTransformOrigin="0.5,0.5" RequestedTheme="Dark" FontSize="25" BorderThickness="0.5,0" BorderBrush="#33FFFFFF" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets" Width="100" Height="100">
+                        <Button x:Name="Fight_Button" Content="&#xE923;" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#01000000" RenderTransformOrigin="0.5,0.5" RequestedTheme="Light" FontSize="17" BorderThickness="0.5,0" BorderBrush="#338F8F8F" Foreground="#FF303030" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets" Width="60" Height="60">
                             <Button.RenderTransform>
                                 <CompositeTransform/>
                             </Button.RenderTransform>
                         </Button>
-                        <Button x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#01000000" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="25" BorderThickness="0.5,0" BorderBrush="#33FFFFFF" Foreground="{ThemeResource BackButtonForegroundThemeBrush}" Width="100" Height="100">
+                        <Button x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#01000000" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Light" FontSize="18" BorderThickness="0,0,0.5,0" BorderBrush="#338F8F8F" Foreground="#FF303030" Width="59" Height="60">
                             <Button.RenderTransform>
                                 <CompositeTransform/>
                             </Button.RenderTransform>
@@ -399,6 +445,16 @@
                 </Grid>
             </StackPanel>
         </ScrollViewer>
+        <Grid x:Name="FavoriteGrid" Height="70" VerticalAlignment="Bottom" Background="#00000000" Margin="0,0,4,10" HorizontalAlignment="Right" Width="70">
+            <Image x:Name="image" Margin="0,8,0,0" Source="Assets/shwdow.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <CompositeTransform/>
+                </Image.RenderTransform>
+            </Image>
+            <Ellipse x:Name="ellipse" Fill="#FF3498DB" HorizontalAlignment="Center" Height="52" Margin="0" VerticalAlignment="Center" Width="52"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="2,0,0,0" TextWrapping="Wrap" Text="&#xE14B;" VerticalAlignment="Center" Foreground="White" FontSize="23" FontWeight="SemiLight" FontFamily="Segoe MDL2 Assets"/>
+            <ProgressRing x:Name="randomprogress" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="48" Height="48" Foreground="White"/>
+        </Grid>
         <Rectangle x:Name="rectangle3" Fill="#FF1B1B1B" Height="66" Stroke="Black" VerticalAlignment="Top" StrokeThickness="0"/>
         <Image x:Name="image1" HorizontalAlignment="Center" Height="55" Margin="0,4,0,0" VerticalAlignment="Top" Width="55" Source="Assets/Square150x150Logo.png" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
@@ -477,7 +533,8 @@
                 <TextBlock HorizontalAlignment="Center" Margin="1,2,0,0" TextWrapping="Wrap" Text="&#xE10C;" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" RequestedTheme="Dark" FontSize="16"/>
             </Grid>
             <ProgressBar x:Name="mobileloader" Height="1" Margin="0,-1,50,0" VerticalAlignment="Top" Background="{x:Null}" Value="20" IsIndeterminate="True" Visibility="Collapsed"/>
-            <Button x:Name="Phone_Forward" Content="&#xE0D5; &#xE12B;" HorizontalAlignment="Left" Margin="0,0,50,0" VerticalAlignment="Stretch" Width="64" FontFamily="Segoe MDL2 Assets" Background="#00787878" BorderThickness="1,0,0,0"/>
+            <Button x:Name="Phone_Forward" Content=" &#xE12B;" HorizontalAlignment="Right" Margin="0,0,100,0" VerticalAlignment="Stretch" Width="49" FontFamily="Segoe MDL2 Assets" Background="#00787878" BorderThickness="0,0,0,0.5"/>
+            <Button x:Name="Phone_Random" Content="&#xE14B;" HorizontalAlignment="Right" Margin="0,0,50,0" VerticalAlignment="Stretch" FontFamily="Segoe MDL2 Assets" Background="#00000000" Width="49" FontSize="15" BorderThickness="0,0,0,0.5"/>
         </Grid>
     </Grid>
 </Page>
