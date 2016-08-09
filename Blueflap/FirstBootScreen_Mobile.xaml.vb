@@ -29,8 +29,8 @@ Public NotInheritable Class FirstBootScreen_Mobile
 
     Private Sub StepByStep_PivotItemLoaded(sender As Pivot, args As PivotItemEventArgs) Handles StepByStep.PivotItemLoaded
         If StepByStep.SelectedIndex = 0 Then
-            IntroIndex1.Stop()
-            IntroIndex1.Begin()
+            'IntroIndex1.Stop()
+            'IntroIndex1.Begin()
         ElseIf StepByStep.SelectedIndex = 5 Then
             LetsGo.Stop()
             LetsGo.Begin()

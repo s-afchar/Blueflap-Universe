@@ -76,9 +76,68 @@
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="addfavshadow">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.25"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(Rectangle.RadiusX)" Storyboard.TargetName="AdressBack">
+                <EasingDoubleKeyFrame KeyTime="0" Value="259.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="5">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(Rectangle.RadiusY)" Storyboard.TargetName="AdressBack">
+                <EasingDoubleKeyFrame KeyTime="0" Value="259.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="5">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="AdressBack">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="AdressBack">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.15"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RechercheBox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:Name="Textboxclick"/>
-        <Storyboard x:Name="Textboxleave"/>
+        <Storyboard x:Name="Textboxclick">
+            <DoubleAnimation Duration="0:0:0.1" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="searchicon" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseInOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.1" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="searchicon" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseInOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+        <Storyboard x:Name="Textboxleave">
+            <DoubleAnimation Duration="0:0:0.1" To="1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="searchicon" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.1" To="1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="searchicon" d:IsOptimized="True"/>
+        </Storyboard>
         <Storyboard x:Name="LoopSuggestions" RepeatBehavior="Forever"/>
         <Storyboard x:Name="DownloadingWallpaper" RepeatBehavior="Forever">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="textBlock1">
@@ -277,6 +336,25 @@
             <DoubleAnimation Duration="0:0:0.1" To="1.1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="image" d:IsOptimized="True"/>
             <ColorAnimation Duration="0:0:0.1" To="#FF239DF0" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
         </Storyboard>
+        <Storyboard x:Name="Textboxmouseexit">
+            <DoubleAnimation Duration="0:0:0.1" To="0.25" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="addfavshadow" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.1" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="addfavshadow" d:IsOptimized="True"/>
+        </Storyboard>
+        <Storyboard x:Name="textboxhover">
+            <DoubleAnimation Duration="0:0:0.3" To="0.54" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="addfavshadow" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuarticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.3" To="3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="addfavshadow" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuarticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+        <Storyboard x:Name="SearchCancelOpacity">
+            <ColorAnimation Duration="0:0:0.2" To="#19000000" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="SearchGrid" d:IsOptimized="True"/>
+        </Storyboard>
 
     </Page.Resources>
 
@@ -400,10 +478,63 @@
             </ScrollViewer.RenderTransform>
             <StackPanel x:Name="Container">
                 <Grid x:Name="SearchGrid" Height="550" VerticalAlignment="Top" Background="#19000000">
-                    <Grid x:Name="AdressBox" Margin="0,67,0,0" Width="519" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        <Rectangle x:Name="AdressBack" Height="75" VerticalAlignment="Top" StrokeThickness="2" RadiusY="3" RadiusX="3" Fill="White" Visibility="Collapsed"/>
-                        <TextBlock x:Name="searchicon" HorizontalAlignment="Right" Margin="0,27,34,0" TextWrapping="Wrap" Text="&#xE11A;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="24" Foreground="#D7FFFFFF"/>
-                        <TextBox x:Uid="FightTextbox" x:Name="RechercheBox" TextWrapping="NoWrap" Text="" VerticalAlignment="Bottom" Height="58" BorderThickness="0,0,0,2" FontSize="32" TextAlignment="Left" Margin="16,11,16,6" Background="#00000000" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" PreventKeyboardDisplayOnProgrammaticFocus="True" TextReadingOrder="UseFlowDirection" RequestedTheme="Dark" PlaceholderText="Entrez votre recherche" BorderBrush="White" Foreground="White"/>
+                    <Grid x:Name="AdressBox" Margin="0,67,0,0" Width="519" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#00000000">
+                        <Grid x:Name="addfavshadow" Margin="-30,-27,-30,0" Opacity="0.25" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Height="146">
+                            <Grid.RenderTransform>
+                                <CompositeTransform ScaleY="0.8"/>
+                            </Grid.RenderTransform>
+                            <Image HorizontalAlignment="Left" Height="73" Margin="0" VerticalAlignment="Bottom" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                                <Image.RenderTransform>
+                                    <CompositeTransform ScaleX="-1"/>
+                                </Image.RenderTransform>
+                            </Image>
+                            <Image HorizontalAlignment="Right" Height="73" Margin="0" VerticalAlignment="Bottom" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                                <Image.RenderTransform>
+                                    <CompositeTransform/>
+                                </Image.RenderTransform>
+                            </Image>
+                            <Image HorizontalAlignment="Left" Height="100" Margin="0" VerticalAlignment="Top" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                                <Image.RenderTransform>
+                                    <CompositeTransform ScaleY="-1" ScaleX="-1"/>
+                                </Image.RenderTransform>
+                            </Image>
+                            <Image HorizontalAlignment="Right" Height="100" Margin="0" VerticalAlignment="Top" Width="100" Source="Assets/shadowcorner.png" RenderTransformOrigin="0.5,0.5">
+                                <Image.RenderTransform>
+                                    <CompositeTransform ScaleY="-1"/>
+                                </Image.RenderTransform>
+                            </Image>
+                            <Image Height="73" Margin="100,0" VerticalAlignment="Bottom" Source="Assets/shadowline.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                                <Image.RenderTransform>
+                                    <CompositeTransform ScaleX="-1"/>
+                                </Image.RenderTransform>
+                            </Image>
+                            <Image Margin="0,73" Source="Assets/shadowlineright.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" HorizontalAlignment="Left" Width="100">
+                                <Image.RenderTransform>
+                                    <CompositeTransform ScaleX="-1"/>
+                                </Image.RenderTransform>
+                            </Image>
+                            <Image Margin="0,73" Source="Assets/shadowlineright.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill" HorizontalAlignment="Right" Width="100">
+                                <Image.RenderTransform>
+                                    <CompositeTransform/>
+                                </Image.RenderTransform>
+                            </Image>
+                            <Image Height="73" Margin="100,0" VerticalAlignment="Top" Source="Assets/shadowline.png" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                                <Image.RenderTransform>
+                                    <CompositeTransform ScaleY="-1" ScaleX="-1"/>
+                                </Image.RenderTransform>
+                            </Image>
+                        </Grid>
+                        <Rectangle x:Name="AdressBack" Height="75" VerticalAlignment="Top" StrokeThickness="2" RadiusY="5" RadiusX="5" Fill="White" RenderTransformOrigin="0.5,0.5">
+                            <Rectangle.RenderTransform>
+                                <CompositeTransform/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                        <TextBox x:Uid="FightTextbox" x:Name="RechercheBox" TextWrapping="NoWrap" Text="" VerticalAlignment="Bottom" Height="58" BorderThickness="0" FontSize="32" TextAlignment="Left" Margin="16,0,16,50" Background="#00000000" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" PreventKeyboardDisplayOnProgrammaticFocus="True" TextReadingOrder="UseFlowDirection" RequestedTheme="Light" PlaceholderText="Entrez votre recherche" BorderBrush="White" Foreground="Black"/>
+                        <TextBlock x:Name="searchicon" HorizontalAlignment="Right" Margin="0,27,34,0" TextWrapping="Wrap" Text="&#xE11A;" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" FontSize="24" Foreground="#D7444444" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <CompositeTransform/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
                     </Grid>
                     <ScrollViewer x:Name="Suggestions" Margin="0,142,0,0" HorizontalAlignment="Center" Width="518" VerticalAlignment="Top" Height="408" VerticalScrollBarVisibility="Auto" Foreground="#A5F7F7F7">
                         <Grid Margin="0">
@@ -412,16 +543,6 @@
                                 <StackPanel.RenderTransform>
                                     <CompositeTransform/>
                                 </StackPanel.RenderTransform>
-                                <Grid Margin="0,5,0,0">
-                                    <Ellipse Fill="#4F000000" HorizontalAlignment="Left" Height="30" Margin="0" StrokeThickness="2" VerticalAlignment="Center" Width="30"/>
-                                    <TextBlock HorizontalAlignment="Left" Margin="35,0,0,0" TextWrapping="Wrap" Text="Bing" VerticalAlignment="Center" Foreground="#FFF7F7F7"/>
-                                    <Image HorizontalAlignment="Left" Height="20" Margin="5,0,0,0" VerticalAlignment="Center" Width="20" Source="Assets/Engine_Bing.png"/>
-                                </Grid>
-                                <Grid Margin="0,5,0,0">
-                                    <Ellipse Fill="#4F000000" HorizontalAlignment="Left" Height="30" Margin="0" StrokeThickness="2" VerticalAlignment="Center" Width="30"/>
-                                    <TextBlock HorizontalAlignment="Left" Margin="35,0,0,0" TextWrapping="Wrap" Text="Bing" VerticalAlignment="Center" Foreground="#FFF7F7F7"/>
-                                    <Image HorizontalAlignment="Left" Height="20" Margin="5,0,0,0" VerticalAlignment="Center" Width="20" Source="Assets/Engine_Qwant.png"/>
-                                </Grid>
                             </StackPanel>
                         </Grid>
                     </ScrollViewer>
@@ -436,7 +557,7 @@
                                 <CompositeTransform/>
                             </Button.RenderTransform>
                         </Button>
-                        <Button x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#01000000" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Light" FontSize="18" BorderThickness="0,0,0.5,0" BorderBrush="#338F8F8F" Foreground="#FF303030" Width="59" Height="60">
+                        <Button x:Name="Lock_Button" Content="&#xE1F6;" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#01000000" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe MDL2 Assets" RequestedTheme="Light" FontSize="18" BorderThickness="0.5,0" BorderBrush="#338F8F8F" Foreground="#FF303030" Width="60" Height="60">
                             <Button.RenderTransform>
                                 <CompositeTransform/>
                             </Button.RenderTransform>

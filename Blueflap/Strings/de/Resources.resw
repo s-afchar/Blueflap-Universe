@@ -564,4 +564,7 @@
   <data name="Wallpaper.Text" xml:space="preserve">
     <value>Hintergrundbild</value>
   </data>
+  <data name="OnlineImage.Text" xml:space="preserve">
+    <value>Online Bild</value>
+  </data>
 </root>

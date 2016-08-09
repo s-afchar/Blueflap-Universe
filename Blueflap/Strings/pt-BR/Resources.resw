@@ -564,4 +564,7 @@
   <data name="Wallpaper.Text" xml:space="preserve">
     <value>Papel de parede</value>
   </data>
+  <data name="OnlineImage.Text" xml:space="preserve">
+    <value>Imagen online</value>
+  </data>
 </root>

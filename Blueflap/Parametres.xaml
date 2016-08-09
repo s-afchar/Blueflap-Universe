@@ -719,6 +719,104 @@
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Name="Kids_HistoryTile" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="grid3">
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="-100">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:7" Value="-100"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:8.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:12" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="grid4">
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="-100">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:7" Value="-100"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:8.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:12" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="grid6">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="-40">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.1" Value="-40"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:6.5" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:8.1" Value="-40">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:9.7" Value="-40"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:11" Value="-100">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:13.2" Value="-100"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:14.6" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:17.8" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="grid7">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="-40">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.1" Value="-40"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:6.5" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:8.1" Value="-40">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:9.7" Value="-40"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:11" Value="-100">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:13.2" Value="-100"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:14.6" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:17.8" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
 
     </Page.Resources>
     <Grid x:Name="ParaPage" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -798,7 +896,7 @@
                         <Setter Target="SearchEngine_2.Width"  
                     Value="124" />
                         <Setter Target="grid1.Height"  
-                    Value="323" />
+                    Value="397" />
                         <Setter Target="grid1.Width"  
                     Value="431" />
                         <Setter Target="Rate_Button.Margin"  
@@ -1244,6 +1342,201 @@
                                     <ToggleSwitch x:Name="NewWin_Switch" x:Uid="YesSwitch" HorizontalAlignment="Left" Margin="11,33,0,0" VerticalAlignment="Top" OffContent="No" OnContent="Yes" Tag="javascript:(function(){function R(w){try{var d=w.document,j,i,t,T,N,b,r=1,C;for(j=0;t=[&quot;object&quot;,&quot;embed&quot;,&quot;applet&quot;,&quot;iframe&quot;][j];++j){T=d.getElementsByTagName(t);for(i=T.length-1;(i+1)&amp;&amp;(N=T[i]);--i)if(j!=3||!R((C=N.contentWindow)?C:N.contentDocument.defaultView)){b=d.createElement(&quot;div&quot;);b.style.width=N.width; b.style.height=N.height;b.innerHTML=&quot;&lt;del&gt;&quot;+(j==3?&quot;third-party &quot;+t:t)+&quot;&lt;/del&gt;&quot;;N.parentNode.replaceChild(b,N);}}}catch(E){r=0}return r}R(self);var i,x;for(i=0;x=frames[i];++i)R(x)})()" IsOn="True"/>
                                     <TextBlock HorizontalAlignment="Left" Margin="11,12,0,0" TextWrapping="Wrap" Text="Open all the pages in the same window" VerticalAlignment="Top"/>
                                 </Grid>
+                                <Grid Height="82" Margin="0,0,0,10" Canvas.ZIndex="-1">
+                                    <Rectangle Fill="#33D1D1D1" Height="82" Stroke="#7F838383" VerticalAlignment="Top"/>
+                                    <ToggleSwitch x:Name="Kids_Switch" x:Uid="YesSwitch" HorizontalAlignment="Left" Margin="11,33,0,0" VerticalAlignment="Top" OffContent="No" OnContent="Yes" Tag="javascript:(function(){function R(w){try{var d=w.document,j,i,t,T,N,b,r=1,C;for(j=0;t=[&quot;object&quot;,&quot;embed&quot;,&quot;applet&quot;,&quot;iframe&quot;][j];++j){T=d.getElementsByTagName(t);for(i=T.length-1;(i+1)&amp;&amp;(N=T[i]);--i)if(j!=3||!R((C=N.contentWindow)?C:N.contentDocument.defaultView)){b=d.createElement(&quot;div&quot;);b.style.width=N.width; b.style.height=N.height;b.innerHTML=&quot;&lt;del&gt;&quot;+(j==3?&quot;third-party &quot;+t:t)+&quot;&lt;/del&gt;&quot;;N.parentNode.replaceChild(b,N);}}}catch(E){r=0}return r}R(self);var i,x;for(i=0;x=frames[i];++i)R(x)})()"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="11,12,0,0" TextWrapping="Wrap" Text="KidsMode" VerticalAlignment="Top"/>
+                                    <Rectangle Fill="#7FFF0000" HorizontalAlignment="Left" Height="16" Margin="79,7,0,0" VerticalAlignment="Top" Width="44" RadiusY="8" RadiusX="8"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="84,7,0,0" TextWrapping="Wrap" Text="ALPHA" VerticalAlignment="Top" Foreground="White" RequestedTheme="Dark" FontSize="10" FontWeight="Bold"/>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+            </PivotItem>
+            <PivotItem x:Name="kidsDashboard"  Header="KIDS MODE" Margin="0" Padding="0,0,11,0">
+                <Grid>
+                    <ScrollViewer Margin="0" VerticalScrollBarVisibility="Auto" HorizontalScrollMode="Disabled">
+                        <Grid>
+                            <StackPanel Margin="0">
+                                <Grid x:Name="Kids_Dashboard" Margin="0,0,0,20">
+                                    <TextBlock x:Uid="DateList_1" x:Name="Label_Date1" HorizontalAlignment="Left" Margin="10,258,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Visibility="Collapsed"/>
+                                    <TextBlock x:Uid="DateList_2" x:Name="Label_Date2" HorizontalAlignment="Left" Margin="10,283,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Visibility="Collapsed"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Dashboard" VerticalAlignment="Top" FontSize="20" FontWeight="SemiLight"/>
+                                    <VariableSizedWrapGrid Margin="-2,40,0,0" Orientation="Horizontal">
+                                        <Button x:Name="Kids_Button_Picture" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Background="{ThemeResource ContentDialogBorderThemeBrush}" BorderThickness="0" FontFamily="Segoe MDL2 Assets" FontSize="30" Margin="2,2,0,0" Padding="0,0,1,0">
+                                            <Grid Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="100" RequestedTheme="Dark">
+                                                <Rectangle Margin="0">
+                                                    <Rectangle.Fill>
+                                                        <ImageBrush x:Name="viewprofilpic3" Stretch="UniformToFill" ImageSource="Assets/defaultkidprofilpic.jpg"/>
+                                                    </Rectangle.Fill>
+                                                </Rectangle>
+                                                <Rectangle Fill="#7F000000" Margin="0"/>
+                                                <Ellipse Margin="10">
+                                                    <Ellipse.Fill>
+                                                        <ImageBrush x:Name="viewprofilpic2" Stretch="UniformToFill" ImageSource="Assets/defaultkidprofilpic.jpg"/>
+                                                    </Ellipse.Fill>
+                                                </Ellipse>
+                                            </Grid>
+                                        </Button>
+                                        <Button x:Name="Kids_Button_ProtectionLevel" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Background="{ThemeResource ContentDialogBorderThemeBrush}" BorderThickness="0" FontFamily="Segoe MDL2 Assets" FontSize="30" Margin="2,2,0,0" Padding="0,0,1,0">
+                                            <Grid x:Name="grid5" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="100" Height="200" RequestedTheme="Dark">
+                                                <Grid x:Name="grid6" Height="100" Margin="0" Width="100" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                                                    <Grid.RenderTransform>
+                                                        <CompositeTransform/>
+                                                    </Grid.RenderTransform>
+                                                    <TextBlock HorizontalAlignment="Center" Margin="35" TextWrapping="Wrap" Text="&#xE1DE;" VerticalAlignment="Center"/>
+                                                </Grid>
+                                                <Grid x:Name="grid7" Height="100" Margin="0" VerticalAlignment="Bottom" Background="#7F000000" RenderTransformOrigin="0.5,0.5">
+                                                    <Grid.RenderTransform>
+                                                        <CompositeTransform/>
+                                                    </Grid.RenderTransform>
+                                                    <TextBlock x:Name="KidsStat1" Margin="6,4,4,0" TextWrapping="Wrap" Text="Protection level" VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="12"/>
+                                                    <TextBlock x:Name="Kids_ProtectionLevel" HorizontalAlignment="Center" Margin="41.375,28.718,40.625,28.281" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" FontFamily="Segoe UI" FontSize="32"/>
+                                                </Grid>
+                                            </Grid>
+                                        </Button>
+                                        <Button x:Name="Kids_Button_AllowedKeywords" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Background="{ThemeResource ContentDialogBorderThemeBrush}" BorderThickness="0" FontFamily="Segoe MDL2 Assets" FontSize="30" Margin="2,2,0,0" Padding="0,0,1,0" Tapped="Button_Tapped_3">
+                                            <Grid Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="100" RequestedTheme="Dark">
+                                                <Rectangle Fill="#337C7C7C" Margin="0"/>
+                                                <TextBlock HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" Text="&#xE001;" VerticalAlignment="Center"/>
+                                                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,5" TextWrapping="Wrap" Text="&#xE134;" VerticalAlignment="Bottom" FontSize="14"/>
+                                            </Grid>
+                                        </Button>
+                                        <Button x:Name="Kids_Button_ForbiddenKeywords" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Background="{ThemeResource ContentDialogBorderThemeBrush}" BorderThickness="0" FontFamily="Segoe MDL2 Assets" FontSize="30" Margin="2,2,0,0" Padding="0,0,1,0" Tapped="Button_Tapped_5">
+                                            <Grid Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="100" RequestedTheme="Dark">
+                                                <Rectangle Fill="#337C7C7C" Margin="0"/>
+                                                <TextBlock HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" Text="&#xE25B;" VerticalAlignment="Center"/>
+                                                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,5" TextWrapping="Wrap" Text="&#xE134;" VerticalAlignment="Bottom" FontSize="14"/>
+                                            </Grid>
+                                        </Button>
+                                        <Button x:Name="Kids_Button_AllowedUrls" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Background="{ThemeResource ContentDialogBorderThemeBrush}" BorderThickness="0" FontFamily="Segoe MDL2 Assets" FontSize="30" Margin="2,2,0,0" Padding="0,0,1,0" Tapped="Button_Tapped_6">
+                                            <Grid Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="100" RequestedTheme="Dark">
+                                                <Rectangle Fill="#33000000" Margin="0"/>
+                                                <TextBlock HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" Text="&#xE001;" VerticalAlignment="Center"/>
+                                                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,5" TextWrapping="Wrap" Text="&#xE167;" VerticalAlignment="Bottom" FontSize="14"/>
+                                            </Grid>
+                                        </Button>
+                                        <Button x:Name="Kids_Button_ForbiddenUrls" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Background="{ThemeResource ContentDialogBorderThemeBrush}" BorderThickness="0" FontFamily="Segoe MDL2 Assets" FontSize="30" Margin="2,2,0,0" Padding="0,0,1,0" Tapped="Button_Tapped_7">
+                                            <Grid Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="100" RequestedTheme="Dark">
+                                                <Rectangle Fill="#33000000" Margin="0"/>
+                                                <TextBlock HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" Text="&#xE25B;" VerticalAlignment="Center"/>
+                                                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,5" TextWrapping="Wrap" Text="&#xE167;" VerticalAlignment="Bottom" FontSize="14"/>
+                                            </Grid>
+                                        </Button>
+                                        <Button x:Name="Kids_Button_History" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Background="{ThemeResource ContentDialogBorderThemeBrush}" BorderThickness="0" FontFamily="Segoe MDL2 Assets" FontSize="30" Margin="2,2,0,0" Padding="0,0,1,0" Tapped="Button_Tapped_8">
+                                            <Grid x:Name="grid2" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="100" Height="200" RequestedTheme="Dark">
+                                                <Grid x:Name="grid3" Height="100" Margin="0" Width="100" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                                                    <Grid.RenderTransform>
+                                                        <CompositeTransform/>
+                                                    </Grid.RenderTransform>
+                                                    <TextBlock HorizontalAlignment="Center" Margin="35" TextWrapping="Wrap" Text="&#xE81C;" VerticalAlignment="Center"/>
+                                                    <TextBlock x:Name="KidsStatMini" HorizontalAlignment="Left" Margin="10,0,0,3" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" FontSize="14" FontFamily="Segoe UI"/>
+                                                </Grid>
+                                                <Grid x:Name="grid4" Height="100" Margin="0" VerticalAlignment="Bottom" Background="#7F000000" RenderTransformOrigin="0.5,0.5">
+                                                    <Grid.RenderTransform>
+                                                        <CompositeTransform/>
+                                                    </Grid.RenderTransform>
+                                                    <TextBlock HorizontalAlignment="Left" Margin="10,0,0,5" TextWrapping="Wrap" Text="&#xE81C;" VerticalAlignment="Bottom" FontSize="14"/>
+                                                    <TextBlock x:Name="KidsStat" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" FontFamily="Segoe UI" FontSize="32"/>
+                                                </Grid>
+                                            </Grid>
+                                        </Button>
+                                    </VariableSizedWrapGrid>
+                                    <Rectangle Fill="#7F878787" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="3"/>
+                                </Grid>
+                                <Grid x:Name="Kids_Words_Forbidden" Margin="0,0,0,10" Height="505" Visibility="Collapsed">
+                                    <Rectangle Fill="#33D1D1D1" Stroke="#7F838383"/>
+                                    <TextBox x:Name="TextBox_Restrict1" Margin="10,40,93,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+                                    <Button x:Name="Button_Restrict1" Content="Add" HorizontalAlignment="Right" Margin="0,40,45,0" VerticalAlignment="Top"/>
+                                    <Button x:Name="Refresh1" Content="&#xE117;" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Height="32" Width="35" Opacity="0.7"/>
+                                    <ScrollViewer Margin="10,80,10,10" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" BorderThickness="2">
+                                        <StackPanel x:Name="StackPanel_Restrict1" Background="#33D1D1D1"/>
+                                    </ScrollViewer>
+                                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Forbidden keywords" VerticalAlignment="Top"/>
+                                </Grid>
+                                <Grid x:Name="Kids_Words_Allowed" Margin="0,0,0,10" Height="505" Visibility="Collapsed">
+                                    <Rectangle Fill="#33D1D1D1" Stroke="#7F838383"/>
+                                    <TextBox x:Name="TextBox_Restrict" Margin="10,40,93,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+                                    <Button x:Name="Button_Restrict" Content="Add" HorizontalAlignment="Right" Margin="0,40,45,0" VerticalAlignment="Top"/>
+                                    <Button x:Name="Refresh" Content="&#xE117;" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Height="32" Width="35" Opacity="0.7"/>
+                                    <ScrollViewer Margin="10,80,10,10" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" BorderThickness="2">
+                                        <StackPanel x:Name="StackPanel_Restrict" Background="#33D1D1D1"/>
+                                    </ScrollViewer>
+                                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="The title of the page must contain the following words" VerticalAlignment="Top"/>
+                                </Grid>
+                                <Grid x:Name="Kids_link_Allowed" Margin="0,0,0,10" Height="505" Visibility="Collapsed">
+                                    <Rectangle Fill="#33D1D1D1" Stroke="#7F838383"/>
+                                    <TextBox x:Name="TextBox_Restrict2" Margin="10,40,93,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+                                    <Button x:Name="Button_Restrict2" Content="Add" HorizontalAlignment="Right" Margin="0,40,45,0" VerticalAlignment="Top"/>
+                                    <Button x:Name="Refresh2" Content="&#xE117;" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Height="32" Width="35" Opacity="0.7"/>
+                                    <ScrollViewer Margin="10,80,10,10" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" BorderThickness="2">
+                                        <StackPanel x:Name="StackPanel_Restrict2" Background="#33D1D1D1"/>
+                                    </ScrollViewer>
+                                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="The following URL's are allowed" VerticalAlignment="Top"/>
+                                </Grid>
+                                <Grid x:Name="Kids_link_Forbidden" Margin="0,0,0,10" Height="505" Visibility="Collapsed">
+                                    <Rectangle Fill="#33D1D1D1" Stroke="#7F838383"/>
+                                    <TextBox x:Name="TextBox_Restrict3" Margin="10,40,93,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+                                    <Button x:Name="Button_Restrict3" Content="Add" HorizontalAlignment="Right" Margin="0,40,45,0" VerticalAlignment="Top"/>
+                                    <Button x:Name="Refresh3" Content="&#xE117;" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Height="32" Width="35" Opacity="0.7"/>
+                                    <ScrollViewer Margin="10,80,10,10" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" BorderThickness="2">
+                                        <StackPanel x:Name="StackPanel_Restrict3" Background="#33D1D1D1"/>
+                                    </ScrollViewer>
+                                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="The following URL's are forbidden" VerticalAlignment="Top"/>
+                                </Grid>
+                                <Grid x:Name="Kids_History" Margin="0,0,0,10" Height="490" Visibility="Collapsed">
+                                    <Rectangle Fill="#33D1D1D1" Stroke="#7F838383"/>
+                                    <ScrollViewer Margin="10" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" BorderThickness="2">
+                                        <StackPanel x:Name="Kids_HistoryList" Background="White"/>
+                                    </ScrollViewer>
+                                </Grid>
+                                <Grid x:Name="Kids_SecurityLevel" Margin="0,0,0,10" Height="100" Visibility="Collapsed">
+                                    <Rectangle Fill="#33D1D1D1" Stroke="#7F838383" Margin="0"/>
+                                    <FlipView x:Name="Kids_ProtectionLevelSelect" HorizontalAlignment="Left" Margin="0.063,-0.125,0,0" Width="100" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Height="100" UseLayoutRounding="False" d:LayoutRounding="Auto" Background="#00000000" SelectedIndex="3">
+                                        <FlipView.RenderTransform>
+                                            <CompositeTransform Rotation="-90"/>
+                                        </FlipView.RenderTransform>
+                                        <Grid Background="#99858585" Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="2" RenderTransformOrigin="0.5,0.5">
+                                            <Grid.RenderTransform>
+                                                <CompositeTransform Rotation="90"/>
+                                            </Grid.RenderTransform>
+                                            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,3" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" RequestedTheme="Dark" FontSize="24"/>
+                                        </Grid>
+                                        <Grid Background="#99858585" Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="2" RenderTransformOrigin="0.5,0.5">
+                                            <Grid.RenderTransform>
+                                                <CompositeTransform Rotation="90"/>
+                                            </Grid.RenderTransform>
+                                            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,3" TextWrapping="Wrap" Text="1" VerticalAlignment="Center" RequestedTheme="Dark" FontSize="24"/>
+                                        </Grid>
+                                        <Grid Background="#99858585" Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="2" RenderTransformOrigin="0.5,0.5">
+                                            <Grid.RenderTransform>
+                                                <CompositeTransform Rotation="90"/>
+                                            </Grid.RenderTransform>
+                                            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,3" TextWrapping="Wrap" Text="2" VerticalAlignment="Center" RequestedTheme="Dark" FontSize="24"/>
+                                        </Grid>
+                                        <Grid Background="#99858585" Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="2" RenderTransformOrigin="0.5,0.5">
+                                            <Grid.RenderTransform>
+                                                <CompositeTransform Rotation="90"/>
+                                            </Grid.RenderTransform>
+                                            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,3" TextWrapping="Wrap" Text="3" VerticalAlignment="Center" RequestedTheme="Dark" FontSize="24"/>
+                                        </Grid>
+                                    </FlipView>
+                                    <TextBlock x:Name="Kids_ProtectionLevelSelect_Label1" HorizontalAlignment="Left" Margin="101,10,0,0" TextWrapping="Wrap" Text="Permanant history" VerticalAlignment="Top"/>
+                                    <TextBlock x:Name="Kids_ProtectionLevelSelect_Label2" HorizontalAlignment="Left" Margin="101,30,0,0" TextWrapping="Wrap" Text="Forbidden keywords and websites" VerticalAlignment="Top" Opacity="0.5"/>
+                                    <TextBlock x:Name="Kids_ProtectionLevelSelect_Label3" HorizontalAlignment="Left" Margin="101,50,0,0" TextWrapping="Wrap" Text="Allowed websites" VerticalAlignment="Top" Opacity="0.5"/>
+                                    <TextBlock x:Name="Kids_ProtectionLevelSelect_Label4" HorizontalAlignment="Left" Margin="101,70,0,0" TextWrapping="Wrap" Text="Allowed keywords" VerticalAlignment="Top" Opacity="0.5"/>
+                                </Grid>
+                                <Grid x:Name="Kids_ProfilePic" Height="70" Margin="0,0,0,2" Visibility="Collapsed">
+                                    <Rectangle Fill="#33D1D1D1" Stroke="#7F838383"/>
+                                    <Ellipse  HorizontalAlignment="Left" Height="50" Margin="10,0,0,0" VerticalAlignment="Center" Width="50" Stroke="Gray">
+                                        <Ellipse.Fill>
+                                            <ImageBrush x:Name="viewprofilpic1" Stretch="UniformToFill" ImageSource="Assets/defaultkidprofilpic.jpg"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                    <TextBox x:Name="profilpicuri1" Margin="70,0,42,0" Text="" VerticalAlignment="Center" BorderThickness="1" PlaceholderText="blueflap://default.jpg" FontSize="16"/>
+                                    <Button Content="&#xE118;" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Center" Width="32" BorderThickness="1" FontFamily="Segoe MDL2 Assets" Height="32" Tapped="Button_Tapped_10"/>
+                                </Grid>
                             </StackPanel>
                         </Grid>
                     </ScrollViewer>
@@ -1254,7 +1547,7 @@
                     <ScrollViewer Margin="0" VerticalScrollBarVisibility="Auto" HorizontalScrollMode="Disabled">
                         <Grid>
                             <TextBlock x:Name="textBlock6" HorizontalAlignment="Right" Margin="0,0,0,16" TextWrapping="Wrap" VerticalAlignment="Bottom" TextAlignment="Right" Width="206">
-                            	<Run Foreground="#FF727272" Text="Fait avec le      en France"/>
+            					<Run Foreground="#FF727272" Text="Fait avec le      en France"/>
                             </TextBlock>
                             <TextBlock x:Name="textBlock5" HorizontalAlignment="Right" Margin="0,0,68,3" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="29" Width="15" FontFamily="Segoe MDL2 Assets" Text="&#xE00B;" Foreground="#FFFF0080"/>
                             <StackPanel Margin="0">
@@ -1280,11 +1573,11 @@
                                     </Button>
                                     <TextBlock HorizontalAlignment="Left" Margin="90,54,0,0" TextWrapping="Wrap" Text="BLUESTART" VerticalAlignment="Top" FontSize="13.333" FontWeight="SemiBold"/>
                                     <TextBlock HorizontalAlignment="Left" Margin="90,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Height="81" Foreground="Gray">
-                            			<Run Text="Le point de départ de toutes"/>
-                            			<Run Text=" "/>
-                            			<Run Text="vos recherches sur votre Windows Phone"/>
-                            			<LineBreak/>
-                            			<Run/>
+            							<Run Text="Le point de départ de toutes"/>
+            							<Run Text=" "/>
+            							<Run Text="vos recherches sur votre Windows Phone"/>
+            							<LineBreak/>
+            							<Run/>
                                     </TextBlock>
                                     <TextBlock HorizontalAlignment="Left" Margin="11,54,0,0" TextWrapping="Wrap" Text="&#xE8EA;" VerticalAlignment="Top" FontSize="64" FontFamily="Segoe MDL2 Assets" Opacity="0.8"/>
                                 </Grid>
@@ -1301,7 +1594,7 @@
             </PivotItem>
         </Pivot>
         <Grid x:Name="Verrouillage_Popup" Margin="0" Background="#B2000000" RequestedTheme="Light" Visibility="Collapsed">
-            <Grid x:Name="addfavshadow" Margin="0" Opacity="0.54" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Width="478" VerticalAlignment="Center" Height="347">
+            <Grid x:Name="addfavshadow" Margin="0" Opacity="0.54" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Width="480" VerticalAlignment="Center" Height="423">
                 <Grid.RenderTransform>
                     <CompositeTransform/>
                 </Grid.RenderTransform>
@@ -1351,31 +1644,52 @@
                     <CompositeTransform/>
                 </Grid.RenderTransform>
                 <Rectangle Fill="#EAFFFFFF" Margin="0" RadiusX="2" RadiusY="2"/>
-                <Rectangle Fill="#B2FFFFFF" Height="83" Margin="0,60,0,0" VerticalAlignment="Top"/>
-                <Rectangle Fill="#B2FFFFFF" Height="120" Margin="0,145,0,0" VerticalAlignment="Top"/>
-                <Button x:Uid="Save" Content="Enregistrer" HorizontalAlignment="Right" Margin="0,0,17,10" VerticalAlignment="Bottom" Tapped="Password_SaveSettings" RequestedTheme="Light" Foreground="White" Background="{ThemeResource ContentDialogBorderThemeBrush}" Height="35" Width="92"/>
-                <PasswordBox x:Uid="Settings_newpassplaceholder" x:Name="NewPasswordBox" Margin="11,188,11,0" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Nouveau mot de passe" FontSize="16" RenderTransformOrigin="0.5,0.5">
-                    <PasswordBox.RenderTransform>
-                        <CompositeTransform/>
-                    </PasswordBox.RenderTransform>
-                </PasswordBox>
-                <Button x:Uid="Cancel" Content="Annuler" HorizontalAlignment="Right" Margin="0,0,115,10" VerticalAlignment="Bottom" RequestedTheme="Light" Background="#19000000" Height="35" Tapped="Password_CancelConfiguration" Width="72"/>
-                <TextBlock HorizontalAlignment="Left" Margin="21,20,0,0" TextWrapping="Wrap" x:Uid="Settings_locksettings" Text="PARAMÈTRES DU VERROUILLAGE " VerticalAlignment="Top" FontSize="14.667" FontWeight="Bold" Foreground="{ThemeResource ContentDialogBorderThemeBrush}"/>
-                <ToggleSwitch x:Name="VerrouillageSwitch" x:Uid="Settings_LockEnabled" Header="Verrouillage" HorizontalAlignment="Left" Margin="11,73,0,0" VerticalAlignment="Top" RequestedTheme="Light" RenderTransformOrigin="0.5,0.5">
-                    <ToggleSwitch.RenderTransform>
-                        <CompositeTransform/>
-                    </ToggleSwitch.RenderTransform>
-                </ToggleSwitch>
-                <TextBlock x:Name="TextBlockNewPassword" HorizontalAlignment="Left" Margin="11,160,0,0" TextWrapping="Wrap" Text="Modifier le mot de passe" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
-                    <TextBlock.RenderTransform>
-                        <CompositeTransform/>
-                    </TextBlock.RenderTransform>
-                </TextBlock>
-                <Button x:Name="button" x:Uid="Settings_resetpassword" Content="Supprimer le mot de passe" HorizontalAlignment="Right" Margin="0,220,12,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FFC30000" Width="201" Height="31" Tapped="ResetPassword" BorderThickness="0" RenderTransformOrigin="0.5,0.5">
-                    <Button.RenderTransform>
-                        <CompositeTransform/>
-                    </Button.RenderTransform>
-                </Button>
+
+                <TextBlock HorizontalAlignment="Left" Margin="21,20,0,0" TextWrapping="Wrap" x:Uid="Settings_locksettings" Text="PARAMÈTRES DU VERROUILLAGE " VerticalAlignment="Top" FontSize="14.667" FontWeight="Bold" Foreground="{ThemeResource ApplicationSecondaryForegroundThemeBrush}"/>
+                <ScrollViewer Margin="0,60" VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="0">
+                        <Grid Height="83" Margin="0,0,0,2">
+                            <Rectangle Fill="#B2FFFFFF"/>
+                            <ToggleSwitch x:Name="VerrouillageSwitch" x:Uid="Settings_LockEnabled" Header="Verrouillage" HorizontalAlignment="Left" Margin="11,13,0,0" VerticalAlignment="Top" RequestedTheme="Light" RenderTransformOrigin="0.5,0.5">
+                                <ToggleSwitch.RenderTransform>
+                                    <CompositeTransform/>
+                                </ToggleSwitch.RenderTransform>
+                            </ToggleSwitch>
+                        </Grid>
+                        <Grid Height="120">
+                            <Rectangle Fill="#B2FFFFFF" Margin="0,0,0,2"/>
+                            <PasswordBox x:Uid="Settings_newpassplaceholder" x:Name="NewPasswordBox" Margin="11,43,11,0" VerticalAlignment="Top" BorderThickness="1" PlaceholderText="Nouveau mot de passe" FontSize="16" RenderTransformOrigin="0.5,0.5">
+                                <PasswordBox.RenderTransform>
+                                    <CompositeTransform/>
+                                </PasswordBox.RenderTransform>
+                            </PasswordBox>
+                            <TextBlock x:Name="TextBlockNewPassword" HorizontalAlignment="Left" Margin="11,15,0,0" TextWrapping="Wrap" Text="Modifier le mot de passe" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                                <TextBlock.RenderTransform>
+                                    <CompositeTransform/>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+                            <Button x:Name="button" x:Uid="Settings_resetpassword" Content="Supprimer le mot de passe" HorizontalAlignment="Right" Margin="0,75,12,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FFC30000" Height="31" Tapped="ResetPassword" BorderThickness="0" RenderTransformOrigin="0.5,0.5">
+                                <Button.RenderTransform>
+                                    <CompositeTransform/>
+                                </Button.RenderTransform>
+                            </Button>
+                        </Grid>
+                        <Grid Height="70" Margin="0,0,0,2">
+                            <Rectangle Fill="#B2FFFFFF"/>
+                            <Ellipse  HorizontalAlignment="Left" Height="50" Margin="10,0,0,0" VerticalAlignment="Center" Width="50" Stroke="#FF575757">
+                                <Ellipse.Fill>
+                                    <ImageBrush x:Name="viewprofilpic" Stretch="UniformToFill" ImageSource="Assets/defaultprofilpic.jpg"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <TextBox x:Name="profilpicuri" Margin="70,0,42,0" Text="" VerticalAlignment="Center" BorderThickness="1" PlaceholderText="blueflap://default.jpg" FontSize="16"/>
+                            <Button Content="&#xE118;" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Center" Width="32" BorderThickness="1" FontFamily="Segoe MDL2 Assets" Height="32" Tapped="Button_Tapped_9"/>
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
+                <StackPanel HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Orientation="Horizontal">
+                    <Button x:Uid="Cancel" Content="Annuler" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Bottom" RequestedTheme="Light" Background="#19000000" Height="40" Tapped="Password_CancelConfiguration"/>
+                    <Button x:Uid="Save" Content="Enregistrer" HorizontalAlignment="Right" Margin="5,0,0,0" VerticalAlignment="Bottom" Tapped="Password_SaveSettings" RequestedTheme="Light" Foreground="White" Background="{ThemeResource ContentDialogBorderThemeBrush}" Height="40"/>
+                </StackPanel>
             </Grid>
         </Grid>
 

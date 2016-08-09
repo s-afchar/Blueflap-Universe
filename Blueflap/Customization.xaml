@@ -185,8 +185,14 @@
             </VariableSizedWrapGrid>
             <Grid x:Name="OnlineImage" Margin="200,0,0,0" VerticalAlignment="Top">
                 <TextBox x:Name="OnlineImagePath" HorizontalAlignment="Left" Text="" VerticalAlignment="Top" Width="278" RequestedTheme="Dark" BorderThickness="1" Height="22" PlaceholderText="URL de l'image de fond" TextAlignment="Left" TextWrapping="NoWrap" Margin="168,9,0,0" Visibility="Collapsed"/>
-                <TextBlock HorizontalAlignment="Left" Margin="25,17,0,0" TextWrapping="Wrap" Text="&#xE753;" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe MDL2 Assets"/>
-                <Button Content="       Image en ligne" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="151" Foreground="#DDFFFFFF" Background="#4C000000" BorderBrush="#64000000" BorderThickness="1" FontSize="12" RequestedTheme="Dark" Tapped="SetCustomWallpaper"/>
+                <Button HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="151" Foreground="#DDFFFFFF" Background="#4C000000" BorderBrush="#64000000" BorderThickness="1" FontSize="12" RequestedTheme="Dark" Tapped="SetCustomWallpaper">
+                    <Grid Margin="0">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock HorizontalAlignment="Left" Margin="0,2,5,0" TextWrapping="Wrap" Text="&#xE753;" VerticalAlignment="Center" Foreground="White" FontFamily="Segoe MDL2 Assets"/>
+                            <TextBlock x:Uid="OnlineImage" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Image" VerticalAlignment="Center" Foreground="White" Margin="0,0,3,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Button>
             </Grid>
         </StackPanel>
 

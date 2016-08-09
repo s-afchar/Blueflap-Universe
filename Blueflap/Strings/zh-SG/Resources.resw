@@ -564,4 +564,7 @@
   <data name="Wallpaper.Text" xml:space="preserve">
     <value>背景图片</value>
   </data>
+  <data name="OnlineImage.Text" xml:space="preserve">
+    <value>线上图片</value>
+  </data>
 </root>

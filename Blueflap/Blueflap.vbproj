@@ -138,6 +138,9 @@
     <Compile Include="FirstBootScreen_Mobile.xaml.vb">
       <DependentUpon>FirstBootScreen_Mobile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="KidsMode.xaml.vb">
+      <DependentUpon>KidsMode.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.vb">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -162,11 +165,14 @@
     <None Include="Blueflap_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\background.png" />
     <Content Include="Assets\baptiste 2.png" />
     <Content Include="Assets\baptiste.png" />
     <Content Include="Assets\Cailloux.jpg" />
     <Content Include="Assets\Ciel.JPG" />
     <Content Include="Assets\circle.png" />
+    <Content Include="Assets\defaultkidprofilpic.jpg" />
+    <Content Include="Assets\defaultprofilpic.jpg" />
     <Content Include="Assets\Degrade.png" />
     <Content Include="Assets\Degrade2.png" />
     <Content Include="Assets\Engine_Bing.png" />
@@ -176,13 +182,16 @@
     <Content Include="Assets\faviconNeutral.png" />
     <Content Include="Assets\finger.png" />
     <Content Include="Assets\Fleurs.jpg" />
-    <Content Include="Assets\grumpy.png" />
+    <Content Include="Assets\grumpy.jpg" />
+    <Content Include="Assets\kidsicon.png" />
+    <Content Include="Assets\loadbille.png" />
     <Content Include="Assets\logo_B.png" />
     <Content Include="Assets\logo_F.png" />
     <Content Include="Assets\MiniPlayerIcon.png" />
     <Content Include="Assets\Montagne.jpg" />
     <Content Include="Assets\Neige.jpg" />
     <Content Include="Assets\noprofilepicture.png" />
+    <Content Include="Assets\Piwit_cloud.png" />
     <Content Include="Assets\Plage.jpg" />
     <Content Include="Assets\promo2.png" />
     <Content Include="Assets\shadow.png" />
@@ -240,6 +249,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FirstBootScreen_Mobile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KidsMode.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

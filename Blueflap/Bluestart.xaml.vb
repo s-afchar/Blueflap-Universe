@@ -189,13 +189,41 @@ Public NotInheritable Class Bluestart
     'Ce qui suit est d'ordre visuel
     '<Visuel>
     Private Sub TextBox_GotFocus(sender As Object, e As RoutedEventArgs)
-        AdressBack.Visibility = Visibility.Visible
-        RechercheBox.BorderThickness = New Thickness(0, 0, 0, 0)
+        'AdressBack.Visibility = Visibility.Visible
+        Textboxclick.Begin()
+        'RechercheBox.BorderThickness = New Thickness(0, 0, 0, 0)
     End Sub
 
     Private Sub TextBox_LostFocus(sender As Object, e As RoutedEventArgs)
-        AdressBack.Visibility = Visibility.Collapsed
-        RechercheBox.BorderThickness = New Thickness(0, 0, 0, 2)
+        'AdressBack.Visibility = Visibility.Collapsed
+        Textboxleave.Begin()
+
+        ' RechercheBox.BorderThickness = New Thickness(0, 0, 0, 2)
+    End Sub
+
+    Private Sub AdressBox_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles AdressBox.PointerEntered
+        textboxhover.Begin()
+    End Sub
+    Private Sub AdressBox_PointerPointerExited(sender As Object, e As PointerRoutedEventArgs) Handles AdressBox.PointerExited
+        Textboxmouseexit.Begin()
+    End Sub
+    Private Sub FavSuggest_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles FavSuggest.PointerEntered
+        If PhoneNavBar.Visibility = Visibility.Collapsed Then
+            If PreventAnimationBug = True Then
+                SearchLessOpacity.Begin()
+                PreventAnimationBug = False
+            End If
+
+            Suggestions.VerticalScrollBarVisibility = ScrollBarVisibility.Auto
+        End If
+    End Sub
+
+    Private Sub FavSuggest_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles FavSuggest.PointerExited
+        If PhoneNavBar.Visibility = Visibility.Collapsed Then
+            SearchCancelOpacity.Begin()
+            PreventAnimationBug = True
+            Suggestions.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden
+        End If
     End Sub
     '</Visuel>
 #End Region
@@ -266,13 +294,15 @@ Public NotInheritable Class Bluestart
         If RechercheBox.Text = "" Then
             SmartSuggest_History.Visibility = Visibility.Collapsed
             FavSuggest.Visibility = Visibility.Visible
-            SearchLessOpacity.Stop()
+            SearchCancelOpacity.Begin()
+
             PreventAnimationBug = True
         Else
             SmartSuggest_History.Visibility = Visibility.Visible
             FavSuggest.Visibility = Visibility.Collapsed
             If PreventAnimationBug = True Then
                 SearchLessOpacity.Begin()
+
                 PreventAnimationBug = False
             End If
         End If
@@ -485,24 +515,7 @@ Public NotInheritable Class Bluestart
         content = Await FileIO.ReadTextAsync(textfile)
         Return content
     End Function
-    Private Sub FavSuggest_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles FavSuggest.PointerEntered
-        If PhoneNavBar.Visibility = Visibility.Collapsed Then
-            If PreventAnimationBug = True Then
-                SearchLessOpacity.Begin()
-                PreventAnimationBug = False
-            End If
 
-            Suggestions.VerticalScrollBarVisibility = ScrollBarVisibility.Auto
-        End If
-    End Sub
-
-    Private Sub FavSuggest_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles FavSuggest.PointerExited
-        If PhoneNavBar.Visibility = Visibility.Collapsed Then
-            SearchLessOpacity.Stop()
-            PreventAnimationBug = True
-            Suggestions.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden
-        End If
-    End Sub
 
 #End Region
 #Region "ellipsis"
@@ -541,6 +554,7 @@ Public NotInheritable Class Bluestart
     Private Sub Phone_Random_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Phone_Random.Tapped
         Randomize()
     End Sub
+
 
 
 #End Region

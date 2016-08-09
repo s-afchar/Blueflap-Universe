@@ -2,6 +2,8 @@
 Imports Windows.UI.Notifications
 Imports Windows.Data.Json
 Imports Windows.Storage
+Imports Windows.UI.Xaml.Documents
+Imports Windows.Web.Http
 ''' <summary>
 ''' Comme son nom l'indique, Page de paramètres
 ''' </summary>
@@ -52,6 +54,13 @@ Public NotInheritable Class Parametres
             Ghost_Switch.IsOn = False
         Else
             Ghost_Switch.IsOn = True
+        End If
+
+
+        If localSettings.Values("KidsMode") = True Then
+            Kids_Switch.IsOn = True
+        Else
+            Kids_Switch.IsOn = False
         End If
 
         If localSettings.Values("NewWin") = True Then
@@ -107,6 +116,13 @@ Public NotInheritable Class Parametres
         Catch
         End Try
 
+        Kids_Button_AllowedKeywords.Background = grid.Background
+        Kids_Button_AllowedUrls.Background = grid.Background
+        Kids_Button_ForbiddenKeywords.Background = grid.Background
+        Kids_Button_ForbiddenUrls.Background = grid.Background
+        Kids_Button_History.Background = grid.Background
+        Kids_Button_ProtectionLevel.Background = grid.Background
+
         'Là Blueflap affiche les statistiques d'utilisation (dans le volet à gauche)
         Try
             Stat1.Text = localSettings.Values("Stat1")
@@ -135,6 +151,14 @@ Public NotInheritable Class Parametres
         ElseIf 5000 < Stat1.Text Then
             Stat3.Text = "Would you marry Blueflap ?"
         End If
+
+        Try
+            KidsStat.Text = localSettings.Values("StatKid")
+            KidsStatMini.Text = localSettings.Values("StatKid")
+        Catch
+            localSettings.Values("StatKid") = 0
+        End Try
+        Kids_HistoryTile.Begin()
 
         Try
             Dim package As Windows.ApplicationModel.Package = Windows.ApplicationModel.Package.Current
@@ -197,6 +221,14 @@ Public NotInheritable Class Parametres
         Catch ex As Exception
         End Try
 
+        Try
+
+            Kids_ProtectionLevel.Text = localSettings.Values("ProtectionLevel")
+            Kids_ProtectionLevelSelect.SelectedIndex = localSettings.Values("ProtectionLevel")
+        Catch
+            localSettings.Values("ProtectionLevel") = 0
+            Kids_ProtectionLevel.Text = localSettings.Values("ProtectionLevel")
+        End Try
 
         ParamOpen.Stop()
         ParamOpen.Begin()
@@ -220,6 +252,20 @@ Public NotInheritable Class Parametres
                 Wallpaper_Preview.Source = New BitmapImage(New Uri("ms-appx:/Assets/" + localSettings.Values("WallpaperName"), UriKind.Absolute))
             End If
         Catch ex As Exception
+        End Try
+
+        If localSettings.Values("KidsMode") = True Then
+
+        Else
+            pivot.Items.Remove(kidsDashboard)
+        End If
+
+        Try
+            viewprofilpic2.ImageSource = New BitmapImage(New Uri(localSettings.Values("KidProfilPictureSource"), UriKind.Absolute))
+            viewprofilpic3.ImageSource = New BitmapImage(New Uri(localSettings.Values("KidProfilPictureSource"), UriKind.Absolute))
+        Catch ex As Exception
+            viewprofilpic2.ImageSource = New BitmapImage(New Uri("ms-appx:/Assets/defaultkidprofilpic.jpg", UriKind.Absolute))
+            viewprofilpic3.ImageSource = New BitmapImage(New Uri("ms-appx:/Assets/defaultkidprofilpic.jpg", UriKind.Absolute))
         End Try
 
     End Sub
@@ -269,6 +315,13 @@ Public NotInheritable Class Parametres
             localSettings.Values("CustomColorEnabled") = False
             grid.Background = DefaultThemeColor.Background
         End If
+
+        Kids_Button_AllowedKeywords.Background = grid.Background
+        Kids_Button_AllowedUrls.Background = grid.Background
+        Kids_Button_ForbiddenKeywords.Background = grid.Background
+        Kids_Button_ForbiddenUrls.Background = grid.Background
+        Kids_Button_History.Background = grid.Background
+        Kids_Button_ProtectionLevel.Background = grid.Background
 
     End Sub
 
@@ -496,6 +549,12 @@ Public NotInheritable Class Parametres
             localSettings.Values("GhostMode") = False
         End If
 
+        If Kids_Switch.IsOn = True Then
+            localSettings.Values("KidsMode") = True
+        Else
+            localSettings.Values("KidsMode") = False
+        End If
+
 
         If NewWin_Switch.IsOn = True Then
             localSettings.Values("NewWin") = True
@@ -678,6 +737,16 @@ Public NotInheritable Class Parametres
             End If
         Catch
         End Try
+
+        Try
+            profilpicuri.Text = localSettings.Values("ProfilPictureSource")
+        Catch ex As Exception
+        End Try
+        Try
+            viewprofilpic.ImageSource = New BitmapImage(New Uri(localSettings.Values("ProfilPictureSource"), UriKind.Absolute))
+        Catch ex As Exception
+            viewprofilpic.ImageSource = New BitmapImage(New Uri("ms-appx:/Assets/defaultprofilpic.jpg", UriKind.Absolute))
+        End Try
     End Sub
 
     Private Sub Passwordbox_KeyDown(sender As Object, e As KeyRoutedEventArgs) Handles Passwordbox.KeyDown
@@ -746,4 +815,637 @@ Public NotInheritable Class Parametres
 
 
 #End Region
+#Region "JsonFileManagment"
+
+    Private Async Function ReadJsonFile(FileName As String) As Task(Of String)
+        Dim localFolder As StorageFolder = ApplicationData.Current.LocalFolder
+        FileName += ".json"
+        Dim content As String = Nothing
+
+        Dim textfile As StorageFile = Await localFolder.GetFileAsync(FileName)
+        content = Await FileIO.ReadTextAsync(textfile)
+        Return content
+    End Function
+
+
+#End Region
+#Region "Kids"
+    Private Async Sub Button_Restrict1_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Button_Restrict1.Tapped
+        If Not TextBox_Restrict1.Text = "" Then
+            Try
+                Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("KidsMode_ForbiddenWords"))
+
+                Dim KidsElem As JsonObject = New JsonObject
+                KidsElem.Add("word", JsonValue.CreateStringValue(TextBox_Restrict1.Text))
+
+                root.Add(KidsElem)
+                WriteJsonFile(root, "KidsMode_ForbiddenWords")
+
+            Catch
+                WriteJsonFile(JsonArray.Parse("[]"), "KidsMode_ForbiddenWords")
+            End Try
+        End If
+
+        Await ShowForbiddenWords()
+    End Sub
+    Private Async Sub Button_Restrict_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Button_Restrict.Tapped
+
+        If Not TextBox_Restrict.Text = "" Then
+            Try
+                Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("KidsMode_Words"))
+
+                Dim KidsElem As JsonObject = New JsonObject
+                KidsElem.Add("word", JsonValue.CreateStringValue(TextBox_Restrict.Text))
+
+                root.Add(KidsElem)
+                WriteJsonFile(root, "KidsMode_Words")
+
+            Catch
+                WriteJsonFile(JsonArray.Parse("[]"), "KidsMode_Words")
+            End Try
+        End If
+
+        Await ShowAllowedWords()
+    End Sub
+    Private Sub Refresh_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Refresh.Tapped
+        ShowAllowedWords()
+    End Sub
+    Private Sub Refresh1_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Refresh1.Tapped
+        ShowForbiddenWords()
+    End Sub
+    Private Async Function ShowForbiddenWords() As Task
+
+
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        Try
+            StackPanel_Restrict1.Children.Clear()
+            Dim Json As String
+
+            Try
+                Json = Await ReadJsonFile("KidsMode_ForbiddenWords")
+            Catch ex As Exception
+                Json = "[]"
+            End Try
+
+            For Each KidsElem In JsonArray.Parse(Json).Reverse
+
+                Dim elemContainer As StackPanel = New StackPanel
+                elemContainer.Padding = New Thickness(8, 8, 0, 8)
+
+                Dim menu As MenuFlyout = New MenuFlyout
+                Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
+                menuDelete.FontFamily = New FontFamily("Segoe MDL2 Assets")
+                menuDelete.FontSize = 25
+                menuDelete.Text = ""
+                menu.Items.Add(menuDelete)
+
+
+                AddHandler elemContainer.RightTapped, New RightTappedEventHandler(Function(sender As Object, e As RightTappedRoutedEventArgs)
+                                                                                      menu.ShowAt(CType(sender, FrameworkElement))
+                                                                                  End Function)
+
+                AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                            menu.ShowAt(CType(sender, FrameworkElement))
+                                                                        End Function)
+
+                AddHandler menuDelete.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
+                                                                         Try
+                                                                             Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("KidsMode_ForbiddenWords"))
+                                                                             root.Remove(root.First(Function(x) x.GetObject.GetNamedString("word") = KidsElem.GetObject.GetNamedString("word")))
+                                                                             WriteJsonFile(root, "KidsMode_ForbiddenWords")
+                                                                             Await ShowForbiddenWords()
+                                                                         Catch
+                                                                         End Try
+                                                                     End Sub)
+
+                AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                            menu.ShowAt(CType(sender, FrameworkElement))
+                                                                        End Function)
+
+
+
+                AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                     elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
+                                                                                     elemContainer.BorderBrush = rectangle.Fill
+                                                                                 End Function)
+
+                AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                    elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                                End Function)
+
+
+
+
+                Dim Name As TextBlock = New TextBlock
+                Name.Text = KidsElem.GetObject.GetNamedString("word")
+                elemContainer.Children.Add(Name)
+
+
+                StackPanel_Restrict1.Children.Add(elemContainer)
+
+            Next
+        Catch ex As Exception
+        End Try
+
+
+
+    End Function
+    Private Async Function ShowAllowedWords() As Task
+
+
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        Try
+            StackPanel_Restrict.Children.Clear()
+            Dim Json As String
+
+            Try
+                Json = Await ReadJsonFile("KidsMode_Words")
+            Catch ex As Exception
+                Json = "[]"
+            End Try
+
+            For Each KidsElem In JsonArray.Parse(Json).Reverse
+
+                Dim elemContainer As StackPanel = New StackPanel
+                elemContainer.Padding = New Thickness(8, 8, 0, 8)
+
+                Dim menu As MenuFlyout = New MenuFlyout
+                Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
+                menuDelete.FontFamily = New FontFamily("Segoe MDL2 Assets")
+                menuDelete.FontSize = 25
+                menuDelete.Text = ""
+                menu.Items.Add(menuDelete)
+
+
+                AddHandler elemContainer.RightTapped, New RightTappedEventHandler(Function(sender As Object, e As RightTappedRoutedEventArgs)
+                                                                                      menu.ShowAt(CType(sender, FrameworkElement))
+                                                                                  End Function)
+
+                AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                            menu.ShowAt(CType(sender, FrameworkElement))
+                                                                        End Function)
+
+                AddHandler menuDelete.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
+                                                                         Try
+                                                                             Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("KidsMode_Words"))
+                                                                             root.Remove(root.First(Function(x) x.GetObject.GetNamedString("word") = KidsElem.GetObject.GetNamedString("word")))
+                                                                             WriteJsonFile(root, "KidsMode_Words")
+                                                                             Await ShowAllowedWords()
+                                                                         Catch
+                                                                         End Try
+                                                                     End Sub)
+
+                AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                            menu.ShowAt(CType(sender, FrameworkElement))
+                                                                        End Function)
+
+
+
+                AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                     elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
+                                                                                     elemContainer.BorderBrush = rectangle.Fill
+                                                                                 End Function)
+
+                AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                    elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                                End Function)
+
+
+
+
+                Dim Name As TextBlock = New TextBlock
+                Name.Text = KidsElem.GetObject.GetNamedString("word")
+                elemContainer.Children.Add(Name)
+
+
+                StackPanel_Restrict.Children.Add(elemContainer)
+
+            Next
+        Catch ex As Exception
+        End Try
+
+    End Function
+
+
+    Private Sub HideKidsElem()
+        Kids_Words_Allowed.Visibility = Visibility.Collapsed
+        Kids_Words_Forbidden.Visibility = Visibility.Collapsed
+        Kids_link_Allowed.Visibility = Visibility.Collapsed
+        Kids_link_Forbidden.Visibility = Visibility.Collapsed
+        Kids_History.Visibility = Visibility.Collapsed
+        Kids_SecurityLevel.Visibility = Visibility.Collapsed
+        Kids_ProfilePic.Visibility = Visibility.Collapsed
+    End Sub
+    Private Async Sub Button_Tapped_3(sender As Object, e As TappedRoutedEventArgs)
+        HideKidsElem()
+        Await ShowAllowedWords()
+        Kids_Words_Allowed.Visibility = Visibility.Visible
+    End Sub
+
+    Private Async Sub Kids_Button_Picture_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Kids_Button_Picture.Tapped
+        HideKidsElem()
+        Await ShowAllowedWords()
+        Kids_ProfilePic.Visibility = Visibility.Visible
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        Try
+            profilpicuri1.Text = localSettings.Values("KidProfilPictureSource")
+        Catch
+        End Try
+
+        Try
+            viewprofilpic1.ImageSource = New BitmapImage(New Uri(localSettings.Values("KidProfilPictureSource"), UriKind.Absolute))
+        Catch ex As Exception
+            viewprofilpic1.ImageSource = New BitmapImage(New Uri("ms-appx:/Assets/defaultkidprofilpic.jpg", UriKind.Absolute))
+        End Try
+    End Sub
+
+    Private Async Sub Button_Tapped_5(sender As Object, e As TappedRoutedEventArgs)
+        HideKidsElem()
+        Await ShowForbiddenWords()
+        Kids_Words_Forbidden.Visibility = Visibility.Visible
+    End Sub
+
+    Private Async Sub Button_Tapped_6(sender As Object, e As TappedRoutedEventArgs)
+        HideKidsElem()
+        Await ShowAllowedLinks()
+        Kids_link_Allowed.Visibility = Visibility.Visible
+    End Sub
+
+    Private Async Sub Button_Tapped_7(sender As Object, e As TappedRoutedEventArgs)
+        HideKidsElem()
+        Await ShowForbiddenLinks()
+        Kids_link_Forbidden.Visibility = Visibility.Visible
+    End Sub
+
+    Private Async Sub Button_Tapped_8(sender As Object, e As TappedRoutedEventArgs)
+        HideKidsElem()
+        Await ShowKidsHistory
+        Kids_History.Visibility = Visibility.Visible
+    End Sub
+
+    Private Async Sub Kids_Button_ProtectionLevel_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Kids_Button_ProtectionLevel.Tapped
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        HideKidsElem()
+        Await ShowKidsHistory()
+        Kids_SecurityLevel.Visibility = Visibility.Visible
+        Kids_ProtectionLevelSelect.SelectedIndex = localSettings.Values("ProtectionLevel")
+
+    End Sub
+    Private Async Sub Button_Restrict2_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Button_Restrict2.Tapped
+        If Not TextBox_Restrict2.Text = "" Then
+            Try
+
+                Dim Url = New Uri(TextBox_Restrict2.Text)
+
+                If Url.HostNameType = UriHostNameType.Dns Then
+
+                    Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("KidsMode_AllowedLinks"))
+
+                    Dim KidsElem As JsonObject = New JsonObject
+                    KidsElem.Add("word", JsonValue.CreateStringValue(TextBox_Restrict2.Text))
+
+                    root.Add(KidsElem)
+                    WriteJsonFile(root, "KidsMode_AllowedLinks")
+                End If
+
+            Catch
+                WriteJsonFile(JsonArray.Parse("[]"), "KidsMode_AllowedLinks")
+            End Try
+        End If
+
+        Await ShowAllowedLinks()
+    End Sub
+    Private Sub Refresh2_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Refresh2.Tapped
+        ShowAllowedLinks()
+    End Sub
+    Private Async Function ShowAllowedLinks() As Task
+
+
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        Try
+            StackPanel_Restrict2.Children.Clear()
+            Dim Json As String
+
+            Try
+                Json = Await ReadJsonFile("KidsMode_AllowedLinks")
+            Catch ex As Exception
+                Json = "[]"
+            End Try
+
+            For Each KidsElem In JsonArray.Parse(Json).Reverse
+
+                Dim elemContainer As StackPanel = New StackPanel
+                elemContainer.Padding = New Thickness(8, 8, 0, 8)
+
+                Dim menu As MenuFlyout = New MenuFlyout
+                Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
+                menuDelete.FontFamily = New FontFamily("Segoe MDL2 Assets")
+                menuDelete.FontSize = 25
+                menuDelete.Text = ""
+                menu.Items.Add(menuDelete)
+
+
+                AddHandler elemContainer.RightTapped, New RightTappedEventHandler(Function(sender As Object, e As RightTappedRoutedEventArgs)
+                                                                                      menu.ShowAt(CType(sender, FrameworkElement))
+                                                                                  End Function)
+
+                AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                            menu.ShowAt(CType(sender, FrameworkElement))
+                                                                        End Function)
+
+                AddHandler menuDelete.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
+                                                                         Try
+                                                                             Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("KidsMode_AllowedLinks"))
+                                                                             root.Remove(root.First(Function(x) x.GetObject.GetNamedString("word") = KidsElem.GetObject.GetNamedString("word")))
+                                                                             WriteJsonFile(root, "KidsMode_AllowedLinks")
+                                                                             Await ShowForbiddenWords()
+                                                                         Catch
+                                                                         End Try
+                                                                     End Sub)
+
+                AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                            menu.ShowAt(CType(sender, FrameworkElement))
+                                                                        End Function)
+
+
+
+                AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                     elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
+                                                                                     elemContainer.BorderBrush = rectangle.Fill
+                                                                                 End Function)
+
+                AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                    elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                                End Function)
+
+
+
+
+                Dim Name As TextBlock = New TextBlock
+                Name.Text = KidsElem.GetObject.GetNamedString("word")
+                elemContainer.Children.Add(Name)
+
+
+                StackPanel_Restrict2.Children.Add(elemContainer)
+
+            Next
+        Catch ex As Exception
+        End Try
+
+    End Function
+    Private Async Sub Button_Restrict3_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Button_Restrict3.Tapped
+        If Not TextBox_Restrict3.Text = "" Then
+            Try
+
+                Dim Url = New Uri(TextBox_Restrict3.Text)
+
+                If Url.HostNameType = UriHostNameType.Dns Then
+
+                    Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("KidsMode_ForbiddenLinks"))
+
+                    Dim KidsElem As JsonObject = New JsonObject
+                    KidsElem.Add("word", JsonValue.CreateStringValue(TextBox_Restrict3.Text))
+
+                    root.Add(KidsElem)
+                    WriteJsonFile(root, "KidsMode_ForbiddenLinks")
+                End If
+
+            Catch
+                WriteJsonFile(JsonArray.Parse("[]"), "KidsMode_ForbiddenLinks")
+            End Try
+        End If
+
+        Await ShowAllowedLinks()
+    End Sub
+    Private Sub Refresh3_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Refresh3.Tapped
+        ShowAllowedLinks()
+    End Sub
+    Private Async Function ShowForbiddenLinks() As Task
+
+
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        Try
+            StackPanel_Restrict3.Children.Clear()
+            Dim Json As String
+
+            Try
+                Json = Await ReadJsonFile("KidsMode_ForbiddenLinks")
+            Catch ex As Exception
+                Json = "[]"
+            End Try
+
+            For Each KidsElem In JsonArray.Parse(Json).Reverse
+
+                Dim elemContainer As StackPanel = New StackPanel
+                elemContainer.Padding = New Thickness(8, 8, 0, 8)
+
+                Dim menu As MenuFlyout = New MenuFlyout
+                Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
+                menuDelete.FontFamily = New FontFamily("Segoe MDL2 Assets")
+                menuDelete.FontSize = 25
+                menuDelete.Text = ""
+                menu.Items.Add(menuDelete)
+
+
+                AddHandler elemContainer.RightTapped, New RightTappedEventHandler(Function(sender As Object, e As RightTappedRoutedEventArgs)
+                                                                                      menu.ShowAt(CType(sender, FrameworkElement))
+                                                                                  End Function)
+
+                AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                            menu.ShowAt(CType(sender, FrameworkElement))
+                                                                        End Function)
+
+                AddHandler menuDelete.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
+                                                                         Try
+                                                                             Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("KidsMode_ForbiddenLinks"))
+                                                                             root.Remove(root.First(Function(x) x.GetObject.GetNamedString("word") = KidsElem.GetObject.GetNamedString("word")))
+                                                                             WriteJsonFile(root, "KidsMode_ForbiddenLinks")
+                                                                             Await ShowForbiddenWords()
+                                                                         Catch
+                                                                         End Try
+                                                                     End Sub)
+
+                AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
+                                                                            menu.ShowAt(CType(sender, FrameworkElement))
+                                                                        End Function)
+
+
+
+                AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                     elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
+                                                                                     elemContainer.BorderBrush = rectangle.Fill
+                                                                                 End Function)
+
+                AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
+                                                                                    elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
+                                                                                End Function)
+
+
+
+
+                Dim Name As TextBlock = New TextBlock
+                Name.Text = KidsElem.GetObject.GetNamedString("word")
+                elemContainer.Children.Add(Name)
+
+
+                StackPanel_Restrict3.Children.Add(elemContainer)
+
+            Next
+        Catch ex As Exception
+        End Try
+
+    End Function
+    Private Async Function ShowKidsHistory() As Task
+
+        Kids_HistoryList.Children.Clear()
+        Dim Json As String
+        Try
+            Json = Await ReadJsonFile("KidsHistory")
+        Catch ex As Exception
+            Json = "[]"
+        End Try
+        Try
+            For Each histElem In JsonArray.Parse(Json).Reverse
+                Dim elemContainer As StackPanel = New StackPanel
+                elemContainer.Padding = New Thickness(8, 8, 0, 8)
+
+
+
+                Dim elemText As TextBlock = New TextBlock
+                elemText.Text = histElem.GetObject.GetNamedString("title")
+                elemText.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 40, 40, 40))
+                elemContainer.Children.Add(elemText)
+
+                Dim UrlText As TextBlock = New TextBlock
+                UrlText.Text = histElem.GetObject.GetNamedString("url")
+                UrlText.Foreground = grid.Background
+                elemContainer.Children.Add(UrlText)
+
+                Dim visitDate As TextBlock = New TextBlock
+                'visitDate.Text = resourceLoader.GetString("DateList_1/Text") + DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString("dd MMMMMMMMMMMM yyyy ") + resourceLoader.GetString("DateList_2/Text") + DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString(" HH:mm")
+                visitDate.Text = Label_Date1.Text + DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString("dd MMMMMMMMMMMM yyyy ") + Label_Date2.Text + DateTime.FromBinary(histElem.GetObject.GetNamedNumber("date")).ToString(" HH:mm")
+                visitDate.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 150, 150, 150))
+                elemContainer.Children.Add(visitDate)
+
+
+                Kids_HistoryList.Children.Add(elemContainer)
+
+
+            Next
+        Catch
+
+        End Try
+
+
+    End Function
+
+
+
+    Private Sub Kids_ProtectionLevelSelect_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles Kids_ProtectionLevelSelect.SelectionChanged
+
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        Try
+            If Kids_ProtectionLevelSelect.SelectedIndex = 0 Then
+                Kids_ProtectionLevelSelect_Label1.Opacity = 1.0
+                Kids_ProtectionLevelSelect_Label2.Opacity = 0.5
+                Kids_ProtectionLevelSelect_Label3.Opacity = 0.5
+                Kids_ProtectionLevelSelect_Label4.Opacity = 0.5
+
+                Kids_Button_AllowedKeywords.IsEnabled = False
+                Kids_Button_AllowedUrls.IsEnabled = False
+                Kids_Button_ForbiddenKeywords.IsEnabled = False
+                Kids_Button_ForbiddenUrls.IsEnabled = False
+
+            ElseIf Kids_ProtectionLevelSelect.SelectedIndex = 1 Then
+                Kids_ProtectionLevelSelect_Label1.Opacity = 1.0
+                Kids_ProtectionLevelSelect_Label2.Opacity = 1.0
+                Kids_ProtectionLevelSelect_Label3.Opacity = 0.5
+                Kids_ProtectionLevelSelect_Label4.Opacity = 0.5
+
+
+                Kids_Button_AllowedKeywords.IsEnabled = False
+                Kids_Button_AllowedUrls.IsEnabled = False
+                Kids_Button_ForbiddenKeywords.IsEnabled = True
+                Kids_Button_ForbiddenUrls.IsEnabled = True
+
+            ElseIf Kids_ProtectionLevelSelect.SelectedIndex = 2 Then
+                Kids_ProtectionLevelSelect_Label1.Opacity = 1.0
+                Kids_ProtectionLevelSelect_Label2.Opacity = 1.0
+                Kids_ProtectionLevelSelect_Label3.Opacity = 1.0
+                Kids_ProtectionLevelSelect_Label4.Opacity = 0.5
+
+                Kids_Button_AllowedKeywords.IsEnabled = False
+                Kids_Button_AllowedUrls.IsEnabled = True
+                Kids_Button_ForbiddenKeywords.IsEnabled = True
+                Kids_Button_ForbiddenUrls.IsEnabled = True
+
+            ElseIf Kids_ProtectionLevelSelect.SelectedIndex = 3 Then
+                Kids_ProtectionLevelSelect_Label1.Opacity = 1.0
+                Kids_ProtectionLevelSelect_Label2.Opacity = 1.0
+                Kids_ProtectionLevelSelect_Label3.Opacity = 1.0
+                Kids_ProtectionLevelSelect_Label4.Opacity = 1.0
+
+
+                Kids_Button_AllowedKeywords.IsEnabled = True
+                Kids_Button_AllowedUrls.IsEnabled = True
+                Kids_Button_ForbiddenKeywords.IsEnabled = True
+                Kids_Button_ForbiddenUrls.IsEnabled = True
+
+            End If
+
+            localSettings.Values("ProtectionLevel") = Kids_ProtectionLevelSelect.SelectedIndex
+            Kids_ProtectionLevel.Text = localSettings.Values("ProtectionLevel")
+        Catch
+        End Try
+    End Sub
+
+    Private Sub Kids_Switch_Toggled(sender As Object, e As RoutedEventArgs) Handles Kids_Switch.Toggled
+        Try
+            If Kids_Switch.IsOn = True Then
+                pivot.Items.Add(kidsDashboard)
+            Else
+                pivot.Items.Remove(kidsDashboard)
+            End If
+        Catch
+        End Try
+    End Sub
+
+
+
+
+#End Region
+
+    Private Sub Button_Tapped_9(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        localSettings.Values("ProfilPictureSource") = profilpicuri.Text
+        Try
+            viewprofilpic.ImageSource = New BitmapImage(New Uri(localSettings.Values("ProfilPictureSource"), UriKind.Absolute))
+        Catch ex As Exception
+            viewprofilpic.ImageSource = New BitmapImage(New Uri("ms-appx:/Assets/defaultprofilpic.jpg", UriKind.Absolute))
+        End Try
+    End Sub
+
+    Private Sub Button_Tapped_10(sender As Object, e As TappedRoutedEventArgs)
+        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+
+        localSettings.Values("KidProfilPictureSource") = profilpicuri1.Text
+        Try
+            viewprofilpic1.ImageSource = New BitmapImage(New Uri(localSettings.Values("KidProfilPictureSource"), UriKind.Absolute))
+            viewprofilpic2.ImageSource = New BitmapImage(New Uri(localSettings.Values("KidProfilPictureSource"), UriKind.Absolute))
+            viewprofilpic3.ImageSource = New BitmapImage(New Uri(localSettings.Values("KidProfilPictureSource"), UriKind.Absolute))
+        Catch ex As Exception
+            viewprofilpic1.ImageSource = New BitmapImage(New Uri("ms-appx:/Assets/defaultkidprofilpic.jpg", UriKind.Absolute))
+            viewprofilpic2.ImageSource = New BitmapImage(New Uri("ms-appx:/Assets/defaultkidprofilpic.jpg", UriKind.Absolute))
+            viewprofilpic3.ImageSource = New BitmapImage(New Uri("ms-appx:/Assets/defaultkidprofilpic.jpg", UriKind.Absolute))
+        End Try
+    End Sub
+
 End Class

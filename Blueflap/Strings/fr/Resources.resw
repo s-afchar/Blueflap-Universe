@@ -573,4 +573,7 @@
   <data name="SearchFight_Choose.Header" xml:space="preserve">
     <value>    LISTE</value>
   </data>
+  <data name="OnlineImage.Text" xml:space="preserve">
+    <value>Image en ligne</value>
+  </data>
 </root>

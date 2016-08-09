@@ -35,6 +35,26 @@ Public NotInheritable Class Verrouillage
         Catch ex As Exception
         End Try
         DateHours.Text = System.DateTime.Now.ToString("HH:mm")
+
+        If localSettings.Values("KidsMode") = True Then
+            KidsProfile.Visibility = Visibility.Visible
+        Else
+            KidsProfile.Visibility = Visibility.Collapsed
+        End If
+
+        Try
+            profilpicture.ImageSource = New BitmapImage(New Uri(localSettings.Values("ProfilPictureSource"), UriKind.Absolute))
+        Catch ex As Exception
+            profilpicture.ImageSource = New BitmapImage(New Uri("ms-appx:/Assets/defaultprofilpic.jpg", UriKind.Absolute))
+        End Try
+
+
+        Try
+            profilkidpicture.ImageSource = New BitmapImage(New Uri(localSettings.Values("KidProfilPictureSource"), UriKind.Absolute))
+        Catch ex As Exception
+            profilkidpicture.ImageSource = New BitmapImage(New Uri("ms-appx:/Assets/defaultkidprofilpic.jpg", UriKind.Absolute))
+        End Try
+
     End Sub
 
     Private Sub PaswwordBox_KeyDown(sender As Object, e As KeyRoutedEventArgs) Handles PaswwordBox.KeyDown
@@ -63,5 +83,17 @@ Public NotInheritable Class Verrouillage
     End Sub
     Private Sub PaswwordBox_LostFocus(sender As Object, e As RoutedEventArgs) Handles PaswwordBox.LostFocus
 
+    End Sub
+
+    Private Sub KidsProfile_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles KidsProfile.Tapped
+        ProfilSwitch.Begin()
+    End Sub
+
+    Private Sub grid1_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles grid1.Tapped
+        ProfilSwitchBack.Begin()
+    End Sub
+
+    Private Sub OpenKids_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles OpenKids.Tapped
+        Me.Frame.Navigate(GetType(KidsMode))
     End Sub
 End Class

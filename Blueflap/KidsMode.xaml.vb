@@ -11,7 +11,7 @@ Imports Windows.UI.StartScreen
 ''' <summary>
 ''' Page dédiée à la navigation web
 ''' </summary>
-Public NotInheritable Class MainPage
+Public NotInheritable Class KidsMode
     Inherits Page
     Dim NotifPosition As String
     Dim History_SearchMode As Boolean
@@ -25,8 +25,7 @@ Public NotInheritable Class MainPage
     Dim favs_tagsearch As Boolean
     Dim AdressBoxEditing As Boolean
     Dim limitedOpenSearch As Boolean
-    Dim showingfavbar As Boolean
-    Dim favbarmodif As Boolean
+    Dim NotCompleted As Boolean
 
 #Region "HardwareBackButton"
     Public Sub New()
@@ -39,7 +38,7 @@ Public NotInheritable Class MainPage
         'Appui sur la touche retour "physique" d'un appareil Windows
 
         e.Handled = True
-        If web.CanGoBack And MemoPanel.Visibility = Visibility.Collapsed And Ellipsis.Visibility = Visibility.Collapsed And AddFavView.Visibility = Visibility.Collapsed And Not MiniPlayer_Background.VerticalAlignment = VerticalAlignment.Stretch Then
+        If web.CanGoBack And MemoPanel.Visibility = Visibility.Collapsed And Ellipsis.Visibility = Visibility.Collapsed And AddFavView.Visibility = Visibility.Collapsed Then
             web.GoBack()
         ElseIf MemoPanel.Visibility = Visibility.Visible And Ellipsis.Visibility = Visibility.Collapsed And AddFavView.Visibility = Visibility.Collapsed Then
             MemoPopOut.Begin()
@@ -47,19 +46,14 @@ Public NotInheritable Class MainPage
             Ellipsis_Close.Begin()
         ElseIf AddFavView.Visibility = Visibility.Visible And Ellipsis.Visibility = Visibility.Collapsed Then
             AddFav_PopUp_Close.Begin()
-        ElseIf MiniPlayer_Background.VerticalAlignment = VerticalAlignment.Stretch Then
-            ReduceMiniPlayer()
         End If
     End Sub
 #End Region
 #Region "Page Loaded"
     Private Async Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings 'Permet l'accés aux paramètres
+        Await ShowFavorites2()
 
-        'Animation d'ouverture de Blueflap
-        EnterAnim.Begin()
-
-        FirstLaunch()
 
         SmartSuggest.Visibility = Visibility.Collapsed
 
@@ -69,8 +63,6 @@ Public NotInheritable Class MainPage
             End If
         Catch
         End Try
-
-
 
         If localSettings.Values("DarkThemeEnabled") = True Then 'Theme Sombre
 
@@ -120,51 +112,6 @@ Public NotInheritable Class MainPage
         localSettings.Values("ShowLockScreen") = True
 
 
-        Try
-            If localSettings.Values("VerrouillageEnabled") = True And LockTheBrowser.IsChecked = True And Not localSettings.Values("LoadPageFromBluestart") = True Then
-                LockTheBrowser.IsChecked = True
-                Me.Frame.Navigate(GetType(Verrouillage))
-            ElseIf localSettings.Values("Bluestart") = True And AdressBox.Text = "about:blank" And Frame.CanGoBack = False And Not localSettings.Values("LoadPageFromBluestart") = True Then
-                Me.Frame.Navigate(GetType(Bluestart))
-            ElseIf AdressBox.Text = "about:blank" Then
-                'Vérification de l'existence d'une page d'accueil valide
-                Try
-                    web.Navigate(New Uri(localSettings.Values("Homepage")))
-
-                    'Met à jour les éléments du centre de messages systèmes
-                    If Notif_HomePageError.Visibility = Visibility.Visible Then
-                        Notif_HomePageError.Visibility = Visibility.Collapsed
-                        New_Notif.Stop()
-                        Notification()
-                        Notif_SearchEngineError.Margin = New Thickness(0, NotifPosition, 0, 0)
-                    End If
-
-                Catch
-                    Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
-                    Dim toeastElement = notificationXml.GetElementsByTagName("text")
-                    'toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Homepage_Header/Text")))
-                    'toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Homepage_Content/Text")))
-                    toeastElement(0).AppendChild(notificationXml.CreateTextNode(Label_Notif_Home_Header.Text))
-                    toeastElement(1).AppendChild(notificationXml.CreateTextNode(Label_Notif_Home_Content.Text))
-                    Dim ToastNotification = New ToastNotification(notificationXml)
-                    ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
-
-                    'Met à jour les éléments du centre de messages systèmes
-                    If Not Notif_HomePageError.Visibility = Visibility.Visible Then
-
-                        New_Notif.Begin()
-                        Notifications_Counter.Text = Notifications_Counter.Text + 1
-                        Notif_HomePageError.Visibility = Visibility.Visible
-                        Notification()
-
-
-                        Notif_Home.Visibility = Visibility.Collapsed
-                    End If
-                End Try
-            End If
-        Catch
-            localSettings.Values("Bluestart") = True
-        End Try
 
         'Définition du thème avec couleur personnalisée
         Try
@@ -180,63 +127,7 @@ Public NotInheritable Class MainPage
         Ellipsis.Background = LeftMenu.Background
         Loader_MemoPanel.Foreground = LeftMenu.Background
 
-        Try
-            If localSettings.Values("LoadPageFromBluestart") = True Then
-                web.Stop()
-                AdressBox.Text = localSettings.Values("LoadPageFromBluestart_Adress")
-                Rechercher()
-            End If
-        Catch
-        End Try
 
-        'Quelles icônes sont affichées
-        ' TODO : utiliser du DataBinding pour ça
-
-        If localSettings.Values("SearchFightIcon") = False Then
-            Fight_Button.Visibility = Visibility.Collapsed
-            Fight_Button_M.Visibility = Visibility.Collapsed
-        Else
-            Fight_Button.Visibility = Visibility.Visible
-            Fight_Button_M.Visibility = Visibility.Visible
-        End If
-
-        If localSettings.Values("LockIcon") = False Then
-            Lock_Button.Visibility = Visibility.Collapsed
-            Lock_Button_M.Visibility = Visibility.Collapsed
-        Else
-            Lock_Button.Visibility = Visibility.Visible
-            Lock_Button_M.Visibility = Visibility.Visible
-        End If
-
-        If localSettings.Values("NoteIcon") = False Then
-            Memo_Button.Visibility = Visibility.Collapsed
-            Memo_Button_M.Visibility = Visibility.Collapsed
-        Else
-            Memo_Button.Visibility = Visibility.Visible
-            Memo_Button_M.Visibility = Visibility.Visible
-        End If
-
-        If localSettings.Values("ShareIcon") = False Then
-            Share_Button.Visibility = Visibility.Collapsed
-            Share_Button_M.Visibility = Visibility.Collapsed
-        Else
-            Share_Button.Visibility = Visibility.Visible
-            Share_Button_M.Visibility = Visibility.Visible
-        End If
-
-        If localSettings.Values("WindowIcon") = False Then
-            Window_Button.Visibility = Visibility.Collapsed
-            Window_Button_M.Visibility = Visibility.Collapsed
-        Else
-            Window_Button.Visibility = Visibility.Visible
-            Window_Button_M.Visibility = Visibility.Visible
-        End If
-
-        If localSettings.Values("GhostIcon") = True Then
-            Gost_Button.Visibility = Visibility.Visible
-        Else
-            Gost_Button.Visibility = Visibility.Collapsed
-        End If
 
         If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
             Try
@@ -257,16 +148,13 @@ Public NotInheritable Class MainPage
             End Try
         End If
 
-        If localSettings.Values("GhostMode") = True Then
-            Gost_Button.BorderBrush = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 255, 255))
-        Else
-            Gost_Button.BorderBrush = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 255, 255, 255))
-        End If
 
         History_SearchMode = False
         favs_tagsearch = False
-        favbarmodif = True
 
+        'Animation d'ouverture de Blueflap
+        EnterAnim.Begin()
+        Go_Home()
     End Sub
 #End Region
 #Region "Webview : Navigation"
@@ -304,6 +192,9 @@ Public NotInheritable Class MainPage
 
     Private Sub web_NavigationStarting(sender As WebView, args As WebViewNavigationStartingEventArgs) Handles web.NavigationStarting
         loader.IsActive = True 'Les petites billes de chargement apparaissent quand une page se charge
+        ShowCache.Begin()
+        Loading2.Begin()
+        Danger.Stop()
         MobileProgressFinish.Stop()
         MobileProgressBegin.Begin()
         PCProgressFinish.Stop()
@@ -313,7 +204,7 @@ Public NotInheritable Class MainPage
         RefreshEnabled.Stop()
         StopEnabled.Begin()
         MobileRefreshIcon.Text = ""
-
+        NotCompleted = True
         'MobileRefreshLabel.Text = resourceLoader.GetString("Menu_Stop/Text")
         MobileRefreshLabel.Text = Label_Stop.Text
 
@@ -325,53 +216,37 @@ Public NotInheritable Class MainPage
         'Navigation terminée
         AdressBox.Text = web.Source.ToString
         Phone_URL.Text = web.Source.Host
-        If web.Source.ToString.Contains("https://") Then
-            SecurityTag.Visibility = Visibility.Visible
-        Else
-            SecurityTag.Visibility = Visibility.Collapsed
-        End If
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
+        Loading2.Stop()
         MobileProgressFinish.Begin()
         PCProgressFinish.Begin()
-
-        'Met à jour les stats dispos dans les paramètres de Blueflap
-        Try
-            localSettings.Values("Stat1") = localSettings.Values("Stat1") + 1
-        Catch
-            localSettings.Values("Stat1") = 1
-        End Try
-
-        SourceCode.Text = "..."
+        NotCompleted = False
 
         BackForward()
-        localSettings.Values("LoadPageFromBluestart") = False
 
         If web.Source.HostNameType = UriHostNameType.Dns And Not localSettings.Values("Favicon") = False Then
             Favicon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
             Favicon.Visibility = Visibility.Visible
         End If
 
-        ContextNotification()
+
 
         ' Ajout de la page à l'historique
 
         Dim CurrentTitle As String = web.DocumentTitle
         Dim VisitDate As DateTime = DateTime.Now
-        If localSettings.Values("GhostMode") = True Then
-            GhostModeNotif.Stop()
-            GhostModeNotif.Begin()
-        Else
+        If Not web.Source.ToString = "about:blank" Then
             Try
-                Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("History"))
+                Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("KidsHistory"))
                 Dim HistoryElem As JsonObject = New JsonObject
                 HistoryElem.Add("url", JsonValue.CreateStringValue(web.Source.ToString))
                 HistoryElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle))
                 HistoryElem.Add("date", JsonValue.CreateNumberValue(DateTime.Now.ToBinary))
                 root.Add(HistoryElem)
-                WriteJsonFile(root, "History")
+                WriteJsonFile(root, "KidsHistory")
             Catch
-                WriteJsonFile(JsonArray.Parse("[]"), "History")
+                WriteJsonFile(JsonArray.Parse("[]"), "KidsHistory")
             End Try
         End If
 
@@ -409,6 +284,18 @@ Public NotInheritable Class MainPage
             End Try
         End If
 
+        If Not web.Source.ToString = "about:blank" Then
+            Try
+                localSettings.Values("StatKid") = localSettings.Values("StatKid") + 1
+            Catch
+                localSettings.Values("StatKid") = 1
+            End Try
+        End If
+
+
+        CheckPage()
+
+
     End Sub
 
     Private Sub web_LoadCompleted(sender As Object, e As NavigationEventArgs) Handles web.LoadCompleted
@@ -426,72 +313,36 @@ Public NotInheritable Class MainPage
 
         AdressBox.Text = web.Source.ToString
         Phone_URL.Text = web.Source.Host
-        If web.Source.ToString.Contains("https://") Then
-            SecurityTag.Visibility = Visibility.Visible
-        Else
-            SecurityTag.Visibility = Visibility.Collapsed
-        End If
+
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
+        Loading2.Stop()
         MobileProgressFinish.Begin()
         PCProgressFinish.Begin()
-        SourceCode.Text = "..."
+
         BackForward()
-        localSettings.Values("LoadPageFromBluestart") = False
 
         If web.Source.HostNameType = UriHostNameType.Dns And Not localSettings.Values("Favicon") = False Then
             Favicon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
             Favicon.Visibility = Visibility.Visible
         End If
 
-        ContextNotification()
+
     End Sub
     Private Sub Go_Home()
         'Clic sur le bouton home
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
+
+
+
+        'Vérification de l'existence d'une page d'accueil valide
         Try
-            If localSettings.Values("Bluestart") = True Then
-                Me.Frame.Navigate(GetType(Bluestart))
-            Else
+                web.Navigate(New Uri("https://www.qwantjunior.com"))
 
-                'Vérification de l'existence d'une page d'accueil valide
-                Try
-                    web.Navigate(New Uri(localSettings.Values("Homepage")))
+            Catch
 
-                    'Met à jour les éléments du centre de messages systèmes
-                    If Notif_HomePageError.Visibility = Visibility.Visible Then
-                        Notif_HomePageError.Visibility = Visibility.Collapsed
-                        New_Notif.Stop()
-                        Notification()
-
-                    End If
-
-                Catch
-                    Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
-                    Dim toeastElement = notificationXml.GetElementsByTagName("text")
-                    'toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Homepage_Header/Text")))
-                    'toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_Homepage_Content/Text")))
-                    toeastElement(0).AppendChild(notificationXml.CreateTextNode(Label_Notif_Home_Header.Text))
-                    toeastElement(1).AppendChild(notificationXml.CreateTextNode(Label_Notif_Home_Content.Text))
-                    Dim ToastNotification = New ToastNotification(notificationXml)
-                    ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
-
-                    'Met à jour les éléments du centre de messages systèmes
-                    If Not Notif_HomePageError.Visibility = Visibility.Visible Then
-                        Notif_HomePageError.Visibility = Visibility.Visible
-                        Notification()
-
-
-                        New_Notif.Begin()
-                        Notifications_Counter.Text = Notifications_Counter.Text + 1
-                        Notif_Home.Visibility = Visibility.Collapsed
-                    End If
-                End Try
-            End If
-        Catch
-            localSettings.Values("Bluestart") = True
-        End Try
+            End Try
     End Sub
     Private Sub Home_button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Home_button.Tapped
         Go_Home()
@@ -504,7 +355,6 @@ Public NotInheritable Class MainPage
     End Sub
     Private Sub Rechercher()
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        SecurityTag.Visibility = Visibility.Collapsed
 
         Dim textArray = AdressBox.Text.Split(" ")
 
@@ -556,7 +406,7 @@ Public NotInheritable Class MainPage
                 'Met à jour les éléments du centre de messages systèmes
                 If Not Notif_SearchEngineError.Visibility = Visibility.Visible Then
                     Notif_SearchEngineError.Visibility = Visibility.Visible
-                    Notification()
+
 
                     New_Notif.Begin()
                     Notifications_Counter.Text = Notifications_Counter.Text + 1
@@ -581,15 +431,15 @@ Public NotInheritable Class MainPage
             StopEnabled.Begin()
             web.Stop()
         End If
-        AdressBox.Text = web.Source.ToString
-        Phone_URL.Text = web.Source.Host
-        If web.Source.ToString.Contains("https://") Then
-            SecurityTag.Visibility = Visibility.Visible
-        Else
-            SecurityTag.Visibility = Visibility.Collapsed
-        End If
+        Try
+            AdressBox.Text = web.Source.ToString
+            Phone_URL.Text = web.Source.Host
+        Catch
+        End Try
+
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
+        Loading2.Stop()
         MobileProgressFinish.Begin()
         PCProgressFinish.Begin()
         BackForward()
@@ -612,19 +462,8 @@ Public NotInheritable Class MainPage
     End Sub
 
     Private Sub OnNewWindowRequested(sender As WebView, e As WebViewNewWindowRequestedEventArgs) Handles web.NewWindowRequested
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        'Force l'ouverture dans Blueflap de liens censés s'ouvrir dans une nouvelle fenêtre
-        If localSettings.Values("NewWin") = False Then
-            e.Handled = True
-
-
-            localSettings.Values("LoadPageFromBluestart") = True
-            localSettings.Values("LoadPageFromBluestart_Adress") = e.Uri.ToString
-            NewWindow()
-        Else
-            web.Navigate(e.Uri)
-            e.Handled = True
-        End If
+        web.Navigate(e.Uri)
+        e.Handled = True
     End Sub
     Private Sub web_NavigationFailed(sender As Object, e As WebViewNavigationFailedEventArgs) Handles web.NavigationFailed
         NavigationFailed_Screen.Visibility = Visibility.Visible
@@ -639,8 +478,6 @@ Public NotInheritable Class MainPage
                 webcontainer.Margin = New Thickness(0, 0, 0, 0)
                 Enterfullscreen_Mobile.Begin()
             Else
-                Enterfullscreen.Begin()
-                EchapFullScreen.Begin()
             End If
 
 
@@ -651,45 +488,125 @@ Public NotInheritable Class MainPage
                 Enterfullscreen_Mobile.Stop()
                 webcontainer.Margin = New Thickness(0, 0, 0, 50)
             Else
-                Enterfullscreen.Stop()
-                EchapFullScreen.Stop()
             End If
 
         End If
     End Sub
-#End Region
-#Region "First Launch"
-    Private Sub FirstLaunch() 'Définit les paramètres par défaut
+
+    Private Sub ProgressBarre_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles ProgressBarre.ValueChanged
+
+        Try
+            If ProgressBarre.Value > 5 Then
+                If AdressBoxEditing = False Then
+                    AdressBox.Text = web.Source.ToString
+                    Phone_URL.Text = web.Source.Host
+                    Titlebox.Text = web.DocumentTitle
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub web_ContentLoading(sender As WebView, args As WebViewContentLoadingEventArgs) Handles web.ContentLoading
+        InvisibleLoading.Begin()
+    End Sub
+
+    Private Sub web_FrameNavigationStarting(sender As WebView, args As WebViewNavigationStartingEventArgs) Handles web.FrameNavigationStarting
+        InvisibleLoading.Begin()
+    End Sub
+
+    Private Sub web_Loading(sender As FrameworkElement, args As Object) Handles web.Loading
+        InvisibleLoading.Begin()
+    End Sub
+    Private Sub BackgroundProgressBarre_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles BackgroundProgressBarre.ValueChanged
+
+        Try
+            If ProgressBarre.Value > 5 Then
+                If AdressBoxEditing = False Then
+
+                    If Not AdressBox.Text = web.Source.ToString Then
+                        PageChanged()
+                    End If
+                    AdressBox.Text = web.Source.ToString
+                    Phone_URL.Text = web.Source.Host
+                    Titlebox.Text = web.DocumentTitle
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+
+
+    Private Async Sub PageChanged()
+        Cache.Visibility = Visibility.Visible
+        ShowCache.Begin()
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
-        If Not localSettings.Values("Config") = True Then
-            localSettings.Values("WallpaperName") = "Degrade.png"
-            localSettings.Values("Homepage") = "https://www.youtube.com/playlist?list=PLTpU6RJ7jTGx2zaffbccbiNq0Rd2bPsOr"
-            localSettings.Values("CustomColorA") = 52
-            localSettings.Values("CustomColorB") = 152
-            localSettings.Values("CustomColorC") = 219
-            localSettings.Values("SearchFight_Menu") = True
-            localSettings.Values("SearchFightIcon") = True
-            localSettings.Values("LockIcon") = True
-            localSettings.Values("NoteIcon") = True
-            localSettings.Values("ShareIcon") = True
-            localSettings.Values("WindowIcon") = True
-            localSettings.Values("SmartSuggest") = True
-            localSettings.Values("Favicon") = True
-            localSettings.Values("Fav_Confirmation") = True
+        'Navigation terminée
+        AdressBox.Text = web.Source.ToString
+        Phone_URL.Text = web.Source.Host
+
+        Titlebox.Text = web.DocumentTitle
+
+        'Met à jour les stats dispos dans les paramètres de Blueflap
+
+
+
+        BackForward()
+
+
+        If web.Source.HostNameType = UriHostNameType.Dns And Not localSettings.Values("Favicon") = False Then
+            Favicon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
+            Favicon.Visibility = Visibility.Visible
         End If
 
-        If Not localSettings.Values("FirstBoot") = "Non" Then
-            WriteJsonFile(JsonArray.Parse("[]"), "History")
-            WriteJsonFile(JsonArray.Parse("[]"), "Favorites")
-            WriteJsonFile(JsonArray.Parse("[]"), "Memos")
-            localSettings.Values("FirstBoot") = "Non"
-            If PhoneNavBar.Visibility = Visibility.Visible Then
-                Me.Frame.Navigate(GetType(FirstBootScreen_Mobile))
+
+        ' Ajout de la page à l'historique
+
+        Dim CurrentTitle As String = web.DocumentTitle
+        Dim VisitDate As DateTime = DateTime.Now
+
+
+        Try
+            Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Favorites"))
+
+            If root.Any(Function(x As JsonValue) x.GetObject.GetNamedString("url") = web.Source.ToString) Then
+                Like_Anim.Begin()
+                LikePageButton.Text = ""
+                LikePageButton.Foreground = LeftMenu.Background
             Else
-                Me.Frame.Navigate(GetType(FirstBootScreen))
+                Like_Anim.Stop()
+                LikePageButton.Text = ""
+                LikePageButton.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 166, 166, 166))
             End If
+        Catch
+        End Try
+
+        If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
+            Try
+                ShowFavorites()
+            Catch
+                If MemoPanel.Visibility = Visibility.Visible Then
+                    MemoPopOut.Begin()
+                End If
+            End Try
         End If
+        If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 2 Then
+            Try
+                ShowHistory()
+            Catch
+                If MemoPanel.Visibility = Visibility.Visible Then
+                    MemoPopOut.Begin()
+                End If
+            End Try
+        End If
+        If Not web.Source.ToString = "about:blank" Then
+            Try
+                localSettings.Values("StatKid") = localSettings.Values("StatKid") + 1
+            Catch
+                localSettings.Values("StatKid") = 1
+            End Try
+        End If
+        CheckPage()
     End Sub
 #End Region
 #Region "Right Panel (Memo, history, favorites, notifications)"
@@ -719,7 +636,6 @@ Public NotInheritable Class MainPage
             MemoPanel.HorizontalAlignment = HorizontalAlignment.Right
             Memo_ExpandButton.Visibility = Visibility.Collapsed
         End If
-        PivotIndicatorPosition()
     End Sub
     Private Sub CloseRightMenu()
         MemoPopIN.Stop()
@@ -752,16 +668,7 @@ Public NotInheritable Class MainPage
         Me.Frame.Navigate(GetType(Parametres))
 
     End Sub
-    Private Sub Memo_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_Button.Tapped
-        If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 0 Then
-            CloseRightMenu()
-        Else
-            If MemoPanel.Visibility = Visibility.Collapsed Then
-                OpenRightMenu()
-            End If
-        End If
-        RightMenuPivot.SelectedIndex = 0
-    End Sub
+
     Private Sub MemoAncrageToggleButton_Checked(sender As Object, e As RoutedEventArgs) Handles MemoAncrageToggleButton.Checked
         webcontainer.Margin = New Thickness(webcontainer.Margin.Left, webcontainer.Margin.Top, 261, 0)
         LeftPanelShadow.Visibility = Visibility.Collapsed
@@ -800,351 +707,13 @@ Public NotInheritable Class MainPage
         End If
 
     End Sub
-    Private Sub Notification()
 
-    End Sub
-    Private Sub ContextNotification()
-        SmartSuggest_OpenSearch.Visibility = Visibility.Collapsed
-        Try
-            If Windows.Storage.ApplicationData.Current.LocalSettings.Values("Context_Notif") = "No" Then
-                Notif_Diminutweet.Visibility = Visibility.Collapsed
-                Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed
-
-            Else
-                OpenSearchEngine = False
-                If web.Source.ToString.Contains("www.bing.com") Then
-                    limitedOpenSearch = True
-                    OpenSearchNotif()
-                    SmartSuggest_OpenSearchIcon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
-
-                    If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
-                        New_Notif.Begin()
-                        Notifications_Counter.Text = Notifications_Counter.Text + 1
-                        Notif_Home.Visibility = Visibility.Collapsed
-                    End If
-                    Notif_SearchEngineName.Text = "BING"
-                    Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Bing.png", UriKind.Absolute))
-                    Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
-                ElseIf web.Source.ToString.Contains("www.qwant.com") Then
-                    limitedOpenSearch = True
-                    OpenSearchNotif()
-                    SmartSuggest_OpenSearchIcon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
-
-                    If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
-                        New_Notif.Begin()
-                        Notifications_Counter.Text = Notifications_Counter.Text + 1
-                        Notif_Home.Visibility = Visibility.Collapsed
-                    End If
-                    Notif_SearchEngineName.Text = "QWANT"
-                    Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Qwant.png", UriKind.Absolute))
-
-                    Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
-                ElseIf web.Source.ToString.Contains("duckduckgo.com") Then
-                    limitedOpenSearch = True
-                    OpenSearchNotif()
-                    SmartSuggest_OpenSearchIcon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
-
-                    If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
-                        New_Notif.Begin()
-                        Notifications_Counter.Text = Notifications_Counter.Text + 1
-                        Notif_Home.Visibility = Visibility.Collapsed
-                    End If
-                    Notif_SearchEngineName.Text = "DUCKDUCKGO"
-                    Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_Duck.png", UriKind.Absolute))
-
-                    Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
-                ElseIf web.Source.ToString.Contains("yahoo.com") Then
-                    limitedOpenSearch = True
-                    OpenSearchNotif()
-                    SmartSuggest_OpenSearchIcon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
-
-                    If Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed Then
-                        New_Notif.Begin()
-                        Notifications_Counter.Text = Notifications_Counter.Text + 1
-                        Notif_Home.Visibility = Visibility.Collapsed
-                    End If
-                    Notif_SearchEngineName.Text = "YAHOO"
-                    Notif_SearchEngineIcon.Source = New BitmapImage(New Uri("ms-appx:/Assets/Engine_yahoo.png", UriKind.Absolute))
-
-                    Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
-                Else
-                    Notif_SearchEngineSuggestion.Visibility = Visibility.Collapsed
-                    If Notifications_Counter.Text > 1 Then
-                        Notifications_Counter.Text = Notifications_Counter.Text - 1
-                    End If
-                    Try
-                        limitedOpenSearch = False
-                        OpenSearchNotif()
-                        Notif_Home.Visibility = Visibility.Collapsed
-                    Catch
-                    End Try
-                End If
-
-                If web.Source.Host.ToString.Contains("twitter.com") Then
-                    If Notif_Diminutweet.Visibility = Visibility.Collapsed Then
-                        New_Notif.Begin()
-                        Notifications_Counter.Text = Notifications_Counter.Text + 1
-                        Notif_Home.Visibility = Visibility.Collapsed
-                    End If
-
-                    Notif_Diminutweet.Visibility = Visibility.Visible
-                Else
-                    Notif_Diminutweet.Visibility = Visibility.Collapsed
-                    If Notifications_Counter.Text > 1 Then
-                        Notifications_Counter.Text = Notifications_Counter.Text - 1
-                    End If
-                End If
-
-                If web.Source.ToString.Contains("vimeo.com/") Or web.Source.ToString.Contains("dailymotion.com/video/") Or web.Source.ToString.Contains("youtube.com/watch?v=") Then
-                    If Notif_MiniPlayer.Visibility = Visibility.Collapsed Then
-                        New_Notif.Begin()
-                        Notifications_Counter.Text = Notifications_Counter.Text + 1
-                        Notif_Home.Visibility = Visibility.Collapsed
-                    End If
-
-                    Notif_MiniPlayer.Visibility = Visibility.Visible
-                    ShowMiniPlayerIcon.Begin()
-
-                    If web.Source.ToString.Contains("vimeo.com/") Then
-                        If web.Source.ToString.Contains("vimeo.com/0") Or web.Source.ToString.Contains("vimeo.com/1") Or web.Source.ToString.Contains("vimeo.com/2") Or web.Source.ToString.Contains("vimeo.com/3") Or web.Source.ToString.Contains("vimeo.com/4") Or web.Source.ToString.Contains("vimeo.com/5") Or web.Source.ToString.Contains("vimeo.com/6") Or web.Source.ToString.Contains("vimeo.com/7") Or web.Source.ToString.Contains("vimeo.com/8") Or web.Source.ToString.Contains("vimeo.com/9") Then
-                            Notif_MiniPlayer.Visibility = Visibility.Visible
-                            ShowMiniPlayerIcon.Begin()
-                            Notif_Home.Visibility = Visibility.Collapsed
-                        Else
-                            Notifications_Counter.Text = Notifications_Counter.Text - 1
-                            Notif_MiniPlayer.Visibility = Visibility.Collapsed
-                            ShowMiniPlayerIcon.Stop()
-                        End If
-                    End If
-                    Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-                    If localSettings.Values("DarkThemeEnabled") = True Then
-                        MiniPlayer_Button.RequestedTheme = ElementTheme.Dark
-                    Else
-                        MiniPlayer_Button.RequestedTheme = ElementTheme.Light
-                    End If
-                Else
-                    Notif_MiniPlayer.Visibility = Visibility.Collapsed
-                    ShowMiniPlayerIcon.Stop()
-                End If
-
-
-            End If
-        Catch
-            Windows.Storage.ApplicationData.Current.LocalSettings.Values("Context_Notif") = "Yes"
-            ContextNotification()
-        End Try
-        Notification()
-    End Sub
-    Private Async Sub OpenSearchNotif()
-        Try
-
-            If limitedOpenSearch = False Then
-                OpenSearchEngine = True
-            End If
-            Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-            ' Opensearch
-
-            ' Detection du xml
-            Dim xmlUri As Uri
-            Dim html As String = Await (web.InvokeScriptAsync("eval", New String() {"document.documentElement.outerHTML;"}))
-            Dim Found As Boolean = False
-
-            Try
-                While Not Found
-                    Dim tagStart As Integer = html.IndexOf("<link")
-                    Dim tagEnd As Integer = html.Substring(tagStart).IndexOf(">")
-                    Dim tag As String = html.Substring(tagStart, tagEnd)
-                    If tag.Contains("application/opensearchdescription+xml") Then
-                        Found = True
-                        Dim attStart As Integer = tag.IndexOf("href=""")
-                        Dim attEnd As Integer = tag.Substring(attStart + 6).IndexOf("""")
-                        Dim att As String = tag.Substring(attStart + 6, attEnd)
-                        xmlUri = New Uri(web.Source, att)
-                    Else
-                        html = html.Substring(tagEnd)
-                    End If
-                End While
-
-                ' Recuperation du XML
-                Dim client As HttpClient = New HttpClient
-                Dim xml As String
-                Try
-                    Dim res As HttpResponseMessage = Await client.GetAsync(xmlUri)
-                    res.EnsureSuccessStatusCode()
-                    xml = Await res.Content.ReadAsStringAsync
-                Catch ex As Exception
-                End Try
-
-                ' Parsage (ce mot existe ?) du XML
-                Dim doc As XDocument = XDocument.Parse(xml)
-                Dim root As XElement = doc.Elements.FirstOrDefault
-                Dim name As String
-                Dim img As String
-                Dim searchTemplate As String
-
-                Try
-                    name = root.Elements.First(Function(x) x.Name.LocalName = "ShortName").Value.ToUpperInvariant
-                    img = root.Elements.First(Function(x) x.Name.LocalName = "Image").Value
-                    Dim urlTag = root.Elements.Where(Function(x) x.Name.LocalName = "Url").First(Function(x) x.Attributes.Any(Function(y)
-                                                                                                                                  Return y.Name.LocalName = "type" And y.Value = "text/html"
-                                                                                                                              End Function))
-                    searchTemplate = urlTag.Attributes.First(Function(x) x.Name.LocalName = "template").Value
-
-                    If Not searchTemplate.Contains("{searchTerms}") Then
-                        Dim param = urlTag.Elements.First(Function(x) x.Name.LocalName = "Param")
-                        searchTemplate += "?" + param.Attributes.First(Function(x) x.Name.LocalName = "name").Value + "=" + param.Attributes.First(Function(x) x.Name.LocalName = "value").Value
-                    End If
-
-                Catch ex As Exception
-                    If img Is Nothing Then
-                        img = "http://" & web.Source.Host & "/favicon.ico"
-                    End If
-                    If name Is Nothing Then
-                        name = "INCONNU"
-                    End If
-                    If searchTemplate Is Nothing Then
-                        searchTemplate = "http://" + web.Source.Host + "/?q={searchTerms}"
-                    End If
-                End Try
-
-
-
-                Dim splitter As String = "{searchTerms}"
-                Dim A() As String = searchTemplate.Split(New String() {splitter}, StringSplitOptions.None)
-                OpenSearch_A1 = A(0)
-
-                If Not String.IsNullOrEmpty(A(1)) Then
-                    OpenSearch_A2 = A(1)
-                Else
-                    OpenSearch_A2 = ""
-                End If
-
-
-
-                Notif_Home.Visibility = Visibility.Collapsed
-                Notif_SearchEngineSuggestion.Visibility = Visibility.Visible
-
-                Notification()
-
-                name = name.Replace("Ã©", "É")
-
-                If limitedOpenSearch = False Then
-                    Notif_SearchEngineName.Text = name
-                    Notif_SearchEngineIcon.Source = New BitmapImage(New Uri(img, UriKind.Absolute))
-                    SmartSuggest_OpenSearchIcon.Source = New BitmapImage(New Uri(img, UriKind.Absolute))
-                End If
-
-                SmartSuggest_OpenSearch.Visibility = Visibility.Visible
-
-            Catch
-                OpenSearchEngine = False
-            End Try
-        Catch
-        End Try
-
-    End Sub
-    Private Sub PivotIndicatorPosition()
-        History_SearchMode = False
-
-        If RightMenuPivot.SelectedIndex = 0 Then
-            MemoIndexIndicator.Margin = New Thickness(4, 8, 0, 0)
-            History_SearchBar.Visibility = Visibility.Collapsed
-            History_ShowSearchBar.Visibility = Visibility.Collapsed
-
-            Memo_ShowAll.Visibility = Visibility.Collapsed
-            MemoEdit.Visibility = Visibility.Collapsed
-            MemListScroll.Visibility = Visibility.Visible
-            Try
-                ShowMemoList()
-            Catch
-            End Try
-
-        ElseIf RightMenuPivot.SelectedIndex = 1 Then
-            MemoIndexIndicator.Margin = New Thickness(44, 8, 0, 0)
-            Memo_ExpandButton.Visibility = Visibility.Visible
-            History_SearchBar.Visibility = Visibility.Collapsed
-            History_ShowSearchBar.Visibility = Visibility.Collapsed
-            sorttag.Visibility = Visibility.Collapsed
-            favs_tagsearch = False
-            Try
-                ShowFavorites()
-            Catch ex As Exception
-            End Try
-        ElseIf RightMenuPivot.SelectedIndex = 2 Then
-            MemoIndexIndicator.Margin = New Thickness(84, 8, 0, 0)
-            Memo_ExpandButton.Visibility = Visibility.Visible
-            History_ShowSearchBar.Visibility = Visibility.Visible
-            Try
-                ShowHistory()
-            Catch ex As Exception
-            End Try
-        ElseIf RightMenuPivot.SelectedIndex = 3 Then
-            MemoIndexIndicator.Margin = New Thickness(124, 8, 0, 0)
-
-
-            If LeftMenu.Visibility = Visibility.Visible Then
-                MemoPanel.Width = 261
-                MemoPanel.Margin = New Thickness(0, 66, 0, 0)
-            End If
-            MemoPanel.HorizontalAlignment = HorizontalAlignment.Right
-            Memo_ExpandButton.Visibility = Visibility.Collapsed
-            History_SearchBar.Visibility = Visibility.Collapsed
-            History_ShowSearchBar.Visibility = Visibility.Collapsed
-
-        End If
-        If LeftMenu.Visibility = Visibility.Collapsed Then
-            MemoAncrageToggleButton.Visibility = Visibility.Collapsed
-            Memo_ExpandButton.IsEnabled = False
-        End If
-    End Sub
-    Private Sub RightMenuPivot_PivotItemLoaded(sender As Pivot, args As PivotItemEventArgs) Handles RightMenuPivot.PivotItemLoaded
-        PivotIndicatorPosition()
-        MemoIndicator.Begin()
-    End Sub
     Private Async Sub Button_Tapped_1(sender As Object, e As TappedRoutedEventArgs)
         Await Windows.System.Launcher.LaunchUriAsync(New Uri(("ms-windows-store://pdp/?ProductId=9nblggh316xh")))
     End Sub
 
     Private Sub ChangSearchEngine(sender As Object, e As TappedRoutedEventArgs)
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        'Définit les valeurs du moteur de recherche tel que le navigateur navigue vers (A1 + Mots-clés + A2) = URI
 
-        If OpenSearchEngine = True Then
-            localSettings.Values("Custom_SearchEngine") = True
-            localSettings.Values("A1") = OpenSearch_A1.ToString
-            localSettings.Values("A2") = OpenSearch_A2.ToString
-            localSettings.Values("Cust1") = OpenSearch_A1.ToString
-            localSettings.Values("Cust2") = OpenSearch_A2.ToString
-            localSettings.Values("SearchEngineIndex") = 12
-        Else
-            localSettings.Values("Custom_SearchEngine") = False
-            If Notif_SearchEngineName.Text.ToLower = "qwant" Then
-                localSettings.Values("A1") = "http://www.qwant.com/?q="
-                localSettings.Values("A2") = ""
-                localSettings.Values("SearchEngineIndex") = 1
-            ElseIf Notif_SearchEngineName.Text.ToLower = "bing" Then
-                localSettings.Values("A1") = "http://www.bing.com/search?q="
-                localSettings.Values("A2") = ""
-                localSettings.Values("SearchEngineIndex") = 0
-            ElseIf Notif_SearchEngineName.Text.ToLower = "duckduckgo" Then
-                localSettings.Values("A1") = "http://duckduckgo.com/?q="
-                localSettings.Values("A2") = ""
-                localSettings.Values("SearchEngineIndex") = 2
-            ElseIf Notif_SearchEngineName.Text.ToLower = "yahoo" Then
-                localSettings.Values("A1") = "http://fr.search.yahoo.com/search;_ylt=Ai38ykBDWJSAxF25NrTnjXxNhJp4?p="
-                localSettings.Values("A2") = ""
-                localSettings.Values("SearchEngineIndex") = 3
-            End If
-        End If
-
-        Dim notificationXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02)
-        Dim toeastElement = notificationXml.GetElementsByTagName("text")
-        'toeastElement(0).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Header/Text")))
-        'toeastElement(1).AppendChild(notificationXml.CreateTextNode(resourceLoader.GetString("Notification_SearchEngineSet_Content/Text")))
-        toeastElement(0).AppendChild(notificationXml.CreateTextNode(Label_Notif_SearchSet_Header.Text))
-        toeastElement(1).AppendChild(notificationXml.CreateTextNode(Label_Notif_SearchSet_Content.Text))
-        Dim ToastNotification = New ToastNotification(notificationXml)
-        ToastNotificationManager.CreateToastNotifier().Show(ToastNotification)
     End Sub
 #End Region
 #Region "Favorites"
@@ -1339,7 +908,6 @@ Public NotInheritable Class MainPage
                 root.Add(HistoryElem)
                 WriteJsonFile(root, "Favorites")
             End If
-            favbarmodif = True
         Catch
             WriteJsonFile(JsonArray.Parse("[]"), "Favorites")
         End Try
@@ -1350,8 +918,9 @@ Public NotInheritable Class MainPage
                 Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Favorites"))
 
                 If root.Any(Function(x As JsonValue) x.GetObject.GetNamedString("url") = web.Source.ToString) Then
-                    OpenRightMenu()
                     RightMenuPivot.SelectedIndex = 1
+                    MemoPopOut.Stop()
+                    MemoPopIN.Begin()
                 Else
                     Add_Fav_Url.Text = web.Source.ToString
                     Add_Fav_Title.Text = web.DocumentTitle
@@ -1412,70 +981,6 @@ Public NotInheritable Class MainPage
 
     Private Sub AddFav_Confirm_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles AddFav_Confirm.PointerExited
         Addfav_Background.Opacity = 1
-    End Sub
-#End Region
-#Region "Share/Source code Menu"
-    Private Sub Fight_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Fight_Button.Tapped
-        'Ouvre SearchFight
-        Me.Frame.Navigate(GetType(SearchFight))
-    End Sub
-    Private Sub Share_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Share_Button.Tapped
-        'Affichage de l'interface de partage
-        SourceCode.Text = "..."
-        ViewSourceCode.Stop()
-        HideSourceCode.Stop()
-        SourceCode.Visibility = Visibility.Collapsed
-        web.Visibility = Visibility.Visible
-
-        If Infos_grid.Visibility = Visibility.Visible Then
-            Share.Stop()
-            CancelShare.Stop()
-            CancelShare.Begin()
-        Else
-            Share.Stop()
-            CancelShare.Stop()
-            Share.Begin()
-        End If
-    End Sub
-
-    Private Sub Web_Share_Save_Tapped(sender As Object, e As TappedRoutedEventArgs)
-
-    End Sub
-
-    Protected Overrides Sub OnNavigatedTo(e As NavigationEventArgs)
-        Dim dtManager As DataTransferManager = DataTransferManager.GetForCurrentView()
-        AddHandler dtManager.DataRequested, AddressOf dtManager_DataRequested
-    End Sub
-    Private Sub dtManager_DataRequested(sender As DataTransferManager, e As DataRequestedEventArgs)
-        e.Request.Data.Properties.Title = "Partage d'une page internet : " + web.DocumentTitle.ToString + " - Via Blueflap"
-        e.Request.Data.SetText(web.DocumentTitle.ToString + " (" + web.Source.ToString + ") - Via #Blueflap - https://www.microsoft.com/store/apps/9nblggh5xcvz")
-    End Sub
-    Private Sub Web_Share_Share_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Web_Share_Share.Tapped
-        Windows.ApplicationModel.DataTransfer.DataTransferManager.ShowShareUI()
-        Sharing.Begin()
-    End Sub
-
-    Private Async Sub Web_Share_Source_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Web_Share_Source.Tapped
-
-        'Récupère et affiche le code source de la page
-        If SourceCode.Visibility = Visibility.Collapsed Then
-            ViewSourceCode.Begin()
-
-            If SourceCode.Text = "..." Then
-                Dim html As String = Await (web.InvokeScriptAsync("eval", New String() {"document.documentElement.outerHTML;"}))
-                SourceCode.Text = html
-            End If
-        Else
-            HideSourceCode.Begin()
-        End If
-    End Sub
-
-
-    Private Async Sub Info_Pin_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Info_Pin.Tapped
-
-    End Sub
-    Private Sub Info_Like_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Info_Like.Tapped
-        AddToFavorite_Ask()
     End Sub
 #End Region
 #Region "SmartSuggest"
@@ -1762,7 +1267,7 @@ Public NotInheritable Class MainPage
                 Next
 
                 Try
-                    Json = Await ReadJsonFile("History")
+                    Json = Await ReadJsonFile("KidsHistory")
                 Catch ex As Exception
                     Json = "[]"
                 End Try
@@ -1851,35 +1356,6 @@ Public NotInheritable Class MainPage
         Me.Frame.Navigate(GetType(Verrouillage))
     End Sub
 
-    Private Sub Paramètres_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Paramètres_Button.Tapped
-        Me.Frame.Navigate(GetType(Parametres)) 'Aller sur la page "Paramètres"
-    End Sub
-
-    Private Async Sub NewWindow()
-        Dim newView = CoreApplication.CreateNewView()
-        Dim appView = ApplicationView.GetForCurrentView()
-        Dim newViewId As Integer = 0
-        Await newView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, Function()
-                                                                                             Dim window__1 = Window.Current
-                                                                                             Dim newAppView = ApplicationView.GetForCurrentView()
-
-                                                                                             Dim frame = New Frame()
-                                                                                             window__1.Content = frame
-
-                                                                                             frame.Navigate(GetType(MainPage))
-                                                                                             window__1.Activate()
-
-                                                                                             newViewId = ApplicationView.GetForCurrentView().Id
-
-                                                                                         End Function)
-        Dim viewShown As Boolean = Await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId)
-
-    End Sub
-
-    Private Sub Window_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Window_Button.Tapped
-        NewWindow()
-    End Sub
-
 #End Region
 #Region "JsonFileManagment"
     Private Async Sub WriteJsonFile(Json As JsonArray, FileName As String)
@@ -1916,7 +1392,7 @@ Public NotInheritable Class MainPage
         Dim Json As String
         Loader_MemoPanel.IsActive = True
         Try
-            Json = Await ReadJsonFile("History")
+            Json = Await ReadJsonFile("KidsHistory")
         Catch ex As Exception
             Json = "[]"
         End Try
@@ -1969,9 +1445,9 @@ Public NotInheritable Class MainPage
 
                 AddHandler menuDelete.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
                                                                          Try
-                                                                             Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("History"))
+                                                                             Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("KidsHistory"))
                                                                              root.Remove(root.First(Function(x) x.GetObject.GetNamedString("url") = histElem.GetObject.GetNamedString("url")))
-                                                                             WriteJsonFile(root, "History")
+                                                                             WriteJsonFile(root, "KidsHistory")
                                                                              ShowHistory()
                                                                          Catch
                                                                          End Try
@@ -2050,149 +1526,6 @@ Public NotInheritable Class MainPage
 
 
 #End Region
-#Region " Memos"
-    Private Async Sub Memo_New_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_New.Tapped
-        EditMemo = False
-
-        Memo_ShowAll.Visibility = Visibility.Visible
-        MemoEdit.Visibility = Visibility.Visible
-        MemListScroll.Visibility = Visibility.Collapsed
-
-        Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Memos"))
-        Dim MemoElem As JsonObject = New JsonObject
-        MemoElem.Add("url", JsonValue.CreateStringValue(web.Source.Host.ToString))
-        MemoElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle.ToString))
-
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-
-        Try
-            localSettings.Values("MemosID") = localSettings.Values("MemosID") + 1
-        Catch ex As Exception
-            localSettings.Values("MemosID") = 1
-        End Try
-
-        MemoElem.Add("ID", JsonValue.CreateStringValue(localSettings.Values("MemosID")))
-
-        MemoElem.Add("Text", JsonValue.CreateStringValue(localSettings.Values("MemosID")))
-        root.Add(MemoElem)
-        WriteJsonFile(root, "Memos")
-
-        Memo_Edit_Text.Text = localSettings.Values("MemosID")
-        Memo_Edit_Title.Text = web.DocumentTitle.ToString
-
-    End Sub
-    Private Async Function ShowMemoList() As Task
-        MemoList.Children.Clear()
-        Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Memos"))
-        Dim Json As String
-        Try
-            Json = Await ReadJsonFile("Memos")
-        Catch ex As Exception
-            Json = "[]"
-        End Try
-        Loader_MemoPanel.IsActive = True
-        For Each MemoElem In root.Reverse
-
-            Dim elemContainer As StackPanel = New StackPanel
-            elemContainer.Padding = New Thickness(8, 8, 0, 8)
-
-            Dim elemTitle As TextBlock = New TextBlock
-            elemTitle.Text = MemoElem.GetObject.GetNamedString("title")
-            elemTitle.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 40, 40, 40))
-            elemContainer.Children.Add(elemTitle)
-
-
-            Dim UrlText As TextBlock = New TextBlock
-            UrlText.Text = MemoElem.GetObject.GetNamedString("url")
-            UrlText.Foreground = LeftMenu.Background
-            elemContainer.Children.Add(UrlText)
-
-            AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
-                                                                        Memo_ShowAll.Visibility = Visibility.Visible
-                                                                        MemoEdit.Visibility = Visibility.Visible
-                                                                        MemListScroll.Visibility = Visibility.Collapsed
-                                                                        Memo_Edit_Text.Text = MemoElem.GetObject.GetNamedString("Text")
-                                                                        Memo_Edit_Title.Text = MemoElem.GetObject.GetNamedString("title")
-                                                                        Memo_Edit_URL.Text = MemoElem.GetObject.GetNamedString("url").ToUpper
-                                                                        EditMemo = True
-                                                                        AddHandler Memo_Edit_Title.LostFocus, New RoutedEventHandler(Function(textch As Object, te As RoutedEventArgs)
-                                                                                                                                         If EditMemo = True Then
-                                                                                                                                             MemoElem.GetObject.SetNamedValue("title", JsonValue.CreateStringValue(Memo_Edit_Title.Text))
-                                                                                                                                             root.Remove(root.First(Function(x) x.GetObject.GetNamedString("ID") = MemoElem.GetObject.GetNamedString("ID")))
-                                                                                                                                             root.Add(MemoElem)
-                                                                                                                                             WriteJsonFile(root, "Memos")
-                                                                                                                                         End If
-                                                                                                                                     End Function)
-
-                                                                        AddHandler Memo_Edit_Text.LostFocus, New RoutedEventHandler(Function(textch As Object, te As RoutedEventArgs)
-                                                                                                                                        If EditMemo = True Then
-                                                                                                                                            MemoElem.GetObject.SetNamedValue("Text", JsonValue.CreateStringValue(Memo_Edit_Text.Text))
-                                                                                                                                            root.Remove(root.First(Function(x) x.GetObject.GetNamedString("ID") = MemoElem.GetObject.GetNamedString("ID")))
-                                                                                                                                            root.Add(MemoElem)
-                                                                                                                                            WriteJsonFile(root, "Memos")
-                                                                                                                                        End If
-                                                                                                                                    End Function)
-                                                                    End Function)
-
-            If PhoneNavBar.Visibility = Visibility.Collapsed Then
-                AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                     elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(10, 0, 0, 0))
-                                                                                     elemContainer.BorderThickness = New Thickness(2, 0, 0, 0)
-                                                                                     elemContainer.Padding = New Thickness(6, 8, 0, 8)
-                                                                                     elemContainer.BorderBrush = LeftMenu.Background
-                                                                                 End Function)
-
-                AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                    elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 52, 152, 213))
-                                                                                    elemContainer.BorderThickness = New Thickness(0, 0, 0, 0)
-                                                                                    elemContainer.Padding = New Thickness(8, 8, 0, 8)
-                                                                                End Function)
-            End If
-            Dim menu As MenuFlyout = New MenuFlyout
-            Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
-            ' menuDelete.Text = resourceLoader.GetString("Delete/Text")
-            menuDelete.Text = Label_Delete.Text
-            menu.Items.Add(menuDelete)
-
-
-            AddHandler elemContainer.RightTapped, New RightTappedEventHandler(Function(sender As Object, e As RightTappedRoutedEventArgs)
-                                                                                  menu.ShowAt(CType(sender, FrameworkElement))
-                                                                              End Function)
-
-            AddHandler menuDelete.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
-                                                                     Try
-                                                                         root.Remove(root.First(Function(x) x.GetObject.GetNamedString("ID") = MemoElem.GetObject.GetNamedString("ID")))
-                                                                         WriteJsonFile(root, "Memos")
-                                                                         Await ShowFavorites()
-                                                                     Catch ex As Exception
-                                                                     End Try
-                                                                 End Sub)
-
-            MemoList.Children.Add(elemContainer)
-
-        Next
-        Loader_MemoPanel.IsActive = False
-    End Function
-    Private Async Sub Memo_ShowAll_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_ShowAll.Tapped
-        Memo_ShowAll.Visibility = Visibility.Collapsed
-        MemoEdit.Visibility = Visibility.Collapsed
-        MemListScroll.Visibility = Visibility.Visible
-        Try
-            Await ShowMemoList()
-        Catch ex As Exception
-        End Try
-    End Sub
-
-    Private Sub Memo_Edit_Text_GotFocus(sender As Object, e As RoutedEventArgs) Handles Memo_Edit_Text.GotFocus
-        Memo_Edit_Text.BorderThickness = New Thickness(2, 2, 2, 2)
-    End Sub
-
-    Private Sub Memo_Edit_Text_Loaded(sender As Object, e As RoutedEventArgs) Handles Memo_Edit_Text.LostFocus
-        Memo_Edit_Text.BorderThickness = New Thickness(0, 0, 0, 0)
-    End Sub
-
-
-#End Region
 #Region "PhoneControl"
     Private Sub Grid_Tapped(sender As Object, e As TappedRoutedEventArgs)
 
@@ -2253,10 +1586,6 @@ Public NotInheritable Class MainPage
         End If
     End Sub
 
-    Private Sub Settings_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Settings_Button_M.Tapped
-        ' Ellipsis_Close.Begin()
-        Me.Frame.Navigate(GetType(Parametres))
-    End Sub
 
     Private Sub Lock_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Lock_Button_M.Tapped
         'Ellipsis_Close.Begin()
@@ -2265,20 +1594,8 @@ Public NotInheritable Class MainPage
         Me.Frame.Navigate(GetType(Verrouillage))
     End Sub
 
-    Private Sub Memo_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_Button_M.Tapped
-        Ellipsis_Close.Begin()
-        If MemoPanel.Visibility = Visibility.Collapsed Then
-            MemoPopOut.Stop()
-            MemoPopIN.Begin()
-        End If
 
-        RightMenuPivot.SelectedIndex = 0
-    End Sub
 
-    Private Sub Fight_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Fight_Button_M.Tapped
-        'Ellipsis_Close.Begin()
-        Me.Frame.Navigate(GetType(SearchFight))
-    End Sub
 
     Private Sub Notifications_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Notifications_Button_M.Tapped
         Ellipsis_Close.Begin()
@@ -2295,21 +1612,11 @@ Public NotInheritable Class MainPage
         End If
     End Sub
 
-    Private Sub Share_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Share_Button_M.Tapped
-        Ellipsis_Close.Begin()
-        Windows.ApplicationModel.DataTransfer.DataTransferManager.ShowShareUI()
-        Sharing.Begin()
-    End Sub
-
     Private Sub Like_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Like_Button_M.Tapped
         Ellipsis_Close.Begin()
         AddToFavorite_Ask()
     End Sub
 
-    Private Sub Window_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Window_Button_M.Tapped
-        Ellipsis_Close.Begin()
-        NewWindow()
-    End Sub
 
     Private Sub Strefresh_Button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Strefresh_Button_M.Tapped
         Ellipsis_Close.Begin()
@@ -2326,13 +1633,9 @@ Public NotInheritable Class MainPage
         End If
         AdressBox.Text = web.Source.ToString
         Phone_URL.Text = web.Source.Host
-        If web.Source.ToString.Contains("https://") Then
-            SecurityTag.Visibility = Visibility.Visible
-        Else
-            SecurityTag.Visibility = Visibility.Collapsed
-        End If
         Titlebox.Text = web.DocumentTitle
         loader.IsActive = False
+        Loading2.Stop()
         MobileProgressFinish.Begin()
         PCProgressFinish.Begin()
         BackForward()
@@ -2360,402 +1663,261 @@ Public NotInheritable Class MainPage
 
 
 #End Region
-#Region "MiniPlayer"
-    Private Async Sub MiniPlayer()
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-        Dim t As String
-        t = web.Source.ToString
-        t = t.Replace("vimeo.com/", "player.vimeo.com/video/")
-        t = t.Replace("dailymotion.com/video/", "dailymotion.com/embed/video/")
-
-        If Not (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
-            t = t.Replace("youtube.com/watch", "youtube.com/watch_popup")
-        Else
-            t = t.Replace("m.youtube.com", "www.youtube.com")
-            t = t.Replace("youtube.com/watch?v=", "youtube.com/embed/")
-            t = t + "?autoplay=0&showinfo=0&controls=0"
-        End If
-
-        localSettings.Values("MiniPlayerUri") = t
-
-
-
-        If localSettings.Values("MiniPlayerDisplayMode") = 1 Then
-            Dim newView As CoreApplicationView = CoreApplication.CreateNewView()
-            Dim newViewId As Integer = 0
-            Await newView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, Function()
-                                                                                                 Dim frame As New Frame()
-                                                                                                 frame.Navigate(GetType(MiniPlayer), Nothing)
-                                                                                                 Window.Current.Content = frame
-                                                                                                 'You have to activate the window in order to show it later.
-                                                                                                 Window.Current.Activate()
-
-                                                                                                 newViewId = ApplicationView.GetForCurrentView().Id
-
-                                                                                             End Function)
-            Dim viewShown As Boolean = Await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId)
-        Else
-            If MemoPanel.Visibility = Visibility.Visible Then
-                CloseRightMenu()
-            End If
-            If (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
-                Dim HttpRequestMessage = New Windows.Web.Http.HttpRequestMessage(Windows.Web.Http.HttpMethod.Get, New Uri(t))
-                HttpRequestMessage.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246")
-                MiniPlayer_Player.NavigateWithHttpRequestMessage(HttpRequestMessage)
-            Else
-                MiniPlayer_Player.Source = New Uri(t)
-            End If
-
-
-            MiniPlayer_Close1.Stop()
-            MiniPlayer_Background.Visibility = Visibility.Visible
-
-            ReduceMiniPlayer()
-        End If
-
-
-
-
-    End Sub
-
-    Private Sub OpenMiniP(sender As Object, e As TappedRoutedEventArgs)
-        MiniPlayer()
-    End Sub
-
-    Private Sub MiniPlayer_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles MiniPlayer_Button.Tapped
-        MiniPlayer()
-    End Sub
-    Private Sub ProgressBarre_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles ProgressBarre.ValueChanged
-
-        Try
-            If ProgressBarre.Value > 5 Then
-                If AdressBoxEditing = False Then
-                    AdressBox.Text = web.Source.ToString
-                    Phone_URL.Text = web.Source.Host
-                    Titlebox.Text = web.DocumentTitle
-                End If
-            End If
-        Catch
-        End Try
-    End Sub
-    Private Sub web_ContentLoading(sender As WebView, args As WebViewContentLoadingEventArgs) Handles web.ContentLoading
-        InvisibleLoading.Begin()
-    End Sub
-
-    Private Sub web_FrameNavigationStarting(sender As WebView, args As WebViewNavigationStartingEventArgs) Handles web.FrameNavigationStarting
-        InvisibleLoading.Begin()
-    End Sub
-
-    Private Sub web_Loading(sender As FrameworkElement, args As Object) Handles web.Loading
-        InvisibleLoading.Begin()
-    End Sub
-    Private Sub BackgroundProgressBarre_ValueChanged(sender As Object, e As RangeBaseValueChangedEventArgs) Handles BackgroundProgressBarre.ValueChanged
-
-        Try
-            If ProgressBarre.Value > 5 Then
-                If AdressBoxEditing = False Then
-
-                    If Not AdressBox.Text = web.Source.ToString Then
-                        PageChanged()
-                    End If
-                    AdressBox.Text = web.Source.ToString
-                    Phone_URL.Text = web.Source.Host
-                    Titlebox.Text = web.DocumentTitle
-                End If
-            End If
-        Catch
-        End Try
-    End Sub
-    Private Async Sub PageChanged()
+#Region "Kids"
+    Private Async Sub CheckPage()
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
-        'Navigation terminée
-        AdressBox.Text = web.Source.ToString
-        Phone_URL.Text = web.Source.Host
-        If web.Source.ToString.Contains("https://") Then
-            SecurityTag.Visibility = Visibility.Visible
-        Else
-            SecurityTag.Visibility = Visibility.Collapsed
-        End If
-        Titlebox.Text = web.DocumentTitle
+        If Not web.Source.ToString = "about:blank" Then
+            Cache.Visibility = Visibility.Visible
+            ShowCache.Begin()
+            Dim Allow As Boolean
 
-        'Met à jour les stats dispos dans les paramètres de Blueflap
-        Try
-            localSettings.Values("Stat1") = localSettings.Values("Stat1") + 1
-        Catch
-            localSettings.Values("Stat1") = 1
-        End Try
 
-        SourceCode.Text = "..."
+            If localSettings.Values("ProtectionLevel") = 0 Then
+                Allow = True
 
-        BackForward()
-        localSettings.Values("LoadPageFromBluestart") = False
+            ElseIf localSettings.Values("ProtectionLevel") = 1 Then
+                Allow = True
 
-        If web.Source.HostNameType = UriHostNameType.Dns And Not localSettings.Values("Favicon") = False Then
-            Favicon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
-            Favicon.Visibility = Visibility.Visible
-        End If
+                Try
+                    Dim Json As String
+                    Try
+                        Json = Await ReadJsonFile("KidsMode_ForbiddenLinks")
+                    Catch ex As Exception
+                        Json = "[]"
+                    End Try
+                    For Each KidsElem In JsonArray.Parse(Json).Reverse
+                        Dim url As String
+                        url = KidsElem.GetObject.GetNamedString("word").ToLower
+                        url = url.Replace("http://", "")
+                        url = url.Replace("https://", "")
 
-        ContextNotification()
+                        If web.Source.ToString.ToLower.Contains(url) Then
+                            Allow = False
+                        End If
+                    Next
+                Catch ex As Exception
+                End Try
 
-        ' Ajout de la page à l'historique
 
-        Dim CurrentTitle As String = web.DocumentTitle
-        Dim VisitDate As DateTime = DateTime.Now
+                Try
+                    Dim Json As String
+                    Try
+                        Json = Await ReadJsonFile("KidsMode_ForbiddenWords")
+                    Catch ex As Exception
+                        Json = "[]"
+                    End Try
+                    For Each KidsElem In JsonArray.Parse(Json).Reverse
 
-        If localSettings.Values("GhostMode") = True Then
-            GhostModeNotif.Stop()
-            GhostModeNotif.Begin()
-        Else
-            Try
-                Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("History"))
-                Dim HistoryElem As JsonObject = New JsonObject
-                HistoryElem.Add("url", JsonValue.CreateStringValue(web.Source.ToString))
-                HistoryElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle))
-                HistoryElem.Add("date", JsonValue.CreateNumberValue(DateTime.Now.ToBinary))
-                root.Add(HistoryElem)
-                WriteJsonFile(root, "History")
-            Catch
-                WriteJsonFile(JsonArray.Parse("[]"), "History")
-            End Try
-        End If
-        Try
-            Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Favorites"))
+                        If web.DocumentTitle.ToLower.Contains(KidsElem.GetObject.GetNamedString("word").ToLower) Then
+                            Allow = False
+                        End If
+                    Next
+                Catch ex As Exception
+                End Try
 
-            If root.Any(Function(x As JsonValue) x.GetObject.GetNamedString("url") = web.Source.ToString) Then
-                Like_Anim.Begin()
-                LikePageButton.Text = ""
-                LikePageButton.Foreground = LeftMenu.Background
-            Else
-                Like_Anim.Stop()
-                LikePageButton.Text = ""
-                LikePageButton.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 166, 166, 166))
-            End If
-        Catch
-        End Try
 
-        If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
-            Try
-                ShowFavorites()
-            Catch
-                If MemoPanel.Visibility = Visibility.Visible Then
-                    MemoPopOut.Begin()
+
+
+
+
+
+
+            ElseIf localSettings.Values("ProtectionLevel") = 2 Then
+                Allow = False
+
+                Try
+                    Dim Json As String
+
+                    Try
+                        Json = Await ReadJsonFile("KidsMode_AllowedLinks")
+                    Catch ex As Exception
+                        Json = "[]"
+                    End Try
+
+                    For Each KidsElem In JsonArray.Parse(Json).Reverse
+                        Dim url As String
+                        url = KidsElem.GetObject.GetNamedString("word").ToLower
+                        url = url.Replace("http://", "")
+                        url = url.Replace("https://", "")
+
+                        If web.Source.ToString.ToLower.Contains(url) Then
+                            Allow = True
+                        End If
+
+
+                    Next
+                Catch ex As Exception
+                End Try
+
+                Try
+                    Dim Json As String
+                    Try
+                        Json = Await ReadJsonFile("KidsMode_ForbiddenLinks")
+                    Catch ex As Exception
+                        Json = "[]"
+                    End Try
+                    For Each KidsElem In JsonArray.Parse(Json).Reverse
+                        Dim url As String
+                        url = KidsElem.GetObject.GetNamedString("word").ToLower
+                        url = url.Replace("http://", "")
+                        url = url.Replace("https://", "")
+
+                        If web.Source.ToString.ToLower.Contains(url) Then
+                            Allow = False
+                        End If
+                    Next
+                Catch ex As Exception
+                End Try
+
+
+                Try
+                    Dim Json As String
+                    Try
+                        Json = Await ReadJsonFile("KidsMode_ForbiddenWords")
+                    Catch ex As Exception
+                        Json = "[]"
+                    End Try
+                    For Each KidsElem In JsonArray.Parse(Json).Reverse
+
+                        If web.DocumentTitle.ToLower.Contains(KidsElem.GetObject.GetNamedString("word").ToLower) Then
+                            Allow = False
+                        End If
+                    Next
+                Catch ex As Exception
+                End Try
+
+
+
+
+
+
+
+            ElseIf localSettings.Values("ProtectionLevel") = 3 Then
+
+                Allow = False
+
+                Try
+                    Dim Json As String
+
+                    Try
+                        Json = Await ReadJsonFile("KidsMode_AllowedLinks")
+                    Catch ex As Exception
+                        Json = "[]"
+                    End Try
+
+                    For Each KidsElem In JsonArray.Parse(Json).Reverse
+                        Dim url As String
+                        url = KidsElem.GetObject.GetNamedString("word").ToLower
+                        url = url.Replace("http://", "")
+                        url = url.Replace("https://", "")
+
+                        If web.Source.ToString.ToLower.Contains(url) Then
+                            Allow = True
+                        End If
+
+
+                    Next
+                Catch ex As Exception
+                End Try
+
+                Try
+                    Dim Json As String
+                    Try
+                        Json = Await ReadJsonFile("KidsMode_ForbiddenLinks")
+                    Catch ex As Exception
+                        Json = "[]"
+                    End Try
+                    For Each KidsElem In JsonArray.Parse(Json).Reverse
+                        Dim url As String
+                        url = KidsElem.GetObject.GetNamedString("word").ToLower
+                        url = url.Replace("http://", "")
+                        url = url.Replace("https://", "")
+
+                        If web.Source.ToString.ToLower.Contains(url) Then
+                            Allow = False
+                        End If
+                    Next
+                Catch ex As Exception
+                End Try
+
+                Try
+                    Dim Json As String
+                    Try
+                        Json = Await ReadJsonFile("KidsMode_ForbiddenWords")
+                    Catch ex As Exception
+                        Json = "[]"
+                    End Try
+                    For Each KidsElem In JsonArray.Parse(Json).Reverse
+                        If web.DocumentTitle.ToLower.Contains(KidsElem.GetObject.GetNamedString("word").ToLower) Then
+                            Allow = False
+                        End If
+                    Next
+                Catch ex As Exception
+                End Try
+
+                If NotCompleted = False Then
+                    Try
+                        Dim Json As String
+                        Try
+                            Json = Await ReadJsonFile("KidsMode_Words")
+                        Catch ex As Exception
+                            Json = "[]"
+                        End Try
+                        For Each KidsElem In JsonArray.Parse(Json).Reverse
+                            If web.DocumentTitle.ToLower.Contains(KidsElem.GetObject.GetNamedString("word").ToLower) Then
+                                Allow = True
+                            End If
+                        Next
+                    Catch ex As Exception
+                    End Try
+
                 End If
-            End Try
-        End If
-        If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 2 Then
-            Try
-                ShowHistory()
-            Catch
-                If MemoPanel.Visibility = Visibility.Visible Then
-                    MemoPopOut.Begin()
-                End If
-            End Try
-        End If
-    End Sub
+            End If
 
-    Private Sub MiniPlayer_Background_SizeChanged(sender As Object, e As SizeChangedEventArgs) Handles MiniPlayer_Background.SizeChanged
-        Dim h = (1 / 16) * 9 * MiniPlayer_Resize.ActualWidth
-        Dim s = MiniPlayer_Background.ActualHeight - 20
-        If MiniPlayer_Background.VerticalAlignment = VerticalAlignment.Stretch Then
 
-            If h < MiniPlayer_Background.ActualHeight Then
-                MiniPlayer_Resize.Height = h
+
+
+            If localSettings.Values("ProtectionLevel") = 0 Then
+                Allow = True
+            End If
+            If Allow = True Then
+                ShowCache.Stop()
+
             Else
-                MiniPlayer_Resize.Height = s
+                web.Source = New Uri("about:blank")
+                ShowCache.Begin()
+                Loading2.Stop()
+                Danger.Begin()
             End If
         End If
     End Sub
 
-    Private Sub Button_Tapped_3(sender As Object, e As TappedRoutedEventArgs)
-        ReduceMiniPlayer()
-    End Sub
-    Private Sub ReduceMiniPlayer()
-        MiniPlayer_Background.VerticalAlignment = VerticalAlignment.Bottom
-        MiniPlayer_Background.HorizontalAlignment = HorizontalAlignment.Right
-        MiniPlayer_Background.Width = 280
-        MiniPlayer_Background.Height = 210
-
-        MiniPlayer_Background.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 0, 0, 0))
-        MiniPlayer_Resize.Height = 180
-        If (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
-            MiniPlayer_Background.Margin = New Thickness(0, 0, -38, -35)
-        End If
-        MiniPlayer_Show.Visibility = Visibility.Visible
-        MiniPlayer_PopOut.Begin()
-        MiniPlayer_Reduce.Visibility = Visibility.Collapsed
-        MiniPlayer_Close.Visibility = Visibility.Collapsed
-    End Sub
-
-
-    Private Sub MiniPlayer_Show_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles MiniPlayer_Show.Tapped
-        MiniPlayer_Background.VerticalAlignment = VerticalAlignment.Stretch
-        MiniPlayer_Background.HorizontalAlignment = HorizontalAlignment.Stretch
-        MiniPlayer_Background.Width = Double.NaN
-        MiniPlayer_Background.Height = Double.NaN
-
-        MiniPlayer_Background.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(153, 0, 0, 0))
-        MiniPlayer_Show.Visibility = Visibility.Collapsed
-        MiniPlayer_PopIN.Begin()
-        MiniPlayer_Reduce.Visibility = Visibility.Visible
-        MiniPlayer_Close.Visibility = Visibility.Collapsed
-        If (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
-            MiniPlayer_Close.Visibility = Visibility.Visible
-            MiniPlayer_Background.Margin = New Thickness(0, 0, 0, 0)
-        End If
-
-
-    End Sub
-
-    Private Sub MiniPlayer_Close_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles MiniPlayer_Close.Tapped
-        MiniPlayer_Player.Source = New Uri("about:blank")
-        MiniPlayer_Close1.Begin()
-    End Sub
-
-    Private Sub MiniPlayer_Show_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles MiniPlayer_Show.PointerEntered
-        If Not (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
-            MiniPlayer_MouseHover.Begin()
-        End If
-
-    End Sub
-
-    Private Sub MiniPlayer_Show_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles MiniPlayer_Show.PointerExited
-        If Not (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
-            MiniPlayer_Mouseleave.Begin()
-        End If
-
-    End Sub
-
-    Private Sub MiniPlayer_Background_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles MiniPlayer_Background.PointerEntered
-        If Not (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
-            MiniPlayer_Close.Visibility = Visibility.Visible
-        End If
-
-    End Sub
-
-    Private Sub MiniPlayer_Background_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles MiniPlayer_Background.PointerExited
-
-        If Not (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar")) Then
-            MiniPlayer_Close.Visibility = Visibility.Collapsed
-        End If
-    End Sub
-
-    Private Sub MiniPlayer_Close_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles MiniPlayer_Close.PointerEntered
-        MiniPlayer_CloseButHover.Begin()
-    End Sub
-
-    Private Sub MiniPlayer_Close_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles MiniPlayer_Close.PointerExited
-        MiniPlayer_CloseButHover.Stop()
-    End Sub
-
-    Private Sub LikePageButton_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles LikePageButton.PointerEntered
-        If LikePageButton.Text = "" Then
-            LikePageButton.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 224, 139, 213))
-        End If
-
-    End Sub
-
-    Private Sub LikePageButton_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles LikePageButton.PointerExited
-        If LikePageButton.Text = "" Then
-            LikePageButton.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 122, 122, 122))
-        End If
+    Private Sub BackToMain_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles BackToMain_Button.Tapped
+        Frame.GoBack()
     End Sub
 #End Region
 
+    Private Async Function ShowFavorites2() As Task
 
-    Private Sub Gost_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Gost_Button.Tapped
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-
-        If localSettings.Values("GhostMode") = True Then
-            localSettings.Values("GhostMode") = False
-            Gost_Button.BorderBrush = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 255, 255, 255))
-        Else
-            localSettings.Values("GhostMode") = True
-            Gost_Button.BorderBrush = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 255, 255))
-        End If
-    End Sub
-
-    Private Sub TagsContainer_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles TagsContainer.PointerEntered
-        tagscrol.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto
-    End Sub
-    Private Sub TagsContainer_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles TagsContainer.PointerExited
-        tagscrol.HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden
-    End Sub
-
-    Private Sub RightMenuCache_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles RightMenuCache.Tapped
-        CloseRightMenu()
-    End Sub
-    Private Async Function ShowFavBar() As Task
-        showingfavbar = True
         Try
-            favbarstack.Children.Clear()
-            FavoritesBar.Background = Adressbar.Background
-            Dim count As String = 0
-            For Each favsElem In JsonArray.Parse(Await ReadJsonFile("Favorites")).Reverse
-                count = count + 1
-                Dim elemContainer As Grid = New Grid
-                elemContainer.Margin = New Thickness(0, 0, 2, 0)
-                elemContainer.CornerRadius = New CornerRadius(2)
-                elemContainer.VerticalAlignment = VerticalAlignment.Stretch
-                elemContainer.HorizontalAlignment = HorizontalAlignment.Left
-                elemContainer.Height = Double.NaN
-                elemContainer.Width = Double.NaN
-                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 0, 0, 0))
+            Springboard.Children.Clear()
 
-                Dim content As StackPanel = New StackPanel
-                content.Orientation = Orientation.Horizontal
-                content.Margin = New Thickness(5, 0, 5, 0)
-                content.VerticalAlignment = VerticalAlignment.Stretch
-                content.HorizontalAlignment = HorizontalAlignment.Stretch
-                content.MaxWidth = 150
+            For Each favsElem In JsonArray.Parse(Await ReadJsonFile("Favorites")).Reverse
+
+                Dim elemContainer As Grid = New Grid
+                elemContainer.Margin = New Thickness(0, 0, 0, 0)
+                elemContainer.Height = 80
+                elemContainer.Width = 80
+                elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 255, 255))
 
 
                 Dim image As Image = New Image
-                image.Width = 17
-                image.Height = 17
-                image.Margin = New Thickness(2, 0, 0, 0)
-                image.HorizontalAlignment = HorizontalAlignment.Left
-                image.VerticalAlignment = VerticalAlignment.Center
-                content.Children.Add(image)
-
-                Dim menu As MenuFlyout = New MenuFlyout
-                Dim menuDelete As MenuFlyoutItem = New MenuFlyoutItem
-                menuDelete.Text = Label_Delete.Text
-                menu.Items.Add(menuDelete)
-                Dim MenuCopy As MenuFlyoutItem = New MenuFlyoutItem
-                MenuCopy.Text = Label_CopyURL.Text
-                menu.Items.Add(MenuCopy)
-                Dim SetFavHomePage As MenuFlyoutItem = New MenuFlyoutItem
-                SetFavHomePage.Text = Label_SetAsHomepage.Text
-                menu.Items.Add(SetFavHomePage)
-
-                AddHandler elemContainer.RightTapped, New RightTappedEventHandler(Function(sender As Object, e As RightTappedRoutedEventArgs)
-                                                                                      menu.ShowAt(CType(sender, FrameworkElement))
-                                                                                  End Function)
-
-                AddHandler menuDelete.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
-                                                                         Try
-                                                                             Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Favorites"))
-                                                                             root.Remove(root.First(Function(x) x.GetObject.GetNamedString("url") = favsElem.GetObject.GetNamedString("url")))
-                                                                             WriteJsonFile(root, "Favorites")
-                                                                             Await ShowFavorites()
-                                                                         Catch ex As Exception
-                                                                         End Try
-                                                                     End Sub)
-
-
-
-                AddHandler MenuCopy.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
-                                                                       Dim DataPackage = New DataPackage
-                                                                       DataPackage.SetText(favsElem.GetObject.GetNamedString("url").ToString)
-                                                                       Clipboard.SetContent(DataPackage)
-                                                                   End Sub)
-
-                AddHandler SetFavHomePage.Tapped, New TappedEventHandler(Async Sub(sender As Object, e As TappedRoutedEventArgs)
-                                                                             Windows.Storage.ApplicationData.Current.LocalSettings.Values("Homepage") = favsElem.GetObject.GetNamedString("url")
-                                                                             Windows.Storage.ApplicationData.Current.LocalSettings.Values("Bluestart") = False
-                                                                         End Sub)
-
+                image.Width = Double.NaN
+                image.Opacity = 0.5
+                image.Height = Double.NaN
+                image.HorizontalAlignment = HorizontalAlignment.Stretch
+                image.HorizontalAlignment = HorizontalAlignment.Stretch
 
                 Try
                     Dim str As Uri = New Uri(favsElem.GetObject.GetNamedString("url"))
@@ -2777,97 +1939,79 @@ Public NotInheritable Class MainPage
                 Catch ex As Exception
 
                 End Try
+                elemContainer.Children.Add(image)
 
+                Dim image1 As Image = New Image
+                image1.Width = Double.NaN
+                image1.Height = Double.NaN
+                image1.HorizontalAlignment = HorizontalAlignment.Stretch
+                image1.HorizontalAlignment = HorizontalAlignment.Stretch
 
-                Dim elemText As TextBlock = New TextBlock
-                elemText.Text = favsElem.GetObject.GetNamedString("title")
-                elemText.Margin = New Thickness(4, 0, 0, 0)
-                elemText.FontSize = 12
-                elemText.VerticalAlignment = VerticalAlignment.Center
-                elemText.HorizontalAlignment = HorizontalAlignment.Left
-                elemText.Foreground = AdressBox.Foreground
-                content.Children.Add(elemText)
+                Try
 
-                elemContainer.Children.Add(content)
+                    Dim Black1 As BitmapImage = New BitmapImage
+                    Black1.UriSource = New Uri("ms-appx:/Assets/kidsicon.png", UriKind.Absolute)
+                    image1.Source = Black1
+                Catch ex As Exception
+
+                End Try
+                elemContainer.Children.Add(image1)
+
+                Dim image2 As Image = New Image
+                image2.Width = 23
+                image2.Height = 23
+                image2.HorizontalAlignment = HorizontalAlignment.Center
+                image2.HorizontalAlignment = HorizontalAlignment.Center
+
+                Try
+                    Dim str As Uri = New Uri(favsElem.GetObject.GetNamedString("url"))
+
+                    Dim request As Net.HttpWebRequest = DirectCast(Net.HttpWebRequest.Create("http://" & str.Host & "/favicon.ico"), Net.HttpWebRequest)
+                    request.Method = "HEAD"
+                    Try
+                        Await request.GetResponseAsync()
+                        image2.Source = New BitmapImage(New Uri("http://" & str.Host & "/favicon.ico", UriKind.Absolute))
+                    Catch
+                        Dim Black1 As BitmapImage = New BitmapImage
+                        Black1.UriSource = New Uri("ms-appx:/Assets/faviconNeutral.png", UriKind.Absolute)
+                        image2.Source = Black1
+
+                    End Try
+
+                Catch ex As Exception
+
+                End Try
+                elemContainer.Children.Add(image2)
 
                 AddHandler elemContainer.Tapped, New TappedEventHandler(Function(sender As Object, e As TappedRoutedEventArgs)
-                                                                            web.Navigate(New Uri(favsElem.GetObject.GetNamedString("url")))
+                                                                            Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
+                                                                            web.Source = New Uri(favsElem.GetObject.GetNamedString("url"))
+                                                                            grid2.Visibility = Visibility.Collapsed
                                                                         End Function)
 
                 If PhoneNavBar.Visibility = Visibility.Collapsed Then
                     AddHandler elemContainer.PointerEntered, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                         elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(100, 128, 128, 128))
+                                                                                         elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 100, 80, 200))
                                                                                      End Function)
 
                     AddHandler elemContainer.PointerExited, New PointerEventHandler(Function(sender As Object, e As PointerRoutedEventArgs)
-                                                                                        elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(0, 0, 0, 0))
+                                                                                        elemContainer.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 255, 255))
                                                                                     End Function)
-
-                    favbarstack.Children.Add(elemContainer)
                 End If
+                Springboard.Children.Add(elemContainer)
             Next
-            If count = 0 Then
-                FavoritesBar.Visibility = Visibility.Collapsed
-                showingfavbar = True
-            Else
-                FavoritesBar.Visibility = Visibility.Visible
-                showingfavbar = False
-            End If
         Catch
         End Try
 
     End Function
 
-    Private Async Sub Adressbar_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles Adressbar.PointerEntered
-
-        If FavoritesBar.Visibility = Visibility.Collapsed Then
-
-            If showingfavbar = False Then
-                ShowFavBarre.Begin()
-                If favbarmodif = True Then
-                    Await ShowFavBar()
-                    favbarmodif = False
-                End If
-
-            End If
+    Private Sub Lock_Button_Copy_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Lock_Button_Copy.Tapped
+        If grid2.Visibility = Visibility.Collapsed Then
+            grid2.Visibility = Visibility.Visible
 
 
-        End If
-    End Sub
-
-    Private Sub Adressbar_PointerExited(sender As Object, e As PointerRoutedEventArgs) Handles Adressbar.PointerExited
-        hidefavbar.Begin()
-    End Sub
-
-    Private Sub FavMore_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles FavMore.Tapped
-
-        OpenRightMenu()
-        RightMenuPivot.SelectedIndex = 1
-    End Sub
-
-    Private Sub startshowmore_TextChanged(sender As Object, e As TextChangedEventArgs) Handles startshowmore.TextChanged
-        If favbarstack.ActualWidth > FavoritesBar.ActualWidth Then
-            FavMore.Background = Adressbar.Background
-            FavMore.Visibility = Visibility.Visible
-            AddHandler FavMore.PointerEntered, New PointerEventHandler(Function(machin As Object, truc As PointerRoutedEventArgs)
-                                                                           FavMore.Background = New SolidColorBrush(Windows.UI.Color.FromArgb(100, 128, 128, 128))
-                                                                       End Function)
-
-            AddHandler FavMore.PointerExited, New PointerEventHandler(Function(machin As Object, truc As PointerRoutedEventArgs)
-
-                                                                          FavMore.Background = Adressbar.Background
-                                                                      End Function)
-
-
-            Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-
-            If localSettings.Values("DarkThemeEnabled") = True Then
-                FavMore.RequestedTheme = ElementTheme.Dark
-            Else
-                FavMore.RequestedTheme = ElementTheme.Light
-            End If
         Else
-            FavMore.Visibility = Visibility.Collapsed
+            grid2.Visibility = Visibility.Collapsed
         End If
     End Sub
 End Class
