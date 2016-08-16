@@ -319,22 +319,56 @@ Public NotInheritable Class MainPage
 
     End Sub
 
-    Private Async Sub web_NavigationCompleted(sender As WebView, args As WebViewNavigationCompletedEventArgs) Handles web.NavigationCompleted
+    Private Sub web_NavigationCompleted(sender As WebView, args As WebViewNavigationCompletedEventArgs) Handles web.NavigationCompleted
+        PageReady(, True, True)
+    End Sub
+
+    Private Sub PageReady(Optional progressFinish As Boolean = True, Optional askFavicon As Boolean = False, Optional addHistory As Boolean = False)
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
-        'Navigation terminée
+        ' Try
+        'If localSettings.Values("Adblock") = "En fonction" Then
+        '       web.Navigate(New Uri(localSettings.Values("AdblockFonction")))
+        '  End If
+        ' Catch
+        ' localSettings.Values("Adblock") = "Désactivé"
+        ' End Try
+
         AdressBox.Text = web.Source.ToString
         Phone_URL.Text = web.Source.Host
-        If web.Source.ToString.Contains("https://") Then
+        If web.Source.Scheme = "https" Then
             SecurityTag.Visibility = Visibility.Visible
         Else
             SecurityTag.Visibility = Visibility.Collapsed
         End If
         Titlebox.Text = web.DocumentTitle
-        loader.IsActive = False
-        MobileProgressFinish.Begin()
-        PCProgressFinish.Begin()
 
+        If progressFinish Then
+            loader.IsActive = False
+            MobileProgressFinish.Begin()
+            PCProgressFinish.Begin()
+        End If
+
+        BackForward()
+
+        If askFavicon Then
+            SourceCode.Text = "..."
+            localSettings.Values("LoadPageFromBluestart") = False
+
+            If web.Source.HostNameType = UriHostNameType.Dns And Not localSettings.Values("Favicon") = False Then
+                Favicon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
+                Favicon.Visibility = Visibility.Visible
+            End If
+
+            ContextNotification()
+        End If
+
+        If addHistory Then
+            addHistoryEntry(localSettings)
+        End If
+    End Sub
+
+    Private Async Sub addHistoryEntry(localSettings As Windows.Storage.ApplicationDataContainer)
         'Met à jour les stats dispos dans les paramètres de Blueflap
         Try
             localSettings.Values("Stat1") = localSettings.Values("Stat1") + 1
@@ -342,22 +376,11 @@ Public NotInheritable Class MainPage
             localSettings.Values("Stat1") = 1
         End Try
 
-        SourceCode.Text = "..."
-
-        BackForward()
-        localSettings.Values("LoadPageFromBluestart") = False
-
-        If web.Source.HostNameType = UriHostNameType.Dns And Not localSettings.Values("Favicon") = False Then
-            Favicon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
-            Favicon.Visibility = Visibility.Visible
-        End If
-
-        ContextNotification()
-
         ' Ajout de la page à l'historique
 
         Dim CurrentTitle As String = web.DocumentTitle
         Dim VisitDate As DateTime = DateTime.Now
+
         If localSettings.Values("GhostMode") = True Then
             GhostModeNotif.Stop()
             GhostModeNotif.Begin()
@@ -374,7 +397,6 @@ Public NotInheritable Class MainPage
                 WriteJsonFile(JsonArray.Parse("[]"), "History")
             End Try
         End If
-
         Try
             Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Favorites"))
 
@@ -408,43 +430,12 @@ Public NotInheritable Class MainPage
                 End If
             End Try
         End If
-
     End Sub
 
     Private Sub web_LoadCompleted(sender As Object, e As NavigationEventArgs) Handles web.LoadCompleted
         'Page chargée
 
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
-
-        ' Try
-        'If localSettings.Values("Adblock") = "En fonction" Then
-        '       web.Navigate(New Uri(localSettings.Values("AdblockFonction")))
-        '  End If
-        ' Catch
-        ' localSettings.Values("Adblock") = "Désactivé"
-        ' End Try
-
-        AdressBox.Text = web.Source.ToString
-        Phone_URL.Text = web.Source.Host
-        If web.Source.ToString.Contains("https://") Then
-            SecurityTag.Visibility = Visibility.Visible
-        Else
-            SecurityTag.Visibility = Visibility.Collapsed
-        End If
-        Titlebox.Text = web.DocumentTitle
-        loader.IsActive = False
-        MobileProgressFinish.Begin()
-        PCProgressFinish.Begin()
-        SourceCode.Text = "..."
-        BackForward()
-        localSettings.Values("LoadPageFromBluestart") = False
-
-        If web.Source.HostNameType = UriHostNameType.Dns And Not localSettings.Values("Favicon") = False Then
-            Favicon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
-            Favicon.Visibility = Visibility.Visible
-        End If
-
-        ContextNotification()
+        PageReady(, True)
     End Sub
     Private Sub Go_Home()
         'Clic sur le bouton home
@@ -581,18 +572,7 @@ Public NotInheritable Class MainPage
             StopEnabled.Begin()
             web.Stop()
         End If
-        AdressBox.Text = web.Source.ToString
-        Phone_URL.Text = web.Source.Host
-        If web.Source.ToString.Contains("https://") Then
-            SecurityTag.Visibility = Visibility.Visible
-        Else
-            SecurityTag.Visibility = Visibility.Collapsed
-        End If
-        Titlebox.Text = web.DocumentTitle
-        loader.IsActive = False
-        MobileProgressFinish.Begin()
-        PCProgressFinish.Begin()
-        BackForward()
+        PageReady()
     End Sub
 
     Private Sub Back_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Back_Button.Tapped
@@ -2050,7 +2030,7 @@ Public NotInheritable Class MainPage
 
 
 #End Region
-#Region " Memos"
+#Region "Memos"
     Private Async Sub Memo_New_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Memo_New.Tapped
         EditMemo = False
 
@@ -2324,18 +2304,7 @@ Public NotInheritable Class MainPage
             MobileRefreshLabel.Text = Label_Refresh.Text
             web.Stop()
         End If
-        AdressBox.Text = web.Source.ToString
-        Phone_URL.Text = web.Source.Host
-        If web.Source.ToString.Contains("https://") Then
-            SecurityTag.Visibility = Visibility.Visible
-        Else
-            SecurityTag.Visibility = Visibility.Collapsed
-        End If
-        Titlebox.Text = web.DocumentTitle
-        loader.IsActive = False
-        MobileProgressFinish.Begin()
-        PCProgressFinish.Begin()
-        BackForward()
+        PageReady()
     End Sub
 
     Private Sub Home_button_M_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Home_button_M.Tapped
@@ -2466,92 +2435,9 @@ Public NotInheritable Class MainPage
         Catch
         End Try
     End Sub
-    Private Async Sub PageChanged()
-        Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
 
-        'Navigation terminée
-        AdressBox.Text = web.Source.ToString
-        Phone_URL.Text = web.Source.Host
-        If web.Source.ToString.Contains("https://") Then
-            SecurityTag.Visibility = Visibility.Visible
-        Else
-            SecurityTag.Visibility = Visibility.Collapsed
-        End If
-        Titlebox.Text = web.DocumentTitle
-
-        'Met à jour les stats dispos dans les paramètres de Blueflap
-        Try
-            localSettings.Values("Stat1") = localSettings.Values("Stat1") + 1
-        Catch
-            localSettings.Values("Stat1") = 1
-        End Try
-
-        SourceCode.Text = "..."
-
-        BackForward()
-        localSettings.Values("LoadPageFromBluestart") = False
-
-        If web.Source.HostNameType = UriHostNameType.Dns And Not localSettings.Values("Favicon") = False Then
-            Favicon.Source = New BitmapImage(New Uri("http://" & web.Source.Host & "/favicon.ico", UriKind.Absolute))
-            Favicon.Visibility = Visibility.Visible
-        End If
-
-        ContextNotification()
-
-        ' Ajout de la page à l'historique
-
-        Dim CurrentTitle As String = web.DocumentTitle
-        Dim VisitDate As DateTime = DateTime.Now
-
-        If localSettings.Values("GhostMode") = True Then
-            GhostModeNotif.Stop()
-            GhostModeNotif.Begin()
-        Else
-            Try
-                Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("History"))
-                Dim HistoryElem As JsonObject = New JsonObject
-                HistoryElem.Add("url", JsonValue.CreateStringValue(web.Source.ToString))
-                HistoryElem.Add("title", JsonValue.CreateStringValue(web.DocumentTitle))
-                HistoryElem.Add("date", JsonValue.CreateNumberValue(DateTime.Now.ToBinary))
-                root.Add(HistoryElem)
-                WriteJsonFile(root, "History")
-            Catch
-                WriteJsonFile(JsonArray.Parse("[]"), "History")
-            End Try
-        End If
-        Try
-            Dim root As JsonArray = JsonArray.Parse(Await ReadJsonFile("Favorites"))
-
-            If root.Any(Function(x As JsonValue) x.GetObject.GetNamedString("url") = web.Source.ToString) Then
-                Like_Anim.Begin()
-                LikePageButton.Text = ""
-                LikePageButton.Foreground = LeftMenu.Background
-            Else
-                Like_Anim.Stop()
-                LikePageButton.Text = ""
-                LikePageButton.Foreground = New SolidColorBrush(Windows.UI.Color.FromArgb(255, 166, 166, 166))
-            End If
-        Catch
-        End Try
-
-        If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 1 Then
-            Try
-                ShowFavorites()
-            Catch
-                If MemoPanel.Visibility = Visibility.Visible Then
-                    MemoPopOut.Begin()
-                End If
-            End Try
-        End If
-        If MemoPanel.Visibility = Visibility.Visible And RightMenuPivot.SelectedIndex = 2 Then
-            Try
-                ShowHistory()
-            Catch
-                If MemoPanel.Visibility = Visibility.Visible Then
-                    MemoPopOut.Begin()
-                End If
-            End Try
-        End If
+    Private Sub PageChanged()
+        PageReady(False, True, True)
     End Sub
 
     Private Sub MiniPlayer_Background_SizeChanged(sender As Object, e As SizeChangedEventArgs) Handles MiniPlayer_Background.SizeChanged
@@ -2661,7 +2547,7 @@ Public NotInheritable Class MainPage
         End If
     End Sub
 #End Region
-
+#Region "Divers"
 
     Private Sub Gost_Button_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles Gost_Button.Tapped
         Dim localSettings As Windows.Storage.ApplicationDataContainer = Windows.Storage.ApplicationData.Current.LocalSettings
@@ -2871,3 +2757,4 @@ Public NotInheritable Class MainPage
         End If
     End Sub
 End Class
+#End Region
